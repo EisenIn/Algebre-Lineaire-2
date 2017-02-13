@@ -1,0 +1,140 @@
+\documentclass[a4paper,11pt,french]{scrbook} 
+ 
+
+
+\usepackage[utf8]{inputenc} 
+\usepackage{utf8math}
+
+\usepackage{mathrsfs}
+\usepackage[french]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amscd}
+\usepackage{todonotes}
+
+\usepackage{multirow}
+\usepackage{enumerate}
+
+\usepackage{tikz}
+\usepackage{framed}
+\usepackage[colorlinks]{hyperref}
+\usepackage{showlabels}  
+
+
+\usetikzlibrary{calc}
+\usetikzlibrary{intersections}
+\usetikzlibrary{arrows}
+\usetikzlibrary{decorations.pathmorphing}
+
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\K}{\mathbb{K}}
+\newcommand{\x}{\mathbf{x}}
+\newcommand{\y}{\mathbf{y}}
+\newcommand{\X}{\mathscr{X}}
+\newcommand{\cA}{\mathcal{A}}
+\newcommand{\cD}{\mathcal{D}}
+\newcommand{\cI}{\mathcal{I}}
+\newcommand{\cP}{\mathcal{P}}
+\newcommand{\cV}{\mathcal{V}}
+\newcommand{\pscal}[1]{\langle {#1} \rangle}
+\newcommand{\wt}[1]{\widetilde{#1}}
+\newcommand{\car}{\mathrm{Char}}
+
+\providecommand{\one}{\mathbf{1}}
+\DeclareMathOperator{\vol}{vol}
+\DeclareMathOperator{\rank}{rang}
+\DeclareMathOperator{\noy}{noyau}
+\DeclareMathOperator{\cone}{cone}
+\DeclareMathOperator{\tcone}{tcone}
+\DeclareMathOperator{\conv}{conv}
+\DeclareMathOperator{\diam}{diam}
+\DeclareMathOperator{\poly}{poly}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\Id}{id}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\relint}{relint}
+\DeclareMathOperator{\spa}{span}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\diag}{diag}
+
+
+
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Théorème}[chapter]
+\newtheorem{lemma}[theorem]{Lemme}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{corollary}[theorem]{Corollaire}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Définition}[chapter]
+\newtheorem*{notation}{Notation}
+\newtheorem{example}{Exemple}[chapter]
+\newtheorem{remark}[theorem]{Remarque}
+\newtheorem{problem}{Problème}[chapter]
+\newtheorem{exercise}{Exercice}[chapter]
+\newtheorem{algorithm}{Algorithme}[chapter]
+
+
+
+%opening
+
+\title{Algèbre linéaire avancée II}
+\author{Friedrich Eisenbrand}
+
+%\includeonly{chapter02-theoreme-spectral}
+
+\begin{document}
+
+\maketitle
+  
+\section*{Préface}
+\noindent Ceci sont mes notes du cours \emph{Algèbre Linéaire Avancée II}.
+La qualité de ce texte dépend fortement de la participation  des étudiants. 
+Ces  sources   sont gérer sur \emph{GitHub}, une plate-forme importante de collaboration. Si vous trouvez des fautes,   des erreurs typographique, ou même des démonstrations plus élégantes, ou des exemples qui vous aident à comprendre la matière, je vous invite de créer un \emph{branch} des fichiers en question où dedans vous éditez le texte. Après,  vous publiez ce \emph{branch} et vos collègues peuvent discuter vos modifications. Si vous êtes content avec vos modifications,  vous me demandez avec un \emph{pull request} d'accepter vos modifications et finalement, le document peut être changer.  Je me réjouis en avance de votre participation. 
+
+  
+\section*{Contributions}
+
+Des corrections et modifications sont été implémenter par: 
+\begin{itemize}
+\item Orane Jecker 
+\item Natalia Karaskova
+\item Dylan Samuelian
+\item Aziz Benmosbah
+\item Djian Post
+\item Robin Mamie
+\item Alfonso Cevallos
+\item Kévin Jorand
+\item Charles Dufour 
+\item Christoph Hunkenschröder
+\item Adam Cierniak
+\item Mann-Tchi Dang
+\end{itemize}
+
+\tableofcontents
+
+
+\include{chapter01-produits-scalaires}
+\include{chapter02-theoreme-spectral}
+\include{chapter03-systemes-differentiels-lineaires}
+
+\bibliographystyle{alpha}
+\bibliography{books}
+\end{document}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
+
+

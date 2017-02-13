@@ -1,0 +1,1863 @@
+\chapter{Formes bilinéaires}  
+\label{cha:prod-scal-et}
+
+
+\begin{definition}
+  \label{def:1}
+  Soit $V$
+  un espace vectoriel sur un corps $K$.
+  Une \emph{forme bilinéaire} sur $V$
+  est une correspondance qui, à tout couple $(v,w)$
+  d'éléments de $V$
+  associe un scalaire, noté $\pscal{v,w} ∈ K$,
+   satisfaisant aux deux propriétés suivantes:
+  \begin{enumerate}[BL 1]
+  \item Si $u,v$ et $w$ sont des éléments de $V$, et $α ∈ K$ est un scalaire,  \label{ps:2}
+    \begin{displaymath}
+      \pscal{u,v+w} = \pscal{u,v}+\pscal{u,w} \quad \text{ et } \pscal{u,α ⋅ w} = α ⋅\pscal{u,v}. 
+    \end{displaymath}
+  \item 
+    Si $u,v$ et $w$ sont des éléments de $V$, et $α ∈ K$ est un scalaire,  \label{ps:3}
+    \begin{displaymath}
+      \pscal{v+w,u} = \pscal{v,u}+\pscal{w,u} \quad \text{ et } \pscal{α ⋅ u, w} = α ⋅\pscal{u,v}. 
+    \end{displaymath}     
+  \end{enumerate}
+La  forme bilinéaire  est \emph{symétrique} si 
+pour tout $v,w \in V$ 
+\begin{displaymath}
+    \pscal{v,w} = \pscal{w,v}. 
+\end{displaymath}
+\noindent
+On dit que la forme bilinéaire est \emph{non dégénéré} si, de plus, la condition suivante est vérifiée:
+\begin{quote}
+  Si $v \in V$, et si $\pscal{v,w}=0$ pour tout $w \in V$, alors $v = 0$. 
+\end{quote}
+\end{definition}
+
+\begin{example}
+ \label{ex:1}
+  Soit $V = K^n$, l'application  
+  \begin{displaymath}
+    \begin{array}{rcl}
+      \pscal{\,}\colon    \,  V\times V& \longrightarrow &V \\
+                              (u,v)   & \longmapsto & \sum_{i=1}^n u_i v_i
+    \end{array}  
+  \end{displaymath}
+est une forme bilinéaire. 
+Vérifions (BL~\ref{ps:2}). Pour tout  $u,v,w ∈ K^n$ et $α ∈ K$:  
+\begin{eqnarray*}
+  \pscal{u,v+w} & = & \sum_{i=1}^n u_i \, (v_i+w_i) \\
+  & = &  \sum_{i=1}^n \left( u_i v_i + u_i w_i \right) \\
+  & = &  \sum_{i=1}^n  u_iv_i +\sum_{i=1}^n u_iw_i \\
+  &= &\pscal{u,v} + \pscal{u,w}
+\end{eqnarray*}
+ et $\pscal{u,α ⋅w} = \sum_{i=1}^n u_i α w_i) = α ∑_{i=1}^n u_i w_i = α \pscal{u,w}$. 
+On appelle cette forme bilinéaire la \emph{forme bilinéaire standard} de $K^n$.   On vérifie aussi très facilement que la forme bilinéaire standard est symétrique et non dégénéré. 
+\end{example}
+
+
+
+
+\begin{example}
+  \label{ex:2}
+  Soit $V$ l'espace des fonctions continues à valeurs réelles, définies sur l'intervalle $[0,2 \cdot \pi]$. Si $f,g \in V$ on pose 
+  \begin{displaymath}
+    \pscal{f,g} = \int_0^{2\pi} f(x)g(x) \, dx.
+  \end{displaymath}
+Clairement, $\pscal{,}$ est une forme bilinéaire symétrique sur $V$ non dégénéré. 
+\end{example}
+
+\begin{exercise}
+  \label{ex:3}
+  Montrer que les  formes bilinéaires  des exemples~\ref{ex:1} et \ref{ex:2} sont non dégénérés. 
+\end{exercise}
+
+
+
+Soit $V$ un espace vectoriel de dimension finie et $B = \{v_1,\dots,v_n\}$ une base de $V$. Pour une forme bilinéaire $f: V × V ⟶ K$ 
+ et $x = \sum_i\alpha_i v_i$ et $y = \sum_j \beta_j v_j$ on a 
+ \begin{eqnarray*}
+   f(x,y) & = & f \left( ∑_{i=1}^n \alpha_i v_i ,   \sum_j \beta_j v_j \right) \\
+          & = & ∑_{i=1}^n \alpha_i f \left(  v_i ,   \sum_j \beta_j v_j \right) \\
+          & = & ∑_{i,j=1}^n \alpha_i β_j f (  v_i ,  v_j )
+    \end{eqnarray*}
+alors pour la matrice $A_B^f \in K^{n\times n}$, ayant comme composantes $f(v_i,v_j)$, on a 
+\begin{displaymath}
+  f(x,y) = [x]_B^T \,A_B^f \,  [y]_B. 
+\end{displaymath}
+\begin{exercise} Soit $V$ de dimension fini et $B$ une base de $V$. 
+  Deux formes bilinéaires $f,g : V × V ⟶ K$
+  sont différentes si et seulement si $A_B^f \neq A_B^g$. 
+\end{exercise}
+
+Pour mémoire, pour deux bases $B,B'$ et étant donné $[x]_{B'}$,  on trouve les coordonnées de $x$ dans la base $B$,  $[x]_B$  à l'aide de la matrice de changement de base $P_{B'B}$ comme 
+\begin{displaymath}
+  [x]_B = P_{B'B} [x]_{B'}. 
+\end{displaymath}
+Cette formule nous montre que 
+\begin{equation}
+\label{eq:28}
+ A_{B'}^f =  P_{B'B}^T \,A_B^f \,  P_{B'B}. 
+\end{equation}
+
+\begin{exercise}
+  Soit $V$ de dimension fini et $B$ une base de $V$. 
+  Une forme bilinéaire $f : V ×V ⟶ K$ 
+  est symétrique si et seulement si $A_B^f$ est symétrique.
+\end{exercise}
+
+\begin{proposition}
+  \label{prop:7}
+  Soit $V$ de dimension fini, $B= \{b_1, \dots , b_n\}$ une base de $V$ et $f : V × V ⟶K$ une forme bilinéaire.   Les conditions suivantes sont équivalentes. 
+  \begin{enumerate}[i)]
+  \item $\rank(A_B^f) = n$ \label{item:12}
+  \item $f$ est non dégénéré \label{item:13}
+  \item Si $v \in V$, et si $\pscal{w,v}=0$ pour tout $w \in V$, alors $v = 0$. \label{item:14}
+  \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+  Nous montrons \ref{item:12}) et \ref{item:13}) sont équivalentes.  Du même manière, on démontre aussi que \ref{item:12}) et \ref{item:14}) sont équivalentes.
+
+Supposons que $\rank(A_B^f) = n$ et soit $v \in V$, $v \neq 0$. Pour $w \in V$ on a 
+\begin{displaymath}
+  f(v,w) = [v]_B^T A_B^f [w]_B. 
+\end{displaymath}
+Des que $[v]_B \neq 0$, alors $[v]_B^T A_B^f \neq 0^T$. Supposons que la $i$-ème composante de $[v]_B^T A_B^f$ n'est pas égale a $0$. Alors $[v]_B^T A_B^f e_i \neq 0$ où toutes les composantes de $e_i$ sont $0$ sauf la $i$-ème composante, 
+qui est égale a $1$. Alors $f(v,b_i) \neq 0$. 
+
+Si $f$ est non dégénéré, alors $x^T A_B^f \neq 0$ pour tout $x \in K^n$ tel que $x \neq 0$. Ceci implique que les lignes de $A_B^f$ sont linéairement indépendantes. Alors $\rank(A_B^f) = n$. 
+\end{proof}
+
+
+
+
+
+
+\section{Orthogonalité} 
+\label{sec:orthogonalite}
+
+\begin{framed}\noindent 
+  Pour ce paragraphe~\ref{sec:orthogonalite}, si pas spécifié autrement,  $V$
+  est toujours un espace vectoriel sur $K$
+  muni d'une forme bilinéaire symétrique $\pscal{,}$. 
+\end{framed}
+
+
+
+\begin{definition}
+  \label{def:2}
+ Deux éléments $u,v \in V$ sont \emph{orthogonaux} ou \emph{perpendiculaires} si $\pscal{u,v} = 0$, et l'on écrit $v \perp w$. 
+\end{definition}
+
+\begin{proposition}
+  \label{prop:1}
+  Soit $E \subseteq V$ une partie de $V$, alors $E^\perp = \{ v \in V \colon v \perp e \text{ pour tout } e \in E \}$   est un sous-espace vectoriel de $V$. 
+\end{proposition}
+
+\begin{proof}
+  Pour mémoire: $\emptyset \neq W\subseteq V$ est un sous-espace si les conditions suivantes sont vérifiées. 
+  \begin{enumerate}[i)]
+  \item Si $u,v \in W$ on a $u+v \in W$.  
+  \item Si $c \in K$ et $u \in W$ on a $c \cdot u \in W$. 
+  \end{enumerate}
+  
+\noindent 
+  Si $u,v \in E^\perp$ alors pour tout $e \in E$ 
+  \begin{displaymath}
+    \pscal{e,u-v} = \pscal{e,u} + \pscal{e,-v} = 0 + (-1)\cdot \pscal{e,v} = 0,
+  \end{displaymath}  
+  et pour $c \in K$ 
+  \begin{displaymath}
+    \pscal{e,c\cdot v} = c \,\pscal{e,v} = c \cdot 0 = 0. 
+  \end{displaymath}
+\end{proof}
+
+
+
+\begin{exercise}
+  \label{exe:1}
+  Soit $E \subseteq V$ et $E^*$ le sous-espace de $V$ engendré par les éléments de $E$. Montrer $E^\perp = {E^*}^\perp$. 
+\end{exercise}
+
+
+\begin{example}
+  \label{exe:2}
+  Soient $K$ un corps et $(a_{ij}) \in K^{m\times n}$ une matrice à $m$ lignes et $n$ colonnes. Le système homogène linéaire 
+  \begin{equation}
+    \label{eq:1}
+    A\,X = 0,
+  \end{equation}
+  peut s'écrire sous la forme 
+  \begin{displaymath}
+    \pscal{A_1,X}=0, \dots ,\pscal{A_m,X}=0, 
+  \end{displaymath}
+  où les $A_i$  sont les vecteurs lignes de la matrice $A$ et $\pscal{,}$ dénote la forme bilinéaire standard de $K^n$. Soit $W$ le sous-espace de $K^n$ engendré par les $A_i$ et $U$ le sous-espace de $K^n$ des solutions du système~\eqref{eq:1}. Alors on a  $U = W^\perp$ et $\dim(W^\perp) = \dim(U) = n - \rank(A) = \dim(\noy(A))$. 
+  
+ \end{example}
+
+
+
+
+\begin{definition}
+  \label{def:8}
+  La caractéristique d'un anneau (unitaire) $R$, $\mathrm{Char}(R)$ 
+  est l'ordre de $1_R$
+  comme élément du groupe abélien $(R,+)$.
+  En d'autres mots, c'est le nombre 
+  \begin{displaymath}
+    \min_{k \in \N_+} \underbrace{1+ \cdots + 1}_{k \text{ fois }} = 0
+  \end{displaymath}
+  Si cet ordre est infini, la caractéristique de $R$ est $0$.
+\end{definition}
+
+\begin{notation}
+  Pour $n \in \N_+$ l'anneau des classes des restes est dénoté comme
+  $\Z / n \Z$ ou plus brièvement $\Z_n$. Ceci est un corps si et seulement si $n$ est un nombre premier. 
+\end{notation}
+
+\begin{example}
+\label{exe:10}
+   Soit $n \in \N_+$. Alors la  caractéristique de $\Z_n$ est $n$. 
+   La caractéristique de $\Q,\R$ et $\C$ est zéro.    
+\end{example}
+
+\begin{lemma}
+  \label{lem:1}
+ Soit $\mathrm{Char}(K)\neq 2$. Si $\pscal{u,u}=0$ pour tout $u \in V$ alors 
+  \begin{displaymath}
+    \pscal{u,v}=0 \text{ pour tous }u,v \in V
+  \end{displaymath}
+On dit que la forme bilinéaire symétrique $\pscal{,}$ est  \emph{nul}. 
+\end{lemma}
+
+\begin{proof}
+  Soient $u,v \in V$. 
+  On peut écrire
+  \begin{displaymath}
+   2 \cdot  \pscal{u,v} = \pscal{u+v,u+v} - \pscal{u,u} - \pscal{v,v} 
+  \end{displaymath}
+
+et comme $2 \neq 0$ on a $\pscal{u,v} = 0$. 
+\end{proof}
+
+
+\begin{theorem}
+  \label{thr:5}
+  Soit $\mathrm{Char}(K)\neq 2$
+  et supposons que $V\neq \emptyset$
+  est de dimension finie. Alors $V$ possède une base orthogonale.
+\end{theorem}
+
+
+\begin{proof}
+  On montre le théorème par induction. Si $\dim(V) = 1$ alors toute base contient seulement un élément et alors est orthogonale. 
+
+Soit $\dim(V) >1$.  Si $\pscal{u,u} = 0$ pour tout $u$, le lemme~\ref{lem:1} implique que la forme bilinéaire symmetrique est nul et toute base de $V$  est orthogonale.  
+Autrement, soit $u \in V$ tel que $\pscal{u,u} \neq 0$ et soit $V_1 = \spa\{u\}$. Pour  $x \in V$ le vecteur 
+\begin{displaymath}
+  x - \pscal{x,u}/\pscal{u,u} \cdot  u \in V_1^\perp
+\end{displaymath}
+alors $V = V_1 + V_1^\perp$. Cette somme est directe parce que chaque élément de $V_1 \cap V_1^\perp$ s'écrit comme $\beta \cdot u$ pour $\beta \in K$. Et $\pscal{u,\beta u} = \beta \pscal{u,u} = 0$ implique $\beta = 0$. 
+
+Alors $\dim(V^\perp) < \dim(V)$, et par induction, $V^\perp$ possède une base orthogonale $\{v_2,\dots,v_n\}$. Alors $\{v_1,\dots,v_n\}$ est une base orthogonale de $V$. 
+\end{proof}  
+
+
+\subsection*{Exercices} 
+
+\begin{enumerate}
+\item Soit $K$ un corps. Si la caractéristique de $K$ est différente de zéro, alors elle est un nombre premier. 
+\item Soit $K$ un corps fini. Montrer que $|K| = q^\ell$ pour un nombre prime $q$ et un nombre naturel $\ell ∈ \N$. \emph{Indication: $K$ est un espace vectoriel de dimension fini sur $\Z_q$ pour un $q$ prime.}
+\item On considère les vecteurs  \label{item:1}
+  \begin{displaymath}
+    v_1 =
+    \begin{pmatrix}
+      1\\1\\0\\0
+    \end{pmatrix}, 
+ v_2 =
+    \begin{pmatrix}
+      0\\1\\1\\0
+    \end{pmatrix}, 
+\text{ et }
+ v_3 =
+    \begin{pmatrix}
+      0\\0\\1\\1
+    \end{pmatrix} \in \Z_2^4. 
+  \end{displaymath}
+Est-ce que $\spa\{v_1,v_2,v_3\}$ possède une base orthogonale par rapport au forme bilinéaire symmetrique standard de l'exemple~\ref{ex:1}? 
+
+\item En considérant le forme bilinéaire symmetrique standard de l'exemple~\ref{ex:1}, trouver une base orthogonale du sous-espace de $\Z_3^4$ engendré par 
+  \begin{displaymath}
+    v_1 =
+    \begin{pmatrix}
+      1\\1\\1\\0
+    \end{pmatrix}, 
+ v_2 =
+    \begin{pmatrix}
+      0\\1\\1\\1
+    \end{pmatrix}, 
+\text{ et }
+ v_3 =
+    \begin{pmatrix}
+      1\\0\\1\\1
+    \end{pmatrix} \in \Z_3^4. 
+  \end{displaymath}
+
+
+
+\end{enumerate}
+
+\section{Matrices congruentes} 
+\label{sec:class-des-matr}
+
+\begin{framed}\noindent 
+  Pour ce paragraphe~\ref{sec:class-des-matr}, si pas spécifié autrement,  $V$
+  est toujours un espace vectoriel sur $K$
+  muni d'une forme bilinéaire symétrique $\pscal{,}$. 
+\end{framed}
+
+
+\begin{definition}
+  \label{def:13}
+  Deux matrices $A,B \in K^{n\times n}$ sont dites \emph{congruentes} s'il existe une matrice $P \in K^{n \times n}$ inversible telle que 
+\begin{displaymath}
+  A = P^T B P.
+\end{displaymath}
+Nous écrivons $A \cong B$. 
+\end{definition}
+
+
+\begin{example}
+  \label{exe:22}
+  Si $V$ est de dimension fini et $B,B'$ sont deux bases, \eqref{eq:28} montre que $A_B^{\pscal{,}} \cong A_{B'}^{\pscal{,}}$. 
+\end{example}
+
+\begin{lemma}
+  \label{lem:6}
+  La relation $\cong$ est une relation d'équivalence. 
+\end{lemma}
+
+\begin{proof}
+  Voir exercice. 
+\end{proof}
+
+
+Le relation entre $\cong$ et le concept de l'orthogonalité   est le lemme suivant. 
+\begin{lemma}
+\label{thr:13}
+  Soit $B = \{v_1,\dots,v_n\}$ une base de $V$. $V$ possède une base orthogonale si et seulement s'il existe une matrice diagonale $D$ 
+tel que 
+ $A_B^{\pscal{.}} \cong D$. 
+\end{lemma}
+\begin{proof}
+  Soit $B = \{v_1,\dots,v_n\}$  une base de $V$ et soit $B' = \{u_1,\dots,u_n\}$ une base orthogonale. 
+Nous avons 
+\begin{equation}
+  \label{eq:8}
+  \pscal{u_i,u_j}  =  [u_i]_B^T A_B^{\pscal{.}} {[u_j]_B}
+\end{equation}  égal à zéro si $i \neq j$. Pour la matrice $P \in K^{n \times n}$ dont les colonnes sont les vecteurs $[u_1]_B,\dots,[u_n]_B$ on a alors que 
+\begin{displaymath}
+  P^T A_B^{\pscal{.}}P
+\end{displaymath}
+est une matrice diagonale. Aussi $P$ est inversible, dès que $B'$ est une base de $V$. 
+
+
+Soit $P \in K^{n\times n} $ inversible telle que
+\begin{displaymath}
+    P^T A {P} =
+    \begin{pmatrix}
+      c_1\\
+      & \ddots \\
+      && c_n
+    \end{pmatrix}. 
+  \end{displaymath}
+  La base orthogonale est $B' = \{w_1,\dots,w_n\}$ dont 
+  \begin{displaymath}
+     [w_j]_B =
+  \begin{pmatrix}
+    p_{1j}\\ \vdots \\ p_{nj}
+  \end{pmatrix},
+  \end{displaymath}
+alors $w_j = \sum_{i=1}^n p_{ij} v_i$. 
+\end{proof}
+
+
+
+
+ 
+
+\begin{corollary}
+  \label{co:4}
+  Soit $K$ un corps de caractéristique différente de $2$. Toute matrice symétrique  $A \in K^{n \times n}$ est congruente à une matrice diagonale. 
+\end{corollary}
+\begin{proof}
+Ceci est un corollaire du  lemme~\ref{thr:5} et du théorème~\ref{thr:13} 
+parce que  $K^n$ muni de la forme linéaire symétrique $\pscal{u,v} = u^TAv$ possède une base orthogonale. 
+\end{proof}
+
+%The example below is uncomplete and thus makes no sense. Since I didn't know what was its purpose, I couldn't complete it.
+%\begin{example}
+%  \label{exe:14}
+%  Soient $V$ un espace vectoriel sur $\R$ et $\{v_1,v_2,v_3\}$ une base de V. 
+%\\ \todo[inline]{Finish or delete the preceding example}
+%\end{example}
+
+
+
+
+Maintenant soit $K = \R$  et $A \in \R^{n \times n}$ symétrique. Corollaire~\ref{co:4} implique, qu'il existe une matrice inversible $P ∈ ℝ^{n \times n}$ tel que $P^T A P = D$ où $D$ est une matrice diagonale. Si on échange deux colonnes de $P$ et obtient  $P'$, alors $P'^T A P' = D'$ où $D'$ est obtenu de $D$ en échangeant les éléments diagonaux correspondants. Alors on peut trouver une matrice inversible $P ∈ ℝ^{n ×n}$ tel que 
+\begin{equation}
+  \label{eq:29}
+  P^T A {P} =
+    \begin{pmatrix}
+      c_1\\
+      & \ddots \\
+      && c_n
+    \end{pmatrix}. 
+\end{equation}
+où les  $c_i$ sont ordonnés comme  $c_1,\dots, c_r >0$, $c_{r+1},\dots ,c_s<0$ et $c_{s+1},\dots , c_n = 0$. En multipliant les premiers $s+r$ colonnes de $P$  avec $1/ \sqrt{|c_i|}$ on obtient en fait une factorisation~\eqref{eq:29} telle que 
+ $c_1,\dots, c_r =1$, $c_{r+1},\dots ,c_s=-1$ et $c_{s+1},\dots , c_n = 0$. 
+
+Alors on trouve  $P ∈ ℝ^{n ×n}$ inversible tel que 
+\begin{equation}
+  \label{eq:5}
+  P^T A P =
+  \begin{pmatrix}
+    1 &   \\
+      & \ddots &  \\
+      &        & 1 \\
+      &        &  & -1 \\
+      &        &  &    & \ddots \\
+      &        &  &    &        & -1 \\
+      &        &  &    &        &    & 0 \\
+      &        &  &    &        &    &   & \ddots  \\
+      &        &  &    &        &    &   &        & 0  \\
+
+  \end{pmatrix}.
+\end{equation}
+
+
+\begin{definition}
+  \label{def:37}
+  Pour un espace vectoriel sur $ℝ$ de dimension fini, on appelle une base $B$ de $V$ tel que $A_B^{\pscal{,}}$ en forme~\eqref{eq:5} une \emph{base de Sylvester}. 
+\end{definition}
+
+
+
+\begin{algorithm}
+  \label{alg:1}
+  Cet algorithme trouve une matrice diagonale congruente à la matrice symétrique $A \in K^{n \times n}$ où $K$ est un corps tel que $\car(K) \neq 2$.  L'algorithme procède en $n$ itérations. Après la $(i-1)$-ème itération, $i \geq 1$, (aussi après  la $0$-ème itération) l'algorithme a transformé $A$ en une matrice congruente 
+  \begin{equation}
+    \label{eq:7}
+    \begin{pmatrix}
+      c_1 \\
+      & c_2 \\
+      & & \ddots & &&\\
+      & & & c_{i-1} \\
+      & & & &  b_{i,i} & \dots & b_{i,n} \\
+%      & & & &  b_{i+1,i} & \dots & b_{i+1,n} \\
+      & & & &     \vdots       &  & \vdots \\
+      & & & &  b_{n,i} & \dots & b_{n,n} \\      
+    \end{pmatrix}
+  \end{equation}
+où les composantes des premières $(i-1)$ lignes et colonnes sont zéro sauf pour la composante sur la diagonale de la matrice. 
+
+\medskip 
+\noindent 
+Pour $1 \leq i \leq n$, la \emph{$i$-ème itération}  est comme suit. 
+\begin{itemize}
+\item Si la $i$-ème ligne est zéro, l'algorithme procède avec la $(i+1)$-ème itération. 
+\item Autrement, si $b_{ii}=0$ : Soit $j \in \{i+1,\dots,n\}$ tel que $b_{ij} \neq 0$.  Si $b_{jj} \neq 0$ on échange la $i$-ème ligne et la $j$-ème ligne et après    la $i$-ème colonne et la $j$-ème colonne. 
+  Autrement on additionne la ligne $j$ sur la ligne $i$ et on additionne la colonne $j$ sur la colonne $i$. 
+\item Étant donné que $\car(K) \neq 2$, on a alors maintenant $b_{ii} \neq 0$. 
+\item Pour chaque $j \in \{i+1,\dots,n\}$:  on additionne $-b_{ij}/b_{ii}$ fois la $i$-ème ligne sur la $j$-ème ligne et on additionne $-b_{ij}/b_{ii}$ fois la $i$-ème colonne sur la $j$-ème colonne. 
+\end{itemize}
+
+
+\end{algorithm}
+
+
+
+\begin{example}
+  \label{exe:15}
+  Soit $V$ une espace vectoriel sur $\Q$ de dimension $3$ muni d'une forme bilinéaire symétrique. Soit $B = \{v_1,v_2,v_3\}$ une base de $V$ et 
+  \begin{displaymath}
+    A^{\pscal{.}}_B =
+    \begin{pmatrix}
+      1 & 0 & 2\\
+      0 & 3 & 4\\
+      2 & 4 & 0 
+    \end{pmatrix}
+  \end{displaymath}
+Le but est de trouver une  base orthogonale de $V$. 
+
+En utilisant notre algorithme on trouve 
+\begin{displaymath}
+  P = 
+  \begin{pmatrix}
+    
+1 & 0 & -2 \\
+0 & 1 & -\frac{4}{3} \\
+0 & 0 & 1
+  \end{pmatrix}
+\end{displaymath}
+tel que 
+\begin{displaymath}
+  P^T \cdot A^{\pscal{.}}_B \cdot P =
+  \begin{pmatrix}
+    1 & 0 & 0 \\
+0 & 3 & 0 \\
+0 & 0 & -\frac{28}{3}
+  \end{pmatrix}. 
+\end{displaymath}
+Alors $B' = \{v_1,v_2,-2v_1 -(4/3) v_2 + v_3\}$ est une base orthogonale de $V$. 
+\end{example}
+
+
+\subsection*{Exercices}
+
+\begin{enumerate}
+\item Montrer que $\cong$ est une relation d'équivalence sur l'ensemble des matrices $K^{n\times n}$. 
+\item Est-ce que la matrice 
+  \begin{displaymath}
+    \begin{pmatrix}
+      0 & 1 & 0 \\
+      1 & 0 & 1\\
+      0 & 1 & 0 
+    \end{pmatrix} \in \Z_2^{3\times 3} 
+  \end{displaymath}
+  est congruente à une matrice diagonale? \emph{Renseignement: voir l'exercice~\ref{item:1}. de la section~\ref{sec:orthogonalite}.}  
+\item Soit $V$ un espace vectoriel  sur un corps $K$ de dimension finie muni d'une forme bilinéaire symétrique $\pscal{.}$. Soit $B = \{v_1,\dots,v_n\}$ une base de $V$. Montrer que $A_B^{\pscal{.}} \in K^{n \times n}$ est congruente à une matrice diagonale si  et seulement si $V$ possède une base orthogonale. 
+
+\item Soit $K$ un corps de caractéristique $2$ et soit $V$ un espace vectoriel sur $K$ de dimension finie muni d'une forme bilinéaire symétrique. Soit 
+  \begin{displaymath}
+    C =
+    \begin{pmatrix}
+      0 & 1 \\
+      1 & 0 
+    \end{pmatrix}.
+  \end{displaymath}
+  \begin{enumerate}[a)]
+  \item Soit $\dim(V) = 2$. Montrer que $V$ ne possède pas de base orthogonale si et seulement s'il existe une base $B$ de $V$ telle que $A_B^{\pscal{.}} = C$. 
+  \item Soit $\dim(V) = n$. Montrer que $V$ ne possède pas de base orthogonale si et seulement s'il existe une base $B$ de $V$ telle que 
+    \begin{displaymath} A_B^{\pscal{.}} = 
+      \begin{pmatrix}
+        d_1 \\
+        & d_2 \\
+        & & \ddots \\
+        & &   & d_k \\
+        & &   &  & C \\
+        & &   &  & & \ddots \\
+        & &   &  & & & C \\
+      \end{pmatrix}
+    \end{displaymath}
+    et $d_1,\dots,d_k = 0$, et le nombre de $C$ n'est pas égal à zéro. 
+  \end{enumerate}
+\item Modifier l'algorithme~\ref{alg:1} tel qu'il soit aussi correct pour des corps de caractéristique $2$.  Soit l'algorithme découvre que la matrice symétrique $A \in K^{n \times n}$ n'est pas congruente à une matrice diagonale soit l'algorithme calcule une matrice diagonale congruente à $A$. 
+\item Comment peut-on déterminer si un espace vectoriel de dimension finie muni d'une forme bilinéaire symétrique  possède une base orthogonale? Décrire très brièvement une méthode. 
+\item Déterminer l'indice de nullité et l'indice de positivité des 
+formes bilinéaire symétriques 
+ définis par les matrices suivantes
+  \begin{displaymath}
+    \begin{pmatrix}
+      1 & 2 \\
+      2 & -1
+    \end{pmatrix}
+    , \,
+    \begin{pmatrix}
+      1 & 1 \\
+      1 & 1
+    \end{pmatrix}, \, 
+    \begin{pmatrix}
+      2 & 4 & 2 \\
+      4 & 3 &  1 \\ 
+      2 & 1 &1
+    \end{pmatrix}. 
+  \end{displaymath}
+ 
+\item Soit $V$ un espace euclidien de dimension $n$. Montrer que $V$ possède une base $B$ telle que pour tout $x,y \in V$
+  \begin{displaymath}
+    \pscal{x,y} = [x]_B \cdot [y]_B, 
+  \end{displaymath}
+où $ [x]_B \cdot [y]_B$  dénote la forme bilinéaire standard de $\R^n$ entre $[x]_B$ et $ [y]_B$ .  
+
+\end{enumerate}
+
+
+
+
+\section{Le théorème de Sylvester}
+\label{sec:le-theoreme-de}
+
+
+Soit $V$ un espace vectoriel de dimension finie sur un corps $K$ muni d'une forme bilinéaire symétrique. Nous avons vu (théorème~\ref{thr:5}) que $V$ possède une base orthogonale. Supposons que cette base est $B = \{v_1,\dots,v_n\}$ et considérons $x = \sum \alpha_i v_i \in V$ et $y \in \sum_i \beta_i v_i \in V$. Le produit scalaire s'écrit 
+\begin{eqnarray*}
+  \pscal{x,y} & =  & \sum_{ij} \alpha_i \beta_j \pscal{v_i,v_j} \\
+              & = & \sum_i \alpha_i \beta_i \pscal{v_i,v_i} \\
+               & = & [x]_B^T 
+                    \begin{pmatrix}
+                      c_1 & & \\
+                                     & \ddots & \\
+                                     & & c_n
+                    \end{pmatrix} [y]_B
+\end{eqnarray*}
+où $c_i = \pscal{v_i,v_i}$ pour tout $i$. 
+Si $K = \R$ on peut ordonner la base afin d'avoir $c_1,\dots,c_r>0$, $c_{r+1},\dots,c_s < 0$ et $c_{s+1},\dots,c_n = 0$. Nous allons maintenant démontrer, que les nombres $r$ et $s$ sont invariants par rapport à la base $B$ de $V$. 
+
+
+\begin{definition}
+  \label{def:11}
+  Le sous espace $V_0 = \{v \in V \colon \pscal{v,x} = 0 \text{ pour tout } x \in V\}$ est appelé l'\emph{espace de nullité} de la forme bilinéaire symétrique $\pscal{.}$. 
+\end{definition}
+
+\begin{theorem}
+  \label{thr:9}
+  Soit $V$
+  un espace vectoriel de dimension finie sur un corps $K$
+  de caractéristique $\neq 2$
+  et soit $V$
+  muni d'une forme bilinéaire symétrique. Soit $B = \{v_1,\dots,v_n\}$
+  une base orthogonale de $V$.
+  La dimension $\dim(V_0)$
+  est égale au nombre d'index $i$ tel que $\pscal{v_i,v_i}=0$.
+\end{theorem}
+
+\begin{proof}
+  Nous utilisons la notation d'en-dessus et écrivons 
+  \begin{displaymath}
+    \pscal{v,x} =   [v]_B^T
+                    \begin{pmatrix}
+                      c_1 & & \\
+                                     & \ddots & \\
+                                     & & c_n
+                    \end{pmatrix} [x]_B. 
+  \end{displaymath}
+La forme linéaire $f(x) = \pscal{v,x}$ est égale à zéro si et seulement si $\left([v]_B\right)_i = 0$ pour tout $i$ tel que $c_i \neq 0$. Ceci démontre que $\{ v_i \colon \pscal{v_i,v_i}=0\}$ est une base de l'espace de nullité. 
+\end{proof}
+
+
+
+\begin{theorem}[Théorème de Sylvester] 
+\label{thr:10}
+Soit $V$
+un espace vectoriel de dimension finie sur $\R$
+muni d'une forme bilinéaire symétrique. Soit $B = \{v_1,\dots,v_n\}$
+une base orthogonale de $V$.
+Il existe un nombre entier $r \geq 0$
+tel que exactement $r$ des indices $i$ satisfont $\pscal{v_i,v_i}>0$.
+\end{theorem}
+
+
+\begin{proof}
+  Soient $\{v_1,\dots,v_n\}$
+  et $\{w_1,\dots,w_n\}$ des
+  bases orthogonales de $V$ ordonnées 
+  telles que $\pscal{v_i,v_i} >0 $
+  si $1 \leq i \leq r$,
+  $\pscal{v_i,v_i} <0 $
+  si $r+1 \leq i \leq s$
+  et $\pscal{v_i,v_i} =0 $
+  si $s+1 \leq i \leq n$.
+  De même $\pscal{w_i,w_i} >0 $
+  si $1 \leq i \leq r'$,
+  $\pscal{w_i,w_i} <0 $
+  si $r'+1 \leq i \leq s'$
+  et $\pscal{w_i,w_i} =0 $ si $s'+1 \leq i \leq n$.
+
+
+
+  On démontre que $v_1,\dots,v_r,w_{r'+1},\dots w_n$
+  est linéairement indépendant. Ça implique que $r + n-r' \leq n$
+  et alors $r \leq r'$.
+  Parce que l'argument est symétrique on peut conclure que $r = r'$.
+
+  Si $v_1,\dots,v_r,w_{r'+1},\dots w_n$ est linéairement dépendant, il existe des scalaires $x_1,\dots x_r$ et $y_{r'+1},\dots y_n$ respectivement  non tous égaux à zéro tels que 
+  \begin{displaymath}
+    x_1 v_1 + \cdots + x_r v_r = y_{r'+1} w_{r'+1} + \cdots y_n w_n 
+  \end{displaymath}
+et ça implique, dès que les $v_i$ et respectivement les $w_i$  sont orthogonaux, 
+\begin{displaymath}
+   x_1^2\pscal{v_1,v_1} + \cdots + x_r^2 \pscal{v_r,v_r} = y_{r'+1}^2 \pscal{w_{r'+1},w_{r'+1}} + \cdots y_n^2 \pscal{w_n,w_n} 
+\end{displaymath}
+Les $\pscal{v_i,v_i}$ à gauche sont strictement positifs. Les $\pscal{w_i,w_i} $ à droite sont non positifs. Alors $x_1=0,\dots,x_r = 0$ et dès que les $w_i$ sont linéairement indépendants, on a $y_{r'+1}=0,\dots,y_n=0$. 
+\end{proof}
+
+
+\begin{definition}
+  \label{def:12}
+  L'entier $r$ du théorème de Sylvester est appelé l'\emph{indice de positivité} de la forme bilinéaire symétrique. 
+\end{definition}
+
+
+
+\begin{example}
+  \label{exe:11}
+  Trouver une base de Sylvester et les indices de nullité et de positivité de la matrice 
+  \begin{displaymath}
+A = 
+    \begin{pmatrix}
+      2 & 4 & 6 \\
+      4 & 4 & 3 \\
+      6 & 3 & 1 
+    \end{pmatrix}
+  \end{displaymath}
+On utilise des transformations élémentaires sur les colonnes et les mêmes sur les lignes tour à tour en alternant. 
+
+\noindent Les transformations élémentaires sur les colonnes sont représentées par 
+\begin{displaymath}
+P_1 = 
+  \left[\begin{matrix}1 & -2 & -3\\0 & 1 & 0\\0 & 0 & 1\end{matrix}\right]
+\end{displaymath}
+et transforment la matrice $A$ en 
+\begin{displaymath}
+   \begin{pmatrix}
+      2 & 4 & 6 \\
+      4 & 4 & 3 \\
+      6 & 3 & 1 
+    \end{pmatrix} \cdot  \left[\begin{matrix}1 & -2 & -3\\0 & 1 & 0\\0 & 0 & 1\end{matrix}\right] = \left[\begin{matrix}2 & 0 & 0\\4 & -3 & -9\\6 & -9 & -17\end{matrix}\right]. 
+\end{displaymath}
+Alors 
+\begin{displaymath}
+  P_1^T\cdot A \cdot P = \left[\begin{matrix}2 & 0 & 0\\0 & -3 & -9\\0 & -9 & -17\end{matrix}\right]
+\end{displaymath}
+Avec 
+\begin{displaymath}
+  P_2 = \left[\begin{matrix}1 & 0 & 0\\0 & 1 & -3\\0 & 0 &1\end{matrix}\right]
+\end{displaymath}
+on obtient 
+\begin{displaymath}
+  P_2^TP_1^T A P_1 P_2 = \left[\begin{matrix}2 & 0 & 0\\0 & -3 & 0\\0 & 0 & 10\end{matrix}\right]
+\end{displaymath}
+L'indice de nullité est zéro et l'indice de positivité est $2$. Le produit $P_1\cdot P_2$ est égal à 
+\begin{displaymath}
+  P_1 \cdot P_2 = \left[\begin{matrix}1 & -2 & 3\\0 & 1 & -3\\0 & 0 & 1\end{matrix}\right]
+\end{displaymath}
+Les colonnes sont une base de Sylvester. En divisant les colonnes par $\sqrt{2},\sqrt{3}$ et $\sqrt{10}$ respectivement, et en échangeant les deux dernières colonnes, on obtient une transformation $P$ telle que $P^TAP =
+\begin{pmatrix}
+  1& \\
+  & 1 & \\
+  & & -1
+\end{pmatrix}$. 
+\end{example}
+
+
+
+\subsection*{Exercices} 
+
+\begin{enumerate}
+\item Soit $V$ un espace vectoriel de dimension finie sur $\R$ et soit $\pscal{.}$ une forme bilinéaire  sur $V$.  Montrer que $V$ admet une décomposition en somme directe 
+  \begin{displaymath}
+    V_0 \oplus V^+ \oplus V^-
+  \end{displaymath}
+où $V_0$ est l'espace de nullité et $V^+$ et $V^-$ sont des sous-espaces tels que 
+\begin{displaymath}
+  \pscal{v,v} >0 \text{ pour tout } v \in V^+ \setminus\{0\}
+\end{displaymath}
+et  
+\begin{displaymath}
+  \pscal{v,v} <0 \text{ pour tout } v \in V^- \setminus\{0\}. 
+\end{displaymath}
+\end{enumerate}
+
+
+
+
+
+
+
+\section{Le cas réel, défini positif}
+\label{sec:le-case-reel}
+
+
+
+\begin{definition}
+  \label{def:4}
+  Soit $V$ un espace vectoriel sur $\R$ muni 
+  d'une forme bilinéaire symétrique. 
+  La forme bilinéaire symétrique  est définie positive si $\pscal{v,v} \geq 0$ pour tout $v \in V$, et si $\pscal{v,v}>0$ lorsque $v \neq 0$. Une forme bilinéaire symétrique définie positive est un \emph{produit scalaire}. 
+\end{definition}
+
+\begin{example}
+  \label{exe:3}
+  Soit $V = \R^n$. La 
+  \begin{displaymath}
+    \pscal{u,v} = \sum_{i=1}^n u_iv_i 
+  \end{displaymath}
+  est un produit scalaire, appelé le \emph{produit scalaire ordinaire}. 
+  Aussi la forme bilinéaire  de l'exemple~\ref{ex:2} est un produit scalaire. 
+\end{example}
+
+\begin{definition}
+  \label{def:5}
+  Soit $\pscal{\,}$ un produit scalaire. La \emph{longueur} ou la \emph{norme} d'un élément $v \in V$ est le nombre 
+  \begin{displaymath}
+    \| v \| = \sqrt{\pscal{v,v}}.
+  \end{displaymath}
+  Un élément $v \in V$ est un \emph{vecteur unitaire} si $\|v\| = 1$. 
+\end{definition}
+
+
+\begin{framed}\noindent 
+  Pour le reste de ce paragraphe~\ref{sec:le-case-reel}, si pas spécifié autrement,  $V$
+  est toujours un espace vectoriel sur $\R$
+  muni d'un produit scalaire. 
+\end{framed}
+
+
+
+\begin{proposition}
+  \label{prop:2}
+  Pour $v \in V$ et $\alpha \in \R$ on a
+  \begin{displaymath}
+    \| \alpha \,v \| = |\alpha| \, \|v\|. 
+  \end{displaymath}
+\end{proposition}
+
+
+
+\begin{proof}
+  \begin{eqnarray*}    
+   \| \alpha \,v \| & = &  \sqrt{\pscal{\alpha \, v, \alpha \, v} } \\
+                    & = & \sqrt{\alpha^2 \pscal{v,v}} \\
+                    & = & |\alpha | \, \|v\|. 
+  \end{eqnarray*}
+\end{proof}
+
+\begin{proposition}[Théorème de Pythagore]
+\label{prop:4}
+Si $v$ et $w$ sont perpendiculaires 
+\begin{displaymath}
+  \|v+w\|^2 = \|v\|^2 + \|w\|^2. 
+\end{displaymath}  
+\end{proposition}
+
+
+\begin{proof}
+  \begin{eqnarray*}
+     \|v+w\|^2 &= & \pscal{v+w,v+w} \\
+               & = & \pscal{v,v+w} + \pscal{w,v+w} \\
+               & = & \pscal{v,v} + \pscal{v,w} + \pscal{w,v} + \pscal{w,w} \\
+               & = & \|v\|^2 + \|w\|^2
+  \end{eqnarray*}
+\end{proof}
+
+\begin{proposition}[Règle du parallélogramme] Pour tout $v$ et $w$, on a 
+  \begin{displaymath}
+    \|v+w\|^2 + \|v-w\|^2 = 2 \|v\|^2 + 2 \|w\|^2.  
+  \end{displaymath}  
+\end{proposition}
+
+
+
+Soit $V$ un espace vectoriel sur un corps $K$ muni d'un produit scalaire. 
+Si $w$ est un élément de $V$ tel que $\pscal{w,w} \neq 0$, pour  tout $v \in V$, il existe un élément unique $\alpha \in K$ tel que $\pscal{w,v -\alpha\, w} = 0$. 
+
+En fait,
+\begin{displaymath}
+  \pscal{w,v -\alpha\, w} = \pscal{w,v} - \alpha \pscal{w,w}. 
+\end{displaymath}
+Alors $\pscal{w,v -\alpha\, w} = 0$ si et seulement si $\alpha = \pscal{v,w} / \pscal{w,w}$. 
+
+
+\begin{definition}
+  \label{def:6}
+  Soit $V$ un espace vectoriel sur un corps $K$, muni d'un produit scalaire. 
+  Soit $w \in V$ tel que  $\pscal{w,w} > 0$. Pour $v \in V$, soit $\alpha = \pscal{v,w} / \pscal{w,w}$.  Le nombre $\alpha$ est la \emph{composante} de $v$ sur $w$, ou \emph{le coefficient de Fourier de $v$ relativement à $w$}. Le vecteur $\alpha \, w$ s'appelle la \emph{projection} de $v$ sur $w$. 
+\end{definition}
+
+
+\begin{example}
+  \label{exe:5}
+  Soit $V$ l'espace vectoriel de l'exemple~\ref{ex:2} et $f(x) = \sin kx$, où $k \in \N_{>0}$. Alors
+  \begin{displaymath}
+   \|f\| = \sqrt{\pscal{f,f}} =  \sqrt{\int_0^{2\pi} \sin^2 kx \, dx} = \sqrt{\pi}
+  \end{displaymath}
+Si $g$ est une fonction quelconque, continue sur $[0,2\,\pi]$, le coefficient de Fourier de $g$ relativement à $f$ est 
+\begin{displaymath}
+  \pscal{f,g} /   \pscal{f,f}  = \frac{1}{\pi} \int_0^{2\, \pi} g(x) \sin kx \,dx. 
+\end{displaymath}
+\end{example}
+
+
+
+\begin{theorem}[Inégalité de Cauchy-Schwarz]
+  Pour tout $v,w \in V$, on a  
+  \begin{displaymath}
+    |\pscal{v,w}| \leq \|v\| \, \|w\|.
+  \end{displaymath}
+\end{theorem}
+
+
+\begin{proof}
+  Si $w=0$ les deux termes de cette inégalité sont nuls et elle devient évidente. Supposons maintenant que $w$ est un vecteur unitaire. Si $\alpha = \pscal{v,w}$ est la composante de $v$ sur $w$, $v - \alpha w$ est perpendiculaire à $w$ donc aussi a $\alpha\,w$. D'après le théorème de Pythagore on trouve 
+  \begin{eqnarray*}
+    \|v\|^2 & = & \|v - \alpha \,w\|^2 + \|\alpha \, w \|^2 \\
+           & = &  \|v - \alpha \,w\|^2 + \alpha^2,
+  \end{eqnarray*}
+par conséquent $\alpha^2 \leq \|v\|^2$, si bien que $|\alpha| \leq \|v\|$. 
+
+Enfin, si $w \neq 0$, alors $w / \|w\|$ est unitaire. Donc par ce que nous venons de voir,
+\begin{displaymath}
+  \left| \pscal{v, w / \|w\|} \right| \leq \|v\|.
+\end{displaymath}
+Cela implique 
+\begin{displaymath}
+   \left| \pscal{v, w } \right| \leq \|v\| \|w\|.
+\end{displaymath}
+\end{proof}
+
+On appelle un  espace vectoriel sur $\R$ muni d'un produit scalaire défini positif un \emph{espace euclidien}.  
+
+
+\begin{theorem}[Inégalité triangulaire]
+  \label{thr:1}
+  Si $v,w \in V$. 
+  \begin{displaymath}
+    \|v+w\| \leq \|v\| + \|w\|. 
+  \end{displaymath}
+\end{theorem}
+
+
+\begin{proof}
+  \begin{eqnarray*}
+    \|v+w\|^2 & =     & \|v\|^2 + 2 \pscal{v,w} + \|w\|^2 \\
+              & \leq & \|v\|^2 + 2 \|v\|\,\|w\| + \|w\|^2 \\
+              & = & (\|v\| + \|w\|)^2,
+  \end{eqnarray*}
+en recourant à l'inégalité de Cauchy-Schwarz. 
+\end{proof}
+
+
+\begin{lemma}
+  \label{lem:2}
+  Soit $V$ un espace vectoriel sur $K$ muni d'un produit scalaire et 
+  soient $v_1,\dots,v_n$ des éléments de V, deux à deux orthogonaux et soit $\pscal{v_i,v_i}\neq 0$ pour tout $i$. % Soit $\alpha_i = \pscal{v,v_i}/\pscal{v_i,v_i}$ la composante de $v$ sur $v_i$, alors 
+Un vecteur 
+\begin{displaymath}
+  v - a_1v_1- \cdots - a_n v_n\, \text{ où  }\, a_i \in K 
+\end{displaymath}
+est perpendiculaire à tout $v_1,\dots,v_n$ si et seulement si $a_i$ est la composante de $v$ sur $v_i$, i.e., $a_i=  \pscal{v,v_i}/ \pscal{v_i,v_i}$ pour tout $i$. 
+\end{lemma}
+
+\begin{proof}
+  Pour le vérifier il suffit d'en faire le produit scalaire avec $v_j$ pour tout $j$. Tous les termes $\pscal{v_i,v_j}$ donnent zéro si $i\neq j$. Le reste
+  \begin{displaymath}
+    \pscal{v,v_j} - a_j\pscal{v_jv_j}
+  \end{displaymath}
+s'annule si et seulement si $a_j = \pscal{v,v_j}/\pscal{v_jv_j}$. 
+\end{proof}
+
+
+ \begin{definition}
+   \label{def:3}
+   Soit $V$ un espace vectoriel muni d'un produit scalaire. Soit $\{v_1,\dots,v_n\}$ une base de $V$. On dira que cette base est \emph{orthogonale} si $\pscal{v_i,v_j}=0$ pour tout $i \neq j$. 
+ \end{definition}
+
+\begin{notation}
+  Soit $V$ un espace vectoriel et $v_1,\dots,v_n \in V$. Le sous-espace engendré par $v_1,\dots,v_n$ est dénoté par  $\spa\{v_1,\dots,v_n\}$. 
+\end{notation}
+
+
+
+\begin{theorem}[Le procédé d'orthogonalisation de Gram-Schmidt]
+  \label{thr:2}
+  Soit $V$ un espace euclidien et  $\{v_1,\dots,v_n\} \subseteq V$
+  un ensemble libre.  
+  Il existe un ensemble libre orthogonal $\{u_1,\dots,u_n\}$
+  de $V$
+  tel que pour tout $i$, 
+  $\{v_1,\dots,v_i\}$
+  et $\{u_1,\dots,u_i\}$ engendrent le même sous-espace de $V$.
+\end{theorem}
+
+
+\begin{proof}
+  On montre le théorème par induction.  On met $u_1 = v_1$
+  et on suppose qu'on a construit $\{u_1,\dots,u_{i-1}\}$
+  pour $i \geq 2$.
+  L'ensemble $\{u_1,\dots,u_{i-1},v_i\}$
+  est libre et une base du sous-espace engendré
+  par $\{v_1,\dots,v_i\}$.
+  On met  
+  \begin{displaymath}
+    u_i = v_i - \alpha_{1,i}  u_1 - \cdots - \alpha_{i-1,i} u_{i-1}
+  \end{displaymath}
+  où les $\alpha_{j,i}$
+  sont les composantes de $v_i$
+  sur $u_j$.
+  Comme ça 
+  \begin{eqnarray*}
+    \spa \{u_1,\dots,u_i\} & = & \spa\{u_1,\dots,u_{i-1},v_i\} \\
+                           &=  &\spa\{v_1,\dots,v_i\}.
+  \end{eqnarray*}
+  Surtout $\{u_1,\dots,u_i\}$ est un ensemble orthogonal.  
+\end{proof}
+
+
+
+\begin{exercise}
+  \label{exe:6}
+  Est-ce qu'il faut vraiment supposer que le produit scalaire
+  $\pscal{.}$
+  soit réel et défini positif et sur $\R$ pour ce procédé? Peux-tu imaginer une condition plus
+  faible et satisfaite par le produit scalaire qui permet
+  le procédé de Gram-Schmidt? 
+\end{exercise}
+
+
+
+\begin{definition}
+  \label{def:7}
+  Une base $\{u_1,\dots,u_n\}$
+  d'un espace euclidien est \emph{orthonormale} si elle est
+  orthogonale et se compose de vecteurs tous unitaires.
+\end{definition}
+
+
+
+
+\begin{corollary}
+  \label{co:1}
+  Soit $V$
+  un espace euclidien de dimension finie. Supposons $V \neq
+  \{0\}$. $V$ possède alors une base orthonormale.
+\end{corollary}
+
+\begin{proof}
+  Soient $\{v_1,\dots,v_n\}$ une base de $V$ et $\{u_1,\dots,u_n\}$ le résultat du procédé Gram-Schmidt appliqué à $\{v_1,\dots,v_n\}$. Alors $\{u_1/ \|u_1\|,\dots,u_n/\|u_n\|\}$ est une base orthonormale de $V$. 
+\end{proof}
+
+
+\begin{example}
+\label{exe:7}
+Trouver une base orthonormale de l'espace vectoriel engendré par 
+\begin{displaymath}
+  \begin{pmatrix}
+    1\\1\\0\\1
+  \end{pmatrix}, 
+  \begin{pmatrix}
+    1\\-2\\0\\0
+  \end{pmatrix}
+  \text{ et } 
+  \begin{pmatrix}
+    1\\0\\-1\\2
+  \end{pmatrix}
+\end{displaymath}
+
+Notons $A,B$ et $C$ les vecteurs. Soit $A'=A$ et 
+\begin{displaymath}
+  B' = B - \frac{A'\cdot B}{A'\cdot A'} \cdot A'
+\end{displaymath}
+On trouve 
+\begin{displaymath}
+  B' = \frac{1}{3}
+  \begin{pmatrix}
+    4\\-5\\0\\1
+  \end{pmatrix}
+\end{displaymath}
+On calcule 
+\begin{displaymath}
+  C' = C - \frac{A'\cdot C}{A'\cdot A'} \cdot A' - \frac{B'\cdot C}{B'\cdot B'} \cdot B'
+\end{displaymath}
+et on trouve 
+\begin{displaymath}
+  C' = \frac{1}{7}
+  \begin{pmatrix}
+    -4\\-2\\-1\\6
+  \end{pmatrix}  
+\end{displaymath}
+La base orthonormale est
+\begin{displaymath}
+  A' / \|A'\| = \frac{1}{\sqrt{3}}
+  \begin{pmatrix}
+    1\\1\\0\\1
+  \end{pmatrix},
+    B'/ \|B'\| = \frac{1}{\sqrt{42}}
+  \begin{pmatrix}
+    4\\-5\\0\\1
+  \end{pmatrix}
+\text{ et }
+C'/ \|C'\| = \frac{1}{\sqrt{57}}
+  \begin{pmatrix}
+    -4\\-2\\-1\\6
+  \end{pmatrix}  
+\end{displaymath}
+\end{example}
+
+\begin{corollary}
+  \label{co:2}
+  Soit $A \in \R^{m\times n}$ une matrice de rang (colonne) plein. On peut factoriser $A$ comme 
+  \begin{displaymath}
+    A = A' \cdot R
+  \end{displaymath}
+où les colonnes de  $A' \in \R^{m\times n}$ sont deux à deux orthonormales et $R \in \R^{n \times n}$ est une matrice triangulaire supérieure dont les valeurs diagonales sont positives. 
+\end{corollary}
+
+
+
+\begin{example}
+  \label{exe:8}
+  Trouver une  factorisation $Q,R$ du Corollaire~\ref{co:2} de la matrice 
+  \begin{displaymath}
+    \left(\begin{matrix}1 & 1 & 1\\1 & -2 & 0\\0 & 0 & -1\\1 & 0 & 2\end{matrix}\right)
+  \end{displaymath}
+
+On trouve 
+\begin{displaymath}
+  \left[\begin{matrix}1 & 1 & 1\\1 & -2 & 0\\0 & 0 & -1\\1 & 0 & 2\end{matrix}\right]
+= \left[\begin{matrix}1 & \frac{4}{3} & - \frac{4}{7}\\1 & - \frac{5}{3} & - \frac{2}{7}\\0 & 0 & -1\\1 & \frac{1}{3} & \frac{6}{7}\end{matrix}\right] 
+\left[\begin{matrix}1 & - \frac{1}{3} & 1\\0 & 1 & \frac{3}{7}\\0 & 0 & 1\end{matrix}\right]
+\end{displaymath}
+et alors
+\begin{displaymath}
+   \left[\begin{matrix}1 & 1 & 1\\1 & -2 & 0\\0 & 0 & -1\\1 & 0 & 2\end{matrix}\right] = 
+\left[\begin{matrix}\frac{1}{\sqrt{3}} & \frac{2 \sqrt{42}}{21} & - \frac{4 }{\sqrt{105}}\\\frac{1}{\sqrt{3}} & - \frac{5}{\sqrt{42}} & - \frac{2 }{\sqrt{105}}\\0 & 0 & -\frac{\sqrt{105}}{15}\\\frac{1}{\sqrt{3}} & \frac{1}{\sqrt{42}} & \frac{2 \sqrt{105}}{35}\end{matrix}\right] 
+\left[\begin{matrix}\sqrt{3} & - \frac{\sqrt{3}}{3} & \sqrt{3}\\0 &\frac{\sqrt{42}}{3} & \frac{\sqrt{42}}{7}\\0 & 0 & \frac{\sqrt{105}}{7}\end{matrix}\right]
+\end{displaymath}
+\end{example} 
+
+
+
+
+\begin{theorem}[Inégalité de Bessel]
+  \label{thr:4}
+  Si $v_1,\dots,v_n$ sont des vecteurs unitaires deux à deux orthogonaux et si $\alpha_i = \pscal{v,v_i} / \pscal{v_i,v_i}$ sont les coefficients de Fourier de $v$ relativement à $v_i$ alors 
+  \begin{displaymath}
+    \sum_{i=1}^n \alpha_i^2 \leq \|v\|^2. 
+  \end{displaymath}
+\end{theorem}
+
+\begin{proof}
+  \begin{eqnarray*}
+    0 & \leq & \pscal{v - \sum_{i=1}^n \alpha_i v_i , v - \sum_{i=1}^n \alpha_i v_i} \\
+     & = & \pscal{v,v} - 2 \cdot \sum \alpha_i \pscal{v,v_i} + \sum \alpha_i^2 \\
+    & = & \pscal{v,v}  - \sum \alpha_i^2 \\
+  \end{eqnarray*}
+\end{proof}
+
+
+
+\subsection*{Exercices}
+
+\begin{enumerate}
+
+\item Soit $V$ un espace vectoriel muni d'un produit scalaire $\pscal{.}$. Soit $U \subseteq V$ un sous-espace. Montrer que $\pscal{.}$ restreint à $U$ est un produit scalaire du sous-espace $U$. 
+\item Soient $V$ un espace vectoriel muni d'un produit scalaire $\pscal{.}$ et $\{v_1,\dots,v_n\} \subseteq V$ un ensemble deux à deux orthogonal. 
+  \begin{enumerate}[a)]
+  \item   Montrer que $\{v_1,\dots,v_n\}$ est un ensemble libre si pour tout $i$, 
+ $\pscal{v_i,v_i} \neq  0$.  
+\item  Donner un contre-exemple ou une démonstration du contraire. 
+\end{enumerate}
+
+
+\item Considérant l'exemple~\ref{ex:2}, montrer que l'ensemble 
+  \begin{displaymath}
+    \{1,\sin x, \cos x, \sin(2x), \cos(2x), \sin(3x), \cos(3x), \dots\}
+  \end{displaymath}
+ est un ensemble de 
+vecteurs deux à deux orthogonaux. 
+\item Trouver la factorisation $Q\cdot R$  du Corollaire~\ref{co:2} de la matrice 
+  \begin{displaymath}
+    \begin{pmatrix}
+      1 & 1 & 0 &0 \\
+      0& 1 & 1 & 0\\
+      0 & 0 & 1 & 1\\
+      1 & 0 & 0 & 1\\
+    \end{pmatrix}
+  \end{displaymath}
+  Trouver la factorisation de la matrice $n\times n$ 
+  \begin{displaymath}
+    \begin{pmatrix}
+      1 & 1 & 0 & 0 & \cdots & 0\\
+      0 & 1 & 1 & 0 & \cdots & 0 \\
+      && \vdots &&\\
+      0 & \cdots & \cdots&0& 1 & 1\\
+      1 & 0 & \cdots &\cdots & 0 & 1
+    \end{pmatrix}
+  \end{displaymath}
+\item Trouver un produit scalaire de $\R^n$ tel qu'il existe des vecteurs $u,v \in \R^n$ avec $\pscal{u,u}<0$ et $\pscal{v,v}>0$. 
+\item Soit $V$ un espace vectoriel sur $\R$ muni d'un produit scalaire. S'il existe des vecteurs $u,v \in V$ tels que $\pscal{u,u}<0$ et $\pscal{v,v}>0$, il existe un vecteur $w \neq 0$ tel que $\pscal{w,w}=0$. 
+\item Montrer que l'inégalité de Bessel (Théorème \ref{thr:4}) est une égalité si $v$ est dans le sous-espace engendré par les $v_1,\dots,v_n$. 
+\item On considère l'espace euclidien des fonctions continues sur l'intervalle $[0,1]$ muni du produit scalaire 
+  \begin{displaymath}
+    \pscal{f,g} = \int_0^1 f(x)g(x) \, dx. 
+  \end{displaymath}
+  \begin{enumerate}[i)]
+  \item Soit $V$ le sous-espace engendré par $f(x) = x$ et $g(x) = x^2$. Trouver une base orthonormale de $V$. 
+  \item Soit $V$ le sous-espace engendré par $\{1,x,x^2\}$. Trouver une base orthonormale de $V$. 
+  \end{enumerate}
+\item Soient $V$ un espace euclidien, $\{u_1,\dots,u_n\}$ un ensemble orthonormal et $f,g \in \spa\{u_1,\dots,u_n\}$. Montrer l'\emph{identité de Parseval}
+  \begin{displaymath}
+    \pscal{f,g} = \sum_i \pscal{f,u_i}\pscal{u_i,g}. 
+  \end{displaymath}
+\end{enumerate}
+
+
+\section{La méthode des moindres carrées} 
+\label{sec:le-methode-des}
+
+Soient $A \in \R^{m \times n} $ et $b \in \R^m$ et supposons  que le système des équations linéaires 
+\begin{equation}
+  \label{eq:2}
+  Ax = b
+\end{equation}
+n'a pas de solution. Dans beaucoup d'applications, on cherche un $x \in \R^n$ tel que la distance entre  $Ax$ et $b$ est \emph{minimale}. On aimerait alors résoudre le problème d'optimisation suivant
+\begin{equation}
+  \label{eq:3}
+  \min_{x \in \R^n} \|Ax - b\|. 
+\end{equation}
+Pour le reste de ce paragraphe, $V$ est toujours  un espace euclidien. 
+
+
+\begin{theorem}
+  \label{thr:3}
+  Soient $v_1,\dots,v_n$ des vecteurs deux à deux orthogonaux et tels que $\|v_i\|>0$ pour tout $i$. Soit $v$ un élément de $V$ et soit $\alpha_i = \pscal{v,v_i}/\pscal{v_i,v_i}$ la composante de $v$ sur $v_i$. Pour $a_1,\dots,a_n \in \R$ alors 
+  \begin{displaymath}
+    \left\| v - \sum_{i=1}^n \alpha_iv_i \right\|  \leq \left\| v - \sum_{i=1}^n a_iv_i \right\|.
+  \end{displaymath}
+De plus, l'inégalité au-dessus est une égalité si et seulement si $a_i = \alpha_i$ pour tout $i$. 
+Alors $\sum_{i=1}^n \alpha_iv_i$ est l'unique  meilleure approximation de $v$ par un vecteur du sous-espace engendré par les $v_1,\dots,v_n$. 
+\end{theorem}
+
+
+\begin{proof}
+  \begin{eqnarray*}
+    \|v- \sum_{i=1}^n a_iv_i \|^2 & = &  \|v - \sum_{i=1}^n \alpha_iv_i  - \sum_{i=1}^n (a_i - \alpha_i)v_i \|^2 \\
+                           & = & \|v - \sum_{i=1}^n \alpha_iv_i \|^2 + \| \sum_{i=1}^n (a_i - \alpha_i)v_i \|^2
+  \end{eqnarray*}
+en utilisant le lemme~\ref{lem:2} et le théorème de Pythagore. 
+\end{proof}
+
+\noindent 
+Maintenant nous pouvons décrire un \emph{algorithme} pour résoudre le problème suivant. 
+\begin{framed}
+  \noindent 
+  Soient $v,v_1,\dots,v_n \in V$, trouver $u \in \spa \{v_1,\dots,v_n\}$ tel que la distance 
+  \begin{displaymath}
+    \|v - u\|
+  \end{displaymath}
+  est minimale. 
+\end{framed}
+
+\begin{algorithm}
+\label{alg:2}
+
+~\\
+\begin{enumerate}[i)]
+\item Trouver une base orthonormale $u_1,\dots,u_k$ du sous-espace $\spa\{v_1,\dots,v_n\}$ 
+  avec le procédé de Gram-Schmidt. 
+\item Retourner $ u = \sum_{i=1}^k \pscal{v,u_i} u_i$. 
+\end{enumerate}
+\end{algorithm}
+
+
+
+
+
+
+\begin{theorem}
+  \label{thr:6}
+  Soient $A \in \R^{m\times n}$ et $b \in \R^m$. Les solutions du système
+  \begin{equation}
+    \label{eq:4}    
+    A^TAx = A^T b
+  \end{equation}
+  sont les solutions  optimales du problème \eqref{eq:3}. 
+\end{theorem}
+
+\begin{proof}
+  Soit $\{a^*_1,\dots,a^*_k\}$ une base orthonormale du sous-espace $\mathrm{Col}(A)=\{Ax \colon x \in \R^n\}$ engendré par les colonnes de $A$. Le théorème~\ref{thr:3} implique que  les solutions du problème \eqref{eq:3} sont les solutions du système 
+  \begin{displaymath}
+    A x = \sum_i \pscal{b,a^*_i} \cdot a^*_i. 
+  \end{displaymath}
+Le lemme~\ref{lem:2} implique que 
+\begin{displaymath}
+  b - \sum_i \pscal{b,a^*_i} \cdot a^*_i
+\end{displaymath}
+est perpendiculaire à tout $a_i^*$ et dès que les $a^*_i$ engendrent 
+$\mathrm{Col}(A)$ 
+on a 
+\begin{displaymath}
+  A^T (Ax - b) = 0
+\end{displaymath}
+pour toute solution optimale $x$ de \eqref{eq:3}. 
+
+
+Maintenant, soit $x$ une solution du système~\eqref{eq:4}. 
+Alors $ A x -b$ est 
+perpendiculaire à tous les $a_i^*$. Le seul vecteur $v \in \spa\{a_1^*,\dots,a_k^*\} = \mathrm{Col}(A)$ tel que $\pscal{b-v,v}=0$  est $v = \sum_i\pscal{a_i^*,b} \cdot b$. Ceci démontre le théorème.  
+\end{proof}
+
+
+
+\begin{example}
+\label{exe:4}
+Trouver une solution de moindre carrées sur les données 
+\begin{displaymath}
+  A =
+  \begin{pmatrix}
+    4 & 0 \\ 0 &2 \\ 1 & 1
+  \end{pmatrix}
+\text{ et }  b =
+\begin{pmatrix}
+  2\\0\\11
+\end{pmatrix}
+\end{displaymath}  
+
+\begin{displaymath}
+  A^T A =
+  \begin{pmatrix}
+    17 & 1 \\
+    1 & 5
+  \end{pmatrix} \text{ et } A^T b =
+  \begin{pmatrix}
+    19 \\ 11
+  \end{pmatrix}. 
+\end{displaymath}
+La solution du système 
+\begin{displaymath}
+   \begin{pmatrix}
+    17 & 1 \\
+    1 & 5
+  \end{pmatrix}
+  \begin{pmatrix}
+    x_1\\x_2
+  \end{pmatrix}
+= \begin{pmatrix}
+    19 \\ 11
+  \end{pmatrix}.
+\end{displaymath}
+est $x^* = (1,2)^T$. 
+\end{example}
+
+
+
+
+
+
+
+
+\section{Formes linéaires, bilinéaires et l'espace dual}
+\label{sec:lespace-dual}
+
+ Soient $V$ un espace vectoriel sur un corps $K$ et $V^*$ l'ensemble  des  applications linéaires de $V$ dans $K$ où on considère $K$ comme espace vectoriel de dimension $1$ sur lui-même. Clairement, $V^*$ est un espace vectoriel lui-même. 
+\begin{definition}
+\label{def:9}
+  L'ensemble des  applications linéaires  de $V$ dans $K$ est noté $V^*$ et, muni de l'addition et de la multiplication scalaire usuelles, est appelé l'\emph{espace dual} de $V$. Les éléments de $V^*$ sont des \emph{formes linéaires}.
+\end{definition}
+
+\begin{example}
+  
+Si $\pscal{.}$ est un produit scalaire de $V$ et $v \in V$, alors $f(x) = \pscal{x,v} \in V^*$ est une forme linéaire. 
+\end{example}
+
+
+Si $V$ est de dimension finie et si $B = \{V_1,\dots,v_n\}$ est une base de $V$ l'image d'un vecteur $x = \sum_i\alpha_i v_i$ est 
+\begin{eqnarray*}
+    f(x) & = &  f\left(\sum_i\alpha_i v_i\right) \\
+         & = & \sum_i \alpha_i f(v_i)  \\
+         & = & (f(v_1),\dots,f(v_n)) [x]_B,               
+\end{eqnarray*}
+où $[x]_B = (\alpha_1,\dots,\alpha_n)^T$ sont les coordonnées de $x$ dans la base $B$.  
+
+
+
+
+
+\begin{lemma}
+  \label{lem:3} Supposons que $V$ est de dimension finie et $\{v_1,\dots,v_n\}$ est une base de $V$. 
+  La fonction $\phi_j\colon V \longrightarrow K$ 
+    \begin{displaymath}
+  \phi_j \left(\sum_i \alpha_i v_i \right) =  \alpha_j 
+\end{displaymath}
+est une forme linéaire. 
+\end{lemma}
+\begin{proof}
+  Immédiate. 
+\end{proof}
+
+\begin{theorem}
+  \label{thr:7}
+  Les formes linéaires $\{\phi_j \in V^* \colon j=1,\dots,n\}$ du lemme~\ref{lem:3} précédent  forment une base de $V^*$.
+\end{theorem}
+
+\begin{proof}
+  Si, pour $\beta_i \in K$, on a $\sum_i \beta_i \phi_i = 0$, alors 
+  \begin{displaymath}
+ 0 =    \left(\sum_i \beta_i \phi_i\right) (v_j) =  \beta_j,
+  \end{displaymath}
+c'est-à-dire  les $\phi_j$ sont linéairement indépendantes. Les $\phi_j$ engendrent $V^*$ puisque pour $f \in V^*$, $f = \sum_i  f(v_i)  \, \phi_i$. 
+\end{proof}
+
+\begin{definition}
+  \label{def:14}
+  La base $\{\phi_1,\dots,\phi_n\}$ est la \emph{base duale} de la base $\{v_1,\dots,v_n\}$. 
+\end{definition}
+
+
+\begin{definition}
+  \label{def:10}
+  Soit $V$ un espace vectoriel sur un corps $K$. Une application 
+  \begin{displaymath}
+    f\colon V \times V \longrightarrow K
+  \end{displaymath}
+  est une forme bilinéaire si pour tout $v \in V$ les applications 
+  $g,h: V \longrightarrow K$ telles que $g(x) = f(v,x)$ et $h(x) = f(x,v)$ sont des formes linéaires. 
+\end{definition}
+
+\begin{example}
+  \label{exe:9}
+  Un produit scalaire $\pscal{.}$ est une forme bilinéaire symétrique. 
+\end{example}
+
+
+
+\begin{lemma}
+  \label{lem:4}
+  Soit $V$
+  un espace vectoriel sur le corps $K$ de dimension finie muni d'un produit scalaire
+  $\pscal{.}$
+  Le produit scalaire est non dégénéré si et seulement si la matrice
+  $A_B^{\pscal{}}$ est de rang plein pour toute base $B$.
+\end{lemma}
+
+\begin{proof}
+  Soit $n$ la dimension de $V$. 
+  Si le produit scalaire est dégénéré, alors il existe  $0 \neq v \in V$
+  tel que $\pscal{v,u}=0$ pour tout $u \in V$. Alors
+  \begin{displaymath}
+    [v]_B^T A_B^{\pscal{}} x = 0 \, \text{ pour tout } \,  x \in K^n,
+  \end{displaymath}
+alors $[v]_B^T A_B^{\pscal{}} = 0$ qui démontre $\rank(A_B^{\pscal{}})<n$. 
+
+Si $\rank(A)<n$ alors il existe $0 \neq v \in V$ tel que $[v]_B^TA_B^{\pscal{}} = 0$. Alors, $\pscal{v,u} = 0$ pour tout $u \in V$ qui démontre que $\pscal{.}$ est dégénéré. 
+
+\end{proof}
+
+
+\begin{lemma}
+  \label{lem:5}
+  Soit $V$ un espace vectoriel sur le corps $K$  de dimension finie muni d'un produit scalaire non dégénéré et soit $f\colon V \longrightarrow K$ une forme linéaire. Il existe un $v \in V$ tel que $f(x) = \pscal{v,x}$ pour tout $x \in V$. 
+\end{lemma}
+
+\begin{proof}
+  Soient $B = \{v_1,\dots,v_n\}$ une base  de $V$ et $A_B^{\pscal{}} \in K^{n\times n}$ la matrice  associée au produit scalaire et à la base $B$. Soit $a \in K^n$ tel que  $f(x) = a^T[x]_B$ pour tout $x \in V$. Dès que $A_B^{\pscal{}}$ est de rang plein, alors il existe $v \in V$ tel que $[v]_B^TA_B^{\pscal{}} = a^T$. Ceci revient à résoudre un système d'équations linéaires (cf semestre 1) et comme la matrice $A_B^{\pscal{}}$ est de rang plein, on a l'existence (et même l'unicité) d'une solution, i.e.,  $[v]_B^TA_B^{\pscal{}} = a^T$. Ainsi 
+$f(x) = \pscal{v,x}$ pour tout $x \in V$. 
+\end{proof}
+
+
+
+
+\begin{theorem}[Supplémentaire orthogonal]
+  \label{thr:8}
+  Soient $V$ un espace vectoriel de dimension finie sur corps $K$ et $W$ un sous-espace de $V$. Soit $\pscal{.}$ un produit scalaire tel que, si restreint sur $W\times W$, il est non dégénéré. Alors $V = W \oplus W^\perp$.  
+\end{theorem}
+
+\begin{proof}
+  Pour un élément $u \in W \cap W^\perp$ on a $\pscal{u,w} = 0$ pour tout $w \in W$. Dès que $\pscal{.}$ est non dégénéré sur $W$ on a $u=0$, alors $W \cap W^\perp = \{0\}$. 
+
+Il reste à démontrer que $V = W + W^\perp$. Pour $v \in V$ le lemme~\ref{lem:5} implique qu'il existe un $w_0 \in W$ tel que pour tout $u \in W$,  $\pscal{u,v} = \pscal{u,w_0}$ et ça démontre   $v - w_0 \in W^\perp$ et alors $v \in W + W^\perp$. 
+\end{proof}
+
+\subsection*{Exercices} 
+
+\begin{enumerate}
+\item Soient $V$ un espace vectoriel de dimension finie,  $f: V \longrightarrow K$ une forme linéaire et $B,B'$ des bases de $V$. Soit 
+  \begin{displaymath}
+    f(x) = a^T [x]_B 
+  \end{displaymath}
+  où $a \in K^n$. 
+  Décrire $f(x)$ en termes de $P_{B'B}$ et $[x]_{B'}$. 
+\item Soient $V$ un espace vectoriel de dimension finie,  $f: V\times V \longrightarrow K$ une forme bilinéaire et $B,B'$ des bases de $V$. Soit 
+  \begin{displaymath}
+    f(x,y) = [y]_B ^T A_B^f [y]_B.  
+  \end{displaymath}
+  Décrire $f(x,y)$ en termes de $P_{B'B}$, $[x]_{B'}$, et $[y]_{B'}$. 
+\item On considère les vecteurs 
+  \begin{displaymath}
+    v_1 =
+    \begin{pmatrix}
+      1\\1\\0\\0
+    \end{pmatrix} \text{ et }
+ v_2 =
+    \begin{pmatrix}
+      0\\1\\1\\0
+    \end{pmatrix} \in \Z_2^4
+  \end{displaymath}
+et le produit scalaire standard. Trouver une base du $\spa\{v_1,v_2\}^\perp$. Est-ce que $\Z_2^4 = \spa\{v_1,v_2\} \oplus \spa\{v_1,v_2\}^\perp$? 
+\item Soit $V \subseteq \R[x]$ l'espace euclidien des polynômes de degré au plus $n$ muni du produit scalaire  $\pscal{p,q} = \int_0^1p(x)q(x) \, dx$.  Décrire la matrice $A_B^{\pscal{}}$ pour $B = \{1,x,\dots,x^n\}$. 
+\item Soit $V$ un espace vectoriel sur un corps $K$ et soient $f,g \in V^* \setminus \{0\}$ linéairement indépendants. Montrer que
+  \begin{displaymath}
+    \ker{f} \cap \ker{g} 
+  \end{displaymath}
+est de dimension $n-2$. 
+\item Soit $V$ un espace vectoriel de dimension finie sur un corps $K$ et soit $\pscal{.}$ un produit scalaire. Exprimez $(W_1 +W_2)^\perp$ et $(W_1\cap W_2)^\perp$ en fonction de $W_1^\perp$ et $W_2^\perp$. 
+
+
+\item Donner un exemple d'un espace vectoriel  $V$ muni d'un produit scalaire dégénéré et d'un sous-espace $W \subseteq V$  tel que $V$ n'est pas la somme directe de $W$ et $W^\perp$. 
+\end{enumerate}
+
+
+
+
+
+
+
+
+\section{Formes sesquilinéaires et produits hermitiens}
+\label{sec:form-sesq-et}
+
+
+Maintenant nous considérons le cas $K = \C$. Il faut un peu modifier la définition d'un produit scalaire pour obtenir des résultats similaires à ceux des sections précédentes.  
+Le carré de la longueur d'un vecteur 
+\begin{displaymath}
+  v =
+  \begin{pmatrix}
+    a_1 + i\cdot  b_1 \\
+    \vdots \\
+    a_n + i \cdot b_n
+  \end{pmatrix} \in \C^n
+\end{displaymath}
+où $a_i,b_i \in \R$, est égal à 
+\begin{displaymath}
+  \sum_i (a_i^2 + b_i^2) = \sum_i (a_i + i b_i) \cdot (a_i - i b_i) = \sum_i v_i \cdot \overline{v_i}, 
+\end{displaymath}
+où $v_i = a_i + i \cdot b_i$ et $\bar{v_i}$ est la conjugaison de $v_i$. Ceci suggère la définition suivante. 
+
+\begin{definition}
+  \label{def:15}
+  Soit $V$
+  un espace vectoriel sur un corps $\C$.
+  Un \emph{produit hermitien} sur $V$
+  est une correspondance qui, à tout couple $(v,w)$
+  d'éléments de $V$
+  associe un nombre complexe, noté $\pscal{v,w}$, satisfaisant les propriétés suivantes:
+\medskip 
+  \begin{enumerate}[PH 1]
+  \item On a $\pscal{v,w} = \overline{\pscal{w,v}}$ pour tout $v,w \in V$.  \label{ph1}
+  \item Si $u,v$ et $w$ sont des éléments de $V$,  \label{ph2}
+    \begin{displaymath}
+      \pscal{u,v+w} = \pscal{u,v}+\pscal{u,w} \, \text{ et } \,  \pscal{v+w,u} = \pscal{v,u}+\pscal{w,u}
+    \end{displaymath}
+  \item Si $x \in \C$ et $u,v \in V$,  \label{ph3}
+    \begin{displaymath}
+       \pscal{x \cdot u , v} = x \pscal{u,v} \, \text{ et } \,   \pscal{u , x \cdot v} = \overline{x}\cdot  \pscal{u,v}.
+    \end{displaymath}  
+  \end{enumerate}
+  \noindent
+On dit que le produit hermitien  est \emph{non dégénéré} si, de plus, la condition suivante est vérifiée:
+\begin{quote}
+  Si $v \in V$ et si $\pscal{v,w}=0$ pour tout $w \in V$, alors $v = 0$. 
+\end{quote}
+
+Pour tout $v \in V$ $\pscal{v,v} \in \R$, puisque $\pscal{v,v} = \overline{\pscal{v,v}}$, on dit que le produit hermitien  est \emph{défini positif} si $\pscal{v,v} \geq 0$ pour tout $v \in V$ et si $\pscal{v,v}>0$ lorsque $v \neq 0$. 
+
+\end{definition}
+
+
+\begin{example}
+  \label{exe:12}
+  Le produit \emph{hermitien standard} de $\C^n$ 
+  \begin{displaymath}
+    \pscal{u,v} = \sum_i u_i \overline{v_i}
+  \end{displaymath}
+  satisfait les condition PH~\ref{ph1}-\ref{ph3} et est défini positif.  
+\end{example}
+
+
+Les notions d'\emph{orthogonalité, de perpendicularité, de base orthogonale} et \emph{de supplémentaire orthogonal}  sont définies comme avant, de même que les notions de \emph{coefficients de Fourier} et la \emph{projection de $v$ sur $w$}. 
+
+\begin{example}
+  \label{exe:13}
+  Soit $V$ l'espace vectoriel des fonctions $f\colon \R \longrightarrow \C$   continues sur l'intervalle $[0, 2\pi]$. Pour $f,g \in V$ on pose
+  \begin{displaymath}
+    \pscal{f,g} = \int_0^{2\pi} f(x) \overline{g(x)} \, dx.
+  \end{displaymath}
+C'est un produit hermitien défini positif. Les fonctions $f_n (x)=  e^{inx}$ pour $n \in \Z$ sont orthogonales dès que 
+\begin{displaymath}
+  f_n(x) \overline{f_m(x)} = e^{i(n-m)x} = \cos((n-m) x) + i \cdot \sin((n-m) x)
+\end{displaymath}
+et alors 
+\begin{displaymath}
+  \pscal{f_n,f_n} = \int_0^{2 \pi} 1 \, dx = 2 \pi 
+\end{displaymath}
+et pour $n \neq m$ 
+\begin{displaymath}
+  \pscal{f_n,f_m} = \int_0^{2 \pi} \cos( (n-m) x) \, dx  + i \cdot \int_0^{2 \pi} \sin( (n-m) x) \, dx = 0.
+\end{displaymath}
+Pour $f \in V$ la composante de $f$ sur $f_n$, ou le coefficient de Fourier de $f$ relativement à $f_n$, est 
+\begin{displaymath}
+  \frac{\pscal{f,f_n}}{\pscal{f_n,f_n}} = \frac{1}{2\pi} \cdot \int_0^{2\pi} f(x) e^{-inx} \, dx. 
+\end{displaymath}
+\end{example}
+
+\begin{definition}
+  \label{def:16}
+  Une application $f \colon V \times V \longrightarrow \C$ satisfaisant
+
+  PH~\ref{ph2} et PH~\ref{ph3} est appelé une \emph{forme sesquilinéaire}. 
+\end{definition}
+
+
+
+Soient $V$ un espace vectoriel sur $\C$ de dimension finie et $f: V \times V \longrightarrow \C$ une forme sesquilinéaire. Pour une base  $B = \{v_1,\dots,v_n\}$ de $V$ et $x = \sum_i \alpha_i v_i$ et $y = \sum_i \beta_i v_i$ on a 
+\begin{displaymath}
+  \pscal{x,y} = \sum_{ij} \alpha_i\overline{\beta_j} f(v_i,v_j)
+\end{displaymath}
+et avec la matrice $A_B^f = (f(v_i,v_i))_{1 \leq i,j \leq n}$   alors 
+\begin{equation}
+  \label{eq:9}
+  \pscal{x,y} = [x]_B ^T A_B^{f} \overline{[y]_B} 
+\end{equation}
+où pour un vecteur $v \in \C^n$ le vecteur $\overline{v}$ est tel que $\overline{v}_i = \overline{v_i}$ pour tout $i$. Pour une matrice $A \in \C^{m \times n}$, $\overline{A} \in \C^{m \times n}$ est la matrice telle que 
+$\overline{A}_{ij} = \overline{A_{ij}}$ pour out $i,j$. 
+\begin{definition}
+  \label{def:17}
+  Une matrice $A \in \C^{n \times n}$ est appelée \emph{hermitienne} si on a 
+  \begin{displaymath}
+    A = \overline{A^T}. 
+  \end{displaymath}
+\end{definition}
+
+
+\begin{proposition}
+  \label{prop:3}
+  Soit  $V$  un espace vectoriel sur $\C$ de dimension finie et soit $B$  une base de $V$. Une forme sesquilinéaire $f$ est un produit hermitien si et seulement si $A_B^f$ est hermitienne. 
+\end{proposition}
+
+
+\begin{definition}
+  \label{def:18}
+  Deux matrices $A,B \in \C^{n \times n}$ sont \emph{congruentes complexes} s'il existe une matrice inversible $P \in \C^{n \times n}$ telle que $A = {P^T} \cdot B \cdot \overline{P}$. Nous écrivons $A \cong_\C B$. 
+\end{definition}
+$\cong_\C$ est aussi une relation d'équivalence. On peut aussi modifier l'algorithme~\ref{alg:1} tel qu'il calcule une matrice diagonale congruente complexe par rapport à une matrice hermitienne $A \in \C^{n \times n}$,  voir l'exercice~\ref{item:7}. Alors on a le théorème suivant. 
+
+\begin{theorem}
+  \label{thr:11}
+  Soit $V$ un espace vectoriel sur $\C$ de dimension finie, muni d'un produit hermitien. Alors $V$ possède une base orthogonale. 
+\end{theorem}
+\begin{proof}
+  Soit $B = \{v_1,\dots,v_n\}$  une base de $V$. Pour $x,y \in V$ on a 
+  \begin{eqnarray*}
+    \pscal{x,y} & = & [x]_B^T A_B^{\pscal{.}} \overline{[y]_B}. 
+  \end{eqnarray*}
+  Soit $P \in \C^{n\times n} $ inversible telle que
+  \begin{displaymath}
+    P^T A \overline{P} =
+    \begin{pmatrix}
+      c_1\\
+      & \ddots \\
+      && c_n
+    \end{pmatrix}. 
+  \end{displaymath}
+  La base orthogonale est $w_1,\dots,w_n$ dont $ [w_j]_B$ est  la $j$-ème colonne de $P$, 
+  \begin{displaymath}
+     [w_j]_B =
+  \begin{pmatrix}
+    p_{1j}\\ \vdots \\ p_{nj}
+  \end{pmatrix}, 
+  \end{displaymath} 
+alors $w_j = \sum_{i=1}^n p_{ij} w_i$. 
+
+\end{proof}
+
+
+
+\begin{example}
+  \label{exe:16}
+  On considère la matrice hermitienne 
+  \begin{displaymath}
+    A = \left[\begin{matrix}0 & - i & 3 + 4 i\\i & -2 & 12\\3 - 4 i & 12 & 5\end{matrix}\right]
+  \end{displaymath}
+et le but est de trouver une matrice inversible $P \in \C^{3 \times 3}$ telle que 
+\begin{displaymath}
+  P^T \cdot A \cdot \overline{P}
+\end{displaymath}
+est une matrice diagonale. Nous échangeons la première et la deuxième colonne ainsi que la première et la deuxième ligne et obtenons 
+\begin{displaymath}
+\left[\begin{matrix}-2 & i & 12\\- i & 0 & 3 + 4 i\\12 & 3 - 4 i & 5\end{matrix}\right]. 
+\end{displaymath}
+Après on transforme 
+\begin{displaymath}
+\left[\begin{matrix}1 & 0 & 0\\- 0.5 i & 1 & 0\\6 & 0 & 1\end{matrix}\right]\cdot  \left[\begin{matrix}-2 & i & 12\\- i & 0 & 3 + 4 i\\12 & 3 - 4 i & 5\end{matrix}\right]\cdot  
+\left[\begin{matrix}1 & 0.5 i & 6\\0 & 1 & 0\\0 & 0 & 1\end{matrix}\right]
+  = 
+\left[\begin{matrix}-2 & 0 & 0\\0 & 0.5 & 3 - 2 i\\0 & 3 + 2 i & 77\end{matrix}\right]
+\end{displaymath}
+La prochaine transformation est 
+
+\begin{displaymath}
+  \left[\begin{matrix}1 & 0 & 0\\0 & 1 & 0\\0 & -6 - 4 i & 1\end{matrix}\right] \cdot 
+\left[\begin{matrix}-2 & 0 & 0\\0 & 0.5 & 3 - 2 i\\0 & 3 + 2 i & 77\end{matrix}\right] \cdot 
+\left[\begin{matrix}1 & 0 & 0\\0 & 1 & -6 + 4 i\\0 & 0 & 1\end{matrix}\right] = 
+\left[\begin{matrix}-2 & 0 & 0\\0 & 0.5 & 0\\0 & 0 & 51\end{matrix}\right]. 
+\end{displaymath}
+Pour 
+\begin{displaymath}
+P =   \left[\begin{matrix}0 & 1 & 0\\1 & 0 & 0\\0 & 0 & 1\end{matrix}\right] \cdot 
+\left[\begin{matrix}1 & - 0.5 i & 6\\0 & 1 & 0\\0 & 0 & 1\end{matrix}\right]
+\cdot 
+\left[\begin{matrix}1 & 0 & 0\\0 & 1 & -6 - 4 i\\0 & 0 & 1\end{matrix}\right]
+\end{displaymath}
+on obtient 
+\begin{displaymath}
+  P^T \cdot A \cdot \overline{P} = \left[\begin{matrix}-2 & 0 & 0\\0 & 0.5 & 0\\0 & 0 & 51\end{matrix}\right]. 
+\end{displaymath}
+
+
+
+\end{example}
+ 
+
+
+\subsection*{Exercices}
+
+\begin{enumerate}
+\item Soit $V$ un espace vectoriel sur $\C$ et $f\colon V\times V \longrightarrow \C$ une application satisfaisant les axiomes 
+
+  \begin{enumerate}[i)] 
+  \item On a $f({v,w}) = \overline{f({w,v})}$ pour tout $v,w \in V$.  
+  \item Si $u,v$ et $w$ sont des éléments de $V$,  
+    \begin{displaymath}
+      f({u,v+w}) = f({u,v}) +f({u,w}) 
+    \end{displaymath}
+  \item Si $x \in \C$ et $u,v \in V$, 
+    \begin{displaymath}
+      f({x \cdot u , v}) = x f({u,v}). 
+    \end{displaymath}  
+  \end{enumerate}
+Montrer que $f$ est un produit hermitien. 
+\item Soit $V$ un espace vectoriel sur $\C$ de dimension finie et $f: V \times V \longrightarrow \C$ une forme sesquilinéaire. Pour une base  $B = \{v_1,\dots,v_n\}$ de $V$ et $x = \sum_i \alpha_i v_i$ et $y = \sum_i \beta_i v_i$ montrer en détail que 
+  \begin{displaymath}
+  \pscal{x,y} = [x]_B ^T A_B^{f} \overline{[y]_B} 
+\end{displaymath}
+avec la matrice $A_B^f = (f(v_i,v_j))_{1 \leq i,j \leq n}$. Indiquez l'application des axiomes PH~\ref{ph2}) et PH~\ref{ph3}) dans les pas correspondants. 
+\item Démontrer la proposition~\ref{prop:3}. 
+\item Soit $V$ un espace vectoriel sur $\C$ de dimension $n$ et soit $\pscal{.}$ un produit hermitien. Montrer que $\pscal{.}$ est non dégénéré si et seulement si $\rank(A_B^{\pscal{.}}) = n$  pour chaque base $B$ de $V$. 
+\item Montrer que $\cong_\C$ est une relation d'équivalence. \label{item:6}
+\item Modifier l'algorithme~\ref{alg:1} afin qu'il calcule une matrice diagonale congruente complexe par rapport à une matrice hermitienne $A \in \C^{n \times n}$. \label{item:7}
+\item Soient $V$ un espace vectoriel sur $\C$ et $\dim(V) = 3$ et $B = \{v_1,v_2,v_3\}$ une base de $V$. Avec les matrices $A_i \in \C^{3\times 3}$ décrites en bas et les applications  $f_i(x,y) = [x]_B^T A_i \overline{[y]_B}$, cocher ce qui s'applique.  
+
+
+\bigskip 
+
+  \begin{center}
+ 
+    \begin{tabular}{|c|c|c|c|}
+      \hline 
+      & $A_1$ & $A_2$ & $A_3$ \\\hline 
+      forme sesquilinéaire & & & \\ \hline 
+      produit hermitien & & & \\ \hline 
+    \end{tabular}
+  \end{center}
+  
+  \medskip 
+
+
+  \begin{displaymath}
+    A_1 = 
+    \begin{pmatrix}
+      2 & 1 & 3 \\
+      1 & 0 & 2 \\
+      3 & 2 & 0
+    \end{pmatrix}, \, 
+    A_2 = 
+ \begin{pmatrix}
+      2 & 1+i & 3 \\
+      1 & 0 & 2 \\
+      3 & 2 & 0
+    \end{pmatrix}, \, 
+     A_3 = 
+    \begin{pmatrix}
+      2 & 1+ 2 \cdot i & 3 - i \\
+      1 - 2 \cdot i & 0 & 2-i \\
+      3-i & 2+i & 0
+    \end{pmatrix}. 
+  \end{displaymath}
+
+
+  
+
+\end{enumerate}
+
+
+
+
+
+\section{Espaces hermitiens} 
+\label{sec:espaces-hermitiens}
+
+
+
+\begin{framed}\noindent 
+  Pour le reste de ce paragraphe, si pas spécifié autrement,  $V$
+  est toujours un espace vectoriel sur $\C$
+  muni d'un produit hermitien défini positif, alors $V$ est un espace hermitien. 
+\end{framed}
+
+
+
+
+\begin{definition}
+  \label{def:h5}
+  Soit $\pscal{\,}$ un produit hermitien défini positif. La \emph{longueur} ou la \emph{norme} d'un élément $v \in V$ est le nombre 
+  \begin{displaymath}
+    \| v \| = \sqrt{\pscal{v,v}}.
+  \end{displaymath}
+  Un élément $v \in V$ est un \emph{vecteur unitaire} si $\|v\| = 1$. 
+\end{definition}
+
+Aussi, l'inégalité de Cauchy-Schwarz est démontrée comme avant: 
+\begin{equation}
+  \label{eq:6}
+  | \pscal{u,v}| \leq \|u\| \|v\|. 
+\end{equation}
+
+
+Les propriétés suivantes sont facilement vérifiées. 
+\begin{enumerate}[i)]
+\item Pour tout $v \in V$, $\|v\|\geq 0$ et $\|v\| = 0$ si et seulement si $v = 0$. \label{item:8}
+\item Pour $\alpha \in \C$ et $v \in V$ on a $\| \alpha \cdot v \| = |\alpha| \cdot \|v\|$. \label{item:9}
+\item Pour chaque $u,v \in V$ $\|u+v\| \leq \|u\| + \|v\|$. \label{tr:2}
+\end{enumerate}
+
+Aussi, nous avons le théorème de Pythagore, l'inégalité de Bessel et la règle du parallélogramme.  
+L'équivalent du procédé de Gram-Schmidt pour les espaces hermitiens est comme suit. 
+
+
+\begin{theorem}[Le procédé d'orthogonalisation de Gram-Schmidt]
+\label{thr:12}
+  Soit $V$ un espace hermitien et  $\{v_1,\dots,v_n\} \subseteq V$
+  un ensemble libre.  
+  Il existe un ensemble libre orthogonal $\{u_1,\dots,u_n\}$
+  de $V$
+  tel que pour tout $i$,
+  $\{v_1,\dots,v_i\}$
+  et $\{u_1,\dots,u_i\}$ engendrent le même sous-espace de $V$.
+\end{theorem}
+
+Comme avant, une base orthonormale est une base orthogonale consistant de vecteurs unitaires et le procédé de Gram-Schmidt nous donne le corollaire suivant. 
+
+\begin{corollary}
+\label{co:6}
+Soit $V$
+un espace hermitien de dimension finie. Supposons $V \neq
+  \{0\}$. $V$ possède alors une base orthonormale.
+\end{corollary}
+
+
+
+\subsection*{Exercices} 
+
+\begin{enumerate}
+\item Montrer l'inégalité de Cauchy-Schwarz. 
+\item Montrer l'inégalité triangulaire~\ref{tr:2}). 
+\item Montrer qu'un espace hermitien de dimension finie possède une base $B$ telle que $\pscal{x,y} = [x]_B^T \cdot [y]_B$, où $\cdot$ est le produit hermitien standard. \label{item:4}
+\end{enumerate}
+
+ 
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "notes"
+%%% End:

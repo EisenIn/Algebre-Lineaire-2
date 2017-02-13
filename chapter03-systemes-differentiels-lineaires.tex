@@ -1,0 +1,950 @@
+\chapter{Systèmes différentiels linéaires}
+\label{cha:syst-diff-line}
+\hrule
+\medskip
+\begin{center}
+  Cours du 17. Mai 2016
+\end{center}
+\hrule 
+\bigskip 
+
+On considère le système suivant
+\begin{equation}
+  \label{eq:19}
+  \begin{array}{ccccc}
+    \x'_1(t) & = &a_{11}\x_1(t) & + \cdots + & a_{1n}\x_n(t) \\
+    \x'_2(t) & = &a_{21}\x_1(t) & + \cdots + & a_{2n}\x_n(t) \\
+            & \vdots \\             
+    \x'_n(t) & = &a_{n1}\x_1(t) & + \cdots + & a_{nn}\x_n(t)
+  \end{array}
+\end{equation}
+où les $a_{ij} \in \R$.  
+En notation de vecteur matrice on peut écrire ça comme 
+\begin{displaymath}
+  \x' = A\,\x
+\end{displaymath}
+où 
+\begin{displaymath}
+  A =
+  \begin{pmatrix}
+    a_{11} & \cdots & a_{1n}\\
+          & \vdots & \\
+          a_{n1} & \cdots & a_{nn}\\          
+  \end{pmatrix}.
+\end{displaymath}
+
+On cherche des fonctions dérivables $\x_i: \R \longrightarrow \R$  qui, ensembles constituent $\x$ et qui  satisfont \eqref{eq:19}. Un tel $\x$ est une \emph{solution} du système~\eqref{eq:19}. 
+
+
+
+\begin{example}
+  \label{exe:20}
+  Considérons l'équation différentielle $\x'(t) = \x(t)$. Une solution est $\x(t) = e^t$. Une autre solution est $\x(t) = 2\cdot e^t$. Si on spécifie la \emph{condition initiale} $\x(0) = 1$, alors $\x(t) = e^t$ est la solution qui satisfait cette condition initiale. Autrement, si on spécifie $\x(0) = \alpha$, alors  $\x(t) = \alpha \cdot e^t$ est une solution qui satisfait la condition initiale. 
+
+Considérons $\x'(t) = -\x(t)$, une solution est $\x(t) = e^(-t)$. %$\x(t) = \cos(t)$.
+C'est aussi une solution qui respecte la condition initiale $\x(0) = 1$. 
+\end{example}
+
+
+
+Essayons d'abord de résoudre le système comme suivant $\x(t) = e^{\lambda t} v$ où $v \in \R^n$ est un vecteur constant. Dans ce cas $\x' = A\x$ se récrit comme   $\lambda e^{\lambda t}  v = e^{\lambda t} v$. Nous avons démontré le lemme suivant. 
+
+\begin{lemma}
+  \label{thr:29}
+  Si $\lambda \in \R$ est une valeur propre de $A$ et si $v \in \R^n \setminus \{0\}$ est un vecteur propre correspondant, alors $\x(t) = e^{\lambda t} v$ est  une solution du système~\eqref{eq:19} pour les conditions initiales $\x(0) = v$. 
+\end{lemma}
+
+
+Le théorème suivant est démontré en cours \emph{analyse 2}. 
+\begin{theorem}[Cours d'analyse II] 
+  \label{thr:28}
+  Étant données les \emph{conditions initiales} $\x(0)$
+  il existe une solution $\x$ unique du système~\eqref{eq:19}. 
+\end{theorem}
+Nous sommes concernés avec le problème de \emph{trouver} la solution $\x$ explicitement. On commence avec une observation qui est un exercice simple. 
+
+\begin{lemma}
+  \label{lem:13}
+  L'ensemble $\X = \{ \x \colon \x \text{ est une solution du système \eqref{eq:19}}\}$ est un espace vectoriel sur $\R$.  
+\end{lemma}
+
+Est-ce que c'est possible de donner  une base de $\X$ explicitement? Dans le cas où $A$ est diagonalisable comme 
+\begin{displaymath}
+  A = P \cdot \diag(\lambda_1,\dots,\lambda_n) \cdot P^{-1} 
+\end{displaymath}
+où $P \in \R^{n \times n}$ est inversible et les  $\lambda_i \in \R$ sont particulièrement agréables comme c'est décrit dans le lemme suivant. 
+
+\begin{theorem}
+  \label{thr:30}
+  Si $\R^n$ possède une base $\{v_1,\dots,v_n\} \subseteq \R^n$ de vecteurs propres de $A$ telle que $A \, v_i = \lambda_i v_i$, alors  
+  \begin{displaymath}
+    \x^{(i)}(t) = e^{\lambda_i t} \cdot v_i, \, i=1,\dots,m
+  \end{displaymath}
+est une base de $\X$. 
+\end{theorem}
+
+\begin{proof}
+  Montrons d'abord que les $\x^{(i)}$ sont linéairement indépendants. Supposons que $\sum_{i} \alpha_i \x^{(i)} = 0$. C'est à dire que les $n$ fonctions qui sont les composantes de $\sum_{i} \alpha_i \x^{(i)}$ sont toutes la fonction $f(x) = 0$. Dès que $e^{\lambda_i 0} = 1$, ça implique que 
+  \begin{displaymath}
+    0 = \sum_i \alpha_i v_i e^{\lambda_i 0} = \sum_i \alpha_i v_i.  
+  \end{displaymath}
+Mais les $v_i$ sont linéairement indépendants. Alors $\alpha_i = 0$ pour tout $i$ ce qui démontre que les $\x^{(i)}$ sont linéairement indépendants. 
+
+
+Maintenant soit $\y \in \X$ et soient  $\alpha_i \in \R$  tels que 
+\begin{displaymath}
+  \y(0) = \sum_i \alpha_i v_i.  
+\end{displaymath}
+Alors $\x = \sum_i \alpha_i \x^{(i)} \in \X$  et dès que $\x(0) = \y(0)$, le Théorème~\ref{thr:28} implique $\x = \y$. C'est à dire que les $\x^{(i)}$ engendrent $\X$, alors $\{\x^{(1)},\dots, \x^{(n)}\}$ est une base de $\X$. 
+\end{proof}
+
+
+Est-ce qu'on peut aussi trouver une solution dans la cas où $A$ est diagonalisable dans les nombres complexes, donc si 
+\begin{displaymath}
+A=P \cdot \diag(\lambda_1,\dots,\lambda_n) \cdot P^{-1} 
+\end{displaymath}
+où $P \in \C^{n \times n}$ est inversible et les  $\lambda_i \in \C$? Pour discuter de ça, il faut d'abord définir, ce qu'est une solution complexe du système~\eqref{eq:19}. Toute fonction $f: \R \longrightarrow \C$ s'écrit comme 
+
+\begin{displaymath}
+  f(x) = f_{\Re}(x) + i \cdot f_{\Im}(x) 
+\end{displaymath}
+où $f_{\Re}(x), f_{\Im}(x)$ sont des fonctions de $ \R \longrightarrow \R$.  Si $f_\Re$ et $f_\Im$ sont dérivables, on dit que $f(x)$ est dérivable et on définit 
+\begin{displaymath}
+  f'(x) = f_\Re'(x) + i \cdot f_\Im'(x). 
+\end{displaymath}
+Si $\x_1,\dots,\x_n\colon \R \longrightarrow \C$ sont dérivables, comme avant 
+\begin{displaymath}
+  \x =
+  \begin{pmatrix}
+    \x_1\\ \vdots \\ \x_n
+  \end{pmatrix}
+\end{displaymath}
+est une \emph{solution complexe} du système~\eqref{eq:19} si $\x' = A\x$.   Et comme avant, on peut noter le lemme suivant, en se rappellant que $e^{a + ib} = e^a (\cos b + i \cdot \sin b)$. 
+
+
+\begin{lemma}
+  \label{lem:15}
+  Si $\lambda \in \C$ est une valeur propre de $A$ et si $v \in \C^n \setminus \{0\}$ est un vecteur propre correspondant, alors $\x(t) = e^{\lambda t} v$ est  une solution du système~\eqref{eq:19} pour les conditions initiales $\x(0) = v$. 
+\end{lemma}
+\begin{proof}
+  On écrit 
+  \begin{displaymath}
+    \x' = \lambda e^{\lambda t} v = e^{\lambda t} Av = A\x.
+  \end{displaymath}
+\end{proof}
+
+
+\begin{lemma}
+  \label{lem:14}
+  Étant donnée une solution complexe $\x = \x_\Re + i \x_\Im$ du système~\eqref{eq:19}, alors $\x_\Re$ et $\x_\Im$ sont des solutions réelles.  
+\end{lemma}
+\begin{proof}
+  Dès que $\x_\Re + i \x_\Im $ est une solution, on a 
+  \begin{displaymath}
+   \x'_\Re+ i \x'_\Im = \x' = A \x = A\x_\Re + A\x_\Im. 
+  \end{displaymath}
+Dès que $A $ est réelle on voit $\x_\Re' = A\x_\Re$ et $\x'_\Im = A \x_\Im$. 
+\end{proof}
+
+
+Supposons alors que $A \in \R^{n \times n}$ est diagonalisable . Et soit $\{v_1,\dots,v_n\}$ une base de $\C^n$ de vecteurs propres associés à 
+$\lambda_1,\dots,\lambda_n$ respectivement. Si $v_i = u_i + i \cdot w_i$  où $u_i,w_i \in \R^n$, les $u_1,\dots,u_n,v_1,\dots,v_n$ engendrent $\R^n$, voir exercice~\ref{item:5}. Comme nous avons noté 
+\begin{displaymath}
+  \x^{(j)} = e^{\lambda_j t} v_j
+\end{displaymath}
+sont des solutions complexes du système~\eqref{eq:19}.   
+
+Aussi, on peut supposer que la base et les valeurs propres sont tels que les vecteurs/valeurs propres complexes viennent en paires conjugées complexes. Plus précisément
+\begin{equation}
+\label{eq:22}
+  v_{2_j+1} = \overline{v_{2j}}\, \text{ et } \, \lambda_{2j+1} = \overline{\lambda_{2j}} \, \text{ pour } \, 1 \leq j \leq k \leq n/2 
+\end{equation}
+et 
+\begin{equation}
+  \label{eq:23}  
+  v_j \in \R^n, \lambda_j \in \R \text{ pour } j > 2k+1. 
+\end{equation}
+%
+Considérons maintenant une solution impliquée par $v = u+iw$  $\lambda= a+ib$. 
+\begin{eqnarray*}
+  \x & = & e^{a \, t} \left(\cos (b t)  + i \sin (b t ) \right)  (u + i w)  \\
+   & = & e^{a \, t} \left(\cos (b t) u - \sin (bt)w \right)  + ie^{a \, t} \left(\sin (b t ) u + \cos(bt)w \right). 
+\end{eqnarray*}
+Ça nous donne alors ces deux solutions réelles 
+\begin{eqnarray*}
+  \x^{(1)} & = & e^{a \, t} \left(\cos (b t) u - \sin (bt)w \right) \\
+  \x^{(2)} & = &  e^{a \, t} \left(\sin (b t ) u + \cos(bt)w \right). 
+\end{eqnarray*}
+\begin{remark}
+  \label{rem:2}
+  Les solutions réelles impliquées par $v$ et $\lambda$ sont les mêmes que les solutions réelles impliquées par $\overline{v}$ et $\overline{\lambda}$. 
+\end{remark}
+
+Nous pouvons alors noter une marche à suivre pour résoudre le système~\eqref{eq:19} étant donné $\x(0)$ si $A$ est diagonalisable.
+\begin{enumerate}
+\item Trouver une base de vecteurs propres $v_1,\dots,v_n$ de $A$ ordonnée comme dans \eqref{eq:22} et \eqref{eq:23}. 
+\item Pour chaque paire $v_j,\lambda_j$, $1 \leq j \leq k$ trouver les  deux solutions réelles dénotées comme  $\x^{(2j)}$ et $\x^{(2j+1)}$. 
+\item Pour chaque paire réelle $v_j, \lambda_j$ $n\geq j>2k+1$, trouver la solution $\x^{(j)}$. 
+\item Trouver la combinaison linéaire 
+  \begin{displaymath}
+    \x(0) = \sum_{j} \alpha_j \x^{(j)}(0) 
+  \end{displaymath}
+\item La solution est 
+  \begin{displaymath}
+    \x = \sum_{j} \alpha_j \x^{(j)} 
+  \end{displaymath}
+\end{enumerate}
+
+
+
+\begin{example}
+  \label{exe:21}
+  Résoudre le système $\x' = A\x$ où 
+  \begin{displaymath}
+    A  =
+    \begin{pmatrix}
+      1 & 2 \\
+      -2 & 1
+    \end{pmatrix} \, \text{ et } \, \x(0) =
+    \begin{pmatrix}
+      1\\1
+    \end{pmatrix}. 
+  \end{displaymath}
+ On trouve que $\lambda_1 = 1 + 2 i$ et $\lambda_2 = 1 - 2i$ sont les valeurs propres de $A$ et 
+ \begin{displaymath}
+   v_1 =
+   \begin{pmatrix}
+     1\\i
+   \end{pmatrix} \text{ et } v_2 =
+   \begin{pmatrix}
+     1 \\ -i
+   \end{pmatrix}
+ \end{displaymath}
+sont les vecteurs propres correspondants. 
+Les deux solutions impliquées par $v_1$ sont 
+\begin{eqnarray*}
+  \x^{(1)} & = & e^{ t} \left(\cos ( 2t)
+                 \begin{pmatrix}
+                   1\\0
+                 \end{pmatrix}
+- \sin (2t)\
+  \begin{pmatrix}
+    0\\1
+  \end{pmatrix}
+\right) \\
+  \x^{(2)} & = &  e^{t} \left(\sin ( 2t )
+                 \begin{pmatrix}
+                   1\\0
+                 \end{pmatrix}
++ \cos(2t)
+  \begin{pmatrix}
+    0\\1
+  \end{pmatrix}
+\right). 
+\end{eqnarray*} 
+La solution qu'on cherche est 
+\begin{displaymath}
+  \x = \begin{pmatrix}
+           e^{t} \sin (2t) + e^{t} \cos(2t) \\
+           - e^{t} \sin(2t) + e^{t} \cos(2t)
+         \end{pmatrix}.
+\end{displaymath}
+
+\end{example}
+
+
+
+
+
+
+% Une situation très agréable est si $A$ est diagonalisable. Soit $P^{-1}AP = \diag(\lambda_1,\dots,\lambda_n)$ où $P = (v_1,\dots,v_n)$. 
+% Avec le changement de variables $\x = P\cdot \y $ on écrit
+% \begin{displaymath}
+%   \y' = P^{-1} \x' = P^{-1} A\x = P^{-1}AP\y = \diag(\lambda_1,\dots,\lambda_n) \y. 
+% \end{displaymath}
+% Le système 
+% \begin{equation}
+%   \label{eq:20}  
+%   \y' = \diag(\lambda_1,\dots,\lambda_n) \y 
+% \end{equation}
+% est découplé et les conditions initiales sont $\y(0) = P^{-1} \x(0)$. La solution est $\y_i(t) = \y_i(0) e^{\lambda_i \cdot t}$ et $\x = P \cdot \y$ est la solution du système~\eqref{eq:19} pour les conditions initiales $\x(0)$. 
+
+% \begin{remark}
+%   \label{rem:1}
+%   Notez que, même si $A$
+%   est diagonalisable, seulement dans les nombre complexes, les
+%   fonctions $\x$ sont réelles.
+% \end{remark}
+
+
+
+
+
+\subsection*{Exercices} 
+
+\begin{enumerate}
+\item Montrer Lemme~\ref{lem:13}. 
+\item Une fonction $f:\C \longrightarrow \C$ est \emph{holomorphe} en $z_0 \in \C$ si
+  \begin{displaymath}
+    f'(z_0) = \lim_{z \rightarrow z_0} \frac{f(z) - f(z_0)}{z - z_0} 
+  \end{displaymath}
+existe. Soit $f$ holomorphe sur $\C$ et $g = f_{|\R}$ la fonction $f$ réduite à $\R$. 
+ Montrer 
+\begin{enumerate}[i)]
+\item  $g(x) = g_\Re(x) + i \cdot g_\Im(x)$ est dérivable au  sens de notre définition, particulièrement $g_\Re(x)$ et $ g_\Im(x)$ sont dérivables. 
+\item $f'_{| \R} (x) = g'_\Re(x) + i \cdot g'_\Im(x)$. 
+\end{enumerate}
+\item Soit $\{u_1+ i \cdot w_1,\dots,u_n + i \cdot w_n\}$ une base de $\C^n$ où $u_i,w_i \in \R^n$  pour tout $i$. Montrer que $\spa\{u_i, w_i \colon 1 \leq i \leq n\} = \R^n$. \label{item:5}
+\end{enumerate}
+
+
+
+
+
+
+\section{L'exponentielle d'une matrice}
+\label{sec:lexp-dune-matr}
+\bigskip 
+\hrule
+\medskip
+\begin{center}
+  Cours du 24. Mai 2016
+\end{center}
+\hrule 
+\bigskip 
+
+
+\begin{definition}
+  \label{def:28}
+  Pour $A \in \C^{n \times n}$ on définit 
+  \begin{displaymath}
+    e^A = I + A + \frac{1}{2!} A^2 + \frac{1}{3!}A^3 + \cdots 
+  \end{displaymath}
+\end{definition}
+
+\noindent On rappelle la définition d'une série intégrable 
+\begin{displaymath}
+  \sum_{j=0}^\infty a_j z^j,
+\end{displaymath}
+où les coefficients $a_j \in\C$, et
+qui converge sur un \emph{disque} de rayon $\rho$. C'est à dire que, si $|z|< \rho$ la série converge et la fonction $f\colon \{x \in \C \colon |x| < \rho \}  \rightarrow \C$ définie par $f(x) = \sum_{j=0}^\infty a_j x^j $ est \emph{holomorphe} avec dérivée $f'(x) =  \sum_{j=0}^\infty j a_j x^{j-1}$. 
+Une série intégrable importante est la série
+\begin{displaymath}
+  e^{x} = \sum_{j=0}^\infty \frac{1}{j!} x^j,
+\end{displaymath}
+qui définit la fonction holomorphe $\exp: \C \longrightarrow \C$ 
+\begin{displaymath}
+  e^{a+i\,b} = e^a (\cos b + i \sin b).  
+\end{displaymath}
+
+\noindent On va maintenant généraliser la définition de la \emph{norme Frobenius} pour les matrices complexes. Pour $A \in \C^{m\times n}$, 
+\begin{displaymath}
+  \|A\|_F = \sqrt{\sum_{ij} |a_{ij}|^2 }. 
+\end{displaymath}
+
+\begin{lemma}
+  \label{lem:16}
+  Pour $A,B \in \C^{m \times n}$ on a 
+  \begin{displaymath}
+    \|A\cdot B\|_F \leq \|A\|_F\cdot \|B\|_F. 
+  \end{displaymath}
+\end{lemma}
+
+  \begin{proof}Soient $a_1^T,\dots,a_n^T \in \C^m$ les lignes de $A$ et $\overline{b_1},\dots,\overline{b_n} \in \C^m$ les colonnes de $B$. Avec Cauchy-Schwarz 
+    \begin{displaymath}
+          |(AB)_{ij}|^2 = (a_i^T \overline{b_j})(\overline{a_i}^T b_j)  \leq \|a_i\|^2 \|b_j\|^2
+    \end{displaymath}
+et donc 
+\begin{displaymath}
+  \|AB\|_F^2 = \sum_{ij} |(AB)_{ij}|^2 \leq \sum_i\|a_i\|^2 \cdot \sum_i \|b_i\|^2 = \|A\|_F^2 \cdot \|B\|_F^2. 
+\end{displaymath}
+  \end{proof}
+
+
+  \begin{lemma}
+    \label{lem:17}
+    La série $e^A$ converge. 
+  \end{lemma}
+
+  \begin{proof}
+    \begin{eqnarray*}
+      \| \sum_{k=m}^\infty \frac{1}{k!} A^k \|_F & \leq &    \sum_{k=m}^\infty \frac{1}{k!} \|A^k \|_F\\
+      & \leq &  \sum_{k=m}^\infty \frac{1}{k!} \|A \|_F^k.\\
+    \end{eqnarray*}
+Alors 
+\begin{displaymath}
+  \lim_{m \rightarrow \infty} \|\sum_{k=m}^\infty \frac{1}{k!} A^k \|_F = 0. 
+\end{displaymath}
+  \end{proof}
+
+
+Nous avons montré que $e^{At} = \sum_{k=0}^\infty \frac{t^k}{k!} A^k$ converge pour tout $t \in \R$. Plus précisément chaque composante $\sum_{k=0}^\infty \frac{t^k}{k!} A^k$ est une série intégrable avec un rayon de convergence $\infty$. Alors, nous pouvons dériver les éléments pour obtenir 
+\begin{equation}
+  \label{eq:24}
+  \frac{d}{dt} e^{At} = A e^{At}. 
+\end{equation}
+
+
+\begin{theorem}
+  \label{thr:31}
+  La solution du problème initial $\x' = A\x$, $\x(0) =v$ est 
+  \begin{displaymath}
+    \x(t) = e^{At} v.
+  \end{displaymath}
+\end{theorem}
+
+\begin{proof}
+  Soit $\x(t) = e^{At} v$. Alors $\x'(t) = A e^{At}v = A\x(t)$. Plutôt $\x(0) = v$. 
+\end{proof}
+
+\begin{definition}
+  \label{def:29}
+  Une matrice $N$ est \emph{nilpotente} s'il existe un $k \in \N$ tel que $N^k = 0$. 
+\end{definition}
+
+Nous allons montrer ce théorème dans le prochain cours. 
+\begin{theorem}
+  \label{thr:32}
+  Chaque matrice $A \in \C^{n \times n}$ peut être factorisée comme 
+  \begin{displaymath}
+    A = P ( \diag(\lambda_1,\dots,\lambda_n) + N) P^{-1}
+  \end{displaymath}
+où $N \in \C^{n \times n}$ est nilpotente, $P \in \C^{n \times n}$ est inversible,  $\lambda_1,\dots,\lambda_n \in \C$ sont les valeurs propres de $A$ et $\diag(\lambda_1,\dots,\lambda_n)$ et $N$ commutent. 
+\end{theorem}
+
+
+\begin{lemma}
+  \label{lem:18}
+  Pour $A,B \in \C^{n \times n}$, si $A\cdot B = B \cdot A$ on a $e^{A+B} = e^A e^B$. 
+\end{lemma}
+
+
+
+Comment peut-on maintenant résoudre le problème initial $\x' = Ax, \, \x(0) = v$ explicitement? Nous savons que cette solution est $\x = e^{tA} \cdot v$ et nous savons que c'est une solution réelle pour $A \in \R^{m \times n}$. Mais les premiers termes s'écrivent comme 
+\begin{displaymath}
+  \sum_{i=0}^m t^i A^i = P \left(\sum_{i=0}^m t^i \diag(\lambda_1,\dots,\lambda_n) + t^i N \right) P^{-1} 
+\end{displaymath}
+où nous avons utilisé le théorème \ref{thr:32}. Dès que $N$ et $\diag(\lambda_1,\dots,\lambda_n)$ commutent, la solution \emph{réelle} que l'on cherche est  
+\begin{eqnarray*}
+  \x & = &  P e^{t\diag(\lambda_1,\dots,\lambda_n)} e^{tN} P^{-1} v \\
+     & = & P \left( \diag(e^{\lambda_1 \, t},\dots,e^{\lambda_n \, t})\cdot  \sum_{j=0}^{k-1} t^j N^{j} / j!\right)P^{-1},
+\end{eqnarray*}
+où $k \in \N$ est tel que $N^k = 0$. 
+
+\section{Polynômes}
+\label{sec:polyn-les-lalg}
+
+Soit $K$ un corps. 
+On dénote l'anneau des polynômes de $K$ par $K[x]$. 
+Un élément de $K[x]$ s'écrit comme 
+\begin{displaymath}
+  p(x) = a_0 + a_1 x + \cdots + a_n x^n 
+\end{displaymath}
+où les \emph{coefficients} $a_i \in K$. 
+Le \emph{degré} de $p(x) \neq 0$ est 
+\begin{displaymath}
+  \deg(p) = \max\{i \colon  a_i \neq 0\}
+\end{displaymath}
+et $\deg(0) = -\infty$. 
+Si $p \neq 0$, le coefficient $a_{\deg(p)}$ est le \emph{coefficient dominant} de $p$. 
+Un polynôme de degré zéro est une \emph{constante}. 
+
+La formule de multiplication de deux polynômes $f(x) = a_0+a_1x+ \cdots a_n x^n$ et $g(x) = b_0 + \cdots + b_m x^m$  est 
+\begin{equation}
+\label{eq:21}
+  f(x) \cdot g(x) = \sum_{i = 0}^{m+n} \left(\sum_{k+l = i}  a_{k} b_l\right) x^i
+\end{equation}
+
+\begin{theorem}
+  \label{thr:34}
+
+  Pour $f,g \in K[x] $, $\deg(f \cdot g) = \deg(f) + \deg(g)$. 
+\end{theorem}
+\begin{proof}
+  La formule~\eqref{eq:21} révèle que $\deg(f\cdot g) \leq \deg(f) + \det(g)$. 
+  Soient $f(x) = a_0 + \cdots + a_n x^n$ et $g(x) = b_0+ \cdots b_m x^m$ tels que $a_n, b_m  \neq 0$. Le coefficient de $x^{n+m}$  est $a_n \cdot  b_m \neq 0$.
+\end{proof}
+
+\begin{definition}
+  \label{def:30}
+  Un polynôme $f(x) \in K[x]$
+  tel que $\deg(f) \geq 1$ est \emph{irréductible} si
+  \begin{displaymath}
+    f(x) = g(x) \cdot h(x) 
+  \end{displaymath}
+implique $\deg(g) \cdot \deg(h) = 0$, alors un des facteurs est une constante. 
+\end{definition}
+
+
+
+
+La division avec reste est l'opération suivante. 
+
+\begin{theorem}
+  \label{thr:33}
+  Soient $f,g \in K[x]$ et $\deg(g) >0$. Il existe $q,r \in K[x]$ tels que 
+  \begin{displaymath}
+    f(x) = q(x) g(x) + r(x) 
+  \end{displaymath}
+  et $\deg(r) < \deg(g)$. 
+\end{theorem}
+
+
+\begin{proof}
+  La preuve se fait par induction sur $\deg(f)$. Si $\deg(f) < \deg(g)$, alors on pose $q = 0$ et $r = f$.
+
+Soit alors $\deg(f) = n \geq \deg(g)=m$ et 
+\begin{displaymath}
+  f(x) = a_0+ \cdots +a_n x^n \text{ et } g(x) = b_0 + \cdots + b_m x^m 
+\end{displaymath}
+où $a_n$ et $b_m$ sont les coefficients dominants de $f$ et $g$ respectivement. 
+Clairement 
+\begin{displaymath}
+  \deg\left( f(x) - \frac{a_n}{ b_m } x^{n-m} g(x) \right) < \deg(f(x))
+\end{displaymath}
+et par induction 
+\begin{displaymath}
+  f(x) - \frac{a_n}{ b_m } x^{n-m} g(x)  = q(x) g(x) + r(x) 
+\end{displaymath}
+tel que $\deg(r(x)) < \deg(g(x))$. On  obtient alors
+\begin{displaymath}
+  f(x) = (q(x) + \frac{a_n}{ b_m } x^{n-m} ) g(x) + r(x). 
+\end{displaymath}
+\end{proof}
+
+\begin{definition}
+  Pour $f(x)  = a_0 + \cdots + a_n x^n \in K[x]$ et $\alpha \in K$, l'évaluation $f(\alpha)$ est $ a_0 + a_1 \alpha + \cdots + a_n \alpha^n \in K$. 
+\end{definition}
+
+
+%\begin{proposition}
+%  \label{prop:5}
+%  Pour $\alpha \in K$, $\phi_\alpha: \, K[x] \longrightarrow K$, %$\phi_\alpha(f(x)) = f(\alpha)$ est un homomorphisme.  
+%\end{proposition}
+
+\begin{definition}
+  \label{def:31}
+  Soit $f(x) \in \K[x] \setminus\{0\}$. Un $\alpha \in K$ tel que $f(\alpha) = 0$ est une  \emph{ racine} de $f(x)$.  
+\end{definition}
+
+\begin{definition}
+  \label{def:32}
+  Un polynôme  $q(x)$ \emph{divise} un autre polynôme $f(x)$ s'il existe un polynôme $g(x)$ tel que $f(x) = g(x) \cdot q(x)$. On dit que $q(x)$ est un diviseur de $f(x)$ et on écrit $q(x) \mid f(x)$. 
+\end{definition}
+
+\begin{theorem}
+  \label{thr:35}
+  Soit $f(x)$ un polynôme  et $\alpha \in K$, alors $\alpha$ est une racine de $f$ si et seulement si $(x- \alpha)  \mid f(x)$. 
+\end{theorem}
+
+\begin{proof}
+  Si $f(x) = q(x) \cdot (x - \alpha)$, alors $f(\alpha) = 0$. 
+
+%Autrement, si $f$ est une constante, $f = 0$ et $(x - \alpha)$ divise $f$.
+Dans l'autre sens, si $f$ est une constante, $f(\alpha) = 0$ implique que $f = 0$ et $(x - \alpha)$ divise $f$. 
+
+Si $f$ n'est pas une constante, il existe $q(x)$ et $r(x)$ tels que
+\begin{displaymath}
+  f(x) = q(x) \cdot (x - \alpha) + r(x)
+\end{displaymath}
+%$\deg(r) = 0$. Alors $f(\alpha) = 0$ implique $r=0$. 
+avec $\deg(r) \leq 0$. Alors $f(\alpha) = 0$ implique $r=0$. 
+\end{proof}
+
+
+\begin{definition}
+  \label{def:33}
+  Un diviseur commun de $a(x) \in K[x]$
+  et $b(x) \in K[x]$
+  est un diviseur de $a(x)$
+  et $b(x)$.
+  Un diviseur commun le plus grand de $a(x)$
+  et $b(x)$
+  est un diviseur commun de $a(x)$
+  et $b(x)$
+  tel que tous les autres  diviseurs communs de $a(x)$ et $b(x)$ le divisent. On dénote les plus grands diviseurs communs de $a$ et $b$ par $\emph{pgdc}(a,b)$ (ou, en anglais, $\emph{gcd}(a,b)$, greatest common divisor).
+\end{definition}
+
+
+\begin{theorem}
+  \label{thr:36}
+  Soient $a(x),b(x)$ deux polynômes, tels que $\deg(a)+\deg(b)>0$. Un polynôme 
+  \begin{equation}
+    \label{eq:25}   
+    d(x) = g(x) a(x) + h(x) b(x) \neq 0
+  \end{equation}
+  où $g,h \in K[x]$ 
+  de degré minimale est un plus grand diviseur commun de $a$ et $b$. 
+\end{theorem}
+
+\begin{proof}
+  On montre qu'un tel $d(x)$ est un diviseur commun de $a$ et $b$ en procédant par l'absurde. Supposons que $d$ ne divise pas $a$. Alors il existe $q$ et $r$ tels que 
+  \begin{displaymath}
+    a = q\cdot d +r 
+  \end{displaymath}
+et $\deg(r) < \deg(d)$. Alors 
+\begin{displaymath}
+  r = a - q\cdot d = (1 - g\,q) a - h\,q\,b
+\end{displaymath}
+est un polynôme de la forme~\eqref{eq:25} avec un degré strictement plus petit que celui de $d$. 
+
+Il est clair que tous les diviseurs communs de $a$ et $b$ divisent $b$. 
+\end{proof}
+
+
+
+
+\begin{theorem}
+  \label{thr:39}
+  Soit $p(x)$ irréductible et supposons que $p(x) \mid f(x) \cdot  g(x)$, alors $p(x)\mid f(x)$ ou $p(x) \mid g(x)$. 
+\end{theorem}
+
+\begin{proof}
+Si $p(x)$ ne divise $f(x)$ ni $g(x)$ alors $1 = f(x) h_1(x) + p(x)h_2(x)$ et 
+$1 = g(x) h_3(x) + p(x) h_4(x)$ alors $\gcd(p(x), f(x)g(x))=1$. 
+\end{proof}
+
+
+\begin{theorem}
+  \label{thr:40}
+  Un polynôme  $f(x) \in K[x]$ a une factorisation 
+  \begin{displaymath}
+    f(x) = a^* \prod_j p_j(x)
+  \end{displaymath}
+  où $a^* \in K$ et les $p_j(x)$ sont irréductibles avec coefficient dominant $1$. Cette factorisation est unique sauf pour des permutations des $p_j$. 
+\end{theorem}
+
+
+
+\newpage
+\bigskip 
+\hrule
+\medskip
+\begin{center}
+  Cours du 31. Mai 2016
+\end{center}
+\hrule 
+\bigskip 
+
+\begin{definition}
+  \label{def:34}
+  Soit $V$ un espace vectoriel sur un corps $K$, $A: V \rightarrow V$ un endomorphisme et $f(x) = a_0+ \cdots + a_n x^n\in K[x]$. L'\emph{évaluation de $f$ sur $A$} est l'endomorphisme $f(A): V \rightarrow V$ 
+  \begin{displaymath}
+    f(A) = a_n A^n + a_{n-1}A^{n-1}+ \cdots + a_1 A + a_0 \cdot I_n \in K^{n \times n}. 
+  \end{displaymath}
+\end{definition}
+
+
+
+\begin{definition}
+  \label{def:35}
+  Soit $A:V \rightarrow V$ un endomorphisme et $W \subseteq C$ un sous-espace de $V$. On dit que $W$ est \emph{invariant sous $A$} si $A(x) \in W$ pour tout $x \in W$. 
+\end{definition}
+
+
+
+\begin{lemma}
+  \label{lem:20}
+  Soit $f(x) ∈ K[x]$ et $A:V ⟶  V$ un endomorphisme,  alors $\ker(f(A))$ est invariant sous $A$. 
+\end{lemma}
+
+
+\begin{proof}
+Si $v ∈ \ker(f(A))$ on trouve que $f(A)\,Av = Af(A)\,v = 0$. Alors, $Av ∈ \ker(f(A))$. 
+\end{proof}
+
+
+\begin{theorem}
+  \label{thr:37}
+  Soit $f(x) = f_1(x) \cdot f_2(x)$ et $A: V \cdot V$ un endomorphisme tel que 
+  \begin{enumerate}[i)]
+  \item $\deg(f_1) \cdot \deg(f_2) \neq 0$,
+  \item $\gcd(f_1,f_2) = 1$ 
+  \end{enumerate}
+  alors 
+  $
+      \ker(f(A)) = \ker(f_1(A)) \oplus \ker(f_2(A)) 
+   $.   
+\end{theorem}
+\begin{proof}
+  Dès que $\gcd(f_1,f_2)=1$ il existe $g_1(x),g_2(x)$ tels que 
+  \begin{displaymath}
+    1 = g_1(x) f_1(x) + g_2(x) f_2(x)
+  \end{displaymath}
+  et alors 
+  \begin{equation}
+    \label{eq:26}   
+    g_1(A) \cdot f_1(A) +  g_2(A) f_2(A) = I. 
+  \end{equation}
+  Pour $v \in \ker(f(A))$ alors 
+\begin{displaymath}
+   g_1(A) \cdot f_1(A) \cdot v  + g_2(A) f_2(A) \cdot v  = v. 
+\end{displaymath}
+Mais $g_1(A) \cdot f_1(A) \cdot v \in \ker(f_2(A))$  dès que 
+\begin{displaymath}
+  f_2(A) \cdot g_1(A) \cdot f_1(A) \cdot v =   g_1(A) \cdot f_1(A) f_2(A) \cdot v = g_1(A) f(A) v = 0
+\end{displaymath}
+et d'une manière similaire on voit que $g_2(A) f_2(A) \cdot v \in \ker(f_1(A))$. Il reste à démontrer que la somme est directe. 
+
+Soit alors $v ∈  \ker(f_1(A))  ∩  \ker(f_2(A))$.  L'équation~\eqref{eq:26} montre 
+\begin{displaymath}
+  v =  g_1(A) \cdot f_1(A) \, v+  g_2(A) f_2(A) \, v = 0,
+\end{displaymath}
+qui démontre que la somme est directe. 
+\end{proof}
+
+
+
+
+
+
+\subsection*{Exercices}
+\label{sec:exercices}
+\begin{enumerate}
+\item Montrer que $K[x]$ est un anneau avec $1_{K[x]} = 1_K$.  
+\item Montrer que  $a(x) \in K[x]$ et $b(x) \in K[x]$ $\deg(a)+\deg(b)>0$  possèdent exactement un diviseur commun le plus grand avec coefficient principal égal à $1_K$.  
+\end{enumerate}
+
+
+
+\section{La forme normale de Jordan}
+\label{sec:la-forme-normale}
+
+
+
+\begin{definition}
+  Un \emph{bloc Jordan} est une matrice de la forme 
+  \begin{displaymath}
+    \begin{pmatrix}
+      λ & 1 \\
+        & λ & 1 \\
+        &   & \ddots & \ddots \\ 
+        &   &             & λ & 1 \\
+        &   &         &  & λ  \\
+    \end{pmatrix}
+  \end{displaymath}
+où les éléments non décrits sont zéro. 
+
+Une matrice $A \in \C^{n \times n}$ est en \emph{forme normale de Jordan} si $A$ est en forme bloc diagonale, où tout les blocs sur la diagonale sont des blocs Jordan, alors une matrice de la forme 
+\begin{displaymath}
+  A =
+  \begin{pmatrix}
+    B_1 \\
+        & B_2 \\
+        &    & \ddots \\
+        &    &       & B_k
+  \end{pmatrix}
+\end{displaymath}
+où les matrices $B_j \in \C^{n_j\times n_j}$ sont des blocs Jordan. 
+\end{definition}
+
+
+Notre but est de montrer le théorème suivant. 
+
+\begin{theorem}
+  \label{thr:41}
+  Soit $A \in \C^{n \times n}$, alors il existe des matrices $P,J \in \C^{n \times n}$ telles que $J$ est en forme normale de Jordan, $P$ est inversible et 
+  \begin{displaymath}
+    A = P^{-1} \,J \,P. 
+  \end{displaymath}
+\end{theorem}
+
+\begin{definition}
+  \label{def:36}
+  Soit $V  = \C^n$. Le \emph{décalage}  est l'application linéaire 
+  \begin{displaymath}
+    U
+    \begin{pmatrix}
+      x_1 \\ \vdots \\ x_n
+    \end{pmatrix}
+     = 
+     \begin{pmatrix}
+       0 \\ x_1 \\ \vdots \\ x_{n-1}
+     \end{pmatrix}. 
+  \end{displaymath}
+  Le décalage plus une constante est une application linéaire 
+  \begin{displaymath}
+    U + \lambda \cdot I. 
+  \end{displaymath}
+\end{definition}
+
+C'est facile à voir que la matrice représentant le décalage plus $λ$ est 
+un seul bloc Jordan 
+\begin{displaymath}
+ \begin{pmatrix}
+      λ & 1 \\
+        & λ & 1 \\
+        &   & \ddots & \ddots \\ 
+        &   &             & λ & 1 \\
+        &   &         &  & λ  \\
+    \end{pmatrix}.   
+\end{displaymath}
+
+
+
+\begin{lemma}
+  \label{lem:19}
+  Soit $V$ un espace vectoriel de dimension finie sur $\C$ et soit $T\colon V ⟶ V$ une application linéaire. Alors $V$ est la somme directe de sous-espaces   $V = V_1 ⊕ \cdots ⊕ V_K$  tels que 
+  \begin{enumerate}[i)]
+  \item $T(V_i) ⊆ V_i$ pour tout $i$ et \label{item:10}
+  \item $T_{∣V_i} \colon V_i ⟶ V_i$
+    est de la forme $N_i + λ \, I$ où $N_i$ est nilpotente. \label{item:11}
+  \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+  Des que l'espace des applications linéaires sur $V$ est un espace vectoriel sur $\C$ de dimension finie il existe un $k \in \N$ tel que 
+  \begin{displaymath}
+    I, \, T, \, T^2, \dots, T^k
+  \end{displaymath}
+sont linéairement dépendants. Alors il existe un polynôme $p(x) \in \C[x] \setminus \{ 0 \}$ tel que $p(T) = 0$. Le théorème fondamental d'algèbre implique que 
+\begin{displaymath}
+  p(x) = ( x - λ_1)^{m_1} \cdots ( x - λ_k)^{m_k} 
+\end{displaymath}
+avec des   $λ_i$ différentes. 
+Le diviseur le plus grand de $( x - λ_i)^{m_i}$ et $p(x) / ( x - λ_i)^{m_i}$ est $1$ pour $i ≠ j$. En utilisant théorème~\ref{thr:37} en $k-1$ étapes alors 
+\begin{displaymath} 
+V =   \ker p(T) = \ker (T - λ_1I)^{m_1} ⊕  \cdots ⊕ \ker( T - λ_kI)^{m_k}
+\end{displaymath}
+et avec $V_i = \ker( T - λ_iI)^{m_i}$ on a $V = V_1 ⊕ \cdots ⊕ V_K$  et \ref{item:10}). 
+\end{proof}
+
+
+\begin{remark}
+  \label{rem:3}
+  Lemme~\ref{lem:19} démontre qu'il existe une base 
+  \begin{displaymath}
+  \mathscr{B} =   b_1^1,\dots,b_{\ell_1}^1,b_1^2,\dots,b_{\ell_2}^2,\dots,b_1^1,\dots,b_{\ell_k}^k
+  \end{displaymath}
+  où $b_1^i,\dots,b_{\ell_i}^i$ est une base de $V_i$ telle que la matrice $A^T_\mathscr{B}$ de $T$ par rapport à la base $\mathscr{B}$ est une matrice bloc diagonale 
+  \begin{displaymath}
+      A^T_{\mathscr{B} }  =
+      \begin{pmatrix}
+        B_1 \\
+        & B_2 \\
+        & & \ddots \\
+        & &  & B_k
+      \end{pmatrix}
+  \end{displaymath}
+et les matrices $B_i \in \C^{n_i × n_i}$ sont de la forme $B_i = N_i + λ_i I$ où les $N_i$ sont  nilpotentes. 
+
+Rappel: Si  $\phi_{\mathscr{B}}$ est l'ismomorphisme $\phi_{\mathscr{B}} \colon V \longrightarrow \C^n$, où $\phi_{\mathscr{B}}(x) = [x]_{\mathscr{B}}$ sont les coordonnées de $x$ par rapport à la base ${\mathscr{B}}$,  on a le diagramme suivant 
+\begin{displaymath}
+  {
+  \begin{CD}
+    V     @>T>>  V\\
+    @VV \phi_{\mathscr{B}} V        @VV \phi_{\mathscr{B}} V\\ 
+    \C^n     @>A^T_{\mathscr{B}} \cdot x>>  \C^n
+  \end{CD}} 
+\end{displaymath} 
+\end{remark}
+
+Il est clair, qu'il faut s'occuper maintenant des applications linéaires 
+\begin{displaymath}
+  T_{∣V_i} \colon V_i ⟶ V_i 
+\end{displaymath}
+qui sont de la forme $N + λ I$ pour une application nilpotente $N$. Le théorème suivant s'occupe des applications linéaires nilpotentes. La matrice de $λI$ est toujours $λ I$ pour chaque base. Il est alors clair que le théorème suivant démontre le théorème~\ref{thr:41}. 
+
+\begin{theorem}
+  \label{thr:38}
+  Soit $V$ un espace vectoriel sur $\C$ de dimension finie et $N\colon V ⟶V$  une application linéaire nilpotente.  Alors $V$ possède une base $ℬ$ de la forme 
+  \begin{displaymath}
+    x_1,Nx_1, \dots, N^{m_1-1}x_1, x_2,Nx_2, \ldots , N^{m_2-1}x_2, \quad \dots \quad , x_k,Nx_k, \dots, N^{m_k-1}x_k
+  \end{displaymath}
+telle que $N^{m_i}x_i = 0$ pour tout $i$. 
+\end{theorem}
+
+\begin{remark}
+  \label{rem:4}
+  Si on inverse l'ordre de la base $ℬ$ alors si on liste les éléments de droite à gauche on obtient une base $ℬ'$ et la matrice $A_{ℬ'}^{N }$ de l'application $N$  a la forme 
+  \begin{displaymath}
+    A_{ℬ'}^N =
+    \begin{pmatrix}
+      J_1 \\
+      & J_2 \\
+      & & \ddots \\
+      & & & J_k
+    \end{pmatrix}
+  \end{displaymath}
+en forme normale de Jordan, où 
+\begin{displaymath}
+  J_i =
+  \begin{pmatrix}
+    0 & 1 \\
+    &  0 & 1 \\
+    &    & \ddots & \ddots \\
+    &    &        & 0 & 1 \\
+    & & & & 0
+  \end{pmatrix} \in \C^{m_i × m_i}. 
+\end{displaymath}
+Par conséquence $N+ λI$ est représentée par 
+\begin{displaymath}
+ A_{ℬ'}^{N + λI} =    A_{ℬ'}^N + λ I_n
+\end{displaymath}
+en forme normale de Jordan. 
+\end{remark}
+
+
+\begin{proof}[Démonstration du Théorème~\ref{thr:38}] 
+  Pour $x \in V \setminus \{0\}$ on appelle 
+  \begin{displaymath}
+    m_x = \min \{ i \colon N^ix = 0\}
+  \end{displaymath}
+  la \emph{durée de vie} de $x$. 
+  La séquence 
+  \begin{displaymath}
+    x, Nx, \dots, N^{m_x-1} x
+  \end{displaymath}
+  est l'\emph{orbite} de $x$ sous $N$. 
+  
+  En concaténant les orbites des éléments d'une base, nous obtiendrons un ensemble de vecteurs qui engendre $V$. 
+  Supposons alors que nous avons un ensemble $x_1,\dots,x_\ell$ dont les orbites 
+  \begin{equation}
+    \label{eq:27}
+    x_1,Nx_1,\dots,N^{m_1-1}x_1, \,\dots \, ,  x_\ell,Nx_\ell,\dots,N^{m_\ell-1}x_\ell
+  \end{equation}
+  engendrent $V$. Ici $m_i$ est la durée de vie de $x_i$. Si~\eqref{eq:27} est linéairement dépendant nous allons remplacer un $x_i$ par un vecteur $y$ tel que 
+  \begin{enumerate}[i)]
+  \item Les orbites de $x_1,\dots, x_{i-1},y,x_{i+1},\dots,x_n$ engendrent ensemble  $V$ aussi, 
+  \item la somme des durées de vie de $x_1,\dots, x_{i-1},y,x_{i+1},\dots,x_n$  est strictement plus petite que la somme des durées de vie de $x_1,\dots,x_\ell$. 
+  \end{enumerate}
+Comme ça nous avons montré le théorème parce que un tel procédé doit se terminer. 
+
+Dès que l'ensemble~\eqref{eq:27} est linéairement dépendant il existe une combinaison linéaire non triviale de~\eqref{eq:27} qui est égale a $0$ 
+\begin{displaymath}
+0 =   β_0^1 x_1 + β_1^1 Nx_1+ \dots+ β_{m_1-1}N^{m_1-1}x_1 + \dots + 
+β_0^\ell x_\ell + β_1^\ell Nx_\ell+ \dots+ β_{m_\ell-1}N^{m_\ell-1}x_\ell 
+\end{displaymath}
+Maintenant, nous allons appliquer l'application $N$ $k$-fois où $k$ est le dernier moment, où pas tous les termes 
+\begin{displaymath}
+  β_i^j N^{k+i}x 
+\end{displaymath}
+sont égaux à zéro. Comme ça nous avons trouvé un sous-ensemble $J ⊆ \{1,\dots,k\}$ et des $γ_j ≠ 0$ tels que 
+\begin{displaymath}
+  \sum_{j \in J} γ_j N^{m_j-1}x_j = 0.
+\end{displaymath}
+Soit $m = \min_{j \in J} {m_j-1}$ et soit $i \in J$ un index où le minimum est atteint. Alors 
+\begin{displaymath}
+ 0 =  N^m  \sum_{j \in J} γ_j N^{m_j-1 - m}x_j  
+\end{displaymath}
+et $γ_i x_i$ est un terme dans la somme en dessus. 
+
+Maintenant on remplace $x_i$ avec $y = \sum_{j \in J} γ_j N^{m_j-1 - m}x_j$. Il est facile de voir que les orbites de 
+\begin{displaymath}
+  x_1,\dots, x_{i-1},y,x_{i+1},\dots,x_n
+\end{displaymath}
+engendrent encore $V$. Et la durée de vie de $y$ est au plus $m<m_i$. On a alors démontré le théorème.  
+\end{proof}
+
+
+
+\subsection*{Exercices} 
+
+\begin{enumerate}
+\item Montrer que les orbites de 
+$ x_1,\dots, x_{i-1},y,x_{i+1},\dots,x_n $ engendrent encore $V$. (Voir démonstration du théorème~\ref{thr:38}).  
+\end{enumerate}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "notes"
+%%% End:
