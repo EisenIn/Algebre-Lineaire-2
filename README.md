@@ -1,2 +1,20 @@
 # Algebre-Lineaire-2
-Course Material for my course Linear Algebra 2 (in french) 
+
+This repository contains the latex sources of the lecture notes of my course Advanced linear algebra II (in french). 
+
+# Creating a PDF file
+
+I am not publishing the pdf-file of the lecture notes. Instead I recommend to use git-features to keep up to date and to participate. For a newcomer to GitHub, it might be a good idea to install the GitHub desktop https://desktop.github.com/ first and to open this repository https://github.com/EisenIn/Algebre-Lineaire-2/ within the GitHub desktop. Then, proceed by going through the tutorial on GitHub desktop. If you want to suggest some changes to the lecture notes, please create n new branch, edit the files in there and send a pull request that is then open for discussion. 
+
+To compile the latex sources, install LaTeX, for examplefrom the official webpage of the latex project http://www.latex-project.org/ and latex the file notes.tex . If you want a correct bibliography, you should also run bibtex on notes.tex . 
+
+# Frequently asked questions
+
+## Why Git? 
+
+A short answer: I believe in participation. I am using Git now for the second year in a row. The quality of the text has improved a lot due to the contributions of my students. Also, I hope that the GitHub feautures that are particularly easy to use within the GitHub desktop, will stimulate more discussion on the material. I am looking forward to your pull requests. 
+
+## Why LaTeX? 
+
+Well, you want to become a mathematician. What kind of a question is that? ;) 
+            
