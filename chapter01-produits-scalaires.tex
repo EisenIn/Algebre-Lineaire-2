@@ -14,12 +14,12 @@
   \begin{enumerate}[BL 1]
   \item Si $u,v$ et $w$ sont des éléments de $V$, et $α ∈ K$ est un scalaire,  \label{ps:2}
     \begin{displaymath}
-      \pscal{u,v+w} = \pscal{u,v}+\pscal{u,w} \quad \text{ et } \pscal{u,α ⋅ w} = α ⋅\pscal{u,v}. 
+      \pscal{u,v+w} = \pscal{u,v}+\pscal{u,w} \quad \text{ et } \pscal{u,α ⋅ w} = α ⋅\pscal{u,w}. 
     \end{displaymath}
   \item 
     Si $u,v$ et $w$ sont des éléments de $V$, et $α ∈ K$ est un scalaire,  \label{ps:3}
     \begin{displaymath}
-      \pscal{v+w,u} = \pscal{v,u}+\pscal{w,u} \quad \text{ et } \pscal{α ⋅ u, w} = α ⋅\pscal{u,v}. 
+      \pscal{v+w,u} = \pscal{v,u}+\pscal{w,u} \quad \text{ et } \pscal{α ⋅ u, w} = α ⋅\pscal{u,w}. 
     \end{displaymath}     
   \end{enumerate}
 La  forme bilinéaire  est \emph{symétrique} si 
@@ -28,7 +28,7 @@ pour tout $v,w \in V$
     \pscal{v,w} = \pscal{w,v}. 
 \end{displaymath}
 \noindent
-On dit que la forme bilinéaire est \emph{non dégénéré} si, de plus, la condition suivante est vérifiée:
+On dit que la forme bilinéaire est \emph{non dégénéré} si la condition suivante est vérifiée:
 \begin{quote}
   Si $v \in V$, et si $\pscal{v,w}=0$ pour tout $w \in V$, alors $v = 0$. 
 \end{quote}
@@ -51,7 +51,10 @@ Vérifions (BL~\ref{ps:2}). Pour tout  $u,v,w ∈ K^n$ et $α ∈ K$:
   & = &  \sum_{i=1}^n  u_iv_i +\sum_{i=1}^n u_iw_i \\
   &= &\pscal{u,v} + \pscal{u,w}
 \end{eqnarray*}
- et $\pscal{u,α ⋅w} = \sum_{i=1}^n u_i α w_i) = α ∑_{i=1}^n u_i w_i = α \pscal{u,w}$. 
+ et 
+ \begin{displaymath}
+   \pscal{u,α ⋅w} = \sum_{i=1}^n u_i α w_i = α ∑_{i=1}^n u_i w_i = α \pscal{u,w}. 
+ \end{displaymath}
 On appelle cette forme bilinéaire la \emph{forme bilinéaire standard} de $K^n$.   On vérifie aussi très facilement que la forme bilinéaire standard est symétrique et non dégénéré. 
 \end{example}
 
@@ -165,7 +168,7 @@ Si $f$ est non dégénéré, alors $x^T A_B^f \neq 0$ pour tout $x \in K^n$ tel 
 \noindent 
   Si $u,v \in E^\perp$ alors pour tout $e \in E$ 
   \begin{displaymath}
-    \pscal{e,u-v} = \pscal{e,u} + \pscal{e,-v} = 0 + (-1)\cdot \pscal{e,v} = 0,
+    \pscal{e,u+v} = \pscal{e,u} + \pscal{e,v} = 0 + 0 = 0,
   \end{displaymath}  
   et pour $c \in K$ 
   \begin{displaymath}
@@ -245,7 +248,7 @@ et comme $2 \neq 0$ on a $\pscal{u,v} = 0$.
 \begin{theorem}
   \label{thr:5}
   Soit $\mathrm{Char}(K)\neq 2$
-  et supposons que $V\neq \emptyset$
+  et supposons que $V$
   est de dimension finie. Alors $V$ possède une base orthogonale.
 \end{theorem}
 
