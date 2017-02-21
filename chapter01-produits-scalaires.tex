@@ -7,7 +7,7 @@
   Soit $V$
   un espace vectoriel sur un corps $K$.
   Une \emph{forme bilinéaire} sur $V$
-  est une correspondance qui, à tout couple $(v,w)$
+  est une correspondance qui à tout couple $(v,w)$
   d'éléments de $V$
   associe un scalaire, noté $\pscal{v,w} ∈ K$,
    satisfaisant aux deux propriétés suivantes:
@@ -22,13 +22,13 @@
       \pscal{v+w,u} = \pscal{v,u}+\pscal{w,u} \quad \text{ et } \pscal{α ⋅ u, w} = α ⋅\pscal{u,w}. 
     \end{displaymath}     
   \end{enumerate}
-La  forme bilinéaire  est \emph{symétrique} si 
+La  forme bilinéaire  est dite \emph{symétrique} si 
 pour tout $v,w \in V$ 
 \begin{displaymath}
     \pscal{v,w} = \pscal{w,v}. 
 \end{displaymath}
 \noindent
-On dit que la forme bilinéaire est \emph{non dégénéré} si la condition suivante est vérifiée:
+On dit que la forme bilinéaire est \emph{non dégénérée} si la condition suivante est vérifiée:
 \begin{quote}
   Si $v \in V$, et si $\pscal{v,w}=0$ pour tout $w \in V$, alors $v = 0$. 
 \end{quote}
@@ -55,7 +55,7 @@ Vérifions (BL~\ref{ps:2}). Pour tout  $u,v,w ∈ K^n$ et $α ∈ K$:
  \begin{displaymath}
    \pscal{u,α ⋅w} = \sum_{i=1}^n u_i α w_i = α ∑_{i=1}^n u_i w_i = α \pscal{u,w}. 
  \end{displaymath}
-On appelle cette forme bilinéaire la \emph{forme bilinéaire standard} de $K^n$.   On vérifie aussi très facilement que la forme bilinéaire standard est symétrique et non dégénéré. 
+On appelle cette forme bilinéaire la \emph{forme bilinéaire standard} de $K^n$.   On vérifie aussi très facilement que la forme bilinéaire standard est symétrique et non dégénérée.
 \end{example}
 
 
@@ -67,12 +67,12 @@ On appelle cette forme bilinéaire la \emph{forme bilinéaire standard} de $K^n$
   \begin{displaymath}
     \pscal{f,g} = \int_0^{2\pi} f(x)g(x) \, dx.
   \end{displaymath}
-Clairement, $\pscal{,}$ est une forme bilinéaire symétrique sur $V$ non dégénéré. 
+Clairement, $\pscal{,}$ est une forme bilinéaire symétrique sur $V$ non dégénérée. 
 \end{example}
 
 \begin{exercise}
   \label{ex:3}
-  Montrer que les  formes bilinéaires  des exemples~\ref{ex:1} et \ref{ex:2} sont non dégénérés. 
+  Montrer que les  formes bilinéaires  des exemples~\ref{ex:1} et \ref{ex:2} sont non dégénérées. 
 \end{exercise}
 
 
@@ -104,17 +104,17 @@ Cette formule nous montre que
 \end{equation}
 
 \begin{exercise}
-  Soit $V$ de dimension fini et $B$ une base de $V$. 
+  Soit $V$ un $K$-espace vectoriel de dimension finie et $B$ une base de $V$. 
   Une forme bilinéaire $f : V ×V ⟶ K$ 
   est symétrique si et seulement si $A_B^f$ est symétrique.
 \end{exercise}
 
 \begin{proposition}
   \label{prop:7}
-  Soit $V$ de dimension fini, $B= \{b_1, \dots , b_n\}$ une base de $V$ et $f : V × V ⟶K$ une forme bilinéaire.   Les conditions suivantes sont équivalentes. 
+  Soit $V$ un $K$-espace vectoriel de dimension finie, $B= \{b_1, \dots , b_n\}$ une base de $V$ et $f : V × V ⟶K$ une forme bilinéaire.   Les conditions suivantes sont équivalentes. 
   \begin{enumerate}[i)]
   \item $\rank(A_B^f) = n$ \label{item:12}
-  \item $f$ est non dégénéré \label{item:13}
+  \item $f$ est non dégénérée \label{item:13}
   \item Si $v \in V$, et si $\pscal{w,v}=0$ pour tout $w \in V$, alors $v = 0$. \label{item:14}
   \end{enumerate}
 \end{proposition}
@@ -126,10 +126,10 @@ Supposons que $\rank(A_B^f) = n$ et soit $v \in V$, $v \neq 0$. Pour $w \in V$ o
 \begin{displaymath}
   f(v,w) = [v]_B^T A_B^f [w]_B. 
 \end{displaymath}
-Des que $[v]_B \neq 0$, alors $[v]_B^T A_B^f \neq 0^T$. Supposons que la $i$-ème composante de $[v]_B^T A_B^f$ n'est pas égale a $0$. Alors $[v]_B^T A_B^f e_i \neq 0$ où toutes les composantes de $e_i$ sont $0$ sauf la $i$-ème composante, 
+Dès que $[v]_B \neq 0$, on a $[v]_B^T A_B^f \neq 0^T$ (car $\noy(A_B^f) = \{0\} \iff \rank(A_B^f) = n$). Supposons que la $i$-ème composante de $[v]_B^T A_B^f$ n'est pas égale a $0$. Alors $[v]_B^T A_B^f e_i \neq 0$ où toutes les composantes de $e_i$ sont $0$ sauf la $i$-ème composante, 
 qui est égale a $1$. Alors $f(v,b_i) \neq 0$. 
 
-Si $f$ est non dégénéré, alors $x^T A_B^f \neq 0$ pour tout $x \in K^n$ tel que $x \neq 0$. Ceci implique que les lignes de $A_B^f$ sont linéairement indépendantes. Alors $\rank(A_B^f) = n$. 
+Si $f$ est non dégénérée, alors $x^T A_B^f \neq 0$ pour tout $x \in K^n$ tel que $x \neq 0$. Ceci implique que les lignes de $A_B^f$ sont linéairement indépendantes. Alors $\rank(A_B^f) = n$. 
 \end{proof}
 
 
@@ -141,7 +141,7 @@ Si $f$ est non dégénéré, alors $x^T A_B^f \neq 0$ pour tout $x \in K^n$ tel 
 \label{sec:orthogonalite}
 
 \begin{framed}\noindent 
-  Pour ce paragraphe~\ref{sec:orthogonalite}, si pas spécifié autrement,  $V$
+  Pour ce paragraphe~\ref{sec:orthogonalite}, si il n'est pas spécifié autrement,  $V$
   est toujours un espace vectoriel sur $K$
   muni d'une forme bilinéaire symétrique $\pscal{,}$. 
 \end{framed}
@@ -168,6 +168,7 @@ Si $f$ est non dégénéré, alors $x^T A_B^f \neq 0$ pour tout $x \in K^n$ tel 
 \noindent 
   Si $u,v \in E^\perp$ alors pour tout $e \in E$ 
   \begin{displaymath}
+    \pscal{e,u+v} = \pscal{e,u} + \pscal{e,-v} = 0 + 0 = 0,
     \pscal{e,u+v} = \pscal{e,u} + \pscal{e,v} = 0 + 0 = 0,
   \end{displaymath}  
   et pour $c \in K$ 
@@ -216,7 +217,7 @@ Si $f$ est non dégénéré, alors $x^T A_B^f \neq 0$ pour tout $x \in K^n$ tel 
 
 \begin{notation}
   Pour $n \in \N_+$ l'anneau des classes des restes est dénoté comme
-  $\Z / n \Z$ ou plus brièvement $\Z_n$. Ceci est un corps si et seulement si $n$ est un nombre premier. 
+  $\Z / n \Z$ ou plus brièvement $\Z_n$ (parfois aussi noté $\Bbb F_n$). Ceci est un corps si et seulement si $n$ est un nombre premier. 
 \end{notation}
 
 \begin{example}
@@ -231,7 +232,7 @@ Si $f$ est non dégénéré, alors $x^T A_B^f \neq 0$ pour tout $x \in K^n$ tel 
   \begin{displaymath}
     \pscal{u,v}=0 \text{ pour tous }u,v \in V
   \end{displaymath}
-On dit que la forme bilinéaire symétrique $\pscal{,}$ est  \emph{nul}. 
+On dit que la forme bilinéaire symétrique $\pscal{,}$ est  \emph{nulle}. 
 \end{lemma}
 
 \begin{proof}
@@ -256,14 +257,14 @@ et comme $2 \neq 0$ on a $\pscal{u,v} = 0$.
 \begin{proof}
   On montre le théorème par induction. Si $\dim(V) = 1$ alors toute base contient seulement un élément et alors est orthogonale. 
 
-Soit $\dim(V) >1$.  Si $\pscal{u,u} = 0$ pour tout $u$, le lemme~\ref{lem:1} implique que la forme bilinéaire symmetrique est nul et toute base de $V$  est orthogonale.  
+Soit $\dim(V) >1$.  Si $\pscal{u,u} = 0$ pour tout $u$, le lemme~\ref{lem:1} implique que la forme bilinéaire symétrique est nulle et toute base de $V$  est orthogonale.  
 Autrement, soit $u \in V$ tel que $\pscal{u,u} \neq 0$ et soit $V_1 = \spa\{u\}$. Pour  $x \in V$ le vecteur 
 \begin{displaymath}
   x - \pscal{x,u}/\pscal{u,u} \cdot  u \in V_1^\perp
 \end{displaymath}
-alors $V = V_1 + V_1^\perp$. Cette somme est directe parce que chaque élément de $V_1 \cap V_1^\perp$ s'écrit comme $\beta \cdot u$ pour $\beta \in K$. Et $\pscal{u,\beta u} = \beta \pscal{u,u} = 0$ implique $\beta = 0$. 
+et alors $V = V_1 + V_1^\perp$. Cette somme est directe parce que chaque élément de $V_1 \cap V_1^\perp$ s'écrit comme $\beta \cdot u$ pour $\beta \in K$. Et $\pscal{u,\beta u} = \beta \pscal{u,u} = 0$ implique $\beta = 0$. 
 
-Alors $\dim(V^\perp) < \dim(V)$, et par induction, $V^\perp$ possède une base orthogonale $\{v_2,\dots,v_n\}$. Alors $\{v_1,\dots,v_n\}$ est une base orthogonale de $V$. 
+Alors $\dim(V_1^\perp) < \dim(V)$, et par induction, $V_1^\perp$ possède une base orthogonale $\{v_2,\dots,v_n\}$. Alors $\{v_1,\dots,v_n\}$ est une base orthogonale de $V$. 
 \end{proof}  
 
 
@@ -271,7 +272,7 @@ Alors $\dim(V^\perp) < \dim(V)$, et par induction, $V^\perp$ possède une base o
 
 \begin{enumerate}
 \item Soit $K$ un corps. Si la caractéristique de $K$ est différente de zéro, alors elle est un nombre premier. 
-\item Soit $K$ un corps fini. Montrer que $|K| = q^\ell$ pour un nombre prime $q$ et un nombre naturel $\ell ∈ \N$. \emph{Indication: $K$ est un espace vectoriel de dimension fini sur $\Z_q$ pour un $q$ prime.}
+\item Soit $K$ un corps fini. Montrer que $|K| = q^\ell$ pour un nombre premier $q$ et un nombre naturel $\ell ∈ \N$. \emph{Indication: $K$ est un espace vectoriel de dimension finie sur $\Z_q$ pour un $q$ premier.}
 \item On considère les vecteurs  \label{item:1}
   \begin{displaymath}
     v_1 =
@@ -288,9 +289,9 @@ Alors $\dim(V^\perp) < \dim(V)$, et par induction, $V^\perp$ possède une base o
       0\\0\\1\\1
     \end{pmatrix} \in \Z_2^4. 
   \end{displaymath}
-Est-ce que $\spa\{v_1,v_2,v_3\}$ possède une base orthogonale par rapport au forme bilinéaire symmetrique standard de l'exemple~\ref{ex:1}? 
+Est-ce que $\spa\{v_1,v_2,v_3\}$ possède une base orthogonale par rapport à la forme bilinéaire symétrique standard de l'exemple~\ref{ex:1}? 
 
-\item En considérant le forme bilinéaire symmetrique standard de l'exemple~\ref{ex:1}, trouver une base orthogonale du sous-espace de $\Z_3^4$ engendré par 
+\item En considérant le forme bilinéaire symétrique standard de l'exemple~\ref{ex:1}, trouver une base orthogonale du sous-espace de $\Z_3^4$ engendré par 
   \begin{displaymath}
     v_1 =
     \begin{pmatrix}
@@ -315,7 +316,7 @@ Est-ce que $\spa\{v_1,v_2,v_3\}$ possède une base orthogonale par rapport au fo
 \label{sec:class-des-matr}
 
 \begin{framed}\noindent 
-  Pour ce paragraphe~\ref{sec:class-des-matr}, si pas spécifié autrement,  $V$
+  Pour ce paragraphe~\ref{sec:class-des-matr}, si il n'est pas spécifié autrement,  $V$
   est toujours un espace vectoriel sur $K$
   muni d'une forme bilinéaire symétrique $\pscal{,}$. 
 \end{framed}
@@ -333,7 +334,7 @@ Nous écrivons $A \cong B$.
 
 \begin{example}
   \label{exe:22}
-  Si $V$ est de dimension fini et $B,B'$ sont deux bases, \eqref{eq:28} montre que $A_B^{\pscal{,}} \cong A_{B'}^{\pscal{,}}$. 
+  Si $V$ est de dimension finie et $B,B'$ sont deux bases, \eqref{eq:28} montrer que $A_B^{\pscal{,}} \cong A_{B'}^{\pscal{,}}$. 
 \end{example}
 
 \begin{lemma}
@@ -346,11 +347,11 @@ Nous écrivons $A \cong B$.
 \end{proof}
 
 
-Le relation entre $\cong$ et le concept de l'orthogonalité   est le lemme suivant. 
+Le relation entre $\cong$ et le concept de l'orthogonalité   est précisée dans le lemme suivant. 
 \begin{lemma}
 \label{thr:13}
   Soit $B = \{v_1,\dots,v_n\}$ une base de $V$. $V$ possède une base orthogonale si et seulement s'il existe une matrice diagonale $D$ 
-tel que 
+telle que 
  $A_B^{\pscal{.}} \cong D$. 
 \end{lemma}
 \begin{proof}
@@ -359,7 +360,7 @@ Nous avons
 \begin{equation}
   \label{eq:8}
   \pscal{u_i,u_j}  =  [u_i]_B^T A_B^{\pscal{.}} {[u_j]_B}
-\end{equation}  égal à zéro si $i \neq j$. Pour la matrice $P \in K^{n \times n}$ dont les colonnes sont les vecteurs $[u_1]_B,\dots,[u_n]_B$ on a alors que 
+\end{equation}  égal à zéro si $i \neq j$. Pour la matrice de passage $P \in K^{n \times n}$ dont les colonnes sont les vecteurs $[u_1]_B,\dots,[u_n]_B$ on a alors que 
 \begin{displaymath}
   P^T A_B^{\pscal{.}}P
 \end{displaymath}
@@ -375,14 +376,14 @@ Soit $P \in K^{n\times n} $ inversible telle que
       && c_n
     \end{pmatrix}. 
   \end{displaymath}
-  La base orthogonale est $B' = \{w_1,\dots,w_n\}$ dont 
+  La base orthogonale est $B' = \{w_1,\dots,w_n\}$ donnée par 
   \begin{displaymath}
      [w_j]_B =
   \begin{pmatrix}
     p_{1j}\\ \vdots \\ p_{nj}
   \end{pmatrix},
   \end{displaymath}
-alors $w_j = \sum_{i=1}^n p_{ij} v_i$. 
+donc $w_j = \sum_{i=1}^n p_{ij} v_i$. 
 \end{proof}
 
 
@@ -409,7 +410,7 @@ parce que  $K^n$ muni de la forme linéaire symétrique $\pscal{u,v} = u^TAv$ po
 
 
 
-Maintenant soit $K = \R$  et $A \in \R^{n \times n}$ symétrique. Corollaire~\ref{co:4} implique, qu'il existe une matrice inversible $P ∈ ℝ^{n \times n}$ tel que $P^T A P = D$ où $D$ est une matrice diagonale. Si on échange deux colonnes de $P$ et obtient  $P'$, alors $P'^T A P' = D'$ où $D'$ est obtenu de $D$ en échangeant les éléments diagonaux correspondants. Alors on peut trouver une matrice inversible $P ∈ ℝ^{n ×n}$ tel que 
+Maintenant soit $K = \R$  et $A \in \R^{n \times n}$ symétrique. Le Corollaire~\ref{co:4} implique qu'il existe une matrice inversible $P ∈ ℝ^{n \times n}$ tel que $P^T A P = D$ où $D$ est une matrice diagonale. Si on échange deux colonnes de $P$ et note $P'$ la nouvelle matrice obtenue, alors $P'^T A P' = D'$, où $D'$ est obtenur de $D$ en échangeant les éléments diagonaux correspondants. Alors on peut trouver une matrice inversible $P ∈ ℝ^{n ×n}$ telle que 
 \begin{equation}
   \label{eq:29}
   P^T A {P} =
@@ -419,10 +420,10 @@ Maintenant soit $K = \R$  et $A \in \R^{n \times n}$ symétrique. Corollaire~\re
       && c_n
     \end{pmatrix}. 
 \end{equation}
-où les  $c_i$ sont ordonnés comme  $c_1,\dots, c_r >0$, $c_{r+1},\dots ,c_s<0$ et $c_{s+1},\dots , c_n = 0$. En multipliant les premiers $s+r$ colonnes de $P$  avec $1/ \sqrt{|c_i|}$ on obtient en fait une factorisation~\eqref{eq:29} telle que 
+où les  $c_i$ sont ordonnés de sorte que  $c_1,\dots, c_r >0$, $c_{r+1},\dots ,c_s<0$ et $c_{s+1},\dots , c_n = 0$. En multipliant les premières $s+r$ colonnes de $P$ par $1/ \sqrt{|c_i|}$ on obtient en fait une factorisation~\eqref{eq:29} telle que 
  $c_1,\dots, c_r =1$, $c_{r+1},\dots ,c_s=-1$ et $c_{s+1},\dots , c_n = 0$. 
 
-Alors on trouve  $P ∈ ℝ^{n ×n}$ inversible tel que 
+Alors on trouve  $P ∈ ℝ^{n ×n}$ inversible telle que 
 \begin{equation}
   \label{eq:5}
   P^T A P =
@@ -443,7 +444,7 @@ Alors on trouve  $P ∈ ℝ^{n ×n}$ inversible tel que
 
 \begin{definition}
   \label{def:37}
-  Pour un espace vectoriel sur $ℝ$ de dimension fini, on appelle une base $B$ de $V$ tel que $A_B^{\pscal{,}}$ en forme~\eqref{eq:5} une \emph{base de Sylvester}. 
+  Pour un espace vectoriel sur $ℝ$ de dimension finie, on appelle une base $B$ de $V$ telle que $A_B^{\pscal{,}}$ à la forme décrite en~\eqref{eq:5} une \emph{base de Sylvester}. 
 \end{definition}
 
 
