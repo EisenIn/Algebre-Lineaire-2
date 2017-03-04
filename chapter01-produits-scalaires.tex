@@ -397,7 +397,7 @@ donc $w_j = \sum_{i=1}^n p_{ij} v_i$.
 \end{corollary}
 \begin{proof}
 Ceci est un corollaire du  lemme~\ref{thr:5} et du théorème~\ref{thr:13} 
-parce que  $K^n$ muni de la forme linéaire symétrique $\pscal{u,v} = u^TAv$ possède une base orthogonale. 
+parce que  $K^n$ muni de la forme bilinéaire symétrique $\pscal{u,v} = u^TAv$ possède une base orthogonale. 
 \end{proof}
 
 %The example below is uncomplete and thus makes no sense. Since I didn't know what was its purpose, I couldn't complete it.
@@ -595,7 +595,7 @@ où $ [x]_B \cdot [y]_B$  dénote la forme bilinéaire standard de $\R^n$ entre 
 \label{sec:le-theoreme-de}
 
 
-Soit $V$ un espace vectoriel de dimension finie sur un corps $K$ muni d'une forme bilinéaire symétrique. Nous avons vu (théorème~\ref{thr:5}) que $V$ possède une base orthogonale. Supposons que cette base est $B = \{v_1,\dots,v_n\}$ et considérons $x = \sum \alpha_i v_i \in V$ et $y \in \sum_i \beta_i v_i \in V$. Le produit scalaire s'écrit 
+Soit $V$ un espace vectoriel de dimension finie sur un corps $K$ muni d'une forme bilinéaire symétrique. Nous avons vu (théorème~\ref{thr:5}) que $V$ possède une base orthogonale. Supposons que cette base est $B = \{v_1,\dots,v_n\}$ et considérons $x = \sum \alpha_i v_i \in V$ et $y \in \sum_i \beta_i v_i \in V$. La forme bilinéaire  s'écrit 
 \begin{eqnarray*}
   \pscal{x,y} & =  & \sum_{ij} \alpha_i \beta_j \pscal{v_i,v_j} \\
               & = & \sum_i \alpha_i \beta_i \pscal{v_i,v_i} \\
@@ -637,7 +637,7 @@ Si $K = \R$ on peut ordonner la base afin d'avoir $c_1,\dots,c_r>0$, $c_{r+1},\d
                                      & & c_n
                     \end{pmatrix} [x]_B. 
   \end{displaymath}
-La forme linéaire $f(x) = \pscal{v,x}$ est égale à zéro si et seulement si $\left([v]_B\right)_i = 0$ pour tout $i$ tel que $c_i \neq 0$. Ceci démontre que $\{ v_i \colon \pscal{v_i,v_i}=0\}$ est une base de l'espace de nullité. 
+Cette expression est égale à zéro si et seulement si $\left([v]_B\right)_i = 0$ pour tout $i$ tel que $c_i \neq 0$. Ceci démontre que $\{ v_i \colon \pscal{v_i,v_i}=0\}$ est une base de l'espace de nullité. 
 \end{proof}
 
 
