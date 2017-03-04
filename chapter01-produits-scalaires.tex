@@ -723,21 +723,21 @@ et transforment la matrice $A$ en
 \end{displaymath}
 Alors 
 \begin{displaymath}
-  P_1^T\cdot A \cdot P = \left[\begin{matrix}2 & 0 & 0\\0 & -3 & -9\\0 & -9 & -17\end{matrix}\right]
+  P_1^T\cdot A \cdot P = \left[\begin{matrix}2 & 0 & 0\\0 & -4 & -9\\0 & -9 & -17\end{matrix}\right]
 \end{displaymath}
 Avec 
 \begin{displaymath}
-  P_2 = \left[\begin{matrix}1 & 0 & 0\\0 & 1 & -3\\0 & 0 &1\end{matrix}\right]
+  P_2 = \left[\begin{matrix}1 & 0 & 0\\0 & 1 & -\frac{9}{4}\\0 & 0 &1\end{matrix}\right]
 \end{displaymath}
 on obtient 
 \begin{displaymath}
-  P_2^TP_1^T A P_1 P_2 = \left[\begin{matrix}2 & 0 & 0\\0 & -3 & 0\\0 & 0 & 10\end{matrix}\right]
+  P_2^TP_1^T A P_1 P_2 = \left[\begin{matrix}2 & 0 & 0\\0 & -4 & 0\\0 & 0 & \frac{13}{4} \end{matrix}\right]
 \end{displaymath}
 L'indice de nullité est zéro et l'indice de positivité est $2$. Le produit $P_1\cdot P_2$ est égal à 
 \begin{displaymath}
-  P_1 \cdot P_2 = \left[\begin{matrix}1 & -2 & 3\\0 & 1 & -3\\0 & 0 & 1\end{matrix}\right]
+  P_1 \cdot P_2 = \left[\begin{matrix}1 & -2 & \frac{3}{2}\\0 & 1 & -\frac{9}{4}\\0 & 0 & 1\end{matrix}\right]
 \end{displaymath}
-Les colonnes sont une base de Sylvester. En divisant les colonnes par $\sqrt{2},\sqrt{3}$ et $\sqrt{10}$ respectivement, et en échangeant les deux dernières colonnes, on obtient une transformation $P$ telle que $P^TAP =
+Les colonnes sont une base de Sylvester. En divisant chaque colonne et chaque ligne par $\sqrt{2},\sqrt{4}$ et $\sqrt{13/4}$ respectivement, et en échangeant les deux dernières colonnes et deux dernières lignes, on obtient une transformation $P$ telle que $P^TAP =
 \begin{pmatrix}
   1& \\
   & 1 & \\
