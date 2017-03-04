@@ -141,7 +141,7 @@ Si $f$ est non dégénérée, alors $x^T A_B^f \neq 0$ pour tout $x \in K^n$ tel
 \label{sec:orthogonalite}
 
 \begin{framed}\noindent 
-  Pour ce paragraphe~\ref{sec:orthogonalite}, si il n'est pas spécifié autrement,  $V$
+  Pour ce paragraphe~\ref{sec:orthogonalite}, s'il n'est pas spécifié autrement,  $V$
   est toujours un espace vectoriel sur $K$
   muni d'une forme bilinéaire symétrique $\pscal{,}$. 
 \end{framed}
@@ -324,7 +324,7 @@ Est-ce que $\spa\{v_1,v_2,v_3\}$ possède une base orthogonale par rapport à la
 \label{sec:class-des-matr}
 
 \begin{framed}\noindent 
-  Pour ce paragraphe~\ref{sec:class-des-matr}, si il n'est pas spécifié autrement,  $V$
+  Pour ce paragraphe~\ref{sec:class-des-matr}, s'il n'est pas spécifié autrement,  $V$
   est toujours un espace vectoriel sur $K$
   muni d'une forme bilinéaire symétrique $\pscal{,}$. 
 \end{framed}
@@ -566,11 +566,11 @@ Alors $B' = \{v_1,v_2,-2v_1 -(4/3) v_2 + v_3\}$ est une base orthogonale de $V$.
     \end{displaymath}
     et $d_1,\dots,d_k = 0$, et le nombre de $C$ n'est pas égal à zéro. 
   \end{enumerate}
-\item Modifier l'algorithme~\ref{alg:1} tel qu'il soit aussi correct pour des corps de caractéristique $2$.  Soit l'algorithme découvre que la matrice symétrique $A \in K^{n \times n}$ n'est pas congruente à une matrice diagonale soit l'algorithme calcule une matrice diagonale congruente à $A$. 
+\item Modifier l'algorithme~\ref{alg:1} tel qu'il soit aussi correct pour des corps de caractéristique $2$.  Soit l'algorithme découvre que la matrice symétrique $A \in K^{n \times n}$ n'est pas congruente à une matrice diagonale, soit l'algorithme calcule une matrice diagonale congruente à $A$. 
 \item Comment peut-on déterminer si un espace vectoriel de dimension finie muni d'une forme bilinéaire symétrique  possède une base orthogonale? Décrire très brièvement une méthode. 
 \item Déterminer l'indice de nullité et l'indice de positivité des 
 formes bilinéaire symétriques 
- définis par les matrices suivantes
+ définies par les matrices suivantes
   \begin{displaymath}
     \begin{pmatrix}
       1 & 2 \\
@@ -727,7 +727,7 @@ et transforment la matrice $A$ en
       2 & 4 & 6 \\
       4 & 4 & 3 \\
       6 & 3 & 1 
-    \end{pmatrix} \cdot  \left[\begin{matrix}1 & -2 & -3\\0 & 1 & 0\\0 & 0 & 1\end{matrix}\right] = \left[\begin{matrix}2 & 0 & 0\\4 & -3 & -9\\6 & -9 & -17\end{matrix}\right]. 
+    \end{pmatrix} \cdot  \left[\begin{matrix}1 & -2 & -3\\0 & 1 & 0\\0 & 0 & 1\end{matrix}\right] = \left[\begin{matrix}2 & 0 & 0\\4 & -4 & -9\\6 & -9 & -17\end{matrix}\right]. 
 \end{displaymath}
 Alors 
 \begin{displaymath}
@@ -811,7 +811,7 @@ et
 
 
 \begin{framed}\noindent 
-  Pour le reste de ce paragraphe~\ref{sec:le-case-reel}, si pas spécifié autrement,  $V$
+  Pour le reste de ce paragraphe~\ref{sec:le-case-reel}, s'il n'est pas spécifié autrement,  $V$
   est toujours un espace vectoriel sur $\R$
   muni d'un produit scalaire. 
 \end{framed}
@@ -854,7 +854,7 @@ Si $v$ et $w$ sont perpendiculaires
   \end{eqnarray*}
 \end{proof}
 
-\begin{proposition}[Règle du parallélogramme] Pour tout $v$ et $w$, on a 
+\begin{proposition}[Règle du parallélogramme] Pour tous $v$ et $w$, on a 
   \begin{displaymath}
     \|v+w\|^2 + \|v-w\|^2 = 2 \|v\|^2 + 2 \|w\|^2.  
   \end{displaymath}  
@@ -902,7 +902,7 @@ Si $g$ est une fonction quelconque, continue sur $[0,2\,\pi]$, le coefficient de
 
 
 \begin{proof}
-  Si $w=0$ les deux termes de cette inégalité sont nuls et elle devient évidente. Supposons maintenant que $w$ est un vecteur unitaire. Si $\alpha = \pscal{v,w}$ est la composante de $v$ sur $w$, $v - \alpha w$ est perpendiculaire à $w$ donc aussi a $\alpha\,w$. D'après le théorème de Pythagore on trouve 
+  Si $w=0$, les deux termes de cette inégalité sont nuls et elle devient évidente. Supposons maintenant que $w$ est un vecteur unitaire. Si $\alpha = \pscal{v,w}$ est la composante de $v$ sur $w$, $v - \alpha w$ est perpendiculaire à $w$, donc aussi à $\alpha\,w$. D'après le théorème de Pythagore, on trouve 
   \begin{eqnarray*}
     \|v\|^2 & = & \|v - \alpha \,w\|^2 + \|\alpha \, w \|^2 \\
            & = &  \|v - \alpha \,w\|^2 + \alpha^2,
@@ -944,16 +944,16 @@ en recourant à l'inégalité de Cauchy-Schwarz.
 \begin{lemma}
   \label{lem:2}
   Soit $V$ un espace vectoriel sur $K$ muni d'un produit scalaire et 
-  soient $v_1,\dots,v_n$ des éléments de V, deux à deux orthogonaux et soit $\pscal{v_i,v_i}\neq 0$ pour tout $i$. % Soit $\alpha_i = \pscal{v,v_i}/\pscal{v_i,v_i}$ la composante de $v$ sur $v_i$, alors 
+  soient $v_1,\dots,v_n$ des éléments de V, deux à deux orthogonaux, tels que $\pscal{v_i,v_i}\neq 0$ pour tout $i$. % Soit $\alpha_i = \pscal{v,v_i}/\pscal{v_i,v_i}$ la composante de $v$ sur $v_i$, alors 
 Un vecteur 
 \begin{displaymath}
   v - a_1v_1- \cdots - a_n v_n\, \text{ où  }\, a_i \in K 
 \end{displaymath}
-est perpendiculaire à tout $v_1,\dots,v_n$ si et seulement si $a_i$ est la composante de $v$ sur $v_i$, i.e., $a_i=  \pscal{v,v_i}/ \pscal{v_i,v_i}$ pour tout $i$. 
+est perpendiculaire à tout $v_1,\dots,v_n$ si et seulement si $a_i$ est la composante de $v$ sur $v_i$, i.e. $a_i=  \pscal{v,v_i}/ \pscal{v_i,v_i}$ pour tout $i$. 
 \end{lemma}
 
 \begin{proof}
-  Pour le vérifier il suffit d'en faire le produit scalaire avec $v_j$ pour tout $j$. Tous les termes $\pscal{v_i,v_j}$ donnent zéro si $i\neq j$. Le reste
+  Pour le vérifier, il suffit d'en faire le produit scalaire avec $v_j$ pour tout $j$. Tous les termes $\pscal{v_i,v_j}$ donnent zéro si $i\neq j$. Le reste
   \begin{displaymath}
     \pscal{v,v_j} - a_j\pscal{v_jv_j}
   \end{displaymath}
@@ -967,14 +967,14 @@ s'annule si et seulement si $a_j = \pscal{v,v_j}/\pscal{v_jv_j}$.
  \end{definition}
 
 \begin{notation}
-  Soit $V$ un espace vectoriel et $v_1,\dots,v_n \in V$. Le sous-espace engendré par $v_1,\dots,v_n$ est dénoté par  $\spa\{v_1,\dots,v_n\}$. 
+  Soient $V$ un espace vectoriel et $v_1,\dots,v_n \in V$. Le sous-espace engendré par $v_1,\dots,v_n$ est dénoté par  $\spa\{v_1,\dots,v_n\}$. 
 \end{notation}
 
 
 
 \begin{theorem}[Le procédé d'orthogonalisation de Gram-Schmidt]
   \label{thr:2}
-  Soit $V$ un espace euclidien et  $\{v_1,\dots,v_n\} \subseteq V$
+  Soient $V$ un espace euclidien et  $\{v_1,\dots,v_n\} \subseteq V$
   un ensemble libre.  
   Il existe un ensemble libre orthogonal $\{u_1,\dots,u_n\}$
   de $V$
@@ -1155,11 +1155,12 @@ et alors
 \begin{enumerate}
 
 \item Soit $V$ un espace vectoriel muni d'un produit scalaire $\pscal{.}$. Soit $U \subseteq V$ un sous-espace. Montrer que $\pscal{.}$ restreint à $U$ est un produit scalaire du sous-espace $U$. 
-\item Soient $V$ un espace vectoriel muni d'un produit scalaire $\pscal{.}$ et $\{v_1,\dots,v_n\} \subseteq V$ un ensemble deux à deux orthogonal. 
+\item Soient $V$ un espace vectoriel muni d'un produit scalaire $\pscal{.}$ et $\{v_1,\dots,v_n\} \subseteq V$ un ensemble de
+vecteurs deux à deux orthogonaux. 
   \begin{enumerate}[a)]
   \item   Montrer que $\{v_1,\dots,v_n\}$ est un ensemble libre si pour tout $i$, 
  $\pscal{v_i,v_i} \neq  0$.  
-\item  Donner un contre-exemple ou une démonstration du contraire. 
+\item  Donner un contre-exemple ou une démonstration de la réciproque. 
 \end{enumerate}
 
 
