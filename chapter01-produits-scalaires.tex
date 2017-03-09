@@ -39,7 +39,7 @@ On dit que la forme bilinéaire est \emph{non dégénérée} si la condition sui
   Soit $V = K^n$, l'application  
   \begin{displaymath}
     \begin{array}{rcl}
-      \pscal{\,}\colon    \,  V\times V& \longrightarrow &V \\
+      \pscal{\,}\colon    \,  V\times V& \longrightarrow &K \\
                               (u,v)   & \longmapsto & \sum_{i=1}^n u_i v_i
     \end{array}  
   \end{displaymath}
@@ -645,7 +645,7 @@ Si $K = \R$ on peut ordonner la base afin d'avoir $c_1,\dots,c_r>0$, $c_{r+1},\d
                                      & & c_n
                     \end{pmatrix} [x]_B. 
   \end{displaymath}
-Cette expression est égale à zéro si et seulement si $\left([v]_B\right)_i = 0$ pour tout $i$ tel que $c_i \neq 0$. Ceci démontre que $\{ v_i \colon \pscal{v_i,v_i}=0\}$ est une base de l'espace de nullité. 
+Cette expression est égale à zéro pour tout $x ∈V$  si et seulement si $\left([v]_B\right)_i = 0$ pour tout $i$ tel que $c_i \neq 0$. Ceci démontre que $\{ v_i \colon \pscal{v_i,v_i}=0\}$ est une base de l'espace de nullité. 
 \end{proof}
 
 
@@ -654,10 +654,10 @@ Cette expression est égale à zéro si et seulement si $\left([v]_B\right)_i = 
 \label{thr:10}
 Soit $V$
 un espace vectoriel de dimension finie sur $\R$
-muni d'une forme bilinéaire symétrique. Soit $B = \{v_1,\dots,v_n\}$
-une base orthogonale de $V$.
-Il existe un nombre entier $r \geq 0$
-tel que exactement $r$ des indices $i$ satisfont $\pscal{v_i,v_i}>0$.
+muni d'une forme bilinéaire symétrique.
+Il existe un nombre entier $r ≥0$ tel que, pour chaque base orthogonale 
+  $B = \{v_1,\dots,v_n\}$ de $V$, 
+ exactement $r$ des indices $i$ satisfont $\pscal{v_i,v_i}>0$.
 \end{theorem}
 
 
@@ -862,7 +862,7 @@ Si $v$ et $w$ sont perpendiculaires
 
 
 
-Soit $V$ un espace vectoriel sur un corps $K$ muni d'un produit scalaire. 
+Soit $V$ un espace vectoriel sur un corps $K$ muni d'une forme bilinéaire symétrique  $\pscal{,}$. 
 Si $w$ est un élément de $V$ tel que $\pscal{w,w} \neq 0$, pour  tout $v \in V$, il existe un élément unique $\alpha \in K$ tel que $\pscal{w,v -\alpha\, w} = 0$. 
 
 En fait,
@@ -875,7 +875,7 @@ Alors $\pscal{w,v -\alpha\, w} = 0$ si et seulement si $\alpha = \pscal{v,w} / \
 \begin{definition}
   \label{def:6}
   Soit $V$ un espace vectoriel sur un corps $K$, muni d'un produit scalaire. 
-  Soit $w \in V$ tel que  $\pscal{w,w} > 0$. Pour $v \in V$, soit $\alpha = \pscal{v,w} / \pscal{w,w}$.  Le nombre $\alpha$ est la \emph{composante} de $v$ sur $w$, ou \emph{le coefficient de Fourier de $v$ relativement à $w$}. Le vecteur $\alpha \, w$ s'appelle la \emph{projection} de $v$ sur $w$. 
+  Soit $w \in V \setminus \{0\}$ tel que  $\pscal{w,w} > 0$. Pour $v \in V$, soit $\alpha = \pscal{v,w} / \pscal{w,w}$.  Le nombre $\alpha$ est la \emph{composante} de $v$ sur $w$, ou \emph{le coefficient de Fourier de $v$ relativement à $w$}. Le vecteur $\alpha \, w$ s'appelle la \emph{projection} de $v$ sur $w$. 
 \end{definition}
 
 
@@ -919,7 +919,7 @@ Cela implique
 \end{displaymath}
 \end{proof}
 
-On appelle un  espace vectoriel sur $\R$ muni d'un produit scalaire défini positif un \emph{espace euclidien}.  
+On appelle un  espace vectoriel sur $\R$ muni d'un produit scalaire  un \emph{espace euclidien}.  
 
 
 \begin{theorem}[Inégalité triangulaire]
@@ -943,7 +943,7 @@ en recourant à l'inégalité de Cauchy-Schwarz.
 
 \begin{lemma}
   \label{lem:2}
-  Soit $V$ un espace vectoriel sur $K$ muni d'un produit scalaire et 
+  Soit $V$ un espace vectoriel sur $K$ muni d'une forme bilinéaire symétrique  et 
   soient $v_1,\dots,v_n$ des éléments de V, deux à deux orthogonaux et soit $\pscal{v_i,v_i}\neq 0$ pour tout $i$. % Soit $\alpha_i = \pscal{v,v_i}/\pscal{v_i,v_i}$ la composante de $v$ sur $v_i$, alors 
 Un vecteur 
 \begin{displaymath}
@@ -961,10 +961,10 @@ s'annule si et seulement si $a_j = \pscal{v,v_j}/\pscal{v_jv_j}$.
 \end{proof}
 
 
- \begin{definition}
-   \label{def:3}
-   Soit $V$ un espace vectoriel muni d'un produit scalaire. Soit $\{v_1,\dots,v_n\}$ une base de $V$. On dira que cette base est \emph{orthogonale} si $\pscal{v_i,v_j}=0$ pour tout $i \neq j$. 
- \end{definition}
+ % \begin{definition}
+ %   \label{def:3}
+ %   Soit $V$ un espace vectoriel muni d'un produit scalaire. Soit $\{v_1,\dots,v_n\}$ une base de $V$. On dira que cette base est \emph{orthogonale} si $\pscal{v_i,v_j}=0$ pour tout $i \neq j$. 
+ % \end{definition}
 
 \begin{notation}
   Soit $V$ un espace vectoriel et $v_1,\dots,v_n \in V$. Le sous-espace engendré par $v_1,\dots,v_n$ est dénoté par  $\spa\{v_1,\dots,v_n\}$. 

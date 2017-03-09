@@ -5,14 +5,14 @@
                      '(("scrbook" "a4paper" "11pt" "french")))
    (TeX-add-to-alist 'LaTeX-provided-package-options
                      '(("inputenc" "utf8") ("babel" "french") ("hyperref" "colorlinks")))
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperref")
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperimage")
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperbaseurl")
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "nolinkurl")
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "url")
    (add-to-list 'LaTeX-verbatim-macros-with-braces-local "path")
-   (add-to-list 'LaTeX-verbatim-macros-with-delims-local "url")
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "url")
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "nolinkurl")
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperbaseurl")
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperimage")
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperref")
    (add-to-list 'LaTeX-verbatim-macros-with-delims-local "path")
+   (add-to-list 'LaTeX-verbatim-macros-with-delims-local "url")
    (TeX-run-style-hooks
     "latex2e"
     "chapter01-produits-scalaires"
@@ -53,23 +53,7 @@
     "cP"
     "cV"
     "car"
-    "one"
-    "vol"
-    "rank"
-    "noy"
-    "cone"
-    "tcone"
-    "conv"
-    "diam"
-    "poly"
-    "Ker"
-    "Var"
-    "Id"
-    "tr"
-    "relint"
-    "spa"
-    "Tr"
-    "diag")
+    "one")
    (LaTeX-add-environments
     "theorem"
     "lemma"
