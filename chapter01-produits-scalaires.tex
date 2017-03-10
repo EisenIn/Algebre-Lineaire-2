@@ -30,7 +30,11 @@ pour tout $v,w \in V$
 \noindent
 On dit que la forme bilinéaire est \emph{non dégénérée} si la condition suivante est vérifiée:
 \begin{quote}
-  Si $v \in V$, et si $\pscal{v,w}=0$ pour tout $w \in V$, alors $v = 0$. 
+  Si $v \in V$, et si $\pscal{v,w}=0$ pour tout $w \in V$, alors $v = 0$
+\end{quote}
+ou de manière équivalente :
+\begin{quote}
+  Si $v \in V$, $v \neq 0$, alors il existe $w \in V$ tel que $\pscal{v,w} \neq 0$. 
 \end{quote}
 \end{definition}
 
@@ -44,7 +48,7 @@ On dit que la forme bilinéaire est \emph{non dégénérée} si la condition sui
     \end{array}  
   \end{displaymath}
 est une forme bilinéaire. 
-Vérifions (BL~\ref{ps:2}). Pour tout  $u,v,w ∈ K^n$ et $α ∈ K$:  
+Vérifions (BL~\ref{ps:2}). Pour tous  $u,v,w ∈ K^n$ et $α ∈ K$:  
 \begin{eqnarray*}
   \pscal{u,v+w} & = & \sum_{i=1}^n u_i \, (v_i+w_i) \\
   & = &  \sum_{i=1}^n \left( u_i v_i + u_i w_i \right) \\
@@ -80,20 +84,20 @@ Clairement, $\pscal{,}$ est une forme bilinéaire symétrique sur $V$ non dégé
 Soit $V$ un espace vectoriel de dimension finie et $B = \{v_1,\dots,v_n\}$ une base de $V$. Pour une forme bilinéaire $f: V × V ⟶ K$ 
  et $x = \sum_i\alpha_i v_i$ et $y = \sum_j \beta_j v_j$ on a 
  \begin{eqnarray*}
-   f(x,y) & = & f \left( ∑_{i=1}^n \alpha_i v_i ,   \sum_j \beta_j v_j \right) \\
-          & = & ∑_{i=1}^n \alpha_i f \left(  v_i ,   \sum_j \beta_j v_j \right) \\
+   f(x,y) & = & f \left( ∑_{i=1}^n \alpha_i v_i ,   ∑_{j=1}^n \beta_j v_j \right) \\
+          & = & ∑_{i=1}^n \alpha_i f \left(  v_i ,   ∑_{j=1}^n \beta_j v_j \right) \\
           & = & ∑_{i,j=1}^n \alpha_i β_j f (  v_i ,  v_j )
     \end{eqnarray*}
 alors pour la matrice $A_B^f \in K^{n\times n}$, ayant comme composantes $f(v_i,v_j)$, on a 
 \begin{displaymath}
   f(x,y) = [x]_B^T \,A_B^f \,  [y]_B. 
 \end{displaymath}
-\begin{exercise} Soit $V$ de dimension fini et $B$ une base de $V$. 
+\begin{exercise} Soit $V$ de dimension finie et $B$ une base de $V$. 
   Deux formes bilinéaires $f,g : V × V ⟶ K$
   sont différentes si et seulement si $A_B^f \neq A_B^g$. 
 \end{exercise}
 
-Pour mémoire, pour deux bases $B,B'$ et étant donné $[x]_{B'}$,  on trouve les coordonnées de $x$ dans la base $B$,  $[x]_B$  à l'aide de la matrice de changement de base $P_{B'B}$ comme 
+Pour mémoire, pour deux bases $B,B'$ et étant donné $[x]_{B'}$,  on trouve les coordonnées de $x$ dans la base $B$,  $[x]_B$,  à l'aide de la matrice de changement de base $P_{B'B}$ comme 
 \begin{displaymath}
   [x]_B = P_{B'B} [x]_{B'}. 
 \end{displaymath}
@@ -115,21 +119,19 @@ Cette formule nous montre que
   \begin{enumerate}[i)]
   \item $\rank(A_B^f) = n$ \label{item:12}
   \item $f$ est non dégénérée \label{item:13}
-  \item Si $v \in V$, et si $\pscal{w,v}=0$ pour tout $w \in V$, alors $v = 0$. \label{item:14}
   \end{enumerate}
 \end{proposition}
 
-\begin{proof}
-  Nous montrons \ref{item:12}) et \ref{item:13}) sont équivalentes.  Du même manière, on démontre aussi que \ref{item:12}) et \ref{item:14}) sont équivalentes.
+\begin{proof} \
 
-Supposons que $\rank(A_B^f) = n$ et soit $v \in V$, $v \neq 0$. Pour $w \in V$ on a 
+\ref{item:12}) $\Rightarrow$ \ref{item:13}) : Supposons que $\rank(A_B^f) = n$ et soit $v \in V$, $v \neq 0$. Pour $w \in V$ on a 
 \begin{displaymath}
   f(v,w) = [v]_B^T A_B^f [w]_B. 
 \end{displaymath}
 Dès que $[v]_B \neq 0$, on a $[v]_B^T A_B^f \neq 0^T$ (car $\noy(A_B^f) = \{0\} \iff \rank(A_B^f) = n$). Supposons que la $i$-ème composante de $[v]_B^T A_B^f$ n'est pas égale a $0$. Alors $[v]_B^T A_B^f e_i \neq 0$ où toutes les composantes de $e_i$ sont $0$ sauf la $i$-ème composante, 
-qui est égale a $1$. Alors $f(v,b_i) \neq 0$. 
+qui est égale a $1$. Alors $f(v,b_i) \neq 0$. Donc $f$ est non dégénérée.
 
-Si $f$ est non dégénérée, alors $x^T A_B^f \neq 0$ pour tout $x \in K^n$ tel que $x \neq 0$. Ceci implique que les lignes de $A_B^f$ sont linéairement indépendantes. Alors $\rank(A_B^f) = n$. 
+\ref{item:13}) $\Rightarrow$ \ref{item:12}) : On montre la contraposée. Si $\rank(A_B^f) < n$, alors il existe $x \neq 0$ tel que $[x]_B^T A_B^f = 0 \Rightarrow [x]_B^T A_B^f [y]_B^T = 0$ pour tout $y \in V$. Ceci implique que $f$ est dégénérée.
 \end{proof}
 
 
