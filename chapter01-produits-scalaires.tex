@@ -252,7 +252,7 @@ et comme $2 \neq 0$ on a $\pscal{u,v} = 0$.
   \label{def:38}
   Une base $\{v_1,\dots,v_n\}$
   de l'espace vectoriel $V$
-  est une \emph{base orthogonale}, si $\pscal{v_i,v_j}=0$
+  est une \emph{base orthogonale} si $\pscal{v_i,v_j}=0$
   pour $i\neq j$.
 \end{definition} 
 
@@ -370,7 +370,7 @@ Nous avons
 \begin{equation}
   \label{eq:8}
   \pscal{u_i,u_j}  =  [u_i]_B^T A_B^{\pscal{.}} {[u_j]_B}
-\end{equation}  égal à zéro si $i \neq j$. Pour la matrice de passage $P \in K^{n \times n}$ dont les colonnes sont les vecteurs $[u_1]_B,\dots,[u_n]_B$ on a alors que 
+\end{equation}  égal à zéro si $i \neq j$. Pour la matrice de passage $P = P_{B' B} \in K^{n \times n}$ dont les colonnes sont les vecteurs $[u_1]_B,\dots,[u_n]_B$, on a alors que 
 \begin{displaymath}
   P^T A_B^{\pscal{.}}P
 \end{displaymath}
@@ -430,7 +430,7 @@ Maintenant soit $K = \R$  et $A \in \R^{n \times n}$ symétrique. Le Corollaire~
       && c_n
     \end{pmatrix}. 
 \end{equation}
-où les  $c_i$ sont ordonnés de sorte que  $c_1,\dots, c_r >0$, $c_{r+1},\dots ,c_s<0$ et $c_{s+1},\dots , c_n = 0$. En multipliant les premières $s+r$ colonnes de $P$ par $1/ \sqrt{|c_i|}$ on obtient en fait une factorisation~\eqref{eq:29} telle que 
+où les  $c_i$ sont ordonnés de sorte que  $c_1,\dots, c_r >0$, $c_{r+1},\dots ,c_s<0$ et $c_{s+1},\dots , c_n = 0$. En multipliant les premières $s+r$ colonnes  et lignes de $P$ par $1/ \sqrt{|c_i|}$ on obtient en fait une factorisation~\eqref{eq:29} telle que 
  $c_1,\dots, c_r =1$, $c_{r+1},\dots ,c_s=-1$ et $c_{s+1},\dots , c_n = 0$. 
 
 Alors on trouve  $P ∈ ℝ^{n ×n}$ inversible telle que 
@@ -605,9 +605,9 @@ où $ [x]_B \cdot [y]_B$  dénote la forme bilinéaire standard de $\R^n$ entre 
 \label{sec:le-theoreme-de}
 
 
-Soit $V$ un espace vectoriel de dimension finie sur un corps $K$ muni d'une forme bilinéaire symétrique. Nous avons vu (théorème~\ref{thr:5}) que $V$ possède une base orthogonale. Supposons que cette base est $B = \{v_1,\dots,v_n\}$ et considérons $x = \sum \alpha_i v_i \in V$ et $y \in \sum_i \beta_i v_i \in V$. La forme bilinéaire  s'écrit 
+Soit $V$ un espace vectoriel de dimension finie sur un corps $K$ muni d'une forme bilinéaire symétrique. Nous avons vu (théorème~\ref{thr:5}) que $V$ possède une base orthogonale. Supposons que cette base est $B = \{v_1,\dots,v_n\}$ et considérons $x = \sum_i \alpha_i v_i \in V$ et $y \in \sum_i \beta_i v_i \in V$. La forme bilinéaire  s'écrit 
 \begin{eqnarray*}
-  \pscal{x,y} & =  & \sum_{ij} \alpha_i \beta_j \pscal{v_i,v_j} \\
+  \pscal{x,y} & =  & \sum_{i, j} \alpha_i \beta_j \pscal{v_i,v_j} \\
               & = & \sum_i \alpha_i \beta_i \pscal{v_i,v_i} \\
                & = & [x]_B^T 
                     \begin{pmatrix}
@@ -794,17 +794,17 @@ et
 
 \begin{example}
   \label{exe:3}
-  Soit $V = \R^n$. La 
+  Soit $V = \R^n$. La forme bilinéaire symétrique
   \begin{displaymath}
     \pscal{u,v} = \sum_{i=1}^n u_iv_i 
   \end{displaymath}
   est un produit scalaire, appelé le \emph{produit scalaire ordinaire}. 
-  Aussi la forme bilinéaire  de l'exemple~\ref{ex:2} est un produit scalaire. 
+  Aussi, la forme bilinéaire  de l'exemple~\ref{ex:2} est un produit scalaire. 
 \end{example}
 
 \begin{definition}
   \label{def:5}
-  Soit $\pscal{\,}$ un produit scalaire. La \emph{longueur} ou la \emph{norme} d'un élément $v \in V$ est le nombre 
+  Soit $\pscal{,}$ un produit scalaire. La \emph{longueur} ou la \emph{norme} d'un élément $v \in V$ est le nombre 
   \begin{displaymath}
     \| v \| = \sqrt{\pscal{v,v}}.
   \end{displaymath}
@@ -896,7 +896,7 @@ Si $g$ est une fonction quelconque, continue sur $[0,2\,\pi]$, le coefficient de
 
 
 \begin{theorem}[Inégalité de Cauchy-Schwarz]
-  Pour tout $v,w \in V$, on a  
+  Pour tous $v,w \in V$, on a  
   \begin{displaymath}
     |\pscal{v,w}| \leq \|v\| \, \|w\|.
   \end{displaymath}
@@ -945,18 +945,12 @@ en recourant à l'inégalité de Cauchy-Schwarz.
 
 \begin{lemma}
   \label{lem:2}
-<<<<<<< HEAD
-  Soit $V$ un espace vectoriel sur $K$ muni d'une forme bilinéaire symétrique  et 
-  soient $v_1,\dots,v_n$ des éléments de V, deux à deux orthogonaux et soit $\pscal{v_i,v_i}\neq 0$ pour tout $i$. % Soit $\alpha_i = \pscal{v,v_i}/\pscal{v_i,v_i}$ la composante de $v$ sur $v_i$, alors 
-=======
   Soit $V$ un espace vectoriel sur $K$ muni d'un produit scalaire et 
-  soient $v_1,\dots,v_n$ des éléments de V, deux à deux orthogonaux, tels que $\pscal{v_i,v_i}\neq 0$ pour tout $i$. % Soit $\alpha_i = \pscal{v,v_i}/\pscal{v_i,v_i}$ la composante de $v$ sur $v_i$, alors 
->>>>>>> origin/master
-Un vecteur 
+  soient $v_1,\dots,v_n$ des éléments de V, deux à deux orthogonaux, tels que $\pscal{v_i,v_i}\neq 0$ pour tout $i$. Soit $\alpha_i = \pscal{v,v_i}/\pscal{v_i,v_i}$ la composante de $v$ sur $v_i$, alors le vecteur 
 \begin{displaymath}
   v - a_1v_1- \cdots - a_n v_n\, \text{ où  }\, a_i \in K 
 \end{displaymath}
-est perpendiculaire à tout $v_1,\dots,v_n$ si et seulement si $a_i$ est la composante de $v$ sur $v_i$, i.e. $a_i=  \pscal{v,v_i}/ \pscal{v_i,v_i}$ pour tout $i$. 
+est perpendiculaire à tous $v_1,\dots,v_n$ si et seulement si $a_i$ est la composante de $v$ sur $v_i$, i.e. $a_i=  \pscal{v,v_i}/ \pscal{v_i,v_i}$ pour tout $i$. 
 \end{lemma}
 
 \begin{proof}
@@ -1227,7 +1221,10 @@ n'a pas de solution. Dans beaucoup d'applications, on cherche un $x \in \R^n$ te
   \label{eq:3}
   \min_{x \in \R^n} \|Ax - b\|. 
 \end{equation}
-Pour le reste de ce paragraphe, $V$ est toujours  un espace euclidien. 
+
+\begin{framed}\noindent 
+  Pour le reste de ce paragraphe~\ref{sec:le-methode-des}, s'il n'est pas spécifié autrement, $V$ est toujours un espace euclidien.
+\end{framed} 
 
 
 \begin{theorem}
@@ -1361,10 +1358,10 @@ est $x^* = (1,2)^T$.
 \section{Formes linéaires, bilinéaires et l'espace dual}
 \label{sec:lespace-dual}
 
- Soient $V$ un espace vectoriel sur un corps $K$ et $V^*$ l'ensemble  des  applications linéaires de $V$ dans $K$ où on considère $K$ comme espace vectoriel de dimension $1$ sur lui-même. Clairement, $V^*$ est un espace vectoriel lui-même. 
+ Soient $V$ un espace vectoriel sur un corps $K$ et $V^*$ l'ensemble  des  applications linéaires de $V$ dans $K$, où on considère $K$ comme espace vectoriel de dimension $1$ sur lui-même. Clairement, $V^*$ est un espace vectoriel lui-même. 
 \begin{definition}
 \label{def:9}
-  L'ensemble des  applications linéaires  de $V$ dans $K$ est noté $V^*$ et, muni de l'addition et de la multiplication scalaire usuelles, est appelé l'\emph{espace dual} de $V$. Les éléments de $V^*$ sont des \emph{formes linéaires}.
+  L'ensemble des  applications linéaires  de $V$ dans $K$ est noté $V^*$ et, muni de l'addition et de la multiplication scalaire usuelles, est appelé l'\emph{espace dual} de $V$. Les éléments de $V^*$ sont appelés \emph{formes linéaires}.
 \end{definition}
 
 \begin{example}
@@ -1373,7 +1370,7 @@ Si $\pscal{.}$ est un produit scalaire de $V$ et $v \in V$, alors $f(x) = \pscal
 \end{example}
 
 
-Si $V$ est de dimension finie et si $B = \{V_1,\dots,v_n\}$ est une base de $V$ l'image d'un vecteur $x = \sum_i\alpha_i v_i$ est 
+Si $V$ est de dimension finie et si $B = \{v_1,\dots,v_n\}$ est une base de $V$, l'image d'un vecteur $x = \sum_i\alpha_i v_i$ par une forme linéaire $f$ est 
 \begin{eqnarray*}
     f(x) & = &  f\left(\sum_i\alpha_i v_i\right) \\
          & = & \sum_i \alpha_i f(v_i)  \\
@@ -1422,7 +1419,7 @@ c'est-à-dire  les $\phi_j$ sont linéairement indépendantes. Les $\phi_j$ enge
   \begin{displaymath}
     f\colon V \times V \longrightarrow K
   \end{displaymath}
-  est une forme bilinéaire si pour tout $v \in V$ les applications 
+  est une forme bilinéaire si pour tout $v \in V$, les applications 
   $g,h: V \longrightarrow K$ telles que $g(x) = f(v,x)$ et $h(x) = f(x,v)$ sont des formes linéaires. 
 \end{definition}
 
@@ -1436,7 +1433,7 @@ c'est-à-dire  les $\phi_j$ sont linéairement indépendantes. Les $\phi_j$ enge
 \begin{lemma}
   \label{lem:4}
   Soit $V$
-  un espace vectoriel sur le corps $K$ de dimension finie muni d'un produit scalaire
+  un espace vectoriel sur un corps $K$ de dimension finie muni d'un produit scalaire
   $\pscal{.}$
   Le produit scalaire est non dégénéré si et seulement si la matrice
   $A_B^{\pscal{}}$ est de rang plein pour toute base $B$.
