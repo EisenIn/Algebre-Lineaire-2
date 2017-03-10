@@ -30,7 +30,11 @@ pour tout $v,w \in V$
 \noindent
 On dit que la forme bilinéaire est \emph{non dégénérée} si la condition suivante est vérifiée:
 \begin{quote}
-  Si $v \in V$, et si $\pscal{v,w}=0$ pour tout $w \in V$, alors $v = 0$. 
+  Si $v \in V$, et si $\pscal{v,w}=0$ pour tout $w \in V$, alors $v = 0$
+\end{quote}
+ou de manière équivalente :
+\begin{quote}
+  Si $v \in V$, $v \neq 0$, alors il existe $w \in V$ tel que $\pscal{v,w} \neq 0$. 
 \end{quote}
 \end{definition}
 
@@ -44,7 +48,7 @@ On dit que la forme bilinéaire est \emph{non dégénérée} si la condition sui
     \end{array}  
   \end{displaymath}
 est une forme bilinéaire. 
-Vérifions (BL~\ref{ps:2}). Pour tout  $u,v,w ∈ K^n$ et $α ∈ K$:  
+Vérifions (BL~\ref{ps:2}). Pour tous  $u,v,w ∈ K^n$ et $α ∈ K$:  
 \begin{eqnarray*}
   \pscal{u,v+w} & = & \sum_{i=1}^n u_i \, (v_i+w_i) \\
   & = &  \sum_{i=1}^n \left( u_i v_i + u_i w_i \right) \\
@@ -80,20 +84,20 @@ Clairement, $\pscal{,}$ est une forme bilinéaire symétrique sur $V$ non dégé
 Soit $V$ un espace vectoriel de dimension finie et $B = \{v_1,\dots,v_n\}$ une base de $V$. Pour une forme bilinéaire $f: V × V ⟶ K$ 
  et $x = \sum_i\alpha_i v_i$ et $y = \sum_j \beta_j v_j$ on a 
  \begin{eqnarray*}
-   f(x,y) & = & f \left( ∑_{i=1}^n \alpha_i v_i ,   \sum_j \beta_j v_j \right) \\
-          & = & ∑_{i=1}^n \alpha_i f \left(  v_i ,   \sum_j \beta_j v_j \right) \\
+   f(x,y) & = & f \left( ∑_{i=1}^n \alpha_i v_i ,   ∑_{j=1}^n \beta_j v_j \right) \\
+          & = & ∑_{i=1}^n \alpha_i f \left(  v_i ,   ∑_{j=1}^n \beta_j v_j \right) \\
           & = & ∑_{i,j=1}^n \alpha_i β_j f (  v_i ,  v_j )
     \end{eqnarray*}
 alors pour la matrice $A_B^f \in K^{n\times n}$, ayant comme composantes $f(v_i,v_j)$, on a 
 \begin{displaymath}
   f(x,y) = [x]_B^T \,A_B^f \,  [y]_B. 
 \end{displaymath}
-\begin{exercise} Soit $V$ de dimension fini et $B$ une base de $V$. 
+\begin{exercise} Soit $V$ de dimension finie et $B$ une base de $V$. 
   Deux formes bilinéaires $f,g : V × V ⟶ K$
   sont différentes si et seulement si $A_B^f \neq A_B^g$. 
 \end{exercise}
 
-Pour mémoire, pour deux bases $B,B'$ et étant donné $[x]_{B'}$,  on trouve les coordonnées de $x$ dans la base $B$,  $[x]_B$  à l'aide de la matrice de changement de base $P_{B'B}$ comme 
+Pour mémoire, pour deux bases $B,B'$ et étant donné $[x]_{B'}$,  on trouve les coordonnées de $x$ dans la base $B$,  $[x]_B$,  à l'aide de la matrice de changement de base $P_{B'B}$ comme 
 \begin{displaymath}
   [x]_B = P_{B'B} [x]_{B'}. 
 \end{displaymath}
@@ -115,21 +119,19 @@ Cette formule nous montre que
   \begin{enumerate}[i)]
   \item $\rank(A_B^f) = n$ \label{item:12}
   \item $f$ est non dégénérée \label{item:13}
-  \item Si $v \in V$, et si $\pscal{w,v}=0$ pour tout $w \in V$, alors $v = 0$. \label{item:14}
   \end{enumerate}
 \end{proposition}
 
-\begin{proof}
-  Nous montrons \ref{item:12}) et \ref{item:13}) sont équivalentes.  Du même manière, on démontre aussi que \ref{item:12}) et \ref{item:14}) sont équivalentes.
+\begin{proof} \
 
-Supposons que $\rank(A_B^f) = n$ et soit $v \in V$, $v \neq 0$. Pour $w \in V$ on a 
+\ref{item:12}) $\Rightarrow$ \ref{item:13}) : Supposons que $\rank(A_B^f) = n$ et soit $v \in V$, $v \neq 0$. Pour $w \in V$ on a 
 \begin{displaymath}
   f(v,w) = [v]_B^T A_B^f [w]_B. 
 \end{displaymath}
 Dès que $[v]_B \neq 0$, on a $[v]_B^T A_B^f \neq 0^T$ (car $\noy(A_B^f) = \{0\} \iff \rank(A_B^f) = n$). Supposons que la $i$-ème composante de $[v]_B^T A_B^f$ n'est pas égale a $0$. Alors $[v]_B^T A_B^f e_i \neq 0$ où toutes les composantes de $e_i$ sont $0$ sauf la $i$-ème composante, 
-qui est égale a $1$. Alors $f(v,b_i) \neq 0$. 
+qui est égale a $1$. Alors $f(v,b_i) \neq 0$. Donc $f$ est non dégénérée.
 
-Si $f$ est non dégénérée, alors $x^T A_B^f \neq 0$ pour tout $x \in K^n$ tel que $x \neq 0$. Ceci implique que les lignes de $A_B^f$ sont linéairement indépendantes. Alors $\rank(A_B^f) = n$. 
+\ref{item:13}) $\Rightarrow$ \ref{item:12}) : On montre la contraposée. Si $\rank(A_B^f) < n$, alors il existe $x \neq 0$ tel que $[x]_B^T A_B^f = 0 \Rightarrow [x]_B^T A_B^f [y]_B^T = 0$ pour tout $y \in V$. Ceci implique que $f$ est dégénérée.
 \end{proof}
 
 
@@ -250,7 +252,7 @@ et comme $2 \neq 0$ on a $\pscal{u,v} = 0$.
   \label{def:38}
   Une base $\{v_1,\dots,v_n\}$
   de l'espace vectoriel $V$
-  est une \emph{base orthogonale}, si $\pscal{v_i,v_j}=0$
+  est une \emph{base orthogonale} si $\pscal{v_i,v_j}=0$
   pour $i\neq j$.
 \end{definition} 
 
@@ -368,7 +370,7 @@ Nous avons
 \begin{equation}
   \label{eq:8}
   \pscal{u_i,u_j}  =  [u_i]_B^T A_B^{\pscal{.}} {[u_j]_B}
-\end{equation}  égal à zéro si $i \neq j$. Pour la matrice de passage $P \in K^{n \times n}$ dont les colonnes sont les vecteurs $[u_1]_B,\dots,[u_n]_B$ on a alors que 
+\end{equation}  égal à zéro si $i \neq j$. Pour la matrice de passage $P = P_{B' B} \in K^{n \times n}$ dont les colonnes sont les vecteurs $[u_1]_B,\dots,[u_n]_B$, on a alors que 
 \begin{displaymath}
   P^T A_B^{\pscal{.}}P
 \end{displaymath}
@@ -428,7 +430,7 @@ Maintenant soit $K = \R$  et $A \in \R^{n \times n}$ symétrique. Le Corollaire~
       && c_n
     \end{pmatrix}. 
 \end{equation}
-où les  $c_i$ sont ordonnés de sorte que  $c_1,\dots, c_r >0$, $c_{r+1},\dots ,c_s<0$ et $c_{s+1},\dots , c_n = 0$. En multipliant les premières $s+r$ colonnes de $P$ par $1/ \sqrt{|c_i|}$ on obtient en fait une factorisation~\eqref{eq:29} telle que 
+où les  $c_i$ sont ordonnés de sorte que  $c_1,\dots, c_r >0$, $c_{r+1},\dots ,c_s<0$ et $c_{s+1},\dots , c_n = 0$. En multipliant les premières $s+r$ colonnes  et lignes de $P$ par $1/ \sqrt{|c_i|}$ on obtient en fait une factorisation~\eqref{eq:29} telle que 
  $c_1,\dots, c_r =1$, $c_{r+1},\dots ,c_s=-1$ et $c_{s+1},\dots , c_n = 0$. 
 
 Alors on trouve  $P ∈ ℝ^{n ×n}$ inversible telle que 
@@ -603,9 +605,9 @@ où $ [x]_B \cdot [y]_B$  dénote la forme bilinéaire standard de $\R^n$ entre 
 \label{sec:le-theoreme-de}
 
 
-Soit $V$ un espace vectoriel de dimension finie sur un corps $K$ muni d'une forme bilinéaire symétrique. Nous avons vu (théorème~\ref{thr:5}) que $V$ possède une base orthogonale. Supposons que cette base est $B = \{v_1,\dots,v_n\}$ et considérons $x = \sum \alpha_i v_i \in V$ et $y \in \sum_i \beta_i v_i \in V$. La forme bilinéaire  s'écrit 
+Soit $V$ un espace vectoriel de dimension finie sur un corps $K$ muni d'une forme bilinéaire symétrique. Nous avons vu (théorème~\ref{thr:5}) que $V$ possède une base orthogonale. Supposons que cette base est $B = \{v_1,\dots,v_n\}$ et considérons $x = \sum_i \alpha_i v_i \in V$ et $y \in \sum_i \beta_i v_i \in V$. La forme bilinéaire  s'écrit 
 \begin{eqnarray*}
-  \pscal{x,y} & =  & \sum_{ij} \alpha_i \beta_j \pscal{v_i,v_j} \\
+  \pscal{x,y} & =  & \sum_{i, j} \alpha_i \beta_j \pscal{v_i,v_j} \\
               & = & \sum_i \alpha_i \beta_i \pscal{v_i,v_i} \\
                & = & [x]_B^T 
                     \begin{pmatrix}
@@ -792,17 +794,17 @@ et
 
 \begin{example}
   \label{exe:3}
-  Soit $V = \R^n$. La 
+  Soit $V = \R^n$. La forme bilinéaire symétrique
   \begin{displaymath}
     \pscal{u,v} = \sum_{i=1}^n u_iv_i 
   \end{displaymath}
   est un produit scalaire, appelé le \emph{produit scalaire ordinaire}. 
-  Aussi la forme bilinéaire  de l'exemple~\ref{ex:2} est un produit scalaire. 
+  Aussi, la forme bilinéaire  de l'exemple~\ref{ex:2} est un produit scalaire. 
 \end{example}
 
 \begin{definition}
   \label{def:5}
-  Soit $\pscal{\,}$ un produit scalaire. La \emph{longueur} ou la \emph{norme} d'un élément $v \in V$ est le nombre 
+  Soit $\pscal{,}$ un produit scalaire. La \emph{longueur} ou la \emph{norme} d'un élément $v \in V$ est le nombre 
   \begin{displaymath}
     \| v \| = \sqrt{\pscal{v,v}}.
   \end{displaymath}
@@ -894,7 +896,7 @@ Si $g$ est une fonction quelconque, continue sur $[0,2\,\pi]$, le coefficient de
 
 
 \begin{theorem}[Inégalité de Cauchy-Schwarz]
-  Pour tout $v,w \in V$, on a  
+  Pour tous $v,w \in V$, on a  
   \begin{displaymath}
     |\pscal{v,w}| \leq \|v\| \, \|w\|.
   \end{displaymath}
@@ -943,18 +945,12 @@ en recourant à l'inégalité de Cauchy-Schwarz.
 
 \begin{lemma}
   \label{lem:2}
-<<<<<<< HEAD
-  Soit $V$ un espace vectoriel sur $K$ muni d'une forme bilinéaire symétrique  et 
-  soient $v_1,\dots,v_n$ des éléments de V, deux à deux orthogonaux et soit $\pscal{v_i,v_i}\neq 0$ pour tout $i$. % Soit $\alpha_i = \pscal{v,v_i}/\pscal{v_i,v_i}$ la composante de $v$ sur $v_i$, alors 
-=======
   Soit $V$ un espace vectoriel sur $K$ muni d'un produit scalaire et 
-  soient $v_1,\dots,v_n$ des éléments de V, deux à deux orthogonaux, tels que $\pscal{v_i,v_i}\neq 0$ pour tout $i$. % Soit $\alpha_i = \pscal{v,v_i}/\pscal{v_i,v_i}$ la composante de $v$ sur $v_i$, alors 
->>>>>>> origin/master
-Un vecteur 
+  soient $v_1,\dots,v_n$ des éléments de V, deux à deux orthogonaux, tels que $\pscal{v_i,v_i}\neq 0$ pour tout $i$. Soit $\alpha_i = \pscal{v,v_i}/\pscal{v_i,v_i}$ la composante de $v$ sur $v_i$, alors le vecteur 
 \begin{displaymath}
   v - a_1v_1- \cdots - a_n v_n\, \text{ où  }\, a_i \in K 
 \end{displaymath}
-est perpendiculaire à tout $v_1,\dots,v_n$ si et seulement si $a_i$ est la composante de $v$ sur $v_i$, i.e. $a_i=  \pscal{v,v_i}/ \pscal{v_i,v_i}$ pour tout $i$. 
+est perpendiculaire à tous $v_1,\dots,v_n$ si et seulement si $a_i$ est la composante de $v$ sur $v_i$, i.e. $a_i=  \pscal{v,v_i}/ \pscal{v_i,v_i}$ pour tout $i$. 
 \end{lemma}
 
 \begin{proof}
@@ -1225,7 +1221,10 @@ n'a pas de solution. Dans beaucoup d'applications, on cherche un $x \in \R^n$ te
   \label{eq:3}
   \min_{x \in \R^n} \|Ax - b\|. 
 \end{equation}
-Pour le reste de ce paragraphe, $V$ est toujours  un espace euclidien. 
+
+\begin{framed}\noindent 
+  Pour le reste de ce paragraphe~\ref{sec:le-methode-des}, s'il n'est pas spécifié autrement, $V$ est toujours un espace euclidien.
+\end{framed} 
 
 
 \begin{theorem}
@@ -1359,10 +1358,10 @@ est $x^* = (1,2)^T$.
 \section{Formes linéaires, bilinéaires et l'espace dual}
 \label{sec:lespace-dual}
 
- Soient $V$ un espace vectoriel sur un corps $K$ et $V^*$ l'ensemble  des  applications linéaires de $V$ dans $K$ où on considère $K$ comme espace vectoriel de dimension $1$ sur lui-même. Clairement, $V^*$ est un espace vectoriel lui-même. 
+ Soient $V$ un espace vectoriel sur un corps $K$ et $V^*$ l'ensemble  des  applications linéaires de $V$ dans $K$, où on considère $K$ comme espace vectoriel de dimension $1$ sur lui-même. Clairement, $V^*$ est un espace vectoriel lui-même. 
 \begin{definition}
 \label{def:9}
-  L'ensemble des  applications linéaires  de $V$ dans $K$ est noté $V^*$ et, muni de l'addition et de la multiplication scalaire usuelles, est appelé l'\emph{espace dual} de $V$. Les éléments de $V^*$ sont des \emph{formes linéaires}.
+  L'ensemble des  applications linéaires  de $V$ dans $K$ est noté $V^*$ et, muni de l'addition et de la multiplication scalaire usuelles, est appelé l'\emph{espace dual} de $V$. Les éléments de $V^*$ sont appelés \emph{formes linéaires}.
 \end{definition}
 
 \begin{example}
@@ -1371,7 +1370,7 @@ Si $\pscal{.}$ est un produit scalaire de $V$ et $v \in V$, alors $f(x) = \pscal
 \end{example}
 
 
-Si $V$ est de dimension finie et si $B = \{V_1,\dots,v_n\}$ est une base de $V$ l'image d'un vecteur $x = \sum_i\alpha_i v_i$ est 
+Si $V$ est de dimension finie et si $B = \{v_1,\dots,v_n\}$ est une base de $V$, l'image d'un vecteur $x = \sum_i\alpha_i v_i$ par une forme linéaire $f$ est 
 \begin{eqnarray*}
     f(x) & = &  f\left(\sum_i\alpha_i v_i\right) \\
          & = & \sum_i \alpha_i f(v_i)  \\
@@ -1420,7 +1419,7 @@ c'est-à-dire  les $\phi_j$ sont linéairement indépendantes. Les $\phi_j$ enge
   \begin{displaymath}
     f\colon V \times V \longrightarrow K
   \end{displaymath}
-  est une forme bilinéaire si pour tout $v \in V$ les applications 
+  est une forme bilinéaire si pour tout $v \in V$, les applications 
   $g,h: V \longrightarrow K$ telles que $g(x) = f(v,x)$ et $h(x) = f(x,v)$ sont des formes linéaires. 
 \end{definition}
 
@@ -1434,7 +1433,7 @@ c'est-à-dire  les $\phi_j$ sont linéairement indépendantes. Les $\phi_j$ enge
 \begin{lemma}
   \label{lem:4}
   Soit $V$
-  un espace vectoriel sur le corps $K$ de dimension finie muni d'un produit scalaire
+  un espace vectoriel sur un corps $K$ de dimension finie muni d'un produit scalaire
   $\pscal{.}$
   Le produit scalaire est non dégénéré si et seulement si la matrice
   $A_B^{\pscal{}}$ est de rang plein pour toute base $B$.
