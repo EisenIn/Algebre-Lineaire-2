@@ -28,7 +28,7 @@ pour tout $v,w \in V$
     \pscal{v,w} = \pscal{w,v}. 
 \end{displaymath}
 \noindent
-On dit que la forme bilinéaire est \emph{non dégénérée} si la condition suivante est vérifiée:
+On dit que la forme bilinéaire est \emph{non dégénérée à gauche} (respectivement \emph{à droite}) si la condition suivante est vérifiée:
 \begin{quote}
   Si $v \in V$, et si $\pscal{v,w}=0$ pour tout $w \in V$, alors $v = 0$
 \end{quote}
@@ -36,6 +36,7 @@ ou de manière équivalente :
 \begin{quote}
   Si $v \in V$, $v \neq 0$, alors il existe $w \in V$ tel que $\pscal{v,w} \neq 0$. 
 \end{quote}
+Si la forme bilinéaire est non dégénérée à gauche et à droite, on dit qu'elle est \emph{non dégénérée}.
 \end{definition}
 
 \begin{example}
@@ -118,20 +119,22 @@ Cette formule nous montre que
   Soit $V$ un $K$-espace vectoriel de dimension finie, $B= \{b_1, \dots , b_n\}$ une base de $V$ et $f : V × V ⟶K$ une forme bilinéaire.   Les conditions suivantes sont équivalentes. 
   \begin{enumerate}[i)]
   \item $\rank(A_B^f) = n$ \label{item:12}
-  \item $f$ est non dégénérée \label{item:13}
+  \item $f$ est non dégénérée à gauche, i.e. si $v \in V$, et si $\pscal{v,w}=0$ pour tout $w \in V$, alors $v = 0$ \label{item:13}
+  \item $f$ est non dégénérée à droite, i.e. si $v \in V$, et si $\pscal{w, v}=0$ pour tout $w \in V$, alors $v = 0$ \label{item:14}
   \end{enumerate}
 \end{proposition}
 
-\begin{proof} \
+\begin{proof} 
+Nous montrons \ref{item:12}) et \ref{item:13}) sont équivalentes.  De la même manière, on démontre aussi que \ref{item:12}) et \ref{item:14}) sont équivalentes.
 
 \ref{item:12}) $\Rightarrow$ \ref{item:13}) : Supposons que $\rank(A_B^f) = n$ et soit $v \in V$, $v \neq 0$. Pour $w \in V$ on a 
 \begin{displaymath}
   f(v,w) = [v]_B^T A_B^f [w]_B. 
 \end{displaymath}
 Dès que $[v]_B \neq 0$, on a $[v]_B^T A_B^f \neq 0^T$ (car $\noy(A_B^f) = \{0\} \iff \rank(A_B^f) = n$). Supposons que la $i$-ème composante de $[v]_B^T A_B^f$ n'est pas égale a $0$. Alors $[v]_B^T A_B^f e_i \neq 0$ où toutes les composantes de $e_i$ sont $0$ sauf la $i$-ème composante, 
-qui est égale a $1$. Alors $f(v,b_i) \neq 0$. Donc $f$ est non dégénérée.
+qui est égale a $1$. Alors $f(v,b_i) \neq 0$. Donc $f$ est non dégénérée à gauche. \newline
 
-\ref{item:13}) $\Rightarrow$ \ref{item:12}) : On montre la contraposée. Si $\rank(A_B^f) < n$, alors il existe $x \neq 0$ tel que $[x]_B^T A_B^f = 0 \Rightarrow [x]_B^T A_B^f [y]_B^T = 0$ pour tout $y \in V$. Ceci implique que $f$ est dégénérée.
+\ref{item:13}) $\Rightarrow$ \ref{item:12}) : Si $f$ est non dégénérée à gauche, alors $x^T A_B^f \neq 0$ pour tout $x \in K^n$ tel que $x \neq 0$ (sinon, on aurait trouvé un $x$ tel que $x^T A_B^f y = 0$ pour tout $y \in K^n$). Ceci implique que les lignes de $A_B^f$ sont linéairement indépendantes. Alors $\rank(A_B^f) = n$. 
 \end{proof}
 
 
