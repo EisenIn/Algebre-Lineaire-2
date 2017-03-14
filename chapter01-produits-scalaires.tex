@@ -30,11 +30,7 @@ pour tout $v,w \in V$
 \noindent
 On dit que la forme bilinéaire est \emph{non dégénérée à gauche} (respectivement \emph{à droite}) si la condition suivante est vérifiée:
 \begin{quote}
-  Si $v \in V$, et si $\pscal{v,w}=0$ pour tout $w \in V$, alors $v = 0$
-\end{quote}
-ou de manière équivalente :
-\begin{quote}
-  Si $v \in V$, $v \neq 0$, alors il existe $w \in V$ tel que $\pscal{v,w} \neq 0$. 
+  Si $v \in V$, et si $\pscal{v,w}=0$ pour tout $w \in V$, alors $v = 0$. 
 \end{quote}
 Si la forme bilinéaire est non dégénérée à gauche et à droite, on dit qu'elle est \emph{non dégénérée}.
 \end{definition}
@@ -119,22 +115,14 @@ Cette formule nous montre que
   Soit $V$ un $K$-espace vectoriel de dimension finie, $B= \{b_1, \dots , b_n\}$ une base de $V$ et $f : V × V ⟶K$ une forme bilinéaire.   Les conditions suivantes sont équivalentes. 
   \begin{enumerate}[i)]
   \item $\rank(A_B^f) = n$ \label{item:12}
-<<<<<<< HEAD
-  \item $f$ est non dégénérée \label{item:13}
-  \item Si $v \in V$, et si $\pscal{w,v}=0$ pour tout $w \in V$, alors $v = 0$. \label{item:14}
-=======
   \item $f$ est non dégénérée à gauche, i.e. si $v \in V$, et si $\pscal{v,w}=0$ pour tout $w \in V$, alors $v = 0$ \label{item:13}
   \item $f$ est non dégénérée à droite, i.e. si $v \in V$, et si $\pscal{w, v}=0$ pour tout $w \in V$, alors $v = 0$ \label{item:14}
->>>>>>> origin/master
   \end{enumerate}
 \end{proposition}
 
 \begin{proof} 
-<<<<<<< HEAD
-Nous montrons \ref{item:12}) et \ref{item:13}) sont équivalentes.  Du même manière, on démontre aussi que \ref{item:12}) et \ref{item:14}) sont équivalentes.
-=======
+
 Nous montrons \ref{item:12}) et \ref{item:13}) sont équivalentes.  De la même manière, on démontre aussi que \ref{item:12}) et \ref{item:14}) sont équivalentes.
->>>>>>> origin/master
 
 \ref{item:12}) $\Rightarrow$ \ref{item:13}) : Supposons que $\rank(A_B^f) = n$ et soit $v \in V$, $v \neq 0$. Pour $w \in V$ on a 
 \begin{displaymath}
@@ -1167,8 +1155,8 @@ et alors
 
 \begin{enumerate}
 
-\item Soit $V$ un espace vectoriel muni d'un produit scalaire $\pscal{.}$. Soit $U \subseteq V$ un sous-espace. Montrer que $\pscal{.}$ restreint à $U$ est un produit scalaire du sous-espace $U$. 
-\item Soient $V$ un espace vectoriel muni d'un produit scalaire $\pscal{.}$ et $\{v_1,\dots,v_n\} \subseteq V$ un ensemble de
+\item Soit $V$ un espace vectoriel muni d'une forme bilinéaire $\pscal{.}$. Soit $U \subseteq V$ un sous-espace. Montrer que $\pscal{.}$ restreint à $U$ est un produit scalaire du sous-espace $U$. 
+\item Soient $V$ un espace vectoriel muni d'une forme bilinéaire symétrique $\pscal{.}$ et $\{v_1,\dots,v_n\} \subseteq V$ un ensemble de
 vecteurs deux à deux orthogonaux. 
   \begin{enumerate}[a)]
   \item   Montrer que $\{v_1,\dots,v_n\}$ est un ensemble libre si pour tout $i$, 
@@ -1202,10 +1190,10 @@ vecteurs deux à deux orthogonaux.
       1 & 0 & \cdots &\cdots & 0 & 1
     \end{pmatrix}
   \end{displaymath}
-\item Trouver un produit scalaire de $\R^n$ tel qu'il existe des vecteurs $u,v \in \R^n$ avec $\pscal{u,u}<0$ et $\pscal{v,v}>0$. 
-\item Soit $V$ un espace vectoriel sur $\R$ muni d'un produit scalaire. S'il existe des vecteurs $u,v \in V$ tels que $\pscal{u,u}<0$ et $\pscal{v,v}>0$, il existe un vecteur $w \neq 0$ tel que $\pscal{w,w}=0$. 
+\item Trouver une forme bilinéaire symétrique de $\R^n$ tel qu'il existe des vecteurs $u,v \in \R^n$ avec $\pscal{u,u}<0$ et $\pscal{v,v}>0$. 
+\item Soit $V$ un espace vectoriel sur $\R$ muni d'une forme bilinéaire symétrique. S'il existe des vecteurs $u,v \in V$ tels que $\pscal{u,u}<0$ et $\pscal{v,v}>0$, il existe un vecteur $w \neq 0$ tel que $\pscal{w,w}=0$. 
 \item Montrer que l'inégalité de Bessel (Théorème \ref{thr:4}) est une égalité si $v$ est dans le sous-espace engendré par les $v_1,\dots,v_n$. 
-\item On considère l'espace euclidien des fonctions continues sur l'intervalle $[0,1]$ muni du produit scalaire 
+\item On considère l'espace euclidien des fonctions continues sur l'intervalle $[0,1]$ muni de la forme bilinéaire symétrique 
   \begin{displaymath}
     \pscal{f,g} = \int_0^1 f(x)g(x) \, dx. 
   \end{displaymath}
@@ -1370,17 +1358,23 @@ est $x^* = (1,2)^T$.
 \section{Formes linéaires, bilinéaires et l'espace dual}
 \label{sec:lespace-dual}
 
- Soient $V$ un espace vectoriel sur un corps $K$ et $V^*$ l'ensemble  des  applications linéaires de $V$ dans $K$, où on considère $K$ comme espace vectoriel de dimension $1$ sur lui-même. Clairement, $V^*$ est un espace vectoriel lui-même. 
+Soient $V$ un espace vectoriel sur un corps $K$ et $V^*$ l'ensemble  des  applications linéaires de $V$ dans $K$, où on considère $K$ comme espace vectoriel de dimension $1$ sur lui-même. Clairement, $V^*$ est un espace vectoriel lui-même. 
 \begin{definition}
 \label{def:9}
-  L'ensemble des  applications linéaires  de $V$ dans $K$ est noté $V^*$ et, muni de l'addition et de la multiplication scalaire usuelles, est appelé l'\emph{espace dual} de $V$. Les éléments de $V^*$ sont appelés \emph{formes linéaires}.
+  L'ensemble des  applications linéaires  $φ : V ⟶ K$ est noté $V^*$ et, muni de l'addition et de la multiplication scalaire usuelles, est appelé l'\emph{espace dual} de $V$. Les éléments de $V^*$ sont appelés \emph{formes linéaires}.
 \end{definition}
 
-\begin{example}
-  
-Si $\pscal{.}$ est un produit scalaire de $V$ et $v \in V$, alors $f(x) = \pscal{x,v} \in V^*$ est une forme linéaire. 
-\end{example}
-
+\begin{remark}
+  \label{def:10}
+  Soit $V$ un espace vectoriel sur un corps $K$. Une application 
+  \begin{displaymath}
+    f\colon V \times V \longrightarrow K
+  \end{displaymath}
+  est une forme bilinéaire si et seulement si pour tout $v \in V$,
+  les applications $g,h: V \longrightarrow K$
+  telles que $g(x) = f(v,x)$
+  et $h(x) = f(x,v)$ sont des formes linéaires.
+\end{remark}
 
 Si $V$ est de dimension finie et si $B = \{v_1,\dots,v_n\}$ est une base de $V$, l'image d'un vecteur $x = \sum_i\alpha_i v_i$ par une forme linéaire $f$ est 
 \begin{eqnarray*}
@@ -1425,53 +1419,20 @@ c'est-à-dire  les $\phi_j$ sont linéairement indépendantes. Les $\phi_j$ enge
 \end{definition}
 
 
-\begin{definition}
-  \label{def:10}
-  Soit $V$ un espace vectoriel sur un corps $K$. Une application 
-  \begin{displaymath}
-    f\colon V \times V \longrightarrow K
-  \end{displaymath}
-  est une forme bilinéaire si pour tout $v \in V$, les applications 
-  $g,h: V \longrightarrow K$ telles que $g(x) = f(v,x)$ et $h(x) = f(x,v)$ sont des formes linéaires. 
-\end{definition}
-
-\begin{example}
-  \label{exe:9}
-  Un produit scalaire $\pscal{.}$ est une forme bilinéaire symétrique. 
-\end{example}
-
-
-
-\begin{lemma}
-  \label{lem:4}
-  Soit $V$
-  un espace vectoriel sur un corps $K$ de dimension finie muni d'un produit scalaire
-  $\pscal{.}$
-  Le produit scalaire est non dégénéré si et seulement si la matrice
-  $A_B^{\pscal{}}$ est de rang plein pour toute base $B$.
-\end{lemma}
-
-\begin{proof}
-  Soit $n$ la dimension de $V$. 
-  Si le produit scalaire est dégénéré, alors il existe  $0 \neq v \in V$
-  tel que $\pscal{v,u}=0$ pour tout $u \in V$. Alors
-  \begin{displaymath}
-    [v]_B^T A_B^{\pscal{}} x = 0 \, \text{ pour tout } \,  x \in K^n,
-  \end{displaymath}
-alors $[v]_B^T A_B^{\pscal{}} = 0$ qui démontre $\rank(A_B^{\pscal{}})<n$. 
-
-Si $\rank(A)<n$ alors il existe $0 \neq v \in V$ tel que $[v]_B^TA_B^{\pscal{}} = 0$. Alors, $\pscal{v,u} = 0$ pour tout $u \in V$ qui démontre que $\pscal{.}$ est dégénéré. 
-
-\end{proof}
 
 
 \begin{lemma}
   \label{lem:5}
-  Soit $V$ un espace vectoriel sur le corps $K$  de dimension finie muni d'un produit scalaire non dégénéré et soit $f\colon V \longrightarrow K$ une forme linéaire. Il existe un $v \in V$ tel que $f(x) = \pscal{v,x}$ pour tout $x \in V$. 
+  Soit $V$
+  un espace vectoriel sur le corps $K$
+  de dimension finie muni d'une forme bilinéaire  non dégénéré et soit
+  $f\colon V \longrightarrow K$
+  une forme linéaire. Il existe un $v \in V$
+  tel que $f(x) = \pscal{v,x}$ pour tout $x \in V$.
 \end{lemma}
 
 \begin{proof}
-  Soient $B = \{v_1,\dots,v_n\}$ une base  de $V$ et $A_B^{\pscal{}} \in K^{n\times n}$ la matrice  associée au produit scalaire et à la base $B$. Soit $a \in K^n$ tel que  $f(x) = a^T[x]_B$ pour tout $x \in V$. Dès que $A_B^{\pscal{}}$ est de rang plein, alors il existe $v \in V$ tel que $[v]_B^TA_B^{\pscal{}} = a^T$. Ceci revient à résoudre un système d'équations linéaires (cf semestre 1) et comme la matrice $A_B^{\pscal{}}$ est de rang plein, on a l'existence (et même l'unicité) d'une solution, i.e.,  $[v]_B^TA_B^{\pscal{}} = a^T$. Ainsi 
+  Soient $B = \{v_1,\dots,v_n\}$ une base  de $V$ et $A_B^{\pscal{}} \in K^{n\times n}$ la matrice  associée au produit scalaire et à la base $B$. Soit $a \in K^n$ tel que  $f(x) = a^T[x]_B$ pour tout $x \in V$. Dès que $A_B^{\pscal{}}$ est de rang plein (Proposition~\ref{prop:7}), alors il existe $v \in V$ tel que $[v]_B^TA_B^{\pscal{}} = a^T$. Ceci revient à résoudre un système d'équations linéaires (cf semestre 1) et comme la matrice $A_B^{\pscal{}}$ est de rang plein, on a l'existence (et même l'unicité) d'une solution, i.e.,  $[v]_B^TA_B^{\pscal{}} = a^T$. Ainsi 
 $f(x) = \pscal{v,x}$ pour tout $x \in V$. 
 \end{proof}
 
@@ -1480,7 +1441,7 @@ $f(x) = \pscal{v,x}$ pour tout $x \in V$.
 
 \begin{theorem}[Supplémentaire orthogonal]
   \label{thr:8}
-  Soient $V$ un espace vectoriel de dimension finie sur corps $K$ et $W$ un sous-espace de $V$. Soit $\pscal{.}$ un produit scalaire tel que, si restreint sur $W\times W$, il est non dégénéré. Alors $V = W \oplus W^\perp$.  
+  Soient $V$ un espace vectoriel de dimension finie sur corps $K$ et $W$ un sous-espace de $V$. Soit $\pscal{.}$ une forme bilinéaire symétrique tel que, si restreint sur $W\times W$, elle est non dégénérée. Alors $V = W \oplus W^\perp$.  
 \end{theorem}
 
 \begin{proof}
@@ -1514,14 +1475,14 @@ Il reste à démontrer que $V = W + W^\perp$. Pour $v \in V$ le lemme~\ref{lem:5
       0\\1\\1\\0
     \end{pmatrix} \in \Z_2^4
   \end{displaymath}
-et le produit scalaire standard. Trouver une base du $\spa\{v_1,v_2\}^\perp$. Est-ce que $\Z_2^4 = \spa\{v_1,v_2\} \oplus \spa\{v_1,v_2\}^\perp$? 
+et la forme bilinéaire standard. Trouver une base du $\spa\{v_1,v_2\}^\perp$. Est-ce que $\Z_2^4 = \spa\{v_1,v_2\} \oplus \spa\{v_1,v_2\}^\perp$? 
 \item Soit $V \subseteq \R[x]$ l'espace euclidien des polynômes de degré au plus $n$ muni du produit scalaire  $\pscal{p,q} = \int_0^1p(x)q(x) \, dx$.  Décrire la matrice $A_B^{\pscal{}}$ pour $B = \{1,x,\dots,x^n\}$. 
 \item Soit $V$ un espace vectoriel sur un corps $K$ et soient $f,g \in V^* \setminus \{0\}$ linéairement indépendants. Montrer que
   \begin{displaymath}
     \ker{f} \cap \ker{g} 
   \end{displaymath}
 est de dimension $n-2$. 
-\item Soit $V$ un espace vectoriel de dimension finie sur un corps $K$ et soit $\pscal{.}$ un produit scalaire. Exprimez $(W_1 +W_2)^\perp$ et $(W_1\cap W_2)^\perp$ en fonction de $W_1^\perp$ et $W_2^\perp$. 
+\item Soit $V$ un espace vectoriel de dimension finie sur un corps $K$ et soit $\pscal{.}$ une forme bilinéaire symétrique. Exprimez $(W_1 +W_2)^\perp$ et $(W_1\cap W_2)^\perp$ en fonction de $W_1^\perp$ et $W_2^\perp$. 
 
 
 \item Donner un exemple d'un espace vectoriel  $V$ muni d'un produit scalaire dégénéré et d'un sous-espace $W \subseteq V$  tel que $V$ n'est pas la somme directe de $W$ et $W^\perp$. 
@@ -1537,9 +1498,10 @@ est de dimension $n-2$.
 \section{Formes sesquilinéaires et produits hermitiens}
 \label{sec:form-sesq-et}
 
-
-Maintenant nous considérons le cas $K = \C$. Il faut un peu modifier la définition d'un produit scalaire pour obtenir des résultats similaires à ceux des sections précédentes.  
-Le carré de la longueur d'un vecteur 
+Maintenant nous considérons le cas $K = ℂ$.
+Il faut un peu modifier la définition d'un produit scalaire pour
+obtenir des résultats similaires à ceux des sections précédentes.  Le
+carré de la longueur d'un vecteur
 \begin{displaymath}
   v =
   \begin{pmatrix}
@@ -1557,12 +1519,15 @@ où $v_i = a_i + i \cdot b_i$ et $\bar{v_i}$ est la conjugaison de $v_i$. Ceci s
 \begin{definition}
   \label{def:15}
   Soit $V$
-  un espace vectoriel sur un corps $\C$.
-  Un \emph{produit hermitien} sur $V$
-  est une correspondance qui, à tout couple $(v,w)$
+  un espace vectoriel sur un corps $\C$ et 
+  \begin{displaymath}
+    \pscal{,} : V × V ⟶ ℂ 
+  \end{displaymath}
+  une correspondance qui, à tout couple $(v,w)$
   d'éléments de $V$
-  associe un nombre complexe, noté $\pscal{v,w}$, satisfaisant les propriétés suivantes:
-\medskip 
+  associe un nombre complexe, noté $\pscal{v,w}$. 
+  On considérant 
+  les propriétés suivantes: \medskip
   \begin{enumerate}[PH 1]
   \item On a $\pscal{v,w} = \overline{\pscal{w,v}}$ pour tout $v,w \in V$.  \label{ph1}
   \item Si $u,v$ et $w$ sont des éléments de $V$,  \label{ph2}
@@ -1575,15 +1540,31 @@ où $v_i = a_i + i \cdot b_i$ et $\bar{v_i}$ est la conjugaison de $v_i$. Ceci s
     \end{displaymath}  
   \end{enumerate}
   \noindent
-On dit que le produit hermitien  est \emph{non dégénéré} si, de plus, la condition suivante est vérifiée:
+on dit que $\pscal{,}$ est 
+\begin{enumerate}[i)]
+\item \emph{une forme sesquilinéaire}, si $\pscal{,}$ satisfait 
+  PH~\ref{ph2} et PH~\ref{ph3}. 
+\item une \emph{une forme hermitienne}, si $\pscal{,}$ satisfait 
+  PH~\ref{ph1}, PH~\ref{ph2} et PH~\ref{ph3}. 
+\item un \emph{produit hermitien}, si   $\pscal{,}$ satisfait 
+  PH~\ref{ph1}, PH~\ref{ph2} et PH~\ref{ph3} et 
+  \begin{displaymath}
+    \pscal{v,v} >0, \text{ pour tout } v \in V \setminus \{0\}. 
+  \end{displaymath}
+\end{enumerate}
+
+Une forme  sesquilinéaire  est \emph{non dégénéré à gauche} si la condition suivante est vérifiée. 
 \begin{quote}
   Si $v \in V$ et si $\pscal{v,w}=0$ pour tout $w \in V$, alors $v = 0$. 
 \end{quote}
 
-Pour tout $v \in V$ $\pscal{v,v} \in \R$, puisque $\pscal{v,v} = \overline{\pscal{v,v}}$, on dit que le produit hermitien  est \emph{défini positif} si $\pscal{v,v} \geq 0$ pour tout $v \in V$ et si $\pscal{v,v}>0$ lorsque $v \neq 0$. 
-
 \end{definition}
 
+
+\begin{remark}
+Si $\pscal{,} $  est une forme hermitienne, 
+pour tout $v \in V$ $\pscal{v,v} \in \R$ des que  $\pscal{v,v} = \overline{\pscal{v,v}}$.  On dit que la forme hermitienne   est \emph{défini positif} si $\pscal{v,v} >0$ pour tout $v \in V \setminus\{0\}$. 
+\end{remark}
 
 \begin{example}
   \label{exe:12}
@@ -1621,12 +1602,7 @@ Pour $f \in V$ la composante de $f$ sur $f_n$, ou le coefficient de Fourier de $
 \end{displaymath}
 \end{example}
 
-\begin{definition}
-  \label{def:16}
-  Une application $f \colon V \times V \longrightarrow \C$ satisfaisant
 
-  PH~\ref{ph2} et PH~\ref{ph3} est appelé une \emph{forme sesquilinéaire}. 
-\end{definition}
 
 
 
@@ -1652,7 +1628,7 @@ $\overline{A}_{ij} = \overline{A_{ij}}$ pour out $i,j$.
 
 \begin{proposition}
   \label{prop:3}
-  Soit  $V$  un espace vectoriel sur $\C$ de dimension finie et soit $B$  une base de $V$. Une forme sesquilinéaire $f$ est un produit hermitien si et seulement si $A_B^f$ est hermitienne. 
+  Soit  $V$  un espace vectoriel sur $\C$ de dimension finie et soit $B$  une base de $V$. Une forme sesquilinéaire $f$ est une forme hermitienne si et seulement si $A_B^f$ est hermitienne. 
 \end{proposition}
 
 
@@ -1664,7 +1640,7 @@ $\cong_\C$ est aussi une relation d'équivalence. On peut aussi modifier l'algor
 
 \begin{theorem}
   \label{thr:11}
-  Soit $V$ un espace vectoriel sur $\C$ de dimension finie, muni d'un produit hermitien. Alors $V$ possède une base orthogonale. 
+  Soit $V$ un espace vectoriel sur $\C$ de dimension finie, muni d'une forme  hermitienne. Alors $V$ possède une base orthogonale. 
 \end{theorem}
 \begin{proof}
   Soit $B = \{v_1,\dots,v_n\}$  une base de $V$. Pour $x,y \in V$ on a 
@@ -1756,14 +1732,14 @@ on obtient
       f({x \cdot u , v}) = x f({u,v}). 
     \end{displaymath}  
   \end{enumerate}
-Montrer que $f$ est un produit hermitien. 
+Montrer que $f$ est une forme hermitienne. 
 \item Soit $V$ un espace vectoriel sur $\C$ de dimension finie et $f: V \times V \longrightarrow \C$ une forme sesquilinéaire. Pour une base  $B = \{v_1,\dots,v_n\}$ de $V$ et $x = \sum_i \alpha_i v_i$ et $y = \sum_i \beta_i v_i$ montrer en détail que 
   \begin{displaymath}
   \pscal{x,y} = [x]_B ^T A_B^{f} \overline{[y]_B} 
 \end{displaymath}
 avec la matrice $A_B^f = (f(v_i,v_j))_{1 \leq i,j \leq n}$. Indiquez l'application des axiomes PH~\ref{ph2}) et PH~\ref{ph3}) dans les pas correspondants. 
 \item Démontrer la proposition~\ref{prop:3}. 
-\item Soit $V$ un espace vectoriel sur $\C$ de dimension $n$ et soit $\pscal{.}$ un produit hermitien. Montrer que $\pscal{.}$ est non dégénéré si et seulement si $\rank(A_B^{\pscal{.}}) = n$  pour chaque base $B$ de $V$. 
+\item Soit $V$ un espace vectoriel sur $\C$ de dimension $n$ et soit $\pscal{.}$ une forme sesquilinéaire. Montrer que $\pscal{.}$ est non dégénéré si et seulement si $\rank(A_B^{\pscal{.}}) = n$  pour chaque base $B$ de $V$. 
 \item Montrer que $\cong_\C$ est une relation d'équivalence. \label{item:6}
 \item Modifier l'algorithme~\ref{alg:1} afin qu'il calcule une matrice diagonale congruente complexe par rapport à une matrice hermitienne $A \in \C^{n \times n}$. \label{item:7}
 \item Soient $V$ un espace vectoriel sur $\C$ et $\dim(V) = 3$ et $B = \{v_1,v_2,v_3\}$ une base de $V$. Avec les matrices $A_i \in \C^{3\times 3}$ décrites en bas et les applications  $f_i(x,y) = [x]_B^T A_i \overline{[y]_B}$, cocher ce qui s'applique.  
@@ -1777,7 +1753,7 @@ avec la matrice $A_B^f = (f(v_i,v_j))_{1 \leq i,j \leq n}$. Indiquez l'applicati
       \hline 
       & $A_1$ & $A_2$ & $A_3$ \\\hline 
       forme sesquilinéaire & & & \\ \hline 
-      produit hermitien & & & \\ \hline 
+      forme hermitienne & & & \\ \hline 
     \end{tabular}
   \end{center}
   
@@ -1822,7 +1798,7 @@ avec la matrice $A_B^f = (f(v_i,v_j))_{1 \leq i,j \leq n}$. Indiquez l'applicati
 \begin{framed}\noindent 
   Pour le reste de ce paragraphe, si pas spécifié autrement,  $V$
   est toujours un espace vectoriel sur $\C$
-  muni d'un produit hermitien défini positif, alors $V$ est un espace hermitien. 
+  muni d'un produit hermitien, alors $V$ est un espace hermitien. 
 \end{framed}
 
 
