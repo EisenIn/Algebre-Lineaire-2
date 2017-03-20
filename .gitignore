@@ -11,6 +11,11 @@
 *.cb
 *.cb2
 
+## emacs
+*.el
+auto
+
+
 ## Intermediate documents:
 *.dvi
 *-converted-to.*
