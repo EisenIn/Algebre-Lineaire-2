@@ -605,7 +605,7 @@ où $ [x]_B \cdot [y]_B$  dénote la forme bilinéaire standard de $\R^n$ entre 
 \label{sec:le-theoreme-de}
 
 
-Soit $V$ un espace vectoriel de dimension finie sur un corps $K$ muni d'une forme bilinéaire symétrique. Nous avons vu (théorème~\ref{thr:5}) que $V$ possède une base orthogonale. Supposons que cette base est $B = \{v_1,\dots,v_n\}$ et considérons $x = \sum_i \alpha_i v_i \in V$ et $y \in \sum_i \beta_i v_i \in V$. La forme bilinéaire  s'écrit 
+Soit $V$ un espace vectoriel de dimension finie sur un corps $K$, $\mathrm{Char}(K) \neq 2$, muni d'une forme bilinéaire symétrique. Nous avons vu (théorème~\ref{thr:5}) que $V$ possède une base orthogonale. Supposons que cette base est $B = \{v_1,\dots,v_n\}$ et considérons $x = \sum_i \alpha_i v_i \in V$ et $y \in \sum_i \beta_i v_i \in V$. La forme bilinéaire  s'écrit 
 \begin{eqnarray*}
   \pscal{x,y} & =  & \sum_{i, j} \alpha_i \beta_j \pscal{v_i,v_j} \\
               & = & \sum_i \alpha_i \beta_i \pscal{v_i,v_i} \\
@@ -1523,10 +1523,10 @@ où $v_i = a_i + i \cdot b_i$ et $\bar{v_i}$ est la conjugaison de $v_i$. Ceci s
   \begin{displaymath}
     \pscal{,} : V × V ⟶ ℂ 
   \end{displaymath}
-  une correspondance qui, à tout couple $(v,w)$
+  une correspondance qui à tout couple $(v,w)$
   d'éléments de $V$
   associe un nombre complexe, noté $\pscal{v,w}$. 
-  On considérant 
+  En considérant 
   les propriétés suivantes: \medskip
   \begin{enumerate}[PH 1]
   \item On a $\pscal{v,w} = \overline{\pscal{w,v}}$ pour tout $v,w \in V$.  \label{ph1}
@@ -1542,9 +1542,9 @@ où $v_i = a_i + i \cdot b_i$ et $\bar{v_i}$ est la conjugaison de $v_i$. Ceci s
   \noindent
 on dit que $\pscal{,}$ est 
 \begin{enumerate}[i)]
-\item \emph{une forme sesquilinéaire}, si $\pscal{,}$ satisfait 
+\item une \emph{forme sesquilinéaire}, si $\pscal{,}$ satisfait 
   PH~\ref{ph2} et PH~\ref{ph3}. 
-\item une \emph{une forme hermitienne}, si $\pscal{,}$ satisfait 
+\item une \emph{forme hermitienne}, si $\pscal{,}$ satisfait 
   PH~\ref{ph1}, PH~\ref{ph2} et PH~\ref{ph3}. 
 \item un \emph{produit hermitien}, si   $\pscal{,}$ satisfait 
   PH~\ref{ph1}, PH~\ref{ph2} et PH~\ref{ph3} et 
@@ -1553,7 +1553,7 @@ on dit que $\pscal{,}$ est
   \end{displaymath}
 \end{enumerate}
 
-Une forme  sesquilinéaire  est \emph{non dégénéré à gauche} si la condition suivante est vérifiée. 
+Une forme  sesquilinéaire  est \emph{non dégénérée à gauche} si la condition suivante est vérifiée. 
 \begin{quote}
   Si $v \in V$ et si $\pscal{v,w}=0$ pour tout $w \in V$, alors $v = 0$. 
 \end{quote}
@@ -1563,7 +1563,7 @@ Une forme  sesquilinéaire  est \emph{non dégénéré à gauche} si la conditio
 
 \begin{remark}
 Si $\pscal{,} $  est une forme hermitienne, 
-pour tout $v \in V$ $\pscal{v,v} \in \R$ des que  $\pscal{v,v} = \overline{\pscal{v,v}}$.  On dit que la forme hermitienne   est \emph{définie positif} si $\pscal{v,v} >0$ pour tout $v \in V \setminus\{0\}$. Alors un produit hermitien est une forme hermitienne définie positif. 
+pour tout $v \in V$, on a $\pscal{v,v} \in \R$ dès que $\pscal{v,v} = \overline{\pscal{v,v}}$ par PH~\ref{ph1}.  On dit que la forme hermitienne   est \emph{définie positif} si $\pscal{v,v} >0$ pour tout $v \in V \setminus\{0\}$. Alors un produit hermitien est une forme hermitienne définie positif. 
 \end{remark}
 
 \begin{example}
@@ -1615,8 +1615,8 @@ et avec la matrice $A_B^f = (f(v_i,v_i))_{1 \leq i,j \leq n}$   alors
   \label{eq:9}
   \pscal{x,y} = [x]_B ^T A_B^{f} \overline{[y]_B} 
 \end{equation}
-où pour un vecteur $v \in \C^n$ le vecteur $\overline{v}$ est tel que $\overline{v}_i = \overline{v_i}$ pour tout $i$. Pour une matrice $A \in \C^{m \times n}$, $\overline{A} \in \C^{m \times n}$ est la matrice telle que 
-$\overline{A}_{ij} = \overline{A_{ij}}$ pour out $i,j$. 
+où pour un vecteur $v \in \C^n$ le vecteur $\overline{v}$ est tel que $(\overline{v})_i = \overline{(v_i)}$ pour tout $i$. Pour une matrice $A \in \C^{m \times n}$, $\overline{A} \in \C^{m \times n}$ est la matrice telle que 
+$\left(\overline{A}\right)_{ij} = \overline{(A_{ij})}$ pour out $i,j$. 
 \begin{definition}
   \label{def:17}
   Une matrice $A \in \C^{n \times n}$ est appelée \emph{hermitienne} si on a 
@@ -1663,7 +1663,7 @@ $\cong_\C$ est aussi une relation d'équivalence. On peut aussi modifier l'algor
     p_{1j}\\ \vdots \\ p_{nj}
   \end{pmatrix}, 
   \end{displaymath} 
-alors $w_j = \sum_{i=1}^n p_{ij} w_i$. 
+alors $w_j = \sum_{i=1}^n p_{ij} v_i$. 
 
 \end{proof}
 
@@ -1796,9 +1796,9 @@ avec la matrice $A_B^f = (f(v_i,v_j))_{1 \leq i,j \leq n}$. Indiquez l'applicati
 
 
 \begin{framed}\noindent 
-  Pour le reste de ce paragraphe, si pas spécifié autrement,  $V$
+  Pour le reste de ce paragraphe, s'il n'est pas spécifié autrement,  $V$
   est toujours un espace vectoriel sur $\C$
-  muni d'un produit hermitien, alors $V$ est un espace hermitien. 
+  muni d'un produit hermitien. Alors $V$ est un espace hermitien. 
 \end{framed}
 
 
@@ -1806,7 +1806,7 @@ avec la matrice $A_B^f = (f(v_i,v_j))_{1 \leq i,j \leq n}$. Indiquez l'applicati
 
 \begin{definition}
   \label{def:h5}
-  Soit $\pscal{\,}$ un produit hermitien défini positif. La \emph{longueur} ou la \emph{norme} d'un élément $v \in V$ est le nombre 
+  Soit $\pscal{,}$ un produit hermitien défini positif. La \emph{longueur} ou la \emph{norme} d'un élément $v \in V$ est le nombre 
   \begin{displaymath}
     \| v \| = \sqrt{\pscal{v,v}}.
   \end{displaymath}
@@ -1820,7 +1820,7 @@ Aussi, l'inégalité de Cauchy-Schwarz est démontrée comme avant:
 \end{equation}
 
 
-Les propriétés suivantes sont facilement vérifiées. 
+Les propriétés suivantes sont facilement vérifiées :
 \begin{enumerate}[i)]
 \item Pour tout $v \in V$, $\|v\|\geq 0$ et $\|v\| = 0$ si et seulement si $v = 0$. \label{item:8}
 \item Pour $\alpha \in \C$ et $v \in V$ on a $\| \alpha \cdot v \| = |\alpha| \cdot \|v\|$. \label{item:9}
