@@ -1628,13 +1628,13 @@ $\left(\overline{A}\right)_{ij} = \overline{(A_{ij})}$ pour out $i,j$.
 
 \begin{proposition}
   \label{prop:3}
-  Soit  $V$  un espace vectoriel sur $\C$ de dimension finie et soit $B$  une base de $V$. Une forme sesquilinéaire $f$ est une forme hermitienne si et seulement si $A_B^f$ est hermitienne. 
+  Soit  $V$  un espace vectoriel sur $\C$ de dimension finie et soit $B$  une base de $V$. Une forme sesquilinéaire $f$ est une forme hermitienne si et seulement si $A_B^f$ est hermitienne.  
 \end{proposition}
 
 
 \begin{definition}
   \label{def:18}
-  Deux matrices $A,B \in \C^{n \times n}$ sont \emph{congruentes complexes} s'il existe une matrice inversible $P \in \C^{n \times n}$ telle que $A = {P^T} \cdot B \cdot \overline{P}$. Nous écrivons $A \cong_\C B$. 
+  Deux matrices $A,B \in \C^{n \times n}$ sont \emph{congruentes complexes} s'il existe une matrice inversible $P \in \C^{n \times n}$ telle que $A = {P^T} \cdot B \cdot \overline{P}$. Nous écrivons $A \cong_\C B$.  
 \end{definition}
 $\cong_\C$ est aussi une relation d'équivalence. On peut aussi modifier l'algorithme~\ref{alg:1} tel qu'il calcule une matrice diagonale congruente complexe par rapport à une matrice hermitienne $A \in \C^{n \times n}$,  voir l'exercice~\ref{item:7}. Alors on a le théorème suivant. 
 
@@ -1842,13 +1842,15 @@ L'équivalent du procédé de Gram-Schmidt pour les espaces hermitiens est comme
   et $\{u_1,\dots,u_i\}$ engendrent le même sous-espace de $V$.
 \end{theorem}
 
-Comme avant, une base orthonormale est une base orthogonale consistant de vecteurs unitaires et le procédé de Gram-Schmidt nous donne le corollaire suivant. 
+Comme avant, une base orthonormale est une base orthogonale consistant
+de vecteurs unitaires et le procédé de Gram-Schmidt nous donne le
+corollaire suivant.
 
 \begin{corollary}
-\label{co:6}
-Soit $V$
-un espace hermitien de dimension finie. Supposons $V \neq
-  \{0\}$. $V$ possède alors une base orthonormale.
+  \label{co:6}
+  Soit $V$
+  un espace hermitien de dimension finie.  $V$
+  possède alors une base orthonormale.
 \end{corollary}
 
 
@@ -1856,6 +1858,18 @@ un espace hermitien de dimension finie. Supposons $V \neq
 \subsection*{Exercices} 
 
 \begin{enumerate}
+\item (Composante de $u$
+  sur $v$;
+  indépendance de la direction) Soient $u,v \in V$
+  tel que $\pscal{v,v} \neq 0$.
+  Montrer qu'il existe un seul $α ∈ ℂ$ tel que
+  \begin{displaymath}
+    \pscal{u-α ⋅ v,v} = 0.
+  \end{displaymath}
+Pour ce $α$ on a 
+\begin{displaymath}
+  \pscal{v,u-α ⋅ v} =0. 
+\end{displaymath}
 \item Montrer l'inégalité de Cauchy-Schwarz. 
 \item Montrer l'inégalité triangulaire~\ref{tr:2}). 
 \item Montrer qu'un espace hermitien de dimension finie possède une base $B$ telle que $\pscal{x,y} = [x]_B^T \cdot \overline{[y]}_B$, où $\cdot$ est le produit hermitien standard. \label{item:4}
