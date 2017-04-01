@@ -15,7 +15,7 @@ où $\phi_B$ est l'ismomorphisme $\phi_B \colon V \longrightarrow K^n$, $\phi_B(
     K^n     @>A_B \cdot x>>  K^n
   \end{CD}} 
 \end{displaymath} 
-Les colonnes de la matrice $A_B$ sont les coordonnées de $f(v_1),\dots,f(v_n)$. 
+Les colonnes de la matrice $A_B$ sont les coordonnées de $f(v_1),\dots,f(v_n)$ dans la base $B$. 
 Une matrice $A \in K^{n \times n}$ est \emph{diagonalisable} s'il existe une matrice inversible $P \in K^{n \times n}$ telle que $P^{-1}\cdot A \cdot P$ est une matrice diagonale. 
 
 \section{Les endomorphismes auto-adjoints} 
@@ -45,9 +45,13 @@ Un endomorphisme $F$ est \emph{auto-adjoint} si
   \end{displaymath}
 et 
 \begin{displaymath}
-  \pscal{v, F(W)}  = [v]_B^T \overline{A_B} \overline{[w]_B}. 
+  \pscal{v, F(w)}  = [v]_B^T \overline{A_B} \overline{[w]_B}. 
 \end{displaymath}
-Alors $\overline{A_B} = A_B^T$. 
+Alors si $\overline{A_B} = A_B^T$, il est clair que $\pscal{F(v), w} = \pscal{v, F(w)}$ et donc $F$ est auto-adjoint. \\
+Et si $F$ est auto-adjoint, en choisissant $v = v_i$, $w = v_j$, on obtient 		\begin{displaymath}
+	\pscal{F(v_i), v_j} = e_i^TA_B^Te_j = (A_B^T)_{i, j} = \pscal{v_i, F(v_j)} = e_i^T \overline{A_B} e_j = (\overline{A_B})_{i, j},
+	\end{displaymath}
+donc $A_B^T = \overline{A_B}$
 \end{proof}
 
 
@@ -97,7 +101,7 @@ réelles.
   \begin{displaymath}
     \lambda \pscal{u,v} = \pscal{F(u),v} = \pscal{u,F(v)} = \gamma \pscal{u,v}
   \end{displaymath}
-et alors $\pscal{u,v}=[u]_B \cdot [v]_B=0$, où $\cdot$ dénote le produit scalaire/hermitien standard.  
+et alors $\pscal{u,v}=[u]_B \cdot [v]_B=0$, où $\cdot$ dénote le produit scalaire/hermitien standard et $B$ est une base orthonormale de $V$.  
 \end{proof}
 
 
@@ -134,7 +138,7 @@ Nous allons écrire $A^*$ pour dénoter $\overline{A}^T$ pour une matrice $A$.
 \begin{proof}
   Soit $A \in \R^{n\times n}$
   une matrice symétrique. Le cas où $A \in \C^{n \times n}$
-  est hermitienne est un exercice.
+  est hermitienne est laissé en exercice.
 
   Le théorème est démontré par induction. Si $n=1$, l'assertion est triviale. \\
   Supposons le théorème vrai jusqu'à $n-1 \in \N, n \ge 2$. Montrons le pour $n$. \\
@@ -177,7 +181,7 @@ La matrice $P$ est orthogonale puisque
     && 1 
   \end{pmatrix}. 
 \end{displaymath}
-Et 
+car $v^T \cdot v = 1$, $U^T \cdot U = I_{n-1}$ et $v^T \cdot U = 0$. Et 
 \begin{displaymath}
   P^T \, A \, P =
   \begin{pmatrix}
@@ -198,14 +202,14 @@ Et
 
 \begin{corollary}
   \label{co:8}
-  Soit $V$ un espace euclidien (hermitien) de dimension fini et $F$ un endomorphisme auto-adjoint. Alors $V$ possède une base $\{v_1,\dots,v_n\}$ orthonormale de vecteurs propre de $F$. 
+  Soit $V$ un espace euclidien (hermitien) de dimension finie et $F$ un endomorphisme auto-adjoint. Alors $V$ possède une base $\{v_1,\dots,v_n\}$ orthonormale de vecteurs propre de $F$. 
 \end{corollary}
 
 \begin{proof}
-  Soit $B = \{u_1,\dots,u_n\}$ une base de $V$ tel que $\pscal{x,y} = [x]_B \cdot [y]_B$ où $\cdot $ dénote le produit hermitien standard (voir chapitre~\ref{sec:espaces-hermitiens}, exercice~\ref{item:4}) et soit $A_F$  la matrice symétrique (hermitienne) telle que $F(x)  = \phi_B^{-1}(A_F [x]_B)$. Selon théorème~\ref{thr:16} $A_F$ est diagonalisable avec une matrice orthgonale (unitaire) $P$ 
+  Soit $B = \{u_1,\dots,u_n\}$ une base de $V$ tel que $\pscal{x,y} = [x]_B \cdot [y]_B$ où $\cdot $ dénote le produit hermitien standard (voir chapitre~\ref{sec:espaces-hermitiens}, exercice~\ref{item:4}) et soit $A_B^{(F)}$  la matrice symétrique (hermitienne) telle que $F(x)  = \phi_B^{-1}(A_B^{(F)} [x]_B)$. Selon théorème~\ref{thr:16}, $A_B^{(F)}$ est diagonalisable avec une matrice orthogonale (unitaire) $P$ 
   \begin{displaymath}
     P^* \cdot 
-    A_F \cdot  P  = \begin{pmatrix}
+    A_B^{(F)} \cdot  P  = \begin{pmatrix}
       \lambda_1 \\
       & \ddots \\
       & & \lambda_n
