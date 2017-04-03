@@ -290,7 +290,15 @@ Alors $\left\{\frac{\sqrt{2}}{2}v_1 + \frac{\sqrt{2}}{2} v_3,- \frac{\sqrt{2}}{6
 
 \end{example}
 
+\subsection*{Exercices}
 
+\begin{enumerate}
+\item Soit $z = x + iy \in \C^n$, où $x,y \in \R^n$. Montrer que $x$ et $y$ sont linéairement indépendants sur $\R$ si et seulement si $z$ et $\overline{z}$ sont linéairement indépendants sur  $\C$. 
+\end{enumerate}
+
+
+\section{Formes quadratiques réelles et matrices symétriques réelles}
+\label{sec:form-quadr-reell}
 
 Le lemme~\ref{lem:8} et le corollaire~\ref{co:7} démontrent qu'une matrice symétrique réelle possède une valeur propre réelle. Cette démonstration passe par les nombres complexes et utilise le théorème fondamental de l'algèbre. Pour le cas où $A = A^T \in \R^{n \times n}$, nous allons maintenant démontrer l'assertion du  corollaire~\ref{co:7}  d'une manière géométrique. L'ensemble 
 \begin{displaymath}
@@ -346,14 +354,8 @@ Ceci démontre que $g'(0) = 2 \cdot w^T A v = 2 \cdot \beta  \neq 0$.
 \end{proof}
 
 
-\subsection*{Exercices}
 
-\begin{enumerate}
-\item Soit $z = x + iy \in \C^n$, où $x,y \in \R^n$. Montrer que $x$ et $y$ sont linéairement indépendants sur $\R$ si et seulement si $z$ et $\overline{z}$ sont linéairement indépendants sur  $\C$. 
-\end{enumerate}
 
-\section{Formes quadratiques réelles et matrices symétriques réelles}
-\label{sec:form-quadr-reell}
 
 \begin{definition}
   \label{def:f22}
@@ -511,7 +513,7 @@ et
 \end{theorem}
 
 \begin{proof}
-Nous démontrons \eqref{eq:12}. La partie \eqref{eq:13} est un exercice. Soit $\{u_1,\dots,u_n\}$ une base orthonormale de vecteurs propres associés à $\lambda_1 \leq \dots \leq \lambda_n$ respectivement. On fixe un entier $k$, et un espace $U$ de dimension $k$. Clairement $\spa\{u_k,\dots,u_n\} \cap U \supsetneq \{0\}$. Alors il existe un vecteur $0 \neq x = \sum_{i = k}^n \alpha_i u_i \in U$. Clairement $R_A(x) \leq \lambda_k$. Pour $U = \spa\{u_1,\dots,u_k\}$, 
+Nous démontrons \eqref{eq:12}. La partie \eqref{eq:13} est un exercice. Soit $\{u_1,\dots,u_n\}$ une base orthonormale de vecteurs propres associés à $\lambda_1 ≥ \dots ≥ \lambda_n$ respectivement. On fixe un entier $k$, et un espace $U$ de dimension $k$. Clairement $\spa\{u_k,\dots,u_n\} \cap U \supsetneq \{0\}$. Alors il existe un vecteur $0 \neq x = \sum_{i = k}^n \alpha_i u_i \in U$. Clairement $R_A(x) \leq \lambda_k$. Pour $U = \spa\{u_1,\dots,u_k\}$, 
 $
   \min_{x \in U \setminus \{0\}}  R_A(x) = \lambda_k.
 $ Ensemble ça démontre \eqref{eq:12}. 
@@ -567,6 +569,10 @@ Le théorème~\ref{thr:15} trouve son analogue comme suivant. La démonstration 
   \item semi-définie négative, si toutes ses valeurs propres sont non-positives (négatives ou zéro).  
   \end{enumerate}
 \end{theorem}
+
+
+\section{La décomposition en valeurs singulières}
+\label{sec:la-decomposition-en}
 
 
 On commence avec un théorème qui décrit la décomposition en valeurs singulières et montre qu'elle existe. 
