@@ -524,7 +524,37 @@ $ Ensemble ça démontre \eqref{eq:12}.
 \subsection*{Exercices}
 
 \begin{enumerate}
-\item Montrer la partie \ref{posdef:2}) du théorème~\ref{thr:17}. %\emph{Indication: Il existe une matrice de permutation $Q$ telle que l'algorithme~\ref{alg:1} n'échange pas de colonnes et lignes si confronté avec  $Q\cdot A \cdot Q$  comme input.}
+\item Une matrice réelle  symétrique, pas égale à la matrice zéro, tel que toutes composantes sur la diagonale sont zéro ne peut pas être semi définie positive ni semi définie négative. 
+\item Une matrice réelle symétrique, pas égale à la matrice zéro, dont la diagonale est égale à zéro  possède un $2 ×2$ mineur symétrique négatif. \label{item:17}
+\item Soit $L \in ℝ^{n × n}$ une matrice %triangulaire inférieure 
+de la forme 
+  \begin{displaymath}
+L = \left(\begin{array}{c|c}
+H & 0  \\
+\hline
+C  & I_{n-i+1} \\
+\end{array}\right)
+\end{displaymath}
+où  $H ∈ ℝ^{i×i}$ et $i ≥0$. Soit $Q ∈ ℝ^{n ×n}$ la matrice de la permutation (transposition)  qui échange $μ, ν ≥ i$. Montrer 
+\begin{displaymath}
+  Q \cdot L = \left(\begin{array}{c|c}
+H & 0  \\
+\hline
+C'  & I_{n-i+1} \\
+\end{array}\right) \cdot Q
+\end{displaymath}
+où $C'$ provient de $C$ en échangeant les lignes $μ-i$ et $ν-i$. 
+\label{item:15}
+\item \label{item:16}
+En s'appuyant sur exercice~\ref{item:15}) montrer l'assertion suivante. Si l'algorithme~\ref{alg:1} a exécuté $k$-itérations et dans chaque de ces $k$ itérations il existe un $j ≥i$ tel que  $b_{jj} \neq 0$ (avec la notation de la $i$-ème itération), alors il existe une matrice de permutation $Q$ tel que le résultat de ces premiers $k$ itérations s'écrit 
+\begin{displaymath}
+  R^T Q^T A Q R, 
+\end{displaymath}
+où $R$ est une matrice triangulaire supérieure dont les éléments diagonales sont $1$.  En autres mots, il existe une permutation si appliqué aux lignes et colonnes, l'algorithme~\ref{alg:1} n'échange pas de lignes et colonnes pendant ces premiers $k$ itérations. 
+\item Montrer la partie b) du théorème~\ref{thr:17}. 
+
+\emph{Indication pour montrer $⟸$:  Il existe une matrice de permutation $Q$ telle que l'algorithme~\ref{alg:1} n'échange pas de colonnes et lignes si confronté avec  $Q\cdot A \cdot Q$  comme input et toutes itérations sont telle que $b_{ii} \neq 0$ jusqu'à  un point, où tout le reste de la matrice est $0$. Il faut s'appuyer sur les exercices \ref{item:17} et \ref{item:16}.}
+
 \item Une matrice symétrique $A \in \R^{n \times n}$ est définie négative, si et seulement si $\det(B_k) \neq 0$ et $\det(B_k) = (-1)^k|\det(B_k)|$ pour tout $k$. 
 \item Une matrice symétrique $A \in \R^{n \times n}$ est semi-définie négative, si et seulement si $\det(B_K) = (-1)^{|K|}|\det(B_K)|$ pour tout $K\subseteq \{1,.\dots,n\}$.  
 \item Montrer la partie \eqref{eq:13} du théorème~\ref{thr:19}. 
@@ -1087,6 +1117,10 @@ En dénotant les lignes de $A_k$ $\wt{a}_1^T,\dots,\wt{a_m}^T$, alors
 \item Soient  $G,H \subseteq \R^n$ des sous-espaces de $\R^n$ 
 et $k=\dim(G) > \dim(H)$. Montrer que $G$ possède une base orthonormale $w_1,\dots,w_k$ telle que $w_k \perp H$. \label{item:3}  
 \end{enumerate}
+
+
+
+
 
 
 %%% Local Variables:
