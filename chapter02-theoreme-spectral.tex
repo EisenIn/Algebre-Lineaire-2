@@ -313,10 +313,10 @@ est appelé la \emph{$n$-sphère.}
   $f(x) = x^T A x$
   où $A \in \R^{n \times n}$ est une matrice symétrique.
 \end{definition}
-En effet, si $B \in \R^{n \times n}$
+En fait, si $B \in \R^{n \times n}$
 n'est pas symétrique, la matrice $A = 1/2 (B^T + B)$
 est symétrique et $x^TBx = 1/2 (x^TB^T x + x^T B x) = x^T Ax$.
-Alors aussi la fonction $g(x) = x^TBx$ est une forme quadratique.
+Alors la fonction $g(x) = x^TBx$ est aussi une forme quadratique.
 
 Une {forme quadratique} est un polynôme de degré $2$
 et une fonction continue. Puisque $S^{n-1}$
@@ -361,10 +361,10 @@ Ceci démontre que $g'(0) = 2 \cdot w^T A v = 2 \cdot \beta  \neq 0$.
   \label{def:f22}
   Une matrice symétrique $A \in \R^{n \times n}$ est 
   \begin{itemize}
-  \item définie positive, si $x^TAx>0$ pour tout $x \in \R^n \setminus  \{0\}$ 
-  \item définie négative, si $x^TAx<0$ pour tout $x \in \R^n \setminus  \{0\}$ 
-  \item semi-définie positive, si $x^TAx\geq 0$ pour tout $x \in \R^n$ 
-  \item semi-définie négative, si $x^TAx\leq 0$ pour tout $x \in \R^n$.  
+  \item définie positive, si et seulement si $x^TAx>0$ pour tout $x \in \R^n \setminus  \{0\}$ 
+  \item définie négative, si et seulement si $x^TAx<0$ pour tout $x \in \R^n \setminus  \{0\}$ 
+  \item semi-définie positive, si et seulement si $x^TAx\geq 0$ pour tout $x \in \R^n$ 
+  \item semi-définie négative, si et seulement si $x^TAx\leq 0$ pour tout $x \in \R^n$.  
   \end{itemize}
   La forme quadratique $x^TAx$ correspondante est appelée définie positive, définie négative, semi-définie positive ou semi-définie négative, en accord avec $A$. 
 \end{definition}
@@ -524,18 +524,18 @@ $ Ensemble ça démontre \eqref{eq:12}.
 \subsection*{Exercices}
 
 \begin{enumerate}
-\item Une matrice réelle  symétrique, pas égale à la matrice zéro, tel que toutes composantes sur la diagonale sont zéro ne peut pas être semi définie positive ni semi définie négative. 
-\item Une matrice réelle symétrique, pas égale à la matrice zéro, dont la diagonale est égale à zéro  possède un $2 ×2$ mineur symétrique négatif. \label{item:17}
+\item Une matrice réelle  symétrique, différente de la matrice zéro, telle que toute composante sur la diagonale est zéro ne peut pas être semi définie positive, ni semi définie négative. 
+\item Une matrice réelle symétrique, différente de la matrice zéro, dont la diagonale est égale à zéro, possède un $2 ×2$ mineur symétrique négatif. \label{item:17}
 \item Soit $L \in ℝ^{n × n}$ une matrice %triangulaire inférieure 
 de la forme 
   \begin{displaymath}
 L = \left(\begin{array}{c|c}
 H & 0  \\
 \hline
-C  & I_{n-i+1} \\
+C  & I_{n-i} \\
 \end{array}\right)
 \end{displaymath}
-où  $H ∈ ℝ^{i×i}$ et $i ≥0$. Soit $Q ∈ ℝ^{n ×n}$ la matrice de la permutation (transposition)  qui échange $μ, ν ≥ i$. Montrer 
+où  $H ∈ ℝ^{i×i}$ et $i ≥0$. Soit $Q ∈ ℝ^{n ×n}$ la matrice de la permutation (transposition)  qui échange $μ, ν > i$. Montrer 
 \begin{displaymath}
   Q \cdot L = \left(\begin{array}{c|c}
 H & 0  \\
@@ -546,14 +546,15 @@ C'  & I_{n-i+1} \\
 où $C'$ provient de $C$ en échangeant les lignes $μ-i$ et $ν-i$. 
 \label{item:15}
 \item \label{item:16}
-En s'appuyant sur exercice~\ref{item:15}) montrer l'assertion suivante. Si l'algorithme~\ref{alg:1} a exécuté $k$-itérations et dans chaque de ces $k$ itérations il existe un $j ≥i$ tel que  $b_{jj} \neq 0$ (avec la notation de la $i$-ème itération), alors il existe une matrice de permutation $Q$ tel que le résultat de ces premiers $k$ itérations s'écrit 
+En s'appuyant sur l'exercice~\ref{item:15}) montrer l'assertion suivante. Si l'algorithme~\ref{alg:1} a exécuté $k$-itérations et dans chacune de ces $k$ itérations, il existe un $j ≥i$ tel que  $b_{jj} \neq 0$ (avec la notation de la $i$-ème itération), alors il existe une matrice de permutation $Q$ telle que le résultat de ces premières $k$ itérations s'écrit 
 \begin{displaymath}
   R^T Q^T A Q R, 
 \end{displaymath}
-où $R$ est une matrice triangulaire supérieure dont les éléments diagonales sont $1$.  En autres mots, il existe une permutation si appliqué aux lignes et colonnes, l'algorithme~\ref{alg:1} n'échange pas de lignes et colonnes pendant ces premiers $k$ itérations. 
+où $R$ est une matrice triangulaire supérieure dont les éléments diagonaux sont $1$.  En autres mots, il existe une permutation si appliquée aux lignes et colonnes, l'algorithme~\ref{alg:1} n'échange pas de lignes et colonnes pendant ces premiers $k$ itérations. 
+\item Soient $A \in \Bbb R^{n \times n}$ réelle symétrique et $A'$ la matrice obtenue de $A$ en échangeant les lignes $i$ et $j$ ($A' = Q^T A Q$ pour une matrice de permutation (transposition) $Q$). Montrer que pour tout $K \subseteq \{1, ..., n\}$, il existe $K' \subseteq \{1, ..., n\}$ tel que $\det(A_K) = \det(A'_{K'})$ (mineurs symétriques) et inversément. En d'autres termes, montrer que tous les mineurs symétriques de $A$ se retrouvent dans $A'$ et vice versa.
 \item Montrer la partie b) du théorème~\ref{thr:17}. 
 
-\emph{Indication pour montrer $⟸$:  Il existe une matrice de permutation $Q$ telle que l'algorithme~\ref{alg:1} n'échange pas de colonnes et lignes si confronté avec  $Q\cdot A \cdot Q$  comme input et toutes itérations sont telle que $b_{ii} \neq 0$ jusqu'à  un point, où tout le reste de la matrice est $0$. Il faut s'appuyer sur les exercices \ref{item:17} et \ref{item:16}.}
+\emph{Indication pour montrer $⟸$:  Il existe une matrice de permutation $Q$ telle que l'algorithme~\ref{alg:1} n'échange pas de colonnes et lignes si confronté avec  $Q^T \cdot A \cdot Q$ comme input et toutes itérations sont telles que $b_{ii} \neq 0$ jusqu'à  un point, où tout le reste de la matrice est $0$. Il faut s'appuyer sur les exercices \ref{item:17} et \ref{item:16}.}
 
 \item Une matrice symétrique $A \in \R^{n \times n}$ est définie négative, si et seulement si $\det(B_k) \neq 0$ et $\det(B_k) = (-1)^k|\det(B_k)|$ pour tout $k$. 
 \item Une matrice symétrique $A \in \R^{n \times n}$ est semi-définie négative, si et seulement si $\det(B_K) = (-1)^{|K|}|\det(B_K)|$ pour tout $K\subseteq \{1,.\dots,n\}$.  
@@ -593,10 +594,10 @@ Le théorème~\ref{thr:15} trouve son analogue comme suivant. La démonstration 
   Une matrice hermitienne $A \in \C^{n \times n}$ est 
   \begin{enumerate}
   \item définie positive,
-    si toutes ses valeurs propres sont (strictement) positives. 
-  \item définie négative,  si toutes ses valeurs propres sont (strictement) négatives. 
-  \item semi-définie positive, si toutes ses valeurs propres sont non-négatives (donc positives ou zéro).  
-  \item semi-définie négative, si toutes ses valeurs propres sont non-positives (négatives ou zéro).  
+    si et seulement si toutes ses valeurs propres sont (strictement) positives. 
+  \item définie négative,  si et seulement si toutes ses valeurs propres sont (strictement) négatives. 
+  \item semi-définie positive, si et seulement si toutes ses valeurs propres sont non-négatives (donc positives ou zéro).  
+  \item semi-définie négative, si et seulement si toutes ses valeurs propres sont non-positives (négatives ou zéro).  
   \end{enumerate}
 \end{theorem}
 
@@ -641,7 +642,7 @@ Avec le procédé de Gram-Schmidt nous complétons les $v_i$ tel que $\{v_1,\dot
 \begin{displaymath}
   A = P\cdot D \cdot Q 
 \end{displaymath}
-ou, équivalent 
+ou de manière équivalente 
 \begin{displaymath}
   P^* \cdot A \cdot Q^* = D,
 \end{displaymath}
