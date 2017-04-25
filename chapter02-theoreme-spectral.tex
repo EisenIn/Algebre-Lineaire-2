@@ -794,7 +794,7 @@ Pourquoi est-ce que nous parlons de \emph{la} pseudo inverse? Parce qu'elle est 
 
 \begin{theorem}
   \label{thr:22}
-  Soit $K$ un corps et $A \in K^{m \times n}$, alors il existe au plus une seule matrice $X \in K^{n \times m}$  telle que les quatre conditions de \emph{Penrose} sont satisfaites: 
+  Soit  $A \in ℂ^{m \times n}$, alors il existe au plus une seule matrice $X \in ℂ^{n \times m}$  telle que les quatre conditions de \emph{Penrose} sont satisfaites: 
   \begin{enumerate}[i)] 
   \item $AXA = A$ \label{pen1}
   \item $(AX)^* = AX$ \label{pen2}
@@ -997,7 +997,7 @@ $
 
 \begin{proof}
 Pour $k=1$ nous avons déjà montré l'assertion. Soit $k \geq 2$ et $W \trianglelefteq \R^n$ une solution optimale du problème~\eqref{eq:16} et soit $w_1,\dots,w_k$ une base orthonormale de $W$. 
-Nous pouvons supposer $w_k \perp \spa\{v_1,\dots,v_{k-1}\}$, (voir Exercice~\ref{item:3}). 
+Nous pouvons supposer $w_k \perp \spa\{u_1,\dots,u_{k-1}\}$, (voir Exercice~\ref{item:3}). 
 
 Par induction, nous avons 
 \begin{displaymath}
@@ -1005,11 +1005,11 @@ Par induction, nous avons
 \end{displaymath}
 Dès que   
 \begin{displaymath}
-  \max_{\substack{x \in S^{n-1} \\ x \perp \spa\{v_1,\dots,v_{k-1}\}}} x^TA^TAx 
+  \max_{\substack{x \in S^{n-1} \\ x \perp \spa\{u_1,\dots,u_{k-1}\}}} x^TA^TAx 
 \end{displaymath}
-est atteint à $v_k$ nous avons 
+est atteint à $u_k$ nous avons 
 \begin{displaymath}
-  w_k^TA^TAw_k \leq v_k^TA^TAv_k
+  w_k^TA^TAw_k \leq u_k^TA^TAu_k
 \end{displaymath}
 et alors
 \begin{displaymath}
