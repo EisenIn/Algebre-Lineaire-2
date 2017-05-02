@@ -1080,7 +1080,7 @@ Le rang de $A_k$ est au plus $k$.
   \begin{displaymath}
     \sum_{i=1}^k a^Tu_i \cdot u^T_i.
   \end{displaymath}
-Alors les projections des lignes de $A$ dans le sous-espace $V_k$ sont données par $A u_i u_i^T = \sum_{i=1}^k \sigma_i u_i v_i^T = A_k$.  
+Alors les projections des lignes de $A$ dans le sous-espace $V_k$ sont données par $\sum_{i=1}^k A u_i u_i^T = \sum_{i=1}^k \sigma_i u_i v_i^T = A_k$.  
 \end{proof}
 
 \begin{theorem}
@@ -1103,7 +1103,7 @@ Soit $\wt{H} = \spa\{u_1,\dots,u_k\}$. Nous avons démontré que
 \end{enumerate}
 En dénotant les lignes de $A_k$ $\wt{a}_1^T,\dots,\wt{a_m}^T$, alors 
 \begin{displaymath}
-  \|A - B\|_F^2 \geq  \sum_{i=1}^m d(a_i,\wt{H})^2 = \|a_i - \wt{a}_i\|^2 = \|A - A_k\|_F^2. 
+  \|A - B\|_F^2 \geq  \sum_{i=1}^m d(a_i,\wt{H})^2 = \sum_{i=1}^m \|a_i - \wt{a}_i\|^2 = \|A - A_k\|_F^2. 
 \end{displaymath}
 \end{proof}
 
