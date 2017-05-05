@@ -361,10 +361,10 @@ Ceci démontre que $g'(0) = 2 \cdot w^T A v = 2 \cdot \beta  \neq 0$.
   \label{def:f22}
   Une matrice symétrique $A \in \R^{n \times n}$ est 
   \begin{itemize}
-  \item définie positive, si et seulement si $x^TAx>0$ pour tout $x \in \R^n \setminus  \{0\}$ 
-  \item définie négative, si et seulement si $x^TAx<0$ pour tout $x \in \R^n \setminus  \{0\}$ 
-  \item semi-définie positive, si et seulement si $x^TAx\geq 0$ pour tout $x \in \R^n$ 
-  \item semi-définie négative, si et seulement si $x^TAx\leq 0$ pour tout $x \in \R^n$.  
+  \item définie positive, si $x^TAx>0$ pour tout $x \in \R^n \setminus  \{0\}$ 
+  \item définie négative, si $x^TAx<0$ pour tout $x \in \R^n \setminus  \{0\}$ 
+  \item semi-définie positive, si $x^TAx\geq 0$ pour tout $x \in \R^n$ 
+  \item semi-définie négative, si $x^TAx\leq 0$ pour tout $x \in \R^n$.  
   \end{itemize}
   La forme quadratique $x^TAx$ correspondante est appelée définie positive, définie négative, semi-définie positive ou semi-définie négative, en accord avec $A$. 
 \end{definition}
@@ -376,10 +376,10 @@ Ceci démontre que $g'(0) = 2 \cdot w^T A v = 2 \cdot \beta  \neq 0$.
   Une matrice symétrique $A \in \R^{n \times n}$ est 
   \begin{enumerate}
   \item définie positive,
-    si toutes ses valeurs propres sont strictement positives. 
-  \item définie négative,  si toutes ses valeurs propres sont strictement négatives. 
-  \item semi-définie positive, si toutes ses valeurs propres sont positives (ou zéro).  
-  \item semi-définie négative, si toutes ses valeurs propres sont negatives (ou zéro).  
+    si et seulement si toutes ses valeurs propres sont strictement positives. 
+  \item définie négative, si et seulement si toutes ses valeurs propres sont strictement négatives. 
+  \item semi-définie positive, si et seulement si toutes ses valeurs propres sont positives (ou zéro).  
+  \item semi-définie négative, si et seulement si toutes ses valeurs propres sont negatives (ou zéro).  
   \end{enumerate}
 \end{theorem}
 
@@ -532,7 +532,7 @@ de la forme
 L = \left(\begin{array}{c|c}
 H & 0  \\
 \hline
-C  & I_{n-i} \\
+C  & I_{n-i+1} \\
 \end{array}\right)
 \end{displaymath}
 où  $H ∈ ℝ^{i×i}$ et $i ≥0$. Soit $Q ∈ ℝ^{n ×n}$ la matrice de la permutation (transposition)  qui échange $μ, ν > i$. Montrer 
@@ -638,7 +638,7 @@ et pour $1 \leq i\neq j \leq r$,
 \begin{displaymath}
   v_i^* v_j = u_i^* u_j = 0. 
 \end{displaymath}
-Avec le procédé de Gram-Schmidt nous complétons les $v_i$ tel que $\{v_1,\dots,v_m\}$ est une base orthonormale de $\C^m$. Les colonnes de la matrices $P$ sont alors $v_1,\dots,v_m$ dans cet ordre. La matrice $D \in \C^{m\times n}$ est la matrice diagonale dont les $r$ premières composantes sur la diagonale sont $\sigma_1,\dots,\sigma_r$ dans cet ordre. Avec ces matrices  $P,D$ et $Q$ nous avons 
+Avec le procédé de Gram-Schmidt, nous complétons les $v_i$ tels que $\{v_1,\dots,v_m\}$ est une base orthonormale de $\C^m$. Les colonnes de la matrices $P$ sont alors $v_1,\dots,v_m$ dans cet ordre. La matrice $D \in \C^{m\times n}$ est la matrice diagonale dont les $r$ premières composantes sur la diagonale sont $\sigma_1,\dots,\sigma_r$ dans cet ordre. Avec ces matrices  $P,D$ et $Q$ nous avons 
 \begin{displaymath}
   A = P\cdot D \cdot Q 
 \end{displaymath}
@@ -825,7 +825,7 @@ Pourquoi est-ce que nous parlons de \emph{la} pseudo inverse? Parce qu'elle est 
 \end{theorem}
 
 \begin{proof}
-  Soit $A = PDQ$ une décomposition en valeurs singulières et $A^+ = Q^*D^+P^*$.  Il est facile de voir que $D^+$ satisfait les conditions \ref{pen1}-\ref{pen4} relatives à $D$. Les conditions sont aussi vite montrées pour $A$ et $A^+$. Par exemple \ref{pen1} est montrée comme suivant. 
+  Soit $A = PDQ$ une décomposition en valeurs singulières et $A^+ = Q^*D^+P^*$.  Il est facile de voir que $D^+$ satisfait les conditions \ref{pen1}-\ref{pen4} relatives à $D$. Les conditions sont aussi vite montrées pour $A$ et $A^+$. Par exemple \ref{pen1} est montrée comme suit : 
   \begin{eqnarray*}
     A A^+A & = & PDQQ^*D^+P^*PDQ \\
            & = & PDD^+DQ \\
@@ -873,11 +873,11 @@ où $A^+$ est la pseudo inverse de $A$.
      & = &     \min_{x \in \C^n} \|DQx - P^*b\| =     \min_{y \in \C^n} \|Dy - P^*b \| \\
       & = &       \min_{y \in \C^n} \|Dy - c \|
   \end{eqnarray*}
-où $c  = P^*b$. Les solutions optimales sont les $y \in \C^n$ tel que $y_i = c_i / \sigma_i $ pour $1 \leq i \leq r$ et $y_{r+1} \dots y_n$ sont arbitraires. Parmi ces vecteurs, la solution où $y_{r+1} =\dots= y_n=0$ est celle de norme minimale. Elle est donnée par
+où $c  = P^*b$. Les solutions optimales sont les $y \in \C^n$ tels que $y_i = c_i / \sigma_i $ pour $1 \leq i \leq r$ et $y_{r+1} \dots y_n$ sont arbitraires. Parmi ces vecteurs, la solution où $y_{r+1} =\dots= y_n=0$ est celle de norme minimale. Elle est donnée par
 \begin{displaymath}
   y = D^+ c. 
 \end{displaymath}
-La solution minimale du \eqref{eq:14} est alors 
+La solution minimale de \eqref{eq:14} est alors 
 \begin{displaymath}
   x = Q^*y = Q^* D^+ P^* b = A^+b. 
 \end{displaymath}
@@ -926,7 +926,7 @@ Nous nous occupons du problème suivant. Soient $a_1,\dots,a_m \in \R^n$ des vec
 \begin{displaymath}
   \sum_i d(a_i,H)^2 
 \end{displaymath}
-soit minimale. Ici $d(a_i,H)$ est la \emph{distance} de $a_i$ a $H$. Si $H = \spa\{u_1,\dots,u_k\}$ où $\{u_1,\dots,u_k\}$  est une base orthonormale de $H$, alors $a_i = \sum_{j=1}^k \pscal{a_i,u_j} u_j + d_i$ où $d_i = a_i - \sum_{j=1}^k \pscal{a_i,u_j} u_j$ est orthogonal à $u_1,\dots,u_k$ et alors à $H$.  Avec le théorème de Pythagore (Proposition~\ref{prop:4}) alors 
+soit minimale. Ici $d(a_i,H)$ est la \emph{distance} de $a_i$ a $H$. Si $H = \spa\{u_1,\dots,u_k\}$ où $\{u_1,\dots,u_k\}$  est une base orthonormale de $H$, alors $a_i = \sum_{j=1}^k \pscal{a_i,u_j} u_j + d_i$ où $d_i = a_i - \sum_{j=1}^k \pscal{a_i,u_j} u_j$ est orthogonal à $u_1,\dots,u_k$ et alors à $H$.  Avec le théorème de Pythagore (Proposition~\ref{prop:4}), on a
 \begin{displaymath}
   d(a_i,H)^2 + \sum_{j=1}^k \pscal{a_i,u_j}^2 = \|a_i\|^2. 
 \end{displaymath}
@@ -935,11 +935,11 @@ Le sous-espace $H$ de dimension $k$ qui minimise $\sum_i d(a_i,H)^2$ est alors c
 \sum_i  \sum_{j=1}^k \pscal{a_i,u_j}^2 = \sum_{j=1}^k \|A u_j\|^2 = \sum_{j=1}^k u_j^T A^TAu_j.
 \end{displaymath}
 
-Pour $k=1$, nous connaissons déjà une manière  de résoudre ce problème. Il faut résoudre 
+Pour $k=1$, nous connaissons déjà une manière de résoudre ce problème. Il faut résoudre 
 \begin{displaymath}
-\max_{u \in S^{n-1}}   u^TA^TAu 
+\max_{u \in S^{n-1}}   u^TA^TAu .
 \end{displaymath}
-est maximal. La matrice $A^TA$ est symétrique, alors on peut la factoriser comme 
+La matrice $A^TA$ est symétrique, alors on peut la factoriser comme 
 \begin{equation}
   \label{eq:17}
   A^TA = U
@@ -978,7 +978,7 @@ et $u_{\ell+1}$ est une solution optimale.
 
 
 
-Maintenant nous pouvons résoudre le problème central 
+Maintenant, nous pouvons résoudre le problème central 
 \begin{equation}
   \label{eq:16}
   \min_{\substack{H \trianglelefteq \R^n \\ \dim(H) = k}} \sum_{i=1}^m d(a_i,H)^2. 
@@ -986,7 +986,7 @@ Maintenant nous pouvons résoudre le problème central
 
 \begin{theorem}
   \label{thr:26}
-  Soient $a_1,\dots,a_m \in \R^n$ 
+  Soient $a_1,\dots,a_m \in \R^n$,
 $
     A =\left(
       a_1,\cdots ,a_m\right)^T
@@ -1053,7 +1053,7 @@ et alors
 
 
 
-Maintenant nous allons résoudre le problème suivant. Étant donné $A \in \R^{m \times n}$ et $k \in \N$, trouver une matrice $B \in \R^{m \times n}$ de $\rank(B) \leq  k$ tel que 
+Maintenant nous allons résoudre le problème suivant. Étant donnés $A \in \R^{m \times n}$ et $k \in \N$, trouver une matrice $B \in \R^{m \times n}$ de $\rank(B) \leq  k$ tel que 
 \begin{displaymath}
   \|A - B\|_F
 \end{displaymath}
@@ -1080,12 +1080,12 @@ Le rang de $A_k$ est au plus $k$.
   \begin{displaymath}
     \sum_{i=1}^k a^Tu_i \cdot u^T_i.
   \end{displaymath}
-Alors les projections des lignes de $A$ dans le sous-espace $V_k$ sont données par $\sum_{i=1}^k A u_i u_i^T = \sum_{i=1}^k \sigma_i u_i v_i^T = A_k$.  
+Alors les projections des lignes de $A$ dans le sous-espace $V_k$ sont données par $\sum_{i=1}^k A u_i u_i^T = \sum_{i=1}^k \sigma_i v_i u_i^T = A_k$.  
 \end{proof}
 
 \begin{theorem}
   \label{thr:27}
-  Pour une matrice $B \in \R^{m \times n}$ de rang plus petit ou égal à $k$ on a 
+  Pour une matrice $B \in \R^{m \times n}$ de rang plus petit ou égal à $k$, on a 
   \begin{displaymath}
     \|A - A_k\|_F \leq \|A - B\|_F.
   \end{displaymath}
@@ -1101,7 +1101,7 @@ Soit $\wt{H} = \spa\{u_1,\dots,u_k\}$. Nous avons démontré que
 \item $\wt{H}$ est le meilleur sous-espace approximatif des lignes de $A$ alors $\sum_{i=1}^m d(a_i,H)^2 \geq  \sum_{i=1}^m d(a_i,\wt{H})^2$ et 
 \item Les lignes de $A_k$ sont les projections des lignes de $A$ dans $\wt{H}$. 
 \end{enumerate}
-En dénotant les lignes de $A_k$ $\wt{a}_1^T,\dots,\wt{a_m}^T$, alors 
+En dénotant les lignes de $A_k$ par $\wt{a}_1^T,\dots,\wt{a_m}^T$, alors 
 \begin{displaymath}
   \|A - B\|_F^2 \geq  \sum_{i=1}^m d(a_i,\wt{H})^2 = \sum_{i=1}^m \|a_i - \wt{a}_i\|^2 = \|A - A_k\|_F^2. 
 \end{displaymath}
