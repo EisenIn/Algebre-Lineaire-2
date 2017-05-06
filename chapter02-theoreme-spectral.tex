@@ -1021,11 +1021,42 @@ et alors
 
 \begin{definition}
   \label{def:26}
-  Soit $A \in \R^{m \times n}$. La \emph{norme Frobenius} de $A$ est le nombre 
+  Soit $A \in \R^{m \times n}$.
+  \begin{enumerate}
+ 
+  \item[1)] On définit la \emph{norme Frobenius} de $A$ comme le nombre 
   \begin{displaymath}
     \|A\|_F = \sqrt{\sum_{ij}a_{ij}^2}.
   \end{displaymath}
+  
+  \item[2)] Pour une norme vectorielle $\|\cdot\|$ définie positive sur $\Bbb R^n$, on définit la norme $\mnorm{\cdot}$ de $A$, appelée \emph{norme matricielle subordonnée} à $\|\cdot\|$, comme le nombre 
+   \begin{displaymath}
+    	\mnorm{A} = \sup_{v \neq 0} \frac{\|Av\|}{\|v\|} = \sup_{\|v\| = 1} \|Av\|.
+  \end{displaymath}
+  
+   \end{enumerate}
 \end{definition}
+
+\begin{remark}
+	La norme Frobenius n'est pas une norme matricielle subordonnée.
+\end{remark}
+
+\begin{example}
+	Soit $A \in \R^{m \times n}$. On considère la norme euclidienne standard (aussi appelée norme 2) sur $\Bbb R^n$ : 
+	$$\| v \|_2 = \sqrt{\sum\nolimits_{i=1}^n (v_i)^2}.$$
+	Alors la norme matricielle subordonnée à $\|\cdot\|_2$ correspond à
+	\begin{displaymath}
+    	\mnorm{A}_2 = \sup_{v \neq 0} \frac{\|Av\|_2}{\|v\|_2} = \sup_{\|v\|_2 = 1} \|Av\|_2 = \sup_{\|v\|_2 = 1} \sqrt{v^T A^T A v} = \sqrt{\lambda_1},
+  	\end{displaymath}
+  	où $\lambda_1$ est la plus grande valeur propre de $A^T A$ (ou de manière équivalente, $\sqrt{\lambda_1}$ est la plus grande valeur singulière de $A$).
+\end{example}
+
+\begin{exercise}
+	Soient $A \in \R^{m \times n}$, $\|\cdot\|$ une norme définie positive sur $\Bbb R^n$, $\mnorm{\cdot}$ la norme matricielle subordonnée à $\|\cdot\|$. Alors pour tout $v \in \Bbb R^n$, on a : 
+	\begin{displaymath}
+		\|Av\| \leq \mnorm{A} \cdot \|v\|.
+	\end{displaymath}
+\end{exercise}
 
 \begin{definition}
   \label{def:27}
