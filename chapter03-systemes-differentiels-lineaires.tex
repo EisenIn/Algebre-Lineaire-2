@@ -34,7 +34,7 @@ On cherche des fonctions dérivables $\x_i: \R \longrightarrow \R$  qui, ensembl
   \label{exe:20}
   Considérons l'équation différentielle $\x'(t) = \x(t)$. Une solution est $\x(t) = e^t$. Une autre solution est $\x(t) = 2\cdot e^t$. Si on spécifie la \emph{condition initiale} $\x(0) = 1$, alors $\x(t) = e^t$ est la solution qui satisfait cette condition initiale. Autrement, si on spécifie $\x(0) = \alpha$, alors  $\x(t) = \alpha \cdot e^t$ est une solution qui satisfait la condition initiale. 
 
-Considérons $\x'(t) = -\x(t)$, une solution est $\x(t) = e^(-t)$. %$\x(t) = \cos(t)$.
+Considérons $\x'(t) = -\x(t)$, une solution est $\x(t) = e^{(-t)}$. %$\x(t) = \cos(t)$.
 C'est aussi une solution qui respecte la condition initiale $\x(0) = 1$. 
 \end{example}
 
@@ -447,7 +447,7 @@ La formule de multiplication de deux polynômes $f(x) = a_0+a_1x+ \cdots a_n x^n
   Pour $f,g \in K[x] $, $\deg(f \cdot g) = \deg(f) + \deg(g)$. 
 \end{theorem}
 \begin{proof}
-  La formule~\eqref{eq:21} révèle que $\deg(f\cdot g) \leq \deg(f) + \det(g)$. 
+  La formule~\eqref{eq:21} révèle que $\deg(f\cdot g) \leq \deg(f) + \deg(g)$. 
   Soient $f(x) = a_0 + \cdots + a_n x^n$ et $g(x) = b_0+ \cdots b_m x^m$ tels que $a_n, b_m  \neq 0$. Le coefficient de $x^{n+m}$  est $a_n \cdot  b_m \neq 0$.
 \end{proof}
 
@@ -468,7 +468,7 @@ La division avec reste est l'opération suivante.
 
 \begin{theorem}
   \label{thr:33}
-  Soient $f,g \in K[x]$ et $\deg(g) >0$. Il existe $q,r \in K[x]$ tels que 
+  Soient $f,g \in K[x]$ et $\deg(g) >0$. Il existe $q,r \in K[x]$ unique  tels que 
   \begin{displaymath}
     f(x) = q(x) g(x) + r(x) 
   \end{displaymath}
@@ -496,7 +496,22 @@ tel que $\deg(r(x)) < \deg(g(x))$. On  obtient alors
 \begin{displaymath}
   f(x) = (q(x) + \frac{a_n}{ b_m } x^{n-m} ) g(x) + r(x). 
 \end{displaymath}
+
+Supposons maintenant qu'il existent autres polynômes $q'(x)$ et $r'(x)$ tel que 
+\begin{displaymath}
+    f(x) = q'(x) g(x) + r'(x) 
+  \end{displaymath}
+  et $\deg(r') < \deg(g)$. 
 \end{proof}
+Alors 
+\begin{displaymath}
+0 \neq   r(x) - r'(x) = (q(x) - q'(x)) ⋅ g(x). 
+\end{displaymath}
+On peut déduire 
+\begin{displaymath}
+\max\{\deg(r,\deg(r'\} \geq   \deg( r - r')  = \deg(q - q') + \deg(g) \geq \deg(g), 
+\end{displaymath}
+ce qui contredit le fait que $\deg(r) < \deg(g)$ et $\deg(r') < \deg(g)$. 
 
 \begin{definition}
   Pour $f(x)  = a_0 + \cdots + a_n x^n \in K[x]$ et $\alpha \in K$, l'évaluation $f(\alpha)$ est $ a_0 + a_1 \alpha + \cdots + a_n \alpha^n \in K$. 
@@ -660,7 +675,7 @@ Si $v ∈ \ker(f(A))$ on trouve que $f(A)\,Av = Af(A)\,v = 0$. Alors, $Av ∈ \k
 \end{displaymath}
 Mais $g_1(A) \cdot f_1(A) \cdot v \in \ker(f_2(A))$  dès que 
 \begin{displaymath}
-  f_2(A) \cdot g_1(A) \cdot f_1(A) \cdot v =   g_1(A) \cdot f_1(A) f_2(A) \cdot v = g_1(A) f(A) v = 0
+  f_2(A) \cdot g_1(A) \cdot f_1(A) \cdot v =   g_1(A) \cdot f_1(A) ⋅ f_2(A) \cdot v = g_1(A) f(A) v = 0
 \end{displaymath}
 et d'une manière similaire on voit que $g_2(A) f_2(A) \cdot v \in \ker(f_1(A))$. Il reste à démontrer que la somme est directe. 
 
