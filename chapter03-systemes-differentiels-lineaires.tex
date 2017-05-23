@@ -623,7 +623,7 @@ $1 = g(x) h_3(x) + p(x) h_4(x)$ alors $\gcd(p(x), f(x)g(x))=1$.
   \label{def:34}
   Soit $V$ un espace vectoriel sur un corps $K$, $A: V \rightarrow V$ un endomorphisme et $f(x) = a_0+ \cdots + a_n x^n\in K[x]$. L'\emph{évaluation de $f$ sur $A$} est l'endomorphisme $f(A): V \rightarrow V$ 
   \begin{displaymath}
-    f(A) = a_n A^n + a_{n-1}A^{n-1}+ \cdots + a_1 A + a_0 \cdot I_n \in K^{n \times n}. 
+    f(A) = a_n A^n + a_{n-1}A^{n-1}+ \cdots + a_1 A + a_0 \mathrm{id}. 
   \end{displaymath}
 \end{definition}
 
@@ -631,7 +631,7 @@ $1 = g(x) h_3(x) + p(x) h_4(x)$ alors $\gcd(p(x), f(x)g(x))=1$.
 
 \begin{definition}
   \label{def:35}
-  Soit $A:V \rightarrow V$ un endomorphisme et $W \subseteq C$ un sous-espace de $V$. On dit que $W$ est \emph{invariant sous $A$} si $A(x) \in W$ pour tout $x \in W$. 
+  Soit $A:V \rightarrow V$ un endomorphisme et $W \subseteq V$ un sous-espace de $V$. On dit que $W$ est \emph{invariant sous $A$} si $A(x) \in W$ pour tout $x \in W$. 
 \end{definition}
 
 
@@ -790,7 +790,8 @@ un seul bloc Jordan
   \begin{displaymath}
     I, \, T, \, T^2, \dots, T^k
   \end{displaymath}
-sont linéairement dépendants. Alors il existe un polynôme $p(x) \in \C[x] \setminus \{ 0 \}$ tel que $p(T) = 0$. Le théorème fondamental d'algèbre implique que 
+sont linéairement dépendants. Alors il existe un polynôme $p(x) \in \C[x] \setminus \{ 0 \}$ tel que $p(T) = 0$. En fait on peut choisir $p(x)$ le polynôme 
+caractéristique de $T$. Le coefficient dominant de $p(x)$ est $1$.   Le théorème fondamental d'algèbre implique que 
 \begin{displaymath}
   p(x) = ( x - λ_1)^{m_1} \cdots ( x - λ_k)^{m_k} 
 \end{displaymath}
