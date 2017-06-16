@@ -11,13 +11,18 @@
 *.cb
 *.cb2
 
+## emacs
+*.el
+auto/*
+
+
 ## Intermediate documents:
 *.dvi
 *-converted-to.*
 # these rules might exclude image files for figures etc.
 # *.ps
 # *.eps
-# *.pdf
+ *.pdf
 
 ## Bibliography auxiliary files (bibtex/biblatex/biber):
 *.bbl
