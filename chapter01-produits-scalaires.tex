@@ -94,6 +94,36 @@ alors pour la matrice $A_B^f \in K^{n\times n}$, ayant comme composantes $f(v_i,
   sont différentes si et seulement si $A_B^f \neq A_B^g$. 
 \end{exercise}
 
+
+\begin{example}
+  \label{exe:9}
+  Soit $V = \{ p(x) : p ∈ ℝ[x], \, \deg(p)≤ 2\}$ l'espace vectoriel des polynômes réelles de degré au plus $2$ et $B = \{ 1,x,x^2\}$ une base de $V$ et $f(p,q) = \int_0^1 p(x) ⋅ q(x) dx$. Il est facile de vérifier que $f$ est une forme bilinéaire sur $V$. La matrice $A_B^f$ est 
+  \begin{displaymath}
+    A_B^f =
+    \begin{pmatrix}
+      1 & 1/2 & 1/3 \\
+      1/2 & 1/3 & 1/4\\
+      1/3 & 1/4 & 1/5
+    \end{pmatrix}. 
+  \end{displaymath}
+ Pour $p(x) = 2+3\,x - 5\,x^2$ et $q(x) = 2\,x + 3\,x^2$ on obtient 
+ \begin{displaymath}
+   \int_0^1 f(x) p(x) dx =
+   \begin{pmatrix}
+     2 & 3 & -5
+   \end{pmatrix}
+ \begin{pmatrix}
+      1 & 1/2 & 1/3 \\
+      1/2 & 1/3 & 1/4\\
+      1/3 & 1/4 & 1/5
+    \end{pmatrix}
+   \begin{pmatrix}
+     0\\2\\3
+   \end{pmatrix}
+ \end{displaymath}
+\end{example}
+
+
 Pour mémoire, pour deux bases $B,B'$ et étant donné $[x]_{B'}$,  on trouve les coordonnées de $x$ dans la base $B$,  $[x]_B$,  à l'aide de la matrice de changement de base $P_{B'B}$ comme 
 \begin{displaymath}
   [x]_B = P_{B'B} [x]_{B'}. 
@@ -170,7 +200,7 @@ qui est égale a $1$. Alors $f(v,b_i) \neq 0$. Donc $f$ est non dégénérée à
 \noindent 
   Si $u,v \in E^\perp$ alors pour tout $e \in E$ 
   \begin{displaymath}
-    \pscal{e,u+v} = \pscal{e,u} + \pscal{e,-v} = 0 + 0 = 0,
+%    \pscal{e,u+v} = \pscal{e,u} + \pscal{e,-v} = 0 + 0 = 0,
     \pscal{e,u+v} = \pscal{e,u} + \pscal{e,v} = 0 + 0 = 0,
   \end{displaymath}  
   et pour $c \in K$ 
