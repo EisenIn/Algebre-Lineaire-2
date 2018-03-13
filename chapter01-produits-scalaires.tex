@@ -846,6 +846,7 @@ et
   Pour le reste de ce paragraphe~\ref{sec:le-case-reel}, s'il n'est pas spécifié autrement,  $V$
   est toujours un espace vectoriel sur $\R$
   muni d'un produit scalaire. 
+On appelle un  espace vectoriel sur $\R$ muni d'un produit scalaire  un \emph{espace euclidien}.  
 \end{framed}
 
 
@@ -906,8 +907,8 @@ Alors $\pscal{w,v -\alpha\, w} = 0$ si et seulement si $\alpha = \pscal{v,w} / \
 
 \begin{definition}
   \label{def:6}
-  Soit $V$ un espace vectoriel sur un corps $K$, muni d'un produit scalaire. 
-  Soit $w \in V \setminus \{0\}$ tel que  $\pscal{w,w} > 0$. Pour $v \in V$, soit $\alpha = \pscal{v,w} / \pscal{w,w}$.  Le nombre $\alpha$ est la \emph{composante} de $v$ sur $w$, ou \emph{le coefficient de Fourier de $v$ relativement à $w$}. Le vecteur $\alpha \, w$ s'appelle la \emph{projection} de $v$ sur $w$. 
+  Soit $V$ un espace euclidien. 
+  Soit $w \in V \setminus \{0\}$. Pour $v \in V$, soit $\alpha = \pscal{v,w} / \pscal{w,w}$.  Le nombre $\alpha$ est la \emph{composante} de $v$ sur $w$, ou \emph{le coefficient de Fourier de $v$ relativement à $w$}. Le vecteur $\alpha \, w$ s'appelle la \emph{projection} de $v$ sur $w$. 
 \end{definition}
 
 
@@ -951,7 +952,7 @@ Cela implique
 \end{displaymath}
 \end{proof}
 
-On appelle un  espace vectoriel sur $\R$ muni d'un produit scalaire  un \emph{espace euclidien}.  
+
 
 
 \begin{theorem}[Inégalité triangulaire]
@@ -975,10 +976,10 @@ en recourant à l'inégalité de Cauchy-Schwarz.
 
 \begin{lemma}
   \label{lem:2}
-  Soit $V$ un espace vectoriel sur $K$ muni d'un produit scalaire et 
+  Soit $V$ un espace euclidien  et 
   soient $v_1,\dots,v_n$ des éléments de V, deux à deux orthogonaux, tels que $\pscal{v_i,v_i}\neq 0$ pour tout $i$. Soit $\alpha_i = \pscal{v,v_i}/\pscal{v_i,v_i}$ la composante de $v$ sur $v_i$, alors le vecteur 
 \begin{displaymath}
-  v - a_1v_1- \cdots - a_n v_n\, \text{ où  }\, a_i \in K 
+  v - a_1v_1- \cdots - a_n v_n\, \text{ où  }\, a_i \in ℝ 
 \end{displaymath}
 est perpendiculaire à tous $v_1,\dots,v_n$ si et seulement si $a_i$ est la composante de $v$ sur $v_i$, i.e. $a_i=  \pscal{v,v_i}/ \pscal{v_i,v_i}$ pour tout $i$. 
 \end{lemma}
@@ -1165,7 +1166,7 @@ et alors
 
 \begin{theorem}[Inégalité de Bessel]
   \label{thr:4}
-  Si $v_1,\dots,v_n$ sont des vecteurs unitaires deux à deux orthogonaux et si $\alpha_i = \pscal{v,v_i} / \pscal{v_i,v_i}$ sont les coefficients de Fourier de $v$ relativement à $v_i$ alors 
+  Si $v_1,\dots,v_n$ sont des vecteurs unitaires deux à deux orthogonaux et si $\alpha_i = \pscal{v,v_i}$ sont les coefficients de Fourier de $v$ relativement à $v_i$ alors 
   \begin{displaymath}
     \sum_{i=1}^n \alpha_i^2 \leq \|v\|^2. 
   \end{displaymath}
