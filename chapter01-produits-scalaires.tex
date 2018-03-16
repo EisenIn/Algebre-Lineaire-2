@@ -460,7 +460,7 @@ Maintenant soit $K = \R$  et $A \in \R^{n \times n}$ symétrique. Le Corollaire~
       && c_n
     \end{pmatrix}. 
 \end{equation}
-où les  $c_i$ sont ordonnés de sorte que  $c_1,\dots, c_r >0$, $c_{r+1},\dots ,c_s<0$ et $c_{s+1},\dots , c_n = 0$. En multipliant les premières $s+r$ colonnes  et lignes de $P$ par $1/ \sqrt{|c_i|}$ on obtient en fait une factorisation~\eqref{eq:29} telle que 
+où les  $c_i$ sont ordonnés de sorte que  $c_1,\dots, c_r >0$, $c_{r+1},\dots ,c_s<0$ et $c_{s+1},\dots , c_n = 0$. En multipliant les premières $s$ colonnes de $P$ par $1/ \sqrt{|c_i|}$ on obtient en fait une factorisation~\eqref{eq:29} telle que 
  $c_1,\dots, c_r =1$, $c_{r+1},\dots ,c_s=-1$ et $c_{s+1},\dots , c_n = 0$. 
 
 Alors on trouve  $P ∈ ℝ^{n ×n}$ inversible telle que 
@@ -635,7 +635,7 @@ où $ [x]_B \cdot [y]_B$  dénote la forme bilinéaire standard de $\R^n$ entre 
 \label{sec:le-theoreme-de}
 
 
-Soit $V$ un espace vectoriel de dimension finie sur un corps $K$, $\mathrm{Char}(K) \neq 2$, muni d'une forme bilinéaire symétrique. Nous avons vu (théorème~\ref{thr:5}) que $V$ possède une base orthogonale. Supposons que cette base est $B = \{v_1,\dots,v_n\}$ et considérons $x = \sum_i \alpha_i v_i \in V$ et $y \in \sum_i \beta_i v_i \in V$. La forme bilinéaire  s'écrit 
+Soit $V$ un espace vectoriel de dimension finie sur un corps $K$, $\mathrm{Char}(K) \neq 2$, muni d'une forme bilinéaire symétrique. Nous avons vu (théorème~\ref{thr:5}) que $V$ possède une base orthogonale. Supposons que cette base est $B = \{v_1,\dots,v_n\}$ et considérons $x = \sum_i \alpha_i v_i \in V$ et $y = \sum_i \beta_i v_i \in V$. La forme bilinéaire  s'écrit 
 \begin{eqnarray*}
   \pscal{x,y} & =  & \sum_{i, j} \alpha_i \beta_j \pscal{v_i,v_j} \\
               & = & \sum_i \alpha_i \beta_i \pscal{v_i,v_i} \\
@@ -737,7 +737,7 @@ Les $\pscal{v_i,v_i}$ à gauche sont strictement positifs. Les $\pscal{w_i,w_i} 
 
 \begin{example}
   \label{exe:11}
-  Trouver une base de Sylvester du $ℝ^4$ et les indices de nullité et de positivité de la forme bilinéaire symétrique $x^TAy$ où  
+  Trouver une base de Sylvester de $ℝ^4$ et les indices de nullité et de positivité de la forme bilinéaire symétrique $x^TAy$ où  
   \begin{displaymath}
 A = 
     \begin{pmatrix}
@@ -1108,7 +1108,7 @@ et on trouve
 \begin{displaymath}
   C' = \frac{1}{7}
   \begin{pmatrix}
-    -4\\-2\\-1\\6
+    -4\\-2\\-7\\6
   \end{pmatrix}  
 \end{displaymath}
 La base orthonormale est
@@ -1124,7 +1124,7 @@ La base orthonormale est
 \text{ et }
 C'/ \|C'\| = \frac{1}{\sqrt{57}}
   \begin{pmatrix}
-    -4\\-2\\-1\\6
+    -4\\-2\\-7\\6
   \end{pmatrix}  
 \end{displaymath}
 \end{example}
@@ -1349,7 +1349,7 @@ Maintenant nous pouvons décrire un \emph{algorithme} pour résoudre le problèm
 
 ~\\
 \begin{enumerate}[i)]
-\item Trouver une base orthonormale $u_1,\dots,u_k$ du sous-espace $\spa\{v_1,\dots,v_n\}$ 
+\item Trouver une base orthonormale $\{u_1,\dots,u_k\}$ du sous-espace $\spa\{v_1,\dots,v_n\}$ 
   avec le procédé de Gram-Schmidt. 
 \item Retourner $ u = \sum_{i=1}^k \pscal{v,u_i} u_i$. 
 \end{enumerate}
@@ -1697,7 +1697,7 @@ Soient $V$ un espace vectoriel sur $\C$ de dimension finie et $f: V \times V \lo
 \begin{displaymath}
   \pscal{x,y} = \sum_{ij} \alpha_i\overline{\beta_j} f(v_i,v_j)
 \end{displaymath}
-et avec la matrice $A_B^f = (f(v_i,v_i))_{1 \leq i,j \leq n}$   alors 
+et avec la matrice $A_B^f = (f(v_i,v_j))_{1 \leq i,j \leq n}$   alors 
 \begin{equation}
   \label{eq:9}
   \pscal{x,y} = [x]_B ^T A_B^{f} \overline{[y]_B} 
