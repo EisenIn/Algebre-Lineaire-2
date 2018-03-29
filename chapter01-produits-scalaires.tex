@@ -1341,7 +1341,7 @@ Maintenant nous pouvons décrire un \emph{algorithme} pour résoudre le problèm
   \end{displaymath}
   est minimale. 
 \end{framed}
-
+\newpage
 \begin{algorithm}
 \label{alg:2}
 
@@ -1365,7 +1365,7 @@ Maintenant nous pouvons décrire un \emph{algorithme} pour résoudre le problèm
     \label{eq:4}    
     A^TAx = A^T b
   \end{equation}
-  sont les solutions  optimales du problème \eqref{eq:3}. 
+  sont les solutions  optimales du problème \eqref{eq:3} (où l'on considère la norme euclidienne sur $\R^m$)
 \end{theorem}
 
 \begin{proof}
@@ -1391,7 +1391,13 @@ Alors $ A x -b$ est
 perpendiculaire à tous les $a_i^*$. Le seul vecteur $v \in \spa\{a_1^*,\dots,a_k^*\} = \mathrm{Col}(A)$ tel que $\pscal{b-v,v}=0$  est $v = \sum_i\pscal{a_i^*,b} \cdot a_i^*$. Ceci démontre le théorème.  
 \end{proof}
 
-
+\begin{remark}
+Pour une norme $\lvert\lvert \cdot \rvert\rvert$ (engendrée par un produit scalaire $\langle \cdot , \cdot \rangle$) différente de la norme euclidienne, une preuve similaire montre que les solutions du système
+  \begin{equation*}  
+    A^TF^{\langle \cdot , \cdot \rangle}Ax = A^T F^{\langle \cdot , \cdot \rangle} b
+  \end{equation*}
+  sont les solutions  optimales du problème \eqref{eq:3}, où $F^{\langle \cdot , \cdot \rangle}$ est la matrice du produit scalaire $\langle \cdot , \cdot \rangle$ selon la base canonique (i.e. $(F^{\langle \cdot , \cdot \rangle})_{i,j} = \langle e_i , e_j \rangle$).
+\end{remark}
 
 \begin{example}
 \label{exe:4}
@@ -1661,7 +1667,7 @@ pour tout $v \in V$, on a $\pscal{v,v} \in \R$ dès que $\pscal{v,v} = \overline
 \end{example}
 
 
-Les notions d'\emph{orthogonalité, de perpendicularité, de base orthogonale} et \emph{de supplémentaire orthogonal}  sont définies comme avant. Par contre, les notions de \emph{coefficients de Fourier} et la \emph{projection de $v$ sur $w$} doivent etre modifiés: les coefficients de Fourier dans le cadre d'un \C$-espace vectoriel sont les conjugués complexes des coefficients de Fourier de base.
+Les notions d'\emph{orthogonalité, de perpendicularité, de base orthogonale} et \emph{de supplémentaire orthogonal}  sont définies comme avant. Par contre, les notions de \emph{coefficients de Fourier} et la \emph{projection de $v$ sur $w$} doivent etre modifiés: les coefficients de Fourier dans le cadre d'un $\C$-espace vectoriel sont les conjugués complexes des coefficients de Fourier de base.
 
 \begin{example}
   \label{exe:13}
