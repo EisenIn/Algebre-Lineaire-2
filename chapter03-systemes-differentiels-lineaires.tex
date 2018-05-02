@@ -141,7 +141,7 @@ Dès que $A $ est réelle on voit $\x_\Re' = A\x_\Re$ et $\x'_\Im = A \x_\Im$.
 
 
 Supposons alors que $A \in \R^{n \times n}$ est diagonalisable . Et soit $\{v_1,\dots,v_n\}$ une base de $\C^n$ de vecteurs propres associés à 
-$\lambda_1,\dots,\lambda_n$ respectivement. Si $v_i = u_i + i \cdot w_i$  où $u_i,w_i \in \R^n$, les $u_1,\dots,u_n,v_1,\dots,v_n$ engendrent $\R^n$, voir exercice~\ref{item:5}. Comme nous avons noté 
+$\lambda_1,\dots,\lambda_n$ respectivement. Si $v_i = u_i + i \cdot w_i$  où $u_i,w_i \in \R^n$, les $u_1,\dots,u_n,w_1,\dots,w_n$ engendrent $\R^n$, voir exercice~\ref{item:5}. Comme nous avons noté 
 \begin{displaymath}
   \x^{(j)} = e^{\lambda_j t} v_j
 \end{displaymath}
@@ -150,12 +150,12 @@ sont des solutions complexes du système~\eqref{eq:19}.
 Aussi, on peut supposer que la base et les valeurs propres sont tels que les vecteurs/valeurs propres complexes viennent en paires conjugées complexes. Plus précisément
 \begin{equation}
 \label{eq:22}
-  v_{2_j+1} = \overline{v_{2j}}\, \text{ et } \, \lambda_{2j+1} = \overline{\lambda_{2j}} \, \text{ pour } \, 1 \leq j \leq k \leq n/2 
+  v_{2_{j-1}} = \overline{v_{2j}}\, \text{ et } \, \lambda_{2j-1} = \overline{\lambda_{2j}} \, \text{ pour } \, 1 \leq j \leq k \leq n/2 
 \end{equation}
 et 
 \begin{equation}
   \label{eq:23}  
-  v_j \in \R^n, \lambda_j \in \R \text{ pour } j > 2k+1. 
+  v_j \in \R^n, \lambda_j \in \R \text{ pour } j > 2k. 
 \end{equation}
 %
 Considérons maintenant une solution impliquée par $v = u+iw$  $\lambda= a+ib$. 
@@ -176,8 +176,8 @@ Considérons maintenant une solution impliquée par $v = u+iw$  $\lambda= a+ib$.
 Nous pouvons alors noter une marche à suivre pour résoudre le système~\eqref{eq:19} étant donné $\x(0)$ si $A$ est diagonalisable.
 \begin{enumerate}
 \item Trouver une base de vecteurs propres $v_1,\dots,v_n$ de $A$ ordonnée comme dans \eqref{eq:22} et \eqref{eq:23}. 
-\item Pour chaque paire $v_j,\lambda_j$, $1 \leq j \leq k$ trouver les  deux solutions réelles dénotées comme  $\x^{(2j)}$ et $\x^{(2j+1)}$. 
-\item Pour chaque paire réelle $v_j, \lambda_j$ $n\geq j>2k+1$, trouver la solution $\x^{(j)}$. 
+\item Pour chaque paire $v_{2j},\lambda_{2j}$, $1 \leq j \leq k$ trouver les  deux solutions réelles dénotées comme  $\x^{(2j-1)}$ et $\x^{(2j)}$. 
+\item Pour chaque paire réelle $v_j, \lambda_j$ $n\geq j>2k$, trouver la solution $\x^{(j)}$. 
 \item Trouver la combinaison linéaire 
   \begin{displaymath}
     \x(0) = \sum_{j} \alpha_j \x^{(j)}(0) 
