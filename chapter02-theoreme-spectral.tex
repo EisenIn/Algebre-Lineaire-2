@@ -89,7 +89,9 @@ réelles.
   Le polynôme caractéristique $p(x) = \det(A - x \cdot I_n)$ a une racine complexe selon le théorème fondamental de l'algèbre. Les valeurs propres de $A$ sont les racines de $p(x)$.  Mais toutes ces racines sont réelles selon le         corollaire~\ref{co:3}.  
 \end{proof}
 
-
+\begin{remark}
+La même preuve, par le théorème fondamental de l'algèbre, montre en fait que le polynôme caractéristique de $A$ est scindé sur $\Bbb R$, i.e. $A$ possède $n$ valeurs propres réelles (en comptant les multiplicités algébriques).
+\end{remark}
 
 \begin{lemma}
   \label{lem:9}
@@ -499,7 +501,7 @@ Pour $x \in \R^n \setminus \{0\}$ $ x / \|x\| \in S^{n-1}$ et $R_A(x) = (x / \|x
 
 \begin{theorem}[Théorème Min-Max]
 \label{thr:19}
-Soit $A \in \R^n$ une matrice symétrique avec les valeurs propres 
+Soit $A \in \R^{n × n}$ une matrice symétrique avec les valeurs propres 
 $\lambda_1 \geq \dots \geq \lambda_n$.   Si $U$ dénote un sous-espace de $\R^n$ alors 
 \begin{equation}
   \label{eq:12} 

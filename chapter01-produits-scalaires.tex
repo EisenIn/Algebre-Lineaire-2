@@ -8,7 +8,7 @@
   un espace vectoriel sur un corps $K$.
   Une \emph{forme bilinéaire} sur $V$
   est une correspondance qui à tout couple $(v,w)$
-  d'éléments de $V$
+  d'éléments de $V$ 
   associe un scalaire, noté $\pscal{v,w} ∈ K$,
    satisfaisant aux deux propriétés suivantes:
   \begin{enumerate}[BL 1]
@@ -460,7 +460,7 @@ Maintenant soit $K = \R$  et $A \in \R^{n \times n}$ symétrique. Le Corollaire~
       && c_n
     \end{pmatrix}. 
 \end{equation}
-où les  $c_i$ sont ordonnés de sorte que  $c_1,\dots, c_r >0$, $c_{r+1},\dots ,c_s<0$ et $c_{s+1},\dots , c_n = 0$. En multipliant les premières $s+r$ colonnes  et lignes de $P$ par $1/ \sqrt{|c_i|}$ on obtient en fait une factorisation~\eqref{eq:29} telle que 
+où les  $c_i$ sont ordonnés de sorte que  $c_1,\dots, c_r >0$, $c_{r+1},\dots ,c_s<0$ et $c_{s+1},\dots , c_n = 0$. En multipliant les premières $s$ colonnes de $P$ par $1/ \sqrt{|c_i|}$ on obtient en fait une factorisation~\eqref{eq:29} telle que 
  $c_1,\dots, c_r =1$, $c_{r+1},\dots ,c_s=-1$ et $c_{s+1},\dots , c_n = 0$. 
 
 Alors on trouve  $P ∈ ℝ^{n ×n}$ inversible telle que 
@@ -635,7 +635,7 @@ où $ [x]_B \cdot [y]_B$  dénote la forme bilinéaire standard de $\R^n$ entre 
 \label{sec:le-theoreme-de}
 
 
-Soit $V$ un espace vectoriel de dimension finie sur un corps $K$, $\mathrm{Char}(K) \neq 2$, muni d'une forme bilinéaire symétrique. Nous avons vu (théorème~\ref{thr:5}) que $V$ possède une base orthogonale. Supposons que cette base est $B = \{v_1,\dots,v_n\}$ et considérons $x = \sum_i \alpha_i v_i \in V$ et $y \in \sum_i \beta_i v_i \in V$. La forme bilinéaire  s'écrit 
+Soit $V$ un espace vectoriel de dimension finie sur un corps $K$, $\mathrm{Char}(K) \neq 2$, muni d'une forme bilinéaire symétrique. Nous avons vu (théorème~\ref{thr:5}) que $V$ possède une base orthogonale. Supposons que cette base est $B = \{v_1,\dots,v_n\}$ et considérons $x = \sum_i \alpha_i v_i \in V$ et $y = \sum_i \beta_i v_i \in V$. La forme bilinéaire  s'écrit 
 \begin{eqnarray*}
   \pscal{x,y} & =  & \sum_{i, j} \alpha_i \beta_j \pscal{v_i,v_j} \\
               & = & \sum_i \alpha_i \beta_i \pscal{v_i,v_i} \\
@@ -737,7 +737,7 @@ Les $\pscal{v_i,v_i}$ à gauche sont strictement positifs. Les $\pscal{w_i,w_i} 
 
 \begin{example}
   \label{exe:11}
-  Trouver une base de Sylvester du $ℝ^4$ et les indices de nullité et de positivité de la forme bilinéaire symétrique $x^TAy$ où  
+  Trouver une base de Sylvester de $ℝ^4$ et les indices de nullité et de positivité de la forme bilinéaire symétrique $x^TAy$ où  
   \begin{displaymath}
 A = 
     \begin{pmatrix}
@@ -1108,7 +1108,7 @@ et on trouve
 \begin{displaymath}
   C' = \frac{1}{7}
   \begin{pmatrix}
-    -4\\-2\\-1\\6
+    -4\\-2\\-7\\6
   \end{pmatrix}  
 \end{displaymath}
 La base orthonormale est
@@ -1124,7 +1124,7 @@ La base orthonormale est
 \text{ et }
 C'/ \|C'\| = \frac{1}{\sqrt{57}}
   \begin{pmatrix}
-    -4\\-2\\-1\\6
+    -4\\-2\\-7\\6
   \end{pmatrix}  
 \end{displaymath}
 \end{example}
@@ -1133,11 +1133,65 @@ C'/ \|C'\| = \frac{1}{\sqrt{57}}
   \label{co:2}
   Soit $A \in \R^{m\times n}$ une matrice de rang (colonne) plein. On peut factoriser $A$ comme 
   \begin{displaymath}
-    A = A' \cdot R
+    A = A^* \cdot R
   \end{displaymath}
-où les colonnes de  $A' \in \R^{m\times n}$ sont deux à deux orthonormales et $R \in \R^{n \times n}$ est une matrice triangulaire supérieure dont les valeurs diagonales sont positives. 
+où les colonnes de  $A^* \in \R^{m\times n}$ sont deux à deux orthonormales et $R \in \R^{n \times n}$ est une matrice triangulaire supérieure dont les valeurs diagonales sont positives. 
 \end{corollary}
 
+\begin{proof}
+Comme $\rank(A) = n$, les colonnes de $A$ sont libres ; dès lors on peut appliquer le procédé de Gram-Schmidt à $\{a_1, \dots , a_n \} $ où $a_j$ désigne la j-ième colonne de $A$. On obtient alors une base orthogonale $B=  \{a'_1, \dots , a'_n\}$ avec la relation :
+\begin{displaymath}
+a_1=a'_1
+~~,~~
+a_j = \sum_{i=1}^{j-1} \alpha_{i,j} a'_i +a'_j
+\end{displaymath}
+pour tout $j \in \{2, \dots,n\}$, et où $\alpha_{i,j} $ est le coefficient de Fourier de $a_j$ relativement à $a'_i$.
+Grâce à ce procédé, on a pu écrire $a_j$ comme une combinaison linéaire de $\{a'_1, \dots , a'_n\} $. On peut représenter cela avec un produit matrice-vecteur:
+\begin{displaymath}
+a_j= (a'_1 ~ \dots ~ a'_n)
+\begin{pmatrix}
+\alpha_{1,j}\\\alpha_{2,j}\\\vdots\\\alpha_{j-1,j}\\1\\0\\\vdots\\0\\
+\end{pmatrix}.  
+%~~~~~~A' \in \R^{m\times n}
+%~~~~~~s_j \in \R^{n}
+\end{displaymath}
+
+En posant 
+\begin{displaymath}
+S = %:= (s_1 ~ \dots ~ s_n)= 
+\begin{pmatrix}
+1 & \alpha_{1,2} & \alpha_{1,3} & \cdots & \alpha_{1,n-1} & \alpha_{1,n}\\
+0 & 1 & \alpha_{2,3} & \cdots & \alpha_{2,n-1} & \alpha_{2,n} \\
+\vdots && \ddots &&& \vdots \\
+\vdots &&& \ddots &&\vdots\\
+0 & \cdots & \cdots&0& 1 & \alpha_{n-1,n}\\
+0 & 0 & \cdots &\cdots & 0 & 1
+\end{pmatrix} \in \R^{n \times n}, 
+\end{displaymath}
+on a, par les propriétés du produit matriciel,
+\begin{displaymath}
+A = A'S.  %=(A'_1s_1 ~\dots ~ A'_1s_n)=(a_1 ~ \dots ~ a_n)=A
+\end{displaymath}
+Il nous faut encore normaliser les colonnes de la matrice $A'$. Pour cela, on définit les deux matrices diagonales suivantes:
+\begin{displaymath}
+D=\begin{pmatrix}
+1/\|a'_1\| & & \\
+& \ddots & \\
+& & 1/\|a'_n\|
+\end{pmatrix} , \quad 
+D^{-1}=\begin{pmatrix}
+\|a'_1\| & & \\
+& \ddots & \\
+& & \|a'_n\|
+\end{pmatrix} 
+~~ D,D^{-1} \in \R^{n \times n}
+\end{displaymath}
+En posant $A^*=A'_1D$ et $R=D^{-1}S$ on obtient:
+\begin{displaymath}
+A=A^* R
+\end{displaymath}
+où $A^* \in \R^{m\times n}$ et $R \in \R^{n \times n}$ sont des matrices qui vérifient les propriétés de l'énoncé. 
+\end{proof}
 
 
 \begin{example}
@@ -1287,13 +1341,13 @@ Maintenant nous pouvons décrire un \emph{algorithme} pour résoudre le problèm
   \end{displaymath}
   est minimale. 
 \end{framed}
-
+\newpage
 \begin{algorithm}
 \label{alg:2}
 
 ~\\
 \begin{enumerate}[i)]
-\item Trouver une base orthonormale $u_1,\dots,u_k$ du sous-espace $\spa\{v_1,\dots,v_n\}$ 
+\item Trouver une base orthonormale $\{u_1,\dots,u_k\}$ du sous-espace $\spa\{v_1,\dots,v_n\}$ 
   avec le procédé de Gram-Schmidt. 
 \item Retourner $ u = \sum_{i=1}^k \pscal{v,u_i} u_i$. 
 \end{enumerate}
@@ -1311,7 +1365,7 @@ Maintenant nous pouvons décrire un \emph{algorithme} pour résoudre le problèm
     \label{eq:4}    
     A^TAx = A^T b
   \end{equation}
-  sont les solutions  optimales du problème \eqref{eq:3}. 
+  sont les solutions  optimales du problème \eqref{eq:3} (où l'on considère la norme euclidienne sur $\R^m$)
 \end{theorem}
 
 \begin{proof}
@@ -1337,7 +1391,13 @@ Alors $ A x -b$ est
 perpendiculaire à tous les $a_i^*$. Le seul vecteur $v \in \spa\{a_1^*,\dots,a_k^*\} = \mathrm{Col}(A)$ tel que $\pscal{b-v,v}=0$  est $v = \sum_i\pscal{a_i^*,b} \cdot a_i^*$. Ceci démontre le théorème.  
 \end{proof}
 
-
+\begin{remark}
+Pour une norme $\lvert\lvert \cdot \rvert\rvert$ quelconque engendrée par un produit scalaire $\langle \cdot , \cdot \rangle$), une preuve similaire montre que les solutions du système
+  \begin{equation*}  
+    A^TF^{\langle \cdot , \cdot \rangle}Ax = A^T F^{\langle \cdot , \cdot \rangle} b
+  \end{equation*}
+  sont les solutions  optimales du problème \eqref{eq:3}, où $F^{\langle \cdot , \cdot \rangle}$ est la matrice du produit scalaire $\langle \cdot , \cdot \rangle$ selon la base canonique (i.e. $(F^{\langle \cdot , \cdot \rangle})_{i,j} = \langle e_i , e_j \rangle$).
+\end{remark}
 
 \begin{example}
 \label{exe:4}
@@ -1607,7 +1667,7 @@ pour tout $v \in V$, on a $\pscal{v,v} \in \R$ dès que $\pscal{v,v} = \overline
 \end{example}
 
 
-Les notions d'\emph{orthogonalité, de perpendicularité, de base orthogonale} et \emph{de supplémentaire orthogonal}  sont définies comme avant, de même que les notions de \emph{coefficients de Fourier} et la \emph{projection de $v$ sur $w$}. 
+Les notions d'\emph{orthogonalité, de perpendicularité, de base orthogonale} et \emph{de supplémentaire orthogonal}  sont définies comme avant. Par contre, les notions de \emph{coefficients de Fourier} et la \emph{projection de $v$ sur $w$} doivent etre modifiés: les coefficients de Fourier dans le cadre d'un $\C$-espace vectoriel sont les conjugués complexes des coefficients de Fourier de base.
 
 \begin{example}
   \label{exe:13}
@@ -1641,7 +1701,7 @@ Soient $V$ un espace vectoriel sur $\C$ de dimension finie et $f: V \times V \lo
 \begin{displaymath}
   \pscal{x,y} = \sum_{ij} \alpha_i\overline{\beta_j} f(v_i,v_j)
 \end{displaymath}
-et avec la matrice $A_B^f = (f(v_i,v_i))_{1 \leq i,j \leq n}$   alors 
+et avec la matrice $A_B^f = (f(v_i,v_j))_{1 \leq i,j \leq n}$   alors 
 \begin{equation}
   \label{eq:9}
   \pscal{x,y} = [x]_B ^T A_B^{f} \overline{[y]_B} 
