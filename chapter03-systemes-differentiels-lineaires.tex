@@ -752,7 +752,7 @@ Notre but est de montrer le théorème suivant.
     \end{pmatrix}
      = 
      \begin{pmatrix}
-       0 \\ x_1 \\ \vdots \\ x_{n-1}
+       x_2 \\ x_3 \\ \vdots \\ 0
      \end{pmatrix}. 
   \end{displaymath}
   Le décalage plus une constante est aussi une application linéaire 
@@ -906,8 +906,8 @@ Cela prouvera le théorème parce qu'un tel procédé doit se terminer. \\
 
 Dès que l'ensemble~\eqref{eq:27} est linéairement dépendant, il existe une combinaison linéaire non triviale de~\eqref{eq:27} qui est égale a $0$ :
 \begin{displaymath}
-0 =   β_0^1 x_1 + β_1^1 Nx_1+ \dots+ β_{m_1-1}N^{m_1-1}x_1 + \dots + 
-β_0^\ell x_\ell + β_1^\ell Nx_\ell+ \dots+ β_{m_\ell-1}N^{m_\ell-1}x_\ell 
+0 =   β_0^1 x_1 + β_1^1 Nx_1+ \dots+ β_{m_1-1}^1 N^{m_1-1}x_1 + \dots + 
+β_0^\ell x_\ell + β_1^\ell Nx_\ell+ \dots+ β_{m_\ell-1}^\ell N^{m_\ell-1}x_\ell 
 \end{displaymath}
 
 \textbf{Cas 1 :} \\
@@ -918,7 +918,7 @@ En passant tous les termes sauf $x_i$ à gauche, on obtient  que $x_i$ est une c
 Supposons que nous avons la combinaison linéaire ci-dessus, mais que nous ne sommes pas dans le cas $1$. \\
 Maintenant, nous allons appliquer l'application $N$ $k$-fois, où $k \geq 1$ est le plus grand entier tel que les termes 
 \begin{displaymath}
-  β_i^j N^{k+i}x 
+  β_i^j N^{k+i}x_j 
 \end{displaymath}
 ne sont pas tous égaux à zéro. Ainsi, nous avons trouvé un sous-ensemble $J ⊆ \{1,\dots,\ell \}$ et des $γ_j ≠ 0$ tels que 
 \begin{displaymath}
@@ -931,7 +931,7 @@ Soit $m = \min_{j \in J} {m_j-1} \geq 1$ et soit $i \in J$ un index où le minim
 
 Maintenant, on remplace $x_i$ par $y = \sum_{j \in J} γ_j N^{m_j-1 - m}x_j$. Il est facile de voir que les orbites de 
 \begin{displaymath}
-  x_1,\dots, x_{i-1},y,x_{i+1},\dots,x_n
+  x_1,\dots, x_{i-1},y,x_{i+1},\dots,x_\ell
 \end{displaymath}
 engendrent encore $V$. Et la durée de vie de $y$ est au plus $m<m_i$. \\
 On a alors démontré le théorème.  
@@ -943,7 +943,7 @@ On a alors démontré le théorème.
 
 \begin{enumerate}
 \item Montrer que les orbites de 
-$ x_1,\dots, x_{i-1},y,x_{i+1},\dots,x_n $ engendrent encore $V$. (Voir démonstration du théorème~\ref{thr:38}).  
+$ x_1,\dots, x_{i-1},y,x_{i+1},\dots,x_\ell $ engendrent encore $V$. (Voir démonstration du théorème~\ref{thr:38}).  
 \end{enumerate}
 %%% Local Variables:
 %%% mode: latex
