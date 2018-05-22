@@ -952,13 +952,27 @@ $ x_1,\dots, x_{i-1},y,x_{i+1},\dots,x_\ell $ engendrent encore $V$. (Voir démo
 \item Soit $T \colon V \rightarrow V$ un endomorphisme. Soit $\phi : V \rightarrow \Bbb C^n$ l'isomophisme associé à une base $B$ de $V$. Supposons que $A_{B}$, la matrice de $T$ relativement à la base $B$, admette une forme normale de Jordan $J$ avec matrice de passage $P$. \newline
 Montrez qu'il existe des sous-espaces $V_1, ..., V_k$  de $V$ tels que $V = V_1 \oplus \cdots \oplus V_k$, $T(V_i) \subset V_i$ et $T_{∣V_i} = N_i + \lambda_i I$, où $N_i \colon V_i \rightarrow V_i$ est nilpotente, $\forall i$ et $\{\lambda_1, ..., \lambda_k\} = \{J_{11}, ..., J_{nn}\}$.
 
-\item Soit $T \colon V \rightarrow V$ un endomorphisme et soit $V_1, ..., V_k$ une décomposition de $V$ tel que $V = V_1 ⊕ \cdots ⊕ V_k$, $T(V_i) \subset V_i$ et $T_{∣V_i} = N_i + \lambda_i I$, où $N_i : V_i \rightarrow V_i$ est nilpotente. Montrez que :
+\item Le but de cet exercice est de montrer les propriétés des décompositions comme dans le Lemme 3.22. \newline
+Soit $T \colon V \rightarrow V$ un endomorphisme et soit $V_1, ..., V_k$ une décomposition de $V$ tel que $V = V_1 ⊕ \cdots ⊕ V_k$, $T(V_i) \subset V_i$ et $T_{∣V_i} = N_i + \lambda_i I$, où $N_i : V_i \rightarrow V_i$ est nilpotente. Montrez que :
 \begin{enumerate}
 \item[a)] $V_i \subset \ker (T - \lambda_i I)^{a_i}$ pour un entier $a_i$ tel que $N_i^{a_i} = 0$.
 \item[b)] Les $\lambda_1, ..., \lambda_k$ sont des valeurs propres (pas forcément distinctes) de $T$. (\textit{Indice} : Utiliser par exemple le premier point).
 \item[c)] Le polynôme $f(x) = \prod_{i=1}^{k} (x - \lambda_i)^{a_i}$ annule $T$. (\textit{Indice} : Montrer que $f(T)v = 0$ pour tout $v \in V$ en utilisant la décomposition de $V$ et le premier point).
 \item[d)] En déduire que l'ensemble $\{ \lambda_1, ..., \lambda_q \}$ contient toutes les valeurs propres de $T$ (\textit{Indice} : Si $v \neq 0$ est un vecteur propre de $T$ de valeur propres $\lambda$, exprimer $f(T)v$ en fonction de $f$, $\lambda$, et $v$). 
 \item[e)] En déduire que les valeurs sur la diagonale de n'importe quelle forme normale de Jordan de $T$ constituent l'ensemble des valeurs propres de $T$. (\textit{Indice} : S'inspirer de la résolution de l'exercice 2.)
+\end{enumerate}
+
+\item Comparer les polynômes caractéristiques de $J$ et $A$. En déduire que les éléments diagonaux de $J$ contiennent exactement l'ensemble des valeurs propres de $A$ et le nombre d'apparitions de chaque valeur propre sur la diagonale de $J$ est égale à la multiplicité algébrique de ladite valeur propre.
+
+\item Soit $A \in \Bbb R^{n \times n}$ et soient $J$ une forme normale de Jordan de $A$, $P$ la matrice de passage associée ($A = PJP^{-1}$). \newline 
+Le but de cet exercice est de montrer que le nombre de blocs de Jordan sur $J$ associé à une valeur propre $\lambda$ est exactement $\dim \ker(A - \lambda I)$.
+\begin{enumerate}
+
+\item[a)] Soit $S = \begin{pmatrix} S_1 & 0 \\ 0 & S_2 \end{pmatrix}$ une matrice blocs diagonale. Montrez que $$\text{rang}(S) = \text{rang}(S_1) + \text{rang}(S_2)$$ 
+Généraliser pour $p$ blocs sur la diagonale. (\textit{Indice} : Considérer les lignes linéairement indépendantes de $S_1, S_2$).
+\item[b)] Soit $B = U + \lambda I \in \Bbb R^{q \times q}$ un bloc de Jordan, où $U$ est l'application de décalage. Montrez que la seule valeur propre de $B$ est $\lambda$ et que l'espace propre associé est engendré par $e_1$. Déduisez $\dim \ker (B - \lambda I) = 1$ et $\dim \text{Im} (B - \lambda I) = q-1$.
+\item[c)] Soient $B_1, ..., B_k$ l'ensemble des blocs de Jordan sur $J$ associé à une valeur propre $\lambda$. Déduire de a) et b) que $\dim \text{Im} (J - \lambda I) = n - k$.
+\item[d)] En déduire que $\dim \ker (A - \lambda I) = k$ et que $\ker (A - \lambda I) = \text{span}(Pe_{i_1}, ..., Pe_{i_k})$, où les $i_j$ sont les indices des premières lignes/colonnes des $B_1, ..., B_k$ dans $J$.
 \end{enumerate}
 
 \end{enumerate}
