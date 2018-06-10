@@ -511,10 +511,8 @@ où les composantes des premières $(i-1)$ lignes et colonnes sont zéro sauf po
 \noindent 
 Pour $1 \leq i \leq n$, la \emph{$i$-ème itération}  est comme suit. 
 \begin{itemize}
-%\item S'il existe un index $j≥i$ tel que $b_{jj} \neq 0$ soit $j ≥i$ le plus petit tel indexe et  échange la $i$-ème ligne et la $j$-ème ligne et après    la $i$-ème colonne et la $j$-ème colonne. 
-\item Soit $j \in \{i+1,\dots,n\}$ tel que $b_{ij} \neq 0$. 
-  Si un tel indexe n'existe pas on procède à la $i+1$-ème itération. 
-  On additionne la ligne $j$ sur la ligne $i$ et on additionne la colonne $j$ sur la colonne $i$. Étant donné que $\car(K) \neq 2$, on a alors maintenant $b_{ii} \neq 0$. 
+\item S'il n'existe pas d'indice $j\in\{i+1,\dots,n\}$ tel que $b_{ij}\neq0$, on passe à l'itération suivante.
+\item Si $b_{ii}=0$ et qu'il existe $j\in\{i+1,\dots,n\}$ tel que $b_{jj}\neq0$ alors on échange la ligne $i$ avec la ligne $j$ et la colonne $i$ avec la colonne $j$. Sinon c'est que pout $j\in\{i,\dots,n\}$ on a $b_{jj}=0$. Soit alors $j\in\{i+1,\dots,n\}$ tel que $b_{ij}\neq0$. On additionne la ligne $j$ sur la ligne $i$ et la colonne $j$ sur la colonne $i$. Alors le nouvel $i$-ème élément de la diagonale est $2b_{ij}\neq0$, car $\car(K) \neq 2$.
 \item Pour chaque $j \in \{i+1,\dots,n\}$:  on additionne $-b_{ij}/b_{ii}$ fois la $i$-ème ligne sur la $j$-ème ligne et on additionne $-b_{ij}/b_{ii}$ fois la $i$-ème colonne sur la $j$-ème colonne. 
 \end{itemize}
 
