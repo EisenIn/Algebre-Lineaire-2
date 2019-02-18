@@ -184,9 +184,27 @@ Soit $K$ un corps et soit $x$ un nouveau élément qui n'appartient pas à $K$. 
   \label{eq:33}
   p(x) = a_0 + a_1 x + \cdots + a_n x^n
 \end{equation}
-où $a_i ∈K$ pour $i=1,\dots,n$.  L'élément $a_i$ est le $i$-ème coefficient de $p(x)$. 
+où $a_i ∈K$ pour $i=1,\dots,n$.  L'élément $a_i$ est le $i$-ème coefficient de $p(x)$. Le polynôme $p(x)$ est écrit comme 
+\begin{displaymath}
+  p(x) = a_0 + a_1x + a_2x^2 + \cdots 
+\end{displaymath}
+où tous les  coefficients, sauf un nombre fini parmi eux, sont zéro. 
 Des expressions \eqref{eq:33} sont des polynômes sur $K$  et $K[x]$ est l'ensemble des polynômes sur $K$. Deux polynômes 
-sont \emph{égales} si leurs coefficients non-zéro  sont les mêmes. Le degré d'un  polynôme $p(x)≠0$ est $\max\{i ：a_i ≠0\}$.  
+\begin{displaymath}
+  p(x) = a_0 + a_1x + a_2x^2 + \cdots \text{ et } q(x) = b_0 + b_1x + b_2x^2 + \cdots
+\end{displaymath}
+sont \emph{égaux} si $a_i  =b_i$ pour tous $i$. Dans ce cas, on écrit $p(x) = q(x)$. 
+
+
+Un polynôme $p(x) = a_0 + a_1 x + \cdots + a_n x^n ∈ K[x]$ induit une application $f_p:  K ⟶ K$, $f_p(k) = a_0+ a_1 k+ \cdots + a_n k^n$. 
+
+\begin{theorem}
+  \label{thr:42}
+  Soit $K$ un corps infini. Deux polynômes $p(x),q(x) ∈ K[x]$ sont égaux, si et seulement si les applications $f_p$ et $f_q$ sont les mêmes. 
+\end{theorem}
+
+
+
 
 %%% Local Variables:
 %%% mode: latex
