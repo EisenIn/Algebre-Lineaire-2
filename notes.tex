@@ -54,10 +54,11 @@
 \DeclareMathOperator{\tcone}{tcone}
 \DeclareMathOperator{\conv}{conv}
 \DeclareMathOperator{\diam}{diam}
+\DeclareMathOperator{\sign}{sgn}
 \DeclareMathOperator{\poly}{poly}
 \DeclareMathOperator{\Ker}{Ker}
 \DeclareMathOperator{\Var}{Var}
-\DeclareMathOperator{\Id}{id}
+\DeclareMathOperator{\Id}{Id}
 \DeclareMathOperator{\tr}{tr}
 \DeclareMathOperator{\relint}{relint}
 \DeclareMathOperator{\spa}{span}
@@ -83,6 +84,19 @@
 \newtheorem{exercise}{Exercice}[chapter]
 \newtheorem{algorithm}{Algorithme}[chapter]
 
+
+
+\newcommand{\iunit}{\mathrm{i}}
+\newcommand{\CC}{{\mathbb C}}
+\newcommand{\EE}{{\mathbb E}}
+\newcommand{\FF}{{\mathbb F}}
+\newcommand{\KK}{{\mathbb K}}
+\newcommand{\NN}{{\mathbb N}}
+\newcommand{\QQ}{{\mathbb Q}}
+\newcommand{\RR}{{\mathbb R}}
+\newcommand{\ZZ}{{\mathbb Z}}
+
+\newcommand{\calB}{{\mathcal B}}
 
 
 %opening
@@ -127,7 +141,7 @@ Des corrections et modifications ont été implémentées par:
 
 \tableofcontents
 
-
+\include{chapter00-valeurs-propres} 
 \include{chapter01-produits-scalaires}
 \include{chapter02-theoreme-spectral}
 \include{chapter03-systemes-differentiels-lineaires}

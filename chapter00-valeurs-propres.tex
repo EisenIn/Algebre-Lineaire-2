@@ -1,0 +1,194 @@
+\chapter{Valeurs propres}
+\label{cha:valeurs-propres-et}
+
+
+\section{Valeurs propres et vecteurs propres} 
+\label{sec:valeurs-propres-et}
+
+\begin{definition}
+  \label{def:16}
+  Soit $V$ un espace vectoriel sur un corps $K$ et $f \colon V ⟶V$ und endomorphisme. Un \emph{vecteur propre} de $f$  associé à la \emph{valeur propre} $λ ∈K$ est un vector $v ≠ 0$ de $V$ tel que $f(v) = λ\,v$. 
+\end{definition}
+
+
+\begin{lemma}
+  \label{lem:4}
+  Soit $B = \{v_1,\dots,v_n\}$ une base de $V$ et $A ∈ K^{n×n}$ la matrice de l'endomorphisme $f : V ⟶V$ relatif à $B$. La matrice $A$ est une matrice diagonale, c'est à dire $A$ est de la forme 
+  \begin{displaymath}
+    A =
+    \begin{pmatrix}
+      λ_1  \\
+         & \ddots \\
+         & & λ_n
+    \end{pmatrix},
+  \end{displaymath}
+si est seuelemnt si $v_i$ est un vector propre associé à la valeur propre $λ_i$ pour tous $i=1,\dots,n$. 
+\end{lemma}
+
+\begin{proof}
+    Pour $v ∈V$ soit $[v]_B ∈K^n$ le vecteur des coordonnés de $v$ relatif à $B$. On a $[f(v_i)]_B = A \,  [v_i]_B$ pour $i=1,\dots,n$. Des que $[v_i]_B = e_i$, et $f(v_i) = λ_i v_i$ alors 
+    \begin{displaymath}
+      λ_i ⋅ e_i = A \, e_i, \text{ pour } i ∈\{1,\dots,n\}. 
+    \end{displaymath}
+\end{proof}
+
+
+\begin{definition}
+  \label{def:39}
+  Un endomorphisme $f ：V ⟶ V$ pour lequel existe une base de vecteurs propres est \emph{diagonalisable}. 
+\end{definition}
+
+
+\begin{definition}
+  \label{def:40}
+  Soit $A ∈ K^{n ×n}$ une matrice. 
+  Un \emph{vecteur propre} de $A$ associé à la \emph{valeur propre} $λ ∈K$ est un vecteur propre de l'endormophisme  $f(x) = Ax$ de $K^n$. 
+\end{definition}
+
+
+
+
+\begin{example}
+ \begin{enumerate}
+ \item Soit $A = \left(\begin{array}{cc}
+1 & 0 \\
+0 & 0
+\end{array}
+\right) \in ℝ^{2 ×2}$. Alors
+\begin{itemize}
+ \item $v_1 = \left( \begin{array}{c} 1 \\ 0 \end{array} \right)$ est un vecteur propre associ\'e \`a la valeur propre $\lambda_1 = 1$,
+ \item $v_2 = \left( \begin{array}{c} 0 \\ 1 \end{array} \right)$ est un vecteur propre associ\'e \`a la valeur propre $\lambda_2 = 0$,
+ \item $v_3 = \left( \begin{array}{c} 1 \\ 1 \end{array} \right)$ n'est pas un vecteur propre.
+\end{itemize}
+\item Soit $A = \left(\begin{array}{cc}
+\cos \phi & \sin \phi \\
+-\sin\phi & \cos \phi
+\end{array}
+\right) \in ℝ^{2 ×2}$ pour $\phi \in ℝ$. \begin{itemize}
+\item                                                      
+Si $\phi\not=k\pi$, $k\inℕ$, alors $A$ n'a pas de valeur propre (r\'eelle).
+\item Si $\phi = (2k+1)\pi$, $k\in ℕ$, alors $A = 
+\left(\begin{array}{cc}
+-1 & 0 \\
+0 & -1
+\end{array}
+\right)$ a une valeur propre $\lambda = -1$ et tous les vecteurs non-nuls $x\in ℝ^2$ sont des vecteurs propres associ\'es \`a $\lambda$.
+\item Si $\phi = 2k \pi$, $k\in ℕ$, alors $A = 
+\left(\begin{array}{cc}
+1 & 0 \\
+0 & 1
+\end{array}
+\right)$ a une valeur propre $\lambda = 1$ et encore tous les vecteurs non-nuls $x\in ℝ^2$ sont des vecteurs propres associ\'es \`a $\lambda$.
+\end{itemize}
+On va voire  que si on consid\`ere $A$ comme une matrice complexe, alors on a toujours les valeurs propres $\cos \phi + \iunit \sin \phi$ et $\cos \phi - \iunit \sin \phi$.
+\end{enumerate}
+\end{example}
+
+\begin{lemma}
+  \label{lem:21}
+  Un vecteur $v ∈ V ⧹\{0\}$ est un vecteur propre de $f：V ⟶V$  associé à la la valeur propre $λ ∈ K$ si et seulement si $v ∈ \ker(f - λ ⋅ \Id)$. 
+\end{lemma}
+
+
+
+Rappel: L'endomophisme $\Id ： V ⟶V$ défini comme $\Id(v) = v$ pour tous $v∈ V$  est appelé l'\emph{identité}. 
+
+\begin{definition}
+  \label{def:1}
+  Soit $λ$ un valeur propre de l'endomorphisme $f：V ⟶V$. Le sous espace $E_λ$ de $V$, défini comme
+  \begin{displaymath}
+    E_λ = \ker(f - λ ⋅ \Id) 
+  \end{displaymath}
+  est l'espace propre de $f$ associé à $λ$. La dimension de $E_λ$ est la multiplicité géométrique de $λ$. 
+\end{definition}
+
+\begin{lemma}
+  \label{elem:1}
+  Soient $v_1,\dots,v_r ∈V$ des vecteurs propres, associés aux valeurs propres $λ_1,\dots,λ_r$ distinctes (c'est à dire $λ_i ≠ λ_j$ pour $i≠j$), alors  $\{v_1,\dots,v_r\}$ est un ensemble libre.  
+\end{lemma}
+
+\begin{corollary}
+  \label{eco:1}
+   Soit $f ：V ⟶V$ un endomorphisme d'un espace vectoriel $V$ sur $K$ de dimension $n ∈ ℕ$ et soient $λ_1,\dots,λ_r$
+  les valeurs propres différentes de $f$
+  et soient $n_1,\dots,n_r$
+  leurs multiplicités géométriques respectives. Soient
+  $B_i= \{v_1^{(i)},\dots,v_{n_i}^{(i)}\}$
+  des ensembles libres de vecteurs propres associés aux $λ_i$
+  respectivement, pour $i=1,\dots,r$. Alors 
+  \begin{displaymath}
+    \{ v_1^{(1)},\dots,v_{n_1}^{(1)},v_1^{(2)},\dots,v_{n_2}^{(2)},\cdots,v_1^{(r)},\dots,v_{n_r}^{(r)} \} 
+  \end{displaymath}
+est un ensemble libre. L'application $f$ est diagonalisable si et seulement si 
+\begin{displaymath}
+  n_1 + \cdots + n_r =n.
+\end{displaymath}
+\end{corollary}
+
+
+Voici un marche à suivre, comment déterminer si $f：V ⟶V$ est diagonalisable. 
+
+\begin{enumerate}
+\item Déterminer les différentes $λ_1,\dots,λ_r ∈K$ tel que $\ker(f - λ \Id) ≠∅$ 
+\item Pour chaque $λ_i$ calculer une base $\{v_1^{(i)},\dots,v_{n_i}^{(i)}\}$ de $E_{λ_i}$. 
+\item est diagonalisable si et seulement si $f$ $n_1+\cdots+n_r =n$.
+\end{enumerate}
+
+
+
+
+
+\subsection*{Exercices} 
+
+\begin{enumerate}
+\item Une matrice $A ∈ K^{n ×n}$ est appelée \emph{diagonalisable},  si endomorphisme $φ：K^n ⟶K^n$ défini comme $φ(x) = Ax$ est diagonalisable. Démontrer que $A$ est diagonalisable, si et seulement s'il existe $U ∈ K^{n×n}$ inversible tel que $U^{-1} A U$ est une matrice diagonale. \label{item:18} 
+\end{enumerate}
+
+\section{Le polynôme caractéristique} 
+\label{sec:le-polyn-caract}
+
+Durant ce chapitre nous allons étudier les endomorphismes $f：V⟶V$ d'un espace vectoriel de dimension fini $n ∈ N$.  Si  $B = \{v_1,\dots,v_n\}$ est une base de $V$, on a 
+\begin{displaymath}
+  f(x) = \phi_B^{-1} (A \phi_B(x)),
+\end{displaymath}
+où $\phi_B$ est l'ismomorphisme $\phi_B \colon V \longrightarrow K^n$, $\phi_B(x) = [x]_B$ sont les coordonnées de $x$ par rapport à la base $B$. On a le diagramme suivant 
+\begin{displaymath}
+  {
+  \begin{CD}
+    V     @>f>>  V\\
+    @VV \phi_B V        @VV \phi_B V\\ 
+    K^n     @>A \cdot x>>  K^n
+  \end{CD}} 
+\end{displaymath} 
+Les colonnes de la matrice $A$ sont les coordonnées de $f(v_1),\dots,f(v_n)$ dans la base $B$. Clairement, $λ$ est une valeur propre de $f$ si et seulement si $λ$ est une valeur propre de $A$ et c'est le cas si et seulement si 
+\begin{equation}
+  \label{eq:30}
+  \det(A - λ I_n) = 0. 
+\end{equation}
+Rappelons nous la formule de Leibniz pour la déterminante d'une matrice $B ∈ K^{n ×n}$ 
+\begin{equation}
+  \label{eq:31}
+  \det(B)  = ∑_{π ∈S_n} \sign(π) ∏_{i=1}^n b_{iπ(i)}  
+\end{equation}
+et si on collecte les potences de $λ$, alors 
+\begin{equation}
+  \label{eq:32}
+  \det(A - λI_n) = a_n λ^n + a_{n-1} λ^{n-1}+ \dots + a_1 λ+ a_0
+\end{equation}
+où $a_n,\dots,a_0 ∈K$. Des que $\det(A) = \det(A - 0 ⋅ I_n)$, alors $a_0 = \det(A)$. 
+
+\subsection{Polynômes}
+\label{sec:polynomes}
+Soit $K$ un corps et soit $x$ un nouveau élément qui n'appartient pas à $K$. Nous considérons les expressions 
+\begin{equation}
+  \label{eq:33}
+  p(x) = a_0 + a_1 x + \cdots + a_n x^n
+\end{equation}
+où $a_i ∈K$ pour $i=1,\dots,n$.  L'élément $a_i$ est le $i$-ème coefficient de $p(x)$. 
+Des expressions \eqref{eq:33} sont des polynômes sur $K$  et $K[x]$ est l'ensemble des polynômes sur $K$. Deux polynômes 
+sont \emph{égales} si leurs coefficients non-zéro  sont les mêmes. Le degré d'un  polynôme $p(x)≠0$ est $\max\{i ：a_i ≠0\}$.  
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "notes"
+%%% End:

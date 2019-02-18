@@ -1,0 +1,95 @@
+\chapter{Valeurs propres}
+\label{cha:valeurs-propres-et}
+
+
+\section{Valeurs propres et vecteurs propres} 
+\label{sec:valeurs-propres-et}
+
+\begin{definition}
+  \label{def:16}
+  Soit $V$ un espace vectoriel sur un corps $K$ et $f \colon V ⟶V$ und endomorphisme. Un \emph{vecteur propre} de $f$  associé à la \emph{valeur propre} $λ ∈K$ est un vector $v ≠ 0$ de $V$ tel que $f(v) = λ\,v$. 
+\end{definition}
+
+
+\begin{lemma}
+  \label{lem:4}
+  Soit $B = \{v_1,\dots,v_n\}$ une base de $V$ et $A ∈ K^{n×n}$ la matrice de l'endomorphisme $f : V ⟶V$ relatif à $B$. La matrice $A$ est une matrice diagonale, c'est à dire $A$ est de la forme 
+  \begin{displaymath}
+    A =
+    \begin{pmatrix}
+      λ_1  \\
+         & \ddots \\
+         & & λ_n
+    \end{pmatrix},
+  \end{displaymath}
+si est seuelemnt si $v_i$ est un vector propre associé à la valeur propre $λ_i$ pour tous $i=1,\dots,n$. 
+\end{lemma}
+
+\begin{proof}
+    Pour $v ∈V$ soit $[v]_B ∈K^n$ le vecteur des coordonnés de $v$ relatif à $B$. On a $[f(v_i)]_B = A \,  [v_i]_B$ pour $i=1,\dots,n$. Des que $[v_i]_B = e_i$, et $f(v_i) = λ_i v_i$ alors 
+    \begin{displaymath}
+      λ_i ⋅ e_i = A \, e_i, \text{ pour } i ∈\{1,\dots,n\}. 
+    \end{displaymath}
+\end{proof}
+
+
+\begin{definition}
+  \label{def:39}
+  Un endomorphisme $f ：V ⟶ V$ pour lequel existe une base de vecteurs propres est \emph{diagonalisable}. 
+\end{definition}
+
+
+\begin{definition}
+  \label{def:40}
+  Soit $A ∈ K^{n ×n}$ une matrice. 
+  Un \emph{vecteur propre} de $A$ associé à la \emph{valeur propre} $λ ∈K$ est un vecteur propre de l'endormophisme  $f(x) = Ax$ de $K^n$. 
+\end{definition}
+
+
+
+
+\begin{example}
+ \begin{enumerate}
+ \item Soit $A = \left(\begin{array}{cc}
+1 & 0 \\
+0 & 0
+\end{array}
+\right) \in M_{2\times 2}(ℝ)$. Alors
+\begin{itemize}
+ \item $v_1 = \left( \begin{array}{c} 1 \\ 0 \end{array} \right)$ est un vecteur propre associ\'e \`a la valeur propre $\lambda_1 = 1$,
+ \item $v_2 = \left( \begin{array}{c} 0 \\ 1 \end{array} \right)$ est un vecteur propre associ\'e \`a la valeur propre $\lambda_2 = 0$,
+ \item $v_3 = \left( \begin{array}{c} 1 \\ 1 \end{array} \right)$ n'est pas un vecteur propre.
+\end{itemize}
+\item Soit $A = \left(\begin{array}{cc}
+\cos \phi & \sin \phi \\
+-\sin\phi & \cos \phi
+\end{array}
+\right) \in M_{2\times 2}(ℝ)$ pour $\phi \in ℝ$. \begin{itemize}
+\item                                                      
+Si $\phi\not=k\pi$, $k\inℕ$, alors $A$ n'a pas de valeur propre (r\'eelle).
+\item Si $\phi = (2k+1)\pi$, $k\in ℕ$, alors $A = 
+\left(\begin{array}{cc}
+-1 & 0 \\
+0 & -1
+\end{array}
+\right)$ a une valeur propre $\lambda = -1$ et tous les vecteurs non-nuls $x\in ℝ^2$ sont des vecteurs propres associ\'es \`a $\lambda$.
+\item Si $\phi = 2k \pi$, $k\in ℕ$, alors $A = 
+\left(\begin{array}{cc}
+1 & 0 \\
+0 & 1
+\end{array}
+\right)$ a une valeur propre $\lambda = 1$ et encore tous les vecteurs non-nuls $x\in ℝ^2$ sont des vecteurs propres associ\'es \`a $\lambda$.
+\end{itemize}
+On va voire  que si on consid\`ere $A$ comme une matrice complexe, alors on a toujours les valeurs propres $\cos \phi + \iunit \sin \phi$ et $\cos \phi - \iunit \sin \phi$.
+\end{enumerate}
+\end{example}
+
+\begin{lemma}
+  \label{lem:21}
+  Un vecteur $v ∈ V ⧹\{0\}$ est un vecteur propre de $f：V ⟶V$  associé à la laveur propre $λ ∈ K$ si et seulement si $v ∈ \ker(f - λ ⋅ \id)$. 
+\end{lemma}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "notes"
+%%% End:
