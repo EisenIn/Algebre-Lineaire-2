@@ -2,23 +2,23 @@
 \label{cha:valeurs-propres-et}
 
 
-\section{Valeurs propres et vecteurs propres} 
+\section{Valeurs propres et vecteurs propres}
 \label{sec:valeurs-propres-et}
 
 \begin{definition}
   \label{def:16}
-  Soit $V$ un espace vectoriel sur un corps $K$ et $f \colon V ⟶V$ und endomorphisme. Un \emph{vecteur propre} de $f$  associé à la \emph{valeur propre} $λ ∈K$ est un vector $v ≠ 0$ de $V$ tel que $f(v) = λ\,v$. 
+  Soit $V$ un espace vectoriel sur un corps $K$ et $f \colon V ⟶V$ un endomorphisme. Un \emph{vecteur propre} de $f$  associé à la \emph{valeur propre} $λ ∈K$ est un vecteur $v ≠ 0$ de $V$ tel que $f(v) = λ\,v$.
 \end{definition}
 
 \begin{remark}
   \label{sec:valeurs-propres-et-1}
-  Une valeur propre n'est pas égale a zéro. 
+  Une valeur propre n'est pas égale a zéro.
 \end{remark}
 
 
 \begin{lemma}
   \label{lem:4}
-  Soit $B = \{v_1,\dots,v_n\}$ une base de $V$ et $A ∈ K^{n×n}$ la matrice de l'endomorphisme $f : V ⟶V$ relatif à $B$. La matrice $A$ est une matrice diagonale, c'est à dire $A$ est de la forme 
+  Soit $B = \{v_1,\dots,v_n\}$ une base de $V$ et $A ∈ K^{n×n}$ la matrice de l'endomorphisme $f : V ⟶V$ relatif à $B$. La matrice $A$ est une matrice diagonale, c'est à dire $A$ est de la forme
   \begin{displaymath}
     A =
     \begin{pmatrix}
@@ -27,27 +27,27 @@
          & & λ_n
     \end{pmatrix},
   \end{displaymath}
-si est seuelemnt si $v_i$ est un vector propre associé à la valeur propre $λ_i$ pour tous $i=1,\dots,n$. 
+si et seulement si $v_i$ est un vecteur propre associé à la valeur propre $λ_i$ pour tout $i=1,\dots,n$.
 \end{lemma}
 
 \begin{proof}
-    Pour $v ∈V$ soit $[v]_B ∈K^n$ le vecteur des coordonnés de $v$ relatif à $B$. On a $[f(v_i)]_B = A \,  [v_i]_B$ pour $i=1,\dots,n$. Des que $[v_i]_B = e_i$, et $f(v_i) = λ_i v_i$ alors 
+    Pour $v ∈V$ soit $[v]_B ∈K^n$ le vecteur des coordonnées de $v$ relatif à $B$. On a $[f(v_i)]_B = A \,  [v_i]_B$ pour $i=1,\dots,n$. Des que $[v_i]_B = e_i$, et $f(v_i) = λ_i v_i$ alors
     \begin{displaymath}
-      λ_i ⋅ e_i = A \, e_i, \text{ pour } i ∈\{1,\dots,n\}. 
+      λ_i ⋅ e_i = A \, e_i, \text{ pour } i ∈\{1,\dots,n\}.
     \end{displaymath}
 \end{proof}
 
 
 \begin{definition}
   \label{def:39}
-  Un endomorphisme $f ：V ⟶ V$ pour lequel existe une base de vecteurs propres est \emph{diagonalisable}. 
+  Un endomorphisme $f ：V ⟶ V$ pour lequel il existe une base de vecteurs propres est \emph{diagonalisable}.
 \end{definition}
 
 
 \begin{definition}
   \label{def:40}
-  Soit $A ∈ K^{n ×n}$ une matrice. 
-  Un \emph{vecteur propre} de $A$ associé à la \emph{valeur propre} $λ ∈K$ est un vecteur propre de l'endormophisme  $f(x) = Ax$ de $K^n$. 
+  Soit $A ∈ K^{n ×n}$ une matrice.
+  Un \emph{vecteur propre} de $A$ associé à la \emph{valeur propre} $λ ∈K$ est un vecteur propre de l'endormophisme  $f(x) = Ax$ de $K^n$.
 \end{definition}
 
 
@@ -70,56 +70,56 @@ si est seuelemnt si $v_i$ est un vector propre associé à la valeur propre $λ_
 -\sin\phi & \cos \phi
 \end{array}
 \right) \in ℝ^{2 ×2}$ pour $\phi \in ℝ$. \begin{itemize}
-\item                                                      
+\item
 Si $\phi\not=k\pi$, $k\inℕ$, alors $A$ n'a pas de valeur propre (r\'eelle).
-\item Si $\phi = (2k+1)\pi$, $k\in ℕ$, alors $A = 
+\item Si $\phi = (2k+1)\pi$, $k\in ℕ$, alors $A =
 \left(\begin{array}{cc}
 -1 & 0 \\
 0 & -1
 \end{array}
 \right)$ a une valeur propre $\lambda = -1$ et tous les vecteurs non-nuls $x\in ℝ^2$ sont des vecteurs propres associ\'es \`a $\lambda$.
-\item Si $\phi = 2k \pi$, $k\in ℕ$, alors $A = 
+\item Si $\phi = 2k \pi$, $k\in ℕ$, alors $A =
 \left(\begin{array}{cc}
 1 & 0 \\
 0 & 1
 \end{array}
 \right)$ a une valeur propre $\lambda = 1$ et encore tous les vecteurs non-nuls $x\in ℝ^2$ sont des vecteurs propres associ\'es \`a $\lambda$.
 \end{itemize}
-On va voire  que si on consid\`ere $A$ comme une matrice complexe, alors on a toujours les valeurs propres $\cos \phi + \iunit \sin \phi$ et $\cos \phi - \iunit \sin \phi$.
+On va voir que si on consid\`ere $A$ comme une matrice complexe, alors on a toujours les valeurs propres $\cos \phi + \iunit \sin \phi$ et $\cos \phi - \iunit \sin \phi$.
 \end{enumerate}
 \end{example}
 
 \begin{lemma}
   \label{lem:21}
-  Un vecteur $v ∈ V ⧹\{0\}$ est un vecteur propre de $f：V ⟶V$  associé à la la valeur propre $λ ∈ K$ si et seulement si $v ∈ \ker(f - λ ⋅ \Id)$. 
+  Un vecteur $v ∈ V ⧹\{0\}$ est un vecteur propre de $f：V ⟶V$  associé à la valeur propre $λ ∈ K$ si et seulement si $v ∈ \ker(f - λ ⋅ \Id)$.
 \end{lemma}
 
 
 
-Rappel: L'endomophisme $\Id ： V ⟶V$ défini comme $\Id(v) = v$ pour tous $v∈ V$  est appelé l'\emph{identité}. 
+Rappel: L'endomophisme $\Id ： V ⟶V$ défini comme $\Id(v) = v$ pour tous $v∈ V$  est appelé l'\emph{identité}.
 
 \begin{definition}
   \label{def:1}
   Soit $λ$ une valeur propre de l'endomorphisme $f：V ⟶V$. Le sous espace $E_λ$ de $V$, défini comme
   \begin{displaymath}
-    E_λ = \ker(f - λ ⋅ \Id) 
+    E_λ = \ker(f - λ ⋅ \Id)
   \end{displaymath}
-  est l'espace propre de $f$ associé à $λ$. La dimension de $E_λ$ est la multiplicité géométrique de $λ$. 
+  est l'espace propre de $f$ associé à $λ$. La dimension de $E_λ$ est la multiplicité géométrique de $λ$.
 \end{definition}
 
 \begin{lemma}
   \label{elem:1}
-  Soient $v_1,\dots,v_r ∈V$ des vecteurs propres, associés aux valeurs propres $λ_1,\dots,λ_r$ distinctes (c'est à dire $λ_i ≠ λ_j$ pour $i≠j$), alors  $\{v_1,\dots,v_r\}$ est un ensemble libre.  
+  Soient $v_1,\dots,v_r ∈V$ des vecteurs propres, associés aux valeurs propres $λ_1,\dots,λ_r$ distinctes (c'est à dire $λ_i ≠ λ_j$ pour $i≠j$), alors  $\{v_1,\dots,v_r\}$ est un ensemble libre.
 \end{lemma}
 
 \begin{proof}
-  Supposons que le théorème est  faux et soit $r≥1$ minimal, tel qu'il existent des vecteurs propres $v_1,\dots,v_r ∈V$  associés aux valeurs propres $λ_1,\dots,λ_r$ qui sont linéairement dépendants. Des que $v_i ≠0$ alors $r>1$. 
-  Considérons une combinaison linéaire non triviale 
+  Supposons que le théorème soit faux et soit $r≥1$ minimal, tel qu'il existent des vecteurs propres $v_1,\dots,v_r ∈V$  associés aux valeurs propres $λ_1,\dots,λ_r$ qui sont linéairement dépendants. Des que $v_i ≠0$ alors $r>1$.
+  Considérons une combinaison linéaire non triviale
   \begin{equation}
     \label{eq:35}
-    α_1 v_1 + \cdots + α_n v_n = 0
+    α_1 v_1 + \cdots + α_r v_r = 0
   \end{equation}
-  et supposons que $α_1≠0$ et $α_n ≠0$. Autrement on réarrange  les $v_1,\dots,v_r$.
+  et supposons que $α_1≠0$ et $α_r ≠0$. Autrement on réarrange  les $v_1,\dots,v_r$.
 
   Si on applique $f$ à l'expression \eqref{eq:35} on obtient
   \begin{displaymath}
@@ -128,12 +128,12 @@ Rappel: L'endomophisme $\Id ： V ⟶V$ défini comme $\Id(v) = v$ pour tous $v�
   et en divisant par $λ_r$
   \begin{equation}
     \label{eq:37}
-    (λ_1/λ_r) α_1 v_1 + \cdots + α_r v_n = 0.     
+    (λ_1/λ_r) α_1 v_1 + \cdots + α_r v_r = 0.
   \end{equation}
-  On soustrait \eqref{eq:37} de \eqref{eq:35} on obtient
+  On soustrait \eqref{eq:37} de \eqref{eq:35}, on obtient
   \begin{displaymath}
     (1- λ_1/λ_n)α_1 v_1 + \cdots + (1- λ_{r-1}/λ_r)α_{r-1} v_{r-1}
-  \end{displaymath} Ceci est en contradiction avec $r$ minimal. 
+  \end{displaymath} Ceci est en contradiction avec la minimalité de $r$.
 \end{proof}
 
 
@@ -145,11 +145,11 @@ Rappel: L'endomophisme $\Id ： V ⟶V$ défini comme $\Id(v) = v$ pour tous $v�
   leurs multiplicités géométriques respectives. Soient
   $B_i= \{v_1^{(i)},\dots,v_{n_i}^{(i)}\}$
   des ensembles libres de vecteurs propres associés aux $λ_i$
-  respectivement, pour $i=1,\dots,r$. Alors 
+  respectivement, pour $i=1,\dots,r$. Alors
   \begin{displaymath}
-    \{ v_1^{(1)},\dots,v_{n_1}^{(1)},v_1^{(2)},\dots,v_{n_2}^{(2)},\cdots,v_1^{(r)},\dots,v_{n_r}^{(r)} \} 
+    \{ v_1^{(1)},\dots,v_{n_1}^{(1)},v_1^{(2)},\dots,v_{n_2}^{(2)},\cdots,v_1^{(r)},\dots,v_{n_r}^{(r)} \}
   \end{displaymath}
-est un ensemble libre. L'application $f$ est diagonalisable si et seulement si 
+est un ensemble libre. L'application $f$ est diagonalisable si et seulement si
 \begin{displaymath}
   n_1 + \cdots + n_r =n.
 \end{displaymath}
@@ -161,24 +161,24 @@ est un ensemble libre. L'application $f$ est diagonalisable si et seulement si
   \end{displaymath}
   alors les $ ∑_{j=1}^{n_i} α_{ij} v^{(i)}_j = 0$ selon Lemme~\ref{elem:1} et des que les $v_1^{(i)},\dots,v_{n_i}^{(i)}$ son linéairement indépendants, alors les $a_{ij}$ sont tous égal a zéro. Ça démontre que
    \begin{displaymath}
-    \{ v_1^{(1)},\dots,v_{n_1}^{(1)},v_1^{(2)},\dots,v_{n_2}^{(2)},\cdots,v_1^{(r)},\dots,v_{n_r}^{(r)} \} 
+    \{ v_1^{(1)},\dots,v_{n_1}^{(1)},v_1^{(2)},\dots,v_{n_2}^{(2)},\cdots,v_1^{(r)},\dots,v_{n_r}^{(r)} \}
   \end{displaymath} est un ensemble libre. En plus, si $n_1+\cdots+n_r=n$, $f$ est diagonalisable.
 
   À l'inverse, si $f$ est diagonalisable, et si $m_i$ dénote le nombre vecteurs propres en $E_{λ_i}$ dans la base consistant de vecteurs propres, alors $m_i ≤ n_i$. On a
   \begin{displaymath}
     n = m_1 + \cdots + m_r ≤ n_1+ \cdots + n_r ≤n,
   \end{displaymath}
-  alors $n_1+\cdots + n_r =n$. 
+  alors $n_1+\cdots + n_r =n$.
 \end{proof}
 
 
 
 
-Voici un marche à suivre, comment déterminer si $f：V ⟶V$ est diagonalisable. 
+Voici un marche à suivre, comment déterminer si $f：V ⟶V$ est diagonalisable.
 
 \begin{enumerate}
-\item Déterminer les différentes $λ_1,\dots,λ_r ∈K$ tel que $\ker(f - λ \Id) ≠∅$ 
-\item Pour chaque $λ_i$ calculer une base $\{v_1^{(i)},\dots,v_{n_i}^{(i)}\}$ de $E_{λ_i}$. 
+\item Déterminer les différentes $λ_1,\dots,λ_r ∈K$ tel que $\ker(f - λ \Id) ≠∅$
+\item Pour chaque $λ_i$ calculer une base $\{v_1^{(i)},\dots,v_{n_i}^{(i)}\}$ de $E_{λ_i}$.
 \item est diagonalisable si et seulement si $f$ $n_1+\cdots+n_r =n$.
 \end{enumerate}
 
@@ -186,86 +186,86 @@ Voici un marche à suivre, comment déterminer si $f：V ⟶V$ est diagonalisabl
 
 
 
-\subsection*{Exercices} 
+\subsection*{Exercices}
 
 \begin{enumerate}
-\item Une matrice $A ∈ K^{n ×n}$ est appelée \emph{diagonalisable},  si endomorphisme $φ：K^n ⟶K^n$ défini comme $φ(x) = Ax$ est diagonalisable. Démontrer que $A$ est diagonalisable, si et seulement s'il existe $U ∈ K^{n×n}$ inversible tel que $U^{-1} A U$ est une matrice diagonale. \label{item:18} 
+\item Une matrice $A ∈ K^{n ×n}$ est appelée \emph{diagonalisable},  si endomorphisme $φ：K^n ⟶K^n$ défini comme $φ(x) = Ax$ est diagonalisable. Démontrer que $A$ est diagonalisable, si et seulement s'il existe $U ∈ K^{n×n}$ inversible tel que $U^{-1} A U$ est une matrice diagonale. \label{item:18}
 \end{enumerate}
 
-\section{Le polynôme caractéristique} 
+\section{Le polynôme caractéristique}
 \label{sec:le-polyn-caract}
 
-Durant ce chapitre nous allons étudier les endomorphismes $f：V⟶V$ d'un espace vectoriel de dimension fini $n ∈ N$.  Si  $B = \{v_1,\dots,v_n\}$ est une base de $V$, on a 
+Durant ce chapitre nous allons étudier les endomorphismes $f：V⟶V$ d'un espace vectoriel de dimension fini $n ∈ N$.  Si  $B = \{v_1,\dots,v_n\}$ est une base de $V$, on a
 \begin{displaymath}
   f(x) = \phi_B^{-1} (A \phi_B(x)),
 \end{displaymath}
-où $\phi_B$ est l'ismomorphisme $\phi_B \colon V \longrightarrow K^n$, $\phi_B(x) = [x]_B$ sont les coordonnées de $x$ par rapport à la base $B$. On a le diagramme suivant 
+où $\phi_B$ est l'ismomorphisme $\phi_B \colon V \longrightarrow K^n$, $\phi_B(x) = [x]_B$ sont les coordonnées de $x$ par rapport à la base $B$. On a le diagramme suivant
 \begin{displaymath}
   {
   \begin{CD}
     V     @>f>>  V\\
-    @VV \phi_B V        @VV \phi_B V\\ 
+    @VV \phi_B V        @VV \phi_B V\\
     K^n     @>A \cdot x>>  K^n
-  \end{CD}} 
-\end{displaymath} 
-Les colonnes de la matrice $A$ sont les coordonnées de $f(v_1),\dots,f(v_n)$ dans la base $B$. Clairement, $λ$ est une valeur propre de $f$ si et seulement si $λ$ est une valeur propre de $A$ et c'est le cas si et seulement si 
+  \end{CD}}
+\end{displaymath}
+Les colonnes de la matrice $A$ sont les coordonnées de $f(v_1),\dots,f(v_n)$ dans la base $B$. Clairement, $λ$ est une valeur propre de $f$ si et seulement si $λ$ est une valeur propre de $A$ et c'est le cas si et seulement si
 \begin{equation}
   \label{eq:30}
-  \det(A - λ I_n) = 0. 
+  \det(A - λ I_n) = 0.
 \end{equation}
-Rappelons nous la formule de Leibniz pour la déterminante d'une matrice $B ∈ K^{n ×n}$ 
+Rappelons nous la formule de Leibniz pour la déterminante d'une matrice $B ∈ K^{n ×n}$
 \begin{equation}
   \label{eq:31}
-  \det(B)  = ∑_{π ∈S_n} \sign(π) ∏_{i=1}^n b_{iπ(i)}  
+  \det(B)  = ∑_{π ∈S_n} \sign(π) ∏_{i=1}^n b_{iπ(i)}
 \end{equation}
-et si on collecte les potences de $λ$, alors 
+et si on collecte les potences de $λ$, alors
 \begin{equation}
   \label{eq:32}
   \det(A - λI_n) = a_n λ^n + a_{n-1} λ^{n-1}+ \dots + a_1 λ+ a_0
 \end{equation}
-où $a_n,\dots,a_0 ∈K$. Des que $\det(A) = \det(A - 0 ⋅ I_n)$, alors $a_0 = \det(A)$. 
+où $a_n,\dots,a_0 ∈K$. Des que $\det(A) = \det(A - 0 ⋅ I_n)$, alors $a_0 = \det(A)$.
 
 \subsection{Polynômes}
 \label{sec:polynomes}
-Soit $K$ un corps et soit $x$ un nouveau élément qui n'appartient pas à $K$. Nous considérons les expressions 
+Soit $K$ un corps et soit $x$ un nouveau élément qui n'appartient pas à $K$. Nous considérons les expressions
 \begin{equation}
   \label{eq:33}
   p(x) = a_0 + a_1 x + \cdots + a_n x^n
 \end{equation}
-où $a_i ∈K$ pour $i=1,\dots,n$ et $x$ est une \emph{indéterminée} ou une  \emph{variable}.  L'élément $a_i$ est le $i$-ème coefficient de $p(x)$. Le polynôme $p(x)$ est écrit comme 
+où $a_i ∈K$ pour $i=1,\dots,n$ et $x$ est une \emph{indéterminée} ou une  \emph{variable}.  L'élément $a_i$ est le $i$-ème coefficient de $p(x)$. Le polynôme $p(x)$ est écrit comme
 \begin{displaymath}
-  p(x) = a_0 + a_1x + a_2x^2 + \cdots 
+  p(x) = a_0 + a_1x + a_2x^2 + \cdots
 \end{displaymath}
-où tous les  coefficients, sauf un nombre fini parmi eux, sont zéro. 
-Des expressions \eqref{eq:33} sont des polynômes sur $K$  et $K[x]$ est l'ensemble des polynômes sur $K$. Deux polynômes 
+où tous les  coefficients, sauf un nombre fini parmi eux, sont zéro.
+Des expressions \eqref{eq:33} sont des polynômes sur $K$  et $K[x]$ est l'ensemble des polynômes sur $K$. Deux polynômes
 \begin{equation}
   \label{eq:34}
   p(x) = a_0 + a_1x + a_2x^2 + \cdots \text{ et } q(x) = b_0 + b_1x + b_2x^2 + \cdots
   \end{equation}
-  sont \emph{égaux} si $a_i  =b_i$ pour tous $i$. Dans ce cas, on écrit $p(x) = q(x)$. 
-La \emph{somme} de $p(x)$ et $q(x)$~\eqref{eq:34} est le polynôme 
+  sont \emph{égaux} si $a_i  =b_i$ pour tous $i$. Dans ce cas, on écrit $p(x) = q(x)$.
+La \emph{somme} de $p(x)$ et $q(x)$~\eqref{eq:34} est le polynôme
 \begin{displaymath}
-  p(x) + q(x)  = a_0+b_0 + (a_1+b_1)x + (a_2+b_2)x^2 + \cdots 
+  p(x) + q(x)  = a_0+b_0 + (a_1+b_1)x + (a_2+b_2)x^2 + \cdots
 \end{displaymath}
-et leurs \emph{produit} est 
+et leurs \emph{produit} est
 \begin{displaymath}
   p(x) ⋅q(x) = a_0 b_0 + (a_0b_1 +a_1b_0) x + (a_0b_2+ a_1b_1 + a_2b_0)x^2 + \cdots .
 \end{displaymath}
-Le $i$-ème coefficient de $p(x)⋅q(x)$ est alors  $∑_{j+k=i}a_jb_k$. 
+Le $i$-ème coefficient de $p(x)⋅q(x)$ est alors  $∑_{j+k=i}a_jb_k$.
 
 \begin{theorem}
   \label{thr:43}
-  L'ensemble des polynômes $K[x]$ sur un corps $K$ est un anneau intègre. 
+  L'ensemble des polynômes $K[x]$ sur un corps $K$ est un anneau intègre.
 \end{theorem}
 
-Le \emph{degré} d'un polynôme $p(x) = a_0 + a_1x + a_2x^2 + \cdots$ pas égal a zéro est $max\{i： a_i ≠0\}$. Un polynôme $p(x) = a_0 + a_1 x + \cdots + a_n x^n ∈ K[x]$ induit une application $f_p:  K ⟶ K$, $f_p(k) = a_0+ a_1 k+ \cdots + a_n k^n$. 
+Le \emph{degré} d'un polynôme $p(x) = a_0 + a_1x + a_2x^2 + \cdots$ pas égal a zéro est $max\{i： a_i ≠0\}$. Un polynôme $p(x) = a_0 + a_1 x + \cdots + a_n x^n ∈ K[x]$ induit une application $f_p:  K ⟶ K$, $f_p(k) = a_0+ a_1 k+ \cdots + a_n k^n$.
 
 \begin{theorem}
   \label{thr:42}
-  Soit $K$ un corps infini. Deux polynômes $p(x),q(x) ∈ K[x]$ sont égaux, si et seulement si les applications $f_p$ et $f_q$ sont les mêmes. 
+  Soit $K$ un corps infini. Deux polynômes $p(x),q(x) ∈ K[x]$ sont égaux, si et seulement si les applications $f_p$ et $f_q$ sont les mêmes.
 \end{theorem}
 
-Une \emph{racine} d'un polynôme $p(x)$ est un élément $r ∈K$ tel que $p(r) = 0$. 
+Une \emph{racine} d'un polynôme $p(x)$ est un élément $r ∈K$ tel que $p(r) = 0$.
 \begin{theorem}[Théorème fondamentale d'algebre]
   \label{thr:44}
   Tout polynôme $p(x) ∈ℂ[x] ⧹\{0\}$ de degré aux moins $1$  admet au moins une racine complexe.
@@ -273,22 +273,22 @@ Une \emph{racine} d'un polynôme $p(x)$ est un élément $r ∈K$ tel que $p(r) 
 
 L'expression \eqref{eq:32} est un polynôme avec indéterminée $λ$ et  comme polynôme formel, est défini par la formule de Leibniz
 \begin{displaymath}
-p_A(λ)  \det(A - λ I_n) = ∑_{π ∈S_n} \sign(π) ∏_{i=1}^n (A - λ I_n)_{iπ(i)}. 
+p_A(λ)  \det(A - λ I_n) = ∑_{π ∈S_n} \sign(π) ∏_{i=1}^n (A - λ I_n)_{iπ(i)}.
 \end{displaymath}
 Il est la somme des polynômes $ \sign(π) ∏_{i=1}^n (A - λ I_n)_{iπ(i)}$. Ça démontre que le degré de $p_A(λ)$ est au plus $n$. Mais le degré de
 \begin{displaymath}
-  \sign(\Id) ∏_{i=1}^n (A - λ I_n)_{i\Id(i)} 
+  \sign(\Id) ∏_{i=1}^n (A - λ I_n)_{i\Id(i)}
 \end{displaymath}
 est $n$ exacte. Ça démontre aussi que $a_n = (-1)^n$.
 
 \begin{lemma}
   \label{lem:22}
-Soit $p_A(λ) = a_0 + a_1 λ + \cdots + a_n λ^n$ le polynôme caractéristique de la matrice $A ∈ K^{n ×n}$. Alors, $a_0 = \det(A)$ et $a_n = (-1)^n$. 
+Soit $p_A(λ) = a_0 + a_1 λ + \cdots + a_n λ^n$ le polynôme caractéristique de la matrice $A ∈ K^{n ×n}$. Alors, $a_0 = \det(A)$ et $a_n = (-1)^n$.
 \end{lemma}
 \subsection*{Exercices}
 
 \begin{enumerate}
-\item Donner un exemple d'un corps fini $K$ et deux polynomes $p(x) ≠q(x) ∈ K[x]$ tel que $f_p=f_q$. 
+\item Donner un exemple d'un corps fini $K$ et deux polynomes $p(x) ≠q(x) ∈ K[x]$ tel que $f_p=f_q$.
 \end{enumerate}
 
 
