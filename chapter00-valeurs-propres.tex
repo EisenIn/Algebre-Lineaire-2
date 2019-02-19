@@ -10,6 +10,11 @@
   Soit $V$ un espace vectoriel sur un corps $K$ et $f \colon V ⟶V$ und endomorphisme. Un \emph{vecteur propre} de $f$  associé à la \emph{valeur propre} $λ ∈K$ est un vector $v ≠ 0$ de $V$ tel que $f(v) = λ\,v$. 
 \end{definition}
 
+\begin{remark}
+  \label{sec:valeurs-propres-et-1}
+  Une valeur propre n'est pas égale a zéro. 
+\end{remark}
+
 
 \begin{lemma}
   \label{lem:4}
@@ -95,7 +100,7 @@ Rappel: L'endomophisme $\Id ： V ⟶V$ défini comme $\Id(v) = v$ pour tous $v�
 
 \begin{definition}
   \label{def:1}
-  Soit $λ$ un valeur propre de l'endomorphisme $f：V ⟶V$. Le sous espace $E_λ$ de $V$, défini comme
+  Soit $λ$ une valeur propre de l'endomorphisme $f：V ⟶V$. Le sous espace $E_λ$ de $V$, défini comme
   \begin{displaymath}
     E_λ = \ker(f - λ ⋅ \Id) 
   \end{displaymath}
@@ -106,6 +111,31 @@ Rappel: L'endomophisme $\Id ： V ⟶V$ défini comme $\Id(v) = v$ pour tous $v�
   \label{elem:1}
   Soient $v_1,\dots,v_r ∈V$ des vecteurs propres, associés aux valeurs propres $λ_1,\dots,λ_r$ distinctes (c'est à dire $λ_i ≠ λ_j$ pour $i≠j$), alors  $\{v_1,\dots,v_r\}$ est un ensemble libre.  
 \end{lemma}
+
+\begin{proof}
+  Supposons que le théorème est  faux et soit $r≥1$ minimal, tel qu'il existent des vecteurs propres $v_1,\dots,v_r ∈V$  associés aux valeurs propres $λ_1,\dots,λ_r$ qui sont linéairement dépendants. Des que $v_i ≠0$ alors $r>1$. 
+  Considérons une combinaison linéaire non triviale 
+  \begin{equation}
+    \label{eq:35}
+    α_1 v_1 + \cdots + α_n v_n = 0
+  \end{equation}
+  et supposons que $α_1≠0$ et $α_n ≠0$. Autrement on réarrange  les $v_1,\dots,v_r$.
+
+  Si on applique $f$ à l'expression \eqref{eq:35} on obtient
+  \begin{displaymath}
+    λ_1 α_1 v_1 + \cdots + λ_rα_r v_r = 0
+  \end{displaymath}
+  et en divisant par $λ_r$
+  \begin{equation}
+    \label{eq:37}
+    (λ_1/λ_r) α_1 v_1 + \cdots + α_r v_n = 0.     
+  \end{equation}
+  On soustrait \eqref{eq:37} de \eqref{eq:35} on obtient
+  \begin{displaymath}
+    (1- λ_1/λ_n)α_1 v_1 + \cdots + (1- λ_{r-1}/λ_r)α_{r-1} v_{r-1}
+  \end{displaymath} Ceci est en contradiction avec $r$ minimal. 
+\end{proof}
+
 
 \begin{corollary}
   \label{eco:1}
@@ -124,6 +154,24 @@ est un ensemble libre. L'application $f$ est diagonalisable si et seulement si
   n_1 + \cdots + n_r =n.
 \end{displaymath}
 \end{corollary}
+\begin{proof}
+  Soit
+  \begin{displaymath}
+    ∑_{i=1}^r ∑_{j=1}^{n_i} α_{ij} v^{(i)}_j = 0,
+  \end{displaymath}
+  alors les $ ∑_{j=1}^{n_i} α_{ij} v^{(i)}_j = 0$ selon Lemme~\ref{elem:1} et des que les $v_1^{(i)},\dots,v_{n_i}^{(i)}$ son linéairement indépendants, alors les $a_{ij}$ sont tous égal a zéro. Ça démontre que
+   \begin{displaymath}
+    \{ v_1^{(1)},\dots,v_{n_1}^{(1)},v_1^{(2)},\dots,v_{n_2}^{(2)},\cdots,v_1^{(r)},\dots,v_{n_r}^{(r)} \} 
+  \end{displaymath} est un ensemble libre. En plus, si $n_1+\cdots+n_r=n$, $f$ est diagonalisable.
+
+  À l'inverse, si $f$ est diagonalisable, et si $m_i$ dénote le nombre vecteurs propres en $E_{λ_i}$ dans la base consistant de vecteurs propres, alors $m_i ≤ n_i$. On a
+  \begin{displaymath}
+    n = m_1 + \cdots + m_r ≤ n_1+ \cdots + n_r ≤n,
+  \end{displaymath}
+  alors $n_1+\cdots + n_r =n$. 
+\end{proof}
+
+
 
 
 Voici un marche à suivre, comment déterminer si $f：V ⟶V$ est diagonalisable. 
@@ -184,7 +232,7 @@ Soit $K$ un corps et soit $x$ un nouveau élément qui n'appartient pas à $K$. 
   \label{eq:33}
   p(x) = a_0 + a_1 x + \cdots + a_n x^n
 \end{equation}
-où $a_i ∈K$ pour $i=1,\dots,n$.  L'élément $a_i$ est le $i$-ème coefficient de $p(x)$. Le polynôme $p(x)$ est écrit comme 
+où $a_i ∈K$ pour $i=1,\dots,n$ et $x$ est une \emph{indéterminée} ou une  \emph{variable}.  L'élément $a_i$ est le $i$-ème coefficient de $p(x)$. Le polynôme $p(x)$ est écrit comme 
 \begin{displaymath}
   p(x) = a_0 + a_1x + a_2x^2 + \cdots 
 \end{displaymath}
@@ -210,16 +258,33 @@ Le $i$-ème coefficient de $p(x)⋅q(x)$ est alors  $∑_{j+k=i}a_jb_k$.
   L'ensemble des polynômes $K[x]$ sur un corps $K$ est un anneau intègre. 
 \end{theorem}
 
-Le \emph{degré} d'un polynôme $p(x) = a_0 + a_1x + a_2x^2 + \cdots$ pas égal a zéro est $max\{i： a_i ≠0\}$. 
-
-Un polynôme $p(x) = a_0 + a_1 x + \cdots + a_n x^n ∈ K[x]$ induit une application $f_p:  K ⟶ K$, $f_p(k) = a_0+ a_1 k+ \cdots + a_n k^n$. 
+Le \emph{degré} d'un polynôme $p(x) = a_0 + a_1x + a_2x^2 + \cdots$ pas égal a zéro est $max\{i： a_i ≠0\}$. Un polynôme $p(x) = a_0 + a_1 x + \cdots + a_n x^n ∈ K[x]$ induit une application $f_p:  K ⟶ K$, $f_p(k) = a_0+ a_1 k+ \cdots + a_n k^n$. 
 
 \begin{theorem}
   \label{thr:42}
   Soit $K$ un corps infini. Deux polynômes $p(x),q(x) ∈ K[x]$ sont égaux, si et seulement si les applications $f_p$ et $f_q$ sont les mêmes. 
 \end{theorem}
 
+Une \emph{racine} d'un polynôme $p(x)$ est un élément $r ∈K$ tel que $p(r) = 0$. 
+\begin{theorem}[Théorème fondamentale d'algebre]
+  \label{thr:44}
+  Tout polynôme $p(x) ∈ℂ[x] ⧹\{0\}$ de degré aux moins $1$  admet au moins une racine complexe.
+\end{theorem}
 
+L'expression \eqref{eq:32} est un polynôme avec indéterminée $λ$ et  comme polynôme formel, est défini par la formule de Leibniz
+\begin{displaymath}
+p_A(λ)  \det(A - λ I_n) = ∑_{π ∈S_n} \sign(π) ∏_{i=1}^n (A - λ I_n)_{iπ(i)}. 
+\end{displaymath}
+Il est la somme des polynômes $ \sign(π) ∏_{i=1}^n (A - λ I_n)_{iπ(i)}$. Ça démontre que le degré de $p_A(λ)$ est au plus $n$. Mais le degré de
+\begin{displaymath}
+  \sign(\Id) ∏_{i=1}^n (A - λ I_n)_{i\Id(i)} 
+\end{displaymath}
+est $n$ exacte. Ça démontre aussi que $a_n = (-1)^n$.
+
+\begin{lemma}
+  \label{lem:22}
+Soit $p_A(λ) = a_0 + a_1 λ + \cdots + a_n λ^n$ le polynôme caractéristique de la matrice $A ∈ K^{n ×n}$. Alors, $a_0 = \det(A)$ et $a_n = (-1)^n$. 
+\end{lemma}
 \subsection*{Exercices}
 
 \begin{enumerate}
