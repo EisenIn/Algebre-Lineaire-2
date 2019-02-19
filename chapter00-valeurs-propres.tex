@@ -10,10 +10,10 @@
   Soit $V$ un espace vectoriel sur un corps $K$ et $f \colon V ⟶V$ und endomorphisme. Un \emph{vecteur propre} de $f$  associé à la \emph{valeur propre} $λ ∈K$ est un vector $v ≠ 0$ de $V$ tel que $f(v) = λ\,v$. 
 \end{definition}
 
-\begin{remark}
-  \label{sec:valeurs-propres-et-1}
-  Une valeur propre n'est pas égale a zéro. 
-\end{remark}
+\begin{example}
+  \label{exe:23}
+  Soit $f：V⟶V$, l'endomorphisme $f(v) = 0$ pour tous $v ∈V$. Alors tous $0≠v ∈V$ est un vecteur propre associé à $λ=0$. 
+\end{example}
 
 
 \begin{lemma}
@@ -40,7 +40,7 @@ si est seuelemnt si $v_i$ est un vector propre associé à la valeur propre $λ_
 
 \begin{definition}
   \label{def:39}
-  Un endomorphisme $f ：V ⟶ V$ pour lequel existe une base de vecteurs propres est \emph{diagonalisable}. 
+  Un endomorphisme $f ：V ⟶ V$ pour lequel existe une base de $V$ composée de vecteurs propres est \emph{diagonalisable}. 
 \end{definition}
 
 
@@ -117,9 +117,9 @@ Rappel: L'endomophisme $\Id ： V ⟶V$ défini comme $\Id(v) = v$ pour tous $v�
   Considérons une combinaison linéaire non triviale 
   \begin{equation}
     \label{eq:35}
-    α_1 v_1 + \cdots + α_n v_n = 0
+    α_1 v_1 + \cdots + α_n v_n = 0.
   \end{equation}
-  et supposons que $α_1≠0$ et $α_n ≠0$. Autrement on réarrange  les $v_1,\dots,v_r$.
+  Des que \eqref{eq:35} est un contre exemple minimal, on  $α_i≠0$ pour tous $i$. Nous pouvons supposer que $λ_r ≠0$. Autrement, on réarrange~\eqref{eq:35}. 
 
   Si on applique $f$ à l'expression \eqref{eq:35} on obtient
   \begin{displaymath}
@@ -130,7 +130,7 @@ Rappel: L'endomophisme $\Id ： V ⟶V$ défini comme $\Id(v) = v$ pour tous $v�
     \label{eq:37}
     (λ_1/λ_r) α_1 v_1 + \cdots + α_r v_n = 0.     
   \end{equation}
-  On soustrait \eqref{eq:37} de \eqref{eq:35} on obtient
+  On soustrait \eqref{eq:37} de \eqref{eq:35} et on obtient
   \begin{displaymath}
     (1- λ_1/λ_n)α_1 v_1 + \cdots + (1- λ_{r-1}/λ_r)α_{r-1} v_{r-1}
   \end{displaymath} Ceci est en contradiction avec $r$ minimal. 
