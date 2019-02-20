@@ -117,7 +117,6 @@ Rappel: L'endomophisme $\Id ： V ⟶V$ défini comme $\Id(v) = v$ pour tous $v�
   Considérons une combinaison linéaire non triviale
   \begin{equation}
     \label{eq:35}
-
     α_1 v_1 + \cdots + α_n v_n = 0.
   \end{equation}
   Des que \eqref{eq:35} est un contre exemple minimal, on  $α_i≠0$ pour tous $i$. Nous pouvons supposer que $λ_r ≠0$. Autrement, on réarrange~\eqref{eq:35}. 
@@ -198,9 +197,9 @@ Voici un marche à suivre, comment déterminer si $f：V ⟶V$ est diagonalisabl
 \section{Le polynôme caractéristique}
 \label{sec:le-polyn-caract}
 
-Durant ce chapitre nous allons étudier les endomorphismes $f：V⟶V$ d'un espace vectoriel de dimension fini $n ∈ N$.  Si  $B = \{v_1,\dots,v_n\}$ est une base de $V$, on a
+Durant ce chapitre nous allons étudier les endomorphismes $f：V⟶V$ d'un espace vectoriel de dimension fini $n ∈ ℕ$.  Si  $B = \{v_1,\dots,v_n\}$ est une base de $V$, on a
 \begin{displaymath}
-  f(x) = \phi_B^{-1} (A \phi_B(x)),
+  f(x) = \phi_B^{-1} (A_B \phi_B(x)),
 \end{displaymath}
 où $\phi_B$ est l'ismomorphisme $\phi_B \colon V \longrightarrow K^n$, $\phi_B(x) = [x]_B$ sont les coordonnées de $x$ par rapport à la base $B$. On a le diagramme suivant
 \begin{displaymath}
@@ -211,11 +210,30 @@ où $\phi_B$ est l'ismomorphisme $\phi_B \colon V \longrightarrow K^n$, $\phi_B(
     K^n     @>A \cdot x>>  K^n
   \end{CD}}
 \end{displaymath}
-Les colonnes de la matrice $A$ sont les coordonnées de $f(v_1),\dots,f(v_n)$ dans la base $B$. Clairement, $λ$ est une valeur propre de $f$ si et seulement si $λ$ est une valeur propre de $A$ et c'est le cas si et seulement si
+Les colonnes de la matrice $A_B$ sont les coordonnées de $f(v_1),\dots,f(v_n)$ dans la base $B$. Si $B'$ est une autre base de $V$ on a
+\begin{displaymath}
+  [x]_{B'} = P_{BB'}[x]_B,
+\end{displaymath}
+où $P_{BB'}$ est la matrice de changement de base de $B$ en $B'$. Des que
+\begin{displaymath}
+  [f(v)]_{B'} = A_{B'} [v]_{B'}, \quad\text{ et } \quad [f(v)]_{B'} = A_{B'} [v]_{B'}
+\end{displaymath}
+on trouve $A_{B'} =  P_{BB'}^{-1} A_B  P_{BB'}$. En particulier,
+\begin{displaymath}
+  \det(A_{B'}) = \det(A_B) 
+\end{displaymath}
+ce qui laisse nous définir la \emph{déterminante d'un endomorphisme} $f$ comme $\det(f)= \det(A_B)$. 
+
+
+
+Clairement, $λ$ est une valeur propre de $f$ si et seulement si $λ$ est une valeur propre de $A_B$ et c'est le cas si et seulement si
 \begin{equation}
   \label{eq:30}
-  \det(A - λ I_n) = 0.
+  \det(A_B - λ I_n) = 0.
 \end{equation}
+
+
+
 Rappelons nous la formule de Leibniz pour la déterminante d'une matrice $B ∈ K^{n ×n}$
 \begin{equation}
   \label{eq:31}
@@ -235,7 +253,13 @@ Soit $K$ un corps et soit $x$ un nouveau élément qui n'appartient pas à $K$. 
   \label{eq:33}
   p(x) = a_0 + a_1 x + \cdots + a_n x^n
 \end{equation}
-où $a_i ∈K$ pour $i=1,\dots,n$ et $x$ est une \emph{indéterminée} ou une  \emph{variable}.  L'élément $a_i$ est le $i$-ème coefficient de $p(x)$. Le polynôme $p(x)$ est écrit comme
+où $a_i ∈K$ pour $i=1,\dots,n$ et $x$ est une \emph{indéterminée} ou une  \emph{variable}.
+D'un point de vue formel, $x ∈ R ⧹K$, où $R⊃K$ est un anneau intègre, tel que
+\begin{displaymath}
+  a_0+ a_1x + \cdots + a_n x^n =0, \, a_i ∈K, \text{ implique } a_i=0 \text{ pour tous }i.  
+\end{displaymath}
+L'existence de $R$ et $x$ est traité en détail dans le cours \emph{anneaux et corps}. 
+L'élément $a_i$ est le $i$-ème coefficient de $p(x)$. Le polynôme $p(x)$ est écrit comme
 \begin{displaymath}
   p(x) = a_0 + a_1x + a_2x^2 + \cdots
 \end{displaymath}
@@ -243,7 +267,7 @@ où tous les  coefficients, sauf un nombre fini parmi eux, sont zéro.
 Des expressions \eqref{eq:33} sont des polynômes sur $K$  et $K[x]$ est l'ensemble des polynômes sur $K$. Deux polynômes
 \begin{equation}
   \label{eq:34}
-  p(x) = a_0 + a_1x + a_2x^2 + \cdots \text{ et } q(x) = b_0 + b_1x + b_2x^2 + \cdots
+  p(x) = a_0 + a_1x + a_2x^2 + \cdots \,\,\text{ et }  \,\, q(x) = b_0 + b_1x + b_2x^2 + \cdots
   \end{equation}
   sont \emph{égaux} si $a_i  =b_i$ pour tous $i$. Dans ce cas, on écrit $p(x) = q(x)$.
 La \emph{somme} de $p(x)$ et $q(x)$~\eqref{eq:34} est le polynôme
@@ -251,9 +275,10 @@ La \emph{somme} de $p(x)$ et $q(x)$~\eqref{eq:34} est le polynôme
   p(x) + q(x)  = a_0+b_0 + (a_1+b_1)x + (a_2+b_2)x^2 + \cdots
 \end{displaymath}
 et leurs \emph{produit} est
-\begin{displaymath}
+\begin{equation}
+  \label{ceq:21}
   p(x) ⋅q(x) = a_0 b_0 + (a_0b_1 +a_1b_0) x + (a_0b_2+ a_1b_1 + a_2b_0)x^2 + \cdots .
-\end{displaymath}
+\end{equation}
 Le $i$-ème coefficient de $p(x)⋅q(x)$ est alors  $∑_{j+k=i}a_jb_k$.
 
 \begin{theorem}
@@ -261,14 +286,36 @@ Le $i$-ème coefficient de $p(x)⋅q(x)$ est alors  $∑_{j+k=i}a_jb_k$.
   L'ensemble des polynômes $K[x]$ sur un corps $K$ est un anneau intègre.
 \end{theorem}
 
-Le \emph{degré} d'un polynôme $p(x) = a_0 + a_1x + a_2x^2 + \cdots$ pas égal a zéro est $max\{i： a_i ≠0\}$. Un polynôme $p(x) = a_0 + a_1 x + \cdots + a_n x^n ∈ K[x]$ induit une application $f_p:  K ⟶ K$, $f_p(k) = a_0+ a_1 k+ \cdots + a_n k^n$.
+Le \emph{degré} de $p(x) = a_0 + a_1x + a_2x^2 + \cdots \neq 0$ est 
+\begin{displaymath}
+  \deg(p) = \max\{i \colon  a_i \neq 0\}
+\end{displaymath}
+et $\deg(0) = -\infty$. 
+Si $p \neq 0$, le coefficient $a_{\deg(p)}$ est le \emph{coefficient dominant} de $p$. 
+Un polynôme de degré zéro est une \emph{constante}. 
+
+\begin{theorem}
+  \label{thr:34}
+  Pour $f,g \in K[x] $, $\deg(f \cdot g) = \deg(f) + \deg(g)$. 
+\end{theorem}
+\begin{proof}
+  La formule~\eqref{ceq:21} révèle que $\deg(f\cdot g) \leq \deg(f) + \deg(g)$. 
+  Soient $f(x) = a_0 + \cdots + a_n x^n$ et $g(x) = b_0+ \cdots b_m x^m$ tels que $a_n, b_m  \neq 0$. Le coefficient de $x^{n+m}$  est $a_n \cdot  b_m \neq 0$.
+\end{proof}
+
+Un polynôme $p(x) = a_0 + a_1 x + \cdots + a_n x^n ∈ K[x]$ induit une application $f_p:  K ⟶ K$, $f_p(k) = a_0+ a_1 k+ \cdots + a_n k^n$.
 
 \begin{theorem}
   \label{thr:42}
   Soit $K$ un corps infini. Deux polynômes $p(x),q(x) ∈ K[x]$ sont égaux, si et seulement si les applications $f_p$ et $f_q$ sont les mêmes.
 \end{theorem}
 
-Une \emph{racine} d'un polynôme $p(x)$ est un élément $r ∈K$ tel que $p(r) = 0$.
+\begin{definition}
+  \label{def:31}
+  Soit $f(x) \in \K[x] \setminus\{0\}$. Un $\alpha \in K$ tel que $f(\alpha) = 0$ est une  \emph{ racine} de $f(x)$.  
+\end{definition}
+
+
 \begin{theorem}[Théorème fondamentale d'algebre]
   \label{thr:44}
   Tout polynôme $p(x) ∈ℂ[x] ⧹\{0\}$ de degré aux moins $1$  admet au moins une racine complexe.
@@ -288,6 +335,131 @@ est $n$ exacte. Ça démontre aussi que $a_n = (-1)^n$.
   \label{lem:22}
 Soit $p_A(λ) = a_0 + a_1 λ + \cdots + a_n λ^n$ le polynôme caractéristique de la matrice $A ∈ K^{n ×n}$. Alors, $a_0 = \det(A)$ et $a_n = (-1)^n$.
 \end{lemma}
+
+
+La division avec reste est l'opération suivante. 
+
+\begin{theorem}
+  \label{thr:33}
+  Soient $f,g \in K[x]$ et $\deg(g) >0$. Il existe $q,r \in K[x]$ unique  tels que 
+  \begin{displaymath}
+    f(x) = q(x) g(x) + r(x) 
+  \end{displaymath}
+  et $\deg(r) < \deg(g)$. 
+\end{theorem}
+
+
+\begin{proof}
+  La preuve se fait par induction sur $\deg(f)$. Si $\deg(f) < \deg(g)$, alors on pose $q = 0$ et $r = f$.
+
+Soit alors $\deg(f) = n \geq \deg(g)=m$ et 
+\begin{displaymath}
+  f(x) = a_0+ \cdots +a_n x^n \text{ et } g(x) = b_0 + \cdots + b_m x^m 
+\end{displaymath}
+où $a_n$ et $b_m$ sont les coefficients dominants de $f$ et $g$ respectivement. 
+Clairement 
+\begin{displaymath}
+  \deg\left( f(x) - \frac{a_n}{ b_m } x^{n-m} g(x) \right) < \deg(f(x))
+\end{displaymath}
+et par induction 
+\begin{displaymath}
+  f(x) - \frac{a_n}{ b_m } x^{n-m} g(x)  = q(x) g(x) + r(x) 
+\end{displaymath}
+tel que $\deg(r(x)) < \deg(g(x))$. On  obtient alors
+\begin{displaymath}
+  f(x) = (q(x) + \frac{a_n}{ b_m } x^{n-m} ) g(x) + r(x). 
+\end{displaymath}
+
+Supposons maintenant qu'il existent autres polynômes $q'(x)$ et $r'(x)$ tel que 
+\begin{displaymath}
+    f(x) = q'(x) g(x) + r'(x) 
+  \end{displaymath}
+  et $\deg(r') < \deg(g)$. 
+\end{proof}
+Alors 
+\begin{displaymath}
+0 \neq   r(x) - r'(x) = (q(x) - q'(x)) ⋅ g(x). 
+\end{displaymath}
+On peut déduire 
+\begin{displaymath}
+\max\{\deg(r),\deg(r')\} \geq   \deg( r - r')  = \deg(q - q') + \deg(g) \geq \deg(g), 
+\end{displaymath}
+ce qui contredit le fait que $\deg(r) < \deg(g)$ et $\deg(r') < \deg(g)$. 
+
+\begin{definition}
+  Pour $f(x)  = a_0 + \cdots + a_n x^n \in K[x]$ et $\alpha \in K$, l'évaluation $f(\alpha)$ est $ a_0 + a_1 \alpha + \cdots + a_n \alpha^n \in K$. 
+\end{definition}
+
+
+\begin{example}
+  \label{exe:24}
+  Faire la division avec reste des polynômes  $x^5+2x^2+1$ par $2x^3+x+1$ de $ℤ_3[x]$ 
+\end{example}
+
+%\begin{proposition}
+%  \label{prop:5}
+%  Pour $\alpha \in K$, $\phi_\alpha: \, K[x] \longrightarrow K$, %$\phi_\alpha(f(x)) = f(\alpha)$ est un homomorphisme.  
+%\end{proposition}
+
+
+\begin{definition}
+  \label{def:32}
+  Un polynôme  $q(x)$ \emph{divise} un autre polynôme $f(x)$ s'il existe un polynôme $g(x)$ tel que $f(x) = g(x) \cdot q(x)$. On dit que $q(x)$ est un diviseur de $f(x)$ et on écrit $q(x) \mid f(x)$. 
+\end{definition}
+
+\begin{theorem}
+  \label{thr:35}
+  Soit $f(x)$ un polynôme  et $\alpha \in K$, alors $\alpha$ est une racine de $f$ si et seulement si $(x- \alpha)  \mid f(x)$. 
+\end{theorem}
+
+\begin{proof}
+  Si $f(x) = q(x) \cdot (x - \alpha)$, alors $f(\alpha) = 0$. 
+
+%Autrement, si $f$ est une constante, $f = 0$ et $(x - \alpha)$ divise $f$.
+Dans l'autre sens, si $f$ est une constante, $f(\alpha) = 0$ implique que $f = 0$ et $(x - \alpha)$ divise $f$. 
+
+Si $f$ n'est pas une constante, il existe $q(x)$ et $r(x)$ tels que
+\begin{displaymath}
+  f(x) = q(x) \cdot (x - \alpha) + r(x)
+\end{displaymath}
+%$\deg(r) = 0$. Alors $f(\alpha) = 0$ implique $r=0$. 
+avec $\deg(r) \leq 0$. Alors $f(\alpha) = 0$ implique $r=0$. 
+\end{proof}
+
+
+\begin{definition}
+  \label{def:41}
+  La \emph{multiplicité} d'une racine $α$ de $p(x) ∈ K[x] ⧹\{0\}$ est le plus grand $i≥1$ tel que $ (x-α)^i \mid p(x)$. Si $p(x)$ est le polynôme caractéristique d'un endomorphisme d'un espace vectoriel, on appelle la multiplicité de $α$ la \emph{multiplicité algébrique}. 
+\end{definition} 
+
+
+
+\begin{theorem}[Théorème de diagonalisation]
+  \label{thr:45}
+  Soit $V$ un espace vectoriel sur $K$ de dimension $n$. Un endomorphisme  $f:V⟶V$  est diagonalisable si et seulement si 
+  \begin{enumerate}[i)]
+  \item le polynôme caractéristique $p_f(x)$ de $f$ décompose en facteurs linéaires, c'est à dire, \label{item:19} 
+    \begin{displaymath}
+      p_f(x) = (-1)^n ∏_{i=1}^r (x-λ_i)^{g_i}
+    \end{displaymath}
+    où $g_i$ est la multiplicité algébrique de $λ_i∈K$ pour tous $i$. 
+    \item  $\dim(E_{λ_i}) = g_i$, pour tous $i=1,\dots,r$. C'est à dire, les multiplicités algébriques et géométriques sont les mêmes. \label{item:20}
+  \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+  Soit $f$ diagonalisable. Soit $B$ une base composé de vecteurs propres de $f$ et $A$ la matrice de $f$ associé à la base $B$. Lemme~\ref{lem:4} implique que $A$ est diagonale et alors  $p_f(x) = \det(A - x \Id) = (-1)^n ∏_{i=1}^r (λ_i -x)^{g_i}$. La dimension de $E_{λ_i}$ est celle du $\ker(A - λ_i I_n)$. Et clairement $\dim(\ker(A - λ_i I_n)) = g_i$. Alors on a \ref{item:19}) et \ref{item:20}).
+
+
+  Si  on a \ref{item:19}) et \ref{item:20}), soient $m_i$ les multiplicités géométriques des valeurs propres $λ_i$, $i=1,\dots,r$. Des que
+  \begin{displaymath}
+    \deg(∏_{i=1}^n (x - λ_i)^{g_i} =n,
+  \end{displaymath}
+  alors $m+1+ \cdots + m_r = n$ et $f$ est diagonalisable avec corollary~\ref{eco:1}. 
+\end{proof}
+
+
+
 \subsection*{Exercices}
 
 \begin{enumerate}

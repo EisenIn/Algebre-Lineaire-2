@@ -427,13 +427,6 @@ Un élément de $K[x]$ s'écrit comme
   p(x) = a_0 + a_1 x + \cdots + a_n x^n 
 \end{displaymath}
 où les \emph{coefficients} $a_i \in K$. 
-Le \emph{degré} de $p(x) \neq 0$ est 
-\begin{displaymath}
-  \deg(p) = \max\{i \colon  a_i \neq 0\}
-\end{displaymath}
-et $\deg(0) = -\infty$. 
-Si $p \neq 0$, le coefficient $a_{\deg(p)}$ est le \emph{coefficient dominant} de $p$. 
-Un polynôme de degré zéro est une \emph{constante}. 
 
 La formule de multiplication de deux polynômes $f(x) = a_0+a_1x+ \cdots a_n x^n$ et $g(x) = b_0 + \cdots + b_m x^m$  est 
 \begin{equation}
@@ -441,15 +434,6 @@ La formule de multiplication de deux polynômes $f(x) = a_0+a_1x+ \cdots a_n x^n
   f(x) \cdot g(x) = \sum_{i = 0}^{m+n} \left(\sum_{k+l = i}  a_{k} b_l\right) x^i
 \end{equation}
 
-\begin{theorem}
-  \label{thr:34}
-
-  Pour $f,g \in K[x] $, $\deg(f \cdot g) = \deg(f) + \deg(g)$. 
-\end{theorem}
-\begin{proof}
-  La formule~\eqref{eq:21} révèle que $\deg(f\cdot g) \leq \deg(f) + \deg(g)$. 
-  Soient $f(x) = a_0 + \cdots + a_n x^n$ et $g(x) = b_0+ \cdots b_m x^m$ tels que $a_n, b_m  \neq 0$. Le coefficient de $x^{n+m}$  est $a_n \cdot  b_m \neq 0$.
-\end{proof}
 
 \begin{definition}
   \label{def:30}
@@ -462,95 +446,6 @@ implique $\deg(g) \cdot \deg(h) = 0$, alors un des facteurs est une constante.
 \end{definition}
 
 
-
-
-La division avec reste est l'opération suivante. 
-
-\begin{theorem}
-  \label{thr:33}
-  Soient $f,g \in K[x]$ et $\deg(g) >0$. Il existe $q,r \in K[x]$ unique  tels que 
-  \begin{displaymath}
-    f(x) = q(x) g(x) + r(x) 
-  \end{displaymath}
-  et $\deg(r) < \deg(g)$. 
-\end{theorem}
-
-
-\begin{proof}
-  La preuve se fait par induction sur $\deg(f)$. Si $\deg(f) < \deg(g)$, alors on pose $q = 0$ et $r = f$.
-
-Soit alors $\deg(f) = n \geq \deg(g)=m$ et 
-\begin{displaymath}
-  f(x) = a_0+ \cdots +a_n x^n \text{ et } g(x) = b_0 + \cdots + b_m x^m 
-\end{displaymath}
-où $a_n$ et $b_m$ sont les coefficients dominants de $f$ et $g$ respectivement. 
-Clairement 
-\begin{displaymath}
-  \deg\left( f(x) - \frac{a_n}{ b_m } x^{n-m} g(x) \right) < \deg(f(x))
-\end{displaymath}
-et par induction 
-\begin{displaymath}
-  f(x) - \frac{a_n}{ b_m } x^{n-m} g(x)  = q(x) g(x) + r(x) 
-\end{displaymath}
-tel que $\deg(r(x)) < \deg(g(x))$. On  obtient alors
-\begin{displaymath}
-  f(x) = (q(x) + \frac{a_n}{ b_m } x^{n-m} ) g(x) + r(x). 
-\end{displaymath}
-
-Supposons maintenant qu'il existent autres polynômes $q'(x)$ et $r'(x)$ tel que 
-\begin{displaymath}
-    f(x) = q'(x) g(x) + r'(x) 
-  \end{displaymath}
-  et $\deg(r') < \deg(g)$. 
-\end{proof}
-Alors 
-\begin{displaymath}
-0 \neq   r(x) - r'(x) = (q(x) - q'(x)) ⋅ g(x). 
-\end{displaymath}
-On peut déduire 
-\begin{displaymath}
-\max\{\deg(r),\deg(r')\} \geq   \deg( r - r')  = \deg(q - q') + \deg(g) \geq \deg(g), 
-\end{displaymath}
-ce qui contredit le fait que $\deg(r) < \deg(g)$ et $\deg(r') < \deg(g)$. 
-
-\begin{definition}
-  Pour $f(x)  = a_0 + \cdots + a_n x^n \in K[x]$ et $\alpha \in K$, l'évaluation $f(\alpha)$ est $ a_0 + a_1 \alpha + \cdots + a_n \alpha^n \in K$. 
-\end{definition}
-
-
-%\begin{proposition}
-%  \label{prop:5}
-%  Pour $\alpha \in K$, $\phi_\alpha: \, K[x] \longrightarrow K$, %$\phi_\alpha(f(x)) = f(\alpha)$ est un homomorphisme.  
-%\end{proposition}
-
-\begin{definition}
-  \label{def:31}
-  Soit $f(x) \in \K[x] \setminus\{0\}$. Un $\alpha \in K$ tel que $f(\alpha) = 0$ est une  \emph{ racine} de $f(x)$.  
-\end{definition}
-
-\begin{definition}
-  \label{def:32}
-  Un polynôme  $q(x)$ \emph{divise} un autre polynôme $f(x)$ s'il existe un polynôme $g(x)$ tel que $f(x) = g(x) \cdot q(x)$. On dit que $q(x)$ est un diviseur de $f(x)$ et on écrit $q(x) \mid f(x)$. 
-\end{definition}
-
-\begin{theorem}
-  \label{thr:35}
-  Soit $f(x)$ un polynôme  et $\alpha \in K$, alors $\alpha$ est une racine de $f$ si et seulement si $(x- \alpha)  \mid f(x)$. 
-\end{theorem}
-
-\begin{proof}
-  Si $f(x) = q(x) \cdot (x - \alpha)$, alors $f(\alpha) = 0$. 
-
-%Autrement, si $f$ est une constante, $f = 0$ et $(x - \alpha)$ divise $f$.
-Dans l'autre sens, si $f$ est une constante, $f(\alpha) = 0$ implique que $f = 0$ et $(x - \alpha)$ divise $f$. 
-
-Si $f$ n'est pas une constante, il existe $q(x)$ et $r(x)$ tels que
-\begin{displaymath}
-  f(x) = q(x) \cdot (x - \alpha) + r(x)
-\end{displaymath}
-%$\deg(r) = 0$. Alors $f(\alpha) = 0$ implique $r=0$. 
-avec $\deg(r) \leq 0$. Alors $f(\alpha) = 0$ implique $r=0$. 
-\end{proof}
 
 
 \begin{definition}
