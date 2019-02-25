@@ -216,9 +216,22 @@ Les colonnes de la matrice $A_B$ sont les coordonnées de $f(v_1),\dots,f(v_n)$ 
 \end{displaymath}
 où $P_{BB'}$ est la matrice de changement de base de $B$ en $B'$. Des que
 \begin{displaymath}
-  [f(v)]_{B'} = A_{B'} [v]_{B'}, \quad\text{ et } \quad [f(v)]_{B'} = A_{B'} [v]_{B'}
+  [f(v)]_{B'} = A_{B'} [v]_{B'} = A_{B'} P_{BB'}[v]_B
 \end{displaymath}
-on trouve $A_{B'} =  P_{BB'}^{-1} A_B  P_{BB'}$. En particulier,
+et
+\begin{displaymath}
+  [f(v)]_{B'} =  P_{BB'}[f(v)]_B 
+\end{displaymath}
+on trouve
+\begin{displaymath}
+  [f(v)]_B =  P_{BB'}^{-1}A_{B'} P_{BB'}[v]_B \,\,\,\text{ pour tous } v ∈V.
+\end{displaymath}
+Et ça implique 
+\begin{equation}
+  \label{eq:36}
+  A_{B} =  P_{BB'}^{-1} A_{B'}  P_{BB'}
+\end{equation}
+En particulier,
 \begin{displaymath}
   \det(A_{B'}) = \det(A_B) 
 \end{displaymath}
@@ -309,6 +322,8 @@ Un polynôme $p(x) = a_0 + a_1 x + \cdots + a_n x^n ∈ K[x]$ induit une applica
   \label{thr:42}
   Soit $K$ un corps infini. Deux polynômes $p(x),q(x) ∈ K[x]$ sont égaux, si et seulement si les applications $f_p$ et $f_q$ sont les mêmes.
 \end{theorem}
+
+La démonstration du théorème~\ref{thr:42} est le premier exercice maison.  
 
 \begin{definition}
   \label{def:31}
@@ -465,6 +480,120 @@ avec $\deg(r) \leq 0$. Alors $f(\alpha) = 0$ implique $r=0$.
 \begin{enumerate}
 \item Donner un exemple d'un corps fini $K$ et deux polynomes $p(x) ≠q(x) ∈ K[x]$ tel que $f_p=f_q$.
 \end{enumerate}
+
+\section{Matrices semblables}
+\label{sec:matrices-semblables}
+
+\begin{definition}
+  \label{def:42}
+  Deux matrices $A,B ∈K^{n×n}$ sont \emph{semblables}, s'il existe une matrice inversible $P ∈ K^{n ×n}$ tel que $A = P^{-1} ⋅B ⋅P$.  
+\end{definition}
+L'équation~\eqref{eq:36} montre que les matrices $A_B$ et $A_{B'}$ d'un endomorphisme $f：V⟶V$ sont semblables, où $B$ et $B'$ sont deux bases de $V$ respectivement.
+
+\begin{definition}
+  \label{def:43}
+  L'ensemble des valeurs propres d'une matrice $A ∈ K^{n ×n}$ (d'un endomorphisme $f：V ⟶V$) est appelé le \emph{spectre} de $A$ (de $f$), noté $\spec(A)$ ($\spec(f)$). 
+\end{definition}
+
+\begin{theorem}
+  \label{thr:46}
+  Soit $A ∈ K^{n ×n}$ une matrice et $P ∈ K^{n ×n}$ une matrice inversible.
+  \begin{enumerate}[i)]
+  \item Le spectre de $A$ et celui de $P^{-1}AP$ sont les mêmes.
+  \item $v ∈ K^n$ est un vecteur propre de $A$ si et seulement si $P^{-1} v$  est un vecteur propre de $P^{-1}AP$.
+  \item Les polynômes caractéristiques $p_A(x)$ et $p_{P^{-1}AP}(x)$ sont identiques. 
+  \end{enumerate}
+\end{theorem}
+
+
+\section{Théorème de Hamilton-Cayley}
+\label{sec:theoreme-de-hamilton}
+
+
+Soit $A ∈ K^{n ×n}$ et $p(x) = a_0 + a_1x + \cdots + a_n x^n ∈ K[x] ⧹\{0\}$ un polynôme. On peut évaluer le polynôme à la matrice $A$ comme suivant:
+\begin{displaymath}
+  p(A) = a_0 ⋅I_n + a_1 A + \cdots + a_n A^n ∈ K^{n ×n}. 
+\end{displaymath}
+Maintenant, soit $p_A(x)$ le polynôme caractéristique de $A$ et $v$ un vecteur propre de $A$ associé a la valeur propre $λ$. On voit
+\begin{displaymath}
+  p_A(A) ⋅v = a_0 v + a_1 λv + \cdots + a_n λ^n v = p_A(λ)v = 0 ⋅v = 0. 
+\end{displaymath}
+Alors, si $A$ est diagonalisable, soit $v_1,\dots,v_n$ une base de vecteurs propres. Des que   $p_A(A) ⋅v_i = 0$ pour tous $i$, alors $p_A(A) =0$. 
+
+\begin{theorem}[Hamilton-Cayley] 
+  \label{thr:47}
+  Soit $A ∈ K^{n ×n}$ et $p_A(λ)$ le polynôme caractéristique de $A$, alors
+  \begin{displaymath}
+    p_A(A) =0.
+  \end{displaymath}
+\end{theorem}
+\begin{proof}
+ On écrit
+  \begin{displaymath}
+    \det(A - λI_n) I_n = \cof(A - λI_n)^T (A - λI_n).
+  \end{displaymath}
+  En groupant les coefficients de $λ^i$ dans  $\cof(A - λI_n)^T$ on obtient
+  \begin{displaymath}
+    \cof(A - λI_n)^T = ∑_{i=0}^{n-1} λ^i B_i
+  \end{displaymath}
+  avec des matrices $B_i ∈K^{n ×n}$ et alors
+  \begin{displaymath}
+    a_0 I_n + a_1 λ I_n + \cdots + a_nλ^n I_n  = B_0A + ∑_{i=1}^{n-1}λ^i (B_iA - B_{i-1}) - λ^n B_{n-1},
+  \end{displaymath}
+  où $p_A(λ) = a_0+ \cdots + a_n λ^n$. Ceci implique
+  \begin{equation}
+    \label{eq:38}
+    \begin{array}{rcl}
+      a_0 I_n & = &  B_0A \\
+      a_iI_n & = &  B_iA - B_{i-1} \text{ pour } i ∈  \{1,\dots,n-1\}\\
+      a_n I_n & = & - B_{n-1}
+    \end{array}
+  \end{equation}
+  ce que sont des équations de matrices en $K^{n ×n}$. Si on multiplie les matrices indicées par $i$ a droite par $A^i$ et somme les termes a gauche du signe d'égalité, on obtient $p_A(A)$.  Les termes a droites ce sommes a la matrice $0$. 
+\end{proof}
+
+
+
+
+
+\begin{example}
+Le polyn\^ome caract\'eristique de $A = \left( \begin{array}{cc} 1 & 1 \\ 0 & 2
+\end{array} \right)$ est $p_A(t) = (1-t)(2-t)$. On a 
+\[
+ p_A(A) = (I_n-A)(2I_n-A) = 0 
+\]
+Pour la matrices $A = \left( \begin{array}{cc} 2 & 0 \\ 0 & 2 \end{array}
+\right)$, on a bien sur que $p_A(A) = 0$ pour $p_A(t) = (2-t)^2$. Mais il existe un polyn\^ome de degr\'e $1$, $q(t) = t-2$, tel que $q(A) = 0$. Le \emph{polyn\^ome minimal} de $A$
+est le polyn\^ome unitaire de degr\'e minimum parmi ceux qui annulent $A$, c-\`a-d $q(A) = 0$.
+\end{example}
+
+Les resultats suivants donnent des utilisations typiques du théorème~\ref{thr:47}
+\begin{corollary} Soit $A \in K^{n ×n}$.
+\begin{enumerate}
+\item[(i)] Toute puissance $A^k$ avec $k∈ℕ$ peut s'\'ecrire comme une combinaison lin\'eaire des puissances $I,A,A^2,\ldots,A^{n-1}$.
+\item[(ii)] Si $A$ est inversible, alors l'inverse $A^{-1}$ peut s'\'ecrire comme une combinaison lin\'eaire des puissances $I,A,A^2,\ldots,A^{n-1}$.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+ (i). Trivialement, l'assertion est vraie pour $k = 0,1,\ldots,n-1$.
+On montre le cas $k = n$. Par le théorème~\ref{thr:47}:
+\[
+ 0 = p_A(A) = \alpha_0 I + \alpha_1 A  \cdots + \alpha_{n-1} A^{n-1} + A^n \quad
+\Rightarrow \quad A^n = 
+-\alpha_0 I - \alpha_1 A  \cdots - \alpha_{n-1} A^{n-1}.
+\]
+De fa\c{c}on similaire, on montre le cas $k>n$ par r\'ecurrence, utilisant $0 = A^{k-n} p_A(A)$.
+
+(ii). Si $A$ est inversible alors $\alpha_0 = \det(A)$ est inversible. De $0 = p_A(A)$ on obtient que
+\[
+  I = -\frac{\alpha_1}{\alpha_0} A  \cdots -\frac{\alpha_{n-1}}{\alpha_0}
+A^{n-1} -\frac{1}{\alpha_0} A^n = A \Big( -\frac{\alpha_1}{\alpha_0} I  \cdots
+-\frac{\alpha_{n-1}}{\alpha_0} A^{n-2} -\frac{1}{\alpha_0} A^{n-1} \Big)
+\]
+et donc $A^{-1} = -\frac{\alpha_1}{\alpha_0} I  \cdots
+-\frac{\alpha_{n-1}}{\alpha_0} A^{n-2} -\frac{1}{\alpha_0} A^{n-1}$.
+\end{proof}
 
 
 
