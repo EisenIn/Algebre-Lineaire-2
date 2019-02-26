@@ -455,7 +455,7 @@ avec $\deg(r) \leq 0$. Alors $f(\alpha) = 0$ implique $r=0$.
   \begin{enumerate}[i)]
   \item le polynôme caractéristique $p_f(x)$ de $f$ décompose en facteurs linéaires, c'est à dire, \label{item:19} 
     \begin{displaymath}
-      p_f(x) = (-1)^n ∏_{i=1}^r (x-λ_i)^{g_i}
+      p_f(x) = (-1)^n ∏_{i=1}^r (λ_i - x)^{g_i}
     \end{displaymath}
     où $g_i$ est la multiplicité algébrique de $λ_i∈K$ pour tous $i$. 
     \item  $\dim(E_{λ_i}) = g_i$, pour tous $i=1,\dots,r$. C'est à dire, les multiplicités algébriques et géométriques sont les mêmes. \label{item:20}
@@ -463,12 +463,12 @@ avec $\deg(r) \leq 0$. Alors $f(\alpha) = 0$ implique $r=0$.
 \end{theorem}
 
 \begin{proof}
-  Soit $f$ diagonalisable. Soit $B$ une base composé de vecteurs propres de $f$ et $A$ la matrice de $f$ associé à la base $B$. Lemme~\ref{lem:4} implique que $A$ est diagonale et alors  $p_f(x) = \det(A - x \Id) = (-1)^n ∏_{i=1}^r (λ_i -x)^{g_i}$. La dimension de $E_{λ_i}$ est celle du $\ker(A - λ_i I_n)$. Et clairement $\dim(\ker(A - λ_i I_n)) = g_i$. Alors on a \ref{item:19}) et \ref{item:20}).
+  Soit $f$ diagonalisable. Soit $B$ une base composé de vecteurs propres de $f$ et $A$ la matrice de $f$ associé à la base $B$. Lemme~\ref{lem:4} implique que $A$ est diagonale et alors  $p_f(x) = \det(A - x \Id) = (-1)^n ∏_{i=1}^r (x - λ_i)^{g_i}$. La dimension de $E_{λ_i}$ est celle du $\ker(A - λ_i I_n)$. Et clairement $\dim(\ker(A - λ_i I_n)) = g_i$. Alors on a \ref{item:19}) et \ref{item:20}).
 
 
   Si  on a \ref{item:19}) et \ref{item:20}), soient $m_i$ les multiplicités géométriques des valeurs propres $λ_i$, $i=1,\dots,r$. Des que
   \begin{displaymath}
-    \deg(∏_{i=1}^n (x - λ_i)^{g_i} =n,
+    \deg((-1)^n∏_{i=1}^n (λ_i -x)^{g_i} =n,
   \end{displaymath}
   alors $m+1+ \cdots + m_r = n$ et $f$ est diagonalisable avec corollary~\ref{eco:1}. 
 \end{proof}
