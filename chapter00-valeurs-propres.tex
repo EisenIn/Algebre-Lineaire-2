@@ -117,7 +117,7 @@ Rappel: L'endomophisme $\Id ： V ⟶V$ défini comme $\Id(v) = v$ pour tous $v�
   Considérons une combinaison linéaire non triviale
   \begin{equation}
     \label{eq:35}
-    α_1 v_1 + \cdots + α_n v_n = 0.
+    α_1 v_1 + \cdots + α_r v_r = 0.
   \end{equation}
   Des que \eqref{eq:35} est un contre exemple minimal, on  $α_i≠0$ pour tous $i$. Nous pouvons supposer que $λ_r ≠0$. Autrement, on réarrange~\eqref{eq:35}. 
 
@@ -179,9 +179,9 @@ est un ensemble libre. L'application $f$ est diagonalisable si et seulement si
 Voici un marche à suivre, comment déterminer si $f：V ⟶V$ est diagonalisable.
 
 \begin{enumerate}
-\item Déterminer les différentes $λ_1,\dots,λ_r ∈K$ tel que $\ker(f - λ \Id) ≠∅$
+\item Déterminer les différentes $λ_1,\dots,λ_r ∈K$ tel que $\ker(f - λ \Id) \ne \emptyset $
 \item Pour chaque $λ_i$ calculer une base $\{v_1^{(i)},\dots,v_{n_i}^{(i)}\}$ de $E_{λ_i}$.
-\item est diagonalisable si et seulement si $f$ $n_1+\cdots+n_r =n$.
+\item $f$ est diagonalisable si et seulement si $n_1+\cdots+n_r =n$.
 \end{enumerate}
 
 
@@ -338,7 +338,7 @@ La démonstration du théorème~\ref{thr:42} est le premier exercice maison.
 
 L'expression \eqref{eq:32} est un polynôme avec indéterminée $λ$ et  comme polynôme formel, est défini par la formule de Leibniz
 \begin{displaymath}
-p_A(λ)  \det(A - λ I_n) = ∑_{π ∈S_n} \sign(π) ∏_{i=1}^n (A - λ I_n)_{iπ(i)}.
+p_A(λ) =  \det(A - λ I_n) = ∑_{π ∈S_n} \sign(π) ∏_{i=1}^n (A - λ I_n)_{iπ(i)}.
 \end{displaymath}
 Il est la somme des polynômes $ \sign(π) ∏_{i=1}^n (A - λ I_n)_{iπ(i)}$. Ça démontre que le degré de $p_A(λ)$ est au plus $n$. Mais le degré de
 \begin{displaymath}
@@ -382,16 +382,14 @@ et par induction
 \end{displaymath}
 tel que $\deg(r(x)) < \deg(g(x))$. On  obtient alors
 \begin{displaymath}
-  f(x) = (q(x) + \frac{a_n}{ b_m } x^{n-m} ) g(x) + r(x). 
+  f(x) = \Big(q(x) + \frac{a_n}{ b_m } x^{n-m} \Big) g(x) + r(x). 
 \end{displaymath}
 
 Supposons maintenant qu'il existent autres polynômes $q'(x)$ et $r'(x)$ tel que 
 \begin{displaymath}
     f(x) = q'(x) g(x) + r'(x) 
   \end{displaymath}
-  et $\deg(r') < \deg(g)$. 
-\end{proof}
-Alors 
+  et $\deg(r') < \deg(g)$. Alors 
 \begin{displaymath}
 0 \neq   r(x) - r'(x) = (q(x) - q'(x)) ⋅ g(x). 
 \end{displaymath}
@@ -400,6 +398,7 @@ On peut déduire
 \max\{\deg(r),\deg(r')\} \geq   \deg( r - r')  = \deg(q - q') + \deg(g) \geq \deg(g), 
 \end{displaymath}
 ce qui contredit le fait que $\deg(r) < \deg(g)$ et $\deg(r') < \deg(g)$. 
+\end{proof}
 
 \begin{definition}
   Pour $f(x)  = a_0 + \cdots + a_n x^n \in K[x]$ et $\alpha \in K$, l'évaluation $f(\alpha)$ est $ a_0 + a_1 \alpha + \cdots + a_n \alpha^n \in K$. 
