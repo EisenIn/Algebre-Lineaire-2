@@ -514,7 +514,7 @@ où les composantes des premières $(i-1)$ lignes et colonnes sont zéro sauf po
 \noindent 
 Pour $1 \leq i \leq n$, la \emph{$i$-ème itération}  est comme suit. 
 \begin{itemize}
-% \item S'il existe un index $j≥i$ tel que $b_{jj} \neq 0$ soit $j ≥i$ le plus petit tel indexe et  échange la $i$-ème ligne et la $j$-ème ligne et après    la $i$-ème colonne et la $j$-ème colonne. 
+ \item S'il existe un index $j≥i$ tel que $b_{jj} \neq 0$ soit $j ≥i$ le plus petit tel indexe et  échange la $i$-ème ligne et la $j$-ème ligne et après    la $i$-ème colonne et la $j$-ème colonne. 
 \item Si $b_{ii}=0$, soit $j \in \{i+1,\dots,n\}$ tel que $b_{ij} \neq 0$. 
   Si un tel indexe n'existe pas on procède à la $i+1$-ème itération. 
   On additionne la ligne $j$ sur la ligne $i$ et on additionne la colonne $j$ sur la colonne $i$. Étant donné que $\car(K) \neq 2$, on a alors maintenant $b_{ii} = 2 ⋅ b_{i,j} \neq 0$. 
@@ -577,7 +577,7 @@ Alors $B' = \{v_1,v_2,-2v_1 -(4/3) v_2 + v_3\}$ est une base orthogonale de $V$.
   est congruente à une matrice diagonale? \emph{Renseignement: voir l'exercice~\ref{item:1}. de la section~\ref{sec:orthogonalite}.}  
 \item Soit $V$ un espace vectoriel  sur un corps $K$ de dimension finie muni d'une forme bilinéaire symétrique $\pscal{.}$. Soit $B = \{v_1,\dots,v_n\}$ une base de $V$. Montrer que $A_B^{\pscal{.}} \in K^{n \times n}$ est congruente à une matrice diagonale si  et seulement si $V$ possède une base orthogonale. 
 
-\item Soit $K$ un corps de caractéristique $2$ et soit $V$ un espace vectoriel sur $K$ de dimension finie muni d'une forme bilinéaire symétrique. Soit 
+\item Soit $K$ un corps de caractéristique $2$ et soit $V$ un espace vectoriel sur $K$ de dimension finie muni d'une forme bilinéaire symétrique non-nulle.  Soit 
   \begin{displaymath}
     C =
     \begin{pmatrix}
@@ -780,13 +780,14 @@ L'indice de nullité est zéro et l'indice de positivité est $2$. Le produit $P
 \begin{displaymath}
   P_1 \cdot P_2 = \left[\begin{matrix}1 & -2 & \frac{3}{2}\\0 & 1 & -\frac{9}{4}\\0 & 0 & 1\end{matrix}\right]
 \end{displaymath}
-Les colonnes sont une base de Sylvester. En divisant chaque colonne et chaque ligne par $\sqrt{2},\sqrt{4}$ et $\sqrt{13/4}$ respectivement, et en échangeant les deux dernières colonnes et deux dernières lignes, on obtient une transformation $P$ telle que $P^TAP =
+Les colonnes de $P$ par $\sqrt{2},\sqrt{4}$ et $\sqrt{13/4}$ respectivement,  on obtient une transformation $P$ telle que $P^TAP =
 \begin{pmatrix}
   1& \\
   & 1 & \\
   & & -1
 \end{pmatrix}$. 
 \end{example}
+Les colonnes de $P$ sont une base du Sylvester. 
 
 
 
