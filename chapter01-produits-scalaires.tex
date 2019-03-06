@@ -515,9 +515,9 @@ où les composantes des premières $(i-1)$ lignes et colonnes sont zéro sauf po
 Pour $1 \leq i \leq n$, la \emph{$i$-ème itération}  est comme suit. 
 \begin{itemize}
 % \item S'il existe un index $j≥i$ tel que $b_{jj} \neq 0$ soit $j ≥i$ le plus petit tel indexe et  échange la $i$-ème ligne et la $j$-ème ligne et après    la $i$-ème colonne et la $j$-ème colonne. 
-\item Soit $j \in \{i+1,\dots,n\}$ tel que $b_{ij} \neq 0$. 
+\item Si $b_{ii}=0$, soit $j \in \{i+1,\dots,n\}$ tel que $b_{ij} \neq 0$. 
   Si un tel indexe n'existe pas on procède à la $i+1$-ème itération. 
-  On additionne la ligne $j$ sur la ligne $i$ et on additionne la colonne $j$ sur la colonne $i$. Étant donné que $\car(K) \neq 2$ et $b_{jj}=0$, on a alors maintenant $b_{ii} = 2 ⋅ b_{i,j} \neq 0$. 
+  On additionne la ligne $j$ sur la ligne $i$ et on additionne la colonne $j$ sur la colonne $i$. Étant donné que $\car(K) \neq 2$, on a alors maintenant $b_{ii} = 2 ⋅ b_{i,j} \neq 0$. 
 \item Pour chaque $j \in \{i+1,\dots,n\}$:  on additionne $-b_{ij}/b_{ii}$ fois la $i$-ème ligne sur la $j$-ème ligne et on additionne $-b_{ij}/b_{ii}$ fois la $i$-ème colonne sur la $j$-ème colonne. 
 \end{itemize}    
 
