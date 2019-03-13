@@ -13,9 +13,7 @@ class matrix {
        
    public:
 
-
-      // accessing number of rows and cols
-       
+      // accessing number of rows and cols       
        const  unsigned & GetRows() const
        {
 	 return rows;
@@ -50,19 +48,37 @@ class matrix {
 
       // constructors
       // Constructs the zero matrix
-      matrix( const unsigned &  m, const unsigned & n);
-      //Constructs from another matrix
-      matrix( const matrix<T>& );
-      // destructor
-      ~matrix();
+      matrix( const unsigned & m, const unsigned & n)
+	{
+	  rows = m;
+	  cols =n;
+	  
+	  if( rows == 0 || cols == 0 )
+	    throw std::range_error("attempt to create a matrix with zero rows or columns");
+	  
+	  this->elements = std::vector<T>(rows*cols, 0);
+	  
+	}
 
-
+      // Copy constructor 
+      matrix( const matrix<T>& cp )
+	: rows(cp.rows), cols(cp.cols), elements(cp.elements)
+	{
+	}
+      
+      
+      ~matrix()
+	{
+	}
+      
+      
+      
       // comparison
       bool operator==( const matrix<T>& B)
       {
 	if (cols != B.GetCols() || rows != B.GetRows())
 	  return 0;
-
+	
 	for (int i=1; i<= rows; i++)
 	  for(int j=1; j<= cols; j++)
 	    {
@@ -72,9 +88,9 @@ class matrix {
 	
 	return 1;
       }    
+      
 
-
-
+      
       // Adds factor * row_i to row_k
       void ElementaryRowOperation( const unsigned & i, const unsigned & k, const T & factor )
       {	
@@ -125,30 +141,6 @@ class matrix {
 	
 };
 
-template<class T>
-matrix<T>::matrix( const unsigned & m, const unsigned & n)
-{
-  rows = m;
-  cols =n;
-  
-   if( rows == 0 || cols == 0 )
-      throw std::range_error("attempt to create a matrix with zero rows or columns");
-
-      this->elements = std::vector<T>(rows*cols, 0);
-
-};
-
-template<class T>
-matrix<T>::matrix( const matrix<T>& cp )
-  : rows(cp.rows), cols(cp.cols), elements(cp.elements)
-{
-}
-
-template<class T>
-matrix<T>::~matrix()
-{
-}
-
 
 template<class T> 
 std::ostream& operator<<(std::ostream& os,  matrix <T>  A)
@@ -167,11 +159,7 @@ std::ostream& operator<<(std::ostream& os,  matrix <T>  A)
       os << "]";
         os << std::endl;
     }
-    return os;
+  return os;
 }
-
-
-
-
 
 #endif
