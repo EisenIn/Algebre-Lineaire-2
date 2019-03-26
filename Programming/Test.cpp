@@ -2,7 +2,6 @@
 #include "rational.h"
 
 
-
 typedef Rational<int,float> rational; 
 int main()
 {
@@ -14,10 +13,9 @@ int main()
   for (int i = 1; i <= 4; i++)
     {
       A(i,i)=1;
-      B(i,i)=1;
+      B(i,i)=1; 
       C(i,i)=1;
     }
-
 
   matrix<rational> D(A); 
 
@@ -26,8 +24,6 @@ int main()
 
   A.ElementaryRowOperation(2,3,rational(4,2));
   B.ElementaryRowOperation(2,3,rational(-4,2));
-
-
   
   A.ElementaryColOperation(1,3,rational(3,2));
   C.ElementaryColOperation(1,3,rational(-3,2));
@@ -35,14 +31,9 @@ int main()
   A.ElementaryColOperation(2,3,rational(4,2));
   C.ElementaryColOperation(2,3,rational(-4,2));
 
-
-
   std::cout << "\n" << ((B*A*C) == D);
   std::cout << "\n" << ((B*A) == D); 
-  
-  
-    
-  
-  
+
+
   
 }
