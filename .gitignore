@@ -187,11 +187,11 @@ TSWLatexianTemp*
 *.pdf
 Programming/cmake_install.cmake
 Programming/CMakeCache.txt
-*.check_cache
-*.json
-*.make
-*.bin
+
+Programming/CMakeFiles/cmake.check_cache
 Programming/CMakeFiles/CMakeDirectoryInformation.cmake
+Programming/CMakeFiles/feature_tests.bin
+
 Programming/CMakeFiles/feature_tests.c
 Programming/CMakeFiles/feature_tests.cxx
 Programming/CMakeFiles/Makefile.cmake

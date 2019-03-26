@@ -13,12 +13,11 @@ class matrix {
        
   public:
 
-
-  // accessing number of rows and cols
-  const  unsigned & GetRows() const
-  {
-    return rows;
-  }
+      // accessing number of rows and cols       
+       const  unsigned & GetRows() const
+       {
+	 return rows;
+       }
 
   const unsigned & GetCols() const
   {
@@ -56,30 +55,58 @@ class matrix {
   ~matrix();
 
 
-  // comparison
-  bool operator==( const matrix<T>& B)
-  {
-    if (cols != B.GetCols() || rows != B.GetRows())
-      return 0;
-    
-    for (int i=1; i<= rows; i++)
-      for(int j=1; j<= cols; j++)
+      // constructors
+      // Constructs the zero matrix
+      matrix( const unsigned & m, const unsigned & n)
 	{
-	  if ((*this)(i,j) != B(i,j))
-	    return 0;
+	  rows = m;
+	  cols =n;
+	  
+	  if( rows == 0 || cols == 0 )
+	    throw std::range_error("attempt to create a matrix with zero rows or columns");
+	  
+	  this->elements = std::vector<T>(rows*cols, 0);
+	  
 	}
-    
-    return 1;
-  }    
-  
 
-
-  // Adds factor * row_i to row_k
-  void ElementaryRowOperation( const unsigned & i, const unsigned & k, const T & factor )
-  {	
-    for (int j =1; j<= cols; j++)
+      // Copy constructor 
+      matrix( const matrix<T>& cp )
+	: rows(cp.rows), cols(cp.cols), elements(cp.elements)
+	{
+	}
+      
+      
+      ~matrix()
+	{
+	}
+      
+      
+      
+      // comparison
+      bool operator==( const matrix<T>& B)
       {
-	(*this)(k,j) = (*this)(k,j) + factor * (*this)(i,j);
+	if (cols != B.GetCols() || rows != B.GetRows())
+	  return 0;
+	
+	for (int i=1; i<= rows; i++)
+	  for(int j=1; j<= cols; j++)
+	    {
+	      if ((*this)(i,j) != B(i,j))
+		return 0;
+	    }
+	
+	return 1;
+      }    
+      
+
+      
+      // Adds factor * row_i to row_k
+      void ElementaryRowOperation( const unsigned & i, const unsigned & k, const T & factor )
+      {	
+	for (int j =1; j<= cols; j++)
+	  {
+	    (*this)(k,j) = (*this)(k,j) + factor * (*this)(i,j);
+	  }
       }
   }
   
@@ -169,7 +196,7 @@ std::ostream& operator<<(std::ostream& os,  matrix <T>  A)
       os << "]";
         os << std::endl;
     }
-    return os;
+  return os;
 }
 
 #endif
