@@ -650,13 +650,15 @@ ou de manière équivalente
 \end{displaymath}
 
 Nous montrons  ça en détail. Nous avons 
-\begin{displaymath}
-   (P^* \cdot A \cdot Q^*)_{ij} = v_i^* A u_j 
-\end{displaymath}
-et c'est égal à zéro si $j \geq r+1$, parce que dans ce cas $A u_j =0$ dès que $u_j^*A^*Au_j = 0$. 
-Si $j \leq r$  et si $i>r$ alors $v_i$ est perpendiculaire à $A\, u_j$ et  $v_i^*Au_j = 0$. 
+\begin{equation}
+  \label{eq:39}
+     (P^* \cdot A \cdot Q^*)_{ij} = v_i^* A u_j 
+\end{equation}
+et c'est égal à zéro si $j > r$, parce que dans ce cas $A u_j =0$ dès que $u_j^*A^*Au_j = 0$.
+Si $i>r$ \eqref{eq:39} pas égale  a zéro implique $A u_j \neq 0$ et alors $j≤r$. Mais dans ce cas, par construction, $v_i$ est orthogonal à  $A u_j / σ_j$ et \eqref{eq:39}  est néanmoins zéro. 
 
-Et  si $i,j \leq r$, alors 
+
+Et  si $1 ≤i,j \leq r$, alors 
 \begin{displaymath}
   u_i^* A^* A u_j / \sigma_i = u_i^* u_j \,  \sigma_j^2 / \sigma_i=
   \begin{cases}
@@ -849,8 +851,8 @@ où $A \in \C^{m \times n}$ et $b \in \C^m$.
 
 \begin{definition}
   \label{def:25}
-  La \emph{solution minimale} de \eqref{eq:14} est 
-  la solution du problème des moindres carrés
+  Une \emph{solution minimale} de \eqref{eq:14} est 
+  une solution du problème des moindres carrés
   \begin{displaymath}
     \min_{x \in \C^n} \|Ax - b\|^2 
   \end{displaymath}
