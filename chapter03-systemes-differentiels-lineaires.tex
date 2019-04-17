@@ -408,7 +408,7 @@ où $N \in \C^{n \times n}$ est nilpotente, $P \in \C^{n \times n}$ est inversib
 
 Comment peut-on maintenant résoudre le problème initial $\x' = Ax, \, \x(0) = v$ explicitement? Nous savons que cette solution est $\x = e^{tA} \cdot v$ et nous savons que c'est une solution réelle pour $A \in \R^{m \times n}$. Mais les premiers termes s'écrivent comme 
 \begin{displaymath}
-  \sum_{i=0}^m t^i A^i = P \left(\sum_{i=0}^m t^i \diag(\lambda_1,\dots,\lambda_n) + t^i N \right) P^{-1} 
+  \sum_{i=0}^m t^i A^i = P \left(\sum_{i=0}^m t^i \diag(\lambda_1,\dots,\lambda_n)^i + t^i N \right) P^{-1} 
 \end{displaymath}
 où nous avons utilisé le théorème \ref{thr:32}. Dès que $N$ et $\diag(\lambda_1,\dots,\lambda_n)$ commutent, la solution \emph{réelle} que l'on cherche est  
 \begin{eqnarray*}
@@ -697,7 +697,7 @@ Le diviseur le plus grand de $( x - λ_i)^{m_i}$ et $p(x) / ( x - λ_i)^{m_i}$ e
 \begin{displaymath} 
 V =   \ker p(T) = \ker (T - λ_1I)^{m_1} ⊕  \cdots ⊕ \ker( T - λ_kI)^{m_k}
 \end{displaymath}
-et avec $V_i = \ker( T - λ_iI)^{m_i}$ on a $V = V_1 ⊕ \cdots ⊕ V_K$  et \ref{item:10}). \newline
+et avec $V_i = \ker( T - λ_iI)^{m_i}$ on a $V = V_1 ⊕ \cdots ⊕ V_K$  et \ref{item:10}) avec lemme~\ref{lem:20}. \newline
 
 De plus, $$T_{∣V_i} = (T - λ_iI)_{∣V_i} + λ_iI_{∣V_i} =\colon N_i + λ_iI$$ et $N_i = (T - λ_iI)_{∣V_i}$ est bien nilpotente, car $V_i = \ker( T - λ_iI)^{m_i}$ et donc $N_i^{m_i} = (T - λ_iI)^{m_i}_{∣V_i} = 0$.
 \end{proof}
@@ -707,7 +707,7 @@ De plus, $$T_{∣V_i} = (T - λ_iI)_{∣V_i} + λ_iI_{∣V_i} =\colon N_i + λ_i
   \label{rem:3}
   Lemme~\ref{lem:19} démontre qu'il existe une base 
   \begin{displaymath}
-  \mathscr{B} =   b_1^1,\dots,b_{\ell_1}^1,b_1^2,\dots,b_{\ell_2}^2,\dots,b_1^1,\dots,b_{\ell_k}^k
+  \mathscr{B} =   b_1^1,\dots,b_{\ell_1}^1,b_1^2,\dots,b_{\ell_2}^2,\dots,b_1^k,\dots,b_{\ell_k}^k
   \end{displaymath}
   où $b_1^i,\dots,b_{\ell_i}^i$ est une base de $V_i$ telle que la matrice $A^T_\mathscr{B}$ de $T$ par rapport à la base $\mathscr{B}$ est une matrice bloc diagonale 
   \begin{displaymath}
@@ -719,7 +719,7 @@ De plus, $$T_{∣V_i} = (T - λ_iI)_{∣V_i} + λ_iI_{∣V_i} =\colon N_i + λ_i
         & &  & B_k
       \end{pmatrix}
   \end{displaymath}
-et les matrices $B_i \in \C^{n_i × n_i}$ sont de la forme $B_i = N_i + λ_i I$ où les $N_i$ sont  nilpotentes. 
+et les matrices $B_i \in \C^{\ell_i × \ell_i}$ sont de la forme $B_i = N_i + λ_i I$ où les $N_i$ sont  nilpotentes. 
 
 Rappel: Si  $\phi_{\mathscr{B}}$ est l'ismorphisme $\phi_{\mathscr{B}} \colon V \longrightarrow \C^n$, où $\phi_{\mathscr{B}}(x) = [x]_{\mathscr{B}}$ sont les coordonnées de $x$ par rapport à la base ${\mathscr{B}}$,  on a le diagramme suivant 
 \begin{displaymath}

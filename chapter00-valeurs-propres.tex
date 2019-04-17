@@ -179,7 +179,7 @@ est un ensemble libre. L'application $f$ est diagonalisable si et seulement si
 Voici un marche à suivre, comment déterminer si $f：V ⟶V$ est diagonalisable.
 
 \begin{enumerate}
-\item Déterminer les différentes $λ_1,\dots,λ_r ∈K$ tel que $\ker(f - λ \Id) ≠∅$
+\item Déterminer les différentes $λ_1,\dots,λ_r ∈K$ tel que $\ker(f - λ \Id) ≠ \{ 0 \}$
 \item Pour chaque $λ_i$ calculer une base $\{v_1^{(i)},\dots,v_{n_i}^{(i)}\}$ de $E_{λ_i}$.
 \item est diagonalisable si et seulement si $f$ $n_1+\cdots+n_r =n$.
 \end{enumerate}
@@ -338,7 +338,7 @@ La démonstration du théorème~\ref{thr:42} est le premier exercice maison.
 
 L'expression \eqref{eq:32} est un polynôme avec indéterminée $λ$ et  comme polynôme formel, est défini par la formule de Leibniz
 \begin{displaymath}
-p_A(λ)  \det(A - λ I_n) = ∑_{π ∈S_n} \sign(π) ∏_{i=1}^n (A - λ I_n)_{iπ(i)}.
+p_A(λ) = \det(A - λ I_n) = ∑_{π ∈S_n} \sign(π) ∏_{i=1}^n (A - λ I_n)_{iπ(i)}.
 \end{displaymath}
 Il est la somme des polynômes $ \sign(π) ∏_{i=1}^n (A - λ I_n)_{iπ(i)}$. Ça démontre que le degré de $p_A(λ)$ est au plus $n$. Mais le degré de
 \begin{displaymath}
