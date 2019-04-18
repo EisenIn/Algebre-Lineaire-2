@@ -584,6 +584,52 @@ qui démontre que la somme est directe.
 
 
 
+\begin{theorem}
+\label{thr:min-poly}
+Soient $V$ un espace vectoriel de dimension finie sur un corps $K$, et $A: \, V \rightarrow V$ un endomorphisme.
+Il y a un polyn{\^o}me $m_A(x) \in K[x]$ de degr{\'e} minimal tel que $m_A(A) = 0$ et le coefficient dominant de $m_A(x)$ est $1$. En plus,
+\begin{enumerate}
+\item $m_A(x)$ est unique,
+\item si $p(A) = 0$ pour un $p \in K[x]$, alors $m_A(x)$ divise $p$, et
+\item pour $\lambda \in K$, on a $m_A(\lambda) = 0$ si et seulement si $p_A(\lambda) = 0$, o{\`u} $p_A(x)$ est le polyn{\^o}me charact{\'e}ristique de $A$.
+\end{enumerate}
+\end{theorem}
+\begin{definition}
+On appelle $m_A(x)$ de Th{\'e}or{\`e}me~\ref{thr:min-poly} le \emph{polyn{\^o}me minimal de $A$}.
+\end{definition}
+\begin{proof}
+\underline{Existence:}
+Car $V$ est de dimension finie, l'espace vectoriel des endomorphismes $V \rightarrow V$ est de dimension finie.
+Alors, il existe un $k \in \N$ minimal tel que les endomorphismes
+\[
+ \mathrm{id}, A, A^2, \dots A^k
+\]
+sont lin{\'e}airement d{\'e}pendants,
+$
+0 = \sum_{j=0}^k \alpha_j A^j$ pour quelques $\alpha_j \in K$, et $\alpha_k \neq 0$.
+On d{\'e}finit $m_A(x) = \sum_{j=0}^k (\alpha_j / \alpha_k) x^j$.
+Car on choisit $k$ minimal, $\{\mathrm{id},\dots,A^{k-1}\}$ est un ensemble libre et alors $m_A(x)$ est de degr{\'e} minimal.
+
+\underline{$i)$ et $ii)$:} Soit $p(x) \in K[x]$ polyn{\^o}me quelconque tel que $p(A) = 0$.
+Car il y a deux polyn{\^o}mes $g,h$ tel que 
+\[
+\gcd (m_A, p) (x) = g(x)m_A(x) + h(x) p(x) \neq 0,
+\]
+on a $\gcd (m_A, p) (A) = 0$.
+Car $m_A$ est de degr{\'e} minimal, on a $\deg (\gcd(m_A,p)) = \deg (m_A)$, et car le polyn{\^o}mes ont le coefficient dominant $1$, on a $m_A(x) = \gcd (m_A, p) (x)$, alors $ii)$ est vrai.
+De plus, si $\deg (p) = \deg (m_A)$, on a $p = \gcd (p, m_A)$ aussi, ce qui implique $i)$.
+
+\underline{$iii)$}
+Car $m_A \mid p_A$, si $m_A(\lambda) = 0$ alors $p_A(\lambda) = 0$.
+
+Si $p_A(\lambda) = 0$, il existe $v \in V$ tel que $Av = \lambda v$.
+Alors,
+\[
+0 (v) = m_A(A) (v) = \left( \sum_{j=0}^k a_j A^j \right) (v) = \sum_{j=0}^k a_j A^j(v) = \left( \sum_{j=0}^k a_j \lambda^j \right) (v) = m_A (\lambda) v,
+\]
+et on a $iii)$.
+\end{proof}
+
 
 
 
@@ -683,12 +729,14 @@ un seul bloc de Jordan
 \end{lemma}
 
 \begin{proof}
-  Dès que l'espace des applications linéaires sur $V$ est un espace vectoriel sur $\C$ de dimension finie, il existe un $k \in \N$ tel que 
-  \begin{displaymath}
-    I, \, T, \, T^2, \dots, T^k
-  \end{displaymath}
-sont linéairement dépendants. De plus, il existe un polynôme $p(x) \in \C[x] \setminus \{ 0 \}$ tel que $p(T) = 0$. En effet, on peut choisir $p(x)$ le polynôme 
-caractéristique de $T$. Le coefficient dominant de $p(x)$ est $1$.   Le théorème fondamental de l'algèbre implique que 
+%  Dès que l'espace des applications linéaires sur $V$ est un espace vectoriel sur $\C$ de dimension finie, il existe un $k \in \N$ tel que 
+%  \begin{displaymath}
+%    I, \, T, \, T^2, \dots, T^k
+%  \end{displaymath}
+%sont linéairement dépendants. De plus, il existe un polynôme $p(x) \in \C[x] \setminus \{ 0 \}$ tel que $p(T) = 0$. En effet, on peut choisir $p(x)$ le polynôme 
+%caractéristique de $T$.
+Soit $p(x) = m_T(x)$ le polyn{\^o}me minimal de $T$, alors $p(T) = 0$.
+Le coefficient dominant de $p(x)$ est $1$.   Le théorème fondamental de l'algèbre implique que 
 \begin{displaymath}
   p(x) = ( x - λ_1)^{m_1} \cdots ( x - λ_k)^{m_k} 
 \end{displaymath}
