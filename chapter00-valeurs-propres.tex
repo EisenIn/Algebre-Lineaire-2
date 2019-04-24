@@ -179,7 +179,7 @@ est un ensemble libre. L'application $f$ est diagonalisable si et seulement si
 Voici un marche à suivre, comment déterminer si $f：V ⟶V$ est diagonalisable.
 
 \begin{enumerate}
-\item Déterminer les différentes $λ_1,\dots,λ_r ∈K$ tel que $\ker(f - λ \Id) ≠∅$
+\item Déterminer les différentes $λ_1,\dots,λ_r ∈K$ tel que $\ker(f - λ \Id) ≠ \{ 0 \}$
 \item Pour chaque $λ_i$ calculer une base $\{v_1^{(i)},\dots,v_{n_i}^{(i)}\}$ de $E_{λ_i}$.
 \item est diagonalisable si et seulement si $f$ $n_1+\cdots+n_r =n$.
 \end{enumerate}
@@ -338,7 +338,7 @@ La démonstration du théorème~\ref{thr:42} est le premier exercice maison.
 
 L'expression \eqref{eq:32} est un polynôme avec indéterminée $λ$ et  comme polynôme formel, est défini par la formule de Leibniz
 \begin{displaymath}
-p_A(λ)  \det(A - λ I_n) = ∑_{π ∈S_n} \sign(π) ∏_{i=1}^n (A - λ I_n)_{iπ(i)}.
+p_A(λ) = \det(A - λ I_n) = ∑_{π ∈S_n} \sign(π) ∏_{i=1}^n (A - λ I_n)_{iπ(i)}.
 \end{displaymath}
 Il est la somme des polynômes $ \sign(π) ∏_{i=1}^n (A - λ I_n)_{iπ(i)}$. Ça démontre que le degré de $p_A(λ)$ est au plus $n$. Mais le degré de
 \begin{displaymath}
@@ -470,7 +470,7 @@ avec $\deg(r) \leq 0$. Alors $f(\alpha) = 0$ implique $r=0$.
   \begin{displaymath}
     \deg((-1)^n∏_{i=1}^n (λ_i -x)^{g_i} =n,
   \end{displaymath}
-  alors $m+1+ \cdots + m_r = n$ et $f$ est diagonalisable avec corollary~\ref{eco:1}. 
+  alors $m+1+ \cdots + m_r = n$ et $f$ est diagonalisable avec corollaire~\ref{eco:1}. 
 \end{proof}
 
 
@@ -564,7 +564,7 @@ Le polyn\^ome caract\'eristique de $A = \left( \begin{array}{cc} 1 & 1 \\ 0 & 2
 \]
 Pour la matrices $A = \left( \begin{array}{cc} 2 & 0 \\ 0 & 2 \end{array}
 \right)$, on a bien sur que $p_A(A) = 0$ pour $p_A(t) = (2-t)^2$. Mais il existe un polyn\^ome de degr\'e $1$, $q(t) = t-2$, tel que $q(A) = 0$. Le \emph{polyn\^ome minimal} de $A$
-est le polyn\^ome unitaire de degr\'e minimum parmi ceux qui annulent $A$, c-\`a-d $q(A) = 0$.
+est le polyn\^ome unitaire de degr\'e minimum parmi ceux qui annulent $A$, c-\`a-d $q(A) = 0$. Nous examinerons de plus près le polyn{\^o}me minimal du chapitre~\ref{sec:polyn-les-lalg}.
 \end{example}
 
 Les resultats suivants donnent des utilisations typiques du théorème~\ref{thr:47}

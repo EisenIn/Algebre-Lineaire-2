@@ -182,7 +182,7 @@ qui est égale a $1$. Alors $f(v,b_i) \neq 0$. Donc $f$ est non dégénérée à
 
 \begin{definition}
   \label{def:2}
- Deux éléments $u,v \in V$ sont \emph{orthogonaux} ou \emph{perpendiculaires} si $\pscal{u,v} = 0$, et l'on écrit $v \perp w$. 
+ Deux éléments $u,v \in V$ sont \emph{orthogonaux} ou \emph{perpendiculaires} si $\pscal{u,v} = 0$, et l'on écrit $u \perp v$. 
 \end{definition}
 
 \begin{proposition}
@@ -981,9 +981,11 @@ en recourant à l'inégalité de Cauchy-Schwarz.
 \begin{lemma}
   \label{lem:2}
   Soit $V$ un espace euclidien  et 
-  soient $v_1,\dots,v_n$ des éléments de V, deux à deux orthogonaux, tels que $\pscal{v_i,v_i}\neq 0$ pour tout $i$. Soit $\alpha_i = \pscal{v,v_i}/\pscal{v_i,v_i}$ la composante de $v$ sur $v_i$, alors le vecteur 
+  soient $v_1,\dots,v_n$ des éléments de V, deux à deux orthogonaux, tels que $\pscal{v_i,v_i}\neq 0$ pour tout $i$, et soit $a_1,\dots,a_n \in \R$.
+  %Soit $\alpha_i = \pscal{v,v_i}/\pscal{v_i,v_i}$ la composante de $v$ sur $v_i$, alors le vecteur 
+  Le vecteur 
 \begin{displaymath}
-  v - a_1v_1- \cdots - a_n v_n\, \text{ où  }\, a_i \in ℝ 
+  v - a_1v_1- \cdots - a_n v_n\, % \text{ où  }\, a_i \in ℝ 
 \end{displaymath}
 est perpendiculaire à tous $v_1,\dots,v_n$ si et seulement si $a_i$ est la composante de $v$ sur $v_i$, i.e. $a_i=  \pscal{v,v_i}/ \pscal{v_i,v_i}$ pour tout $i$. 
 \end{lemma}
@@ -1126,7 +1128,7 @@ La base orthonormale est
     4\\-5\\0\\1
   \end{pmatrix}
 \text{ et }
-C'/ \|C'\| = \frac{1}{\sqrt{57}}
+C'/ \|C'\| = \frac{1}{\sqrt{105}}
   \begin{pmatrix}
     -4\\-2\\-7\\6
   \end{pmatrix}  
