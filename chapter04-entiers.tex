@@ -1,0 +1,192 @@
+\chapter{Algèbre linéaire sur les entiers}
+\label{cha:algebre-lineaire-sur}
+
+
+Quand est-ce que un système d'équations linéaires possède une solution en nombre entiers? Étant donnés $A ∈ℤ^{m × n}$ et $b ∈ℤ^m$, on aimerait décider si 
+\begin{equation}
+  \label{eq:40}
+  A x = b, \, x ∈ ℤ^n 
+\end{equation}
+est soluble et trouver tous les solutions.
+
+
+Une condition nécessaire pour \eqref{eq:40} étant soluble est qu'il existe une solution $x ∈ℚ^n$. et alors que $\rank(A) = \rank(A|b)$. Aussi on peut supprimer une ligne de $(A|b)$ qui est dans le span des autres lignes. Alors on peut supposer que $A$ es de plein rang lignes, c'est à dire $\rank(A) = m$. 
+
+\begin{definition}
+  \label{def:44}
+  Un nombre entier $d ∈ℤ$ \emph{divise} un nombre entier $a ∈ℤ$ s'il existe un nombre entier $x ∈ℤ$ tel que $d⋅x =b$. On écrit $d\mid b$ et si $d$ ne divise pas $b$ on écrit $d \nmid b$. 
+\end{definition}
+% Si $d \mid a$, alors s'il existe $x ∈ℤ$ tel que $d ⋅x =a$ et si $a \neq 0$ on peut conclure $d ≤ |a|$, parce que $|a| = |d| ⋅|x|$. 
+\begin{definition}
+  \label{def:45}
+  Un nombre $d ∈ℤ$ est un diviseur commun de $a∈ℤ$ et $b ∈ℤ$, si $d \mid a$ et $d \mid b$. Si $\max\{|a|,|b|\} ≥1$, l'ensemble des diviseurs commun de $a$ et $b$ est un ensemble fini. Dans ce cas, on dénote le \emph{plus grand diviseur commun} de $a$ et $b$ par $\gcd(a,b)$. 
+\end{definition}
+
+
+\begin{theorem}
+  \label{thr:48}
+  Soient $a,b ∈ℤ$ et $\max\{|a|,|b|\} ≥1$. On a
+  \begin{displaymath}
+    \gcd(a,b) = \min \{ x ⋅a + y ⋅ b： x,y ∈ℤ,  x ⋅a + y ⋅ b≥1\}.
+  \end{displaymath}
+\end{theorem}
+
+\begin{proof}
+  Soit $d$ un diviseur commun de $a$ et $b$. Alors il existent $x^*, y^* ∈ℤ$ tel que $a = d⋅x^*$ et $b = d ⋅y^*$. Si $x ⋅a + y ⋅ b≥1$ où $x,y ∈ℤ$, alors
+  \begin{displaymath}
+    x ⋅a + y ⋅ b = (x ⋅x^* + y ⋅ y^*)  d ≥ |d|. 
+  \end{displaymath}
+  Un diviseur commun est une borne inférieure du  $\min\{ x ⋅a + y ⋅ b： x,y ∈ℤ,  x ⋅a + y ⋅ b≥1\}$.
+ Il reste à montrer que $\min$ est un diviseur commun de $a$ et $b$. Supposons que $\min \nmid a$. Alors
+  division avec reste implique l'existence de $q,r ∈ℤ$ tel que  
+  \begin{displaymath}
+    a = q ⋅ \min + r \quad \text{ et } \quad 1 \leq r < \min.
+  \end{displaymath}
+  Soient $x,y ∈ℤ$ où $\min = x ⋅a + y ⋅b$, alors
+  \begin{displaymath}
+    1 ≤ r = a - q ⋅ (x ⋅a + y ⋅b) = (1-q⋅x) a - qy ⋅b.
+  \end{displaymath}
+  C'est plus petit que $\min$ et alors une contradiction. C'est à dire $\min \mid a$. Également, on montre $\min \mid b$. 
+\end{proof}
+
+
+
+\begin{corollary}
+  \label{co:5}
+  Soient $a,b ∈ℤ$ et $\max\{|a|,|b|\} ≥1$. Le $\gcd(a,b)$ est le diviseur commun  positif qui est divisé par chaque diviseur commun de $a$ et $b$. 
+\end{corollary}
+
+Pour calculer le diviseur le plus grand de $a$ et $b$ on peut utiliser l'algorithme d'Euclide. Soient $a_o≥a_1 ∈ℤ$ pas tout les deux égaux à zéro. Si $a_1 = 0$, alors
+\begin{displaymath}
+\gcd(a_0,a_1) =   a_0. 
+\end{displaymath}
+Autrement on applique division avec reste
+\begin{displaymath}
+  a_0 = q_1 a_1 + a_2, 
+\end{displaymath}
+où $q_1,a_2 ∈ℤ$ et $0 ≤ a_2<a_1$. Un nombre entier $d ∈ℤ$ est un diviseur commun de $a_0$ et $a_1$ si et seulement si $d$ est un diviseur commun de $a_1$ et $a_2$. L'algorithme d'Euclide est la procédé de calculer la suite $a_0,a_1,a_2,\dots,a_{k-1},a_k ∈ℤ$  où $a_{k-1}>0$, $a_k=0$ et 
+\begin{displaymath}
+  a_{i-1} = q_i a_i + a_{i+1} 
+\end{displaymath}
+est le résultat de la division avec reste de $a_{i-1} $ par $a_i$. 
+
+\begin{example}
+  \label{exe:25}
+  On calcule  le diviseur commun le plus grand de $a_0 = 52$ et $a_1=22$:
+  \begin{displaymath}
+    52 =   2 ⋅ 22 + 8, \quad 22 = 2 ⋅ 8  + 6, \quad 8 = 1 ⋅ 6 +2,\quad 6 = 3 ⋅2 + 0. 
+  \end{displaymath}
+  La suite est alors $a_{0}= 52, a_{1}= 22, a_{3} = 8, a_{4} = 6, a_{5} = 2, a_{6} = 0$. Alors $\gcd(52,22) = 2$. 
+\end{example}
+
+La calcule des suites $a_i$ et $q_i$ donne aussi une représentation $\gcd(a_0,a_1) = x ⋅a_0 + y ⋅a_1$, $x,y ∈ℤ$. Parce qu'on observe
+\begin{displaymath}
+  \begin{pmatrix}
+    a_{i} \\  a_{i+1} 
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+    0 & 1 \\
+    1 & -q_i
+  \end{pmatrix}
+  \begin{pmatrix}
+     a_{i-1} \\  a_{i}
+   \end{pmatrix}
+\end{displaymath}
+et alors
+\begin{displaymath}
+  \begin{pmatrix}
+    a_{k-1} \\ a_k
+  \end{pmatrix} =
+  \begin{pmatrix}
+    0 & 1 \\
+    1 & -q_{k-1}
+  \end{pmatrix} \cdots
+  \begin{pmatrix}
+    0 & 1 \\
+    1 & -q_{1}
+  \end{pmatrix}
+  \begin{pmatrix}
+    a_0 \\ a_1
+  \end{pmatrix}
+\end{displaymath}
+\begin{example}
+  \label{exe:26}
+  On continue l'exemple~\ref{exe:25}.
+  \begin{eqnarray*} 
+    \begin{pmatrix}
+      2 \\ 0
+    \end{pmatrix} & = & 
+    \begin{pmatrix}
+      0 &1 \\
+      1 & -3
+    \end{pmatrix}
+    \begin{pmatrix}
+      0 &1 \\
+      1 & -1
+    \end{pmatrix}
+    \begin{pmatrix}
+      0 &1 \\
+      1 & -2
+    \end{pmatrix}
+    \begin{pmatrix}
+      0 &1 \\
+      1 & -2
+    \end{pmatrix}
+    \begin{pmatrix}
+     5 \\ 22
+    \end{pmatrix} \\
+   &  = & 
+  \begin{pmatrix}
+    3 & -7 \\
+    -11 & 26 
+  \end{pmatrix}
+  \begin{pmatrix}
+    52 \\22
+  \end{pmatrix}
+  \end{eqnarray*}
+  Alors $2 = \gcd(52,22) = 3 ⋅52 -7 ⋅22$. 
+\end{example}
+
+Nous pouvons alors résoudre le problème~\eqref{eq:40} dans le cas où $m=1$ et $n=2$.
+
+\begin{theorem}
+  \label{thr:49}
+  Soient $a,b ∈ℤ$ pas zéro tous le deux et $c ∈ℤ$. L'équation
+  \begin{equation}
+    \label{eq:41}
+    x ⋅a + y ⋅b = c, \, x,y ∈ℤ
+  \end{equation}
+  possède une solution si et seulement si $\gcd(a,b) \mid c$. 
+\end{theorem}
+\begin{proof}
+  Soient $x',y' ∈ℤ$ tel que $x' a + y'b = \gcd(a,b)$. Si $\gcd(a,b) \mid c$ alors il existe un $z ∈ℤ$ tel que $z ⋅\gcd(a,b) = c$ et $z x' a + z y'b = c$ est une solution en nombre entiers de~\eqref{eq:41}.
+
+  S'il existe une solution de~\eqref{eq:41}, alors chaque diviseur commun de $a$ et $b$ est aussi un diviseur de $c$. 
+\end{proof}
+
+\section*{Exercices}
+
+\begin{enumerate}
+\item Démontrer Corollaire~\ref{co:5}.
+\item Soient $n≥2$ et $a_1,\dots,a_n∈ ℤ$ pas tous égaux à zéro. On défini $\gcd(a_1,\dots,a_n)$ comme le plus grand diviseur commun de $a_1,\dots,a_n$. Montrer: 
+  \begin{enumerate}[i)]
+    \item  $\gcd(a_1,\dots,a_n) =  \min\{x_1a_1+ \cdots + x_n a_n ： x_1a_1+ \cdots + x_n a_n≥1, \, x_i ∈ℤ, \, i=1,\dots,n\}$. 
+  \item $\gcd(a_1,\dots,a_n) = \gcd(\gcd(a_1,a_2), a_3, \dots, a_n)$ pour $n≥3$. 
+  \end{enumerate}
+\item Soit $a_0≥a_1≥\dots≥a_k=0$ la suite calculé par l'algorithme d'Euclide. Montrer $a_{i-1} ≥ 2⋅ a_{i+1}$ et conclure  que $k ≤2 ⋅ \log_2(a_0)+1$.  
+\end{enumerate}
+
+
+
+\section{La forme normale d'Hermite}
+\label{sec:la-forme-normale-1}
+
+
+Maintenant nous nous occupons du problème~\eqref{eq:40} où $A ∈ ℤ^{m ×n}$ et $b ∈ℤ^m$ et $\rank(A) = m$.
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "notes"
+%%% End:
