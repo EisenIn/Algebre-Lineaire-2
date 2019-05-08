@@ -194,7 +194,7 @@ Maintenant on s'occupe du problème~\eqref{eq:40} où $A ∈ ℤ^{m ×n}$ et $b 
 
   Autrement, si $\det(A) = \pm 1$, on a
   \begin{displaymath}
-    A^{-1} = \mathrm{ad}(A) / \det(A) ∈ℤ{n ×n}. 
+    A^{-1} = \mathrm{ad}(A) / \det(A) ∈ℤ^{n ×n}. 
   \end{displaymath}
   où $\mathrm{ad}(A) ∈ ℤ^{n ×n}$ est la matrice adjoint de $A$. On se rappelle que $(\mathrm{ad}(A))_{ij} = (-1)^{i+j}\det(A_{ji})$ où $A_{ji}∈ℤ^{(n-1)×(n-1)}$ est la matrice qu'on obtient de $A$ en supprimant la $j$-ème ligne et $i$-ème colonne. 
   \end{proof}
@@ -203,16 +203,21 @@ Maintenant on s'occupe du problème~\eqref{eq:40} où $A ∈ ℤ^{m ×n}$ et $b 
     \label{def:46}
     Une matrice $U ∈ℤ^{n ×n}$ tel que $\det(U) = \pm 1$ est appelée  \emph{unimodulaire}.
   \end{definition}
-Soit $U ∈ℤ^{n ×n}$  une matrice unimodulaire. 
-Un $x^* ∈ ℤ^n$ est une solution du problème~\eqref{eq:40} si et seulement $U^{-1} x^*∈ ℤ^n$ est une solution du problème
-\begin{equation}
-  \label{eq:42}
-  A U x = b, \, x ∈ℤ^n. 
-\end{equation}
+
+  \begin{remark}
+    Soit $U ∈ℤ^{n ×n}$  une matrice unimodulaire. 
+    Un $x^* ∈ ℤ^n$ est une solution du problème~\eqref{eq:40} si et seulement $U^{-1} x^*∈ ℤ^n$ est une solution du problème
+    \begin{equation}
+      \label{eq:42}
+      A U x = b, \, x ∈ℤ^n. 
+    \end{equation}
+  \end{remark}
+  %
 L'idée est maintenant de trouver une matrice unimodulaire $U ∈ℤ^{n ×n}$ tel que
-\begin{displaymath}
+\begin{equation}
+  \label{eq:44}
   A ⋅ U = [H | 0]
-\end{displaymath}
+\end{equation}
 où
 \begin{displaymath}
   H =
@@ -228,10 +233,11 @@ $H^{-1} b ∈ℤ^n$.
 
 \begin{definition}
   \label{def:47}
-  Soit $A ∈ ℤ^{m ×n}$ une matrice. Une \emph{opération élémentaire unimodulaire} est une des deux
+  Soit $A ∈ ℤ^{m ×n}$ une matrice. Une \emph{opération élémentaire unimodulaire} est une des trois
   \begin{enumerate}[i)]
-    \item Échanger deux colonnes de $A$. 
-    \item Additionner un multiple entier d'une colonne de $A$ sur une autre colonne de $A$. 
+    \item Multiplier une colonne avec $-1$.  \label{item:21}
+    \item Échanger deux colonnes de $A$.  \label{item:22}
+    \item Additionner un multiple entier d'une colonne de $A$ sur une autre colonne de $A$. \label{item:23}
   \end{enumerate}
 \end{definition}
 
@@ -256,7 +262,7 @@ Soit
     0 & 0 & 1
       
     \end{pmatrix}
-  \end{displaymath} à gauche
+  \end{displaymath} à droite
   \begin{displaymath}
      \begin{pmatrix}
       6  & 3& 2 \\
@@ -275,7 +281,7 @@ Soit
      0 & 1 & 0 \\
      -3 & 0 & 1
    \end{pmatrix}
- \end{displaymath} à gauche
+ \end{displaymath} 
    \begin{displaymath}
      \begin{pmatrix}
       0  & 3& 2 \\
@@ -283,7 +289,7 @@ Soit
     \end{pmatrix} = A ⋅  \begin{pmatrix}
       
      1 & 0 & 0\\
-     0 & 1 & 0 \\
+     0 & 1 & 0 \\ 
      -3 & 0 & 1
    \end{pmatrix}
  \end{displaymath}
@@ -335,6 +341,75 @@ Soit
     b, x ∈ℤ^3
   \end{displaymath} est soluble pour chaque $b ∈ℤ^2$. 
 \end{example}
+
+
+\begin{lemma}
+  \label{lem:24}
+  Soit  $A ∈ℤ^{ m ×n}$ une matrice en nombre entiers, alors il  existe une matrice unimudulaire $U ∈ℤ^{ n ×n}$ tel que le première ligne de $AU$ est de la forme $(d,0,\cdots,0)$, où $d ∈ℤ$.
+\end{lemma}
+
+\begin{proof}
+  Si la première ligne ne pas de cette forme, et possède seulement une
+  composante qui n'est pas égale à zéro, on échange colonnes tel que
+  le résultat est de cette forme.
+  
+  Autrement, il existent deux indexes $j_1\neq j_2$ de colonnes, tel
+  que $a_{1j_1}\neq 0$ et $a_{1j_2} \neq 0$. On peut supposer
+  $|a_{1j_1}| ≥ |a_{1j_2}|$. Division avec reste nous donne $q ∈ℤ$ et
+  $0 ≤r < |a_{1j_2}|$ tel que
+  \begin{displaymath}
+    a_{1j_1} = q ⋅ a_{1j_2} + r. 
+  \end{displaymath}
+  On applique l'opération unimudulaire: \emph{Soustraire $q$ fois
+    colonne $j_2$ de colonne $j_1$} remplace $a_{1j_1}$ avec $r$ et
+  laisse les autres composantes de la première ligne intacte.  Des que
+    \begin{displaymath}
+      0 < |r|+ |a_{1j_2}|<  |a_{1j_{1}}|+ |a_{1j_2}|
+    \end{displaymath}
+    cette procédé ne peut être répété infiniment. Alors il existe une
+    matrice unimodulaire qui transforme $A$ en matrice, où la première
+    ligne possède une seule composante non zéro et un échange de
+    colonnes transforme en forme désirée.
+  \end{proof}
+
+  \begin{corollary}
+    \label{co:9}
+    Soit  $A ∈ℤ^{ m ×n}$ une matrice en nombre entiers alors il  existe une matrice unimudulaire $U ∈ℤ^{ n ×n}$ tel que $A ⋅U$ est de la forme~\eqref{eq:44}.
+  \end{corollary}
+  \begin{proof}
+    Par induction sur $m$. le cas $m=1$ est impliqué par Lemme~\ref{lem:24}. Soit $m>1$. 
+    Lemme~\ref{lem:24} implique qu'il existe une matrice unimodulaire $U_1 ∈ℤ^{n ×n}$ tel que
+    \begin{displaymath}
+      A ⋅ U_1 =
+      \begin{pmatrix}
+        d & 0 \cdots 0 \\
+        a  & A'
+      \end{pmatrix}
+    \end{displaymath}
+    où $d ∈ℤ$, $a ∈ ℤ^{m-1}$ et $A' ∈ ℤ^{(m-1) × (n-1)$. Par l'hypothèse d'induction, il existe une matrice unimudulaire $U_2 ∈ℤ{(n-1) ×(n-1)}$ tel $A' U_2$ est de la forme désirée. Clairement
+      \begin{displaymath}
+         \begin{pmatrix}
+          1 & 0^T \\
+          0 & U_2
+        \end{pmatrix} ∈ℤ^{n ×n}
+      \end{displaymath}
+      est une matrice unimodulaire et 
+      \begin{displaymath}
+        A U_1
+        \begin{pmatrix}
+          1 & 0^T \\
+          0 & U_2
+        \end{pmatrix}
+      \end{displaymath}
+      est de la  forme~\eqref{eq:44}. 
+  \end{proof}
+
+
+
+  \begin{definition}
+    \label{def:49}
+    Une matrice $A ∈ℤ^{m ×n}$ du rang $m$ est en \emph{forme normale de Hermite}, si elle est de la forme \eqref{eq:44}, où $r_{ii}>0$ pour tous $i$ et $0≤ r_{ij} < r_{ii}$ pour tout $i<j$. 
+  \end{definition}
 
 
 
