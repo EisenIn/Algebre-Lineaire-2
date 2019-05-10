@@ -10,7 +10,7 @@ Quand est-ce que un système d'équations linéaires possède une solution en no
 est soluble et trouver tous les solutions.
 
 
-Une condition nécessaire pour \eqref{eq:40} étant soluble est qu'il existe une solution $x ∈ℚ^n$. et alors que $\rank(A) = \rank(A|b)$. Aussi on peut supprimer une ligne de $(A|b)$ qui est dans le span des autres lignes. Alors on peut supposer que $A$ es de plein rang lignes, c'est à dire $\rank(A) = m$. 
+Une condition nécessaire et suffisante pour \eqref{eq:40} étant soluble est qu'il existe une solution $x ∈ℚ^n$. et alors que $\rank(A) = \rank(A|b)$. Aussi on peut supprimer une ligne de $A$ qui est dans le span des autres lignes sans changer l'ensemble des solutions. Alors on peut supposer que $A$ est de plein rang lignes, c'est à dire $\rank(A) = m$. 
 
 \begin{definition}
   \label{def:44}
@@ -32,12 +32,12 @@ Une condition nécessaire pour \eqref{eq:40} étant soluble est qu'il existe une
 \end{theorem}
 
 \begin{proof}
-  Soit $d$ un diviseur commun de $a$ et $b$. Alors il existent $x^*, y^* ∈ℤ$ tel que $a = d⋅x^*$ et $b = d ⋅y^*$. Si $x ⋅a + y ⋅ b≥1$ où $x,y ∈ℤ$, alors
+  Soit $d$ un diviseur commun  positif de $a$ et $b$ (si $d$ est négatif, on a trivialement $d \le  \min\{ x ⋅a + y ⋅ b： x,y ∈ℤ,  x ⋅a + y ⋅ b≥1\}$). Alors il existent $x^*, y^* ∈ℤ$ tel que $a = d⋅x^*$ et $b = d ⋅y^*$. Si $x ⋅a + y ⋅ b≥1$ où $x,y ∈ℤ$, alors
   \begin{displaymath}
-    x ⋅a + y ⋅ b = (x ⋅x^* + y ⋅ y^*)  d ≥ |d|. 
+    x ⋅a + y ⋅ b = (x ⋅x^* + y ⋅ y^*)  d ≥ d. 
   \end{displaymath}
-  Un diviseur commun est une borne inférieure du  $\min\{ x ⋅a + y ⋅ b： x,y ∈ℤ,  x ⋅a + y ⋅ b≥1\}$.
- Il reste à montrer que $\min$ est un diviseur commun de $a$ et $b$. Supposons que $\min \nmid a$. Alors
+  Finalement on a  $d \le \min\{ x ⋅a + y ⋅ b： x,y ∈ℤ,  x ⋅a + y ⋅ b≥1\}$.
+ Montrons que $\min\{ x ⋅a + y ⋅ b： x,y ∈ℤ,  x ⋅a + y ⋅ b≥1\}$ est un diviseur commun de $a$ et $b$. Supposons que $\min \nmid a$. Alors
   division avec reste implique l'existence de $q,r ∈ℤ$ tel que  
   \begin{displaymath}
     a = q ⋅ \min + r \quad \text{ et } \quad 1 \leq r < \min.
@@ -46,7 +46,9 @@ Une condition nécessaire pour \eqref{eq:40} étant soluble est qu'il existe une
   \begin{displaymath}
     1 ≤ r = a - q ⋅ (x ⋅a + y ⋅b) = (1-q⋅x) a - qy ⋅b.
   \end{displaymath}
-  C'est plus petit que $\min$ et alors une contradiction. C'est à dire $\min \mid a$. Également, on montre $\min \mid b$. 
+  C'est plus petit que $\min$ ce qui est absurde. C'est à dire $\min \mid a$. De façon analogue, on obtient $\min \mid b$.
+  Aussi, on a montré que pour tout diviseur commun $d$ de $a$ et $b$, $\min\{ x ⋅a + y ⋅ b： x,y ∈ℤ,  x ⋅a + y ⋅ b≥1\}\geq d$ et donc $\min\{ x ⋅a + y ⋅ b： x,y ∈ℤ,  x ⋅a + y ⋅ b≥1\}= \gcd(a,b)$
+  
 \end{proof}
 
 
@@ -225,7 +227,7 @@ où
     h_{11} \\
     h_{21} & h_{22}\\
     &  & \ddots \\
-    h_{n1} & \hdots & \hdots & h_{nn}
+    h_{m1} & \hdots & \hdots & h_{mm}
   \end{pmatrix}
 \end{displaymath}
 est une matrice triangulaire. Le problème~\eqref{eq:40} alors est soluble si et seulement si
@@ -386,7 +388,7 @@ Soit
         a  & A'
       \end{pmatrix}
     \end{displaymath}
-    où $d ∈ℤ$, $a ∈ ℤ^{m-1}$ et $A' ∈ ℤ^{(m-1) × (n-1)$. Par l'hypothèse d'induction, il existe une matrice unimudulaire $U_2 ∈ℤ{(n-1) ×(n-1)}$ tel $A' U_2$ est de la forme désirée. Clairement
+    où $d ∈ℤ$, $a ∈ ℤ^{m-1}$ et $A' ∈ ℤ^{(m-1) × (n-1)}$. Par l'hypothèse d'induction, il existe une matrice unimudulaire $U_2 ∈ℤ{(n-1) ×(n-1)}$ tel $A' U_2$ est de la forme désirée. Clairement
       \begin{displaymath}
          \begin{pmatrix}
           1 & 0^T \\
@@ -408,11 +410,36 @@ Soit
 
   \begin{definition}
     \label{def:49}
-    Une matrice $A ∈ℤ^{m ×n}$ du rang $m$ est en \emph{forme normale de Hermite}, si elle est de la forme \eqref{eq:44}, où $r_{ii}>0$ pour tous $i$ et $0≤ r_{ij} < r_{ii}$ pour tout $i<j$. 
+    Une matrice $A ∈ℤ^{m ×n}$ du rang $m$ est en \emph{forme normale de Hermite}, si elle est de la forme \eqref{eq:44}, où $r_{ii}>0$ pour tous $i$ et $0≤ r_{ij} < r_{ii}$ pour tout $j<i$. 
   \end{definition}
+	
+\begin{theorem}
+  \label{thr:28}
+    Soit  $A ∈ℤ^{ m ×n}$ une matrice en nombre entiers alors il  existe une matrice unimudulaire $U ∈ℤ^{ n ×n}$ tel que $A ⋅U$ est en \emph{forme normale de Hermite}.
+  \end{theorem}
+  
+  \begin{definition}
+    \label{def:49}
+    Soit $A \in \mathbb{Z}^{m\times n}$ tq. $rang(A)=m$ alors on pose $\Lambda(A):=\left\{ Ax,x\in \mathbb{Z}^{n\times n} \right\}$ Le réseau entier de $A$. Aussi $U \in \mathbb{Z}^{n\times n}$ tq. $\Lambda(A)=\Lambda(B)$ est appelée base de $\Lambda(A)$.
+     \end{definition}
+	
+ \begin{corollary}
+    \label{co:9}
+    Chaque réseau entier possède une base.
+     \end{corollary}
+     \begin{proof}
+     On a $U ∈ℤ^{ n ×n}$ unimodulaire tq. $A ⋅ U = [H | 0]$ et $H$ est en forme normale de Hermite. Il est alors simple de remarquer que $\Lambda(A)=\Lambda(H)$. Dès lors H est une base du réseau entier de $A$.
+     
+     \end{proof}
+      \begin{theorem}
+  \label{thr:28}
+  Soient $A,B \in \mathbb{Z}^{m\times n}$ tq. $rang(A)=rang(B)=m$. Alors $\Lambda(A)=\Lambda(B) \Leftrightarrow H_A=H_B$ ou $H_A$(resp $H_B$) dénote une forme normale de Hermite de $A$ (resp $B$).
+  \end{theorem}
+      
 
-
-
+  
+    
+    
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "notes"
