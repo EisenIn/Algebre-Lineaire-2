@@ -353,14 +353,11 @@ et donc
   \end{lemma}
 
   \begin{proof}
-    \begin{eqnarray*}
-      \| \sum_{k=m}^\infty \frac{1}{k!} A^k \|_F & \leq &    \sum_{k=m}^\infty \frac{1}{k!} \|A^k \|_F\\
-      & \leq &  \sum_{k=m}^\infty \frac{1}{k!} \|A \|_F^k.\\
-    \end{eqnarray*}
-Alors 
-\begin{displaymath}
-  \lim_{m \rightarrow \infty} \|\sum_{k=m}^\infty \frac{1}{k!} A^k \|_F = 0. 
-\end{displaymath}
+Il est facile de se convaincre que la convergence pour la norme de Frobenius revient à prouver que la suite est de Cauchy. 
+
+Evidemment $\forall c \in \mathbb{C}$ la série $\sum _{ j=0 }^{ +\infty  }{ \frac { { x }^{ j } }{ j! } ={ e }^{ j } } $ converge. La suite des sommes partielles est donc de Cauchy.
+
+Considérons maintenant la suite $(b_n)_{n\in \mathbb{N}} = { (\sum _{ j=0 }^{ n }{ \frac { { A }^{ j } }{ j! } ) }  }_{ n\in \mathbb{N} }$. Soient $m,n \in \mathbb{N}$ alors $\parallel b_{ m }-b_{ n }\parallel _{ F }=\parallel \sum _{ j=n+1 }^{ m }{ \frac { A^{ j } }{ j! }  } \parallel _{ F }\quad \le \quad \sum_{j=n+1}^{m}{\frac{\parallel A\parallel_{F}^{j}}{j!}} \le \quad \epsilon $ pour $n,m \ge N_{\epsilon}$ (qui existe car la suite des sommes partielles de la série $\sum _{ j=0 }^{ +\infty }{ \frac { \parallel A\parallel _{ F }^{ j } }{ j! }  } = e^{\parallel A\parallel _{ F }^{ j }} $ est de Cauchy.)
   \end{proof}
 
 
@@ -876,12 +873,19 @@ Soit $m = \min_{j \in J} {m_j-1} \geq 1$ et soit $i \in J$ un index où le minim
  0 =  N^m  \sum_{j \in J} γ_j N^{m_j-1 - m}x_j  = N^m \left( γ_i x_i + \sum_{j \in J, j \neq i} γ_j N^{m_j-1 - m}x_j \right)
 \end{displaymath}
 
-Maintenant, on remplace $x_i$ par $$y = \sum_{j \in J} γ_j N^{m_j-1 - m}x_j = γ_i x_i + \sum_{j \in J, j \neq i} γ_j N^{m_j-1 - m}x_j$$ 
-Il est facile de voir que les orbites de 
+Maintenant, posant $$y = \sum_{j \in J} γ_j N^{m_j-1 - m}x_j = γ_i x_i + \sum_{j \in J, j \neq i} γ_j N^{m_j-1 - m}x_j$$ 
+Si $y \neq 0$, on remplace $x_i$ par $y$.
+Il est alors facile de voir que les orbites de 
 \begin{displaymath}
   x_1,\dots, x_{i-1},y,x_{i+1},\dots,x_\ell
 \end{displaymath}
 engendrent encore $V$. Et la durée de vie de $y$ est au plus $m<m_i$. \\
+Sinon, les orbites de
+\begin{displaymath}
+  x_1,\dots, x_{i-1},x_{i+1},\dots,x_\ell
+\end{displaymath}
+suffisent alors à engendrer $V$.
+
 On a alors démontré le théorème.  
 \end{proof}
 
