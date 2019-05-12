@@ -351,27 +351,22 @@ Soit
 \end{lemma}
 
 \begin{proof}
-  Si la première ligne ne pas de cette forme, et possède seulement une
-  composante qui n'est pas égale à zéro, on échange colonnes tel que
-  le résultat est de cette forme.
-  
-  Autrement, il existent deux indexes $j_1\neq j_2$ de colonnes, tel
-  que $a_{1j_1}\neq 0$ et $a_{1j_2} \neq 0$. On peut supposer
-  $|a_{1j_1}| ≥ |a_{1j_2}|$. Division avec reste nous donne $q ∈ℤ$ et
-  $0 ≤r < |a_{1j_2}|$ tel que
-  \begin{displaymath}
-    a_{1j_1} = q ⋅ a_{1j_2} + r. 
-  \end{displaymath}
-  On applique l'opération unimudulaire: \emph{Soustraire $q$ fois
-    colonne $j_2$ de colonne $j_1$} remplace $a_{1j_1}$ avec $r$ et
-  laisse les autres composantes de la première ligne intacte.  Des que
-    \begin{displaymath}
-      0 < |r|+ |a_{1j_2}|<  |a_{1j_{1}}|+ |a_{1j_2}|
-    \end{displaymath}
-    cette procédé ne peut être répété infiniment. Alors il existe une
-    matrice unimodulaire qui transforme $A$ en matrice, où la première
-    ligne possède une seule composante non zéro et un échange de
-    colonnes transforme en forme désirée.
+On note $\begin{matrix}  A =& \begin{pmatrix}  l_1  \\ ...  \\l_m   \end{pmatrix}  \end{matrix}$  et $l_1=\begin{pmatrix}  a_1 &... & a_n  \end{pmatrix}$.
+$ \\ $
+$ \\ $
+On raisonne par récurrence sur $\sum_{i=0}^{n}{|a_i|}$
+$ \\ $$ \\ $
+$\underline{k=0}$ alors $\forall i \in \mathbb{N}_n$, $a_i=0$ et l'assertion est trivialement vraie.
+$ \\ $
+$\underline{k>0}$ alors $\exists j_1 \neq j_2 \in \mathbb{N}_n$ tels que $a_{j_1} \neq 0$ et $a_{j_2} \neq 0$.
+$ \\ $
+On peut alors supposer $|a_{j_1}| \ge |a_{j_2}|$. Ainsi en effectuant la division euclidienne de $a_{j_1}$ par $a_{j_2}$ on obtient 
+$ \\ $ 
+$a_{j_1}=q \times a_{j_2}+r$ avec $q, r \in \mathbb{Z}$ et $0 \le r < |a_{j_2}|$
+$ \\ $ 
+Dès lors on applique l'opération unimodulaire \emph{Soustraire $q$ fois la colonne $j_2$ à colonne $j_1$} ce qui remplace alors $a_{j_1}$ par $r$ et laisse les autres composantes de la première lignes inchangées.
+Ainsi on a on a $\sum_{i=0\\i\neq j_1}^{n}{|a_i|} + r < \sum_{i=0}^{n}{|a_i|}=k$ et on peut appliquer notre hypothèse de récurrence.
+
   \end{proof}
 
   \begin{corollary}
