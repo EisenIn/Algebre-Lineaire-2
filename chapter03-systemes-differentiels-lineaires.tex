@@ -353,14 +353,11 @@ et donc
   \end{lemma}
 
   \begin{proof}
-    \begin{eqnarray*}
-      \| \sum_{k=m}^\infty \frac{1}{k!} A^k \|_F & \leq &    \sum_{k=m}^\infty \frac{1}{k!} \|A^k \|_F\\
-      & \leq &  \sum_{k=m}^\infty \frac{1}{k!} \|A \|_F^k.\\
-    \end{eqnarray*}
-Alors 
-\begin{displaymath}
-  \lim_{m \rightarrow \infty} \|\sum_{k=m}^\infty \frac{1}{k!} A^k \|_F = 0. 
-\end{displaymath}
+Il est facile de se convaincre que la convergence pour la norme de Frobenius revient à prouver que la suite est de Cauchy. 
+
+Evidemment $\forall c \in \mathbb{C}$ la série $\sum _{ j=0 }^{ +\infty  }{ \frac { { x }^{ j } }{ j! } ={ e }^{ j } } $ converge. La suite des sommes partielles est donc de Cauchy.
+
+Considérons maintenant la suite $(b_n)_{n\in \mathbb{N}} = { (\sum _{ j=0 }^{ n }{ \frac { { A }^{ j } }{ j! } ) }  }_{ n\in \mathbb{N} }$. Soient $m,n \in \mathbb{N}$ alors $\parallel b_{ m }-b_{ n }\parallel _{ F }=\parallel \sum _{ j=n+1 }^{ m }{ \frac { A^{ j } }{ j! }  } \parallel _{ F }\quad \le \quad \sum_{j=n+1}^{m}{\frac{\parallel A\parallel_{F}^{j}}{j!}} \le \quad \epsilon $ pour $n,m \ge N_{\epsilon}$ (qui existe car la suite des sommes partielles de la série $\sum _{ j=0 }^{ +\infty }{ \frac { \parallel A\parallel _{ F }^{ j } }{ j! }  } = e^{\parallel A\parallel _{ F }^{ j }} $ est de Cauchy.)
   \end{proof}
 
 
@@ -464,7 +461,7 @@ implique $\deg(g) \cdot \deg(h) = 0$, alors un des facteurs est une constante.
 
 \begin{theorem}
   \label{thr:36}
-  Soient $a(x),b(x)$ deux polynômes, tels que $\deg(a)+\deg(b)>0$. Un polynôme 
+  Soient $a(x),b(x)$ deux polynômes, tels que $\left\{ a,b \right\} \neq \left\{ 0 \right\}$. Un polynôme 
   \begin{equation}
     \label{eq:25}   
     d(x) = g(x) a(x) + h(x) b(x) \neq 0
@@ -496,7 +493,7 @@ Il est clair que tous les diviseurs communs de $a$ et $b$ divisent $d$.
 \end{theorem}
 
 \begin{proof}
-Si $p(x)$ ne divise $f(x)$ ni $g(x)$ alors $1 = f(x) h_1(x) + p(x)h_2(x)$ et 
+Si $p(x)$ ne divise ni $f(x)$ ni $g(x)$ alors $1 = f(x) h_1(x) + p(x)h_2(x)$ et 
 $1 = g(x) h_3(x) + p(x) h_4(x)$ alors $\gcd(p(x), f(x)g(x))=1$. 
 \end{proof}
 
@@ -839,7 +836,7 @@ en forme normale de Jordan.
   est l'\emph{orbite} de $x$ sous $N$. 
   
   En concaténant les orbites des éléments d'une base et en travaillant sur cet ensemble, nous obtiendrons un ensemble de vecteurs qui engendre $V$. 
-  Supposons alors qu'au début de l'étape $q$, nous avons un ensemble $x_1,\dots,x_\ell$ dont les orbites 
+  Supposons alors qu'au début de l'étape $q$, nous avons un ensemble $x_1,\dots,x_\ell$ avec $x_1,\dots,x_\ell \neq0$  dont les orbites 
   \begin{equation}
     \label{eq:27}
     x_1,Nx_1,\dots,N^{m_1-1}x_1, \,\dots \, ,  x_\ell,Nx_\ell,\dots,N^{m_\ell-1}x_\ell
@@ -863,7 +860,7 @@ En passant tous les termes sauf $x_i$ à gauche, on obtient  que $x_i$ est une c
 
 \textbf{Cas 2 :} \\
 Supposons que nous avons la combinaison linéaire ci-dessus, mais que nous ne sommes pas dans le cas $1$. \\
-Maintenant, nous allons appliquer l'application $N$ $k$-fois, où $k \geq 1$ est le plus grand entier tel que les termes 
+Maintenant, nous allons appliquer l'application $N$ $k$-fois, où $k \geq 0$ est le plus grand entier tel que les termes 
 \begin{displaymath}
   β_i^j N^{k+i}x_j 
 \end{displaymath}
@@ -876,12 +873,19 @@ Soit $m = \min_{j \in J} {m_j-1} \geq 1$ et soit $i \in J$ un index où le minim
  0 =  N^m  \sum_{j \in J} γ_j N^{m_j-1 - m}x_j  = N^m \left( γ_i x_i + \sum_{j \in J, j \neq i} γ_j N^{m_j-1 - m}x_j \right)
 \end{displaymath}
 
-Maintenant, on remplace $x_i$ par $$y = \sum_{j \in J} γ_j N^{m_j-1 - m}x_j = γ_i x_i + \sum_{j \in J, j \neq i} γ_j N^{m_j-1 - m}x_j$$ 
-Il est facile de voir que les orbites de 
+Maintenant, posant $$y = \sum_{j \in J} γ_j N^{m_j-1 - m}x_j = γ_i x_i + \sum_{j \in J, j \neq i} γ_j N^{m_j-1 - m}x_j$$ 
+Si $y \neq 0$, on remplace $x_i$ par $y$.
+Il est alors facile de voir que les orbites de 
 \begin{displaymath}
   x_1,\dots, x_{i-1},y,x_{i+1},\dots,x_\ell
 \end{displaymath}
 engendrent encore $V$. Et la durée de vie de $y$ est au plus $m<m_i$. \\
+Sinon, les orbites de
+\begin{displaymath}
+  x_1,\dots, x_{i-1},x_{i+1},\dots,x_\ell
+\end{displaymath}
+suffisent alors à engendrer $V$.
+
 On a alors démontré le théorème.  
 \end{proof}
 

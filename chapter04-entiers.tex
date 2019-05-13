@@ -10,7 +10,7 @@ Quand est-ce que un système d'équations linéaires possède une solution en no
 est soluble et trouver tous les solutions.
 
 
-Une condition nécessaire pour \eqref{eq:40} étant soluble est qu'il existe une solution $x ∈ℚ^n$. et alors que $\rank(A) = \rank(A|b)$. Aussi on peut supprimer une ligne de $(A|b)$ qui est dans le span des autres lignes. Alors on peut supposer que $A$ es de plein rang lignes, c'est à dire $\rank(A) = m$. 
+Une condition nécessaire et suffisante pour \eqref{eq:40} étant soluble est qu'il existe une solution $x ∈ℚ^n$. et alors que $\rank(A) = \rank(A|b)$. Aussi on peut supprimer une ligne de $A$ qui est dans le span des autres lignes sans changer l'ensemble des solutions. Alors on peut supposer que $A$ est de plein rang lignes, c'est à dire $\rank(A) = m$. 
 
 \begin{definition}
   \label{def:44}
@@ -32,12 +32,12 @@ Une condition nécessaire pour \eqref{eq:40} étant soluble est qu'il existe une
 \end{theorem}
 
 \begin{proof}
-  Soit $d$ un diviseur commun de $a$ et $b$. Alors il existent $x^*, y^* ∈ℤ$ tel que $a = d⋅x^*$ et $b = d ⋅y^*$. Si $x ⋅a + y ⋅ b≥1$ où $x,y ∈ℤ$, alors
+  Soit $d$ un diviseur commun  positif de $a$ et $b$ (si $d$ est négatif, on a trivialement $d \le  \min\{ x ⋅a + y ⋅ b： x,y ∈ℤ,  x ⋅a + y ⋅ b≥1\}$). Alors il existent $x^*, y^* ∈ℤ$ tel que $a = d⋅x^*$ et $b = d ⋅y^*$. Si $x ⋅a + y ⋅ b≥1$ où $x,y ∈ℤ$, alors
   \begin{displaymath}
-    x ⋅a + y ⋅ b = (x ⋅x^* + y ⋅ y^*)  d ≥ |d|. 
+    x ⋅a + y ⋅ b = (x ⋅x^* + y ⋅ y^*)  d ≥ d. 
   \end{displaymath}
-  Un diviseur commun est une borne inférieure du  $\min\{ x ⋅a + y ⋅ b： x,y ∈ℤ,  x ⋅a + y ⋅ b≥1\}$.
- Il reste à montrer que $\min$ est un diviseur commun de $a$ et $b$. Supposons que $\min \nmid a$. Alors
+  Finalement on a  $d \le \min\{ x ⋅a + y ⋅ b： x,y ∈ℤ,  x ⋅a + y ⋅ b≥1\}$.
+ Montrons que $\min\{ x ⋅a + y ⋅ b： x,y ∈ℤ,  x ⋅a + y ⋅ b≥1\}$ est un diviseur commun de $a$ et $b$. Supposons que $\min \nmid a$. Alors
   division avec reste implique l'existence de $q,r ∈ℤ$ tel que  
   \begin{displaymath}
     a = q ⋅ \min + r \quad \text{ et } \quad 1 \leq r < \min.
@@ -46,7 +46,9 @@ Une condition nécessaire pour \eqref{eq:40} étant soluble est qu'il existe une
   \begin{displaymath}
     1 ≤ r = a - q ⋅ (x ⋅a + y ⋅b) = (1-q⋅x) a - qy ⋅b.
   \end{displaymath}
-  C'est plus petit que $\min$ et alors une contradiction. C'est à dire $\min \mid a$. Également, on montre $\min \mid b$. 
+  C'est plus petit que $\min$ ce qui est absurde. C'est à dire $\min \mid a$. De façon analogue, on obtient $\min \mid b$.
+  Aussi, on a montré que pour tout diviseur commun $d$ de $a$ et $b$, $\min\{ x ⋅a + y ⋅ b： x,y ∈ℤ,  x ⋅a + y ⋅ b≥1\}\geq d$ et donc $\min\{ x ⋅a + y ⋅ b： x,y ∈ℤ,  x ⋅a + y ⋅ b≥1\}= \gcd(a,b)$
+  
 \end{proof}
 
 
@@ -225,7 +227,7 @@ où
     h_{11} \\
     h_{21} & h_{22}\\
     &  & \ddots \\
-    h_{n1} & \hdots & \hdots & h_{nn}
+    h_{m1} & \hdots & \hdots & h_{mm}
   \end{pmatrix}
 \end{displaymath}
 est une matrice triangulaire. Le problème~\eqref{eq:40} alors est soluble si et seulement si
@@ -349,27 +351,22 @@ Soit
 \end{lemma}
 
 \begin{proof}
-  Si la première ligne ne pas de cette forme, et possède seulement une
-  composante qui n'est pas égale à zéro, on échange colonnes tel que
-  le résultat est de cette forme.
-  
-  Autrement, il existent deux indexes $j_1\neq j_2$ de colonnes, tel
-  que $a_{1j_1}\neq 0$ et $a_{1j_2} \neq 0$. On peut supposer
-  $|a_{1j_1}| ≥ |a_{1j_2}|$. Division avec reste nous donne $q ∈ℤ$ et
-  $0 ≤r < |a_{1j_2}|$ tel que
-  \begin{displaymath}
-    a_{1j_1} = q ⋅ a_{1j_2} + r. 
-  \end{displaymath}
-  On applique l'opération unimudulaire: \emph{Soustraire $q$ fois
-    colonne $j_2$ de colonne $j_1$} remplace $a_{1j_1}$ avec $r$ et
-  laisse les autres composantes de la première ligne intacte.  Des que
-    \begin{displaymath}
-      0 < |r|+ |a_{1j_2}|<  |a_{1j_{1}}|+ |a_{1j_2}|
-    \end{displaymath}
-    cette procédé ne peut être répété infiniment. Alors il existe une
-    matrice unimodulaire qui transforme $A$ en matrice, où la première
-    ligne possède une seule composante non zéro et un échange de
-    colonnes transforme en forme désirée.
+On note $\begin{matrix}  A =& \begin{pmatrix}  l_1  \\ ...  \\l_m   \end{pmatrix}  \end{matrix}$  et $l_1=\begin{pmatrix}  a_1 &... & a_n  \end{pmatrix}$.
+$ \\ $
+$ \\ $
+On raisonne par récurrence sur $\sum_{i=0}^{n}{|a_i|}$
+$ \\ $$ \\ $
+$\underline{k=0}$ alors $\forall i \in \mathbb{N}_n$, $a_i=0$ et l'assertion est trivialement vraie.
+$ \\ $
+$\underline{k>0}$ alors $\exists j_1 \neq j_2 \in \mathbb{N}_n$ tels que $a_{j_1} \neq 0$ et $a_{j_2} \neq 0$.
+$ \\ $
+On peut alors supposer $|a_{j_1}| \ge |a_{j_2}|$. Ainsi en effectuant la division euclidienne de $a_{j_1}$ par $a_{j_2}$ on obtient 
+$ \\ $ 
+$a_{j_1}=q \times a_{j_2}+r$ avec $q, r \in \mathbb{Z}$ et $0 \le r < |a_{j_2}|$
+$ \\ $ 
+Dès lors on applique l'opération unimodulaire \emph{Soustraire $q$ fois la colonne $j_2$ à colonne $j_1$} ce qui remplace alors $a_{j_1}$ par $r$ et laisse les autres composantes de la première lignes inchangées.
+Ainsi on a on a $\sum_{i=0\\i\neq j_1}^{n}{|a_i|} + r < \sum_{i=0}^{n}{|a_i|}=k$ et on peut appliquer notre hypothèse de récurrence.
+
   \end{proof}
 
   \begin{corollary}
@@ -386,7 +383,7 @@ Soit
         a  & A'
       \end{pmatrix}
     \end{displaymath}
-    où $d ∈ℤ$, $a ∈ ℤ^{m-1}$ et $A' ∈ ℤ^{(m-1) × (n-1)$. Par l'hypothèse d'induction, il existe une matrice unimudulaire $U_2 ∈ℤ{(n-1) ×(n-1)}$ tel $A' U_2$ est de la forme désirée. Clairement
+    où $d ∈ℤ$, $a ∈ ℤ^{m-1}$ et $A' ∈ ℤ^{(m-1) × (n-1)}$. Par l'hypothèse d'induction, il existe une matrice unimudulaire $U_2 ∈ℤ{(n-1) ×(n-1)}$ tel $A' U_2$ est de la forme désirée. Clairement
       \begin{displaymath}
          \begin{pmatrix}
           1 & 0^T \\
@@ -408,11 +405,36 @@ Soit
 
   \begin{definition}
     \label{def:49}
-    Une matrice $A ∈ℤ^{m ×n}$ du rang $m$ est en \emph{forme normale de Hermite}, si elle est de la forme \eqref{eq:44}, où $r_{ii}>0$ pour tous $i$ et $0≤ r_{ij} < r_{ii}$ pour tout $i<j$. 
+    Une matrice $A ∈ℤ^{m ×n}$ du rang $m$ est en \emph{forme normale de Hermite}, si elle est de la forme \eqref{eq:44}, où $r_{ii}>0$ pour tous $i$ et $0≤ r_{ij} < r_{ii}$ pour tout $j<i$. 
   \end{definition}
+	
+\begin{theorem}
+  \label{thr:28}
+    Soit  $A ∈ℤ^{ m ×n}$ une matrice en nombre entiers alors il  existe une matrice unimudulaire $U ∈ℤ^{ n ×n}$ tel que $A ⋅U$ est en \emph{forme normale de Hermite}.
+  \end{theorem}
+  
+  \begin{definition}
+    \label{def:49}
+    Soit $A \in \mathbb{Z}^{m\times n}$ tq. $rang(A)=m$ alors on pose $\Lambda(A):=\left\{ Ax,x\in \mathbb{Z}^{n\times n} \right\}$ Le réseau entier de $A$. Aussi $U \in \mathbb{Z}^{n\times n}$ tq. $\Lambda(A)=\Lambda(B)$ est appelée base de $\Lambda(A)$.
+     \end{definition}
+	
+ \begin{corollary}
+    \label{co:9}
+    Chaque réseau entier possède une base.
+     \end{corollary}
+     \begin{proof}
+     On a $U ∈ℤ^{ n ×n}$ unimodulaire tq. $A ⋅ U = [H | 0]$ et $H$ est en forme normale de Hermite. Il est alors simple de remarquer que $\Lambda(A)=\Lambda(H)$. Dès lors H est une base du réseau entier de $A$.
+     
+     \end{proof}
+      \begin{theorem}
+  \label{thr:28}
+  Soient $A,B \in \mathbb{Z}^{m\times n}$ tq. $rang(A)=rang(B)=m$. Alors $\Lambda(A)=\Lambda(B) \Leftrightarrow H_A=H_B$ ou $H_A$(resp $H_B$) dénote une forme normale de Hermite de $A$ (resp $B$).
+  \end{theorem}
+      
 
-
-
+  
+    
+    
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "notes"
