@@ -444,12 +444,74 @@ Soit
 
   \begin{theorem}
     \label{thr:28}
-    Soient $A,B \in \mathbb{Z}^{m\times m}$ en forme normale de Hermite.
-    
+    Soient $A,B \in \mathbb{Z}^{m\times m}$ en forme normale de Hermite.    Alors $Λ(A) = Λ(B)$ si et seulement si $A = B$. 
   \end{theorem}
-      
 
+
+  \begin{remark}
+    \label{rem:5}
+    Théorème~\ref{thr:28} nous permet de tester  pour $A ∈ℤ^{m × n_1}$ et $B ∈ℤ^{m × n_2}$ de plein rang lignes, si $Λ(A) = Λ(B)$.  On calcule $(H_A|0)$ et $(H_B|0)$ les formes normales de Hermite de $A$ et $B$. Des que $Λ(A) =Λ(H_A)$ et $Λ(B) = Λ(H_B)$, alors $Λ(A) = Λ(B)$ si et seulement si $H_A = H_B$. 
+  \end{remark}
+
+  \begin{example}
+    \label{exe:29}
+    On va transformer $A = \left(\begin{matrix}4 & 6 & 10\\6 & 12 & 9\end{matrix}\right)$ en forme normale Hermite et trouver tout les solutions entier de
+    \begin{equation}
+      \label{eq:46}
+      \left(\begin{matrix}4 & 6 & 10\\6 & 12 & 9\end{matrix}\right) x =
+      \begin{pmatrix}
+        6 \\ 3
+      \end{pmatrix}, \, x ∈ ℤ^3. 
+    \end{equation}
+    
+    \begin{equation}
+      \label{eq:45}
+      \begin{array}{cc}
+      \left(\begin{matrix}4 & 6 & 10\\6 & 12 & 9\end{matrix}\right) &  
+\left(\begin{matrix}1 & 0 & 0\\0 & 1 & 0\\0 & 0 & 1\end{matrix}\right) \\
+
+\left(\begin{matrix}4 & 2 & 2\\6 & 6 & -3\end{matrix}\right) &  
+\left(\begin{matrix}1 & -1 & -2\\0 & 1 & 0\\0 & 0 & 1\end{matrix}\right) \\
+
+\left(\begin{matrix}2 & 4 & 2\\6 & 6 & -3\end{matrix}\right) &
+\left(\begin{matrix}-1 & 1 & -2\\1 & 0 & 0\\0 & 0 & 1\end{matrix}\right)\\
+
+\left(\begin{matrix}2 & 0 & 0\\6 & -6 & -9\end{matrix}\right)&
+\left(\begin{matrix}-1 & 3 & -1\\1 & -2 & -1\\0 & 0 & 1\end{matrix}\right)\\
+
+\left(\begin{matrix}2 & 0 & 0\\6 & 3 & -9\end{matrix}\right) &
+\left(\begin{matrix}-1 & 4 & -1\\1 & -1 & -1\\0 & -1 & 1\end{matrix}\right)\\
+
+\left(\begin{matrix}2 & 0 & 0\\6 & 3 & 0\end{matrix}\right) &
+\left(\begin{matrix}-1 & 4 & 11\\1 & -1 & -4\\0 & -1 & -2\end{matrix}\right)\\
+
+
+\left(\begin{matrix}2 & 0 & 0\\0 & 3 & 0\end{matrix}\right) &
+\left(\begin{matrix}-9 & 4 & 11\\3 & -1 & -4\\2 & -1 & -2\end{matrix}\right)\\
+      \end{array}      
+    \end{equation}
+
+    L'ensemble des  solutions entiers de~\eqref{eq:46} est 
+    \begin{displaymath}
+      \left\{ \left(\begin{matrix}-23\\8\\5\end{matrix}\right) + \left(\begin{matrix}11\\-4\\2\end{matrix}\right) ⋅z ： z ∈ℤ\right\}
+    \end{displaymath}
+    
+  \end{example}
   
+\section*{Exercices}
+\begin{enumerate}
+\item Soit $A ∈ℤ^{m ×n}$ du plein rang lignes. Le noyaux entier de $A$ est l'ensemble
+  \begin{displaymath}
+    \ker_ℤ(A) = \{x ∈ℤ^n ： Ax = 0\}. 
+  \end{displaymath}
+  Soit  $U ∈ℤ^{n ×n}$ une matrice unimodulaire tel que
+  \begin{displaymath}
+    A ⋅ U = (H | 0) 
+  \end{displaymath}
+  est on forme normale de Hermite.
+  Montrer $\ker_ℤ(A) = \{ y_1 u_1 + \cdots + y_{n-m} u_{n-m} ： y_i ∈ℤ\}$ où $u_1,\dots,u_{n-m}$ sont les derniers $n-m$ colonnes de $U$. 
+\end{enumerate}
+
     
     
 %%% Local Variables:
