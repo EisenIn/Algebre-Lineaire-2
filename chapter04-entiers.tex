@@ -447,7 +447,17 @@ Soit
     Soient $A,B \in \mathbb{Z}^{m\times m}$ en forme normale de Hermite.    Alors $Λ(A) = Λ(B)$ si et seulement si $A = B$. 
   \end{theorem}
 
+ \begin{proof}
+ $\\$
+ $\boxed { \Leftarrow  }$  Trivial.$\\$
+ $\\$ 
+$ \boxed { \Rightarrow  }$ On montre qui si $A\neq B$ alors $\Lambda(A) \neq \Lambda(B)$.$\\$
+Supposons alors que $\Lambda(A) =\Lambda(B)$.$\\$
+On note $A=\begin{pmatrix} a_{ 11 } & \quad  & \quad  \\ \quad  & \ddots  & \quad  \\ a_{m1}  & \quad  & a_{ mm } \end{pmatrix}$ et $B=\begin{pmatrix} b_{ 11 } & \quad  & \quad  \\ \quad  & \ddots  & \quad  \\ a_{m1}  & \quad  & b_{ mm } \end{pmatrix}$. $\\$
+Soit $i$ minimal tel que les $i-eme$ lignes de $A$ et de $B$ soient différentes. Alors $\exists j \in \left\{ 1,\dots ,i  \right\}$  tel que $a_{ij} \neq b_{ij}$ et sans perte de généralité on a $a_{ij}<b_{ij}$ . Clairement en notant $A_j$ ( resp $B_j$) la $j-eme$ colonne de $A$ (resp $B$), on a $A_j - B_j = \begin{pmatrix} 0 \\ \vdots  \\ 0\\ a_{ ij }-b_{ ij } \\ \vdots  \end{pmatrix} \in \Lambda (A)$ avec $a_{ii}>a_{ij}-b_{ij}>0$ mais alors nécessairement $a_{ii}|a_{ij}-b_{ij}$ ce qui est une contradiction.
+$\\$
 
+ \end{proof}
   \begin{remark}
     \label{rem:5}
     Théorème~\ref{thr:28} nous permet de tester  pour $A ∈ℤ^{m × n_1}$ et $B ∈ℤ^{m × n_2}$ de plein rang lignes, si $Λ(A) = Λ(B)$.  On calcule $(H_A|0)$ et $(H_B|0)$ les formes normales de Hermite de $A$ et $B$. Des que $Λ(A) =Λ(H_A)$ et $Λ(B) = Λ(H_B)$, alors $Λ(A) = Λ(B)$ si et seulement si $H_A = H_B$. 
@@ -497,6 +507,34 @@ Soit
     \end{displaymath}
     
   \end{example}
+  
+  \begin{definition}
+   \label{def:49}
+   Soit $A \in \mathbb{Z}^{m \times n}$ alors $ker_{\mathbb{Z}}(A) = \left\{ y \in \mathbb{Z}^n, Ay=0 \right\}  $.
+  \end{definition}
+  
+    \begin{theorem}
+    \label{thr:28}
+    Soient $A,B \in \mathbb{Z}^{m \times m}$ en forme normale de Jordan avec $rang(A)=rang(B)=m$. Alors $\Lambda(A)=\Lambda(B) \Leftrightarrow \exists U\in \mathbb{Z}^{m \times m}$ unimodulaire telle que $B=AU$.
+    \end{theorem}
+    
+    \begin{proof}
+    $\\$
+    $\boxed { \Rightarrow  }$ Si $\Lambda(A)=\Lambda(B)$ alors $\\$ $A=BP, P\in \mathbb{Z}^{m \times m}$ $\\$ $B=AQ, Q\in \mathbb{Z}^{m \times m}$ $\\$ alors on obtient $A=AQP$ ce qui implique $QP=I_m$ et donc on a bien $P,Q$ unimodulaires.
+    $\\$
+    $\boxed { \Leftarrow  }$ Si $B=AU, U\in \mathbb{Z}^{m \times m}$ unimodulaire alors comme $U \mathbb{Z}^{m}= \mathbb{Z}^{m}$ on obtient immédiatement  $\Lambda(A)=\Lambda(B)$.
+    \end{proof}
+    
+    \begin{definition}
+   	\label{def:49}
+	Soient $A\in \mathbb{Z}^{m \times n}$ avec $rang(A)=m$ et $\Lambda(A)$ le réseau entier de $A$. Alors on pose $det(\Lambda(A))=|det(B)|$ ou $B \in \mathbb{Z}^{m \times m}$ est une base de $\Lambda(A)$
+   
+   \end{definition}
+   
+   \begin{remark}
+    \label{rem:5}
+    Le théorème~\ref{thr:28} assure que $|det(B)|$ ne dépend pas du choix de $B$ et donc $det(\Lambda(A))$ a du sens.
+    \end{remark}
   
 \section*{Exercices}
 \begin{enumerate}
