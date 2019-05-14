@@ -219,3 +219,5 @@ Programming/CMakeFiles/Test.o.dir/depend.make
 Programming/CMakeFiles/Test.o.dir/flags.make
 Programming/CMakeFiles/Test.o.dir/progress.make
 Programming/compile_commands.json
+*.tex#
+.#chapter04-entiers.tex

@@ -10,7 +10,8 @@ Quand est-ce que un système d'équations linéaires possède une solution en no
 est soluble et trouver tous les solutions.
 
 
-Une condition nécessaire et suffisante pour \eqref{eq:40} étant soluble est qu'il existe une solution $x ∈ℚ^n$. et alors que $\rank(A) = \rank(A|b)$. Aussi on peut supprimer une ligne de $A$ qui est dans le span des autres lignes sans changer l'ensemble des solutions. Alors on peut supposer que $A$ est de plein rang lignes, c'est à dire $\rank(A) = m$. 
+
+Une condition nécessaire pour \eqref{eq:40} étant soluble est qu'il existe une solution $x ∈ℚ^n$. et alors que $\rank(A) = \rank(A|b)$. Aussi on peut supprimer une ligne de $(A|b)$ qui est dans le span des autres lignes. Alors on peut supposer que $A$ es de plein rang lignes, c'est à dire $\rank(A) = m$. 
 
 \begin{definition}
   \label{def:44}
@@ -32,9 +33,9 @@ Une condition nécessaire et suffisante pour \eqref{eq:40} étant soluble est qu
 \end{theorem}
 
 \begin{proof}
-  Soit $d$ un diviseur commun  positif de $a$ et $b$ (si $d$ est négatif, on a trivialement $d \le  \min\{ x ⋅a + y ⋅ b： x,y ∈ℤ,  x ⋅a + y ⋅ b≥1\}$). Alors il existent $x^*, y^* ∈ℤ$ tel que $a = d⋅x^*$ et $b = d ⋅y^*$. Si $x ⋅a + y ⋅ b≥1$ où $x,y ∈ℤ$, alors
+  Soit $d$ un diviseur commun de $a$ et $b$. Alors il existent $x^*, y^* ∈ℤ$ tel que $a = d⋅x^*$ et $b = d ⋅y^*$. Si $x ⋅a + y ⋅ b≥1$ où $x,y ∈ℤ$, alors
   \begin{displaymath}
-    x ⋅a + y ⋅ b = (x ⋅x^* + y ⋅ y^*)  d ≥ d. 
+    x ⋅a + y ⋅ b = (x ⋅x^* + y ⋅ y^*)  d ≥ |d|. 
   \end{displaymath}
   Finalement on a  $d \le \min\{ x ⋅a + y ⋅ b： x,y ∈ℤ,  x ⋅a + y ⋅ b≥1\}$.
  Montrons que $\min\{ x ⋅a + y ⋅ b： x,y ∈ℤ,  x ⋅a + y ⋅ b≥1\}$ est un diviseur commun de $a$ et $b$. Supposons que $\min \nmid a$. Alors
@@ -351,22 +352,28 @@ Soit
 \end{lemma}
 
 \begin{proof}
-On note $\begin{matrix}  A =& \begin{pmatrix}  l_1  \\ ...  \\l_m   \end{pmatrix}  \end{matrix}$  et $l_1=\begin{pmatrix}  a_1 &... & a_n  \end{pmatrix}$.
-$ \\ $
-$ \\ $
-On raisonne par récurrence sur $\sum_{i=0}^{n}{|a_i|}$
-$ \\ $$ \\ $
-$\underline{k=0}$ alors $\forall i \in \mathbb{N}_n$, $a_i=0$ et l'assertion est trivialement vraie.
-$ \\ $
-$\underline{k>0}$ alors $\exists j_1 \neq j_2 \in \mathbb{N}_n$ tels que $a_{j_1} \neq 0$ et $a_{j_2} \neq 0$.
-$ \\ $
-On peut alors supposer $|a_{j_1}| \ge |a_{j_2}|$. Ainsi en effectuant la division euclidienne de $a_{j_1}$ par $a_{j_2}$ on obtient 
-$ \\ $ 
-$a_{j_1}=q \times a_{j_2}+r$ avec $q, r \in \mathbb{Z}$ et $0 \le r < |a_{j_2}|$
-$ \\ $ 
-Dès lors on applique l'opération unimodulaire \emph{Soustraire $q$ fois la colonne $j_2$ à colonne $j_1$} ce qui remplace alors $a_{j_1}$ par $r$ et laisse les autres composantes de la première lignes inchangées.
-Ainsi on a on a $\sum_{i=0\\i\neq j_1}^{n}{|a_i|} + r < \sum_{i=0}^{n}{|a_i|}=k$ et on peut appliquer notre hypothèse de récurrence.
 
+    Si la première ligne n'est pas de cette forme, et si elle possède seulement une
+  composante qui n'est pas égale à zéro, on échange colonnes tel que
+  le résultat est de cette forme.
+  
+  Autrement, il existent deux indexes $j_1\neq j_2$ de colonnes, tel
+  que $a_{1j_1}\neq 0$ et $a_{1j_2} \neq 0$. On peut supposer
+  $|a_{1j_1}| ≥ |a_{1j_2}|$. Division avec reste nous donne $q ∈ℤ$ et
+  $0 ≤r < |a_{1j_2}|$ tel que
+  \begin{displaymath}
+    a_{1j_1} = q ⋅ a_{1j_2} + r. 
+  \end{displaymath}
+  On applique l'opération unimudulaire: \emph{Soustraire $q$ fois
+    colonne $j_2$ de colonne $j_1$} remplace $a_{1j_1}$ avec $r$ et
+  laisse les autres composantes de la première ligne intacte.  Des que
+    \begin{displaymath}
+      0 < |r|+ |a_{1j_2}|<  |a_{1j_{1}}|+ |a_{1j_2}|
+    \end{displaymath}
+    cette procédé ne peut être répété infiniment. Alors il existe une
+    matrice unimodulaire qui transforme $A$ en matrice, où la première
+    ligne possède une seule composante non zéro et un échange de
+    colonnes transforme en forme désirée.
   \end{proof}
 
   \begin{corollary}
@@ -383,7 +390,7 @@ Ainsi on a on a $\sum_{i=0\\i\neq j_1}^{n}{|a_i|} + r < \sum_{i=0}^{n}{|a_i|}=k$
         a  & A'
       \end{pmatrix}
     \end{displaymath}
-    où $d ∈ℤ$, $a ∈ ℤ^{m-1}$ et $A' ∈ ℤ^{(m-1) × (n-1)}$. Par l'hypothèse d'induction, il existe une matrice unimudulaire $U_2 ∈ℤ{(n-1) ×(n-1)}$ tel $A' U_2$ est de la forme désirée. Clairement
+    où $d ∈ℤ$, $a ∈ ℤ^{m-1}$ et $A' ∈ ℤ^{(m-1) × (n-1)}$. Par l'hypothèse d'induction, il existe une matrice unimudulaire $U_2 ∈ℤ^{(n-1) ×(n-1)}$ tel $A' U_2$ est de la forme désirée. Clairement
       \begin{displaymath}
          \begin{pmatrix}
           1 & 0^T \\
@@ -405,7 +412,7 @@ Ainsi on a on a $\sum_{i=0\\i\neq j_1}^{n}{|a_i|} + r < \sum_{i=0}^{n}{|a_i|}=k$
 
   \begin{definition}
     \label{def:49}
-    Une matrice $A ∈ℤ^{m ×n}$ du rang $m$ est en \emph{forme normale de Hermite}, si elle est de la forme \eqref{eq:44}, où $r_{ii}>0$ pour tous $i$ et $0≤ r_{ij} < r_{ii}$ pour tout $j<i$. 
+    Une matrice $A ∈ℤ^{m ×n}$  est en \emph{forme normale de Hermite}, si elle est de la forme \eqref{eq:44}, où $r_{ii}>0$ pour tous $1 ≤i≤ m$ et $0≤ r_{ij} < r_{ii}$ pour tout $1≤j<i≤m$. 
   \end{definition}
 	
 \begin{theorem}
@@ -415,24 +422,96 @@ Ainsi on a on a $\sum_{i=0\\i\neq j_1}^{n}{|a_i|} + r < \sum_{i=0}^{n}{|a_i|}=k$
   
   \begin{definition}
     \label{def:49}
-    Soit $A \in \mathbb{Z}^{m\times n}$ tq. $rang(A)=m$ alors on pose $\Lambda(A):=\left\{ Ax,x\in \mathbb{Z}^{n\times n} \right\}$ Le réseau entier de $A$. Aussi $U \in \mathbb{Z}^{n\times n}$ tq. $\Lambda(A)=\Lambda(B)$ est appelée base de $\Lambda(A)$.
-     \end{definition}
+    Soit $A \in \mathbb{Z}^{m\times n}$ et  $rang(A)=m$. L'ensemble  $\Lambda(A):=\left\{ Ax,x\in \mathbb{Z}^{n\times n} \right\}$ est  un \emph{réseau entier généré}  de $A$. Une matrice  $B \in \mathbb{Z}^{m\times m}$ telle que  $\Lambda(A)=\Lambda(B)$ est appelée base de $\Lambda(A)$. 
+  \end{definition}
+
+  \begin{remark}
+    Une  \emph{base} $B ∈ ℤ^{m ×m}$  de $Λ(A)$ est inversible. 
+  \end{remark}
 	
  \begin{corollary}
     \label{co:9}
     Chaque réseau entier possède une base.
-     \end{corollary}
-     \begin{proof}
-     On a $U ∈ℤ^{ n ×n}$ unimodulaire tq. $A ⋅ U = [H | 0]$ et $H$ est en forme normale de Hermite. Il est alors simple de remarquer que $\Lambda(A)=\Lambda(H)$. Dès lors H est une base du réseau entier de $A$.
-     
-     \end{proof}
-      \begin{theorem}
-  \label{thr:28}
-  Soient $A,B \in \mathbb{Z}^{m\times n}$ tq. $rang(A)=rang(B)=m$. Alors $\Lambda(A)=\Lambda(B) \Leftrightarrow H_A=H_B$ ou $H_A$(resp $H_B$) dénote une forme normale de Hermite de $A$ (resp $B$).
-  \end{theorem}
-      
+  \end{corollary}
 
+
+  \begin{proof}
+    On a $U ∈ℤ^{ n ×n}$ unimodulaire tq. $A ⋅ U = [H | 0]$ et $H$ est
+    en forme normale de Hermite. Il est alors simple de remarquer que
+    $\Lambda(A)=\Lambda(H)$. Dès lors $H$ est une base du réseau
+    entier $Λ(A)$.
+  \end{proof}
+
+  \begin{theorem}
+    \label{thr:28}
+    Soient $A,B \in \mathbb{Z}^{m\times m}$ en forme normale de Hermite.    Alors $Λ(A) = Λ(B)$ si et seulement si $A = B$. 
+  \end{theorem}
+
+
+  \begin{remark}
+    \label{rem:5}
+    Théorème~\ref{thr:28} nous permet de tester  pour $A ∈ℤ^{m × n_1}$ et $B ∈ℤ^{m × n_2}$ de plein rang lignes, si $Λ(A) = Λ(B)$.  On calcule $(H_A|0)$ et $(H_B|0)$ les formes normales de Hermite de $A$ et $B$. Des que $Λ(A) =Λ(H_A)$ et $Λ(B) = Λ(H_B)$, alors $Λ(A) = Λ(B)$ si et seulement si $H_A = H_B$. 
+  \end{remark}
+
+  \begin{example}
+    \label{exe:29}
+    On va transformer $A = \left(\begin{matrix}4 & 6 & 10\\6 & 12 & 9\end{matrix}\right)$ en forme normale Hermite et trouver tout les solutions entier de
+    \begin{equation}
+      \label{eq:46}
+      \left(\begin{matrix}4 & 6 & 10\\6 & 12 & 9\end{matrix}\right) x =
+      \begin{pmatrix}
+        6 \\ 3
+      \end{pmatrix}, \, x ∈ ℤ^3. 
+    \end{equation}
+    
+    \begin{equation}
+      \label{eq:45}
+      \begin{array}{cc}
+      \left(\begin{matrix}4 & 6 & 10\\6 & 12 & 9\end{matrix}\right) &  
+\left(\begin{matrix}1 & 0 & 0\\0 & 1 & 0\\0 & 0 & 1\end{matrix}\right) \\
+
+\left(\begin{matrix}4 & 2 & 2\\6 & 6 & -3\end{matrix}\right) &  
+\left(\begin{matrix}1 & -1 & -2\\0 & 1 & 0\\0 & 0 & 1\end{matrix}\right) \\
+
+\left(\begin{matrix}2 & 4 & 2\\6 & 6 & -3\end{matrix}\right) &
+\left(\begin{matrix}-1 & 1 & -2\\1 & 0 & 0\\0 & 0 & 1\end{matrix}\right)\\
+
+\left(\begin{matrix}2 & 0 & 0\\6 & -6 & -9\end{matrix}\right)&
+\left(\begin{matrix}-1 & 3 & -1\\1 & -2 & -1\\0 & 0 & 1\end{matrix}\right)\\
+
+\left(\begin{matrix}2 & 0 & 0\\6 & 3 & -9\end{matrix}\right) &
+\left(\begin{matrix}-1 & 4 & -1\\1 & -1 & -1\\0 & -1 & 1\end{matrix}\right)\\
+
+\left(\begin{matrix}2 & 0 & 0\\6 & 3 & 0\end{matrix}\right) &
+\left(\begin{matrix}-1 & 4 & 11\\1 & -1 & -4\\0 & -1 & -2\end{matrix}\right)\\
+
+
+\left(\begin{matrix}2 & 0 & 0\\0 & 3 & 0\end{matrix}\right) &
+\left(\begin{matrix}-9 & 4 & 11\\3 & -1 & -4\\2 & -1 & -2\end{matrix}\right)\\
+      \end{array}      
+    \end{equation}
+
+    L'ensemble des  solutions entiers de~\eqref{eq:46} est 
+    \begin{displaymath}
+      \left\{ \left(\begin{matrix}-23\\8\\5\end{matrix}\right) + \left(\begin{matrix}11\\-4\\2\end{matrix}\right) ⋅z ： z ∈ℤ\right\}
+    \end{displaymath}
+    
+  \end{example}
   
+\section*{Exercices}
+\begin{enumerate}
+\item Soit $A ∈ℤ^{m ×n}$ du plein rang lignes. Le noyaux entier de $A$ est l'ensemble
+  \begin{displaymath}
+    \ker_ℤ(A) = \{x ∈ℤ^n ： Ax = 0\}. 
+  \end{displaymath}
+  Soit  $U ∈ℤ^{n ×n}$ une matrice unimodulaire tel que
+  \begin{displaymath}
+    A ⋅ U = (H | 0) 
+  \end{displaymath}
+  est on forme normale de Hermite.
+  Montrer $\ker_ℤ(A) = \{ y_1 u_1 + \cdots + y_{n-m} u_{n-m} ： y_i ∈ℤ\}$ où $u_1,\dots,u_{n-m}$ sont les derniers $n-m$ colonnes de $U$. 
+\end{enumerate}
+
     
     
 %%% Local Variables:
