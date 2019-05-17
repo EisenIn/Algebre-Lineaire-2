@@ -582,14 +582,14 @@ A partir de maintenant, on se donne une matrice $A\in \mathbb{Z}^{m\times n}$ av
     \end{theorem}
     
     \begin{proof}
-    Soit $(v_1,\dots,v_k) \in G^k$ tq.  $(v_1,\dots,v_k$ est une base de $span(G)$ (qui existe car on peut toujours extraire une base d'un espace de dimension fini d'une partie génératrice même infinie). Alors posons $B=(v_1\dots v_k)$$\\$
+    Soit $(v_1,\dots,v_k) \in G^k$ tq.  $(v_1,\dots,v_k)$ est une base de $span(G)$ (qui existe car on peut toujours extraire une base d'un espace de dimension fini d'une partie génératrice même infinie). Alors posons $B=(v_1\dots v_k)$$\\$
     \underline { cas\quad 1: } $\Lambda(B)=G$ et c'est terminé. $\\$
      \underline { cas\quad 2: }  $\Lambda(B)\subsetneq G$ alors $\exists v^* \in G-\Lambda(B)$. Soit alors $B^* \in \mathbb{Z}^{n \times k}$ une base générale du réseau général $G\supseteq \Lambda(v_1\dots v_k v^*)\supsetneq  \Lambda(B)$. Alors $\exists U\in \mathbb{Z}^{k \times k}$ tq. $B=B^*U$ et on a nécessairement $|det(U)| \in \mathbb{N} _{\ge 2}$. Dés lors on peut remarquer que $|det({B^TB})|=det(U)^2\times|det(B^{*^{T}}B^*)|$ et donc $|det({B^TB})|\le \frac { 1 }{ 4 } |det({B^TB})|$ mais comme $|det(B^{*^{T}}B^*)|\ge 1$ et on peut répéter ces opérations sur $B^*$ mais ce procédé ne peut pas continuer indéfiniment.
     \end{proof}
     
      \begin{theorem}
     \label{thr:28}
-    Soit $A \in \mathbb{Z}^{m\times n} - \left\{ 0 \right\} $ alors $\exists U \in \mathbb{Z}^{m\times m}$ et $V \mathbb{Z}^{n\times n}$ unimodulaires tq. $UAV = \begin{pmatrix} \delta _{ 1 } & \quad & \quad  & \quad & \quad \\ \quad & \ddots  & \quad & \quad & \quad \\  \quad&  \quad& \delta _{ k } & \quad & \quad \\ \quad & \quad & \quad & \quad &\quad  \end{pmatrix}$  avec $\delta_i \in \mathbb{N}_{\ge1}$ et $\delta_1|...|\delta_k$ et les coefficients non specifiés sont 0.
+    Soit $A \in \mathbb{Z}^{m\times n} - \left\{ 0 \right\} $ alors $\exists U \in \mathbb{Z}^{m\times m}$ et $V \in \mathbb{Z}^{n\times n}$ unimodulaires tq. $UAV = \begin{pmatrix} \delta _{ 1 } & \quad & \quad  & \quad & \quad \\ \quad & \ddots  & \quad & \quad & \quad \\  \quad&  \quad& \delta _{ k } & \quad & \quad \\ \quad & \quad & \quad & \quad &\quad  \end{pmatrix}$  avec $\delta_i \in \mathbb{N}_{\ge1}$ et $\delta_1|...|\delta_k$ et les coefficients non specifiés sont 0.
     \end{theorem}
 \begin{proof}
 On raisonne par récurrence sur m.$\\$
