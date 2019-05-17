@@ -11,13 +11,19 @@
 *.cb
 *.cb2
 
+## emacs
+*.el
+auto/*
+*~
+
+
 ## Intermediate documents:
 *.dvi
 *-converted-to.*
 # these rules might exclude image files for figures etc.
 # *.ps
 # *.eps
-# *.pdf
+ *.pdf
 
 ## Bibliography auxiliary files (bibtex/biblatex/biber):
 *.bbl
@@ -178,3 +184,40 @@ TSWLatexianTemp*
 
 # KBibTeX
 *~[0-9]*
+*.pdf
+Programming/cmake_install.cmake
+Programming/CMakeCache.txt
+
+Programming/CMakeFiles/cmake.check_cache
+Programming/CMakeFiles/CMakeDirectoryInformation.cmake
+Programming/CMakeFiles/feature_tests.bin
+
+Programming/CMakeFiles/feature_tests.c
+Programming/CMakeFiles/feature_tests.cxx
+Programming/CMakeFiles/Makefile.cmake
+Programming/CMakeFiles/Makefile2
+Programming/CMakeFiles/progress.marks
+Programming/CMakeFiles/TargetDirectories.txt
+Programming/CMakeFiles/Test.dir/cmake_clean.cmake
+Programming/CMakeFiles/Test.dir/CXX.includecache
+Programming/CMakeFiles/Test.dir/depend.internal
+Programming/CMakeFiles/Test.dir/DependInfo.cmake
+Programming/CMakeFiles/Test.dir/link.txt
+Programming/CMakeFiles/Test.dir/Test.cpp.o
+Programming/CMakeFiles/Test.o.dir/cmake_clean.cmake
+Programming/CMakeFiles/Test.o.dir/DependInfo.cmake
+Programming/CMakeFiles/Test.o.dir/link.txt
+Programming/Makefile
+Programming/Test
+Programming/Test.o
+Programming/CMakeFiles/Test.dir/build.make
+Programming/CMakeFiles/Test.dir/depend.make
+Programming/CMakeFiles/Test.dir/flags.make
+Programming/CMakeFiles/Test.dir/progress.make
+Programming/CMakeFiles/Test.o.dir/build.make
+Programming/CMakeFiles/Test.o.dir/depend.make
+Programming/CMakeFiles/Test.o.dir/flags.make
+Programming/CMakeFiles/Test.o.dir/progress.make
+Programming/compile_commands.json
+*.tex#
+.#chapter04-entiers.tex

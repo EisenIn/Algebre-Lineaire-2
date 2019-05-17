@@ -15,7 +15,7 @@ où $\phi_B$ est l'ismomorphisme $\phi_B \colon V \longrightarrow K^n$, $\phi_B(
     K^n     @>A_B \cdot x>>  K^n
   \end{CD}} 
 \end{displaymath} 
-Les colonnes de la matrice $A_B$ sont les coordonnées de $f(v_1),\dots,f(v_n)$. 
+Les colonnes de la matrice $A_B$ sont les coordonnées de $f(v_1),\dots,f(v_n)$ dans la base $B$. 
 Une matrice $A \in K^{n \times n}$ est \emph{diagonalisable} s'il existe une matrice inversible $P \in K^{n \times n}$ telle que $P^{-1}\cdot A \cdot P$ est une matrice diagonale. 
 
 \section{Les endomorphismes auto-adjoints} 
@@ -45,9 +45,13 @@ Un endomorphisme $F$ est \emph{auto-adjoint} si
   \end{displaymath}
 et 
 \begin{displaymath}
-  \pscal{v, F(W)}  = [v]_B^T \overline{A_B} \overline{[w]_B}. 
+  \pscal{v, F(w)}  = [v]_B^T \overline{A_B} \overline{[w]_B}. 
 \end{displaymath}
-Alors $\overline{A_B} = A_B^T$. 
+Alors si $\overline{A_B} = A_B^T$, il est clair que $\pscal{F(v), w} = \pscal{v, F(w)}$ et donc $F$ est auto-adjoint. \\
+Et si $F$ est auto-adjoint, en choisissant $v = v_i$, $w = v_j$, on obtient 		\begin{displaymath}
+	\pscal{F(v_i), v_j} = e_i^TA_B^Te_j = (A_B^T)_{i, j} = \pscal{v_i, F(v_j)} = e_i^T \overline{A_B} e_j = (\overline{A_B})_{i, j},
+	\end{displaymath}
+donc $A_B^T = \overline{A_B}$
 \end{proof}
 
 
@@ -85,7 +89,9 @@ réelles.
   Le polynôme caractéristique $p(x) = \det(A - x \cdot I_n)$ a une racine complexe selon le théorème fondamental de l'algèbre. Les valeurs propres de $A$ sont les racines de $p(x)$.  Mais toutes ces racines sont réelles selon le         corollaire~\ref{co:3}.  
 \end{proof}
 
-
+\begin{remark}
+La même preuve, par le théorème fondamental de l'algèbre, montre en fait que le polynôme caractéristique de $A$ est scindé sur $\Bbb R$, i.e. $A$ possède $n$ valeurs propres réelles (en comptant les multiplicités algébriques).
+\end{remark}
 
 \begin{lemma}
   \label{lem:9}
@@ -97,7 +103,7 @@ réelles.
   \begin{displaymath}
     \lambda \pscal{u,v} = \pscal{F(u),v} = \pscal{u,F(v)} = \gamma \pscal{u,v}
   \end{displaymath}
-et alors $\pscal{u,v}=[u]_B \cdot [v]_B=0$, où $\cdot$ dénote le produit scalaire/hermitien standard.  
+et alors $\pscal{u,v}=[u]_B \cdot [v]_B=0$, où $\cdot$ dénote le produit scalaire/hermitien standard et $B$ est une base orthonormale de $V$.  
 \end{proof}
 
 
@@ -134,7 +140,7 @@ Nous allons écrire $A^*$ pour dénoter $\overline{A}^T$ pour une matrice $A$.
 \begin{proof}
   Soit $A \in \R^{n\times n}$
   une matrice symétrique. Le cas où $A \in \C^{n \times n}$
-  est hermitienne est un exercice.
+  est hermitienne est laissé en exercice.
 
   Le théorème est démontré par induction. Si $n=1$, l'assertion est triviale. \\
   Supposons le théorème vrai jusqu'à $n-1 \in \N, n \ge 2$. Montrons le pour $n$. \\
@@ -177,7 +183,7 @@ La matrice $P$ est orthogonale puisque
     && 1 
   \end{pmatrix}. 
 \end{displaymath}
-Et 
+car $v^T \cdot v = 1$, $U^T \cdot U = I_{n-1}$ et $v^T \cdot U = 0$. Et 
 \begin{displaymath}
   P^T \, A \, P =
   \begin{pmatrix}
@@ -198,14 +204,14 @@ Et
 
 \begin{corollary}
   \label{co:8}
-  Soit $V$ un espace euclidien (hermitien) de dimension fini et $F$ un endomorphisme auto-adjoint. Alors $V$ possède une base $\{v_1,\dots,v_n\}$ orthonormale de vecteurs propre de $F$. 
+  Soit $V$ un espace euclidien (hermitien) de dimension finie et $F$ un endomorphisme auto-adjoint. Alors $V$ possède une base $\{v_1,\dots,v_n\}$ orthonormale de vecteurs propre de $F$. 
 \end{corollary}
 
 \begin{proof}
-  Soit $B = \{u_1,\dots,u_n\}$ une base de $V$ tel que $\pscal{x,y} = [x]_B \cdot [y]_B$ où $\cdot $ dénote le produit hermitien standard (voir chapitre~\ref{sec:espaces-hermitiens}, exercice~\ref{item:4}) et soit $A_F$  la matrice symétrique (hermitienne) telle que $F(x)  = \phi_B^{-1}(A_F [x]_B)$. Selon théorème~\ref{thr:16} $A_F$ est diagonalisable avec une matrice orthgonale (unitaire) $P$ 
+  Soit $B = \{u_1,\dots,u_n\}$ une base de $V$ tel que $\pscal{x,y} = [x]_B \cdot [y]_B$ où $\cdot $ dénote le produit hermitien standard (voir chapitre~\ref{sec:espaces-hermitiens}, exercice~\ref{item:4}) et soit $A_B^{(F)}$  la matrice symétrique (hermitienne) telle que $F(x)  = \phi_B^{-1}(A_B^{(F)} [x]_B)$. Selon théorème~\ref{thr:16}, $A_B^{(F)}$ est diagonalisable avec une matrice orthogonale (unitaire) $P$ 
   \begin{displaymath}
     P^* \cdot 
-    A_F \cdot  P  = \begin{pmatrix}
+    A_B^{(F)} \cdot  P  = \begin{pmatrix}
       \lambda_1 \\
       & \ddots \\
       & & \lambda_n
@@ -214,15 +220,6 @@ Et
  Soient $p_1,\dots,p_n$  les colonnes de $P$. La base orthonormale de vecteurs propres de $F$ est $\{v_1,\dots,v_n\}$ où $v_i = \phi_B^{-1}(p_i)$. 
 \end{proof}
 
-
-\bigskip 
-\hrule
-\medskip
-\begin{center}
-  Cours du 12. Avril 2016
-\end{center}
-\hrule 
-\bigskip 
 
 
 Comment peut-on calculer la diagonalisation \eqref{diagonal}? Voici un procédé pour diagonaliser une matrice symétrique (hermitienne) $A \in \K^{n \times n}$. 
@@ -245,7 +242,7 @@ Comment peut-on calculer la diagonalisation \eqref{diagonal}? Voici un procédé
 
 \begin{example}
   \label{exe:17}
-  Soit $V$ un espace euclidien de dimension $3$ et soit $F$ un endomorphisme auto-adjoint de $V$. Soit $B=\{v_1,v_2,v_3\}$ une base telle que 
+  Soit $V$ un espace euclidien de dimension $3$ et soit $F$ un endomorphisme auto-adjoint de $V$. Soit $B=\{v_1,v_2,v_3\}$ une base orthonormale telle que 
   \begin{displaymath}
     A_B =
     \begin{pmatrix}
@@ -295,7 +292,15 @@ Alors $\left\{\frac{\sqrt{2}}{2}v_1 + \frac{\sqrt{2}}{2} v_3,- \frac{\sqrt{2}}{6
 
 \end{example}
 
+\subsection*{Exercices}
 
+\begin{enumerate}
+\item Soit $z = x + iy \in \C^n$, où $x,y \in \R^n$. Montrer que $x$ et $y$ sont linéairement indépendants sur $\R$ si et seulement si $z$ et $\overline{z}$ sont linéairement indépendants sur  $\C$. 
+\end{enumerate}
+
+
+\section{Formes quadratiques réelles et matrices symétriques réelles}
+\label{sec:form-quadr-reell}
 
 Le lemme~\ref{lem:8} et le corollaire~\ref{co:7} démontrent qu'une matrice symétrique réelle possède une valeur propre réelle. Cette démonstration passe par les nombres complexes et utilise le théorème fondamental de l'algèbre. Pour le cas où $A = A^T \in \R^{n \times n}$, nous allons maintenant démontrer l'assertion du  corollaire~\ref{co:7}  d'une manière géométrique. L'ensemble 
 \begin{displaymath}
@@ -310,10 +315,10 @@ est appelé la \emph{$n$-sphère.}
   $f(x) = x^T A x$
   où $A \in \R^{n \times n}$ est une matrice symétrique.
 \end{definition}
-En effet, si $B \in \R^{n \times n}$
+En fait, si $B \in \R^{n \times n}$
 n'est pas symétrique, la matrice $A = 1/2 (B^T + B)$
 est symétrique et $x^TBx = 1/2 (x^TB^T x + x^T B x) = x^T Ax$.
-Alors aussi la fonction $g(x) = x^TBx$ est une forme quadratique.
+Alors la fonction $g(x) = x^TBx$ est aussi une forme quadratique.
 
 Une {forme quadratique} est un polynôme de degré $2$
 et une fonction continue. Puisque $S^{n-1}$
@@ -351,14 +356,8 @@ Ceci démontre que $g'(0) = 2 \cdot w^T A v = 2 \cdot \beta  \neq 0$.
 \end{proof}
 
 
-\subsection*{Exercices}
 
-\begin{enumerate}
-\item Soit $z = x + iy \in \C^n$, où $x,y \in \R^n$. Montrer que $x$ et $y$ sont linéairement indépendants sur $\R$ si et seulement si $z$ et $\overline{z}$ sont linéairement indépendants sur  $\C$. 
-\end{enumerate}
 
-\section{Formes quadratiques réelles et matrices symétriques réelles}
-\label{sec:form-quadr-reell}
 
 \begin{definition}
   \label{def:f22}
@@ -379,10 +378,10 @@ Ceci démontre que $g'(0) = 2 \cdot w^T A v = 2 \cdot \beta  \neq 0$.
   Une matrice symétrique $A \in \R^{n \times n}$ est 
   \begin{enumerate}
   \item définie positive,
-    si toutes ses valeurs propres sont strictement positives. 
-  \item définie négative,  si toutes ses valeurs propres sont strictement négatives. 
-  \item semi-définie positive, si toutes ses valeurs propres sont positives (ou zéro).  
-  \item semi-définie négative, si toutes ses valeurs propres sont negatives (ou zéro).  
+    si et seulement si toutes ses valeurs propres sont strictement positives. 
+  \item définie négative, si et seulement si toutes ses valeurs propres sont strictement négatives. 
+  \item semi-définie positive, si et seulement si toutes ses valeurs propres sont positives (ou zéro).  
+  \item semi-définie négative, si et seulement si toutes ses valeurs propres sont negatives (ou zéro).  
   \end{enumerate}
 \end{theorem}
 
@@ -502,7 +501,7 @@ Pour $x \in \R^n \setminus \{0\}$ $ x / \|x\| \in S^{n-1}$ et $R_A(x) = (x / \|x
 
 \begin{theorem}[Théorème Min-Max]
 \label{thr:19}
-Soit $A \in \R^n$ une matrice symétrique avec les valeurs propres 
+Soit $A \in \R^{n × n}$ une matrice symétrique avec les valeurs propres 
 $\lambda_1 \geq \dots \geq \lambda_n$.   Si $U$ dénote un sous-espace de $\R^n$ alors 
 \begin{equation}
   \label{eq:12} 
@@ -516,7 +515,7 @@ et
 \end{theorem}
 
 \begin{proof}
-Nous démontrons \eqref{eq:12}. La partie \eqref{eq:13} est un exercice. Soit $\{u_1,\dots,u_n\}$ une base orthonormale de vecteurs propres associés à $\lambda_1 \leq \dots \leq \lambda_n$ respectivement. On fixe un entier $k$, et un espace $U$ de dimension $k$. Clairement $\spa\{u_k,\dots,u_n\} \cap U \supsetneq \{0\}$. Alors il existe un vecteur $0 \neq x = \sum_{i = k}^n \alpha_i u_i \in U$. Clairement $R_A(x) \leq \lambda_k$. Pour $U = \spa\{u_1,\dots,u_k\}$, 
+Nous démontrons \eqref{eq:12}. La partie \eqref{eq:13} est un exercice. Soit $\{u_1,\dots,u_n\}$ une base orthonormale de vecteurs propres associés à $\lambda_1 ≥ \dots ≥ \lambda_n$ respectivement. On fixe un entier $k$, et un espace $U$ de dimension $k$. Clairement $\spa\{u_k,\dots,u_n\} \cap U \supsetneq \{0\}$. Alors il existe un vecteur $0 \neq x = \sum_{i = k}^n \alpha_i u_i \in U$. Clairement $R_A(x) \leq \lambda_k$. Pour $U = \spa\{u_1,\dots,u_k\}$, 
 $
   \min_{x \in U \setminus \{0\}}  R_A(x) = \lambda_k.
 $ Ensemble ça démontre \eqref{eq:12}. 
@@ -527,7 +526,38 @@ $ Ensemble ça démontre \eqref{eq:12}.
 \subsection*{Exercices}
 
 \begin{enumerate}
-\item Montrer la partie \ref{posdef:2}) du théorème~\ref{thr:17}. %\emph{Indication: Il existe une matrice de permutation $Q$ telle que l'algorithme~\ref{alg:1} n'échange pas de colonnes et lignes si confronté avec  $Q\cdot A \cdot Q$  comme input.}
+\item Une matrice réelle  symétrique, différente de la matrice zéro, telle que toute composante sur la diagonale est zéro ne peut pas être semi définie positive, ni semi définie négative. 
+\item Une matrice réelle symétrique, différente de la matrice zéro, dont la diagonale est égale à zéro, possède un $2 ×2$ mineur symétrique négatif. \label{item:17}
+\item Soit $L \in ℝ^{n × n}$ une matrice %triangulaire inférieure 
+de la forme 
+  \begin{displaymath}
+L = \left(\begin{array}{c|c}
+H & 0  \\
+\hline
+C  & I_{n-i+1} \\
+\end{array}\right)
+\end{displaymath}
+où  $H ∈ ℝ^{i×i}$ et $i ≥0$. Soit $Q ∈ ℝ^{n ×n}$ la matrice de la permutation (transposition)  qui échange $μ, ν > i$. Montrer 
+\begin{displaymath}
+  Q \cdot L = \left(\begin{array}{c|c}
+H & 0  \\
+\hline
+C'  & I_{n-i+1} \\
+\end{array}\right) \cdot Q
+\end{displaymath}
+où $C'$ provient de $C$ en échangeant les lignes $μ-i$ et $ν-i$. 
+\label{item:15}
+\item \label{item:16}
+En s'appuyant sur l'exercice~\ref{item:15}) montrer l'assertion suivante. Si l'algorithme~\ref{alg:1} a exécuté $k$-itérations et dans chacune de ces $k$ itérations, il existe un $j ≥i$ tel que  $b_{jj} \neq 0$ (avec la notation de la $i$-ème itération), alors il existe une matrice de permutation $Q$ telle que le résultat de ces premières $k$ itérations s'écrit 
+\begin{displaymath}
+  R^T Q^T A Q R, 
+\end{displaymath}
+où $R$ est une matrice triangulaire supérieure dont les éléments diagonaux sont $1$.  En autres mots, il existe une permutation si appliquée aux lignes et colonnes, l'algorithme~\ref{alg:1} n'échange pas de lignes et colonnes pendant ces premiers $k$ itérations. 
+\item Soient $A \in \Bbb R^{n \times n}$ réelle symétrique et $A'$ la matrice obtenue de $A$ en échangeant les lignes $i$ et $j$ ($A' = Q^T A Q$ pour une matrice de permutation (transposition) $Q$). Montrer que pour tout $K \subseteq \{1, ..., n\}$, il existe $K' \subseteq \{1, ..., n\}$ tel que $\det(A_K) = \det(A'_{K'})$ (mineurs symétriques) et inversément. En d'autres termes, montrer que tous les mineurs symétriques de $A$ se retrouvent dans $A'$ et vice versa.
+\item Montrer la partie b) du théorème~\ref{thr:17}. 
+
+\emph{Indication pour montrer $⟸$:  Il existe une matrice de permutation $Q$ telle que l'algorithme~\ref{alg:1} n'échange pas de colonnes et lignes si confronté avec  $Q^T \cdot A \cdot Q$ comme input et toutes itérations sont telles que $b_{ii} \neq 0$ jusqu'à  un point, où tout le reste de la matrice est $0$. Il faut s'appuyer sur les exercices \ref{item:17} et \ref{item:16}.}
+
 \item Une matrice symétrique $A \in \R^{n \times n}$ est définie négative, si et seulement si $\det(B_k) \neq 0$ et $\det(B_k) = (-1)^k|\det(B_k)|$ pour tout $k$. 
 \item Une matrice symétrique $A \in \R^{n \times n}$ est semi-définie négative, si et seulement si $\det(B_K) = (-1)^{|K|}|\det(B_K)|$ pour tout $K\subseteq \{1,.\dots,n\}$.  
 \item Montrer la partie \eqref{eq:13} du théorème~\ref{thr:19}. 
@@ -546,14 +576,7 @@ Soit $B_K$ une matrice comme décrite en dessus o\`u $|K| = k$ avec les valeurs 
 
 
 
-\bigskip 
-\hrule
-\medskip
-\begin{center}
-  Cours du 19. Avril 2016
-\end{center}
-\hrule 
-\bigskip 
+
 \begin{definition}
   \label{def:22}
   Une matrice hermitienne $A \in \C^{n \times n}$ est 
@@ -573,12 +596,16 @@ Le théorème~\ref{thr:15} trouve son analogue comme suivant. La démonstration 
   Une matrice hermitienne $A \in \C^{n \times n}$ est 
   \begin{enumerate}
   \item définie positive,
-    si toutes ses valeurs propres sont (strictement) positives. 
-  \item définie négative,  si toutes ses valeurs propres sont (strictement) négatives. 
-  \item semi-définie positive, si toutes ses valeurs propres sont non-négatives (donc positives ou zéro).  
-  \item semi-définie négative, si toutes ses valeurs propres sont non-positives (négatives ou zéro).  
+    si et seulement si toutes ses valeurs propres sont (strictement) positives. 
+  \item définie négative,  si et seulement si toutes ses valeurs propres sont (strictement) négatives. 
+  \item semi-définie positive, si et seulement si toutes ses valeurs propres sont non-négatives (donc positives ou zéro).  
+  \item semi-définie négative, si et seulement si toutes ses valeurs propres sont non-positives (négatives ou zéro).  
   \end{enumerate}
 \end{theorem}
+
+
+\section{La décomposition en valeurs singulières}
+\label{sec:la-decomposition-en}
 
 
 On commence avec un théorème qui décrit la décomposition en valeurs singulières et montre qu'elle existe. 
@@ -613,23 +640,25 @@ et pour $1 \leq i\neq j \leq r$,
 \begin{displaymath}
   v_i^* v_j = u_i^* u_j = 0. 
 \end{displaymath}
-Avec le procédé de Gram-Schmidt nous complétons les $v_i$ tel que $\{v_1,\dots,v_m\}$ est une base orthonormale de $\C^m$. Les colonnes de la matrices $P$ sont alors $v_1,\dots,v_m$ dans cet ordre. La matrice $D \in \C^{m\times n}$ est la matrice diagonale dont les $r$ premières composantes sur la diagonale sont $\sigma_1,\dots,\sigma_r$ dans cet ordre. Avec ces matrices  $P,D$ et $Q$ nous avons 
+Avec le procédé de Gram-Schmidt, nous complétons les $v_i$ tels que $\{v_1,\dots,v_m\}$ est une base orthonormale de $\C^m$. Les colonnes de la matrices $P$ sont alors $v_1,\dots,v_m$ dans cet ordre. La matrice $D \in \C^{m\times n}$ est la matrice diagonale dont les $r$ premières composantes sur la diagonale sont $\sigma_1,\dots,\sigma_r$ dans cet ordre. Avec ces matrices  $P,D$ et $Q$ nous avons 
 \begin{displaymath}
   A = P\cdot D \cdot Q 
 \end{displaymath}
-ou, équivalent 
+ou de manière équivalente 
 \begin{displaymath}
   P^* \cdot A \cdot Q^* = D,
 \end{displaymath}
 
 Nous montrons  ça en détail. Nous avons 
-\begin{displaymath}
-   (P^* \cdot A \cdot Q^*)_{ij} = v_i^* A u_j 
-\end{displaymath}
-et c'est égal à zéro si $j \geq r+1$, parce que dans ce cas $A u_j =0$ dès que $u_j^*A^*Au_j = 0$. 
-Si $j \leq r$  et si $i>r$ alors $v_i$ est perpendiculaire à $A\, u_j$ et  $v_i^*Au_j = 0$. 
+\begin{equation}
+  \label{eq:39}
+     (P^* \cdot A \cdot Q^*)_{ij} = v_i^* A u_j 
+\end{equation}
+et c'est égal à zéro si $j > r$, parce que dans ce cas $A u_j =0$ dès que $u_j^*A^*Au_j = 0$.
+Si $i>r$ \eqref{eq:39} pas égale  a zéro implique $A u_j \neq 0$ et alors $j≤r$. Mais dans ce cas, par construction, $v_i$ est orthogonal à  $A u_j / σ_j$ et \eqref{eq:39}  est néanmoins zéro. 
 
-Et  si $i,j \leq r$, alors 
+
+Et  si $1 ≤i,j \leq r$, alors 
 \begin{displaymath}
   u_i^* A^* A u_j / \sigma_i = u_i^* u_j \,  \sigma_j^2 / \sigma_i=
   \begin{cases}
@@ -648,15 +677,6 @@ Et  si $i,j \leq r$, alors
 
 
 
-\newpage
-\bigskip 
-\hrule
-\medskip
-\begin{center}
-  Cours du 26. Avril 2016
-\end{center}
-\hrule 
-\bigskip 
 
 \begin{example}
   \label{exe:18}
@@ -778,7 +798,7 @@ Pourquoi est-ce que nous parlons de \emph{la} pseudo inverse? Parce qu'elle est 
 
 \begin{theorem}
   \label{thr:22}
-  Soit $K$ un corps et $A \in K^{m \times n}$, alors il existe au plus une seule matrice $X \in K^{n \times m}$  telle que les quatre conditions de \emph{Penrose} sont satisfaites: 
+  Soit  $A \in ℂ^{m \times n}$, alors il existe au plus une seule matrice $X \in ℂ^{n \times m}$  telle que les quatre conditions de \emph{Penrose} sont satisfaites: 
   \begin{enumerate}[i)] 
   \item $AXA = A$ \label{pen1}
   \item $(AX)^* = AX$ \label{pen2}
@@ -809,7 +829,7 @@ Pourquoi est-ce que nous parlons de \emph{la} pseudo inverse? Parce qu'elle est 
 \end{theorem}
 
 \begin{proof}
-  Soit $A = PDQ$ une décomposition en valeurs singulières et $A^+ = Q^*D^+P^*$.  Il est facile de voir que $D^+$ satisfait les conditions \ref{pen1}-\ref{pen4} relatives à $D$. Les conditions sont aussi vite montrées pour $A$ et $A^+$. Par exemple \ref{pen1} est montrée comme suivant. 
+  Soit $A = PDQ$ une décomposition en valeurs singulières et $A^+ = Q^*D^+P^*$.  Il est facile de voir que $D^+$ satisfait les conditions \ref{pen1}-\ref{pen4} relatives à $D$. Les conditions sont aussi vite montrées pour $A$ et $A^+$. Par exemple \ref{pen1} est montrée comme suit : 
   \begin{eqnarray*}
     A A^+A & = & PDQQ^*D^+P^*PDQ \\
            & = & PDD^+DQ \\
@@ -857,11 +877,11 @@ où $A^+$ est la pseudo inverse de $A$.
      & = &     \min_{x \in \C^n} \|DQx - P^*b\| =     \min_{y \in \C^n} \|Dy - P^*b \| \\
       & = &       \min_{y \in \C^n} \|Dy - c \|
   \end{eqnarray*}
-où $c  = P^*b$. Les solutions optimales sont les $y \in \C^n$ tel que $y_i = c_i / \sigma_i $ pour $1 \leq i \leq r$ et $y_{r+1} \dots y_n$ sont arbitraires. Parmi ces vecteurs, la solution où $y_{r+1} =\dots= y_n=0$ est celle de norme minimale. Elle est donnée par
+où $c  = P^*b$. Les solutions optimales sont les $y \in \C^n$ tels que $y_i = c_i / \sigma_i $ pour $1 \leq i \leq r$ et $y_{r+1} \dots y_n$ sont arbitraires. Parmi ces vecteurs, la solution où $y_{r+1} =\dots= y_n=0$ est celle de norme minimale. Elle est donnée par
 \begin{displaymath}
   y = D^+ c. 
 \end{displaymath}
-La solution minimale du \eqref{eq:14} est alors 
+La solution minimale de \eqref{eq:14} est alors 
 \begin{displaymath}
   x = Q^*y = Q^* D^+ P^* b = A^+b. 
 \end{displaymath}
@@ -901,14 +921,7 @@ et
 
 
 
-\bigskip 
-\hrule
-\medskip
-\begin{center}
-  Cours du 3. Mai 2016
-\end{center}
-\hrule 
-\bigskip 
+
 
 \section{Le meilleur sous-espace approximatif} 
 \label{sec:le-meilleur-sous}
@@ -917,7 +930,7 @@ Nous nous occupons du problème suivant. Soient $a_1,\dots,a_m \in \R^n$ des vec
 \begin{displaymath}
   \sum_i d(a_i,H)^2 
 \end{displaymath}
-soit minimale. Ici $d(a_i,H)$ est la \emph{distance} de $a_i$ a $H$. Si $H = \spa\{u_1,\dots,u_k\}$ où $\{u_1,\dots,u_k\}$  est une base orthonormale de $H$, alors $a_i = \sum_{j=1}^k \pscal{a_i,u_j} u_j + d_i$ où $d_i = a_i - \sum_{j=1}^k \pscal{a_i,u_j} u_j$ est orthogonal à $u_1,\dots,u_k$ et alors à $H$.  Avec le théorème de Pythagore (Proposition~\ref{prop:4}) alors 
+soit minimale. Ici $d(a_i,H)$ est la \emph{distance} de $a_i$ a $H$. Si $H = \spa\{u_1,\dots,u_k\}$ où $\{u_1,\dots,u_k\}$  est une base orthonormale de $H$, alors $a_i = \sum_{j=1}^k \pscal{a_i,u_j} u_j + d_i$ où $d_i = a_i - \sum_{j=1}^k \pscal{a_i,u_j} u_j$ est orthogonal à $u_1,\dots,u_k$ et alors à $H$.  Avec le théorème de Pythagore (Proposition~\ref{prop:4}), on a
 \begin{displaymath}
   d(a_i,H)^2 + \sum_{j=1}^k \pscal{a_i,u_j}^2 = \|a_i\|^2. 
 \end{displaymath}
@@ -926,11 +939,11 @@ Le sous-espace $H$ de dimension $k$ qui minimise $\sum_i d(a_i,H)^2$ est alors c
 \sum_i  \sum_{j=1}^k \pscal{a_i,u_j}^2 = \sum_{j=1}^k \|A u_j\|^2 = \sum_{j=1}^k u_j^T A^TAu_j.
 \end{displaymath}
 
-Pour $k=1$, nous connaissons déjà une manière  de résoudre ce problème. Il faut résoudre 
+Pour $k=1$, nous connaissons déjà une manière de résoudre ce problème. Il faut résoudre 
 \begin{displaymath}
-\max_{u \in S^{n-1}}   u^TA^TAu 
+\max_{u \in S^{n-1}}   u^TA^TAu .
 \end{displaymath}
-est maximal. La matrice $A^TA$ est symétrique, alors on peut la factoriser comme 
+La matrice $A^TA$ est symétrique, alors on peut la factoriser comme 
 \begin{equation}
   \label{eq:17}
   A^TA = U
@@ -969,7 +982,7 @@ et $u_{\ell+1}$ est une solution optimale.
 
 
 
-Maintenant nous pouvons résoudre le problème central 
+Maintenant, nous pouvons résoudre le problème central 
 \begin{equation}
   \label{eq:16}
   \min_{\substack{H \trianglelefteq \R^n \\ \dim(H) = k}} \sum_{i=1}^m d(a_i,H)^2. 
@@ -977,7 +990,7 @@ Maintenant nous pouvons résoudre le problème central
 
 \begin{theorem}
   \label{thr:26}
-  Soient $a_1,\dots,a_m \in \R^n$ 
+  Soient $a_1,\dots,a_m \in \R^n$,
 $
     A =\left(
       a_1,\cdots ,a_m\right)^T
@@ -988,7 +1001,7 @@ $
 
 \begin{proof}
 Pour $k=1$ nous avons déjà montré l'assertion. Soit $k \geq 2$ et $W \trianglelefteq \R^n$ une solution optimale du problème~\eqref{eq:16} et soit $w_1,\dots,w_k$ une base orthonormale de $W$. 
-Nous pouvons supposer $w_k \perp \spa\{v_1,\dots,v_{k-1}\}$, (voir Exercice~\ref{item:3}). 
+Nous pouvons supposer $w_k \perp \spa\{u_1,\dots,u_{k-1}\}$, (voir Exercice~\ref{item:3}). 
 
 Par induction, nous avons 
 \begin{displaymath}
@@ -996,11 +1009,11 @@ Par induction, nous avons
 \end{displaymath}
 Dès que   
 \begin{displaymath}
-  \max_{\substack{x \in S^{n-1} \\ x \perp \spa\{v_1,\dots,v_{k-1}\}}} x^TA^TAx 
+  \max_{\substack{x \in S^{n-1} \\ x \perp \spa\{u_1,\dots,u_{k-1}\}}} x^TA^TAx 
 \end{displaymath}
-est atteint à $v_k$ nous avons 
+est atteint à $u_k$ nous avons 
 \begin{displaymath}
-  w_k^TA^TAw_k \leq v_k^TA^TAv_k
+  w_k^TA^TAw_k \leq u_k^TA^TAu_k
 \end{displaymath}
 et alors
 \begin{displaymath}
@@ -1012,11 +1025,42 @@ et alors
 
 \begin{definition}
   \label{def:26}
-  Soit $A \in \R^{m \times n}$. La \emph{norme Frobenius} de $A$ est le nombre 
+  Soit $A \in \R^{m \times n}$.
+  \begin{enumerate}
+ 
+  \item[1)] On définit la \emph{norme Frobenius} de $A$ comme le nombre 
   \begin{displaymath}
     \|A\|_F = \sqrt{\sum_{ij}a_{ij}^2}.
   \end{displaymath}
+  
+  \item[2)] Pour une norme vectorielle $\|\cdot\|$ définie positive sur $\Bbb R^n$, on définit la norme $\mnorm{\cdot}$ de $A$, appelée \emph{norme matricielle subordonnée} à $\|\cdot\|$, comme le nombre 
+   \begin{displaymath}
+    	\mnorm{A} = \sup_{v \neq 0} \frac{\|Av\|}{\|v\|} = \sup_{\|v\| = 1} \|Av\|.
+  \end{displaymath}
+  
+   \end{enumerate}
 \end{definition}
+
+\begin{remark}
+	La norme Frobenius n'est pas une norme matricielle subordonnée.
+\end{remark}
+
+\begin{example}
+	Soit $A \in \R^{m \times n}$. On considère la norme euclidienne standard (aussi appelée norme 2) sur $\Bbb R^n$ : 
+	$$\| v \|_2 = \sqrt{\sum\nolimits_{i=1}^n (v_i)^2}.$$
+	Alors la norme matricielle subordonnée à $\|\cdot\|_2$ correspond à
+	\begin{displaymath}
+    	\mnorm{A}_2 = \sup_{v \neq 0} \frac{\|Av\|_2}{\|v\|_2} = \sup_{\|v\|_2 = 1} \|Av\|_2 = \sup_{\|v\|_2 = 1} \sqrt{v^T A^T A v} = \sqrt{\lambda_1},
+  	\end{displaymath}
+  	où $\lambda_1$ est la plus grande valeur propre de $A^T A$ (ou de manière équivalente, $\sqrt{\lambda_1}$ est la plus grande valeur singulière de $A$).
+\end{example}
+
+\begin{exercise}
+	Soient $A \in \R^{m \times n}$, $\|\cdot\|$ une norme définie positive sur $\Bbb R^n$, $\mnorm{\cdot}$ la norme matricielle subordonnée à $\|\cdot\|$. Alors pour tout $v \in \Bbb R^n$, on a : 
+	\begin{displaymath}
+		\|Av\| \leq \mnorm{A} \cdot \|v\|.
+	\end{displaymath}
+\end{exercise}
 
 \begin{definition}
   \label{def:27}
@@ -1042,16 +1086,9 @@ et alors
 \end{proof}
 
 
-\newpage
-\hrule
-\medskip
-\begin{center}
-  Cours du 10. Mai 2016
-\end{center}
-\hrule 
-\bigskip 
 
-Maintenant nous allons résoudre le problème suivant. Étant donné $A \in \R^{m \times n}$ et $k \in \N$, trouver une matrice $B \in \R^{m \times n}$ de $\rank(B) \leq  k$ tel que 
+
+Maintenant nous allons résoudre le problème suivant. Étant donnés $A \in \R^{m \times n}$ et $k \in \N$, trouver une matrice $B \in \R^{m \times n}$ de $\rank(B) \leq  k$ tel que 
 \begin{displaymath}
   \|A - B\|_F
 \end{displaymath}
@@ -1078,12 +1115,12 @@ Le rang de $A_k$ est au plus $k$.
   \begin{displaymath}
     \sum_{i=1}^k a^Tu_i \cdot u^T_i.
   \end{displaymath}
-Alors les projections des lignes de $A$ dans le sous-espace $V_k$ sont données par $A u_i u_i^T = \sum_{i=1}^k \sigma_i u_i v_i^T = A_k$.  
+Alors les projections des lignes de $A$ dans le sous-espace $V_k$ sont données par $\sum_{i=1}^k A u_i u_i^T = \sum_{i=1}^k \sigma_i v_i u_i^T = A_k$.  
 \end{proof}
 
 \begin{theorem}
   \label{thr:27}
-  Pour une matrice $B \in \R^{m \times n}$ de rang plus petit ou égal à $k$ on a 
+  Pour une matrice $B \in \R^{m \times n}$ de rang plus petit ou égal à $k$, on a 
   \begin{displaymath}
     \|A - A_k\|_F \leq \|A - B\|_F.
   \end{displaymath}
@@ -1099,9 +1136,9 @@ Soit $\wt{H} = \spa\{u_1,\dots,u_k\}$. Nous avons démontré que
 \item $\wt{H}$ est le meilleur sous-espace approximatif des lignes de $A$ alors $\sum_{i=1}^m d(a_i,H)^2 \geq  \sum_{i=1}^m d(a_i,\wt{H})^2$ et 
 \item Les lignes de $A_k$ sont les projections des lignes de $A$ dans $\wt{H}$. 
 \end{enumerate}
-En dénotant les lignes de $A_k$ $\wt{a}_1^T,\dots,\wt{a_m}^T$, alors 
+En dénotant les lignes de $A_k$ par $\wt{a}_1^T,\dots,\wt{a_m}^T$, alors 
 \begin{displaymath}
-  \|A - B\|_F^2 \geq  \sum_{i=1}^m d(a_i,\wt{H})^2 = \|a_i - \wt{a}_i\|^2 = \|A - A_k\|_F^2. 
+  \|A - B\|_F^2 \geq  \sum_{i=1}^m d(a_i,\wt{H})^2 = \sum_{i=1}^m \|a_i - \wt{a}_i\|^2 = \|A - A_k\|_F^2. 
 \end{displaymath}
 \end{proof}
 
@@ -1116,6 +1153,10 @@ En dénotant les lignes de $A_k$ $\wt{a}_1^T,\dots,\wt{a_m}^T$, alors
 \item Soient  $G,H \subseteq \R^n$ des sous-espaces de $\R^n$ 
 et $k=\dim(G) > \dim(H)$. Montrer que $G$ possède une base orthonormale $w_1,\dots,w_k$ telle que $w_k \perp H$. \label{item:3}  
 \end{enumerate}
+
+
+
+
 
 
 %%% Local Variables:

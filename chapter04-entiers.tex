@@ -1,0 +1,606 @@
+\chapter{Algèbre linéaire sur les entiers}
+\label{cha:algebre-lineaire-sur}
+
+
+Quand est-ce que un système d'équations linéaires possède une solution en nombre entiers? Étant donnés $A ∈ℤ^{m × n}$ et $b ∈ℤ^m$, on aimerait décider si 
+\begin{equation}
+  \label{eq:40}
+  A x = b, \, x ∈ ℤ^n 
+\end{equation}
+est soluble et trouver tous les solutions.
+
+
+
+Une condition nécessaire pour \eqref{eq:40} étant soluble est qu'il existe une solution $x ∈ℚ^n$. et alors que $\rank(A) = \rank(A|b)$. Aussi on peut supprimer une ligne de $(A|b)$ qui est dans le span des autres lignes. Alors on peut supposer que $A$ es de plein rang lignes, c'est à dire $\rank(A) = m$. 
+
+\begin{definition}
+  \label{def:44}
+  Un nombre entier $d ∈ℤ$ \emph{divise} un nombre entier $a ∈ℤ$ s'il existe un nombre entier $x ∈ℤ$ tel que $d⋅x =b$. On écrit $d\mid b$ et si $d$ ne divise pas $b$ on écrit $d \nmid b$. 
+\end{definition}
+% Si $d \mid a$, alors s'il existe $x ∈ℤ$ tel que $d ⋅x =a$ et si $a \neq 0$ on peut conclure $d ≤ |a|$, parce que $|a| = |d| ⋅|x|$. 
+\begin{definition}
+  \label{def:45}
+  Un nombre $d ∈ℤ$ est un diviseur commun de $a∈ℤ$ et $b ∈ℤ$, si $d \mid a$ et $d \mid b$. Si $\max\{|a|,|b|\} ≥1$, l'ensemble des diviseurs commun de $a$ et $b$ est un ensemble fini. Dans ce cas, on dénote le \emph{plus grand diviseur commun} de $a$ et $b$ par $\gcd(a,b)$. 
+\end{definition}
+
+
+\begin{theorem}
+  \label{thr:48}
+  Soient $a,b ∈ℤ$ et $\max\{|a|,|b|\} ≥1$. On a
+  \begin{displaymath}
+    \gcd(a,b) = \min \{ x ⋅a + y ⋅ b： x,y ∈ℤ,  x ⋅a + y ⋅ b≥1\}.
+  \end{displaymath}
+\end{theorem}
+
+\begin{proof}
+  Soit $d$ un diviseur commun de $a$ et $b$. Alors il existent $x^*, y^* ∈ℤ$ tel que $a = d⋅x^*$ et $b = d ⋅y^*$. Si $x ⋅a + y ⋅ b≥1$ où $x,y ∈ℤ$, alors
+  \begin{displaymath}
+    x ⋅a + y ⋅ b = (x ⋅x^* + y ⋅ y^*)  d ≥ |d|. 
+  \end{displaymath}
+  Finalement on a  $d \le \min\{ x ⋅a + y ⋅ b： x,y ∈ℤ,  x ⋅a + y ⋅ b≥1\}$.
+ Montrons que $\min\{ x ⋅a + y ⋅ b： x,y ∈ℤ,  x ⋅a + y ⋅ b≥1\}$ est un diviseur commun de $a$ et $b$. Supposons que $\min \nmid a$. Alors
+  division avec reste implique l'existence de $q,r ∈ℤ$ tel que  
+  \begin{displaymath}
+    a = q ⋅ \min + r \quad \text{ et } \quad 1 \leq r < \min.
+  \end{displaymath}
+  Soient $x,y ∈ℤ$ où $\min = x ⋅a + y ⋅b$, alors
+  \begin{displaymath}
+    1 ≤ r = a - q ⋅ (x ⋅a + y ⋅b) = (1-q⋅x) a - qy ⋅b.
+  \end{displaymath}
+  C'est plus petit que $\min$ ce qui est absurde. C'est à dire $\min \mid a$. De façon analogue, on obtient $\min \mid b$.
+  Aussi, on a montré que pour tout diviseur commun $d$ de $a$ et $b$, $\min\{ x ⋅a + y ⋅ b： x,y ∈ℤ,  x ⋅a + y ⋅ b≥1\}\geq d$ et donc $\min\{ x ⋅a + y ⋅ b： x,y ∈ℤ,  x ⋅a + y ⋅ b≥1\}= \gcd(a,b)$
+  
+\end{proof}
+
+
+
+\begin{corollary}
+  \label{co:5}
+  Soient $a,b ∈ℤ$ et $\max\{|a|,|b|\} ≥1$. Le $\gcd(a,b)$ est le diviseur commun  positif qui est divisé par chaque diviseur commun de $a$ et $b$. 
+\end{corollary}
+
+Pour calculer le diviseur le plus grand de $a$ et $b$ on peut utiliser l'algorithme d'Euclide. Soient $a_o≥a_1 ∈ℤ$ pas tout les deux égaux à zéro. Si $a_1 = 0$, alors
+\begin{displaymath}
+\gcd(a_0,a_1) =   a_0. 
+\end{displaymath}
+Autrement on applique division avec reste
+\begin{displaymath}
+  a_0 = q_1 a_1 + a_2, 
+\end{displaymath}
+où $q_1,a_2 ∈ℤ$ et $0 ≤ a_2<a_1$. Un nombre entier $d ∈ℤ$ est un diviseur commun de $a_0$ et $a_1$ si et seulement si $d$ est un diviseur commun de $a_1$ et $a_2$. L'algorithme d'Euclide est la procédé de calculer la suite $a_0,a_1,a_2,\dots,a_{k-1},a_k ∈ℤ$  où $a_{k-1}>0$, $a_k=0$ et 
+\begin{displaymath}
+  a_{i-1} = q_i a_i + a_{i+1} 
+\end{displaymath}
+est le résultat de la division avec reste de $a_{i-1} $ par $a_i$. 
+
+\begin{example}
+  \label{exe:25}
+  On calcule  le diviseur commun le plus grand de $a_0 = 52$ et $a_1=22$:
+  \begin{displaymath}
+    52 =   2 ⋅ 22 + 8, \quad 22 = 2 ⋅ 8  + 6, \quad 8 = 1 ⋅ 6 +2,\quad 6 = 3 ⋅2 + 0. 
+  \end{displaymath}
+  La suite est alors $a_{0}= 52, a_{1}= 22, a_{3} = 8, a_{4} = 6, a_{5} = 2, a_{6} = 0$. Alors $\gcd(52,22) = 2$. 
+\end{example}
+
+La calcule des suites $a_i$ et $q_i$ donne aussi une représentation $\gcd(a_0,a_1) = x ⋅a_0 + y ⋅a_1$, $x,y ∈ℤ$. Parce qu'on observe
+\begin{displaymath}
+  \begin{pmatrix}
+    a_{i} \\  a_{i+1} 
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+    0 & 1 \\
+    1 & -q_i
+  \end{pmatrix}
+  \begin{pmatrix}
+     a_{i-1} \\  a_{i}
+   \end{pmatrix}
+\end{displaymath}
+et alors
+\begin{displaymath}
+  \begin{pmatrix}
+    a_{k-1} \\ a_k
+  \end{pmatrix} =
+  \begin{pmatrix}
+    0 & 1 \\
+    1 & -q_{k-1}
+  \end{pmatrix} \cdots
+  \begin{pmatrix}
+    0 & 1 \\
+    1 & -q_{1}
+  \end{pmatrix}
+  \begin{pmatrix}
+    a_0 \\ a_1
+  \end{pmatrix}
+\end{displaymath}
+\begin{example}
+  \label{exe:26}
+  On continue l'exemple~\ref{exe:25}.
+  \begin{eqnarray*} 
+    \begin{pmatrix}
+      2 \\ 0
+    \end{pmatrix} & = & 
+    \begin{pmatrix}
+      0 &1 \\
+      1 & -3
+    \end{pmatrix}
+    \begin{pmatrix}
+      0 &1 \\
+      1 & -1
+    \end{pmatrix}
+    \begin{pmatrix}
+      0 &1 \\
+      1 & -2
+    \end{pmatrix}
+    \begin{pmatrix}
+      0 &1 \\
+      1 & -2
+    \end{pmatrix}
+    \begin{pmatrix}
+     5 \\ 22
+    \end{pmatrix} \\
+   &  = & 
+  \begin{pmatrix}
+    3 & -7 \\
+    -11 & 26 
+  \end{pmatrix}
+  \begin{pmatrix}
+    52 \\22
+  \end{pmatrix}
+  \end{eqnarray*}
+  Alors $2 = \gcd(52,22) = 3 ⋅52 -7 ⋅22$. 
+\end{example}
+
+Nous pouvons alors résoudre le problème~\eqref{eq:40} dans le cas où $m=1$ et $n=2$.
+
+\begin{theorem}
+  \label{thr:49}
+  Soient $a,b ∈ℤ$ pas zéro tous le deux et $c ∈ℤ$. L'équation
+  \begin{equation}
+    \label{eq:41}
+    x ⋅a + y ⋅b = c, \, x,y ∈ℤ
+  \end{equation}
+  possède une solution si et seulement si $\gcd(a,b) \mid c$. 
+\end{theorem}
+\begin{proof}
+  Soient $x',y' ∈ℤ$ tel que $x' a + y'b = \gcd(a,b)$. Si $\gcd(a,b) \mid c$ alors il existe un $z ∈ℤ$ tel que $z ⋅\gcd(a,b) = c$ et $z x' a + z y'b = c$ est une solution en nombre entiers de~\eqref{eq:41}.
+
+  S'il existe une solution de~\eqref{eq:41}, alors chaque diviseur commun de $a$ et $b$ est aussi un diviseur de $c$. 
+\end{proof}
+
+\section*{Exercices}
+
+\begin{enumerate}
+\item Démontrer Corollaire~\ref{co:5}.
+\item Soient $n≥2$ et $a_1,\dots,a_n∈ ℤ$ pas tous égaux à zéro. On défini $\gcd(a_1,\dots,a_n)$ comme le plus grand diviseur commun de $a_1,\dots,a_n$. Montrer: 
+  \begin{enumerate}[i)]
+    \item  $\gcd(a_1,\dots,a_n) =  \min\{x_1a_1+ \cdots + x_n a_n ： x_1a_1+ \cdots + x_n a_n≥1, \, x_i ∈ℤ, \, i=1,\dots,n\}$. 
+  \item $\gcd(a_1,\dots,a_n) = \gcd(\gcd(a_1,a_2), a_3, \dots, a_n)$ pour $n≥3$. 
+  \end{enumerate}
+\item Soit $a_0≥a_1≥\dots≥a_k=0$ la suite calculé par l'algorithme d'Euclide. Montrer $a_{i-1} ≥ 2⋅ a_{i+1}$ et conclure  que $k ≤2 ⋅ \log_2(a_0)+1$.  
+\end{enumerate}
+
+
+
+\section{La forme normale d'Hermite}
+\label{sec:la-forme-normale-1}
+
+Maintenant on s'occupe du problème~\eqref{eq:40} où $A ∈ ℤ^{m ×n}$ et $b ∈ℤ^m$ et $\rank(A) = m$.
+
+\begin{lemma}
+  \label{lem:23}
+  Soit $A ∈ℤ^{n ×n}$ une matrice inversible (sur $ℚ$), alors $A^{-1} ∈ ℤ^{n ×n}$ si et seulement si $\det(A) = \pm 1$. 
+\end{lemma}
+
+\begin{proof}
+  Supposons que $A^{-1} ∈ℤ^{n ×n}$. Alors $1 = \det(I_n)  = \det(A^{-1}) \det(A)$. Les deux facteurs $\det(A^{-1})$ et $ \det(A)$ sont des nombres entiers. Les seul diviseurs de $1$ en nombre entiers sont $1$ et $-1$.
+
+  Autrement, si $\det(A) = \pm 1$, on a
+  \begin{displaymath}
+    A^{-1} = \mathrm{ad}(A) / \det(A) ∈ℤ^{n ×n}. 
+  \end{displaymath}
+  où $\mathrm{ad}(A) ∈ ℤ^{n ×n}$ est la matrice adjoint de $A$. On se rappelle que $(\mathrm{ad}(A))_{ij} = (-1)^{i+j}\det(A_{ji})$ où $A_{ji}∈ℤ^{(n-1)×(n-1)}$ est la matrice qu'on obtient de $A$ en supprimant la $j$-ème ligne et $i$-ème colonne. 
+  \end{proof}
+
+  \begin{definition}
+    \label{def:46}
+    Une matrice $U ∈ℤ^{n ×n}$ tel que $\det(U) = \pm 1$ est appelée  \emph{unimodulaire}.
+  \end{definition}
+
+  \begin{remark}
+    Soit $U ∈ℤ^{n ×n}$  une matrice unimodulaire. 
+    Un $x^* ∈ ℤ^n$ est une solution du problème~\eqref{eq:40} si et seulement $U^{-1} x^*∈ ℤ^n$ est une solution du problème
+    \begin{equation}
+      \label{eq:42}
+      A U x = b, \, x ∈ℤ^n. 
+    \end{equation}
+  \end{remark}
+  %
+L'idée est maintenant de trouver une matrice unimodulaire $U ∈ℤ^{n ×n}$ tel que
+\begin{equation}
+  \label{eq:44}
+  A ⋅ U = [H | 0]
+\end{equation}
+où
+\begin{displaymath}
+  H =
+  \begin{pmatrix}
+    h_{11} \\
+    h_{21} & h_{22}\\
+    &  & \ddots \\
+    h_{m1} & \hdots & \hdots & h_{mm}
+  \end{pmatrix}
+\end{displaymath}
+est une matrice triangulaire. Le problème~\eqref{eq:40} alors est soluble si et seulement si
+$H^{-1} b ∈ℤ^n$.
+
+\begin{definition}
+  \label{def:47}
+  Soit $A ∈ ℤ^{m ×n}$ une matrice. Une \emph{opération élémentaire unimodulaire} est une des trois
+  \begin{enumerate}[i)]
+    \item Multiplier une colonne avec $-1$.  \label{item:21}
+    \item Échanger deux colonnes de $A$.  \label{item:22}
+    \item Additionner un multiple entier d'une colonne de $A$ sur une autre colonne de $A$. \label{item:23}
+  \end{enumerate}
+\end{definition}
+
+
+
+\begin{example}
+  \label{exe:27}
+  Une suite d'opérations élémentaire unimodulaire sur $A$ correspond à la multiplication $A⋅U$ où $U ∈ℤ^{n ×n}$ est une matrice unimodulaire.
+Soit 
+  \begin{displaymath}
+    A =
+    \begin{pmatrix}
+      3 & 6 & 2 \\
+      11 & 5 & 7
+    \end{pmatrix}. 
+  \end{displaymath}
+  Échanger les colonnes $1$ et $2$ correspond à la multiplication de $A$ avec la matrice unimodulaire 
+  \begin{displaymath}
+    \begin{pmatrix}
+    0& 1 & 0 \\
+    1 & 0 & 0 \\
+    0 & 0 & 1
+      
+    \end{pmatrix}
+  \end{displaymath} à droite
+  \begin{displaymath}
+     \begin{pmatrix}
+      6  & 3& 2 \\
+       5 & 11 & 7
+     \end{pmatrix} = A ⋅
+     \begin{pmatrix}
+       0& 1 & 0 \\
+       1 & 0 & 0 \\
+       0 & 0 & 1
+     \end{pmatrix}
+   \end{displaymath}
+   Additionner $-3$ fois la colonne $3$ sur la colonne $1$ est la multiplication de $A$ avec la matrice unimodulaire 
+   \begin{displaymath}
+     \begin{pmatrix}       
+     1 & 0 & 0\\ 
+     0 & 1 & 0 \\
+     -3 & 0 & 1
+   \end{pmatrix}
+ \end{displaymath} 
+   \begin{displaymath}
+     \begin{pmatrix}
+      0  & 3& 2 \\
+      -16 & 11 & 7
+    \end{pmatrix} = A ⋅  \begin{pmatrix}
+      
+     1 & 0 & 0\\
+     0 & 1 & 0 \\ 
+     -3 & 0 & 1
+   \end{pmatrix}
+ \end{displaymath}
+\end{example}
+
+
+\begin{example}
+  \label{exe:28}
+  Est-ce que
+  \begin{equation}
+    \label{eq:43}
+     \begin{pmatrix}
+      3 & 6 & 2 \\
+      11 & 5 & 10
+    \end{pmatrix} x =
+    \begin{pmatrix}
+      2 \\ 2
+    \end{pmatrix}, x ∈ℤ^3
+      \end{equation}
+  possède une solution.
+  Soustraire  colonne $3$ de colonne $1$:
+  \begin{displaymath}
+     \begin{pmatrix}
+      1 & 6 & 2 \\
+      1 & 5 & 10
+    \end{pmatrix}
+  \end{displaymath}
+  Soustraire six fois colonne une de colonne deux et deux fois colonne une de colonne trois:
+ \begin{displaymath}
+     \begin{pmatrix}
+      1 & 0 & 0 \\
+      1 & -1 & 8
+    \end{pmatrix}
+  \end{displaymath}
+  Additionner huit fois colonne deux sur colonne trois:
+  \begin{displaymath}
+  \begin{pmatrix}
+      1 & 0 & 0 \\
+      1 & -1 & 0
+    \end{pmatrix}. 
+  \end{displaymath}      
+    Alors on peut conclure que \eqref{eq:43} possède une solution entière. En fait
+    \begin{displaymath}
+    \label{eq:43}
+     \begin{pmatrix}
+      3 & 6 & 2 \\
+      11 & 5 & 10
+    \end{pmatrix} x =
+    b, x ∈ℤ^3
+  \end{displaymath} est soluble pour chaque $b ∈ℤ^2$. 
+\end{example}
+
+
+\begin{lemma}
+  \label{lem:24}
+  Soit  $A ∈ℤ^{ m ×n}$ une matrice en nombre entiers, alors il  existe une matrice unimudulaire $U ∈ℤ^{ n ×n}$ tel que le première ligne de $AU$ est de la forme $(d,0,\cdots,0)$, où $d ∈ℤ$.
+\end{lemma}
+
+\begin{proof}
+
+    Si la première ligne n'est pas de cette forme, et si elle possède seulement une
+  composante qui n'est pas égale à zéro, on échange colonnes tel que
+  le résultat est de cette forme.
+  
+  Autrement, il existent deux indexes $j_1\neq j_2$ de colonnes, tel
+  que $a_{1j_1}\neq 0$ et $a_{1j_2} \neq 0$. On peut supposer
+  $|a_{1j_1}| ≥ |a_{1j_2}|$. Division avec reste nous donne $q ∈ℤ$ et
+  $0 ≤r < |a_{1j_2}|$ tel que
+  \begin{displaymath}
+    a_{1j_1} = q ⋅ a_{1j_2} + r. 
+  \end{displaymath}
+  On applique l'opération unimudulaire: \emph{Soustraire $q$ fois
+    colonne $j_2$ de colonne $j_1$} remplace $a_{1j_1}$ avec $r$ et
+  laisse les autres composantes de la première ligne intacte.  Des que
+    \begin{displaymath}
+      0 < |r|+ |a_{1j_2}|<  |a_{1j_{1}}|+ |a_{1j_2}|
+    \end{displaymath}
+    cette procédé ne peut être répété infiniment. Alors il existe une
+    matrice unimodulaire qui transforme $A$ en matrice, où la première
+    ligne possède une seule composante non zéro et un échange de
+    colonnes transforme en forme désirée.
+  \end{proof}
+
+  \begin{corollary}
+    \label{co:9}
+    Soit  $A ∈ℤ^{ m ×n}$ une matrice en nombre entiers alors il  existe une matrice unimudulaire $U ∈ℤ^{ n ×n}$ tel que $A ⋅U$ est de la forme~\eqref{eq:44}.
+  \end{corollary}
+  \begin{proof}
+    Par induction sur $m$. le cas $m=1$ est impliqué par Lemme~\ref{lem:24}. Soit $m>1$. 
+    Lemme~\ref{lem:24} implique qu'il existe une matrice unimodulaire $U_1 ∈ℤ^{n ×n}$ tel que
+    \begin{displaymath}
+      A ⋅ U_1 =
+      \begin{pmatrix}
+        d & 0 \cdots 0 \\
+        a  & A'
+      \end{pmatrix}
+    \end{displaymath}
+    où $d ∈ℤ$, $a ∈ ℤ^{m-1}$ et $A' ∈ ℤ^{(m-1) × (n-1)}$. Par l'hypothèse d'induction, il existe une matrice unimudulaire $U_2 ∈ℤ^{(n-1) ×(n-1)}$ tel $A' U_2$ est de la forme désirée. Clairement
+      \begin{displaymath}
+         \begin{pmatrix}
+          1 & 0^T \\
+          0 & U_2
+        \end{pmatrix} ∈ℤ^{n ×n}
+      \end{displaymath}
+      est une matrice unimodulaire et 
+      \begin{displaymath}
+        A U_1
+        \begin{pmatrix}
+          1 & 0^T \\
+          0 & U_2
+        \end{pmatrix}
+      \end{displaymath}
+      est de la  forme~\eqref{eq:44}. 
+  \end{proof}
+
+
+
+  \begin{definition}
+    \label{def:49}
+    Une matrice $A ∈ℤ^{m ×n}$  est en \emph{forme normale de Hermite}, si elle est de la forme \eqref{eq:44}, où $r_{ii}>0$ pour tous $1 ≤i≤ m$ et $0≤ r_{ij} < r_{ii}$ pour tout $1≤j<i≤m$. 
+  \end{definition}
+	
+\begin{theorem}
+  \label{thr:28}
+    Soit  $A ∈ℤ^{ m ×n}$ une matrice en nombre entiers alors il  existe une matrice unimudulaire $U ∈ℤ^{ n ×n}$ tel que $A ⋅U$ est en \emph{forme normale de Hermite}.
+  \end{theorem}
+  
+  \begin{definition}
+    \label{def:49}
+    Soit $A \in \mathbb{Z}^{m\times n}$ et  $rang(A)=m$. L'ensemble  $\Lambda(A):=\left\{ Ax,x\in \mathbb{Z}^{n\times n} \right\}$ est  un \emph{réseau entier généré}  de $A$. Une matrice  $B \in \mathbb{Z}^{m\times m}$ telle que  $\Lambda(A)=\Lambda(B)$ est appelée base de $\Lambda(A)$. 
+  \end{definition}
+
+  \begin{remark}
+    Une  \emph{base} $B ∈ ℤ^{m ×m}$  de $Λ(A)$ est inversible. 
+  \end{remark}
+	
+ \begin{corollary}
+    \label{co:9}
+    Chaque réseau entier possède une base.
+  \end{corollary}
+
+
+  \begin{proof}
+    On a $U ∈ℤ^{ n ×n}$ unimodulaire tq. $A ⋅ U = [H | 0]$ et $H$ est
+    en forme normale de Hermite. Il est alors simple de remarquer que
+    $\Lambda(A)=\Lambda(H)$. Dès lors $H$ est une base du réseau
+    entier $Λ(A)$.
+  \end{proof}
+
+  \begin{theorem}
+    \label{thr:28}
+    Soient $A,B \in \mathbb{Z}^{m\times m}$ en forme normale de Hermite.    Alors $Λ(A) = Λ(B)$ si et seulement si $A = B$. 
+  \end{theorem}
+
+ \begin{proof}
+ $\\$
+ $\boxed { \Leftarrow  }$  Trivial.$\\$
+ $\\$ 
+$ \boxed { \Rightarrow  }$ On montre qui si $A\neq B$ alors $\Lambda(A) \neq \Lambda(B)$.$\\$
+Supposons alors que $\Lambda(A) =\Lambda(B)$.$\\$
+On note $A=\begin{pmatrix} a_{ 11 } & \quad  & \quad  \\ \quad  & \ddots  & \quad  \\ a_{m1}  & \quad  & a_{ mm } \end{pmatrix}$ et $B=\begin{pmatrix} b_{ 11 } & \quad  & \quad  \\ \quad  & \ddots  & \quad  \\ a_{m1}  & \quad  & b_{ mm } \end{pmatrix}$. $\\$
+Soit $i$ minimal tel que les $i-eme$ lignes de $A$ et de $B$ soient différentes. Alors $\exists j \in \left\{ 1,\dots ,i  \right\}$  tel que $a_{ij} \neq b_{ij}$ et sans perte de généralité on a $a_{ij}<b_{ij}$ . Clairement en notant $A_j$ ( resp $B_j$) la $j-eme$ colonne de $A$ (resp $B$), on a $A_j - B_j = \begin{pmatrix} 0 \\ \vdots  \\ 0\\ a_{ ij }-b_{ ij } \\ \vdots  \end{pmatrix} \in \Lambda (A)$ avec $a_{ii}>a_{ij}-b_{ij}>0$ mais alors nécessairement $a_{ii}|a_{ij}-b_{ij}$ ce qui est une contradiction.
+$\\$
+
+ \end{proof}
+  \begin{remark}
+    \label{rem:5}
+    Théorème~\ref{thr:28} nous permet de tester  pour $A ∈ℤ^{m × n_1}$ et $B ∈ℤ^{m × n_2}$ de plein rang lignes, si $Λ(A) = Λ(B)$.  On calcule $(H_A|0)$ et $(H_B|0)$ les formes normales de Hermite de $A$ et $B$. Des que $Λ(A) =Λ(H_A)$ et $Λ(B) = Λ(H_B)$, alors $Λ(A) = Λ(B)$ si et seulement si $H_A = H_B$. 
+  \end{remark}
+
+  \begin{example}
+    \label{exe:29}
+    On va transformer $A = \left(\begin{matrix}4 & 6 & 10\\6 & 12 & 9\end{matrix}\right)$ en forme normale Hermite et trouver tout les solutions entier de
+    \begin{equation}
+      \label{eq:46}
+      \left(\begin{matrix}4 & 6 & 10\\6 & 12 & 9\end{matrix}\right) x =
+      \begin{pmatrix}
+        6 \\ 3
+      \end{pmatrix}, \, x ∈ ℤ^3. 
+    \end{equation}
+    
+    \begin{equation}
+      \label{eq:45}
+      \begin{array}{cc}
+      \left(\begin{matrix}4 & 6 & 10\\6 & 12 & 9\end{matrix}\right) &  
+\left(\begin{matrix}1 & 0 & 0\\0 & 1 & 0\\0 & 0 & 1\end{matrix}\right) \\
+
+\left(\begin{matrix}4 & 2 & 2\\6 & 6 & -3\end{matrix}\right) &  
+\left(\begin{matrix}1 & -1 & -2\\0 & 1 & 0\\0 & 0 & 1\end{matrix}\right) \\
+
+\left(\begin{matrix}2 & 4 & 2\\6 & 6 & -3\end{matrix}\right) &
+\left(\begin{matrix}-1 & 1 & -2\\1 & 0 & 0\\0 & 0 & 1\end{matrix}\right)\\
+
+\left(\begin{matrix}2 & 0 & 0\\6 & -6 & -9\end{matrix}\right)&
+\left(\begin{matrix}-1 & 3 & -1\\1 & -2 & -1\\0 & 0 & 1\end{matrix}\right)\\
+
+\left(\begin{matrix}2 & 0 & 0\\6 & 3 & -9\end{matrix}\right) &
+\left(\begin{matrix}-1 & 4 & -1\\1 & -1 & -1\\0 & -1 & 1\end{matrix}\right)\\
+
+\left(\begin{matrix}2 & 0 & 0\\6 & 3 & 0\end{matrix}\right) &
+\left(\begin{matrix}-1 & 4 & 11\\1 & -1 & -4\\0 & -1 & -2\end{matrix}\right)\\
+
+
+\left(\begin{matrix}2 & 0 & 0\\0 & 3 & 0\end{matrix}\right) &
+\left(\begin{matrix}-9 & 4 & 11\\3 & -1 & -4\\2 & -1 & -2\end{matrix}\right)\\
+      \end{array}      
+    \end{equation}
+
+    L'ensemble des  solutions entiers de~\eqref{eq:46} est 
+    \begin{displaymath}
+      \left\{ \left(\begin{matrix}-23\\8\\5\end{matrix}\right) + \left(\begin{matrix}11\\-4\\2\end{matrix}\right) ⋅z ： z ∈ℤ\right\}
+    \end{displaymath}
+    
+  \end{example}
+  
+  \begin{definition}
+   \label{def:49}
+   Soit $A \in \mathbb{Z}^{m \times n}$ alors $ker_{\mathbb{Z}}(A) = \left\{ y \in \mathbb{Z}^n, Ay=0 \right\}  $.
+  \end{definition}
+  
+    \begin{theorem}
+    \label{thr:28}
+    Soient $A,B \in \mathbb{Z}^{m \times m}$ en forme normale de Jordan avec $rang(A)=rang(B)=m$. Alors $\Lambda(A)=\Lambda(B) \Leftrightarrow \exists U\in \mathbb{Z}^{m \times m}$ unimodulaire telle que $B=AU$.
+    \end{theorem}
+    
+    \begin{proof}
+    $\\$
+    $\boxed { \Rightarrow  }$ Si $\Lambda(A)=\Lambda(B)$ alors $\\$ $A=BP, P\in \mathbb{Z}^{m \times m}$ $\\$ $B=AQ, Q\in \mathbb{Z}^{m \times m}$ $\\$ alors on obtient $A=AQP$ ce qui implique $QP=I_m$ et donc on a bien $P,Q$ unimodulaires.
+    $\\$
+    $\boxed { \Leftarrow  }$ Si $B=AU, U\in \mathbb{Z}^{m \times m}$ unimodulaire alors comme $U \mathbb{Z}^{m}= \mathbb{Z}^{m}$ on obtient immédiatement  $\Lambda(A)=\Lambda(B)$.
+    \end{proof}
+    
+    \begin{definition}
+   	\label{def:49}
+	Soient $A\in \mathbb{Z}^{m \times n}$ avec $rang(A)=m$ et $\Lambda(A)$ le réseau entier de $A$. Alors on pose $det(\Lambda(A))=|det(B)|$ ou $B \in \mathbb{Z}^{m \times m}$ est une base de $\Lambda(A)$
+   
+   \end{definition}
+   
+   \begin{remark}
+    \label{rem:5}
+    Le théorème~\ref{thr:28} assure que $|det(B)|$ ne dépend pas du choix de $B$ et donc $det(\Lambda(A))$ a du sens.
+    \end{remark}
+  
+\section*{Exercices}
+\begin{enumerate}
+\item Soit $A ∈ℤ^{m ×n}$ du plein rang lignes. Le noyaux entier de $A$ est l'ensemble
+  \begin{displaymath}
+    \ker_ℤ(A) = \{x ∈ℤ^n ： Ax = 0\}. 
+  \end{displaymath}
+  Soit  $U ∈ℤ^{n ×n}$ une matrice unimodulaire tel que
+  \begin{displaymath}
+    A ⋅ U = (H | 0) 
+  \end{displaymath}
+  est on forme normale de Hermite.
+  Montrer $\ker_ℤ(A) = \{ y_1 u_1 + \cdots + y_{n-m} u_{n-m} ： y_i ∈ℤ\}$ où $u_1,\dots,u_{n-m}$ sont les derniers $n-m$ colonnes de $U$. 
+\end{enumerate}
+
+\section{La forme normale de Smith}
+\label{sec:la-forme-normale-1}
+
+A partir de maintenant, on se donne une matrice $A\in \mathbb{Z}^{m\times n}$ avec $rang(A)=k$ et $k$ n'est pas forcément $m$.
+
+\begin{definition}
+   	\label{def:49}
+	Soit  $A\in \mathbb{Z}^{m\times n}$ alors $\Lambda(A)=\left\{ Ax,x\in \mathbb{R}^{n} \right\} $ est le réseau entier général de $A$.
+\end{definition}
+
+\begin{theorem}
+    \label{thr:28}
+    Soit  $A\in \mathbb{Z}^{m\times n}$ avec $rang(A)=k$ alors $\exists B \in \mathbb{Z}^{m \times k}$ tq. $\Lambda(A)=\Lambda(B)$. $B$ est alors appelée une base générale de $\Lambda(A)$.
+    \end{theorem}
+    
+	  \begin{remark}
+    \label{rem:5}
+    $rang(A)=rang(B)=k$.
+    \end{remark}
+    
+    \begin{proof}
+    Sans perte de généralité, on peut supposer que les $k$ premières lignes de $A$ sont linéairement indépendantes. 
+    Dès lors on a $A=\begin{pmatrix} A' \\ A'' \end{pmatrix}$ avec $A'\in \mathbb{Z}^{k \times n}$ et $rang(A')=k$ soit alors $U\in \mathbb{Z}^{n \times n}$ unimodulaire tq. $A'U=[H|0]$ ou $H \in \mathbb{Z}^{k \times k}$ est en forme normale de Jordan. Alors on peut se convaincre en raisonnant sur les rangs que $AU=\begin{pmatrix} H & 0 \\ B & 0 \end{pmatrix}$. Dés lors on a $\Lambda(A)=A\mathbb{Z}^n=AU\mathbb{Z}^n=\begin{pmatrix} H \\ B \end{pmatrix}\mathbb{Z}^k=\Lambda(\begin{pmatrix} H \\ B \end{pmatrix})$.
+    
+    \end{proof}
+    
+    \begin{theorem}
+    \label{thr:28}
+    Soit $G$ un sous groupe de $\mathbb{Z}^n$ alors $\exists B \in \mathbb{Z}^{n \times k}$ avec $rang(B)=k$ et tq. $\Lambda(B)=G$ 
+    \end{theorem}
+    
+    \begin{proof}
+    Soit $(v_1,\dots,v_k) \in G^k$ tq.  $(v_1,\dots,v_k)$ est une base de $span(G)$ (qui existe car on peut toujours extraire une base d'un espace de dimension fini d'une partie génératrice même infinie). Alors posons $B=(v_1\dots v_k)$$\\$
+    \underline { cas\quad 1: } $\Lambda(B)=G$ et c'est terminé. $\\$
+     \underline { cas\quad 2: }  $\Lambda(B)\subsetneq G$ alors $\exists v^* \in G-\Lambda(B)$. Soit alors $B^* \in \mathbb{Z}^{n \times k}$ une base générale du réseau général $G\supseteq \Lambda(v_1\dots v_k v^*)\supsetneq  \Lambda(B)$. Alors $\exists U\in \mathbb{Z}^{k \times k}$ tq. $B=B^*U$ et on a nécessairement $|det(U)| \in \mathbb{N} _{\ge 2}$. Dés lors on peut remarquer que $|det({B^TB})|=det(U)^2\times|det(B^{*^{T}}B^*)|$ et donc $|det({B^TB})|\le \frac { 1 }{ 4 } |det({B^TB})|$ mais comme $|det(B^{*^{T}}B^*)|\ge 1$ et on peut répéter ces opérations sur $B^*$ mais ce procédé ne peut pas continuer indéfiniment.
+    \end{proof}
+    
+     \begin{theorem}
+    \label{thr:28}
+    Soit $A \in \mathbb{Z}^{m\times n} - \left\{ 0 \right\} $ alors $\exists U \in \mathbb{Z}^{m\times m}$ et $V \in \mathbb{Z}^{n\times n}$ unimodulaires tq. $UAV = \begin{pmatrix} \delta _{ 1 } & \quad & \quad  & \quad & \quad \\ \quad & \ddots  & \quad & \quad & \quad \\  \quad&  \quad& \delta _{ k } & \quad & \quad \\ \quad & \quad & \quad & \quad &\quad  \end{pmatrix}$  avec $\delta_i \in \mathbb{N}_{\ge1}$ et $\delta_1|...|\delta_k$ et les coefficients non specifiés sont 0.
+    \end{theorem}
+\begin{proof}
+On raisonne par récurrence sur m.$\\$
+ \underline { m=1: } alors $A=(a_1 \dots a_n)$ mais alors on sait que $\exists V \in \mathbb{Z}^{n\times n}$ tq. $A\dashrightarrow (d \quad 0\dots 0)$. On prenant $U=I_m$ on termine l'initialisation.$\\$
+  \underline { m $>$ 1: } Si nécessaire on échange les lignes de $A$ de sorte à ce que la première ligne soit non nulle. Alors $A=\begin{pmatrix}  a_1& \dots &a_n \\ \quad &  A'&\quad \end{pmatrix}$ et on sait que $\exists V \in \mathbb{Z}^{n\times n}$ tq. $A\dashrightarrow \begin{pmatrix} d & 0 & \dots  & 0 \\ \alpha _{ 1 } & \quad  & \quad  & \quad  \\ \vdots  & \quad  & A''  & \quad \\ \alpha _{ m } & \quad  & \quad  & \quad  \end{pmatrix}$ $\\$
+  Si $d|\alpha_i \quad \forall i\in \left\{ 2,\dots, m \right\} $ alors on effectue $C_i \leftarrow  C_i - \frac {\alpha_i}{ d } C_1$ et on obtient $A\dashrightarrow \begin{pmatrix} d & 0 & \dots  & 0 \\ 0 & \quad  & \quad  & \quad  \\ \vdots  & \quad  & A''  & \quad \\ 0 & \quad  & \quad  & \quad  \end{pmatrix}$ $\\$
+  Sinon $d\nmid  \alpha_j$ pour $j\in \left\{ 2,\dots, m \right\}$ et donc on a $pgcd(d,\alpha_2,\dots,\alpha_n)<d$. Ainsi $\exists U \in \mathbb{Z}^{m\times m}$ tq. $A\dashrightarrow \begin{pmatrix} \widetilde { d }  & \beta_2 & \dots  & \beta_n \\ 0 & \quad  & \quad  & \quad  \\ \vdots  & \quad  & A'''  & \quad \\ 0 & \quad  & \quad  & \quad  \end{pmatrix}$ avec $\widetilde { d } <d$.
+\end{proof}
+    
+    
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "notes"
+%%% End:

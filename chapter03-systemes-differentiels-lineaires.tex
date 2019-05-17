@@ -1,12 +1,5 @@
 \chapter{Systèmes différentiels linéaires}
 \label{cha:syst-diff-line}
-\hrule
-\medskip
-\begin{center}
-  Cours du 17. Mai 2016
-\end{center}
-\hrule 
-\bigskip 
 
 On considère le système suivant
 \begin{equation}
@@ -41,7 +34,7 @@ On cherche des fonctions dérivables $\x_i: \R \longrightarrow \R$  qui, ensembl
   \label{exe:20}
   Considérons l'équation différentielle $\x'(t) = \x(t)$. Une solution est $\x(t) = e^t$. Une autre solution est $\x(t) = 2\cdot e^t$. Si on spécifie la \emph{condition initiale} $\x(0) = 1$, alors $\x(t) = e^t$ est la solution qui satisfait cette condition initiale. Autrement, si on spécifie $\x(0) = \alpha$, alors  $\x(t) = \alpha \cdot e^t$ est une solution qui satisfait la condition initiale. 
 
-Considérons $\x'(t) = -\x(t)$, une solution est $\x(t) = e^(-t)$. %$\x(t) = \cos(t)$.
+Considérons $\x'(t) = -\x(t)$, une solution est $\x(t) = e^{(-t)}$. %$\x(t) = \cos(t)$.
 C'est aussi une solution qui respecte la condition initiale $\x(0) = 1$. 
 \end{example}
 
@@ -148,7 +141,7 @@ Dès que $A $ est réelle on voit $\x_\Re' = A\x_\Re$ et $\x'_\Im = A \x_\Im$.
 
 
 Supposons alors que $A \in \R^{n \times n}$ est diagonalisable . Et soit $\{v_1,\dots,v_n\}$ une base de $\C^n$ de vecteurs propres associés à 
-$\lambda_1,\dots,\lambda_n$ respectivement. Si $v_i = u_i + i \cdot w_i$  où $u_i,w_i \in \R^n$, les $u_1,\dots,u_n,v_1,\dots,v_n$ engendrent $\R^n$, voir exercice~\ref{item:5}. Comme nous avons noté 
+$\lambda_1,\dots,\lambda_n$ respectivement. Si $v_i = u_i + i \cdot w_i$  où $u_i,w_i \in \R^n$, les $u_1,\dots,u_n,w_1,\dots,w_n$ engendrent $\R^n$, voir exercice~\ref{item:5}. Comme nous avons noté 
 \begin{displaymath}
   \x^{(j)} = e^{\lambda_j t} v_j
 \end{displaymath}
@@ -157,12 +150,12 @@ sont des solutions complexes du système~\eqref{eq:19}.
 Aussi, on peut supposer que la base et les valeurs propres sont tels que les vecteurs/valeurs propres complexes viennent en paires conjugées complexes. Plus précisément
 \begin{equation}
 \label{eq:22}
-  v_{2_j+1} = \overline{v_{2j}}\, \text{ et } \, \lambda_{2j+1} = \overline{\lambda_{2j}} \, \text{ pour } \, 1 \leq j \leq k \leq n/2 
+  v_{2j-1} = \overline{v_{2j}}\, \text{ et } \, \lambda_{2j-1} = \overline{\lambda_{2j}} \, \text{ pour } \, 1 \leq j \leq k \leq n/2 
 \end{equation}
 et 
 \begin{equation}
   \label{eq:23}  
-  v_j \in \R^n, \lambda_j \in \R \text{ pour } j > 2k+1. 
+  v_j \in \R^n, \lambda_j \in \R \text{ pour } j > 2k. 
 \end{equation}
 %
 Considérons maintenant une solution impliquée par $v = u+iw$  $\lambda= a+ib$. 
@@ -183,8 +176,8 @@ Considérons maintenant une solution impliquée par $v = u+iw$  $\lambda= a+ib$.
 Nous pouvons alors noter une marche à suivre pour résoudre le système~\eqref{eq:19} étant donné $\x(0)$ si $A$ est diagonalisable.
 \begin{enumerate}
 \item Trouver une base de vecteurs propres $v_1,\dots,v_n$ de $A$ ordonnée comme dans \eqref{eq:22} et \eqref{eq:23}. 
-\item Pour chaque paire $v_j,\lambda_j$, $1 \leq j \leq k$ trouver les  deux solutions réelles dénotées comme  $\x^{(2j)}$ et $\x^{(2j+1)}$. 
-\item Pour chaque paire réelle $v_j, \lambda_j$ $n\geq j>2k+1$, trouver la solution $\x^{(j)}$. 
+\item Pour chaque paire $v_{2j},\lambda_{2j}$, $1 \leq j \leq k$ trouver les  deux solutions réelles dénotées comme  $\x^{(2j-1)}$ et $\x^{(2j)}$. 
+\item Pour chaque paire réelle $v_j, \lambda_j$ $n\geq j>2k$, trouver la solution $\x^{(j)}$. 
 \item Trouver la combinaison linéaire 
   \begin{displaymath}
     \x(0) = \sum_{j} \alpha_j \x^{(j)}(0) 
@@ -304,14 +297,7 @@ existe. Soit $f$ holomorphe sur $\C$ et $g = f_{|\R}$ la fonction $f$ réduite �
 
 \section{L'exponentielle d'une matrice}
 \label{sec:lexp-dune-matr}
-\bigskip 
-\hrule
-\medskip
-\begin{center}
-  Cours du 24. Mai 2016
-\end{center}
-\hrule 
-\bigskip 
+
 
 
 \begin{definition}
@@ -344,7 +330,7 @@ qui définit la fonction holomorphe $\exp: \C \longrightarrow \C$
 
 \begin{lemma}
   \label{lem:16}
-  Pour $A,B \in \C^{m \times n}$ on a 
+  Pour $A \in \C^{n \times m}$ et $B \in \C^{m × n}$  on a 
   \begin{displaymath}
     \|A\cdot B\|_F \leq \|A\|_F\cdot \|B\|_F. 
   \end{displaymath}
@@ -367,14 +353,11 @@ et donc
   \end{lemma}
 
   \begin{proof}
-    \begin{eqnarray*}
-      \| \sum_{k=m}^\infty \frac{1}{k!} A^k \|_F & \leq &    \sum_{k=m}^\infty \frac{1}{k!} \|A^k \|_F\\
-      & \leq &  \sum_{k=m}^\infty \frac{1}{k!} \|A \|_F^k.\\
-    \end{eqnarray*}
-Alors 
-\begin{displaymath}
-  \lim_{m \rightarrow \infty} \|\sum_{k=m}^\infty \frac{1}{k!} A^k \|_F = 0. 
-\end{displaymath}
+Il est facile de se convaincre que la convergence pour la norme de Frobenius revient à prouver que la suite est de Cauchy. 
+
+Evidemment $\forall c \in \mathbb{C}$ la série $\sum _{ j=0 }^{ +\infty  }{ \frac { { x }^{ j } }{ j! } ={ e }^{ j } } $ converge. La suite des sommes partielles est donc de Cauchy.
+
+Considérons maintenant la suite $(b_n)_{n\in \mathbb{N}} = { (\sum _{ j=0 }^{ n }{ \frac { { A }^{ j } }{ j! } ) }  }_{ n\in \mathbb{N} }$. Soient $m,n \in \mathbb{N}$ alors $\parallel b_{ m }-b_{ n }\parallel _{ F }=\parallel \sum _{ j=n+1 }^{ m }{ \frac { A^{ j } }{ j! }  } \parallel _{ F }\quad \le \quad \sum_{j=n+1}^{m}{\frac{\parallel A\parallel_{F}^{j}}{j!}} \le \quad \epsilon $ pour $n,m \ge N_{\epsilon}$ (qui existe car la suite des sommes partielles de la série $\sum _{ j=0 }^{ +\infty }{ \frac { \parallel A\parallel _{ F }^{ j } }{ j! }  } = e^{\parallel A\parallel _{ F }^{ j }} $ est de Cauchy.)
   \end{proof}
 
 
@@ -422,7 +405,7 @@ où $N \in \C^{n \times n}$ est nilpotente, $P \in \C^{n \times n}$ est inversib
 
 Comment peut-on maintenant résoudre le problème initial $\x' = Ax, \, \x(0) = v$ explicitement? Nous savons que cette solution est $\x = e^{tA} \cdot v$ et nous savons que c'est une solution réelle pour $A \in \R^{m \times n}$. Mais les premiers termes s'écrivent comme 
 \begin{displaymath}
-  \sum_{i=0}^m t^i A^i = P \left(\sum_{i=0}^m t^i \diag(\lambda_1,\dots,\lambda_n) + t^i N \right) P^{-1} 
+  \sum_{i=0}^m t^i A^i = P \left(\sum_{i=0}^m t^i \diag(\lambda_1,\dots,\lambda_n)^i + t^i N \right) P^{-1} 
 \end{displaymath}
 où nous avons utilisé le théorème \ref{thr:32}. Dès que $N$ et $\diag(\lambda_1,\dots,\lambda_n)$ commutent, la solution \emph{réelle} que l'on cherche est  
 \begin{eqnarray*}
@@ -441,13 +424,6 @@ Un élément de $K[x]$ s'écrit comme
   p(x) = a_0 + a_1 x + \cdots + a_n x^n 
 \end{displaymath}
 où les \emph{coefficients} $a_i \in K$. 
-Le \emph{degré} de $p(x) \neq 0$ est 
-\begin{displaymath}
-  \deg(p) = \max\{i \colon  a_i \neq 0\}
-\end{displaymath}
-et $\deg(0) = -\infty$. 
-Si $p \neq 0$, le coefficient $a_{\deg(p)}$ est le \emph{coefficient dominant} de $p$. 
-Un polynôme de degré zéro est une \emph{constante}. 
 
 La formule de multiplication de deux polynômes $f(x) = a_0+a_1x+ \cdots a_n x^n$ et $g(x) = b_0 + \cdots + b_m x^m$  est 
 \begin{equation}
@@ -455,15 +431,6 @@ La formule de multiplication de deux polynômes $f(x) = a_0+a_1x+ \cdots a_n x^n
   f(x) \cdot g(x) = \sum_{i = 0}^{m+n} \left(\sum_{k+l = i}  a_{k} b_l\right) x^i
 \end{equation}
 
-\begin{theorem}
-  \label{thr:34}
-
-  Pour $f,g \in K[x] $, $\deg(f \cdot g) = \deg(f) + \deg(g)$. 
-\end{theorem}
-\begin{proof}
-  La formule~\eqref{eq:21} révèle que $\deg(f\cdot g) \leq \deg(f) + \det(g)$. 
-  Soient $f(x) = a_0 + \cdots + a_n x^n$ et $g(x) = b_0+ \cdots b_m x^m$ tels que $a_n, b_m  \neq 0$. Le coefficient de $x^{n+m}$  est $a_n \cdot  b_m \neq 0$.
-\end{proof}
 
 \begin{definition}
   \label{def:30}
@@ -476,80 +443,6 @@ implique $\deg(g) \cdot \deg(h) = 0$, alors un des facteurs est une constante.
 \end{definition}
 
 
-
-
-La division avec reste est l'opération suivante. 
-
-\begin{theorem}
-  \label{thr:33}
-  Soient $f,g \in K[x]$ et $\deg(g) >0$. Il existe $q,r \in K[x]$ tels que 
-  \begin{displaymath}
-    f(x) = q(x) g(x) + r(x) 
-  \end{displaymath}
-  et $\deg(r) < \deg(g)$. 
-\end{theorem}
-
-
-\begin{proof}
-  La preuve se fait par induction sur $\deg(f)$. Si $\deg(f) < \deg(g)$, alors on pose $q = 0$ et $r = f$.
-
-Soit alors $\deg(f) = n \geq \deg(g)=m$ et 
-\begin{displaymath}
-  f(x) = a_0+ \cdots +a_n x^n \text{ et } g(x) = b_0 + \cdots + b_m x^m 
-\end{displaymath}
-où $a_n$ et $b_m$ sont les coefficients dominants de $f$ et $g$ respectivement. 
-Clairement 
-\begin{displaymath}
-  \deg\left( f(x) - \frac{a_n}{ b_m } x^{n-m} g(x) \right) < \deg(f(x))
-\end{displaymath}
-et par induction 
-\begin{displaymath}
-  f(x) - \frac{a_n}{ b_m } x^{n-m} g(x)  = q(x) g(x) + r(x) 
-\end{displaymath}
-tel que $\deg(r(x)) < \deg(g(x))$. On  obtient alors
-\begin{displaymath}
-  f(x) = (q(x) + \frac{a_n}{ b_m } x^{n-m} ) g(x) + r(x). 
-\end{displaymath}
-\end{proof}
-
-\begin{definition}
-  Pour $f(x)  = a_0 + \cdots + a_n x^n \in K[x]$ et $\alpha \in K$, l'évaluation $f(\alpha)$ est $ a_0 + a_1 \alpha + \cdots + a_n \alpha^n \in K$. 
-\end{definition}
-
-
-%\begin{proposition}
-%  \label{prop:5}
-%  Pour $\alpha \in K$, $\phi_\alpha: \, K[x] \longrightarrow K$, %$\phi_\alpha(f(x)) = f(\alpha)$ est un homomorphisme.  
-%\end{proposition}
-
-\begin{definition}
-  \label{def:31}
-  Soit $f(x) \in \K[x] \setminus\{0\}$. Un $\alpha \in K$ tel que $f(\alpha) = 0$ est une  \emph{ racine} de $f(x)$.  
-\end{definition}
-
-\begin{definition}
-  \label{def:32}
-  Un polynôme  $q(x)$ \emph{divise} un autre polynôme $f(x)$ s'il existe un polynôme $g(x)$ tel que $f(x) = g(x) \cdot q(x)$. On dit que $q(x)$ est un diviseur de $f(x)$ et on écrit $q(x) \mid f(x)$. 
-\end{definition}
-
-\begin{theorem}
-  \label{thr:35}
-  Soit $f(x)$ un polynôme  et $\alpha \in K$, alors $\alpha$ est une racine de $f$ si et seulement si $(x- \alpha)  \mid f(x)$. 
-\end{theorem}
-
-\begin{proof}
-  Si $f(x) = q(x) \cdot (x - \alpha)$, alors $f(\alpha) = 0$. 
-
-%Autrement, si $f$ est une constante, $f = 0$ et $(x - \alpha)$ divise $f$.
-Dans l'autre sens, si $f$ est une constante, $f(\alpha) = 0$ implique que $f = 0$ et $(x - \alpha)$ divise $f$. 
-
-Si $f$ n'est pas une constante, il existe $q(x)$ et $r(x)$ tels que
-\begin{displaymath}
-  f(x) = q(x) \cdot (x - \alpha) + r(x)
-\end{displaymath}
-%$\deg(r) = 0$. Alors $f(\alpha) = 0$ implique $r=0$. 
-avec $\deg(r) \leq 0$. Alors $f(\alpha) = 0$ implique $r=0$. 
-\end{proof}
 
 
 \begin{definition}
@@ -568,13 +461,13 @@ avec $\deg(r) \leq 0$. Alors $f(\alpha) = 0$ implique $r=0$.
 
 \begin{theorem}
   \label{thr:36}
-  Soient $a(x),b(x)$ deux polynômes, tels que $\deg(a)+\deg(b)>0$. Un polynôme 
+  Soient $a(x),b(x)$ deux polynômes, tels que $\left\{ a,b \right\} \neq \left\{ 0 \right\}$. Un polynôme 
   \begin{equation}
     \label{eq:25}   
     d(x) = g(x) a(x) + h(x) b(x) \neq 0
   \end{equation}
   où $g,h \in K[x]$ 
-  de degré minimale est un plus grand diviseur commun de $a$ et $b$. 
+  de degré minimal est un plus grand diviseur commun de $a$ et $b$. 
 \end{theorem}
 
 \begin{proof}
@@ -588,7 +481,7 @@ et $\deg(r) < \deg(d)$. Alors
 \end{displaymath}
 est un polynôme de la forme~\eqref{eq:25} avec un degré strictement plus petit que celui de $d$. 
 
-Il est clair que tous les diviseurs communs de $a$ et $b$ divisent $b$. 
+Il est clair que tous les diviseurs communs de $a$ et $b$ divisent $d$. 
 \end{proof}
 
 
@@ -600,14 +493,14 @@ Il est clair que tous les diviseurs communs de $a$ et $b$ divisent $b$.
 \end{theorem}
 
 \begin{proof}
-Si $p(x)$ ne divise $f(x)$ ni $g(x)$ alors $1 = f(x) h_1(x) + p(x)h_2(x)$ et 
+Si $p(x)$ ne divise ni $f(x)$ ni $g(x)$ alors $1 = f(x) h_1(x) + p(x)h_2(x)$ et 
 $1 = g(x) h_3(x) + p(x) h_4(x)$ alors $\gcd(p(x), f(x)g(x))=1$. 
 \end{proof}
 
 
 \begin{theorem}
   \label{thr:40}
-  Un polynôme  $f(x) \in K[x]$ a une factorisation 
+  Un polynôme  $f(x) \in K[x]$, $f(x) ≠ 0$  a une factorisation 
   \begin{displaymath}
     f(x) = a^* \prod_j p_j(x)
   \end{displaymath}
@@ -616,36 +509,29 @@ $1 = g(x) h_3(x) + p(x) h_4(x)$ alors $\gcd(p(x), f(x)g(x))=1$.
 
 
 
-\newpage
-\bigskip 
-\hrule
-\medskip
-\begin{center}
-  Cours du 31. Mai 2016
-\end{center}
-\hrule 
-\bigskip 
+
 
 \begin{definition}
   \label{def:34}
-  Soit $V$ un espace vectoriel sur un corps $K$, $A: V \rightarrow V$ un endomorphisme et $f(x) = a_0+ \cdots + a_n x^n\in K[x]$. L'\emph{évaluation de $f$ sur $A$} est l'endomorphisme $f(A): V \rightarrow V$ 
+  Soient $V$ un espace vectoriel sur un corps $K$, $A: V \rightarrow V$ un endomorphisme et $f(x) = a_0+ \cdots + a_n x^n\in K[x]$. L'\emph{évaluation de $f$ sur $A$} est l'endomorphisme $f(A): V \rightarrow V$ 
   \begin{displaymath}
-    f(A) = a_n A^n + a_{n-1}A^{n-1}+ \cdots + a_1 A + a_0 \cdot I_n \in K^{n \times n}. 
+    f(A) = a_n A^n + a_{n-1}A^{n-1}+ \cdots + a_1 A + a_0 \mathrm{id},
   \end{displaymath}
+  où $A^n = \underbrace{A \circ A \circ \dots \circ A}_{n \text{ fois}}$.
 \end{definition}
 
 
 
 \begin{definition}
   \label{def:35}
-  Soit $A:V \rightarrow V$ un endomorphisme et $W \subseteq C$ un sous-espace de $V$. On dit que $W$ est \emph{invariant sous $A$} si $A(x) \in W$ pour tout $x \in W$. 
+  Soient $A:V \rightarrow V$ un endomorphisme et $W \subseteq V$ un sous-espace de $V$. On dit que $W$ est \emph{invariant sous $A$} si $A(x) \in W$ pour tout $x \in W$. 
 \end{definition}
 
 
 
 \begin{lemma}
   \label{lem:20}
-  Soit $f(x) ∈ K[x]$ et $A:V ⟶  V$ un endomorphisme,  alors $\ker(f(A))$ est invariant sous $A$. 
+  Soient $f(x) ∈ K[x]$ et $A:V ⟶  V$ un endomorphisme,  alors $\ker(f(A))$ est invariant sous $A$. 
 \end{lemma}
 
 
@@ -656,7 +542,7 @@ Si $v ∈ \ker(f(A))$ on trouve que $f(A)\,Av = Af(A)\,v = 0$. Alors, $Av ∈ \k
 
 \begin{theorem}
   \label{thr:37}
-  Soit $f(x) = f_1(x) \cdot f_2(x)$ et $A: V \cdot V$ un endomorphisme tel que 
+  Soit $A: V \rightarrow V$ un endomorphisme et soit $f(x) = f_1(x) \cdot f_2(x)$ tel que
   \begin{enumerate}[i)]
   \item $\deg(f_1) \cdot \deg(f_2) \neq 0$,
   \item $\gcd(f_1,f_2) = 1$ 
@@ -676,13 +562,13 @@ Si $v ∈ \ker(f(A))$ on trouve que $f(A)\,Av = Af(A)\,v = 0$. Alors, $Av ∈ \k
     \label{eq:26}   
     g_1(A) \cdot f_1(A) +  g_2(A) f_2(A) = I. 
   \end{equation}
-  Pour $v \in \ker(f(A))$ alors 
+  Pour $v \in \ker(f(A))$, alors 
 \begin{displaymath}
    g_1(A) \cdot f_1(A) \cdot v  + g_2(A) f_2(A) \cdot v  = v. 
 \end{displaymath}
 Mais $g_1(A) \cdot f_1(A) \cdot v \in \ker(f_2(A))$  dès que 
 \begin{displaymath}
-  f_2(A) \cdot g_1(A) \cdot f_1(A) \cdot v =   g_1(A) \cdot f_1(A) f_2(A) \cdot v = g_1(A) f(A) v = 0
+  f_2(A) \cdot g_1(A) \cdot f_1(A) \cdot v =   g_1(A) \cdot f_1(A) ⋅ f_2(A) \cdot v = g_1(A) f(A) v = 0
 \end{displaymath}
 et d'une manière similaire on voit que $g_2(A) f_2(A) \cdot v \in \ker(f_1(A))$. Il reste à démontrer que la somme est directe. 
 
@@ -695,6 +581,52 @@ qui démontre que la somme est directe.
 
 
 
+\begin{theorem}
+\label{thr:min-poly}
+Soient $V$ un espace vectoriel de dimension finie sur un corps $K$, et $A: \, V \rightarrow V$ un endomorphisme.
+Il y a un polyn{\^o}me $m_A(x) \in K[x]$ de degr{\'e} minimal tel que $m_A(A) = 0$ et le coefficient dominant de $m_A(x)$ est $1$. En plus,
+\begin{enumerate}
+\item $m_A(x)$ est unique,
+\item si $p(A) = 0$ pour un $p \in K[x]$, alors $m_A(x)$ divise $p$, et
+\item pour $\lambda \in K$, on a $m_A(\lambda) = 0$ si et seulement si $p_A(\lambda) = 0$, o{\`u} $p_A(x)$ est le polyn{\^o}me charact{\'e}ristique de $A$.
+\end{enumerate}
+\end{theorem}
+\begin{definition}
+On appelle $m_A(x)$ de Th{\'e}or{\`e}me~\ref{thr:min-poly} le \emph{polyn{\^o}me minimal de $A$}.
+\end{definition}
+\begin{proof}
+\underline{Existence:}
+Car $V$ est de dimension finie, l'espace vectoriel des endomorphismes $V \rightarrow V$ est de dimension finie.
+Alors, il existe un $k \in \N$ minimal tel que les endomorphismes
+\[
+ \mathrm{id}, A, A^2, \dots A^k
+\]
+sont lin{\'e}airement d{\'e}pendants,
+$
+0 = \sum_{j=0}^k \alpha_j A^j$ pour quelques $\alpha_j \in K$, et $\alpha_k \neq 0$.
+On d{\'e}finit $m_A(x) = \sum_{j=0}^k (\alpha_j / \alpha_k) x^j$.
+Car on choisit $k$ minimal, $\{\mathrm{id},\dots,A^{k-1}\}$ est un ensemble libre et alors $m_A(x)$ est de degr{\'e} minimal.
+
+\underline{$i)$ et $ii)$:} Soit $p(x) \in K[x]$ polyn{\^o}me quelconque tel que $p(A) = 0$.
+Car il y a deux polyn{\^o}mes $g,h$ tel que 
+\[
+\gcd (m_A, p) (x) = g(x)m_A(x) + h(x) p(x) \neq 0,
+\]
+on a $\gcd (m_A, p) (A) = 0$.
+Car $m_A$ est de degr{\'e} minimal, on a $\deg (\gcd(m_A,p)) = \deg (m_A)$, et car le polyn{\^o}mes ont le coefficient dominant $1$, on a $m_A(x) = \gcd (m_A, p) (x)$, alors $ii)$ est vrai.
+De plus, si $\deg (p) = \deg (m_A)$, on a $p = \gcd (p, m_A)$ aussi, ce qui implique $i)$.
+
+\underline{$iii)$}
+Car $m_A \mid p_A$, si $m_A(\lambda) = 0$ alors $p_A(\lambda) = 0$.
+
+Si $p_A(\lambda) = 0$, il existe $v \in V$ tel que $Av = \lambda v$.
+Alors,
+\[
+0 (v) = m_A(A) (v) = \left( \sum_{j=0}^k a_j A^j \right) (v) = \sum_{j=0}^k a_j A^j(v) = \left( \sum_{j=0}^k a_j \lambda^j \right) (v) = m_A (\lambda) v,
+\]
+et on a $iii)$.
+\end{proof}
+
 
 
 
@@ -703,6 +635,7 @@ qui démontre que la somme est directe.
 \begin{enumerate}
 \item Montrer que $K[x]$ est un anneau avec $1_{K[x]} = 1_K$.  
 \item Montrer que  $a(x) \in K[x]$ et $b(x) \in K[x]$ $\deg(a)+\deg(b)>0$  possèdent exactement un diviseur commun le plus grand avec coefficient principal égal à $1_K$.  
+\item Soit $V$ un espace vectoriel de dimension fini sur $ℂ$,  $T : V ⟶V$ un endomorphisme et $f(x) = (x - λ)^m ∈ ℂ[x]$. Montrer que $\ker(f(T)) \neq \{0\}$ si et seulement si $λ$ est un valeur propre de $T$. 
 \end{enumerate}
 
 
@@ -725,7 +658,7 @@ qui démontre que la somme est directe.
   \end{displaymath}
 où les éléments non décrits sont zéro. 
 
-Une matrice $A \in \C^{n \times n}$ est en \emph{forme normale de Jordan} si $A$ est en forme bloc diagonale, où tout les blocs sur la diagonale sont des blocs Jordan, alors une matrice de la forme 
+Une matrice $A \in \C^{n \times n}$ est en \emph{forme normale de Jordan} si $A$ est en forme bloc diagonale, où tous les blocs sur la diagonale sont des blocs Jordan, i.e. $A$ est de la forme
 \begin{displaymath}
   A =
   \begin{pmatrix}
@@ -735,7 +668,7 @@ Une matrice $A \in \C^{n \times n}$ est en \emph{forme normale de Jordan} si $A$
         &    &       & B_k
   \end{pmatrix}
 \end{displaymath}
-où les matrices $B_j \in \C^{n_j\times n_j}$ sont des blocs Jordan. 
+où les matrices $B_j \in \C^{n_j\times n_j}$ sont des blocs de Jordan. 
 \end{definition}
 
 
@@ -759,17 +692,17 @@ Notre but est de montrer le théorème suivant.
     \end{pmatrix}
      = 
      \begin{pmatrix}
-       0 \\ x_1 \\ \vdots \\ x_{n-1}
+       x_2 \\ x_3 \\ \vdots \\ 0
      \end{pmatrix}. 
   \end{displaymath}
-  Le décalage plus une constante est une application linéaire 
+  Le décalage plus une constante est aussi une application linéaire 
   \begin{displaymath}
     U + \lambda \cdot I. 
   \end{displaymath}
 \end{definition}
 
-C'est facile à voir que la matrice représentant le décalage plus $λ$ est 
-un seul bloc Jordan 
+Il est facile de voir que la matrice représentant le décalage plus $λ$ est 
+un seul bloc de Jordan 
 \begin{displaymath}
  \begin{pmatrix}
       λ & 1 \\
@@ -793,20 +726,25 @@ un seul bloc Jordan
 \end{lemma}
 
 \begin{proof}
-  Des que l'espace des applications linéaires sur $V$ est un espace vectoriel sur $\C$ de dimension finie il existe un $k \in \N$ tel que 
-  \begin{displaymath}
-    I, \, T, \, T^2, \dots, T^k
-  \end{displaymath}
-sont linéairement dépendants. Alors il existe un polynôme $p(x) \in \C[x] \setminus \{ 0 \}$ tel que $p(T) = 0$. Le théorème fondamental d'algèbre implique que 
+%  Dès que l'espace des applications linéaires sur $V$ est un espace vectoriel sur $\C$ de dimension finie, il existe un $k \in \N$ tel que 
+%  \begin{displaymath}
+%    I, \, T, \, T^2, \dots, T^k
+%  \end{displaymath}
+%sont linéairement dépendants. De plus, il existe un polynôme $p(x) \in \C[x] \setminus \{ 0 \}$ tel que $p(T) = 0$. En effet, on peut choisir $p(x)$ le polynôme 
+%caractéristique de $T$.
+Soit $p(x) = m_T(x)$ le polyn{\^o}me minimal de $T$, alors $p(T) = 0$.
+Le coefficient dominant de $p(x)$ est $1$.   Le théorème fondamental de l'algèbre implique que 
 \begin{displaymath}
   p(x) = ( x - λ_1)^{m_1} \cdots ( x - λ_k)^{m_k} 
 \end{displaymath}
-avec des   $λ_i$ différentes. 
-Le diviseur le plus grand de $( x - λ_i)^{m_i}$ et $p(x) / ( x - λ_i)^{m_i}$ est $1$ pour $i ≠ j$. En utilisant théorème~\ref{thr:37} en $k-1$ étapes alors 
+avec des $λ_i$ différents. 
+Le diviseur le plus grand de $( x - λ_i)^{m_i}$ et $p(x) / ( x - λ_i)^{m_i}$ est $1$ pour $i ≠ j$. En utilisant théorème~\ref{thr:37} en $k-1$ étapes, alors 
 \begin{displaymath} 
 V =   \ker p(T) = \ker (T - λ_1I)^{m_1} ⊕  \cdots ⊕ \ker( T - λ_kI)^{m_k}
 \end{displaymath}
-et avec $V_i = \ker( T - λ_iI)^{m_i}$ on a $V = V_1 ⊕ \cdots ⊕ V_K$  et \ref{item:10}). 
+et avec $V_i = \ker( T - λ_iI)^{m_i}$ on a $V = V_1 ⊕ \cdots ⊕ V_K$  et \ref{item:10}) avec lemme~\ref{lem:20}. \newline
+
+De plus, $$T_{∣V_i} = (T - λ_iI)_{∣V_i} + λ_iI_{∣V_i} =\colon N_i + λ_iI$$ et $N_i = (T - λ_iI)_{∣V_i}$ est bien nilpotente, car $V_i = \ker( T - λ_iI)^{m_i}$ et donc $N_i^{m_i} = (T - λ_iI)^{m_i}_{∣V_i} = 0$.
 \end{proof}
 
 
@@ -814,7 +752,7 @@ et avec $V_i = \ker( T - λ_iI)^{m_i}$ on a $V = V_1 ⊕ \cdots ⊕ V_K$  et \re
   \label{rem:3}
   Lemme~\ref{lem:19} démontre qu'il existe une base 
   \begin{displaymath}
-  \mathscr{B} =   b_1^1,\dots,b_{\ell_1}^1,b_1^2,\dots,b_{\ell_2}^2,\dots,b_1^1,\dots,b_{\ell_k}^k
+  \mathscr{B} =   b_1^1,\dots,b_{\ell_1}^1,b_1^2,\dots,b_{\ell_2}^2,\dots,b_1^k,\dots,b_{\ell_k}^k
   \end{displaymath}
   où $b_1^i,\dots,b_{\ell_i}^i$ est une base de $V_i$ telle que la matrice $A^T_\mathscr{B}$ de $T$ par rapport à la base $\mathscr{B}$ est une matrice bloc diagonale 
   \begin{displaymath}
@@ -826,9 +764,9 @@ et avec $V_i = \ker( T - λ_iI)^{m_i}$ on a $V = V_1 ⊕ \cdots ⊕ V_K$  et \re
         & &  & B_k
       \end{pmatrix}
   \end{displaymath}
-et les matrices $B_i \in \C^{n_i × n_i}$ sont de la forme $B_i = N_i + λ_i I$ où les $N_i$ sont  nilpotentes. 
+et les matrices $B_i \in \C^{\ell_i × \ell_i}$ sont de la forme $B_i = N_i + λ_i I$ où les $N_i$ sont  nilpotentes. 
 
-Rappel: Si  $\phi_{\mathscr{B}}$ est l'ismomorphisme $\phi_{\mathscr{B}} \colon V \longrightarrow \C^n$, où $\phi_{\mathscr{B}}(x) = [x]_{\mathscr{B}}$ sont les coordonnées de $x$ par rapport à la base ${\mathscr{B}}$,  on a le diagramme suivant 
+Rappel: Si  $\phi_{\mathscr{B}}$ est l'ismorphisme $\phi_{\mathscr{B}} \colon V \longrightarrow \C^n$, où $\phi_{\mathscr{B}}(x) = [x]_{\mathscr{B}}$ sont les coordonnées de $x$ par rapport à la base ${\mathscr{B}}$,  on a le diagramme suivant 
 \begin{displaymath}
   {
   \begin{CD}
@@ -856,7 +794,7 @@ telle que $N^{m_i}x_i = 0$ pour tout $i$.
 
 \begin{remark}
   \label{rem:4}
-  Si on inverse l'ordre de la base $ℬ$ alors si on liste les éléments de droite à gauche on obtient une base $ℬ'$ et la matrice $A_{ℬ'}^{N }$ de l'application $N$  a la forme 
+  Si on inverse l'ordre de la base $ℬ$ et si on liste les éléments de droite à gauche on obtient une base $ℬ'$ et la matrice $A_{ℬ'}^{N }$ de l'application $N$  a la forme 
   \begin{displaymath}
     A_{ℬ'}^N =
     \begin{pmatrix}
@@ -877,7 +815,7 @@ en forme normale de Jordan, où
     & & & & 0
   \end{pmatrix} \in \C^{m_i × m_i}. 
 \end{displaymath}
-Par conséquence $N+ λI$ est représentée par 
+Par conséquent, $N+ λI$ est représentée par 
 \begin{displaymath}
  A_{ℬ'}^{N + λI} =    A_{ℬ'}^N + λ I_n
 \end{displaymath}
@@ -897,43 +835,58 @@ en forme normale de Jordan.
   \end{displaymath}
   est l'\emph{orbite} de $x$ sous $N$. 
   
-  En concaténant les orbites des éléments d'une base, nous obtiendrons un ensemble de vecteurs qui engendre $V$. 
-  Supposons alors que nous avons un ensemble $x_1,\dots,x_\ell$ dont les orbites 
+  En concaténant les orbites des éléments d'une base et en travaillant sur cet ensemble, nous obtiendrons un ensemble de vecteurs qui engendre $V$. 
+  Supposons alors qu'au début de l'étape $q$, nous avons un ensemble $x_1,\dots,x_\ell$ avec $x_1,\dots,x_\ell \neq0$  dont les orbites 
   \begin{equation}
     \label{eq:27}
     x_1,Nx_1,\dots,N^{m_1-1}x_1, \,\dots \, ,  x_\ell,Nx_\ell,\dots,N^{m_\ell-1}x_\ell
   \end{equation}
-  engendrent $V$. Ici $m_i$ est la durée de vie de $x_i$. Si~\eqref{eq:27} est linéairement dépendant nous allons remplacer un $x_i$ par un vecteur $y$ tel que 
+  engendrent $V$ (pour la première étape, on prend $\ell = n$ avec des $x_i$ formant une base de $V$). Ici $m_i$ est la durée de vie de $x_i$. Si~\eqref{eq:27} est linéairement dépendant, nous allons soit supprimer un $x_i$ et son orbite (car superflus), soit remplacer un $x_i$ par un vecteur $y$ tel que 
   \begin{enumerate}[i)]
-  \item Les orbites de $x_1,\dots, x_{i-1},y,x_{i+1},\dots,x_n$ engendrent ensemble  $V$ aussi, 
-  \item la somme des durées de vie de $x_1,\dots, x_{i-1},y,x_{i+1},\dots,x_n$  est strictement plus petite que la somme des durées de vie de $x_1,\dots,x_\ell$. 
+  \item Les orbites de $x_1,\dots, x_{i-1},y,x_{i+1},\dots,x_{\ell}$ engendrent aussi l'ensemble  $V$, 
+  \item la somme des durées de vie de $x_1,\dots, x_{i-1},y,x_{i+1},\dots,x_{\ell}$  est strictement plus petite que la somme des durées de vie de $x_1,\dots,x_{\ell}$. 
   \end{enumerate}
-Comme ça nous avons montré le théorème parce que un tel procédé doit se terminer. 
+Cela prouvera le théorème parce qu'un tel procédé doit se terminer. \\
 
-Dès que l'ensemble~\eqref{eq:27} est linéairement dépendant il existe une combinaison linéaire non triviale de~\eqref{eq:27} qui est égale a $0$ 
+Dès que l'ensemble~\eqref{eq:27} est linéairement dépendant, il existe une combinaison linéaire non triviale de~\eqref{eq:27} qui est égale a $0$ :
 \begin{displaymath}
-0 =   β_0^1 x_1 + β_1^1 Nx_1+ \dots+ β_{m_1-1}N^{m_1-1}x_1 + \dots + 
-β_0^\ell x_\ell + β_1^\ell Nx_\ell+ \dots+ β_{m_\ell-1}N^{m_\ell-1}x_\ell 
+0 =   β_0^1 x_1 + β_1^1 Nx_1+ \dots+ β_{m_1-1}^1 N^{m_1-1}x_1 + \dots + 
+β_0^\ell x_\ell + β_1^\ell Nx_\ell+ \dots+ β_{m_\ell-1}^\ell N^{m_\ell-1}x_\ell 
 \end{displaymath}
-Maintenant, nous allons appliquer l'application $N$ $k$-fois où $k$ est le dernier moment, où pas tous les termes 
+
+\textbf{Cas 1 :} \\
+Supposons que dans notre ensemble $x_1,Nx_1,\dots,N^{m_1-1}x_1, \,\dots \, ,  x_\ell,Nx_\ell,\dots,N^{m_\ell-1}x_\ell$, il existe $i$ tel que la durée de vie de $x_i$ est $1$ (i.e. $Nx_i = 0$ et l'orbite associée est seulement constituée de $x_i$) et supposons que ce $x_i$ apparaisse (avec un coefficient non nul) dans la combinaison linéaire ci-dessus. \\
+En passant tous les termes sauf $x_i$ à gauche, on obtient  que $x_i$ est une combinaison linéaire non triviale des éléments de $\{ x_1,Nx_1,\dots,N^{m_1-1}x_1, \,\dots \, ,  x_\ell,Nx_\ell,\dots,N^{m_\ell-1}x_\ell \} \setminus \{x_i\}$. Donc on peut supprimer $x_i$ de cet ensemble et on obtient un nouvel ensemble de la même forme qu'en~\eqref{eq:27}, engendrant le même espace, mais avec une orbite en moins. \\
+
+\textbf{Cas 2 :} \\
+Supposons que nous avons la combinaison linéaire ci-dessus, mais que nous ne sommes pas dans le cas $1$. \\
+Maintenant, nous allons appliquer l'application $N$ $k$-fois, où $k \geq 0$ est le plus grand entier tel que les termes 
 \begin{displaymath}
-  β_i^j N^{k+i}x 
+  β_i^j N^{k+i}x_j 
 \end{displaymath}
-sont égaux à zéro. Comme ça nous avons trouvé un sous-ensemble $J ⊆ \{1,\dots,k\}$ et des $γ_j ≠ 0$ tels que 
+ne sont pas tous égaux à zéro. Ainsi, nous avons trouvé un sous-ensemble $J ⊆ \{1,\dots,\ell \}$ et des $γ_j ≠ 0$ tels que 
 \begin{displaymath}
   \sum_{j \in J} γ_j N^{m_j-1}x_j = 0.
 \end{displaymath}
-Soit $m = \min_{j \in J} {m_j-1}$ et soit $i \in J$ un index où le minimum est atteint. Alors 
+Soit $m = \min_{j \in J} {m_j-1} \geq 1$ et soit $i \in J$ un index où le minimum est atteint. Alors 
 \begin{displaymath}
- 0 =  N^m  \sum_{j \in J} γ_j N^{m_j-1 - m}x_j  
+ 0 =  N^m  \sum_{j \in J} γ_j N^{m_j-1 - m}x_j  = N^m \left( γ_i x_i + \sum_{j \in J, j \neq i} γ_j N^{m_j-1 - m}x_j \right)
 \end{displaymath}
-et $γ_i x_i$ est un terme dans la somme en dessus. 
 
-Maintenant on remplace $x_i$ avec $y = \sum_{j \in J} γ_j N^{m_j-1 - m}x_j$. Il est facile de voir que les orbites de 
+Maintenant, posant $$y = \sum_{j \in J} γ_j N^{m_j-1 - m}x_j = γ_i x_i + \sum_{j \in J, j \neq i} γ_j N^{m_j-1 - m}x_j$$ 
+Si $y \neq 0$, on remplace $x_i$ par $y$.
+Il est alors facile de voir que les orbites de 
 \begin{displaymath}
-  x_1,\dots, x_{i-1},y,x_{i+1},\dots,x_n
+  x_1,\dots, x_{i-1},y,x_{i+1},\dots,x_\ell
 \end{displaymath}
-engendrent encore $V$. Et la durée de vie de $y$ est au plus $m<m_i$. On a alors démontré le théorème.  
+engendrent encore $V$. Et la durée de vie de $y$ est au plus $m<m_i$. \\
+Sinon, les orbites de
+\begin{displaymath}
+  x_1,\dots, x_{i-1},x_{i+1},\dots,x_\ell
+\end{displaymath}
+suffisent alors à engendrer $V$.
+
+On a alors démontré le théorème.  
 \end{proof}
 
 
@@ -941,8 +894,50 @@ engendrent encore $V$. Et la durée de vie de $y$ est au plus $m<m_i$. On a alor
 \subsection*{Exercices} 
 
 \begin{enumerate}
-\item Montrer que les orbites de 
-$ x_1,\dots, x_{i-1},y,x_{i+1},\dots,x_n $ engendrent encore $V$. (Voir démonstration du théorème~\ref{thr:38}).  
+\item Montrer que les \textbf{orbites} de 
+$ x_1,\dots, x_{i-1},y,x_{i+1},\dots,x_\ell $ engendrent encore $V$. (Voir démonstration du théorème~\ref{thr:38}). 
+
+\item Le but de cet exercice est de faire la preuve du Théorème~\ref{thr:41} "à l'envers". \newline
+Soit $T \colon V \rightarrow V$ un endomorphisme. Soit $\phi : V \rightarrow \Bbb C^n$ l'isomophisme associé à une base $B$ de $V$ et à la base canonique $E$ de $\Bbb C^n$. Supposons que $A_{B} = ([T(b_1)]_E, ..., [T(b_n)]_E)$, la matrice de $T$ relativement à la base $B$, admette une forme normale de Jordan $J$ avec matrice de passage $P = (p_1, ..., p_n)$. \newline
+Montrer qu'il existe des sous-espaces $V_1, ..., V_k$  de $V$ tels que pour tout $i$ :
+\begin{enumerate}
+\item $V = V_1 \oplus \cdots \oplus V_k$;
+\item $V_i = \phi(\text{span}(p_{k_i}, ..., p_{k_i + l_i}))$;
+\item $T(V_i) \subset V_i$;
+\item $T_{∣V_i} = N_i + \lambda_i I$, où $N_i \colon V_i \rightarrow V_i$ est nilpotente;
+\item $\{\lambda_1, ..., \lambda_k\} = \{J_{11}, ..., J_{nn}\}$.
+\end{enumerate} 
+
+\item Le but de cet exercice est de montrer les propriétés des décompositions comme dans le Lemme~\ref{lem:19}. \newline
+Soit $T \colon V \rightarrow V$ un endomorphisme et soit $V_1, ..., V_k$ une décomposition de $V$ tel que $V = V_1 ⊕ \cdots ⊕ V_k$, $T(V_i) \subset V_i$ et $T_{∣V_i} = N_i + \lambda_i I$, où $N_i : V_i \rightarrow V_i$ est nilpotente. Montrer que :
+\begin{enumerate}
+\item[a)] $V_i \subset \ker (T - \lambda_i I)^{a_i}$ pour un entier $a_i$ tel que $N_i^{a_i} = 0$.
+\item[b)] Les $\lambda_1, ..., \lambda_k$ sont des valeurs propres (pas forcément distinctes) de $T$. (\textit{Indice} : Utiliser par exemple le premier point).
+\item[c)] Le polynôme $f(x) = \prod_{i=1}^{k} (x - \lambda_i)^{a_i}$ annule $T$. (\textit{Indice} : Montrer que $f(T)v = 0$ pour tout $v \in V$ en utilisant la décomposition de $V$ et le premier point).
+\item[d)] En déduire que l'ensemble $\{ \lambda_1, ..., \lambda_q \}$ contient toutes les valeurs propres de $T$ (\textit{Indice} : Si $v \neq 0$ est un vecteur propre de $T$ de valeur propres $\lambda$, exprimer $f(T)v$ en fonction de $f$, $\lambda$, et $v$). 
+\item[e)] En déduire que les valeurs sur la diagonale de n'importe quelle forme normale de Jordan de $T$ constituent l'ensemble des valeurs propres de $T$. (\textit{Indice} : Utiliser l'exercice 2.)
+\end{enumerate}
+
+\item Comparer les polynômes caractéristiques de $J$ et $A$. En déduire que les éléments diagonaux de $J$ contiennent exactement l'ensemble des valeurs propres de $A$ et le nombre d'apparitions de chaque valeur propre sur la diagonale de $J$ est égale à la multiplicité algébrique de ladite valeur propre.
+
+\item Soit $A \in \Bbb C^{n \times n}$ et soient $J$ une forme normale de Jordan de $A$, $P$ la matrice de passage associée ($A = PJP^{-1}$). \newline 
+Le but de cet exercice est de montrer que le nombre de blocs de Jordan sur $J$ associé à une valeur propre $\lambda$ est exactement $\dim \ker(A - \lambda I)$.
+\begin{enumerate}
+
+\item[a)] Soit $S = \begin{pmatrix} S_1 & 0 \\ 0 & S_2 \end{pmatrix}$ une matrice blocs diagonale. Montrer que $$\text{rang}(S) = \text{rang}(S_1) + \text{rang}(S_2)$$ 
+Généraliser pour $p$ blocs sur la diagonale. (\textit{Indice} : Considérer les lignes linéairement indépendantes de $S_1, S_2$).
+\item[b)] Soit $B = U + \lambda I \in \Bbb C^{q \times q}$ un bloc de Jordan, où $U$ est l'application de décalage. Montrez que la seule valeur propre de $B$ est $\lambda$ et que l'espace propre associé est engendré par $e_1$. Déduisez $\dim \ker (B - \lambda I) = 1$ et $\dim \text{Im} (B - \lambda I) = q-1$.
+\item[c)] Soient $B_1, ..., B_k$ l'ensemble des blocs de Jordan sur $J$ associé à une valeur propre $\lambda$. Déduire de a) et b) que $\dim \text{Im} (J - \lambda I) = n - k$.
+\item[d)] En déduire que $\dim \ker (A - \lambda I) = k$ et que $\ker (A - \lambda I) = \text{span}(Pe_{i_1}, ..., Pe_{i_k})$, où les $i_j$ sont les indices des premières lignes/colonnes des $B_1, ..., B_k$ dans $J$.
+\end{enumerate}
+
+\item Déduire des exercices $4$ et $5$ que si $A$ est diagonalisable, la forme normale de Jordan $J$ de $A$ est diagonale.
+
+\item Soit $A \in \Bbb C^{n \times n}$ une matrice diagonalisable. Montrer que $\ker(A - \lambda I) = \ker(A - \lambda I)^k$ pour toute valeur propre $\lambda$ de $A$ et pour tout $k > 0$. (\textit{Indice} : Diagonaliser d'abord $(A - \lambda I)$ et $(A - \lambda I)^k$ de manière simultanée).
+
+\item Trouver deux matrices $A \in \Bbb C^{n \times n}$ et $B \in \Bbb C^{n \times n}$ qui ont le même polynôme caractéristique, mais qui ne sont pas similaires (\emph{Rappel} : $A$ et $B$ sont dites similaires s'il existe une matrice $P$ inversible telle que $B = P^{-1} A P$).
+
+\item Soit $J \in \Bbb C^{n \times n}$ une matrice en forme normale de Jordan. Montrer que $J$ et $J^T$ sont similaires. En déduire que pour tout $A \in \Bbb C^{n \times n}$, les matrices $A$ et $A^T$ sont similaires.
 \end{enumerate}
 %%% Local Variables:
 %%% mode: latex

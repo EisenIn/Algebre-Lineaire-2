@@ -7,7 +7,7 @@
 
 \usepackage{mathrsfs}
 \usepackage[french]{babel}
-\usepackage{amsmath}
+\usepackage{mathtools} % includes amsmath
 \usepackage{amssymb}
 \usepackage{amsthm}
 \usepackage{amscd}
@@ -53,17 +53,20 @@
 \DeclareMathOperator{\cone}{cone}
 \DeclareMathOperator{\tcone}{tcone}
 \DeclareMathOperator{\conv}{conv}
+\DeclareMathOperator{\spec}{spec}
+\DeclareMathOperator{\cof}{cof}
 \DeclareMathOperator{\diam}{diam}
+\DeclareMathOperator{\sign}{sgn}
 \DeclareMathOperator{\poly}{poly}
 \DeclareMathOperator{\Ker}{Ker}
 \DeclareMathOperator{\Var}{Var}
-\DeclareMathOperator{\Id}{id}
+\DeclareMathOperator{\Id}{Id}
 \DeclareMathOperator{\tr}{tr}
 \DeclareMathOperator{\relint}{relint}
 \DeclareMathOperator{\spa}{span}
 \DeclareMathOperator{\Tr}{Tr}
 \DeclareMathOperator{\diag}{diag}
-
+\DeclarePairedDelimiter\mnorm{\lvert\lvert\lvert}{\rvert\rvert\rvert} % matrix norm
 
 
 
@@ -83,6 +86,19 @@
 \newtheorem{exercise}{Exercice}[chapter]
 \newtheorem{algorithm}{Algorithme}[chapter]
 
+
+
+\newcommand{\iunit}{\mathrm{i}}
+\newcommand{\CC}{{\mathbb C}}
+\newcommand{\EE}{{\mathbb E}}
+\newcommand{\FF}{{\mathbb F}}
+\newcommand{\KK}{{\mathbb K}}
+\newcommand{\NN}{{\mathbb N}}
+\newcommand{\QQ}{{\mathbb Q}}
+\newcommand{\RR}{{\mathbb R}}
+\newcommand{\ZZ}{{\mathbb Z}}
+
+\newcommand{\calB}{{\mathcal B}}
 
 
 %opening
@@ -118,14 +134,22 @@ Des corrections et modifications ont été implémentées par:
 \item Christoph Hunkenschröder
 \item Adam Cierniak
 \item Mann-Tchi Dang
+\item Yasmine Bennis
+\item Corentin 
+\item Lucas Gehrt
+\item Jooyoung Kim 
+\item Léo Navarro
 \end{itemize}
+
+Le premier chapitre est basé, en partie, sur les notes du cours de Daniel Kressner. 
 
 \tableofcontents
 
-
+\include{chapter00-valeurs-propres} 
 \include{chapter01-produits-scalaires}
 \include{chapter02-theoreme-spectral}
 \include{chapter03-systemes-differentiels-lineaires}
+\include{chapter04-entiers}
 
 \bibliographystyle{alpha}
 \bibliography{books}

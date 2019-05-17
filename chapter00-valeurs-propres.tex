@@ -1,0 +1,603 @@
+\chapter{Valeurs propres}
+\label{cha:valeurs-propres-et}
+
+
+\section{Valeurs propres et vecteurs propres}
+\label{sec:valeurs-propres-et}
+
+\begin{definition}
+  \label{def:16}
+  Soit $V$ un espace vectoriel sur un corps $K$ et $f \colon V ⟶V$ un endomorphisme. Un \emph{vecteur propre} de $f$  associé à la \emph{valeur propre} $λ ∈K$ est un vecteur $v ≠ 0$ de $V$ tel que $f(v) = λ\,v$.
+\end{definition}
+
+\begin{example}
+  \label{exe:23}
+  Soit $f：V⟶V$, l'endomorphisme $f(v) = 0$ pour tous $v ∈V$. Alors tous $0≠v ∈V$ est un vecteur propre associé à $λ=0$. 
+\end{example}
+
+
+\begin{lemma}
+  \label{lem:4}
+  Soit $B = \{v_1,\dots,v_n\}$ une base de $V$ et $A ∈ K^{n×n}$ la matrice de l'endomorphisme $f : V ⟶V$ relatif à $B$. La matrice $A$ est une matrice diagonale, c'est à dire $A$ est de la forme
+  \begin{displaymath}
+    A =
+    \begin{pmatrix}
+      λ_1  \\
+         & \ddots \\
+         & & λ_n
+    \end{pmatrix},
+  \end{displaymath}
+si et seulement si $v_i$ est un vecteur propre associé à la valeur propre $λ_i$ pour tout $i=1,\dots,n$.
+\end{lemma}
+
+\begin{proof}
+    Pour $v ∈V$ soit $[v]_B ∈K^n$ le vecteur des coordonnées de $v$ relatif à $B$. On a $[f(v_i)]_B = A \,  [v_i]_B$ pour $i=1,\dots,n$. Des que $[v_i]_B = e_i$, et $f(v_i) = λ_i v_i$ alors
+    \begin{displaymath}
+      λ_i ⋅ e_i = A \, e_i, \text{ pour } i ∈\{1,\dots,n\}.
+    \end{displaymath}
+\end{proof}
+
+
+\begin{definition}
+  \label{def:39}
+  Un endomorphisme $f ：V ⟶ V$ pour lequel existe une base de $V$ composée de vecteurs propres est \emph{diagonalisable}. 
+\end{definition}
+
+
+\begin{definition}
+  \label{def:40}
+  Soit $A ∈ K^{n ×n}$ une matrice.
+  Un \emph{vecteur propre} de $A$ associé à la \emph{valeur propre} $λ ∈K$ est un vecteur propre de l'endormophisme  $f(x) = Ax$ de $K^n$.
+\end{definition}
+
+
+
+
+\begin{example}
+ \begin{enumerate}
+ \item Soit $A = \left(\begin{array}{cc}
+1 & 0 \\
+0 & 0
+\end{array}
+\right) \in ℝ^{2 ×2}$. Alors
+\begin{itemize}
+ \item $v_1 = \left( \begin{array}{c} 1 \\ 0 \end{array} \right)$ est un vecteur propre associ\'e \`a la valeur propre $\lambda_1 = 1$,
+ \item $v_2 = \left( \begin{array}{c} 0 \\ 1 \end{array} \right)$ est un vecteur propre associ\'e \`a la valeur propre $\lambda_2 = 0$,
+ \item $v_3 = \left( \begin{array}{c} 1 \\ 1 \end{array} \right)$ n'est pas un vecteur propre.
+\end{itemize}
+\item Soit $A = \left(\begin{array}{cc}
+\cos \phi & \sin \phi \\
+-\sin\phi & \cos \phi
+\end{array}
+\right) \in ℝ^{2 ×2}$ pour $\phi \in ℝ$. \begin{itemize}
+\item
+Si $\phi\not=k\pi$, $k\inℕ$, alors $A$ n'a pas de valeur propre (r\'eelle).
+\item Si $\phi = (2k+1)\pi$, $k\in ℕ$, alors $A =
+\left(\begin{array}{cc}
+-1 & 0 \\
+0 & -1
+\end{array}
+\right)$ a une valeur propre $\lambda = -1$ et tous les vecteurs non-nuls $x\in ℝ^2$ sont des vecteurs propres associ\'es \`a $\lambda$.
+\item Si $\phi = 2k \pi$, $k\in ℕ$, alors $A =
+\left(\begin{array}{cc}
+1 & 0 \\
+0 & 1
+\end{array}
+\right)$ a une valeur propre $\lambda = 1$ et encore tous les vecteurs non-nuls $x\in ℝ^2$ sont des vecteurs propres associ\'es \`a $\lambda$.
+\end{itemize}
+On va voir que si on consid\`ere $A$ comme une matrice complexe, alors on a toujours les valeurs propres $\cos \phi + \iunit \sin \phi$ et $\cos \phi - \iunit \sin \phi$.
+\end{enumerate}
+\end{example}
+
+\begin{lemma}
+  \label{lem:21}
+  Un vecteur $v ∈ V ⧹\{0\}$ est un vecteur propre de $f：V ⟶V$  associé à la valeur propre $λ ∈ K$ si et seulement si $v ∈ \ker(f - λ ⋅ \Id)$.
+\end{lemma}
+
+
+
+Rappel: L'endomophisme $\Id ： V ⟶V$ défini comme $\Id(v) = v$ pour tous $v∈ V$  est appelé l'\emph{identité}.
+
+\begin{definition}
+  \label{def:1}
+  Soit $λ$ une valeur propre de l'endomorphisme $f：V ⟶V$. Le sous espace $E_λ$ de $V$, défini comme
+  \begin{displaymath}
+    E_λ = \ker(f - λ ⋅ \Id)
+  \end{displaymath}
+  est l'espace propre de $f$ associé à $λ$. La dimension de $E_λ$ est la multiplicité géométrique de $λ$.
+\end{definition}
+
+\begin{lemma}
+  \label{elem:1}
+  Soient $v_1,\dots,v_r ∈V$ des vecteurs propres, associés aux valeurs propres $λ_1,\dots,λ_r$ distinctes (c'est à dire $λ_i ≠ λ_j$ pour $i≠j$), alors  $\{v_1,\dots,v_r\}$ est un ensemble libre.
+\end{lemma}
+
+\begin{proof}
+  Supposons que le théorème soit faux et soit $r≥1$ minimal, tel qu'il existent des vecteurs propres $v_1,\dots,v_r ∈V$  associés aux valeurs propres $λ_1,\dots,λ_r$ qui sont linéairement dépendants. Des que $v_i ≠0$ alors $r>1$.
+  Considérons une combinaison linéaire non triviale
+  \begin{equation}
+    \label{eq:35}
+    α_1 v_1 + \cdots + α_n v_n = 0.
+  \end{equation}
+  Des que \eqref{eq:35} est un contre exemple minimal, on  $α_i≠0$ pour tous $i$. Nous pouvons supposer que $λ_r ≠0$. Autrement, on réarrange~\eqref{eq:35}. 
+
+  Si on applique $f$ à l'expression \eqref{eq:35} on obtient
+  \begin{displaymath}
+    λ_1 α_1 v_1 + \cdots + λ_rα_r v_r = 0
+  \end{displaymath}
+  et en divisant par $λ_r$
+  \begin{equation}
+    \label{eq:37}
+    (λ_1/λ_r) α_1 v_1 + \cdots + α_r v_r = 0.
+  \end{equation}
+
+  On soustrait \eqref{eq:37} de \eqref{eq:35} et on obtient
+
+  \begin{displaymath}
+    (1- λ_1/λ_n)α_1 v_1 + \cdots + (1- λ_{r-1}/λ_r)α_{r-1} v_{r-1}
+  \end{displaymath} Ceci est en contradiction avec la minimalité de $r$.
+\end{proof}
+
+
+\begin{corollary}
+  \label{eco:1}
+   Soit $f ：V ⟶V$ un endomorphisme d'un espace vectoriel $V$ sur $K$ de dimension $n ∈ ℕ$ et soient $λ_1,\dots,λ_r$
+  les valeurs propres différentes de $f$
+  et soient $n_1,\dots,n_r$
+  leurs multiplicités géométriques respectives. Soient
+  $B_i= \{v_1^{(i)},\dots,v_{n_i}^{(i)}\}$
+  des ensembles libres de vecteurs propres associés aux $λ_i$
+  respectivement, pour $i=1,\dots,r$. Alors
+  \begin{displaymath}
+    \{ v_1^{(1)},\dots,v_{n_1}^{(1)},v_1^{(2)},\dots,v_{n_2}^{(2)},\cdots,v_1^{(r)},\dots,v_{n_r}^{(r)} \}
+  \end{displaymath}
+est un ensemble libre. L'application $f$ est diagonalisable si et seulement si
+\begin{displaymath}
+  n_1 + \cdots + n_r =n.
+\end{displaymath}
+\end{corollary}
+\begin{proof}
+  Soit
+  \begin{displaymath}
+    ∑_{i=1}^r ∑_{j=1}^{n_i} α_{ij} v^{(i)}_j = 0,
+  \end{displaymath}
+  alors les $ ∑_{j=1}^{n_i} α_{ij} v^{(i)}_j = 0$ selon Lemme~\ref{elem:1} et des que les $v_1^{(i)},\dots,v_{n_i}^{(i)}$ son linéairement indépendants, alors les $a_{ij}$ sont tous égal a zéro. Ça démontre que
+   \begin{displaymath}
+    \{ v_1^{(1)},\dots,v_{n_1}^{(1)},v_1^{(2)},\dots,v_{n_2}^{(2)},\cdots,v_1^{(r)},\dots,v_{n_r}^{(r)} \}
+  \end{displaymath} est un ensemble libre. En plus, si $n_1+\cdots+n_r=n$, $f$ est diagonalisable.
+
+  À l'inverse, si $f$ est diagonalisable, et si $m_i$ dénote le nombre vecteurs propres en $E_{λ_i}$ dans la base consistant de vecteurs propres, alors $m_i ≤ n_i$. On a
+  \begin{displaymath}
+    n = m_1 + \cdots + m_r ≤ n_1+ \cdots + n_r ≤n,
+  \end{displaymath}
+  alors $n_1+\cdots + n_r =n$.
+\end{proof}
+
+
+
+
+Voici un marche à suivre, comment déterminer si $f：V ⟶V$ est diagonalisable.
+
+\begin{enumerate}
+\item Déterminer les différentes $λ_1,\dots,λ_r ∈K$ tel que $\ker(f - λ \Id) ≠ \{ 0 \}$
+\item Pour chaque $λ_i$ calculer une base $\{v_1^{(i)},\dots,v_{n_i}^{(i)}\}$ de $E_{λ_i}$.
+\item est diagonalisable si et seulement si $f$ $n_1+\cdots+n_r =n$.
+\end{enumerate}
+
+
+
+
+
+\subsection*{Exercices}
+
+\begin{enumerate}
+\item Une matrice $A ∈ K^{n ×n}$ est appelée \emph{diagonalisable},  si endomorphisme $φ：K^n ⟶K^n$ défini comme $φ(x) = Ax$ est diagonalisable. Démontrer que $A$ est diagonalisable, si et seulement s'il existe $U ∈ K^{n×n}$ inversible tel que $U^{-1} A U$ est une matrice diagonale. \label{item:18}
+\end{enumerate}
+
+\section{Le polynôme caractéristique}
+\label{sec:le-polyn-caract}
+
+Durant ce chapitre nous allons étudier les endomorphismes $f：V⟶V$ d'un espace vectoriel de dimension fini $n ∈ ℕ$.  Si  $B = \{v_1,\dots,v_n\}$ est une base de $V$, on a
+\begin{displaymath}
+  f(x) = \phi_B^{-1} (A_B \phi_B(x)),
+\end{displaymath}
+où $\phi_B$ est l'ismomorphisme $\phi_B \colon V \longrightarrow K^n$, $\phi_B(x) = [x]_B$ sont les coordonnées de $x$ par rapport à la base $B$. On a le diagramme suivant
+\begin{displaymath}
+  {
+  \begin{CD}
+    V     @>f>>  V\\
+    @VV \phi_B V        @VV \phi_B V\\
+    K^n     @>A \cdot x>>  K^n
+  \end{CD}}
+\end{displaymath}
+Les colonnes de la matrice $A_B$ sont les coordonnées de $f(v_1),\dots,f(v_n)$ dans la base $B$. Si $B'$ est une autre base de $V$ on a
+\begin{displaymath}
+  [x]_{B'} = P_{BB'}[x]_B,
+\end{displaymath}
+où $P_{BB'}$ est la matrice de changement de base de $B$ en $B'$. Des que
+\begin{displaymath}
+  [f(v)]_{B'} = A_{B'} [v]_{B'} = A_{B'} P_{BB'}[v]_B
+\end{displaymath}
+et
+\begin{displaymath}
+  [f(v)]_{B'} =  P_{BB'}[f(v)]_B 
+\end{displaymath}
+on trouve
+\begin{displaymath}
+  [f(v)]_B =  P_{BB'}^{-1}A_{B'} P_{BB'}[v]_B \,\,\,\text{ pour tous } v ∈V.
+\end{displaymath}
+Et ça implique 
+\begin{equation}
+  \label{eq:36}
+  A_{B} =  P_{BB'}^{-1} A_{B'}  P_{BB'}
+\end{equation}
+En particulier,
+\begin{displaymath}
+  \det(A_{B'}) = \det(A_B) 
+\end{displaymath}
+ce qui laisse nous définir la \emph{déterminante d'un endomorphisme} $f$ comme $\det(f)= \det(A_B)$. 
+
+
+
+Clairement, $λ$ est une valeur propre de $f$ si et seulement si $λ$ est une valeur propre de $A_B$ et c'est le cas si et seulement si
+\begin{equation}
+  \label{eq:30}
+  \det(A_B - λ I_n) = 0.
+\end{equation}
+
+
+
+Rappelons nous la formule de Leibniz pour la déterminante d'une matrice $B ∈ K^{n ×n}$
+\begin{equation}
+  \label{eq:31}
+  \det(B)  = ∑_{π ∈S_n} \sign(π) ∏_{i=1}^n b_{iπ(i)}
+\end{equation}
+et si on collecte les potences de $λ$, alors
+\begin{equation}
+  \label{eq:32}
+  \det(A - λI_n) = a_n λ^n + a_{n-1} λ^{n-1}+ \dots + a_1 λ+ a_0
+\end{equation}
+où $a_n,\dots,a_0 ∈K$. Des que $\det(A) = \det(A - 0 ⋅ I_n)$, alors $a_0 = \det(A)$.
+
+\subsection{Polynômes}
+\label{sec:polynomes}
+Soit $K$ un corps et soit $x$ un nouveau élément qui n'appartient pas à $K$. Nous considérons les expressions
+\begin{equation}
+  \label{eq:33}
+  p(x) = a_0 + a_1 x + \cdots + a_n x^n
+\end{equation}
+où $a_i ∈K$ pour $i=1,\dots,n$ et $x$ est une \emph{indéterminée} ou une  \emph{variable}.
+D'un point de vue formel, $x ∈ R ⧹K$, où $R⊃K$ est un anneau intègre, tel que
+\begin{displaymath}
+  a_0+ a_1x + \cdots + a_n x^n =0, \, a_i ∈K, \text{ implique } a_i=0 \text{ pour tous }i.  
+\end{displaymath}
+L'existence de $R$ et $x$ est traité en détail dans le cours \emph{anneaux et corps}. 
+L'élément $a_i$ est le $i$-ème coefficient de $p(x)$. Le polynôme $p(x)$ est écrit comme
+\begin{displaymath}
+  p(x) = a_0 + a_1x + a_2x^2 + \cdots
+\end{displaymath}
+où tous les  coefficients, sauf un nombre fini parmi eux, sont zéro.
+Des expressions \eqref{eq:33} sont des polynômes sur $K$  et $K[x]$ est l'ensemble des polynômes sur $K$. Deux polynômes
+\begin{equation}
+  \label{eq:34}
+  p(x) = a_0 + a_1x + a_2x^2 + \cdots \,\,\text{ et }  \,\, q(x) = b_0 + b_1x + b_2x^2 + \cdots
+  \end{equation}
+  sont \emph{égaux} si $a_i  =b_i$ pour tous $i$. Dans ce cas, on écrit $p(x) = q(x)$.
+La \emph{somme} de $p(x)$ et $q(x)$~\eqref{eq:34} est le polynôme
+\begin{displaymath}
+  p(x) + q(x)  = a_0+b_0 + (a_1+b_1)x + (a_2+b_2)x^2 + \cdots
+\end{displaymath}
+et leurs \emph{produit} est
+\begin{equation}
+  \label{ceq:21}
+  p(x) ⋅q(x) = a_0 b_0 + (a_0b_1 +a_1b_0) x + (a_0b_2+ a_1b_1 + a_2b_0)x^2 + \cdots .
+\end{equation}
+Le $i$-ème coefficient de $p(x)⋅q(x)$ est alors  $∑_{j+k=i}a_jb_k$.
+
+\begin{theorem}
+  \label{thr:43}
+  L'ensemble des polynômes $K[x]$ sur un corps $K$ est un anneau intègre.
+\end{theorem}
+
+Le \emph{degré} de $p(x) = a_0 + a_1x + a_2x^2 + \cdots \neq 0$ est 
+\begin{displaymath}
+  \deg(p) = \max\{i \colon  a_i \neq 0\}
+\end{displaymath}
+et $\deg(0) = -\infty$. 
+Si $p \neq 0$, le coefficient $a_{\deg(p)}$ est le \emph{coefficient dominant} de $p$. 
+Un polynôme de degré zéro est une \emph{constante}. 
+
+\begin{theorem}
+  \label{thr:34}
+  Pour $f,g \in K[x] $, $\deg(f \cdot g) = \deg(f) + \deg(g)$. 
+\end{theorem}
+\begin{proof}
+  La formule~\eqref{ceq:21} révèle que $\deg(f\cdot g) \leq \deg(f) + \deg(g)$. 
+  Soient $f(x) = a_0 + \cdots + a_n x^n$ et $g(x) = b_0+ \cdots b_m x^m$ tels que $a_n, b_m  \neq 0$. Le coefficient de $x^{n+m}$  est $a_n \cdot  b_m \neq 0$.
+\end{proof}
+
+Un polynôme $p(x) = a_0 + a_1 x + \cdots + a_n x^n ∈ K[x]$ induit une application $f_p:  K ⟶ K$, $f_p(k) = a_0+ a_1 k+ \cdots + a_n k^n$.
+
+\begin{theorem}
+  \label{thr:42}
+  Soit $K$ un corps infini. Deux polynômes $p(x),q(x) ∈ K[x]$ sont égaux, si et seulement si les applications $f_p$ et $f_q$ sont les mêmes.
+\end{theorem}
+
+La démonstration du théorème~\ref{thr:42} est le premier exercice maison.  
+
+\begin{definition}
+  \label{def:31}
+  Soit $f(x) \in \K[x] \setminus\{0\}$. Un $\alpha \in K$ tel que $f(\alpha) = 0$ est une  \emph{ racine} de $f(x)$.  
+\end{definition}
+
+
+\begin{theorem}[Théorème fondamentale d'algebre]
+  \label{thr:44}
+  Tout polynôme $p(x) ∈ℂ[x] ⧹\{0\}$ de degré aux moins $1$  admet au moins une racine complexe.
+\end{theorem}
+
+L'expression \eqref{eq:32} est un polynôme avec indéterminée $λ$ et  comme polynôme formel, est défini par la formule de Leibniz
+\begin{displaymath}
+p_A(λ) = \det(A - λ I_n) = ∑_{π ∈S_n} \sign(π) ∏_{i=1}^n (A - λ I_n)_{iπ(i)}.
+\end{displaymath}
+Il est la somme des polynômes $ \sign(π) ∏_{i=1}^n (A - λ I_n)_{iπ(i)}$. Ça démontre que le degré de $p_A(λ)$ est au plus $n$. Mais le degré de
+\begin{displaymath}
+  \sign(\Id) ∏_{i=1}^n (A - λ I_n)_{i\Id(i)}
+\end{displaymath}
+est $n$ exacte. Ça démontre aussi que $a_n = (-1)^n$.
+
+\begin{lemma}
+  \label{lem:22}
+Soit $p_A(λ) = a_0 + a_1 λ + \cdots + a_n λ^n$ le polynôme caractéristique de la matrice $A ∈ K^{n ×n}$. Alors, $a_0 = \det(A)$ et $a_n = (-1)^n$.
+\end{lemma}
+
+
+La division avec reste est l'opération suivante. 
+
+\begin{theorem}
+  \label{thr:33}
+  Soient $f,g \in K[x]$ et $\deg(g) >0$. Il existe $q,r \in K[x]$ unique  tels que 
+  \begin{displaymath}
+    f(x) = q(x) g(x) + r(x) 
+  \end{displaymath}
+  et $\deg(r) < \deg(g)$. 
+\end{theorem}
+
+
+\begin{proof}
+  La preuve se fait par induction sur $\deg(f)$. Si $\deg(f) < \deg(g)$, alors on pose $q = 0$ et $r = f$.
+
+Soit alors $\deg(f) = n \geq \deg(g)=m$ et 
+\begin{displaymath}
+  f(x) = a_0+ \cdots +a_n x^n \text{ et } g(x) = b_0 + \cdots + b_m x^m 
+\end{displaymath}
+où $a_n$ et $b_m$ sont les coefficients dominants de $f$ et $g$ respectivement. 
+Clairement 
+\begin{displaymath}
+  \deg\left( f(x) - \frac{a_n}{ b_m } x^{n-m} g(x) \right) < \deg(f(x))
+\end{displaymath}
+et par induction 
+\begin{displaymath}
+  f(x) - \frac{a_n}{ b_m } x^{n-m} g(x)  = q(x) g(x) + r(x) 
+\end{displaymath}
+tel que $\deg(r(x)) < \deg(g(x))$. On  obtient alors
+\begin{displaymath}
+  f(x) = (q(x) + \frac{a_n}{ b_m } x^{n-m} ) g(x) + r(x). 
+\end{displaymath}
+
+Supposons maintenant qu'il existent autres polynômes $q'(x)$ et $r'(x)$ tel que 
+\begin{displaymath}
+    f(x) = q'(x) g(x) + r'(x) 
+  \end{displaymath}
+  et $\deg(r') < \deg(g)$. 
+\end{proof}
+Alors 
+\begin{displaymath}
+0 \neq   r(x) - r'(x) = (q(x) - q'(x)) ⋅ g(x). 
+\end{displaymath}
+On peut déduire 
+\begin{displaymath}
+\max\{\deg(r),\deg(r')\} \geq   \deg( r - r')  = \deg(q - q') + \deg(g) \geq \deg(g), 
+\end{displaymath}
+ce qui contredit le fait que $\deg(r) < \deg(g)$ et $\deg(r') < \deg(g)$. 
+
+\begin{definition}
+  Pour $f(x)  = a_0 + \cdots + a_n x^n \in K[x]$ et $\alpha \in K$, l'évaluation $f(\alpha)$ est $ a_0 + a_1 \alpha + \cdots + a_n \alpha^n \in K$. 
+\end{definition}
+
+
+\begin{example}
+  \label{exe:24}
+  Faire la division avec reste des polynômes  $x^5+2x^2+1$ par $2x^3+x+1$ de $ℤ_3[x]$ 
+\end{example}
+
+%\begin{proposition}
+%  \label{prop:5}
+%  Pour $\alpha \in K$, $\phi_\alpha: \, K[x] \longrightarrow K$, %$\phi_\alpha(f(x)) = f(\alpha)$ est un homomorphisme.  
+%\end{proposition}
+
+
+\begin{definition}
+  \label{def:32}
+  Un polynôme  $q(x)$ \emph{divise} un autre polynôme $f(x)$ s'il existe un polynôme $g(x)$ tel que $f(x) = g(x) \cdot q(x)$. On dit que $q(x)$ est un diviseur de $f(x)$ et on écrit $q(x) \mid f(x)$. 
+\end{definition}
+
+\begin{theorem}
+  \label{thr:35}
+  Soit $f(x)$ un polynôme  et $\alpha \in K$, alors $\alpha$ est une racine de $f$ si et seulement si $(x- \alpha)  \mid f(x)$. 
+\end{theorem}
+
+\begin{proof}
+  Si $f(x) = q(x) \cdot (x - \alpha)$, alors $f(\alpha) = 0$. 
+
+%Autrement, si $f$ est une constante, $f = 0$ et $(x - \alpha)$ divise $f$.
+Dans l'autre sens, si $f$ est une constante, $f(\alpha) = 0$ implique que $f = 0$ et $(x - \alpha)$ divise $f$. 
+
+Si $f$ n'est pas une constante, il existe $q(x)$ et $r(x)$ tels que
+\begin{displaymath}
+  f(x) = q(x) \cdot (x - \alpha) + r(x)
+\end{displaymath}
+%$\deg(r) = 0$. Alors $f(\alpha) = 0$ implique $r=0$. 
+avec $\deg(r) \leq 0$. Alors $f(\alpha) = 0$ implique $r=0$. 
+\end{proof}
+
+
+\begin{definition}
+  \label{def:41}
+  La \emph{multiplicité} d'une racine $α$ de $p(x) ∈ K[x] ⧹\{0\}$ est le plus grand $i≥1$ tel que $ (x-α)^i \mid p(x)$. Si $p(x)$ est le polynôme caractéristique d'un endomorphisme d'un espace vectoriel, on appelle la multiplicité de $α$ la \emph{multiplicité algébrique}. 
+\end{definition} 
+
+
+
+\begin{theorem}[Théorème de diagonalisation]
+  \label{thr:45}
+  Soit $V$ un espace vectoriel sur $K$ de dimension $n$. Un endomorphisme  $f:V⟶V$  est diagonalisable si et seulement si 
+  \begin{enumerate}[i)]
+  \item le polynôme caractéristique $p_f(x)$ de $f$ décompose en facteurs linéaires, c'est à dire, \label{item:19} 
+    \begin{displaymath}
+      p_f(x) = (-1)^n ∏_{i=1}^r (λ_i - x)^{g_i}
+    \end{displaymath}
+    où $g_i$ est la multiplicité algébrique de $λ_i∈K$ pour tous $i$. 
+    \item  $\dim(E_{λ_i}) = g_i$, pour tous $i=1,\dots,r$. C'est à dire, les multiplicités algébriques et géométriques sont les mêmes. \label{item:20}
+  \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+  Soit $f$ diagonalisable. Soit $B$ une base composé de vecteurs propres de $f$ et $A$ la matrice de $f$ associé à la base $B$. Lemme~\ref{lem:4} implique que $A$ est diagonale et alors  $p_f(x) = \det(A - x \Id) = (-1)^n ∏_{i=1}^r (x - λ_i)^{g_i}$. La dimension de $E_{λ_i}$ est celle du $\ker(A - λ_i I_n)$. Et clairement $\dim(\ker(A - λ_i I_n)) = g_i$. Alors on a \ref{item:19}) et \ref{item:20}).
+
+
+  Si  on a \ref{item:19}) et \ref{item:20}), soient $m_i$ les multiplicités géométriques des valeurs propres $λ_i$, $i=1,\dots,r$. Des que
+  \begin{displaymath}
+    \deg((-1)^n∏_{i=1}^n (λ_i -x)^{g_i} =n,
+  \end{displaymath}
+  alors $m+1+ \cdots + m_r = n$ et $f$ est diagonalisable avec corollaire~\ref{eco:1}. 
+\end{proof}
+
+
+
+\subsection*{Exercices}
+
+\begin{enumerate}
+\item Donner un exemple d'un corps fini $K$ et deux polynomes $p(x) ≠q(x) ∈ K[x]$ tel que $f_p=f_q$.
+\end{enumerate}
+
+\section{Matrices semblables}
+\label{sec:matrices-semblables}
+
+\begin{definition}
+  \label{def:42}
+  Deux matrices $A,B ∈K^{n×n}$ sont \emph{semblables}, s'il existe une matrice inversible $P ∈ K^{n ×n}$ tel que $A = P^{-1} ⋅B ⋅P$.  
+\end{definition}
+L'équation~\eqref{eq:36} montre que les matrices $A_B$ et $A_{B'}$ d'un endomorphisme $f：V⟶V$ sont semblables, où $B$ et $B'$ sont deux bases de $V$ respectivement.
+
+\begin{definition}
+  \label{def:43}
+  L'ensemble des valeurs propres d'une matrice $A ∈ K^{n ×n}$ (d'un endomorphisme $f：V ⟶V$) est appelé le \emph{spectre} de $A$ (de $f$), noté $\spec(A)$ ($\spec(f)$). 
+\end{definition}
+
+\begin{theorem}
+  \label{thr:46}
+  Soit $A ∈ K^{n ×n}$ une matrice et $P ∈ K^{n ×n}$ une matrice inversible.
+  \begin{enumerate}[i)]
+  \item Le spectre de $A$ et celui de $P^{-1}AP$ sont les mêmes.
+  \item $v ∈ K^n$ est un vecteur propre de $A$ si et seulement si $P^{-1} v$  est un vecteur propre de $P^{-1}AP$.
+  \item Les polynômes caractéristiques $p_A(x)$ et $p_{P^{-1}AP}(x)$ sont identiques. 
+  \end{enumerate}
+\end{theorem}
+
+
+\section{Théorème de Hamilton-Cayley}
+\label{sec:theoreme-de-hamilton}
+
+
+Soit $A ∈ K^{n ×n}$ et $p(x) = a_0 + a_1x + \cdots + a_n x^n ∈ K[x] ⧹\{0\}$ un polynôme. On peut évaluer le polynôme à la matrice $A$ comme suivant:
+\begin{displaymath}
+  p(A) = a_0 ⋅I_n + a_1 A + \cdots + a_n A^n ∈ K^{n ×n}. 
+\end{displaymath}
+Maintenant, soit $p_A(x)$ le polynôme caractéristique de $A$ et $v$ un vecteur propre de $A$ associé a la valeur propre $λ$. On voit
+\begin{displaymath}
+  p_A(A) ⋅v = a_0 v + a_1 λv + \cdots + a_n λ^n v = p_A(λ)v = 0 ⋅v = 0. 
+\end{displaymath}
+Alors, si $A$ est diagonalisable, soit $v_1,\dots,v_n$ une base de vecteurs propres. Des que   $p_A(A) ⋅v_i = 0$ pour tous $i$, alors $p_A(A) =0$. 
+
+\begin{theorem}[Hamilton-Cayley] 
+  \label{thr:47}
+  Soit $A ∈ K^{n ×n}$ et $p_A(λ)$ le polynôme caractéristique de $A$, alors
+  \begin{displaymath}
+    p_A(A) =0.
+  \end{displaymath}
+\end{theorem}
+\begin{proof}
+ On écrit
+  \begin{displaymath}
+    \det(A - λI_n) I_n = \cof(A - λI_n)^T (A - λI_n).
+  \end{displaymath}
+  En groupant les coefficients de $λ^i$ dans  $\cof(A - λI_n)^T$ on obtient
+  \begin{displaymath}
+    \cof(A - λI_n)^T = ∑_{i=0}^{n-1} λ^i B_i
+  \end{displaymath}
+  avec des matrices $B_i ∈K^{n ×n}$ et alors
+  \begin{displaymath}
+    a_0 I_n + a_1 λ I_n + \cdots + a_nλ^n I_n  = B_0A + ∑_{i=1}^{n-1}λ^i (B_iA - B_{i-1}) - λ^n B_{n-1},
+  \end{displaymath}
+  où $p_A(λ) = a_0+ \cdots + a_n λ^n$. Ceci implique
+  \begin{equation}
+    \label{eq:38}
+    \begin{array}{rcl}
+      a_0 I_n & = &  B_0A \\
+      a_iI_n & = &  B_iA - B_{i-1} \text{ pour } i ∈  \{1,\dots,n-1\}\\
+      a_n I_n & = & - B_{n-1}
+    \end{array}
+  \end{equation}
+  ce que sont des équations de matrices en $K^{n ×n}$. Si on multiplie les matrices indicées par $i$ a droite par $A^i$ et somme les termes a gauche du signe d'égalité, on obtient $p_A(A)$.  Les termes a droites ce sommes a la matrice $0$. 
+\end{proof}
+
+
+
+
+
+\begin{example}
+Le polyn\^ome caract\'eristique de $A = \left( \begin{array}{cc} 1 & 1 \\ 0 & 2
+\end{array} \right)$ est $p_A(t) = (1-t)(2-t)$. On a 
+\[
+ p_A(A) = (I_n-A)(2I_n-A) = 0 
+\]
+Pour la matrices $A = \left( \begin{array}{cc} 2 & 0 \\ 0 & 2 \end{array}
+\right)$, on a bien sur que $p_A(A) = 0$ pour $p_A(t) = (2-t)^2$. Mais il existe un polyn\^ome de degr\'e $1$, $q(t) = t-2$, tel que $q(A) = 0$. Le \emph{polyn\^ome minimal} de $A$
+est le polyn\^ome unitaire de degr\'e minimum parmi ceux qui annulent $A$, c-\`a-d $q(A) = 0$. Nous examinerons de plus près le polyn{\^o}me minimal du chapitre~\ref{sec:polyn-les-lalg}.
+\end{example}
+
+Les resultats suivants donnent des utilisations typiques du théorème~\ref{thr:47}
+\begin{corollary} Soit $A \in K^{n ×n}$.
+\begin{enumerate}
+\item[(i)] Toute puissance $A^k$ avec $k∈ℕ$ peut s'\'ecrire comme une combinaison lin\'eaire des puissances $I,A,A^2,\ldots,A^{n-1}$.
+\item[(ii)] Si $A$ est inversible, alors l'inverse $A^{-1}$ peut s'\'ecrire comme une combinaison lin\'eaire des puissances $I,A,A^2,\ldots,A^{n-1}$.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+ (i). Trivialement, l'assertion est vraie pour $k = 0,1,\ldots,n-1$.
+On montre le cas $k = n$. Par le théorème~\ref{thr:47}:
+\[
+ 0 = p_A(A) = \alpha_0 I + \alpha_1 A  \cdots + \alpha_{n-1} A^{n-1} + A^n \quad
+\Rightarrow \quad A^n = 
+-\alpha_0 I - \alpha_1 A  \cdots - \alpha_{n-1} A^{n-1}.
+\]
+De fa\c{c}on similaire, on montre le cas $k>n$ par r\'ecurrence, utilisant $0 = A^{k-n} p_A(A)$.
+
+(ii). Si $A$ est inversible alors $\alpha_0 = \det(A)$ est inversible. De $0 = p_A(A)$ on obtient que
+\[
+  I = -\frac{\alpha_1}{\alpha_0} A  \cdots -\frac{\alpha_{n-1}}{\alpha_0}
+A^{n-1} -\frac{1}{\alpha_0} A^n = A \Big( -\frac{\alpha_1}{\alpha_0} I  \cdots
+-\frac{\alpha_{n-1}}{\alpha_0} A^{n-2} -\frac{1}{\alpha_0} A^{n-1} \Big)
+\]
+et donc $A^{-1} = -\frac{\alpha_1}{\alpha_0} I  \cdots
+-\frac{\alpha_{n-1}}{\alpha_0} A^{n-2} -\frac{1}{\alpha_0} A^{n-1}$.
+\end{proof}
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "notes"
+%%% End:
