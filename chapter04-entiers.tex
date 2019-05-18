@@ -2,20 +2,20 @@
 \label{cha:algebre-lineaire-sur}
 
 
-Quand est-ce que un système d'équations linéaires possède une solution en nombre entiers? Étant donnés $A ∈ℤ^{m × n}$ et $b ∈ℤ^m$, on aimerait décider si 
+Quand est-ce qu'un système d'équations linéaires possède une solution en nombre entiers ? Étant donnés $A ∈ℤ^{m × n}$ et $b ∈ℤ^m$, on aimerait décider si 
 \begin{equation}
   \label{eq:40}
   A x = b, \, x ∈ ℤ^n 
 \end{equation}
-est soluble et trouver tous les solutions.
+est résoluble et trouver toutes les solutions.
 
 
 
-Une condition nécessaire pour \eqref{eq:40} étant soluble est qu'il existe une solution $x ∈ℚ^n$. et alors que $\rank(A) = \rank(A|b)$. Aussi on peut supprimer une ligne de $(A|b)$ qui est dans le span des autres lignes. Alors on peut supposer que $A$ es de plein rang lignes, c'est à dire $\rank(A) = m$. 
+Une condition nécessaire pour \eqref{eq:40} soit soluble est qu'il existe une solution $x ∈ℚ^n$, et alors que $\rank(A) = \rank(A|b)$. Aussi, on peut supprimer une ligne de $(A|b)$ qui est dans le span des autres lignes. On peut alors supposer que $A$ est de rang ligne plein, c'est-à-dire que $\rank(A) = m$. 
 
 \begin{definition}
   \label{def:44}
-  Un nombre entier $d ∈ℤ$ \emph{divise} un nombre entier $a ∈ℤ$ s'il existe un nombre entier $x ∈ℤ$ tel que $d⋅x =b$. On écrit $d\mid b$ et si $d$ ne divise pas $b$ on écrit $d \nmid b$. 
+  Un nombre entier $d ∈ℤ$ \emph{divise} un nombre entier $a ∈ℤ$ s'il existe un nombre entier $x ∈ℤ$ tel que $d⋅x =b$. On note alors $d\mid b$, et si $d$ ne divise pas $b$ on écrit $d \nmid b$. 
 \end{definition}
 % Si $d \mid a$, alors s'il existe $x ∈ℤ$ tel que $d ⋅x =a$ et si $a \neq 0$ on peut conclure $d ≤ |a|$, parce que $|a| = |d| ⋅|x|$. 
 \begin{definition}
@@ -33,22 +33,22 @@ Une condition nécessaire pour \eqref{eq:40} étant soluble est qu'il existe une
 \end{theorem}
 
 \begin{proof}
-  Soit $d$ un diviseur commun de $a$ et $b$. Alors il existent $x^*, y^* ∈ℤ$ tel que $a = d⋅x^*$ et $b = d ⋅y^*$. Si $x ⋅a + y ⋅ b≥1$ où $x,y ∈ℤ$, alors
+  Soit $d$ un diviseur commun de $a$ et $b$. Alors il existe $x^*, y^* ∈ℤ$ tel que $a = d⋅x^*$ et $b = d ⋅y^*$. Si $x ⋅a + y ⋅ b≥1$, où $x,y ∈ℤ$, alors
   \begin{displaymath}
     x ⋅a + y ⋅ b = (x ⋅x^* + y ⋅ y^*)  d ≥ |d|. 
   \end{displaymath}
-  Finalement on a  $d \le \min\{ x ⋅a + y ⋅ b： x,y ∈ℤ,  x ⋅a + y ⋅ b≥1\}$.
+  Par conséquent, on a  $d \le \min\{ x ⋅a + y ⋅ b： x,y ∈ℤ,  x ⋅a + y ⋅ b≥1\}$.
  Montrons que $\min\{ x ⋅a + y ⋅ b： x,y ∈ℤ,  x ⋅a + y ⋅ b≥1\}$ est un diviseur commun de $a$ et $b$. Supposons que $\min \nmid a$. Alors
-  division avec reste implique l'existence de $q,r ∈ℤ$ tel que  
+ la  division avec reste implique l'existence de $q,r ∈ℤ$ tels que  
   \begin{displaymath}
     a = q ⋅ \min + r \quad \text{ et } \quad 1 \leq r < \min.
   \end{displaymath}
-  Soient $x,y ∈ℤ$ où $\min = x ⋅a + y ⋅b$, alors
+  Soient $x,y$ les entiers qui vérifient $\min = x ⋅a + y ⋅b$, alors
   \begin{displaymath}
     1 ≤ r = a - q ⋅ (x ⋅a + y ⋅b) = (1-q⋅x) a - qy ⋅b.
   \end{displaymath}
-  C'est plus petit que $\min$ ce qui est absurde. C'est à dire $\min \mid a$. De façon analogue, on obtient $\min \mid b$.
-  Aussi, on a montré que pour tout diviseur commun $d$ de $a$ et $b$, $\min\{ x ⋅a + y ⋅ b： x,y ∈ℤ,  x ⋅a + y ⋅ b≥1\}\geq d$ et donc $\min\{ x ⋅a + y ⋅ b： x,y ∈ℤ,  x ⋅a + y ⋅ b≥1\}= \gcd(a,b)$
+  Or $r$ est strictement plus petit que $\min$, ce qui est absurde. Il suit donc que $\min \mid a$ et, de façon analogue, $\min \mid b$.
+  Aussi, on a montré que pour tout diviseur commun $d$ de $a$ et $b$, $\min\{ x ⋅a + y ⋅ b： x,y ∈ℤ,  x ⋅a + y ⋅ b≥1\}\geq d$ et donc que $\min\{ x ⋅a + y ⋅ b： x,y ∈ℤ,  x ⋅a + y ⋅ b≥1\}= \gcd(a,b)$
   
 \end{proof}
 
@@ -59,15 +59,15 @@ Une condition nécessaire pour \eqref{eq:40} étant soluble est qu'il existe une
   Soient $a,b ∈ℤ$ et $\max\{|a|,|b|\} ≥1$. Le $\gcd(a,b)$ est le diviseur commun  positif qui est divisé par chaque diviseur commun de $a$ et $b$. 
 \end{corollary}
 
-Pour calculer le diviseur le plus grand de $a$ et $b$ on peut utiliser l'algorithme d'Euclide. Soient $a_o≥a_1 ∈ℤ$ pas tout les deux égaux à zéro. Si $a_1 = 0$, alors
+Pour calculer le plus grand diviseur commun de $a$ et $b$ on peut utiliser l'algorithme d'Euclide. Soient $a_0≥a_1 ∈ℤ$ pas tout les deux nuls. Si $a_1 = 0$, alors
 \begin{displaymath}
 \gcd(a_0,a_1) =   a_0. 
 \end{displaymath}
-Autrement on applique division avec reste
+Autrement, on applique la division avec reste
 \begin{displaymath}
   a_0 = q_1 a_1 + a_2, 
 \end{displaymath}
-où $q_1,a_2 ∈ℤ$ et $0 ≤ a_2<a_1$. Un nombre entier $d ∈ℤ$ est un diviseur commun de $a_0$ et $a_1$ si et seulement si $d$ est un diviseur commun de $a_1$ et $a_2$. L'algorithme d'Euclide est la procédé de calculer la suite $a_0,a_1,a_2,\dots,a_{k-1},a_k ∈ℤ$  où $a_{k-1}>0$, $a_k=0$ et 
+où $q_1,a_2 ∈ℤ$ et $0 ≤ a_2<a_1$. Un nombre entier $d ∈ℤ$ est un diviseur commun de $a_0$ et $a_1$ si et seulement si $d$ est un diviseur commun de $a_1$ et $a_2$. L'algorithme d'Euclide est le procédé de calculer la suite $a_0,a_1,a_2,\dots,a_{k-1},a_k ∈ℤ$  où $a_{k-1}>0$, $a_k=0$ et 
 \begin{displaymath}
   a_{i-1} = q_i a_i + a_{i+1} 
 \end{displaymath}
@@ -75,14 +75,14 @@ est le résultat de la division avec reste de $a_{i-1} $ par $a_i$.
 
 \begin{example}
   \label{exe:25}
-  On calcule  le diviseur commun le plus grand de $a_0 = 52$ et $a_1=22$:
+  On calcule le plus grand diviseur commun de $a_0 = 52$ et $a_1=22$:
   \begin{displaymath}
     52 =   2 ⋅ 22 + 8, \quad 22 = 2 ⋅ 8  + 6, \quad 8 = 1 ⋅ 6 +2,\quad 6 = 3 ⋅2 + 0. 
   \end{displaymath}
-  La suite est alors $a_{0}= 52, a_{1}= 22, a_{3} = 8, a_{4} = 6, a_{5} = 2, a_{6} = 0$. Alors $\gcd(52,22) = 2$. 
+  La suite est alors $a_{0}= 52, a_{1}= 22, a_{3} = 8, a_{4} = 6, a_{5} = 2, a_{6} = 0$. Ainsi $\gcd(52,22) = 2$. 
 \end{example}
 
-La calcule des suites $a_i$ et $q_i$ donne aussi une représentation $\gcd(a_0,a_1) = x ⋅a_0 + y ⋅a_1$, $x,y ∈ℤ$. Parce qu'on observe
+Le calcul des suites $a_i$ et $q_i$ donne aussi une représentation $\gcd(a_0,a_1) = x ⋅a_0 + y ⋅a_1$, $x,y ∈ℤ$. En effet
 \begin{displaymath}
   \begin{pmatrix}
     a_{i} \\  a_{i+1} 
@@ -111,7 +111,7 @@ et alors
   \end{pmatrix}
   \begin{pmatrix}
     a_0 \\ a_1
-  \end{pmatrix}
+  \end{pmatrix}.
 \end{displaymath}
 \begin{example}
   \label{exe:26}
@@ -151,11 +151,11 @@ et alors
   Alors $2 = \gcd(52,22) = 3 ⋅52 -7 ⋅22$. 
 \end{example}
 
-Nous pouvons alors résoudre le problème~\eqref{eq:40} dans le cas où $m=1$ et $n=2$.
+Nous pouvons donc résoudre le problème~\eqref{eq:40} dans le cas où $m=1$ et $n=2$.
 
 \begin{theorem}
   \label{thr:49}
-  Soient $a,b ∈ℤ$ pas zéro tous le deux et $c ∈ℤ$. L'équation
+  Soient $a,b ∈ℤ$ pas tous les deux nuls et $c ∈ℤ$. L'équation
   \begin{equation}
     \label{eq:41}
     x ⋅a + y ⋅b = c, \, x,y ∈ℤ
@@ -171,13 +171,13 @@ Nous pouvons alors résoudre le problème~\eqref{eq:40} dans le cas où $m=1$ et
 \section*{Exercices}
 
 \begin{enumerate}
-\item Démontrer Corollaire~\ref{co:5}.
-\item Soient $n≥2$ et $a_1,\dots,a_n∈ ℤ$ pas tous égaux à zéro. On défini $\gcd(a_1,\dots,a_n)$ comme le plus grand diviseur commun de $a_1,\dots,a_n$. Montrer: 
+\item Démontrer le Corollaire~\ref{co:5}.
+\item Soient $n≥2$ et $a_1,\dots,a_n∈ ℤ$ pas tous égaux à zéro. On définit $\gcd(a_1,\dots,a_n)$ comme étant le plus grand diviseur commun de $a_1,\dots,a_n$. Montrer: 
   \begin{enumerate}[i)]
     \item  $\gcd(a_1,\dots,a_n) =  \min\{x_1a_1+ \cdots + x_n a_n ： x_1a_1+ \cdots + x_n a_n≥1, \, x_i ∈ℤ, \, i=1,\dots,n\}$. 
   \item $\gcd(a_1,\dots,a_n) = \gcd(\gcd(a_1,a_2), a_3, \dots, a_n)$ pour $n≥3$. 
   \end{enumerate}
-\item Soit $a_0≥a_1≥\dots≥a_k=0$ la suite calculé par l'algorithme d'Euclide. Montrer $a_{i-1} ≥ 2⋅ a_{i+1}$ et conclure  que $k ≤2 ⋅ \log_2(a_0)+1$.  
+\item Soit $a_0≥a_1≥\dots≥a_k=0$ la suite calculée par l'algorithme d'Euclide. Montrer $a_{i-1} ≥ 2⋅ a_{i+1}$ et conclure  que $k ≤2 ⋅ \log_2(a_0)+1$.  
 \end{enumerate}
 
 
@@ -195,16 +195,16 @@ Maintenant on s'occupe du problème~\eqref{eq:40} où $A ∈ ℤ^{m ×n}$ et $b 
 \begin{proof}
   Supposons que $A^{-1} ∈ℤ^{n ×n}$. Alors $1 = \det(I_n)  = \det(A^{-1}) \det(A)$. Les deux facteurs $\det(A^{-1})$ et $ \det(A)$ sont des nombres entiers. Les seul diviseurs de $1$ en nombre entiers sont $1$ et $-1$.
 
-  Autrement, si $\det(A) = \pm 1$, on a
+  Réciproquement, si $\det(A) = \pm 1$, on a
   \begin{displaymath}
     A^{-1} = \mathrm{ad}(A) / \det(A) ∈ℤ^{n ×n}. 
   \end{displaymath}
-  où $\mathrm{ad}(A) ∈ ℤ^{n ×n}$ est la matrice adjoint de $A$. On se rappelle que $(\mathrm{ad}(A))_{ij} = (-1)^{i+j}\det(A_{ji})$ où $A_{ji}∈ℤ^{(n-1)×(n-1)}$ est la matrice qu'on obtient de $A$ en supprimant la $j$-ème ligne et $i$-ème colonne. 
+  où $\mathrm{ad}(A) ∈ ℤ^{n ×n}$ est la matrice complémentaire de $A$. On se rappelle que $(\mathrm{ad}(A))_{ij} = (-1)^{i+j}\det(A_{ji})$ où $A_{ji}∈ℤ^{(n-1)×(n-1)}$ est la matrice qu'on obtient de $A$ en supprimant la $j$-ème ligne et $i$-ème colonne.
   \end{proof}
 
   \begin{definition}
     \label{def:46}
-    Une matrice $U ∈ℤ^{n ×n}$ tel que $\det(U) = \pm 1$ est appelée  \emph{unimodulaire}.
+    Une matrice $U ∈ℤ^{n ×n}$ telle que $\det(U) = \pm 1$ est appelée  \emph{unimodulaire}.
   \end{definition}
 
   \begin{remark}
@@ -216,7 +216,7 @@ Maintenant on s'occupe du problème~\eqref{eq:40} où $A ∈ ℤ^{m ×n}$ et $b 
     \end{equation}
   \end{remark}
   %
-L'idée est maintenant de trouver une matrice unimodulaire $U ∈ℤ^{n ×n}$ tel que
+L'idée est maintenant de trouver une matrice unimodulaire $U ∈ℤ^{n ×n}$ telle que
 \begin{equation}
   \label{eq:44}
   A ⋅ U = [H | 0]
@@ -236,11 +236,11 @@ $H^{-1} b ∈ℤ^n$.
 
 \begin{definition}
   \label{def:47}
-  Soit $A ∈ ℤ^{m ×n}$ une matrice. Une \emph{opération élémentaire unimodulaire} est une des trois
+  Soit $A ∈ ℤ^{m ×n}$ une matrice. Une \emph{opération élémentaire unimodulaire} est l'une des trois opérations suivantes
   \begin{enumerate}[i)]
     \item Multiplier une colonne avec $-1$.  \label{item:21}
     \item Échanger deux colonnes de $A$.  \label{item:22}
-    \item Additionner un multiple entier d'une colonne de $A$ sur une autre colonne de $A$. \label{item:23}
+    \item Additionner un multiple entier d'une colonne de $A$ à une autre colonne de $A$. \label{item:23}
   \end{enumerate}
 \end{definition}
 
@@ -257,15 +257,15 @@ Soit
       11 & 5 & 7
     \end{pmatrix}. 
   \end{displaymath}
-  Échanger les colonnes $1$ et $2$ correspond à la multiplication de $A$ avec la matrice unimodulaire 
+  Échanger les colonnes $1$ et $2$ correspond à la multiplication à droite de $A$ avec la matrice unimodulaire 
   \begin{displaymath}
     \begin{pmatrix}
     0& 1 & 0 \\
     1 & 0 & 0 \\
     0 & 0 & 1
       
-    \end{pmatrix}
-  \end{displaymath} à droite
+    \end{pmatrix}.
+  \end{displaymath}
   \begin{displaymath}
      \begin{pmatrix}
       6  & 3& 2 \\
@@ -277,7 +277,7 @@ Soit
        0 & 0 & 1
      \end{pmatrix}
    \end{displaymath}
-   Additionner $-3$ fois la colonne $3$ sur la colonne $1$ est la multiplication de $A$ avec la matrice unimodulaire 
+   Additionner $-3$ fois la colonne $3$ sur la colonne $1$ est la multiplication à droite de $A$ avec la matrice unimodulaire 
    \begin{displaymath}
      \begin{pmatrix}       
      1 & 0 & 0\\ 
@@ -301,7 +301,7 @@ Soit
 
 \begin{example}
   \label{exe:28}
-  Est-ce que
+  Est-ce que le système
   \begin{equation}
     \label{eq:43}
      \begin{pmatrix}
@@ -312,22 +312,22 @@ Soit
       2 \\ 2
     \end{pmatrix}, x ∈ℤ^3
       \end{equation}
-  possède une solution.
-  Soustraire  colonne $3$ de colonne $1$:
+  possède une solution ?
+  Soustrayons la colonne $3$ à la colonne $1$:
   \begin{displaymath}
      \begin{pmatrix}
       1 & 6 & 2 \\
       1 & 5 & 10
     \end{pmatrix}
   \end{displaymath}
-  Soustraire six fois colonne une de colonne deux et deux fois colonne une de colonne trois:
+  Ensuite, on soustrait six fois la colonne $1$ à la colonne $2$ et deux fois la colonne $1$ à la colonne $3$ :
  \begin{displaymath}
      \begin{pmatrix}
       1 & 0 & 0 \\
       1 & -1 & 8
     \end{pmatrix}
   \end{displaymath}
-  Additionner huit fois colonne deux sur colonne trois:
+  Puis, on additionne huit fois la colonne $2$ à la colonne $3$:
   \begin{displaymath}
   \begin{pmatrix}
       1 & 0 & 0 \\
@@ -348,32 +348,32 @@ Soit
 
 \begin{lemma}
   \label{lem:24}
-  Soit  $A ∈ℤ^{ m ×n}$ une matrice en nombre entiers, alors il  existe une matrice unimudulaire $U ∈ℤ^{ n ×n}$ tel que le première ligne de $AU$ est de la forme $(d,0,\cdots,0)$, où $d ∈ℤ$.
+  Soit  $A ∈ℤ^{ m ×n}$ une matrice à coefficients entiers, alors il existe une matrice unimudulaire $U ∈ℤ^{ n ×n}$ tel que le première ligne de $AU$ est de la forme $(d,0,\cdots,0)$, où $d ∈ℤ$.
 \end{lemma}
 
 \begin{proof}
 
     Si la première ligne n'est pas de cette forme, et si elle possède seulement une
-  composante qui n'est pas égale à zéro, on échange colonnes tel que
-  le résultat est de cette forme.
+  composante qui n'est pas égale à zéro, on échange les colonnes de sorte que
+  la matrice résultante soit de la forme souhaitée.
   
-  Autrement, il existent deux indexes $j_1\neq j_2$ de colonnes, tel
-  que $a_{1j_1}\neq 0$ et $a_{1j_2} \neq 0$. On peut supposer
-  $|a_{1j_1}| ≥ |a_{1j_2}|$. Division avec reste nous donne $q ∈ℤ$ et
-  $0 ≤r < |a_{1j_2}|$ tel que
+  Autrement, il existe deux index $j_1\neq j_2$ de colonnes, tels
+  que $a_{1j_1}\neq 0$ et $a_{1j_2} \neq 0$. On peut supposer, quitte à permutter les colonnes $j_1$ et $j_2$, que
+  $|a_{1j_1}| ≥ |a_{1j_2}|$. La division avec reste nous donne des entiers $q ∈ℤ$ et
+  $0 ≤r < |a_{1j_2}|$ tels que
   \begin{displaymath}
     a_{1j_1} = q ⋅ a_{1j_2} + r. 
   \end{displaymath}
-  On applique l'opération unimudulaire: \emph{Soustraire $q$ fois
-    colonne $j_2$ de colonne $j_1$} remplace $a_{1j_1}$ avec $r$ et
-  laisse les autres composantes de la première ligne intacte.  Des que
+  On applique l'opération unimodulaire: \emph{Soustraire $q$ fois la
+    colonne $j_2$ à la colonne $j_1$}, ce qui a pour effet de remplacer $a_{1j_1}$ par $r$ et
+   de laisser les autres composantes de la première ligne intactes. Comme
     \begin{displaymath}
       0 < |r|+ |a_{1j_2}|<  |a_{1j_{1}}|+ |a_{1j_2}|
     \end{displaymath}
-    cette procédé ne peut être répété infiniment. Alors il existe une
-    matrice unimodulaire qui transforme $A$ en matrice, où la première
-    ligne possède une seule composante non zéro et un échange de
-    colonnes transforme en forme désirée.
+    ce procédé ne peut être répété infiniment. Il existe alors une
+    matrice unimodulaire qui transforme $A$ en une matrice dont la première
+    ligne possède une seule composante non nulle. Un échange de
+    colonnes adéquat donne la forme désirée.
   \end{proof}
 
   \begin{corollary}
@@ -381,8 +381,8 @@ Soit
     Soit  $A ∈ℤ^{ m ×n}$ une matrice en nombre entiers alors il  existe une matrice unimudulaire $U ∈ℤ^{ n ×n}$ tel que $A ⋅U$ est de la forme~\eqref{eq:44}.
   \end{corollary}
   \begin{proof}
-    Par induction sur $m$. le cas $m=1$ est impliqué par Lemme~\ref{lem:24}. Soit $m>1$. 
-    Lemme~\ref{lem:24} implique qu'il existe une matrice unimodulaire $U_1 ∈ℤ^{n ×n}$ tel que
+    On raisonne par induction sur $m$. Le cas $m=1$ est suit directement du Lemme~\ref{lem:24}. Soit $m>1$. 
+    Le Lemme~\ref{lem:24} implique qu'il existe une matrice unimodulaire $U_1 ∈ℤ^{n ×n}$ telle que
     \begin{displaymath}
       A ⋅ U_1 =
       \begin{pmatrix}
@@ -412,17 +412,17 @@ Soit
 
   \begin{definition}
     \label{def:49}
-    Une matrice $A ∈ℤ^{m ×n}$  est en \emph{forme normale de Hermite}, si elle est de la forme \eqref{eq:44}, où $r_{ii}>0$ pour tous $1 ≤i≤ m$ et $0≤ r_{ij} < r_{ii}$ pour tout $1≤j<i≤m$. 
+    Une matrice $A ∈ℤ^{m ×n}$  est en \emph{forme normale d'Hermite}, si elle est de la forme \eqref{eq:44}, où $r_{ii}>0$ pour tous $1 ≤i≤ m$ et $0≤ r_{ij} < r_{ii}$ pour tout $1≤j<i≤m$. 
   \end{definition}
 	
 \begin{theorem}
   \label{thr:28}
-    Soit  $A ∈ℤ^{ m ×n}$ une matrice en nombre entiers alors il  existe une matrice unimudulaire $U ∈ℤ^{ n ×n}$ tel que $A ⋅U$ est en \emph{forme normale de Hermite}.
+    Soit  $A ∈ℤ^{ m ×n}$ une matrice en nombre entiers alors il  existe une matrice unimudulaire $U ∈ℤ^{ n ×n}$ tel que $A ⋅U$ est en \emph{forme normale d'Hermite}.
   \end{theorem}
   
   \begin{definition}
     \label{def:49}
-    Soit $A \in \mathbb{Z}^{m\times n}$ et  $rang(A)=m$. L'ensemble  $\Lambda(A):=\left\{ Ax,x\in \mathbb{Z}^{n\times n} \right\}$ est  un \emph{réseau entier généré}  de $A$. Une matrice  $B \in \mathbb{Z}^{m\times m}$ telle que  $\Lambda(A)=\Lambda(B)$ est appelée base de $\Lambda(A)$. 
+    Soit $A \in \mathbb{Z}^{m\times n}$ et  $rang(A)=m$. L'ensemble  $\Lambda(A):=\left\{ Ax,x\in \mathbb{Z}^{n} \right\}$ est  un \emph{réseau entier généré}  de $A$. Une matrice  $B \in \mathbb{Z}^{m\times m}$ telle que  $\Lambda(A)=\Lambda(B)$ est appelée base de $\Lambda(A)$. 
   \end{definition}
 
   \begin{remark}
@@ -437,14 +437,14 @@ Soit
 
   \begin{proof}
     On a $U ∈ℤ^{ n ×n}$ unimodulaire tq. $A ⋅ U = [H | 0]$ et $H$ est
-    en forme normale de Hermite. Il est alors simple de remarquer que
+    en forme normale d'Hermite. Il est alors simple de remarquer que
     $\Lambda(A)=\Lambda(H)$. Dès lors $H$ est une base du réseau
     entier $Λ(A)$.
   \end{proof}
 
   \begin{theorem}
     \label{thr:28}
-    Soient $A,B \in \mathbb{Z}^{m\times m}$ en forme normale de Hermite.    Alors $Λ(A) = Λ(B)$ si et seulement si $A = B$. 
+    Soient $A,B \in \mathbb{Z}^{m\times m}$ en forme normale d'Hermite.    Alors $Λ(A) = Λ(B)$ si et seulement si $A = B$. 
   \end{theorem}
 
  \begin{proof}
@@ -453,19 +453,19 @@ Soit
  $\\$ 
 $ \boxed { \Rightarrow  }$ On montre qui si $A\neq B$ alors $\Lambda(A) \neq \Lambda(B)$.$\\$
 Supposons alors que $\Lambda(A) =\Lambda(B)$.$\\$
-On note $A=\begin{pmatrix} a_{ 11 } & \quad  & \quad  \\ \quad  & \ddots  & \quad  \\ a_{m1}  & \quad  & a_{ mm } \end{pmatrix}$ et $B=\begin{pmatrix} b_{ 11 } & \quad  & \quad  \\ \quad  & \ddots  & \quad  \\ a_{m1}  & \quad  & b_{ mm } \end{pmatrix}$. $\\$
+On note $A=\begin{pmatrix} a_{ 11 } & \quad  & \quad  \\ \quad  & \ddots  & \quad  \\ a_{m1}  & \quad  & a_{ mm } \end{pmatrix}$ et $B=\begin{pmatrix} b_{ 11 } & \quad  & \quad  \\ \quad  & \ddots  & \quad  \\ b_{m1}  & \quad  & b_{ mm } \end{pmatrix}$. $\\$
 Soit $i$ minimal tel que les $i-eme$ lignes de $A$ et de $B$ soient différentes. Alors $\exists j \in \left\{ 1,\dots ,i  \right\}$  tel que $a_{ij} \neq b_{ij}$ et sans perte de généralité on a $a_{ij}<b_{ij}$ . Clairement en notant $A_j$ ( resp $B_j$) la $j-eme$ colonne de $A$ (resp $B$), on a $A_j - B_j = \begin{pmatrix} 0 \\ \vdots  \\ 0\\ a_{ ij }-b_{ ij } \\ \vdots  \end{pmatrix} \in \Lambda (A)$ avec $a_{ii}>a_{ij}-b_{ij}>0$ mais alors nécessairement $a_{ii}|a_{ij}-b_{ij}$ ce qui est une contradiction.
 $\\$
 
  \end{proof}
   \begin{remark}
     \label{rem:5}
-    Théorème~\ref{thr:28} nous permet de tester  pour $A ∈ℤ^{m × n_1}$ et $B ∈ℤ^{m × n_2}$ de plein rang lignes, si $Λ(A) = Λ(B)$.  On calcule $(H_A|0)$ et $(H_B|0)$ les formes normales de Hermite de $A$ et $B$. Des que $Λ(A) =Λ(H_A)$ et $Λ(B) = Λ(H_B)$, alors $Λ(A) = Λ(B)$ si et seulement si $H_A = H_B$. 
+    Le Théorème~\ref{thr:28} nous permet de vérifier, pour $A ∈ℤ^{m × n_1}$ et $B ∈ℤ^{m × n_2}$ de rang ligne pleins, si $Λ(A) = Λ(B)$.  On calcule $(H_A|0)$ et $(H_B|0)$ les formes normales d'Hermite de $A$ et $B$. Comme $Λ(A) =Λ(H_A)$ et $Λ(B) = Λ(H_B)$, on a que $Λ(A) = Λ(B)$ si et seulement si $H_A = H_B$. 
   \end{remark}
 
   \begin{example}
     \label{exe:29}
-    On va transformer $A = \left(\begin{matrix}4 & 6 & 10\\6 & 12 & 9\end{matrix}\right)$ en forme normale Hermite et trouver tout les solutions entier de
+    On va transformer $A = \left(\begin{matrix}4 & 6 & 10\\6 & 12 & 9\end{matrix}\right)$ en forme normale d'Hermite afin de trouver toutes les solutions entières de
     \begin{equation}
       \label{eq:46}
       \left(\begin{matrix}4 & 6 & 10\\6 & 12 & 9\end{matrix}\right) x =
@@ -501,9 +501,9 @@ $\\$
       \end{array}      
     \end{equation}
 
-    L'ensemble des  solutions entiers de~\eqref{eq:46} est 
+    L'ensemble des  solutions entières de~\eqref{eq:46} est 
     \begin{displaymath}
-      \left\{ \left(\begin{matrix}-23\\8\\5\end{matrix}\right) + \left(\begin{matrix}11\\-4\\2\end{matrix}\right) ⋅z ： z ∈ℤ\right\}
+      \left\{ \left(\begin{matrix}-23\\8\\5\end{matrix}\right) + \left(\begin{matrix}11\\-4\\-2\end{matrix}\right) ⋅z ： z ∈ℤ\right\}
     \end{displaymath}
     
   \end{example}
@@ -538,22 +538,22 @@ $\\$
   
 \section*{Exercices}
 \begin{enumerate}
-\item Soit $A ∈ℤ^{m ×n}$ du plein rang lignes. Le noyaux entier de $A$ est l'ensemble
+\item Soit $A ∈ℤ^{m ×n}$ avec rang ligne plein. Le noyaux entier de $A$ est l'ensemble
   \begin{displaymath}
     \ker_ℤ(A) = \{x ∈ℤ^n ： Ax = 0\}. 
   \end{displaymath}
-  Soit  $U ∈ℤ^{n ×n}$ une matrice unimodulaire tel que
+  Soit  $U ∈ℤ^{n ×n}$ une matrice unimodulaire telle que
   \begin{displaymath}
     A ⋅ U = (H | 0) 
   \end{displaymath}
-  est on forme normale de Hermite.
-  Montrer $\ker_ℤ(A) = \{ y_1 u_1 + \cdots + y_{n-m} u_{n-m} ： y_i ∈ℤ\}$ où $u_1,\dots,u_{n-m}$ sont les derniers $n-m$ colonnes de $U$. 
+  est la forme normale d'Hermite.
+  Montrer que $\ker_ℤ(A) = \{ y_1 u_1 + \cdots + y_{n-m} u_{n-m} ： y_i ∈ℤ\}$ où $u_1,\dots,u_{n-m}$ sont les dernières $n-m$ colonnes de $U$. 
 \end{enumerate}
 
 \section{La forme normale de Smith}
 \label{sec:la-forme-normale-1}
 
-A partir de maintenant, on se donne une matrice $A\in \mathbb{Z}^{m\times n}$ avec $rang(A)=k$ et $k$ n'est pas forcément $m$.
+À partir de maintenant, on se donne une matrice $A\in \mathbb{Z}^{m\times n}$ avec $rang(A)=k$ et $k$ n'est pas forcément $m$.
 
 \begin{definition}
    	\label{def:49}
