@@ -1,6 +1,6 @@
 \chapter{Algèbre linéaire sur les entiers}
 \label{cha:algebre-lineaire-sur}
-
+ 
 
 Quand est-ce qu'un système d'équations linéaires possède une solution en nombre entiers ? Étant donnés $A ∈ℤ^{m × n}$ et $b ∈ℤ^m$, on aimerait décider si 
 \begin{equation}
@@ -515,7 +515,7 @@ $\\$
   
     \begin{theorem}
     \label{thr:28}
-    Soient $A,B \in \mathbb{Z}^{m \times m}$ en forme normale de Jordan avec $rang(A)=rang(B)=m$. Alors $\Lambda(A)=\Lambda(B) \Leftrightarrow \exists U\in \mathbb{Z}^{m \times m}$ unimodulaire telle que $B=AU$.
+    Soient $A,B \in \mathbb{Z}^{m \times m}$ en forme normale de Hermite avec $rang(A)=rang(B)=m$. Alors $\Lambda(A)=\Lambda(B) \Leftrightarrow \exists U\in \mathbb{Z}^{m \times m}$ unimodulaire telle que $B=AU$.
     \end{theorem}
     
     \begin{proof}
@@ -557,22 +557,24 @@ $\\$
 
 \begin{definition}
    	\label{def:49}
-	Soit  $A\in \mathbb{Z}^{m\times n}$ alors $\Lambda(A)=\left\{ Ax,x\in \mathbb{R}^{n} \right\} $ est le réseau entier général de $A$.
+	Soit  $A\in \mathbb{Z}^{m\times n}$ alors $\Lambda(A)=\left\{ Ax,x\in \mathbb{R}^{n} \right\} $ est le \emph{réseau entier général} de $A$.
 \end{definition}
+
+
 
 \begin{theorem}
     \label{thr:28}
     Soit  $A\in \mathbb{Z}^{m\times n}$ avec $rang(A)=k$ alors $\exists B \in \mathbb{Z}^{m \times k}$ tq. $\Lambda(A)=\Lambda(B)$. $B$ est alors appelée une base générale de $\Lambda(A)$.
     \end{theorem}
     
-	  \begin{remark}
-    \label{rem:5}
-    $rang(A)=rang(B)=k$.
+    \begin{remark}
+      \label{rem:5}
+      $rang(A)=rang(B)=k$.
     \end{remark}
     
     \begin{proof}
-    Sans perte de généralité, on peut supposer que les $k$ premières lignes de $A$ sont linéairement indépendantes. 
-    Dès lors on a $A=\begin{pmatrix} A' \\ A'' \end{pmatrix}$ avec $A'\in \mathbb{Z}^{k \times n}$ et $rang(A')=k$ soit alors $U\in \mathbb{Z}^{n \times n}$ unimodulaire tq. $A'U=[H|0]$ ou $H \in \mathbb{Z}^{k \times k}$ est en forme normale de Jordan. Alors on peut se convaincre en raisonnant sur les rangs que $AU=\begin{pmatrix} H & 0 \\ B & 0 \end{pmatrix}$. Dés lors on a $\Lambda(A)=A\mathbb{Z}^n=AU\mathbb{Z}^n=\begin{pmatrix} H \\ B \end{pmatrix}\mathbb{Z}^k=\Lambda(\begin{pmatrix} H \\ B \end{pmatrix})$.
+      Supposons que les   $k$ premières lignes de $A$ sont linéairement indépendantes. 
+    Dès lors on a $A=\begin{pmatrix} A' \\ A'' \end{pmatrix}$ avec $A'\in \mathbb{Z}^{k \times n}$ et $rang(A')=k$ soit alors $U\in \mathbb{Z}^{n \times n}$ unimodulaire tq. $A'U=[H|0]$ ou $H \in \mathbb{Z}^{k \times k}$ est en forme normale de Hermite. Alors on peut se convaincre en raisonnant sur les rangs que $AU=\begin{pmatrix} H & 0 \\ B & 0 \end{pmatrix}$. Dés lors on a $\Lambda(A)=A\mathbb{Z}^n=AU\mathbb{Z}^n=\begin{pmatrix} H \\ B \end{pmatrix}\mathbb{Z}^k=\Lambda(\begin{pmatrix} H \\ B \end{pmatrix})$.
     
     \end{proof}
     
