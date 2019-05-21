@@ -10,7 +10,7 @@ Dans ce chapitre on s'intéresse à l'étude des groupes.
  
  \begin{lemma}
     \label{lem:23}
-    $(H,\times)$ est un sous groupe de $(G,\times) \Leftrightarrow \forall a,b \in H\quad a\times b^{-1} \in H$
+    $(H,\times|_H)$ est un sous groupe de $(G,\times) \Leftrightarrow \forall a,b \in H\quad a\times b^{-1} \in H$
    \end{lemma}
    
     \begin{definition}
@@ -71,7 +71,7 @@ Dans ce chapitre on s'intéresse à l'étude des groupes.
     \end{theorem}
     
     \begin{proof}
-    Soient $g_1,\dots, g_n \in G$ tqs. $G= \left\{ x_1g_1+\dots+x_ng_n, x_i \in \mathbb{Z} \right\} $ alors on peut vérifier que $\phi :\mathbb{ Z }^{ n }\rightarrow G\\ (x_ 1,\dots ,x_n)\mapsto x_1g_1+\dots +x_ng_n$ est un homomorphisme surjectif. Mais alors $ker(\phi) \le G$ et donc $\exists B\in \mathbb{Z}^{n\times k}$ avec $rang(B)=k$ et $\Lambda(B)=ker(\phi)$. En calculant la forme normale de Smith de B on obtient que $\exists U\in \mathbb{Z}^{n\times n}, V\in \mathbb{Z}^{k\times k}$ unimodulaires tqs.
+    Soient $g_1,\dots, g_n \in G$ tqs. $G= \left\{ x_1g_1+\dots+x_ng_n, x_i \in \mathbb{Z} \right\} $ alors on peut vérifier que $\phi :\mathbb{ Z }^{ n }\rightarrow G, (x_ 1,\dots ,x_n)\mapsto x_1g_1+\dots +x_ng_n$ est un homomorphisme surjectif. Mais alors $ker(\phi) \le G$ et donc $\exists B\in \mathbb{Z}^{n\times k}$ avec $rang(B)=k$ et $\Lambda(B)=ker(\phi)$. En calculant la forme normale de Smith de B on obtient que $\exists U\in \mathbb{Z}^{n\times n}, V\in \mathbb{Z}^{k\times k}$ unimodulaires tqs.
 $B=U\begin{pmatrix} d_{ 1 } & \quad  & \quad  \\ \quad  & \ddots & \quad  \\ \quad  & \quad  &d_k  \\  \quad & 0 &\quad   \end{pmatrix}V$ avec $1\le d_1|\dots|d_k$ et donc on a $ker(\phi)=\left\{ U\begin{pmatrix} d_{ 1 } & \quad  & \quad  \\ \quad  & \ddots & \quad  \\ \quad  & \quad  &d_k  \\  \quad & 0 &\quad   \end{pmatrix}y, y\in \mathbb{Z}^k \right\}$. Alors par les théorèmes explicités plus haut on obtient $G \cong {\mathbb{Z}^n}/\!\raisebox{-.65ex}{\ensuremath{{\left\{ U\begin{pmatrix} d_{ 1 } & \quad  & \quad  \\ \quad  & \ddots & \quad  \\ \quad  & \quad  &d_k  \\  \quad & 0 &\quad   \end{pmatrix}y, y\in \mathbb{Z}^k \right\}}}}$. 
 Puis comme $U: \mathbb{Z}^n \rightarrow  \mathbb{Z}^n$ est un automorphisme on arrive finalement à$\\$ $G \cong {\mathbb{Z}^n}/\!\raisebox{-.65ex}{\ensuremath{{\left\{ (d_1y_1,\dots,d_ky_k,0,\dots,0), y_i \in \mathbb{Z} \right\}}}}$. Il suffit maintenant de constater que$\\$ ${\mathbb{Z}^n}/\!\raisebox{-.65ex}{\ensuremath{{\left\{ (d_1y_1,\dots,d_ky_k,0,\dots,0), y_i \in \mathbb{Z} \right\}}}} \cong \mathbb{Z}_{d_1} \otimes \dots \otimes \mathbb{Z}_{d_k} \otimes \mathbb{Z}^{n-k}$ .
     \end{proof} 
