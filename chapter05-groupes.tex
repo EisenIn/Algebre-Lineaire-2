@@ -3,6 +3,8 @@
 
 Dans ce chapitre on s'intéresse à l'étude des groupes.
 
+\section{Groupes abéliens engendrés finis}
+
  \begin{definition}
     \label{def:49}
     Soit $(G,+)$ un groupe alors $H\subset G$ est un sous groupe si $(H,+|_{ H })$ est un groupe.
@@ -76,6 +78,11 @@ Dans ce chapitre on s'intéresse à l'étude des groupes.
 $B=U\begin{pmatrix} d_{ 1 } & \quad  & \quad  \\ \quad  & \ddots & \quad  \\ \quad  & \quad  &d_k  \\  \quad & 0 &\quad   \end{pmatrix}V$ avec $1\le d_1|\dots|d_k$ et donc on a $ker(\phi)=\left\{ U\begin{pmatrix} d_{ 1 } & \quad  & \quad  \\ \quad  & \ddots & \quad  \\ \quad  & \quad  &d_k  \\  \quad & 0 &\quad   \end{pmatrix}y, y\in \mathbb{Z}^k \right\}$. Alors par les théorèmes explicités plus haut on obtient $G \cong {\mathbb{Z}^n}/\!\raisebox{-.65ex}{\ensuremath{{\left\{ U\begin{pmatrix} d_{ 1 } & \quad  & \quad  \\ \quad  & \ddots & \quad  \\ \quad  & \quad  &d_k  \\  \quad & 0 &\quad   \end{pmatrix}y, y\in \mathbb{Z}^k \right\}}}}$. 
 Puis comme $U: \mathbb{Z}^n \rightarrow  \mathbb{Z}^n$ est un automorphisme on arrive finalement à$\\$ $G \cong {\mathbb{Z}^n}/\!\raisebox{-.65ex}{\ensuremath{{\left\{ (d_1y_1,\dots,d_ky_k,0,\dots,0), y_i \in \mathbb{Z} \right\}}}}$. Il suffit maintenant de constater que$\\$ ${\mathbb{Z}^n}/\!\raisebox{-.65ex}{\ensuremath{{\left\{ (d_1y_1,\dots,d_ky_k,0,\dots,0), y_i \in \mathbb{Z} \right\}}}} \cong \mathbb{Z}_{d_1} \otimes \dots \otimes \mathbb{Z}_{d_k} \otimes \mathbb{Z}^{n-k}$ .
     \end{proof} 
+    
+         \begin{lemma}
+    \label{lem:23}
+    Soient $L,K$ deux groupes abéliens, $M$ un sous groupe de $K$ $f:K\rightarrow L$ un isomorphisme. Alors $K/\!\raisebox{-.65ex}{\ensuremath{{M}}} \cong L/\!\raisebox{-.65ex}{\ensuremath{{\phi(M)}}}$.
+    \end{lemma}
     
     
             \begin{lemma}
