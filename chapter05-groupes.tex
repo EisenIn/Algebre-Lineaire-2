@@ -42,7 +42,7 @@ Dans ce chapitre on s'intéresse à l'étude des groupes.
     
      \begin{theorem}
     \label{thr:28}
-    Si $\phi$ est surjective alors $G/\!\raisebox{-.65ex}{\ensuremath{{ker(\phi)}}} \cong Im(\phi)$.
+    Si $\phi$ est un morphisme alors $G/\!\raisebox{-.65ex}{\ensuremath{{ker(\phi)}}} \cong Im(\phi)$.
      \end{theorem}
      
          \begin{definition}
@@ -74,14 +74,14 @@ Dans ce chapitre on s'intéresse à l'étude des groupes.
     \end{theorem}
     
     \begin{proof}
-    Soient $g_1,\dots, g_n \in G$ tqs. $G= \left\{ x_1g_1+\dots+x_ng_n, x_i \in \mathbb{Z} \right\} $ alors on peut vérifier que $\phi :\mathbb{ Z }^{ n }\rightarrow G, (x_ 1,\dots ,x_n)\mapsto x_1g_1+\dots +x_ng_n$ est un homomorphisme surjectif. Mais alors $ker(\phi) \le G$ et donc $\exists B\in \mathbb{Z}^{n\times k}$ avec $rang(B)=k$ et $\Lambda(B)=ker(\phi)$. En calculant la forme normale de Smith de B on obtient que $\exists U\in \mathbb{Z}^{n\times n}, V\in \mathbb{Z}^{k\times k}$ unimodulaires tqs.
+    Soient $g_1,\dots, g_n \in G$ tqs. $G= \left\{ x_1g_1+\dots+x_ng_n, x_i \in \mathbb{Z} \right\} $ alors on peut vérifier que $\phi :\mathbb{ Z }^{ n }\rightarrow G, (x_ 1,\dots ,x_n)\mapsto x_1g_1+\dots +x_ng_n$ est un homomorphisme surjectif. Mais alors $ker(\phi) \le \mathbb{Z}^n$ et donc $\exists B\in \mathbb{Z}^{n\times k}$ avec $rang(B)=k$ et $\Lambda(B)=ker(\phi)$. En calculant la forme normale de Smith de B on obtient que $\exists U\in \mathbb{Z}^{n\times n}, V\in \mathbb{Z}^{k\times k}$ unimodulaires tqs.
 $B=U\begin{pmatrix} d_{ 1 } & \quad  & \quad  \\ \quad  & \ddots & \quad  \\ \quad  & \quad  &d_k  \\  \quad & 0 &\quad   \end{pmatrix}V$ avec $1\le d_1|\dots|d_k$ et donc on a $ker(\phi)=\left\{ U\begin{pmatrix} d_{ 1 } & \quad  & \quad  \\ \quad  & \ddots & \quad  \\ \quad  & \quad  &d_k  \\  \quad & 0 &\quad   \end{pmatrix}y, y\in \mathbb{Z}^k \right\}$. Alors par les théorèmes explicités plus haut on obtient $G \cong {\mathbb{Z}^n}/\!\raisebox{-.65ex}{\ensuremath{{\left\{ U\begin{pmatrix} d_{ 1 } & \quad  & \quad  \\ \quad  & \ddots & \quad  \\ \quad  & \quad  &d_k  \\  \quad & 0 &\quad   \end{pmatrix}y, y\in \mathbb{Z}^k \right\}}}}$. 
 Puis comme $U: \mathbb{Z}^n \rightarrow  \mathbb{Z}^n$ est un automorphisme on arrive finalement à$\\$ $G \cong {\mathbb{Z}^n}/\!\raisebox{-.65ex}{\ensuremath{{\left\{ (d_1y_1,\dots,d_ky_k,0,\dots,0), y_i \in \mathbb{Z} \right\}}}}$. Il suffit maintenant de constater que$\\$ ${\mathbb{Z}^n}/\!\raisebox{-.65ex}{\ensuremath{{\left\{ (d_1y_1,\dots,d_ky_k,0,\dots,0), y_i \in \mathbb{Z} \right\}}}} \cong \mathbb{Z}_{d_1} \otimes \dots \otimes \mathbb{Z}_{d_k} \otimes \mathbb{Z}^{n-k}$ .
     \end{proof} 
     
          \begin{lemma}
     \label{lem:23}
-    Soient $L,K$ deux groupes abéliens, $M$ un sous groupe de $K$ $f:K\rightarrow L$ un isomorphisme. Alors $K/\!\raisebox{-.65ex}{\ensuremath{{M}}} \cong L/\!\raisebox{-.65ex}{\ensuremath{{\phi(M)}}}$.
+    Soient $L,K$ deux groupes abéliens, $M$ un sous groupe normal de $K$ $f:K\rightarrow L$ un isomorphisme. Alors $K/\!\raisebox{-.65ex}{\ensuremath{{M}}} \cong L/\!\raisebox{-.65ex}{\ensuremath{{\phi(M)}}}$.
     \end{lemma}
     
     
@@ -97,7 +97,7 @@ Puis comme $U: \mathbb{Z}^n \rightarrow  \mathbb{Z}^n$ est un automorphisme on a
       $\mathbb{Z}^{n_2}  \cong \\
       {H_2 \otimes  \mathbb{Z}^{n_2}}/\!\raisebox{-.65ex}{\ensuremath{{H_2 \otimes \left\{ 0_{\mathbb{Z}^{n_2}} \right\}  }}}
       \cong {H_1 \otimes  \mathbb{Z}^{n_1}}/\!\raisebox{-.65ex}{\ensuremath{{H_1 \otimes \left\{ 0_{\mathbb{Z}^{n_1}} \right\}  }}}
-      \cong \mathbb{Z}^{n_1}$. Mais alors on a nécessairement $n_1 = n_2$. En effet et sans perte de généralité supposons $n_1>n_2$ alors soient $x_1,\dots,x_{n_1} \in \mathbb{Z}^{n_1}$ des vecteurs $\mathbb{Q}$ linéairement indépendants alors on a forcement $\phi(x_1),\dots, \phi(x_{n1}) \in \mathbb{Z}^{n_2} \mathbb{Q}$ linéairement dépendants. Ainsi $\exists \alpha_1,\dots, \alpha_{n_1} \in \mathbb{Z}$ non tous nuls avec $\alpha_1\phi(x_1)+\dots+\alpha_{n_1}\phi(x_{n1})=0$ mais comme $\phi$ est un morphisme cela implique que $\alpha_1x_1+\dots+\alpha_{n_1}x_{n_1}=0$. Ceci est absurde.
+      \cong \mathbb{Z}^{n_1}$. Mais alors on a nécessairement $n_1 = n_2$. En effet et sans perte de généralité supposons $n_1>n_2$ alors soient $x_1,\dots,x_{n_1} \in \mathbb{Z}^{n_1}$ des vecteurs $\mathbb{Q}$ linéairement indépendants alors on a forcement $\phi(x_1),\dots, \phi(x_{n1}) \in \mathbb{Z}^{n_2} \mathbb{Q}$ linéairement dépendants. Ainsi $\exists \alpha_1,\dots, \alpha_{n_1} \in \mathbb{Z}$ non tous nuls avec $\alpha_1\phi(x_1)+\dots+\alpha_{n_1}\phi(x_{n1})=0$ mais comme $\phi$ est un isomorphisme on a $\phi(\alpha_1x_1+\dots+\alpha_{n_1}x_{n_1})=0$. Cela implique par injectivité que $\alpha_1x_1+\dots+\alpha_{n_1}x_{n_1}=0$. Ceci est absurde.
       \end {proof}
       
     
@@ -108,8 +108,8 @@ Puis comme $U: \mathbb{Z}^n \rightarrow  \mathbb{Z}^n$ est un automorphisme on a
 
     
     \begin {proof}
-    $\boxed { \Leftarrow  } $ Tout d'abord il s'agit de remarquer que $\phi : \mathbb{Z}_m \rightarrow \mathbb{Z}_{m_1} \otimes \mathbb{Z}_{m_2}, a \mapsto (a,a)$ est bien définie et est un morphisme de groupe. Ensuite on a $|\mathbb{Z}_m| = |\mathbb{Z}_{m_1} \otimes \mathbb{Z}_{m_2}|$ donc il suffit de montrer que $\phi$ est surjective. En effet soit $(a,b) \in \mathbb{Z}_{m_1} \otimes \mathbb{Z}_{m_2}$ alors on a $1=pgcd(m_1,m_2)=rm_1 + sm_2, r,s \in \mathbb{Z}$. Dès lors on vérifie que $\phi(rm_1b+sm_2a)=(a,b)$. $\\$
-    $\boxed { \Rightarrow  } $ En égalisant les cardinaux on a $m=m_1m_2$ de plus en posant $d=pgcd(m_1,m_2)$ on a $\frac { m }{ d } = ordre (d) = ordre(\phi(d)) \le \frac { m }{ d^2 }$ et donc $d\le1$ et donc $d=1$.
+    $\boxed { \Leftarrow  } $ Tout d'abord il s'agit de remarquer que $\phi : \mathbb{Z}_m \rightarrow \mathbb{Z}_{m_1} \otimes \mathbb{Z}_{m_2}, a \mapsto (a,a)$ est bien définie et est un morphisme de groupe. Ensuite on a $|\mathbb{Z}_m| = |\mathbb{Z}_{m_1} \times \mathbb{Z}_{m_2}|$ donc il suffit de montrer que $\phi$ est surjective. En effet soit $(a,b) \in \mathbb{Z}_{m_1} \otimes \mathbb{Z}_{m_2}$ alors on a $1=pgcd(m_1,m_2)=rm_1 + sm_2, r,s \in \mathbb{Z}$. Dès lors on vérifie que $\phi(rm_1b+sm_2a)=(a,b)$. $\\$
+    $\boxed { \Rightarrow  } $ En égalisant les cardinaux on a $m=m_1m_2$ de plus en posant $d=pgcd(m_1,m_2)$ on a $\frac { m }{ d } = ordre (d) = ordre(\phi(d)) \le \frac { m }{ d^2 }$ et donc $1\le d\le1$ et donc $d=1$.
      \end{proof}
      
     \begin{remark}
@@ -131,7 +131,7 @@ $\boxed { \Rightarrow  }$ Soit $\phi$ l'isomorphisme entre ces deux groupes. On 
 
   \begin{remark}
     \label{rem:2}
-    Soit $G$ tq $G \cong \mathbb{Z}_{d_1} \otimes \dots \otimes \mathbb{Z}_{d_k}$ avec $d_1, \dots, d_k \in \mathbb{N}_{ \ge 1}$ tqs $d_1|\dots|d_k$. Alors $d_k=p_1^{a_1}\dots p_n^{a_n}, p_i \in \mathbb{P} ,a_i \in \mathbb{N}_{\ge 1}$. On obtient ainsi $d_i=p_1^{e^i_1}\dots p_{n}^{e^i_n}$ avec $e^i_j \le a_j$. Dès lors on a que $G \cong \mathbb{Z}_{p_1^{e_1^1}} \otimes \dots \otimes \mathbb{Z}_{p_n^{e_n^1}} \otimes \dots \otimes \mathbb{Z}_{p_1^{a_1}} \otimes \dots \otimes \mathbb{Z}_{p_n^{a_n}}$.
+    Soit $G$ abélien engendré fini. Alors $G \cong \mathbb{Z}_{d_1} \otimes \dots \otimes \mathbb{Z}_{d_k} \otimes \mathbb{Z}^l$ avec $d_1, \dots, d_k \in \mathbb{N}_{ \ge 1}$ tqs $d_1|\dots|d_k$ et $l\in \mathbb{N}$. Alors $d_k=p_1^{a_1}\dots p_n^{a_n}, p_i \in \mathbb{P} ,a_i \in \mathbb{N}_{\ge 1}$. On obtient ainsi $d_i=p_1^{e^i_1}\dots p_{n}^{e^i_n}$ avec $0\le e^i_j \le a_j$. Dès lors on a que $G \cong \mathbb{Z}_{p_1^{e_1^1}} \otimes \dots \otimes \mathbb{Z}_{p_n^{e_n^1}} \otimes \dots \otimes \mathbb{Z}_{p_1^{a_1}} \otimes \dots \otimes \mathbb{Z}_{p_n^{a_n}} \otimes  \mathbb{Z}^l$.
         \end{remark}
 
         
