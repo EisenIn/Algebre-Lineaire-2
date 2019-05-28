@@ -1,0 +1,141 @@
+\chapter{Groupes}
+\label{cha:groupes}
+
+Dans ce chapitre on s'intéresse à l'étude des groupes.
+
+\section{Groupes abéliens engendrés finis}
+
+ \begin{definition}
+    \label{def:49}
+    Soit $(G,+)$ un groupe alors $H\subset G$ est un sous groupe si $(H,+|_{ H })$ est un groupe.
+ \end{definition}
+ 
+ \begin{lemma}
+    \label{lem:23}
+    $(H,\times|_H)$ est un sous groupe de $(G,\times) \Leftrightarrow \forall a,b \in H\quad a\times b^{-1} \in H$
+   \end{lemma}
+   
+    \begin{definition}
+    \label{def:49}
+    $H\le G$ est un sous groupe normal de $G$ ssi $\forall g \in G\quad Hg=gH$ On note $H\unlhd G$.
+     \end{definition}
+     
+      \begin{definition}
+    \label{def:49}
+    Soient $g,g' \in G$ alors on pose $Hg \circ Hg' := H(gg')$.
+     \end{definition}
+     
+     \begin{theorem}
+    \label{thr:28}
+    $\circ$  munit $G/\!\raisebox{-.65ex}{\ensuremath{{H}}}  := \left\{ gH,\quad g\in G \right\}$ d'une structure de groupe ssi $H\unlhd G$.
+    \end{theorem}
+    
+       \begin{definition}
+    \label{def:49}
+    Soient $(G,+),(G',\times)$ deux groupes et $\phi :G\rightarrow G'$ une application alors $\phi$ est un homomorphisme ssi 
+    $\forall a,b \in G, \phi(a+b)=\phi(a) \times \phi(b)$.
+    \end{definition}
+    
+    \begin{remark}
+    $ker(\phi) \unlhd G$.
+    \end{remark}
+    
+     \begin{theorem}
+    \label{thr:28}
+    Si $\phi$ est un morphisme alors $G/\!\raisebox{-.65ex}{\ensuremath{{ker(\phi)}}} \cong Im(\phi)$.
+     \end{theorem}
+     
+         \begin{definition}
+    \label{def:49}
+    Soit $(G,+)$ un groupe abélien. On dit que $(G,+)$ est engendré fini si $\exists g_1,\dots,g_n \in G\ $ tqs. $G= \left\{ x_1g_1+\dots+x_ng_n, x_i \in \mathbb{Z} \right\} $.
+        \end{definition}
+        
+        
+          \begin{definition}
+    \label{def:49}
+    Soient $(G_1,+), (G_2,\times)$ deux groupes alors $G_1\otimes G_2 :=(G_1\times G_2, \bullet )$ avec $\forall (g_1,g_2), (g'_1,g'_2) \in G_1\times G_2, (g_1,g_2)\bullet (g'_1,g'_2)= (g_1+g_2, g'_1 \times g'_2)$.
+    \end{definition}
+    
+        \begin{remark}
+        \label{rem:2}
+         $G_1\otimes G_2$ est un groupe.
+        \end{remark}
+        
+        
+         \begin{lemma}
+    \label{lem:23}
+    Soit $\phi:G\rightarrow G$ un automorphisme et $H\unlhd G$ alors $ G/\!\raisebox{-.65ex}{\ensuremath{{H}}} \cong G/\!\raisebox{-.65ex}{\ensuremath{{ \phi (H)}}}$.
+    \end{lemma}
+        
+          \begin{theorem}
+    \label{thr:28}
+    Soit $G$ un groupe abélien engendré fini alors $\exists d_1,\dots,d_k \in \mathbb{N}_{ \ge 1}$ et $l\in \mathbb{N}$ tq $G  \cong \mathbb{Z}_{d_1} \otimes \dots \otimes \mathbb{Z}_{d_k} \otimes \mathbb{Z}^l$ avec $\mathbb{Z}^l:=\mathbb{Z} \otimes \dots 
+   \otimes \mathbb{Z}$ $l$ fois. De plus on a $d_1|\dots\ |d_k$.
+    \end{theorem}
+    
+    \begin{proof}
+    Soient $g_1,\dots, g_n \in G$ tqs. $G= \left\{ x_1g_1+\dots+x_ng_n, x_i \in \mathbb{Z} \right\} $ alors on peut vérifier que $\phi :\mathbb{ Z }^{ n }\rightarrow G, (x_ 1,\dots ,x_n)\mapsto x_1g_1+\dots +x_ng_n$ est un homomorphisme surjectif. Mais alors $ker(\phi) \le \mathbb{Z}^n$ et donc $\exists B\in \mathbb{Z}^{n\times k}$ avec $rang(B)=k$ et $\Lambda(B)=ker(\phi)$. En calculant la forme normale de Smith de B on obtient que $\exists U\in \mathbb{Z}^{n\times n}, V\in \mathbb{Z}^{k\times k}$ unimodulaires tqs.
+$B=U\begin{pmatrix} d_{ 1 } & \quad  & \quad  \\ \quad  & \ddots & \quad  \\ \quad  & \quad  &d_k  \\  \quad & 0 &\quad   \end{pmatrix}V$ avec $1\le d_1|\dots|d_k$ et donc on a $ker(\phi)=\left\{ U\begin{pmatrix} d_{ 1 } & \quad  & \quad  \\ \quad  & \ddots & \quad  \\ \quad  & \quad  &d_k  \\  \quad & 0 &\quad   \end{pmatrix}y, y\in \mathbb{Z}^k \right\}$. Alors par les théorèmes explicités plus haut on obtient $G \cong {\mathbb{Z}^n}/\!\raisebox{-.65ex}{\ensuremath{{\left\{ U\begin{pmatrix} d_{ 1 } & \quad  & \quad  \\ \quad  & \ddots & \quad  \\ \quad  & \quad  &d_k  \\  \quad & 0 &\quad   \end{pmatrix}y, y\in \mathbb{Z}^k \right\}}}}$. 
+Puis comme $U: \mathbb{Z}^n \rightarrow  \mathbb{Z}^n$ est un automorphisme on arrive finalement à$\\$ $G \cong {\mathbb{Z}^n}/\!\raisebox{-.65ex}{\ensuremath{{\left\{ (d_1y_1,\dots,d_ky_k,0,\dots,0), y_i \in \mathbb{Z} \right\}}}}$. Il suffit maintenant de constater que$\\$ ${\mathbb{Z}^n}/\!\raisebox{-.65ex}{\ensuremath{{\left\{ (d_1y_1,\dots,d_ky_k,0,\dots,0), y_i \in \mathbb{Z} \right\}}}} \cong \mathbb{Z}_{d_1} \otimes \dots \otimes \mathbb{Z}_{d_k} \otimes \mathbb{Z}^{n-k}$ .
+    \end{proof} 
+    
+         \begin{lemma}
+    \label{lem:23}
+    Soient $L,K$ deux groupes abéliens, $M$ un sous groupe normal de $K$ $f:K\rightarrow L$ un isomorphisme. Alors $K/\!\raisebox{-.65ex}{\ensuremath{{M}}} \cong L/\!\raisebox{-.65ex}{\ensuremath{{\phi(M)}}}$.
+    \end{lemma}
+    
+    
+            \begin{lemma}
+    \label{lem:23}
+    Soient $G, H_1, H_2$ trois groupes abéliens avec $|H_i|<\infty$ pour $i=1,2$ alors si $G \cong H_1 \otimes  \mathbb{Z}^{n_1}$ et $G \cong H_2 \otimes  \mathbb{Z}^{n_2}$ alors $H_1 \cong H_2$ et $n_1=n_2$.
+      \end{lemma}
+      
+      \begin {proof}
+      Soit $\phi: H_1 \otimes  \mathbb{Z}^{n_1} \rightarrow H_2 \otimes  \mathbb{Z}^{n_2}$ un isomorphisme.
+      Soit $h \in H_1$ alors $\phi(h,0)=(h',x) \in H_2 \times \mathbb{Z}^{n_2}$ mais comme $\phi$ préserve l'ordre on a nécessairement $x=0$ on a ainsi $\phi(H_1,0) \subset (H_2,0)$ et de même $\phi^{-1}(H_2,0) \subset (H_1,0)$ et donc finalement $\phi(H_1,0)=(H_2,0)$ ce qui permet de conclure que $H_1 \cong H_2$. $\\$
+      Maintenant on a d'après le lemme ci dessus:
+      $\mathbb{Z}^{n_2}  \cong \\
+      {H_2 \otimes  \mathbb{Z}^{n_2}}/\!\raisebox{-.65ex}{\ensuremath{{H_2 \otimes \left\{ 0_{\mathbb{Z}^{n_2}} \right\}  }}}
+      \cong {H_1 \otimes  \mathbb{Z}^{n_1}}/\!\raisebox{-.65ex}{\ensuremath{{H_1 \otimes \left\{ 0_{\mathbb{Z}^{n_1}} \right\}  }}}
+      \cong \mathbb{Z}^{n_1}$. Mais alors on a nécessairement $n_1 = n_2$. En effet et sans perte de généralité supposons $n_1>n_2$ alors soient $x_1,\dots,x_{n_1} \in \mathbb{Z}^{n_1}$ des vecteurs $\mathbb{Q}$ linéairement indépendants alors on a forcement $\phi(x_1),\dots, \phi(x_{n1}) \in \mathbb{Z}^{n_2} \mathbb{Q}$ linéairement dépendants. Ainsi $\exists \alpha_1,\dots, \alpha_{n_1} \in \mathbb{Z}$ non tous nuls avec $\alpha_1\phi(x_1)+\dots+\alpha_{n_1}\phi(x_{n1})=0$ mais comme $\phi$ est un isomorphisme on a $\phi(\alpha_1x_1+\dots+\alpha_{n_1}x_{n_1})=0$. Cela implique par injectivité que $\alpha_1x_1+\dots+\alpha_{n_1}x_{n_1}=0$. Ceci est absurde.
+      \end {proof}
+      
+    
+                  \begin{theorem}
+    \label{thr:28}
+    Soient $m_1,m_2 \in \mathbb{N}_{\ge }$ alors $\mathbb{Z}_m \cong \mathbb{Z}_{m_1} \otimes \mathbb{Z}_{m_2}$ ssi $m=m_1 \times m_2$ et $pgcd(m_1,m_2)=1$. 
+    \end{theorem}
+
+    
+    \begin {proof}
+    $\boxed { \Leftarrow  } $ Tout d'abord il s'agit de remarquer que $\phi : \mathbb{Z}_m \rightarrow \mathbb{Z}_{m_1} \otimes \mathbb{Z}_{m_2}, a \mapsto (a,a)$ est bien définie et est un morphisme de groupe. Ensuite on a $|\mathbb{Z}_m| = |\mathbb{Z}_{m_1} \times \mathbb{Z}_{m_2}|$ donc il suffit de montrer que $\phi$ est surjective. En effet soit $(a,b) \in \mathbb{Z}_{m_1} \otimes \mathbb{Z}_{m_2}$ alors on a $1=pgcd(m_1,m_2)=rm_1 + sm_2, r,s \in \mathbb{Z}$. Dès lors on vérifie que $\phi(rm_1b+sm_2a)=(a,b)$. $\\$
+    $\boxed { \Rightarrow  } $ En égalisant les cardinaux on a $m=m_1m_2$ de plus en posant $d=pgcd(m_1,m_2)$ on a $\frac { m }{ d } = ordre (d) = ordre(\phi(d)) \le \frac { m }{ d^2 }$ et donc $1\le d\le1$ et donc $d=1$.
+     \end{proof}
+     
+    \begin{remark}
+    \label{rem:2}
+    Soit $n=p_1^{a_1}\dots p_k^{a_k}, p_i \in \mathbb{P} a_i \in \mathbb{N}_{\ge 1}$ alors $\mathbb  \mathbb{Z}_n \cong \mathbb{Z}_{p_1^{a_1}} \otimes \dots \otimes \mathbb{Z}_{p_k^{a_k}}$.
+    \end{remark}
+    
+               \begin{lemma}
+    \label{lem:23}
+    Soient $p\in \mathbb{P}$ et  $\alpha_1 \le \dots \le  \alpha_k, \beta_1 \le \dots \le \beta_l \in \mathbb{N}_{\ge 1}$ alors 
+    $\mathbb{Z}_{p^{\alpha_1}} \otimes \dots \otimes \mathbb{Z}_{p^{\alpha_k}} \cong \mathbb{Z}_{p^{\beta_1}} \otimes \dots \otimes \mathbb{Z}_{p^{\beta_l}}$ ssi $k=l$ et $\alpha_i=\beta_i \forall i \in \left\{ 1,\dots, k \right\} $.
+    
+    \end{lemma}
+
+\begin{proof}
+$\boxed { \Leftarrow  } $ Trivial. $\\$
+$\boxed { \Rightarrow  }$ Soit $\phi$ l'isomorphisme entre ces deux groupes. On a  $p^{\alpha_k} = ordre((0,\dots,1)) = ordre(\phi((0,\dots,1)))\le p^{\beta_l}$. De même on obtient l'inégalité inverse puis finalement on trouve donc $\alpha_k=\beta_l$. Ainsi on a $\mathbb{Z}_{p^{\alpha_1}} \otimes \dots \otimes \mathbb{Z}_{p^{\alpha_{k-1}}} \cong \mathbb{Z}_{p^{\beta_1}} \otimes \dots \otimes \mathbb{Z}_{p^{\beta_{l-1}}}$ puis on prouve le théorème par induction.
+\end{proof}
+
+  \begin{remark}
+    \label{rem:2}
+    Soit $G$ abélien engendré fini. Alors $G \cong \mathbb{Z}_{d_1} \otimes \dots \otimes \mathbb{Z}_{d_k} \otimes \mathbb{Z}^l$ avec $d_1, \dots, d_k \in \mathbb{N}_{ \ge 1}$ tqs $d_1|\dots|d_k$ et $l\in \mathbb{N}$. Alors $d_k=p_1^{a_1}\dots p_n^{a_n}, p_i \in \mathbb{P} ,a_i \in \mathbb{N}_{\ge 1}$. On obtient ainsi $d_i=p_1^{e^i_1}\dots p_{n}^{e^i_n}$ avec $0\le e^i_j \le a_j$. Dès lors on a que $G \cong \mathbb{Z}_{p_1^{e_1^1}} \otimes \dots \otimes \mathbb{Z}_{p_n^{e_n^1}} \otimes \dots \otimes \mathbb{Z}_{p_1^{a_1}} \otimes \dots \otimes \mathbb{Z}_{p_n^{a_n}} \otimes  \mathbb{Z}^l$.
+        \end{remark}
+
+        
+        
+        
+        
+        
