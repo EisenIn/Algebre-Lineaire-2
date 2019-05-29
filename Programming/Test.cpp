@@ -7,7 +7,7 @@ int main()
 
   matrix<rational> A(4,4), R(4,4),L(4,4); 
 
-
+ 
   // Make  matrices the identity 
   for (int i = 1; i <= 4; i++)
     {
