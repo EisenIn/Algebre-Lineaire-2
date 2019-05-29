@@ -422,7 +422,7 @@ Soit
   
   \begin{definition}
     \label{def:49}
-    Soit $A \in \mathbb{Z}^{m\times n}$ et  $rang(A)=m$. L'ensemble  $\Lambda(A):=\left\{ Ax,x\in \mathbb{Z}^{n\times n} \right\}$ est  un \emph{réseau entier généré}  de $A$. Une matrice  $B \in \mathbb{Z}^{m\times m}$ telle que  $\Lambda(A)=\Lambda(B)$ est appelée base de $\Lambda(A)$. 
+    Soit $A \in \mathbb{Z}^{m\times n}$ et e $rang(A)=m$. L'ensemble  $\Lambda(A):=\left\{ Ax,x\in \mathbb{Z}^{n\times n} \right\}$ est  un \emph{réseau entier généré}  de $A$. Une matrice  $B \in \mathbb{Z}^{m\times m}$ telle que  $\Lambda(A)=\Lambda(B)$ est appelée base de $\Lambda(A)$. 
   \end{definition}
 
   \begin{remark}
@@ -435,12 +435,17 @@ Soit
   \end{corollary}
 
 
-  \begin{proof}
-    On a $U ∈ℤ^{ n ×n}$ unimodulaire tq. $A ⋅ U = [H | 0]$ et $H$ est
-    en forme normale de Hermite. Il est alors simple de remarquer que
-    $\Lambda(A)=\Lambda(H)$. Dès lors $H$ est une base du réseau
-    entier $Λ(A)$.
-  \end{proof}
+  % \begin{lemma}
+  %   \label{lem:25}
+  %   Soient $B_1,B_2 ∈ℤ^{m×m}$ deux matrices inversibles. Alors $Λ(A) = Λ(B)$ si et seulement s'il existe une matrice unimodulaire $U ∈ ℤ^{m ×m}$ telle que $B_1 ⋅U = B_2$. 
+  % \end{lemma}
+
+  % \begin{proof}
+  %   On a $U ∈ℤ^{ n ×n}$ unimodulaire tq. $A ⋅ U = [H | 0]$ et $H$ est
+  %   en forme normale de Hermite. Il est alors simple de remarquer que
+  %   $\Lambda(A)=\Lambda(H)$. Dès lors $H$ est une base du réseau
+  %   entier $Λ(A)$.
+  % \end{proof}
 
   \begin{theorem}
     \label{thr:28}
@@ -453,6 +458,12 @@ Soit
     Théorème~\ref{thr:28} nous permet de tester  pour $A ∈ℤ^{m × n_1}$ et $B ∈ℤ^{m × n_2}$ de plein rang lignes, si $Λ(A) = Λ(B)$.  On calcule $(H_A|0)$ et $(H_B|0)$ les formes normales de Hermite de $A$ et $B$. Des que $Λ(A) =Λ(H_A)$ et $Λ(B) = Λ(H_B)$, alors $Λ(A) = Λ(B)$ si et seulement si $H_A = H_B$. 
   \end{remark}
 
+
+  \begin{definition}
+    \label{def:48}
+    Soit $A ∈ℤ^{m ×n}$ du plein rang lignes et $Λ(A)$ le réseau entier généré par $A$ et $B ∈ℤ^{m ×m}$  une base de $Λ(A)$. On appelle $|\det(A)|$ le \emph{déterminante} du réseau $Λ(A)$. 
+  \end{definition}
+  
   \begin{example}
     \label{exe:29}
     On va transformer $A = \left(\begin{matrix}4 & 6 & 10\\6 & 12 & 9\end{matrix}\right)$ en forme normale Hermite et trouver tout les solutions entier de
@@ -509,7 +520,8 @@ Soit
     A ⋅ U = (H | 0) 
   \end{displaymath}
   est on forme normale de Hermite.
-  Montrer $\ker_ℤ(A) = \{ y_1 u_1 + \cdots + y_{n-m} u_{n-m} ： y_i ∈ℤ\}$ où $u_1,\dots,u_{n-m}$ sont les derniers $n-m$ colonnes de $U$. 
+  Montrer $\ker_ℤ(A) = \{ y_1 u_1 + \cdots + y_{n-m} u_{n-m} ： y_i ∈ℤ\}$ où $u_1,\dots,u_{n-m}$ sont les derniers $n-m$ colonnes de $U$.
+\item Soit $U ∈ℤ^{n ×n}$. Montrer $ℤ^n = \{Ux ：x ∈ℤ^n\}$ si et seulement si $U$ est une matrice unimodulaire. 
 \end{enumerate}
 
     
