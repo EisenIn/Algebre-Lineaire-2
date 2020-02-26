@@ -552,10 +552,50 @@ avec $\deg(r) \leq 0$. Alors $f(\alpha) = 0$ implique $r=0$.
       \end{pmatrix}
 
     \end{displaymath}
+    et
+    \begin{displaymath}
+      P_{BB'} = \left(\begin{matrix}1 & 0 & 1\\0 & 1 & 3\\1 & 1 & 2\end{matrix}\right)^{-1} 
+    \end{displaymath}
+    On peut vérifier 
+\begin{equation}
+  A_{B} =  P_{BB'}^{-1} A_{B'}  P_{BB'}. 
+\end{equation}
 
+    
   \end{example}
-  
 
+  \begin{proposition}
+    \label{prop:6}
+    Soit $f： V → V$ un endomorphisme et soit $λ ∈K$ une valeur propre de $f$. La multiplicité géométrique de $λ$ est au plus la multiplicité algébrique de $λ$. 
+  \end{proposition}
+
+  \begin{proof}
+    Soit $m$ la multiplicité géométrique de $λ$ et soit  $\{v_1,\dots,v_m\}$  und base de $E_{λ}$. On peut augmenter cette base de $E_{λ}$ à une base
+    \begin{displaymath}
+B      \{ v_1,\dots,v_m, w_1,\dots,w_{n-m}\} 
+    \end{displaymath}
+    de $V$.
+
+    La matrice $A_B$ est de la forme
+    \begin{displaymath}
+      A_B =
+      \begin{pmatrix}
+        λ I_m & C \\
+        0 & D
+      \end{pmatrix}
+    \end{displaymath}
+    où $C ∈ K^{m × n-m}$ et $D ∈ K^{m ×m}$.
+    Le polynôme caractéristique $p(x) ∈ K[x]$ de $f$ est
+    \begin{eqnarray*} p(x) & = &  
+      \det   \begin{pmatrix}
+        (λ -x) I_m & C \\
+        0 & D-xI_{n-m}
+      \end{pmatrix} \\
+          & = & (λ -x)^m \det \left(D-xI_{n-m}\right). 
+    \end{eqnarray*}
+    Alors la multiplicité algébrique de $λ$ est au moins $m$. 
+  \end{proof}
+  
 \subsection*{Exercices}
 
 \begin{enumerate}
