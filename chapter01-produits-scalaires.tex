@@ -468,44 +468,6 @@ parce que  $K^n$ muni de la forme bilinéaire symétrique $\pscal{u,v} = u^TAv$ 
 
 
 
-Maintenant soit $K = \R$  et $A \in \R^{n \times n}$ symétrique. Le Corollaire~\ref{co:4} implique qu'il existe une matrice inversible $P ∈ ℝ^{n \times n}$ tel que $P^T A P = D$ où $D$ est une matrice diagonale. Si on échange deux colonnes de $P$ et note $P'$ la nouvelle matrice obtenue, alors $P'^T A P' = D'$, où $D'$ est obtenue de $D$ en échangeant les éléments diagonaux correspondants. Alors on peut trouver une matrice inversible $P ∈ ℝ^{n ×n}$ telle que 
-\begin{equation}
-  \label{eq:29}
-  P^T A {P} =
-    \begin{pmatrix}
-      c_1\\
-      & \ddots \\
-      && c_n
-    \end{pmatrix}. 
-\end{equation}
-où les  $c_i$ sont ordonnés de sorte que  $c_1,\dots, c_r >0$, $c_{r+1},\dots ,c_s<0$ et $c_{s+1},\dots , c_n = 0$. En multipliant les premières $s$ colonnes de $P$ par $1/ \sqrt{|c_i|}$ on obtient en fait une factorisation~\eqref{eq:29} telle que 
- $c_1,\dots, c_r =1$, $c_{r+1},\dots ,c_s=-1$ et $c_{s+1},\dots , c_n = 0$. 
-
-Alors on trouve  $P ∈ ℝ^{n ×n}$ inversible telle que 
-\begin{equation}
-  \label{eq:5}
-  P^T A P =
-  \begin{pmatrix}
-    1 &   \\
-      & \ddots &  \\
-      &        & 1 \\
-      &        &  & -1 \\
-      &        &  &    & \ddots \\
-      &        &  &    &        & -1 \\
-      &        &  &    &        &    & 0 \\
-      &        &  &    &        &    &   & \ddots  \\
-      &        &  &    &        &    &   &        & 0  \\
-
-  \end{pmatrix}.
-\end{equation}
-
-
-\begin{definition}
-  \label{def:37}
-  Pour un espace vectoriel sur $ℝ$ de dimension finie, on appelle une base $B$ de $V$ telle que $A_B^{\pscal{,}}$ a la forme décrite en~\eqref{eq:5} une \emph{base de Sylvester}. 
-\end{definition}
-
-
 
 \begin{algorithm}
   \label{alg:1}
@@ -575,6 +537,47 @@ tel que
 \end{displaymath}
 Alors $B' = \{v_1,v_2,-2v_1 -(4/3) v_2 + v_3\}$ est une base orthogonale de $V$. 
 \end{example}
+
+
+
+
+
+Maintenant soit $K = \R$  et $A \in \R^{n \times n}$ symétrique. Le Corollaire~\ref{co:4} implique qu'il existe une matrice inversible $P ∈ ℝ^{n \times n}$ tel que $P^T A P = D$ où $D$ est une matrice diagonale. Si on échange deux colonnes de $P$ et note $P'$ la nouvelle matrice obtenue, alors $P'^T A P' = D'$, où $D'$ est obtenue de $D$ en échangeant les éléments diagonaux correspondants. Alors on peut trouver une matrice inversible $P ∈ ℝ^{n ×n}$ telle que 
+\begin{equation}
+  \label{eq:29}
+  P^T A {P} =
+    \begin{pmatrix}
+      c_1\\
+      & \ddots \\
+      && c_n
+    \end{pmatrix}. 
+\end{equation}
+où les  $c_i$ sont ordonnés de sorte que  $c_1,\dots, c_r >0$, $c_{r+1},\dots ,c_s<0$ et $c_{s+1},\dots , c_n = 0$. En multipliant les premières $s$ colonnes de $P$ par $1/ \sqrt{|c_i|}$ on obtient en fait une factorisation~\eqref{eq:29} telle que 
+ $c_1,\dots, c_r =1$, $c_{r+1},\dots ,c_s=-1$ et $c_{s+1},\dots , c_n = 0$. 
+
+Alors on trouve  $P ∈ ℝ^{n ×n}$ inversible telle que 
+\begin{equation}
+  \label{eq:5}
+  P^T A P =
+  \begin{pmatrix}
+    1 &   \\
+      & \ddots &  \\
+      &        & 1 \\
+      &        &  & -1 \\
+      &        &  &    & \ddots \\
+      &        &  &    &        & -1 \\
+      &        &  &    &        &    & 0 \\
+      &        &  &    &        &    &   & \ddots  \\
+      &        &  &    &        &    &   &        & 0  \\
+
+  \end{pmatrix}.
+\end{equation}
+
+
+\begin{definition}
+  \label{def:37}
+  Pour un espace vectoriel sur $ℝ$ de dimension finie, on appelle une base $B$ de $V$ telle que $A_B^{\pscal{,}}$ a la forme décrite en~\eqref{eq:5} une \emph{base de Sylvester}. 
+\end{definition}
 
 
 \subsection*{Exercices}
