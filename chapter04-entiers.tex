@@ -170,6 +170,7 @@ Nous pouvons donc résoudre le problème~\eqref{eq:40} dans le cas où $m=1$ et 
 
 \section*{Exercices}
 
+
 \begin{enumerate}
 \item Démontrer le Corollaire~\ref{co:5}.
 \item Soient $n≥2$ et $a_1,\dots,a_n∈ ℤ$ pas tous égaux à zéro. On définit $\gcd(a_1,\dots,a_n)$ comme étant le plus grand diviseur commun de $a_1,\dots,a_n$. Montrer: 
@@ -600,7 +601,13 @@ On raisonne par récurrence sur m.$\\$
   Si $d|\alpha_i \quad \forall i\in \left\{ 2,\dots, m \right\} $ alors on effectue $C_i \leftarrow  C_i - \frac {\alpha_i}{ d } C_1$ et on obtient $A\dashrightarrow \begin{pmatrix} d & 0 & \dots  & 0 \\ 0 & \quad  & \quad  & \quad  \\ \vdots  & \quad  & A''  & \quad \\ 0 & \quad  & \quad  & \quad  \end{pmatrix}$ $\\$
   Sinon $d\nmid  \alpha_j$ pour $j\in \left\{ 2,\dots, m \right\}$ et donc on a $pgcd(d,\alpha_2,\dots,\alpha_n)<d$. Ainsi $\exists U \in \mathbb{Z}^{m\times m}$ tq. $A\dashrightarrow \begin{pmatrix} \widetilde { d }  & \beta_2 & \dots  & \beta_n \\ 0 & \quad  & \quad  & \quad  \\ \vdots  & \quad  & A'''  & \quad \\ 0 & \quad  & \quad  & \quad  \end{pmatrix}$ avec $\widetilde { d } <d$.
 \end{proof}
-    
+
+
+\section*{Exercices}
+
+\begin{enumerate}
+\item Soit $A ∈ℤ^{m ×n}$ et $d ∈ ℤ$ un nombre entier qui divise chaque composante de $A$. Si $U ∈ℤ^{m ×m}$ et $V ∈ℤ^{n ×n}$ sont des matrices unimodulaires, alors $d$ divise chaque composante de $U⋅A⋅V$. 
+\end{enumerate}
     
 %%% Local Variables:
 %%% mode: latex

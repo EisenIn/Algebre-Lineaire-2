@@ -311,6 +311,32 @@ Alors $\dim(V_1^\perp) < \dim(V)$, et par induction, $V_1^\perp$ possède une ba
 \end{proof}  
 
 
+
+\begin{example}
+  \label{exe:30}
+  Soit $V = ℤ_5^3$ et $〈,〉： ℤ_5 × ℤ_5 → ℤ_5$ défini comme
+  \begin{displaymath}
+    〈x,y〉 = x^T A y,
+  \end{displaymath}
+  où
+  \begin{displaymath}
+    A = \left(\begin{array}{rrr}
+                0 & 2 & 1 \\
+                2 & 0 & 4 \\
+                1 & 4 & 0
+              \end{array}\right)
+  \end{displaymath}
+  Le but est de trouver une base orthogonale de $ℤ_5^3$. On va trouver une matrice inversible $P ∈ ℤ_5^{3×3}$ tel que $P^T A P$  est une matrice diagonale. Si  $p_1,p_2,p_3$ sont les colonnes de $P$, alors
+  \begin{displaymath}
+    \{ p_1,p_2,p_3 \}
+  \end{displaymath}
+  est une base de $ℤ_5^3$ et c'est une base diagonale, des que
+  \begin{displaymath}
+    〈p_i,p_j〉 =0 \text{ si } i ≠j, \, 1 ≤i,j ≤3. 
+  \end{displaymath}
+
+\end{example}
+
 \subsection*{Exercices} 
 
 \begin{enumerate}
