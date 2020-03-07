@@ -359,7 +359,75 @@ Alors $\dim(V_1^\perp) < \dim(V)$, et par induction, $V_1^\perp$ possède une ba
   \begin{displaymath}
     〈p_i,p_j〉 =0 \text{ si } i ≠j, \, 1 ≤i,j ≤3. 
   \end{displaymath}
-
+  Nous allons additionner la $2$-ème colonne de $A$  sur la $1$-ère colonne et la $2$-ème ligne  de $A$  sur la $1$-ère ligne  de $A$. C'est à dire on calcule
+  \begin{displaymath}
+    P^T A P  = \left(\begin{array}{rrr}
+4 & 2 & 0 \\
+2 & 0 & 4 \\
+0 & 4 & 0
+\end{array}\right)
+  \end{displaymath}
+  où
+  \begin{displaymath}
+P  =  \left(\begin{array}{rrr}
+1 & 0 & 0 \\
+1 & 1 & 0 \\
+0 & 0 & 1
+\end{array}\right)
+  \end{displaymath}
+  Après on va additionner $2⋅$ la $1$-ère colonne sur la deuxième, et l'opération correspondante de lignes et on obtient 
+  \begin{displaymath}
+    P^T A P  =
+    \left(\begin{array}{rrr}
+            4 & 0 & 0 \\
+            0 & 4 & 4 \\
+            0 & 4 & 0
+          \end{array}\right)
+      \end{displaymath}
+      où
+\begin{displaymath}
+P = \left(\begin{array}{rrr}
+1 & 2 & 0 \\
+1 & 3 & 0 \\
+0 & 0 & 1
+\end{array}\right)        
+\end{displaymath}
+ Après on va additionner $4⋅$ la $2$-ère colonne sur la $3$-ème, et l'opération correspondante de lignes et on obtient 
+  \begin{displaymath}
+    P^T A P  =\left(\begin{array}{rrr}
+4 & 0 & 0 \\
+0 & 4 & 0 \\
+0 & 0 & 1
+\end{array}\right)    
+  \end{displaymath}
+      où
+\begin{displaymath}
+  P =\left(\begin{array}{rrr}
+1 & 2 & 3 \\
+1 & 3 & 2 \\
+0 & 0 & 1
+\end{array}\right).   
+\end{displaymath}
+Nous avons trouvé une base orthogonale
+\begin{displaymath}
+  \left\{
+    \begin{pmatrix}
+      1 \\
+1  \\
+0 
+    \end{pmatrix},
+    \begin{pmatrix}
+      2 \\
+ 3  \\
+ 0 
+    \end{pmatrix},
+    \begin{pmatrix}
+      3 \\
+      2 \\
+      1
+    \end{pmatrix}
+    \right\}.  
+\end{displaymath}      
 \end{example}
 
 \subsection*{Exercices} 
@@ -406,8 +474,8 @@ Est-ce que $\spa\{v_1,v_2,v_3\}$ possède une base orthogonale par rapport à la
 
 \end{enumerate}
 
-%\section{Matrices congruentes} 
-%\label{sec:class-des-matr}
+\section{Matrices congruentes} 
+\label{sec:class-des-matr}
 
 % \begin{framed}\noindent 
 %   Pour ce paragraphe~\ref{sec:class-des-matr}, s'il n'est pas spécifié autrement,  $V$
@@ -494,7 +562,7 @@ parce que  $K^n$ muni de la forme bilinéaire symétrique $\pscal{u,v} = u^TAv$ 
 
 
 
-
+Maintenant, nous allons formaliser la procédé appliquée dans example~\ref{exe:30}. 
 \begin{algorithm}
   \label{alg:1}
   Cet algorithme trouve une matrice diagonale congruente à la matrice symétrique $A \in K^{n \times n}$ où $K$ est un corps tel que $\car(K) \neq 2$.  L'algorithme procède en $n$ itérations. Après la $(i-1)$-ème itération, $i \geq 1$, (aussi après  la $0$-ème itération) l'algorithme a transformé $A$ en une matrice congruente 
@@ -531,7 +599,7 @@ Pour $1 \leq i \leq n$, la \emph{$i$-ème itération}  est comme suit.
 
 \begin{example}
   \label{exe:15}
-  Soit $V$ une espace vectoriel sur $\Q$ de dimension $3$ muni d'une forme bilinéaire symétrique. Soit $B = \{v_1,v_2,v_3\}$ une base de $V$ et 
+  Soit $V$ une espace vectoriel sur $\Q$ de dimension $3$ muni d'une forme bilinéaire symétrique $〈,〉$. Soit $B = \{v_1,v_2,v_3\}$ une base de $V$ et 
   \begin{displaymath}
     A^{\pscal{.}}_B =
     \begin{pmatrix}
@@ -566,44 +634,6 @@ Alors $B' = \{v_1,v_2,-2v_1 -(4/3) v_2 + v_3\}$ est une base orthogonale de $V$.
 
 
 
-
-
-Maintenant soit $K = \R$  et $A \in \R^{n \times n}$ symétrique. Le Corollaire~\ref{co:4} implique qu'il existe une matrice inversible $P ∈ ℝ^{n \times n}$ tel que $P^T A P = D$ où $D$ est une matrice diagonale. Si on échange deux colonnes de $P$ et note $P'$ la nouvelle matrice obtenue, alors $P'^T A P' = D'$, où $D'$ est obtenue de $D$ en échangeant les éléments diagonaux correspondants. Alors on peut trouver une matrice inversible $P ∈ ℝ^{n ×n}$ telle que 
-\begin{equation}
-  \label{eq:29}
-  P^T A {P} =
-    \begin{pmatrix}
-      c_1\\
-      & \ddots \\
-      && c_n
-    \end{pmatrix}. 
-\end{equation}
-où les  $c_i$ sont ordonnés de sorte que  $c_1,\dots, c_r >0$, $c_{r+1},\dots ,c_s<0$ et $c_{s+1},\dots , c_n = 0$. En multipliant les premières $s$ colonnes de $P$ par $1/ \sqrt{|c_i|}$ on obtient en fait une factorisation~\eqref{eq:29} telle que 
- $c_1,\dots, c_r =1$, $c_{r+1},\dots ,c_s=-1$ et $c_{s+1},\dots , c_n = 0$. 
-
-Alors on trouve  $P ∈ ℝ^{n ×n}$ inversible telle que 
-\begin{equation}
-  \label{eq:5}
-  P^T A P =
-  \begin{pmatrix}
-    1 &   \\
-      & \ddots &  \\
-      &        & 1 \\
-      &        &  & -1 \\
-      &        &  &    & \ddots \\
-      &        &  &    &        & -1 \\
-      &        &  &    &        &    & 0 \\
-      &        &  &    &        &    &   & \ddots  \\
-      &        &  &    &        &    &   &        & 0  \\
-
-  \end{pmatrix}.
-\end{equation}
-
-
-\begin{definition}
-  \label{def:37}
-  Pour un espace vectoriel sur $ℝ$ de dimension finie, on appelle une base $B$ de $V$ telle que $A_B^{\pscal{,}}$ a la forme décrite en~\eqref{eq:5} une \emph{base de Sylvester}. 
-\end{definition}
 
 
 \subsection*{Exercices}
@@ -682,6 +712,8 @@ où $ [x]_B \cdot [y]_B$  dénote la forme bilinéaire standard de $\R^n$ entre 
 \label{sec:le-theoreme-de}
 
 
+
+
 Soit $V$ un espace vectoriel de dimension finie sur un corps $K$, $\mathrm{Char}(K) \neq 2$, muni d'une forme bilinéaire symétrique. Nous avons vu (théorème~\ref{thr:5}) que $V$ possède une base orthogonale. Supposons que cette base est $B = \{v_1,\dots,v_n\}$ et considérons $x = \sum_i \alpha_i v_i \in V$ et $y = \sum_i \beta_i v_i \in V$. La forme bilinéaire  s'écrit 
 \begin{eqnarray*}
   \pscal{x,y} & =  & \sum_{i, j} \alpha_i \beta_j \pscal{v_i,v_j} \\
@@ -694,7 +726,48 @@ Soit $V$ un espace vectoriel de dimension finie sur un corps $K$, $\mathrm{Char}
                     \end{pmatrix} [y]_B
 \end{eqnarray*}
 où $c_i = \pscal{v_i,v_i}$ pour tout $i$. 
-Si $K = \R$ on peut ordonner la base afin d'avoir $c_1,\dots,c_r>0$, $c_{r+1},\dots,c_s < 0$ et $c_{s+1},\dots,c_n = 0$. Nous allons maintenant démontrer, que les nombres $r$ et $s$ sont invariants par rapport à la base $B$ de $V$. 
+Si $K = \R$ on peut ordonner la base afin d'avoir $c_1,\dots,c_r>0$, $c_{r+1},\dots,c_s < 0$ et $c_{s+1},\dots,c_n = 0$.
+
+
+
+Maintenant soit $K = \R$  et $A \in \R^{n \times n}$ symétrique. Le Corollaire~\ref{co:4} implique qu'il existe une matrice inversible $P ∈ ℝ^{n \times n}$ tel que $P^T A P = D$ où $D$ est une matrice diagonale. Si on échange deux colonnes de $P$ et note $P'$ la nouvelle matrice obtenue, alors $P'^T A P' = D'$, où $D'$ est obtenue de $D$ en échangeant les éléments diagonaux correspondants. Alors on peut trouver une matrice inversible $P ∈ ℝ^{n ×n}$ telle que 
+\begin{equation}
+  \label{eq:29}
+  P^T A {P} =
+    \begin{pmatrix}
+      c_1\\
+      & \ddots \\
+      && c_n
+    \end{pmatrix}. 
+\end{equation}
+où les  $c_i$ sont ordonnés de sorte que  $c_1,\dots, c_r >0$, $c_{r+1},\dots ,c_s<0$ et $c_{s+1},\dots , c_n = 0$. En multipliant les premières $s$ colonnes de $P$ par $1/ \sqrt{|c_i|}$ on obtient en fait une factorisation~\eqref{eq:29} telle que 
+ $c_1,\dots, c_r =1$, $c_{r+1},\dots ,c_s=-1$ et $c_{s+1},\dots , c_n = 0$. 
+
+Alors on trouve  $P ∈ ℝ^{n ×n}$ inversible telle que 
+\begin{equation}
+  \label{eq:5}
+  P^T A P =
+  \begin{pmatrix}
+    1 &   \\
+      & \ddots &  \\
+      &        & 1 \\
+      &        &  & -1 \\
+      &        &  &    & \ddots \\
+      &        &  &    &        & -1 \\
+      &        &  &    &        &    & 0 \\
+      &        &  &    &        &    &   & \ddots  \\
+      &        &  &    &        &    &   &        & 0  \\
+
+  \end{pmatrix}.
+\end{equation}
+
+
+\begin{definition}
+  \label{def:37}
+  Pour un espace vectoriel sur $ℝ$ de dimension finie, on appelle une base $B$ de $V$ telle que $A_B^{\pscal{,}}$ a la forme décrite en~\eqref{eq:5} une \emph{base de Sylvester}. 
+\end{definition}
+
+Nous allons maintenant démontrer, que les nombres $r$ et $s$ sont invariants par rapport à la base $B$ de $V$. 
 
 
 \begin{definition}
