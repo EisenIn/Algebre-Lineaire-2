@@ -871,13 +871,13 @@ où $A^+$ est la pseudo inverse de $A$.
 \end{theorem}
 
 \begin{proof}
-  On a 
+Tout d'abord on remarque que pour $B\in \mathbb{C}^{n \times n}$ unitaire et $ y\in \mathbb{C}^n, \|y\|^2=y^T\overline {y}=y^TB^T\overline { B}\overline { y }=\|By\|^2$. Ainsi on a 
   \begin{eqnarray*}
     \min_{x \in \C^n} \|Ax - b\| & = &      \min_{x \in \C^n} \|PDQx - b\| =     \min_{x \in \C^n} \|P^* (PDQx - b)\|        \\
      & = &     \min_{x \in \C^n} \|DQx - P^*b\| =     \min_{y \in \C^n} \|Dy - P^*b \| \\
       & = &       \min_{y \in \C^n} \|Dy - c \|
   \end{eqnarray*}
-où $c  = P^*b$. Les solutions optimales sont les $y \in \C^n$ tels que $y_i = c_i / \sigma_i $ pour $1 \leq i \leq r$ et $y_{r+1} \dots y_n$ sont arbitraires. Parmi ces vecteurs, la solution où $y_{r+1} =\dots= y_n=0$ est celle de norme minimale. Elle est donnée par
+où $c  = P^*b$. Dès lors on peut facilement vérifier que $y$ est une solution minimale de $Dy=c \Leftrightarrow  Q^*y$ est une solution minimale de $Ax=b$. Mais comme les solutions optimales de $Dy=c$  sont les $y \in \C^n$ tels que $y_i = c_i / \sigma_i $ pour $1 \leq i \leq r$ et $y_{r+1} \dots y_n$ sont arbitraires alors la solution où $y_{r+1} =\dots= y_n=0$ est celle de norme minimale. Elle est donnée par
 \begin{displaymath}
   y = D^+ c. 
 \end{displaymath}

@@ -146,7 +146,7 @@ Rappel: L'endomophisme $\Id ： V ⟶V$ défini comme $\Id(v) = v$ pour tous $v�
   et soient $n_1,\dots,n_r$
   leurs multiplicités géométriques respectives. Soient
   $B_i= \{v_1^{(i)},\dots,v_{n_i}^{(i)}\}$
-  des ensembles libres de vecteurs propres associés aux $λ_i$
+  des bases de $E_{λ_i}$ 
   respectivement, pour $i=1,\dots,r$. Alors
   \begin{displaymath}
     \{ v_1^{(1)},\dots,v_{n_1}^{(1)},v_1^{(2)},\dots,v_{n_2}^{(2)},\cdots,v_1^{(r)},\dots,v_{n_r}^{(r)} \}
@@ -255,9 +255,25 @@ Rappelons nous la formule de Leibniz pour la déterminante d'une matrice $B ∈ 
 et si on collecte les potences de $λ$, alors
 \begin{equation}
   \label{eq:32}
-  \det(A - λI_n) = a_n λ^n + a_{n-1} λ^{n-1}+ \dots + a_1 λ+ a_0
+  \det(A_B - λI_n) = a_n λ^n + a_{n-1} λ^{n-1}+ \dots + a_1 λ+ a_0
 \end{equation}
-où $a_n,\dots,a_0 ∈K$. Des que $\det(A) = \det(A - 0 ⋅ I_n)$, alors $a_0 = \det(A)$.
+où $a_n,\dots,a_0 ∈K$. Des que $\det(A_B) = \det(A - 0 ⋅ I_n)$, alors $a_0 = \det(A_B)$.
+\begin{definition}
+  \label{def:50}
+  Le polynôme $\det(A_B - λI_n) ∈ K[λ]$ est le \emph{polynome caractéristique} de $f$.   
+\end{definition}
+
+\begin{remark}
+  \label{rem:6}
+  Pour deux bases $B$ et $B'$, des que $A_{B} =  P_{BB'}^{-1} A_{B'}  P_{BB'}$, alors
+  \begin{eqnarray*}
+    \det(A_B - λI_n) & = & \det(P_{BB'}^{-1} A_{B'}  P_{BB'} - λP_{BB'}^{-1}I_n  P_{BB'}) \\
+                     & = & \det(P_{BB'}^{-1}) \det(A_{B' }- λI_n) \det(P_{BB'}) \\
+     & = & \det(A_{B' }- λI_n),
+  \end{eqnarray*}
+  c.à.d. Définition~\ref{def:50} fait du sense.  
+\end{remark}
+
 
 \subsection{Polynômes}
 \label{sec:polynomes}
@@ -316,7 +332,7 @@ Un polynôme de degré zéro est une \emph{constante}.
   Soient $f(x) = a_0 + \cdots + a_n x^n$ et $g(x) = b_0+ \cdots b_m x^m$ tels que $a_n, b_m  \neq 0$. Le coefficient de $x^{n+m}$  est $a_n \cdot  b_m \neq 0$.
 \end{proof}
 
-Un polynôme $p(x) = a_0 + a_1 x + \cdots + a_n x^n ∈ K[x]$ induit une application $f_p:  K ⟶ K$, $f_p(k) = a_0+ a_1 k+ \cdots + a_n k^n$.
+Un polynôme $p(x) = a_0 + a_1 x + \cdots + a_n x^n ∈ K[x]$ induit une application $f_p:  K ⟶ K$, $f_p(k) = a_0+ a_1 k+ \cdots + a_n k^n$. Nous écrivons aussi $p(k)$ pour $f_p(k)$.  
 
 \begin{theorem}
   \label{thr:42}
@@ -327,7 +343,7 @@ La démonstration du théorème~\ref{thr:42} est le premier exercice maison.
 
 \begin{definition}
   \label{def:31}
-  Soit $f(x) \in \K[x] \setminus\{0\}$. Un $\alpha \in K$ tel que $f(\alpha) = 0$ est une  \emph{ racine} de $f(x)$.  
+  Soit $p(x) \in \K[x] \setminus\{0\}$. Un $\alpha \in K$ tel que $f_p(\alpha) = 0$ est une  \emph{ racine} de $f(x)$.  
 \end{definition}
 
 
@@ -335,6 +351,7 @@ La démonstration du théorème~\ref{thr:42} est le premier exercice maison.
   \label{thr:44}
   Tout polynôme $p(x) ∈ℂ[x] ⧹\{0\}$ de degré aux moins $1$  admet au moins une racine complexe.
 \end{theorem}
+
 
 L'expression \eqref{eq:32} est un polynôme avec indéterminée $λ$ et  comme polynôme formel, est défini par la formule de Leibniz
 \begin{displaymath}
@@ -350,6 +367,15 @@ est $n$ exacte. Ça démontre aussi que $a_n = (-1)^n$.
   \label{lem:22}
 Soit $p_A(λ) = a_0 + a_1 λ + \cdots + a_n λ^n$ le polynôme caractéristique de la matrice $A ∈ K^{n ×n}$. Alors, $a_0 = \det(A)$ et $a_n = (-1)^n$.
 \end{lemma}
+
+
+\begin{corollary}
+  \label{co:10}
+  Soit $V ≠ \{0\}$ un espace vectoriel de dimension fini sur $K = ℂ$, et $f: V → V$ un endomorphisme. Alors $f$ possède une valeur propre. 
+\end{corollary}
+\begin{proof}
+  Soit $f(λ) ∈ ℂ[λ]$ le polynôme caractéristique de $f$ et $n$ la dimension de $V$. Le degré de $f$ est égal à $n≥1$, alors $p(x)$ possède une racine $λ^* ∈ℂ$. Cette racine $λ^*$  est une valeur propre de $f$. 
+\end{proof}
 
 
 La division avec reste est l'opération suivante. 
@@ -402,9 +428,9 @@ ce qui contredit le fait que $\deg(r) < \deg(g)$ et $\deg(r') < \deg(g)$.
 \end{proof}
 
 
-\begin{definition}
-  Pour $f(x)  = a_0 + \cdots + a_n x^n \in K[x]$ et $\alpha \in K$, l'évaluation $f(\alpha)$ est $ a_0 + a_1 \alpha + \cdots + a_n \alpha^n \in K$. 
-\end{definition}
+% \begin{definition}
+%   Pour $f(x)  = a_0 + \cdots + a_n x^n \in K[x]$ et $\alpha \in K$, l'évaluation $f(\alpha)$ est $ a_0 + a_1 \alpha + \cdots + a_n \alpha^n \in K$. 
+% \end{definition}
 
 
 \begin{example}
@@ -420,12 +446,12 @@ ce qui contredit le fait que $\deg(r) < \deg(g)$ et $\deg(r') < \deg(g)$.
 
 \begin{definition}
   \label{def:32}
-  Un polynôme  $q(x)$ \emph{divise} un autre polynôme $f(x)$ s'il existe un polynôme $g(x)$ tel que $f(x) = g(x) \cdot q(x)$. On dit que $q(x)$ est un diviseur de $f(x)$ et on écrit $q(x) \mid f(x)$. 
+  Un polynôme  $q(x) ∈K[x]$ \emph{divise} un  polynôme $f(x)∈ K[x]$ s'il existe un polynôme $g(x)$ tel que $f(x) = g(x) \cdot q(x)$. On dit que $q(x)$ est un diviseur de $f(x)$ et on écrit $q(x) \mid f(x)$. 
 \end{definition}
 
 \begin{theorem}
   \label{thr:35}
-  Soit $f(x)$ un polynôme  et $\alpha \in K$, alors $\alpha$ est une racine de $f$ si et seulement si $(x- \alpha)  \mid f(x)$. 
+  Soit $f(x)∈ K[x] \setminus \{0\}$ un polynôme  et $\alpha \in K$, alors $\alpha$ est une racine de $f$ si et seulement si $(x- \alpha)  \mid f(x)$. 
 \end{theorem}
 
 \begin{proof}
@@ -452,11 +478,11 @@ avec $\deg(r) \leq 0$. Alors $f(\alpha) = 0$ implique $r=0$.
 
 \begin{theorem}[Théorème de diagonalisation]
   \label{thr:45}
-  Soit $V$ un espace vectoriel sur $K$ de dimension $n$. Un endomorphisme  $f:V⟶V$  est diagonalisable si et seulement si 
+  Soit $V$ un espace vectoriel sur $K$ de dimension $n$, $f:V⟶V$  un endomorphisme et $λ_1,\dots,λ_r ∈ K$ les valeurs propres distinctes de $f$.    Alors $f$ est diagonalisable si et seulement si 
   \begin{enumerate}[i)]
   \item le polynôme caractéristique $p_f(x)$ de $f$ décompose en facteurs linéaires, c'est à dire, \label{item:19} 
     \begin{displaymath}
-      p_f(x) = (-1)^n ∏_{i=1}^r (λ_i - x)^{g_i}
+      p_f(x) = (-1)^n ∏_{i=1}^r (x - λ_i )^{g_i}
     \end{displaymath}
     où $g_i$ est la multiplicité algébrique de $λ_i∈K$ pour tous $i$. 
     \item  $\dim(E_{λ_i}) = g_i$, pour tous $i=1,\dots,r$. C'est à dire, les multiplicités algébriques et géométriques sont les mêmes. \label{item:20}
@@ -476,6 +502,99 @@ avec $\deg(r) \leq 0$. Alors $f(\alpha) = 0$ implique $r=0$.
 
 
 
+\begin{example}
+  \label{exe:30}
+  Soit $f： ℝ^3 → ℝ^3$ donnée par
+  \begin{displaymath}
+      f(x) = Ax, \, \text{ où }      A =  \begin{pmatrix}
+        0 & -1 & 1 \\
+        -3 & -2 & 1 \\
+        -2 & -2 & 3
+      \end{pmatrix}      
+    \end{displaymath}
+    Pour la base canonique  $B = \{e_1,e_2,e_3\}$ de $ℝ^3$, on a $A_B =A$. Le polynôme caractéristique de $f$ est
+    \begin{displaymath}
+      p(x) = -x^3 + x^2 + x -1 = - (x-1)^2 (x+1). 
+    \end{displaymath}
+    Les valeurs propre de $f$ sont $λ_1 = 1$ et $λ_2 = -1$ et
+    \begin{displaymath}
+      \left\{
+          \begin{pmatrix}
+            1 \\ 0 \\1
+          \end{pmatrix},
+          \begin{pmatrix}
+            0 \\ 1 \\ 1
+          \end{pmatrix} \right\} \text{ et }  \left\{
+          \begin{pmatrix}
+            1 \\ 3 \\2
+          \end{pmatrix} \right\}
+    \end{displaymath}
+    sont des bases de $E_{λ_1}$ et  $E_{λ_2}$  respectivement. Alors $f$ est diagonalisable et pour la base
+    \begin{displaymath}
+      B' =  \left\{
+          \begin{pmatrix}
+            1 \\ 0 \\1
+          \end{pmatrix},
+          \begin{pmatrix}
+            0 \\ 1 \\ 1
+          \end{pmatrix}, 
+          \begin{pmatrix}
+            1 \\ 3 \\2
+          \end{pmatrix} \right\}   
+    \end{displaymath}
+    on a
+    \begin{displaymath}
+      A_{B'} =
+      \begin{pmatrix}
+        1 & 0 & 0 \\
+        0 & 1 & 0 \\
+        0 & 0 & -1 
+      \end{pmatrix}
+    \end{displaymath}
+    et
+    \begin{displaymath}
+      P_{BB'} = \left(\begin{matrix}1 & 0 & 1\\0 & 1 & 3\\1 & 1 & 2\end{matrix}\right)^{-1} 
+    \end{displaymath}
+    On peut vérifier 
+\begin{equation}
+  A_{B} =  P_{BB'}^{-1} A_{B'}  P_{BB'}. 
+\end{equation}
+
+    
+  \end{example}
+
+  \begin{proposition}
+    \label{prop:6}
+    Soit $f： V → V$ un endomorphisme et soit $λ ∈K$ une valeur propre de $f$. La multiplicité géométrique de $λ$ est au plus la multiplicité algébrique de $λ$. 
+  \end{proposition}
+
+  \begin{proof}
+    Soit $m$ la multiplicité géométrique de $λ$ et soit  $\{v_1,\dots,v_m\}$  und base de $E_{λ}$. On peut augmenter cette base de $E_{λ}$ à une base
+    \begin{displaymath}
+B =     \{ v_1,\dots,v_m, w_1,\dots,w_{n-m}\} 
+    \end{displaymath}
+    de $V$.
+
+    La matrice $A_B$ est de la forme
+    \begin{displaymath}
+      A_B =
+      \begin{pmatrix}
+        λ I_m & C \\
+        0 & D
+      \end{pmatrix}
+    \end{displaymath}
+    où $C ∈ K^{m × n-m}$ et $D ∈ K^{(n-m) ×(n-m)}$.
+    Le polynôme caractéristique $p(x) ∈ K[x]$ de $f$ est
+    \begin{eqnarray*} p(x) & = &  
+      \det   \begin{pmatrix}
+        (λ -x) I_m & C \\
+        0 & D-xI_{n-m}
+      \end{pmatrix} \\
+          & = & (λ -x)^m \det \left(D-xI_{n-m}\right). 
+    \end{eqnarray*}
+    Alors la multiplicité algébrique de $λ$ est au moins $m$. 
+  \end{proof}
+  
 \subsection*{Exercices}
 
 \begin{enumerate}

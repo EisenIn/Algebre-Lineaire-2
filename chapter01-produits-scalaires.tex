@@ -61,6 +61,21 @@ On appelle cette forme bilinéaire la \emph{forme bilinéaire standard} de $K^n$
 
 
 
+\begin{example}
+  \label{exe:31}
+  Soit $V = ℝ^r$ et
+  \begin{displaymath}
+    \pscal{u,v} = u^T
+    \begin{pmatrix}
+      1 & 0 & 1\\
+      2 & 0 & 2 \\
+      1 & 1 & 0\\
+    \end{pmatrix}
+    v \text{ pour } u,v ∈ ℝ^3,    
+  \end{displaymath}
+  est une forme bilinéaire non-symmetrique, dégénérée à droite  et à gauche. 
+\end{example}
+
 
 \begin{example}
   \label{ex:2}
@@ -197,7 +212,8 @@ qui est égale a $1$. Alors $f(v,b_i) \neq 0$. Donc $f$ est non dégénérée à
   \item Si $c \in K$ et $u \in W$ on a $c \cdot u \in W$. 
   \end{enumerate}
   
-\noindent 
+  \noindent
+  Des que $0 ∈ E^\perp  $, on a que $E^\perp≠ ∅$.  
   Si $u,v \in E^\perp$ alors pour tout $e \in E$ 
   \begin{displaymath}
 %    \pscal{e,u+v} = \pscal{e,u} + \pscal{e,-v} = 0 + 0 = 0,
@@ -287,7 +303,16 @@ et comme $2 \neq 0$ on a $\pscal{u,v} = 0$.
 \end{definition}
 
 
-Pour une forme bilinéaire symétrique $\langle , \rangle$ et une base $B$, alors $B$ est une base orthogonale, si et seulement si, $A_B^{\langle , \rangle}$ est une matrice diagonale. 
+
+\begin{remark}
+  \label{rem:7}
+  Pour une forme bilinéaire symétrique $\langle , \rangle$ et une base $B = \{v_1,\dots,v_n\}$. On se rappelle que 
+  \begin{displaymath}
+    〈v_i,v_j〉 = (A_B^{〈, 〉})_{ij}
+  \end{displaymath}
+  Alors $B$ est une base orthogonale, si et seulement si, $A_B^{\langle , \rangle}$ est une matrice diagonale.  
+\end{remark}
+
 
 \begin{theorem}
   \label{thr:5}
@@ -381,14 +406,14 @@ Est-ce que $\spa\{v_1,v_2,v_3\}$ possède une base orthogonale par rapport à la
 
 \end{enumerate}
 
-\section{Matrices congruentes} 
-\label{sec:class-des-matr}
+%\section{Matrices congruentes} 
+%\label{sec:class-des-matr}
 
-\begin{framed}\noindent 
-  Pour ce paragraphe~\ref{sec:class-des-matr}, s'il n'est pas spécifié autrement,  $V$
-  est toujours un espace vectoriel sur $K$
-  muni d'une forme bilinéaire symétrique $\pscal{,}$. 
-\end{framed}
+% \begin{framed}\noindent 
+%   Pour ce paragraphe~\ref{sec:class-des-matr}, s'il n'est pas spécifié autrement,  $V$
+%   est toujours un espace vectoriel sur $K$
+%   muni d'une forme bilinéaire symétrique $\pscal{,}$. 
+% \end{framed}
 
 
 \begin{definition}
@@ -424,35 +449,22 @@ telle que
  $A_B^{\pscal{.}} \cong D$. 
 \end{lemma}
 \begin{proof}
-  Soit $B = \{v_1,\dots,v_n\}$  une base de $V$ et soit $B' = \{u_1,\dots,u_n\}$ une base orthogonale. 
-Nous avons 
-\begin{equation}
-  \label{eq:8}
-  \pscal{u_i,u_j}  =  [u_i]_B^T A_B^{\pscal{.}} {[u_j]_B}
-\end{equation}  égal à zéro si $i \neq j$. Pour la matrice de passage $P = P_{B' B} \in K^{n \times n}$ dont les colonnes sont les vecteurs $[u_1]_B,\dots,[u_n]_B$, on a alors que 
+Si $B'$ est une base orthogonale de $V$, alors $A_{B'}^{〈,〉}$ est une base diagonale. Des qu'on a \eqref{eq:28}, alors $A_{B}^{〈,〉}$ est congruente à une matrice diagonale. 
+
+
+Si $A_B^{\pscal{.}} \cong D$ où $D ∈ K^{n×n}$ est une matrice diagonale, alors 
+il existe une matrice $P ∈K^{n ×n}$ inversible, tel que 
 \begin{displaymath}
-  P^T A_B^{\pscal{.}}P
+  P^T A_B^{\pscal{.}} P = D. 
 \end{displaymath}
-est une matrice diagonale. Aussi $P$ est inversible, dès que $B'$ est une base de $V$. 
-
-
-Soit $P \in K^{n\times n} $ inversible telle que
-\begin{displaymath}
-    P^T A_B^{\langle,\rangle} {P} =
-    \begin{pmatrix}
-      c_1\\
-      & \ddots \\
-      && c_n
-    \end{pmatrix}. 
-  \end{displaymath}
-  La base orthogonale est $B' = \{w_1,\dots,w_n\}$ donnée par 
+La base  $B' = \{w_1,\dots,w_n\}$ donnée par 
   \begin{displaymath}
      [w_j]_B =
   \begin{pmatrix}
     p_{1j}\\ \vdots \\ p_{nj}
   \end{pmatrix},
   \end{displaymath}
-donc $w_j = \sum_{i=1}^n p_{ij} v_i$. 
+donc $w_j = \sum_{i=1}^n p_{ij} v_i$, est une base orthogonale. 
 \end{proof}
 
 
@@ -479,42 +491,7 @@ parce que  $K^n$ muni de la forme bilinéaire symétrique $\pscal{u,v} = u^TAv$ 
 
 
 
-Maintenant soit $K = \R$  et $A \in \R^{n \times n}$ symétrique. Le Corollaire~\ref{co:4} implique qu'il existe une matrice inversible $P ∈ ℝ^{n \times n}$ tel que $P^T A P = D$ où $D$ est une matrice diagonale. Si on échange deux colonnes de $P$ et note $P'$ la nouvelle matrice obtenue, alors $P'^T A P' = D'$, où $D'$ est obtenue de $D$ en échangeant les éléments diagonaux correspondants. Alors on peut trouver une matrice inversible $P ∈ ℝ^{n ×n}$ telle que 
-\begin{equation}
-  \label{eq:29}
-  P^T A {P} =
-    \begin{pmatrix}
-      c_1\\
-      & \ddots \\
-      && c_n
-    \end{pmatrix}. 
-\end{equation}
-où les  $c_i$ sont ordonnés de sorte que  $c_1,\dots, c_r >0$, $c_{r+1},\dots ,c_s<0$ et $c_{s+1},\dots , c_n = 0$. En multipliant les premières $s$ colonnes de $P$ par $1/ \sqrt{|c_i|}$ on obtient en fait une factorisation~\eqref{eq:29} telle que 
- $c_1,\dots, c_r =1$, $c_{r+1},\dots ,c_s=-1$ et $c_{s+1},\dots , c_n = 0$. 
 
-Alors on trouve  $P ∈ ℝ^{n ×n}$ inversible telle que 
-\begin{equation}
-  \label{eq:5}
-  P^T A P =
-  \begin{pmatrix}
-    1 &   \\
-      & \ddots &  \\
-      &        & 1 \\
-      &        &  & -1 \\
-      &        &  &    & \ddots \\
-      &        &  &    &        & -1 \\
-      &        &  &    &        &    & 0 \\
-      &        &  &    &        &    &   & \ddots  \\
-      &        &  &    &        &    &   &        & 0  \\
-
-  \end{pmatrix}.
-\end{equation}
-
-
-\begin{definition}
-  \label{def:37}
-  Pour un espace vectoriel sur $ℝ$ de dimension finie, on appelle une base $B$ de $V$ telle que $A_B^{\pscal{,}}$ a la forme décrite en~\eqref{eq:5} une \emph{base de Sylvester}. 
-\end{definition}
 
 
 
@@ -586,6 +563,47 @@ tel que
 \end{displaymath}
 Alors $B' = \{v_1,v_2,-2v_1 -(4/3) v_2 + v_3\}$ est une base orthogonale de $V$. 
 \end{example}
+
+
+
+
+
+Maintenant soit $K = \R$  et $A \in \R^{n \times n}$ symétrique. Le Corollaire~\ref{co:4} implique qu'il existe une matrice inversible $P ∈ ℝ^{n \times n}$ tel que $P^T A P = D$ où $D$ est une matrice diagonale. Si on échange deux colonnes de $P$ et note $P'$ la nouvelle matrice obtenue, alors $P'^T A P' = D'$, où $D'$ est obtenue de $D$ en échangeant les éléments diagonaux correspondants. Alors on peut trouver une matrice inversible $P ∈ ℝ^{n ×n}$ telle que 
+\begin{equation}
+  \label{eq:29}
+  P^T A {P} =
+    \begin{pmatrix}
+      c_1\\
+      & \ddots \\
+      && c_n
+    \end{pmatrix}. 
+\end{equation}
+où les  $c_i$ sont ordonnés de sorte que  $c_1,\dots, c_r >0$, $c_{r+1},\dots ,c_s<0$ et $c_{s+1},\dots , c_n = 0$. En multipliant les premières $s$ colonnes de $P$ par $1/ \sqrt{|c_i|}$ on obtient en fait une factorisation~\eqref{eq:29} telle que 
+ $c_1,\dots, c_r =1$, $c_{r+1},\dots ,c_s=-1$ et $c_{s+1},\dots , c_n = 0$. 
+
+Alors on trouve  $P ∈ ℝ^{n ×n}$ inversible telle que 
+\begin{equation}
+  \label{eq:5}
+  P^T A P =
+  \begin{pmatrix}
+    1 &   \\
+      & \ddots &  \\
+      &        & 1 \\
+      &        &  & -1 \\
+      &        &  &    & \ddots \\
+      &        &  &    &        & -1 \\
+      &        &  &    &        &    & 0 \\
+      &        &  &    &        &    &   & \ddots  \\
+      &        &  &    &        &    &   &        & 0  \\
+
+  \end{pmatrix}.
+\end{equation}
+
+
+\begin{definition}
+  \label{def:37}
+  Pour un espace vectoriel sur $ℝ$ de dimension finie, on appelle une base $B$ de $V$ telle que $A_B^{\pscal{,}}$ a la forme décrite en~\eqref{eq:5} une \emph{base de Sylvester}. 
+\end{definition}
 
 
 \subsection*{Exercices}
