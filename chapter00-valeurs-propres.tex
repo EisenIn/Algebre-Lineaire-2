@@ -12,13 +12,13 @@
 
 \begin{example}
   \label{exe:23}
-  Soit $f：V⟶V$, l'endomorphisme $f(v) = 0$ pour tous $v ∈V$. Alors tous $0≠v ∈V$ est un vecteur propre associé à $λ=0$. 
+  Soit $f：V⟶V$, l'endomorphisme $f(v) = 0$ pour tous $v ∈V$. Alors tous vecteur $v∈V$ non-nul est un vecteur propre associé à $λ=0$. 
 \end{example}
 
 
 \begin{lemma}
   \label{lem:4}
-  Soit $B = \{v_1,\dots,v_n\}$ une base de $V$ et $A ∈ K^{n×n}$ la matrice de l'endomorphisme $f : V ⟶V$ relatif à $B$. La matrice $A$ est une matrice diagonale, c'est à dire $A$ est de la forme
+  Soit $B = \{v_1,\dots,v_n\}$ une base de $V$ et $A ∈ K^{n×n}$ la matrice de l'endomorphisme $f : V ⟶V$ relative à $B$. La matrice $A$ est une matrice diagonale, c'est à dire $A$ est de la forme
   \begin{displaymath}
     A =
     \begin{pmatrix}
@@ -27,11 +27,11 @@
          & & λ_n
     \end{pmatrix},
   \end{displaymath}
-si et seulement si $v_i$ est un vecteur propre associé à la valeur propre $λ_i$ pour tout $i=1,\dots,n$.
+  si et seulement si $v_i$ est un vecteur propre associé à la valeur propre $λ_i$ pour tout ${i\in\{1,\dots,n\}}$.
 \end{lemma}
 
 \begin{proof}
-    Pour $v ∈V$ soit $[v]_B ∈K^n$ le vecteur des coordonnées de $v$ relatif à $B$. On a $[f(v_i)]_B = A \,  [v_i]_B$ pour $i=1,\dots,n$. Des que $[v_i]_B = e_i$, et $f(v_i) = λ_i v_i$ alors
+Pour $v ∈V$ soit $[v]_B ∈K^n$ le vecteur des coordonnées de $v$ relatif à $B$. On a $[f(v_i)]_B = A \,  [v_i]_B$ pour $i\in\{1,\dots,n\}$. Si $[v_i]_B = e_i$, et $f(v_i) = λ_i v_i$ alors
     \begin{displaymath}
       λ_i ⋅ e_i = A \, e_i, \text{ pour } i ∈\{1,\dots,n\}.
     \end{displaymath}
@@ -40,7 +40,7 @@ si et seulement si $v_i$ est un vecteur propre associé à la valeur propre $λ_
 
 \begin{definition}
   \label{def:39}
-  Un endomorphisme $f ：V ⟶ V$ pour lequel existe une base de $V$ composée de vecteurs propres est \emph{diagonalisable}. 
+  Un endomorphisme $f ：V ⟶ V$ pour lequel il existe une base de $V$ composée de vecteurs propres est dit \emph{diagonalisable}. 
 \end{definition}
 
 
@@ -100,11 +100,11 @@ Rappel: L'endomophisme $\Id ： V ⟶V$ défini comme $\Id(v) = v$ pour tous $v�
 
 \begin{definition}
   \label{def:1}
-  Soit $λ$ une valeur propre de l'endomorphisme $f：V ⟶V$. Le sous espace $E_λ$ de $V$, défini comme
+  Soit $λ$ une valeur propre de l'endomorphisme $f：V ⟶V$. Le sous-espace $E_λ$ de $V$, défini comme
   \begin{displaymath}
     E_λ = \ker(f - λ ⋅ \Id)
   \end{displaymath}
-  est l'espace propre de $f$ associé à $λ$. La dimension de $E_λ$ est la multiplicité géométrique de $λ$.
+  est appelé \emph{l'espace propre} de $f$ associé à $λ$. La dimension de $E_λ$ est dite \emph{la multiplicité géométrique de $λ$}.
 \end{definition}
 
 \begin{lemma}
@@ -113,13 +113,13 @@ Rappel: L'endomophisme $\Id ： V ⟶V$ défini comme $\Id(v) = v$ pour tous $v�
 \end{lemma}
 
 \begin{proof}
-  Supposons que le théorème soit faux et soit $r≥1$ minimal, tel qu'il existent des vecteurs propres $v_1,\dots,v_r ∈V$  associés aux valeurs propres $λ_1,\dots,λ_r$ qui sont linéairement dépendants. Des que $v_i ≠0$ alors $r>1$.
+	Supposons que le lemme soit faux, alors soit $r≥1$ minimal, tel qu'il existent des vecteurs propres $v_1,\dots,v_r ∈V$  associés aux valeurs propres $λ_1,\dots,λ_r$ qui sont linéairement dépendants. Puisque $v_i ≠0$ pour tout $i \in \{1, \dots, n\}$ alors $r>1$.
   Considérons une combinaison linéaire non triviale
   \begin{equation}
     \label{eq:35}
     α_1 v_1 + \cdots + α_r v_r = 0.
   \end{equation}
-  Des que \eqref{eq:35} est un contre exemple minimal, on  $α_i≠0$ pour tous $i$. Nous pouvons supposer que $λ_r ≠0$. Autrement, on réarrange~\eqref{eq:35}. 
+  Puisque \eqref{eq:35} est un contre exemple minimal, on  $α_i≠0$ pour tout $i$. Nous pouvons supposer que $λ_r ≠0$. Autrement, on réarrange les termes de~\eqref{eq:35}. 
 
   Si on applique $f$ à l'expression \eqref{eq:35} on obtient
   \begin{displaymath}
@@ -128,45 +128,42 @@ Rappel: L'endomophisme $\Id ： V ⟶V$ défini comme $\Id(v) = v$ pour tous $v�
   et en divisant par $λ_r$
   \begin{equation}
     \label{eq:37}
-    (λ_1/λ_r) α_1 v_1 + \cdots + α_r v_r = 0.
+	 \frac{λ_1}{λ_r} α_1 v_1 + \cdots + α_r v_r = 0.
   \end{equation}
 
   On soustrait \eqref{eq:37} de \eqref{eq:35} et on obtient
-
   \begin{displaymath}
-    (1- λ_1/λ_n)α_1 v_1 + \cdots + (1- λ_{r-1}/λ_r)α_{r-1} v_{r-1}
-  \end{displaymath} Ceci est en contradiction avec la minimalité de $r$.
+	  \left(1- \frac{\lambda_1}{\lambda_n}\right)α_1 v_1 + \cdots + \left(1- \frac{λ_{r-1}}{λ_r}\right)α_{r-1} v_{r-1} = 0.
+  \end{displaymath}
+  Donc $v_1, \dots, v_{r-1}$ sont linéairement indépendants, mais ceci est en contradiction avec la minimalité de $r$.
 \end{proof}
 
 
 \begin{corollary}
   \label{eco:1}
-   Soit $f ：V ⟶V$ un endomorphisme d'un espace vectoriel $V$ sur $K$ de dimension $n ∈ ℕ$ et soient $λ_1,\dots,λ_r$
-  les valeurs propres différentes de $f$
-  et soient $n_1,\dots,n_r$
-  leurs multiplicités géométriques respectives. Soient
-  $B_i= \{v_1^{(i)},\dots,v_{n_i}^{(i)}\}$
-  des bases de $E_{λ_i}$ 
-  respectivement, pour $i=1,\dots,r$. Alors
+  Soit $f ：V ⟶V$ un endomorphisme d'un espace vectoriel $V$ sur $K$ de dimension $n ∈ ℕ^*$.
+  Soient $λ_1,\dots,λ_r$ les valeurs propres distinctes de $f$
+  et soient $n_1,\dots,n_r$ leurs multiplicités géométriques respectives.
+  Soit $B_i= \{v_1^{(i)},\dots,v_{n_i}^{(i)}\}$ une base de $E_{λ_i}$ pour tout $i \in \{1,\dots,r\}$. Alors
   \begin{displaymath}
     \{ v_1^{(1)},\dots,v_{n_1}^{(1)},v_1^{(2)},\dots,v_{n_2}^{(2)},\cdots,v_1^{(r)},\dots,v_{n_r}^{(r)} \}
   \end{displaymath}
-est un ensemble libre. L'application $f$ est diagonalisable si et seulement si
+est un ensemble libre et $f$ est diagonalisable si et seulement si
 \begin{displaymath}
   n_1 + \cdots + n_r =n.
 \end{displaymath}
 \end{corollary}
 \begin{proof}
-  Soit
+	Soient $\alpha_{ij} \in K$ pour $i \in \{1, \dots, r\}, j \in \{1, \dots, n_i\}$ tels que
   \begin{displaymath}
     ∑_{i=1}^r ∑_{j=1}^{n_i} α_{ij} v^{(i)}_j = 0,
   \end{displaymath}
-  alors les $ ∑_{j=1}^{n_i} α_{ij} v^{(i)}_j = 0$ selon Lemme~\ref{elem:1} et des que les $v_1^{(i)},\dots,v_{n_i}^{(i)}$ son linéairement indépendants, alors les $a_{ij}$ sont tous égal a zéro. Ça démontre que
+  alors selon le Lemme~\ref{elem:1}, $\left\{∑_{j=1}^{n_i} α_{ij} v^{(i)}_j\right\}_{i = 0}^r$ est un ensemble libre et donc pour tout $i$, $\sum_{j=1}^{n_i} α_{ij} v^{(i)}_j = 0$. Or $v_1^{(i)},\dots,v_{n_i}^{(i)}$ son linéairement indépendants, et donc les termes $a_{ij}$ sont tous égaux à $0$. Ainsi
    \begin{displaymath}
     \{ v_1^{(1)},\dots,v_{n_1}^{(1)},v_1^{(2)},\dots,v_{n_2}^{(2)},\cdots,v_1^{(r)},\dots,v_{n_r}^{(r)} \}
-  \end{displaymath} est un ensemble libre. En plus, si $n_1+\cdots+n_r=n$, $f$ est diagonalisable.
+  \end{displaymath} est un ensemble libre. En plus, si $n_1+\cdots+n_r=n$, c'est une base de $V$ et donc $f$ est diagonalisable.
 
-  À l'inverse, si $f$ est diagonalisable, et si $m_i$ dénote le nombre vecteurs propres en $E_{λ_i}$ dans la base consistant de vecteurs propres, alors $m_i ≤ n_i$. On a
+  Réciproquement, si $f$ est diagonalisable, et si $m_i$ dénote le nombre de vecteurs propres dans $E_{λ_i}$ qui appartiennent à la base consistant de vecteurs propres, alors $m_i ≤ n_i$ et donc on a
   \begin{displaymath}
     n = m_1 + \cdots + m_r ≤ n_1+ \cdots + n_r ≤n,
   \end{displaymath}
@@ -176,10 +173,10 @@ est un ensemble libre. L'application $f$ est diagonalisable si et seulement si
 
 
 
-Voici un marche à suivre, comment déterminer si $f：V ⟶V$ est diagonalisable.
+Ceci nous donne un marche à suivre pour déterminer si $f：V ⟶V$ est diagonalisable.
 
 \begin{enumerate}
-\item Déterminer les différentes $λ_1,\dots,λ_r ∈K$ tel que $\ker(f - λ \Id) ≠ \{ 0 \}$
+\item Déterminer les différents $λ_1,\dots,λ_r ∈K$ tels que $\ker(f - λ \Id) ≠ \{ 0 \}$
 \item Pour chaque $λ_i$ calculer une base $\{v_1^{(i)},\dots,v_{n_i}^{(i)}\}$ de $E_{λ_i}$.
 \item $f$ est diagonalisable si et seulement si  $n_1+\cdots+n_r =n$.
 \end{enumerate}
