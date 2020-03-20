@@ -211,28 +211,28 @@ Les colonnes de la matrice $A_B$ sont les coordonnées de $f(v_1),\dots,f(v_n)$ 
 \begin{displaymath}
   [x]_{B'} = P_{BB'}[x]_B,
 \end{displaymath}
-où $P_{BB'}$ est la matrice de changement de base de $B$ en $B'$. Des que
+où $P_{BB'}$ est la matrice de changement de base de $B$ en $B'$. Puisque
 \begin{displaymath}
   [f(v)]_{B'} = A_{B'} [v]_{B'} = A_{B'} P_{BB'}[v]_B
 \end{displaymath}
 et
 \begin{displaymath}
-  [f(v)]_{B'} =  P_{BB'}[f(v)]_B 
+  [f(v)]_{B'} =  P_{BB'}[f(v)]_B,
 \end{displaymath}
 on trouve
 \begin{displaymath}
   [f(v)]_B =  P_{BB'}^{-1}A_{B'} P_{BB'}[v]_B \,\,\,\text{ pour tous } v ∈V.
 \end{displaymath}
-Et ça implique 
+Ceci implique 
 \begin{equation}
   \label{eq:36}
-  A_{B} =  P_{BB'}^{-1} A_{B'}  P_{BB'}
+  A_{B} =  P_{BB'}^{-1} A_{B'}  P_{BB'}.
 \end{equation}
 En particulier,
 \begin{displaymath}
-  \det(A_{B'}) = \det(A_B) 
+	\det(A_{B'}) = \det(A_B). 
 \end{displaymath}
-ce qui laisse nous définir la \emph{déterminante d'un endomorphisme} $f$ comme $\det(f)= \det(A_B)$. 
+On définit le \emph{déterminant d'un endomorphisme} $f$ par $\det(f) := \det(A_B)$. 
 
 
 
@@ -244,31 +244,31 @@ Clairement, $λ$ est une valeur propre de $f$ si et seulement si $λ$ est une va
 
 
 
-Rappelons nous la formule de Leibniz pour la déterminante d'une matrice $B ∈ K^{n ×n}$
+On rappele la formule de Leibniz pour le determinant d'une matrice $B ∈ K^{n ×n}$:
 \begin{equation}
   \label{eq:31}
-  \det(B)  = ∑_{π ∈S_n} \sign(π) ∏_{i=1}^n b_{iπ(i)}
+  \det(B)  = ∑_{π ∈S_n} \sign(π) ∏_{i=1}^n b_{iπ(i)}.
 \end{equation}
-et si on collecte les potences de $λ$, alors
+Si on collecte les puissances de $λ$, alors on obtient
 \begin{equation}
   \label{eq:32}
   \det(A_B - λI_n) = a_n λ^n + a_{n-1} λ^{n-1}+ \dots + a_1 λ+ a_0
 \end{equation}
-où $a_n,\dots,a_0 ∈K$. Des que $\det(A_B) = \det(A - 0 ⋅ I_n)$, alors $a_0 = \det(A_B)$.
+où $a_n,\dots,a_0 ∈K$. Puisque $\det(A_B) = \det(A_B - 0 ⋅ I_n)$, alors $a_0 = \det(A_B)$.
 \begin{definition}
   \label{def:50}
-  Le polynôme $\det(A_B - λI_n) ∈ K[λ]$ est le \emph{polynome caractéristique} de $f$.   
+  Le polynôme $\det(A_B - λI_n) ∈ K[λ]$ est appelé le \emph{polynome caractéristique} de $f$.   
 \end{definition}
 
 \begin{remark}
   \label{rem:6}
-  Pour deux bases $B$ et $B'$, des que $A_{B} =  P_{BB'}^{-1} A_{B'}  P_{BB'}$, alors
+  Soient $B$ et $B'$ deux bases, alors puisque $A_{B} =  P_{BB'}^{-1} A_{B'}  P_{BB'}$, on obtient
   \begin{eqnarray*}
     \det(A_B - λI_n) & = & \det(P_{BB'}^{-1} A_{B'}  P_{BB'} - λP_{BB'}^{-1}I_n  P_{BB'}) \\
                      & = & \det(P_{BB'}^{-1}) \det(A_{B' }- λI_n) \det(P_{BB'}) \\
      & = & \det(A_{B' }- λI_n),
   \end{eqnarray*}
-  c.à.d. Définition~\ref{def:50} fait du sense.  
+  c.à.d. le polynôme de la Définition~\ref{def:50} est bien défini en fonction de $f$.  
 \end{remark}
 
 
@@ -279,7 +279,7 @@ Soit $K$ un corps et soit $x$ un nouveau élément qui n'appartient pas à $K$. 
   \label{eq:33}
   p(x) = a_0 + a_1 x + \cdots + a_n x^n
 \end{equation}
-où $a_i ∈K$ pour $i=1,\dots,n$ et $x$ est une \emph{indéterminée} ou une  \emph{variable}.
+où $a_i ∈K$ pour $i\in\{1,\dots,n\}$ et $x$ est une \emph{indéterminée} ou une  \emph{variable}.
 D'un point de vue formel, $x ∈ R ⧹K$, où $R⊃K$ est un anneau intègre, tel que
 \begin{displaymath}
   a_0+ a_1x + \cdots + a_n x^n =0, \, a_i ∈K, \text{ implique } a_i=0 \text{ pour tous }i.  
@@ -290,7 +290,7 @@ L'élément $a_i$ est le $i$-ème coefficient de $p(x)$. Le polynôme $p(x)$ est
   p(x) = a_0 + a_1x + a_2x^2 + \cdots
 \end{displaymath}
 où tous les  coefficients, sauf un nombre fini parmi eux, sont zéro.
-Des expressions \eqref{eq:33} sont des polynômes sur $K$  et $K[x]$ est l'ensemble des polynômes sur $K$. Deux polynômes
+Des expressions de la forme \eqref{eq:33} sont des polynômes sur $K$. On note $K[x]$ est l'ensemble des polynômes sur $K$. Deux polynômes
 \begin{equation}
   \label{eq:34}
   p(x) = a_0 + a_1x + a_2x^2 + \cdots \,\,\text{ et }  \,\, q(x) = b_0 + b_1x + b_2x^2 + \cdots
@@ -312,13 +312,15 @@ Le $i$-ème coefficient de $p(x)⋅q(x)$ est alors  $∑_{j+k=i}a_jb_k$.
   L'ensemble des polynômes $K[x]$ sur un corps $K$ est un anneau intègre.
 \end{theorem}
 
-Le \emph{degré} de $p(x) = a_0 + a_1x + a_2x^2 + \cdots \neq 0$ est 
-\begin{displaymath}
-  \deg(p) = \max\{i \colon  a_i \neq 0\}
-\end{displaymath}
-et $\deg(0) = -\infty$. 
-Si $p \neq 0$, le coefficient $a_{\deg(p)}$ est le \emph{coefficient dominant} de $p$. 
-Un polynôme de degré zéro est une \emph{constante}. 
+\begin{definition}
+	Le \emph{degré} de $p(x) = a_0 + a_1x + a_2x^2 + \cdots \neq 0$ est 
+	\begin{displaymath}
+	  \deg(p) = \max\{i \colon  a_i \neq 0\}
+	\end{displaymath}
+	et $\deg(0) = -\infty$. 
+	Si $p \neq 0$, le coefficient $a_{\deg(p)}$ est le \emph{coefficient dominant} de $p$. 
+	Un polynôme de degré zéro est une \emph{constante}. 
+\end{definition}
 
 \begin{theorem}
   \label{thr:34}
@@ -340,25 +342,25 @@ La démonstration du théorème~\ref{thr:42} est le premier exercice maison.
 
 \begin{definition}
   \label{def:31}
-  Soit $p(x) \in \K[x] \setminus\{0\}$. Un $\alpha \in K$ tel que $f_p(\alpha) = 0$ est une  \emph{ racine} de $f(x)$.  
+  Soit $p(x) \in K[x] \setminus\{0\}$. Un $\alpha \in K$ tel que $f_p(\alpha) = 0$ est une  \emph{racine} de $p(x)$.  
 \end{definition}
 
 
-\begin{theorem}[Théorème fondamentale d'algebre]
+\begin{theorem}[Théorème fondamental d'algèbre]
   \label{thr:44}
-  Tout polynôme $p(x) ∈ℂ[x] ⧹\{0\}$ de degré aux moins $1$  admet au moins une racine complexe.
+  Tout polynôme $p(x) ∈ℂ[x] ⧹\{0\}$ de degré aux moins $1$ admet au moins une racine complexe.
 \end{theorem}
 
 
-L'expression \eqref{eq:32} est un polynôme avec indéterminée $λ$ et  comme polynôme formel, est défini par la formule de Leibniz
+L'expression \eqref{eq:32} est un polynôme avec l'indéterminée $λ$ et comme polynôme formel, est défini par la formule de Leibniz
 \begin{displaymath}
 p_A(λ) = \det(A - λ I_n) = ∑_{π ∈S_n} \sign(π) ∏_{i=1}^n (A - λ I_n)_{iπ(i)}.
 \end{displaymath}
-Il est la somme des polynômes $ \sign(π) ∏_{i=1}^n (A - λ I_n)_{iπ(i)}$. Ça démontre que le degré de $p_A(λ)$ est au plus $n$. Mais le degré de
+Il est la somme des polynômes $ \sign(π) ∏_{i=1}^n (A - λ I_n)_{iπ(i)}$ avec $\pi \in S_n$. Ça démontre que le degré de $p_A(λ)$ est au plus $n$. Mais pour $\pi = \Id$, le degré de
 \begin{displaymath}
   \sign(\Id) ∏_{i=1}^n (A - λ I_n)_{i\Id(i)}
 \end{displaymath}
-est $n$ exacte. Ça démontre aussi que $a_n = (-1)^n$.
+est $n$ exactement. En particulier, $\Id$ est la seulle permutation dans $S_n$ telle que le produit est un polynôme de degré $n$. Ainsi $a_n = (-1)^n$.
 
 \begin{lemma}
   \label{lem:22}
@@ -374,12 +376,11 @@ Soit $p_A(λ) = a_0 + a_1 λ + \cdots + a_n λ^n$ le polynôme caractéristique 
   Soit $f(λ) ∈ ℂ[λ]$ le polynôme caractéristique de $f$ et $n$ la dimension de $V$. Le degré de $f$ est égal à $n≥1$, alors $p(x)$ possède une racine $λ^* ∈ℂ$. Cette racine $λ^*$  est une valeur propre de $f$. 
 \end{proof}
 
-
-La division avec reste est l'opération suivante. 
+Dans le theorème qui suit on définit la division des polynômes avec reste.
 
 \begin{theorem}
   \label{thr:33}
-  Soient $f,g \in K[x]$ et $\deg(g) >0$. Il existe $q,r \in K[x]$ unique  tels que 
+  Soient $f,g \in K[x]$ et $\deg(g) >0$. Il existe des uniques $q,r \in K[x]$ tels que 
   \begin{displaymath}
     f(x) = q(x) g(x) + r(x) 
   \end{displaymath}
@@ -388,9 +389,9 @@ La division avec reste est l'opération suivante.
 
 
 \begin{proof}
-  La preuve se fait par induction sur $\deg(f)$. Si $\deg(f) < \deg(g)$, alors on pose $q = 0$ et $r = f$.
+	On montre l'existence par récurrence sur $\deg(f)$. Si $\deg(f) < \deg(g)$, alors on pose $q = 0$ et $r = f$ et on a fini.
 
-Soit alors $\deg(f) = n \geq \deg(g)=m$ et 
+Supposons alors $\deg(f) = n \geq \deg(g)=m$ et 
 \begin{displaymath}
   f(x) = a_0+ \cdots +a_n x^n \text{ et } g(x) = b_0 + \cdots + b_m x^m 
 \end{displaymath}
@@ -399,16 +400,16 @@ Clairement
 \begin{displaymath}
   \deg\left( f(x) - \frac{a_n}{ b_m } x^{n-m} g(x) \right) < \deg(f(x))
 \end{displaymath}
-et par induction 
+et par l'hypothèse de récurrence il existe $q, r \in K[x]$ tels que
 \begin{displaymath}
   f(x) - \frac{a_n}{ b_m } x^{n-m} g(x)  = q(x) g(x) + r(x) 
 \end{displaymath}
-tel que $\deg(r(x)) < \deg(g(x))$. On  obtient alors
+et $\deg(r(x)) < \deg(g(x))$. On  obtient alors
 \begin{displaymath}
   f(x) = \left(q(x) + \frac{a_n}{ b_m } x^{n-m} \right) g(x) + r(x). 
 \end{displaymath}
 
-Supposons maintenant qu'il existent autres polynômes $q'(x)$ et $r'(x)$ tel que 
+Montrons l'unicité de $q$ et $r$. Supposons qu'il existe deux autres polynômes $q'(x)$ et $r'(x)$ tels que 
 \begin{displaymath}
     f(x) = q'(x) g(x) + r'(x) 
   \end{displaymath}
@@ -417,7 +418,7 @@ Alors
 \begin{displaymath}
 0 \neq   r(x) - r'(x) = (q(x) - q'(x)) ⋅ g(x). 
 \end{displaymath}
-On peut déduire 
+Mais ceci implique 
 \begin{displaymath}
 \max\{\deg(r),\deg(r')\} \geq   \deg( r - r')  = \deg(q - q') + \deg(g) \geq \deg(g), 
 \end{displaymath}
@@ -477,7 +478,7 @@ avec $\deg(r) \leq 0$. Alors $f(\alpha) = 0$ implique $r=0$.
   \label{thr:45}
   Soit $V$ un espace vectoriel sur $K$ de dimension $n$, $f:V⟶V$  un endomorphisme et $λ_1,\dots,λ_r ∈ K$ les valeurs propres distinctes de $f$.    Alors $f$ est diagonalisable si et seulement si 
   \begin{enumerate}[i)]
-  \item le polynôme caractéristique $p_f(x)$ de $f$ décompose en facteurs linéaires, c'est à dire, \label{item:19} 
+  \item le polynôme caractéristique $p_f(x)$ de $f$ se décompose en facteurs linéaires, c'est à dire, \label{item:19} 
     \begin{displaymath}
       p_f(x) = (-1)^n ∏_{i=1}^r (x - λ_i )^{g_i}
     \end{displaymath}
@@ -487,14 +488,14 @@ avec $\deg(r) \leq 0$. Alors $f(\alpha) = 0$ implique $r=0$.
 \end{theorem}
 
 \begin{proof}
-  Soit $f$ diagonalisable. Soit $B$ une base composé de vecteurs propres de $f$ et $A$ la matrice de $f$ associé à la base $B$. Lemme~\ref{lem:4} implique que $A$ est diagonale et alors  $p_f(x) = \det(A - x \Id) = (-1)^n ∏_{i=1}^r (x - λ_i)^{g_i}$. La dimension de $E_{λ_i}$ est celle du $\ker(A - λ_i I_n)$. Et clairement $\dim(\ker(A - λ_i I_n)) = g_i$. Alors on a \ref{item:19}) et \ref{item:20}).
+  Supposons $f$ diagonalisable. Soit $B$ une base composé de vecteurs propres de $f$ et $A$ la matrice de $f$ associé à la base $B$. Le Lemme~\ref{lem:4} implique que $A$ est diagonale et alors  $p_f(x) = \det(A - x \Id) = (-1)^n ∏_{i=1}^r (x - λ_i)^{g_i}$. La dimension de $E_{λ_i}$ est celle du $\ker(A - λ_i I_n)$. Et clairement $\dim(\ker(A - λ_i I_n)) = g_i$. Alors on a \ref{item:19}) et \ref{item:20}).
 
 
-  Si  on a \ref{item:19}) et \ref{item:20}), soient $m_i$ les multiplicités géométriques des valeurs propres $λ_i$, $i=1,\dots,r$. Des que
+  Si  on a \ref{item:19}) et \ref{item:20}), soient $m_i$ les multiplicités géométriques des valeurs propres $λ_i$, $i=1,\dots,r$. Puisque
   \begin{displaymath}
     \deg((-1)^n∏_{i=1}^n (λ_i -x)^{g_i} =n,
   \end{displaymath}
-  alors $m+1+ \cdots + m_r = n$ et $f$ est diagonalisable avec corollaire~\ref{eco:1}. 
+  alors $m_1 + \cdots + m_r = n$ et en invoquant le Corollaire~\ref{eco:1} on déduit que $f$ est diagonalisable. 
 \end{proof}
 
 
@@ -562,7 +563,7 @@ avec $\deg(r) \leq 0$. Alors $f(\alpha) = 0$ implique $r=0$.
 
   \begin{proposition}
     \label{prop:6}
-    Soit $f： V → V$ un endomorphisme et soit $λ ∈K$ une valeur propre de $f$. La multiplicité géométrique de $λ$ est au plus la multiplicité algébrique de $λ$. 
+    Soit $f： V → V$ un endomorphisme et soit $λ ∈K$ une valeur propre de $f$. Alors la multiplicité géométrique de $λ$ est au plus la multiplicité algébrique de $λ$. 
   \end{proposition}
 
   \begin{proof}
@@ -627,15 +628,15 @@ L'équation~\eqref{eq:36} montre que les matrices $A_B$ et $A_{B'}$ d'un endomor
 \label{sec:theoreme-de-hamilton}
 
 
-Soit $A ∈ K^{n ×n}$ et $p(x) = a_0 + a_1x + \cdots + a_n x^n ∈ K[x] ⧹\{0\}$ un polynôme. On peut évaluer le polynôme à la matrice $A$ comme suivant:
+Soit $A ∈ K^{n ×n}$ et $p(x) = a_0 + a_1x + \cdots + a_n x^n ∈ K[x] ⧹\{0\}$ un polynôme. On peut évaluer le polynôme à la matrice $A$ comme ci-dessous
 \begin{displaymath}
   p(A) = a_0 ⋅I_n + a_1 A + \cdots + a_n A^n ∈ K^{n ×n}. 
 \end{displaymath}
-Maintenant, soit $p_A(x)$ le polynôme caractéristique de $A$ et $v$ un vecteur propre de $A$ associé a la valeur propre $λ$. On voit
+Maintenant, soit $p_A(x)$ le polynôme caractéristique de $A$ et $v$ un vecteur propre de $A$ associé a la valeur propre $λ$. On voit que
 \begin{displaymath}
   p_A(A) ⋅v = a_0 v + a_1 λv + \cdots + a_n λ^n v = p_A(λ)v = 0 ⋅v = 0. 
 \end{displaymath}
-Alors, si $A$ est diagonalisable, soit $v_1,\dots,v_n$ une base de vecteurs propres. Des que   $p_A(A) ⋅v_i = 0$ pour tous $i$, alors $p_A(A) =0$. 
+Alors, si $A$ est diagonalisable, il existe B = $\{v_1,\dots,v_n\}$ une base de vecteurs propres. Puisque $p_A(A)⋅v_i = 0$ pour tous $v$, alors $p_A(A)\cdot v=0$ pour tout $v \in V$ et donc $p_A(A) = 0$.
 
 \begin{theorem}[Hamilton-Cayley] 
   \label{thr:47}
@@ -649,7 +650,7 @@ Alors, si $A$ est diagonalisable, soit $v_1,\dots,v_n$ une base de vecteurs prop
   \begin{displaymath}
     \det(A - λI_n) I_n = \cof(A - λI_n)^T (A - λI_n).
   \end{displaymath}
-  En groupant les coefficients de $λ^i$ dans  $\cof(A - λI_n)^T$ on obtient
+  En regroupant les coefficients de $λ^i$ dans l'expression pour $\cof(A - λI_n)^T$ on obtient
   \begin{displaymath}
     \cof(A - λI_n)^T = ∑_{i=0}^{n-1} λ^i B_i
   \end{displaymath}
@@ -666,7 +667,17 @@ Alors, si $A$ est diagonalisable, soit $v_1,\dots,v_n$ une base de vecteurs prop
       a_n I_n & = & - B_{n-1}
     \end{array}
   \end{equation}
-  ce que sont des équations de matrices en $K^{n ×n}$. Si on multiplie les matrices indicées par $i$ a droite par $A^i$ et somme les termes a gauche du signe d'égalité, on obtient $p_A(A)$.  Les termes a droites ce sommes a la matrice $0$. 
+  Si on multiplie les lignes contenant $a_i$ à droite par par $A^i$, on obtient:
+  \begin{equation}
+    \label{eq:38b}
+	 \begin{array}{rcl}
+      a_0 I_n & = &  B_0A \\
+		a_iA^i & = &  B_iA^{i + 1} - B_{i-1}A^i \text{ pour } i ∈  \{1,\dots,n-1\}\\
+      a_n A^n & = & - B_{n-1}A^n
+    \end{array}
+  \end{equation}
+  Et finalement en sommant les termes on obtient $p_A(A) = 0$.
+
 \end{proof}
 
 
@@ -679,37 +690,40 @@ Le polyn\^ome caract\'eristique de $A = \left( \begin{array}{cc} 1 & 1 \\ 0 & 2
 \[
  p_A(A) = (I_n-A)(2I_n-A) = 0 
 \]
-Pour la matrices $A = \left( \begin{array}{cc} 2 & 0 \\ 0 & 2 \end{array}
+Pour la matrice $A = \left( \begin{array}{cc} 2 & 0 \\ 0 & 2 \end{array}
 \right)$, on a bien sur que $p_A(A) = 0$ pour $p_A(t) = (2-t)^2$. Mais il existe un polyn\^ome de degr\'e $1$, $q(t) = t-2$, tel que $q(A) = 0$. Le \emph{polyn\^ome minimal} de $A$
-est le polyn\^ome unitaire de degr\'e minimum parmi ceux qui annulent $A$, c-\`a-d $q(A) = 0$. Nous examinerons de plus près le polyn{\^o}me minimal du chapitre~\ref{sec:polyn-les-lalg}.
+est le polyn\^ome unitaire de degr\'e minimal parmi ceux qui annulent $A$, c-\`a-d $q(A) = 0$. Nous examinerons de plus près le polyn{\^o}me minimal du chapitre~\ref{sec:polyn-les-lalg}.
 \end{example}
 
 Les resultats suivants donnent des utilisations typiques du théorème~\ref{thr:47}
+
+\begin{samepage}
 \begin{corollary} Soit $A \in K^{n ×n}$.
-\begin{enumerate}
-\item[(i)] Toute puissance $A^k$ avec $k∈ℕ$ peut s'\'ecrire comme une combinaison lin\'eaire des puissances $I,A,A^2,\ldots,A^{n-1}$.
-\item[(ii)] Si $A$ est inversible, alors l'inverse $A^{-1}$ peut s'\'ecrire comme une combinaison lin\'eaire des puissances $I,A,A^2,\ldots,A^{n-1}$.
-\end{enumerate}
+	\begin{enumerate}
+		\item[(i)] Toute puissance $A^k$ avec $k∈ℕ$ peut s'\'ecrire comme une combinaison lin\'eaire des puissances $I,A,A^2,\ldots,A^{n-1}$.
+		\item[(ii)] Si $A$ est inversible, alors l'inverse $A^{-1}$ peut s'\'ecrire comme une combinaison lin\'eaire des puissances $I,A,A^2,\ldots,A^{n-1}$.
+	\end{enumerate}
 \end{corollary}
+\end{samepage}
 
 \begin{proof}
  (i). Trivialement, l'assertion est vraie pour $k = 0,1,\ldots,n-1$.
 On montre le cas $k = n$. Par le théorème~\ref{thr:47}:
 \[
- 0 = p_A(A) = \alpha_0 I + \alpha_1 A  \cdots + \alpha_{n-1} A^{n-1} + A^n \quad
+ 0 = p_A(A) = \alpha_0 I + \alpha_1 A  \cdots + \alpha_{n-1} A^{n-1} + \alpha_n A^n \quad
 \Rightarrow \quad A^n = 
--\alpha_0 I - \alpha_1 A  \cdots - \alpha_{n-1} A^{n-1}.
+-\frac{\alpha_0}{\alpha_n} I - \frac{\alpha_1}{\alpha_n} A  \cdots - \frac{\alpha_{n-1}}{\alpha_n} A^{n-1}.
 \]
 De fa\c{c}on similaire, on montre le cas $k>n$ par r\'ecurrence, utilisant $0 = A^{k-n} p_A(A)$.
 
-(ii). Si $A$ est inversible alors $\alpha_0 = \det(A)$ est inversible. De $0 = p_A(A)$ on obtient que
+(ii). Si $A$ est inversible alors $\det(A) \neq 0$. Donc puisque $p_A(A) = 0$ on obtient que
 \[
   I = -\frac{\alpha_1}{\alpha_0} A  \cdots -\frac{\alpha_{n-1}}{\alpha_0}
-A^{n-1} -\frac{1}{\alpha_0} A^n = A \Big( -\frac{\alpha_1}{\alpha_0} I  \cdots
--\frac{\alpha_{n-1}}{\alpha_0} A^{n-2} -\frac{1}{\alpha_0} A^{n-1} \Big)
+A^{n-1} -\frac{\alpha_n}{\alpha_0} A^n = A \Big( -\frac{\alpha_1}{\alpha_0} I  \cdots
+-\frac{\alpha_{n-1}}{\alpha_0} A^{n-2} -\frac{\alpha_n}{\alpha_0} A^{n-1} \Big)
 \]
 et donc $A^{-1} = -\frac{\alpha_1}{\alpha_0} I  \cdots
--\frac{\alpha_{n-1}}{\alpha_0} A^{n-2} -\frac{1}{\alpha_0} A^{n-1}$.
+-\frac{\alpha_{n-1}}{\alpha_0} A^{n-2} -\frac{\alpha_n}{\alpha_0} A^{n-1}$.
 \end{proof}
 
 
