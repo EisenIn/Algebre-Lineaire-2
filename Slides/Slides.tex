@@ -1,0 +1,325 @@
+\documentclass[t,aspectratio=149,mathserif,french]{beamer}
+
+\usepackage[utf8]{inputenc} 
+\usepackage{../utf8math}
+\usepackage{concmath}
+\usepackage{mathrsfs}
+\providecommand{\mB}{\mathscr{B}}
+\providecommand{\mN}{\mathscr{N}}
+\def \transp{50} 
+ 
+
+\usepackage{mathtools}
+
+\usepackage{tikz}
+\usetikzlibrary{fadings}
+
+\tikzfading[name=fade out,
+            inner color=transparent!0,
+            outer color=transparent!100]
+
+\usepackage{enumerate}
+
+
+
+%Put ``mathserif'' back
+
+%\setbeamersize{text margin right=2cm}
+% \usepackage{beamerthemeBerlin}
+\usetheme{default}
+\usecolortheme{beaver}
+\usepackage[round]{natbib}
+\usepackage{amsmath}
+
+
+
+\usepackage{pifont}
+
+\usepackage{listings}
+\lstset{
+  language = Python
+}
+
+\lstloadlanguages{Python}
+\usepackage{xspace} 
+
+
+\usepackage{color}
+\definecolor{navy}{RGB}{0,0,205}
+\definecolor{NavyBlue}{RGB}{0,0,205}
+\definecolor{darkred}{RGB}{178,34,34}
+\definecolor{darkblue}{RGB}{0,10,230}
+\definecolor{green}{RGB}{20,180,20}
+\definecolor{titleblue}{rgb}{0,0,0.3}
+\definecolor{mediumblue}{rgb}{0.5,0.5,1}
+\definecolor{lightblue}{cmyk}{0.2,0.1,0,0}
+\definecolor{darkgreen}{rgb}{0.0,0.5,0}
+
+
+
+\newcommand{\mycite}[1]{{\color{NavyBlue}{#1}}}
+
+
+
+
+% \usepackage{tkz-berge}
+% \usepackage{tkz-graph} 
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%For handwritten-like tikz boxes 
+
+\usetikzlibrary{calc,decorations.pathmorphing,patterns}
+\pgfdeclaredecoration{penciline}{initial}{
+    \state{initial}[width=+\pgfdecoratedinputsegmentremainingdistance,
+    auto corner on length=1mm,]{
+        \pgfpathcurveto%
+        {% From
+            \pgfqpoint{\pgfdecoratedinputsegmentremainingdistance}
+                      {\pgfdecorationsegmentamplitude}
+        }
+        {%  Control 1
+        \pgfmathrand
+        \pgfpointadd{\pgfqpoint{\pgfdecoratedinputsegmentremainingdistance}{0pt}}
+                    {\pgfqpoint{-\pgfdecorationsegmentaspect
+                     \pgfdecoratedinputsegmentremainingdistance}%
+                               {\pgfmathresult\pgfdecorationsegmentamplitude}
+                    }
+        }
+        {%TO 
+        \pgfpointadd{\pgfpointdecoratedinputsegmentlast}{\pgfpoint{1pt}{1pt}}
+        }
+    }
+    \state{final}{}
+}
+%%%%%%%%%%%%%%%%% End for handwritten-like tikzboxes 
+
+
+
+% ==============================================================
+% ======================= PSTricks ====================
+        \def\drawRect#1#2#3#4#5{
+           \FPeval{\x2}{#2 + #4} 
+           \FPeval{\y2}{#3 + #5} 
+           \pspolygon[#1](#2,#3)(\x2,#3)(\x2,\y2)(#2,\y2)
+        }
+        \def\crossing#1#2{
+     %      \FPeval{\x1}{#1 + (-0.5)} 
+           \FPsub{\x1}{#1}{0.5}
+           \FPeval{\x2}{#1 + 0.5} 
+           \psline[linecolor=blue, linewidth=1pt](\x1,#2)(\x2,#2)
+  \psline[linecolor=red, linewidth=1.5pt](0,0)(5,5)
+\rput[l](1,2){x1= \x1}
+\rput[l](1,1){x2 = \x2}
+        }
+  % \nodeJob{option}{x}{y}{size}{name} 
+ % Zeichnet Job der X-Laenge size und Y-Breite mit linkem unteren
+ % Punkt (x,y). In der Mitte wird ein Knoten mit Namen name plaziert
+       \def\nodeJob#1#2#3#4#5{
+           \drawRect{#1}{#2}{#3}{#4}{1} 
+           \FPeval{\IPosX}{(0.5 * #4) + #2}
+           \FPeval{\IPosY}{#3 + 0.5}
+%           \psdots(\IPosX,\IPosY)
+           \pnode(\IPosX,\IPosY){#5}
+%           \cnode*(\IPosX,\IPosY){2pt}{#5}
+        }
+
+      % Proc1{xpos}{ypos}{size1}{col1}{Plabel}{ILabel}
+        \def\ProcI#1#2#3#4#5#6{
+           \drawRect{}{#1}{#2}{1}{1} % Bin
+           \drawRect{fillstyle=solid,fillcolor=#4}{#1}{#2}{1}{#3}
+           \FPeval{\IPosX}{#1 + 0.5}
+           \FPeval{\IPosY}{#2 + 0.5 * #3}
+           \rput[c](\IPosX,\IPosY){#6}
+           \FPeval{\PPosY}{#2 - 0.2}
+           \rput[c](\IPosX,\PPosY){#5}
+        }
+     % Proc2{xpos}{ypos}{size1}{col1}{size2}{col2}{Plabel}{ILabel2}
+        \def\ProcII#1#2#3#4#5#6#7#8{
+           \drawRect{}{#1}{#2}{1}{1} % Bin
+           \drawRect{fillstyle=solid,fillcolor=#4}{#1}{#2}{1}{#3}
+           \FPeval{\IIPosY}{#2 + #3}
+           \drawRect{fillstyle=solid,fillcolor=#6}{#1}{\IIPosY}{1}{#5}
+           \FPeval{\IPosX}{#1 + 0.5}
+           \FPeval{\IPosY}{#2 + #3 + 0.5 * #5}
+           \rput[c](\IPosX,\IPosY){#8}
+           \FPeval{\PPosY}{#2 - 0.2}
+           \rput[c](\IPosX,\PPosY){#7}
+        }
+     % Proc3{xpos}{ypos}{size1}{col1}{size2}{col2}{size3}{col3}{Plabel}
+        \def\ProcIII#1#2#3#4#5#6#7#8#9{
+           \drawRect{}{#1}{#2}{1}{1} % Bin
+           \drawRect{fillstyle=solid,fillcolor=#4}{#1}{#2}{1}{#3}
+           \FPeval{\IIPosY}{#2 + #3}
+           \FPeval{\IIIPosY}{#2 + #3 + #5}
+           \drawRect{fillstyle=solid,fillcolor=#6}{#1}{\IIPosY}{1}{#5}
+           \drawRect{fillstyle=solid,fillcolor=#8}{#1}{\IIIPosY}{1}{#7}
+           \FPeval{\IPosX}{#1 + 0.5}
+%           \FPeval{\IPosY}{#2 + #3 + 0.5 * #5}
+%           \rput[c](\IPosX,\IPosY){#8}
+           \FPeval{\PPosY}{#2 - 0.2}
+           \rput[c](\IPosX,\PPosY){#9}
+        }
+  \def\mycross#1#2#3#4{
+    \rput[c](#1,#2){\psline[linewidth=2pt,linecolor=darkgray](-15pt,#3)(15pt,#4) \psline[linewidth=2pt,linecolor=darkgray](-15pt,#4)(15pt,#3)} 
+  }
+% ======================================================
+
+
+
+\usepackage[absolute,overlay]{textpos}
+\newcommand\FrameText[1]{%
+  \begin{textblock*}{5cm}(.6\textwidth,-.2cm)%{\paperwidth}(0pt,\textheight)
+    %\raggedright #1\hspace{.5em}
+    #1
+  \end{textblock*}}
+
+
+
+\DeclareMathOperator\rank{rank}
+
+
+
+\newenvironment{colorblock}
+{
+\begin{beamerboxesrounded}[upper=upcol,lower=lowcol]}
+{\end{beamerboxesrounded}}
+
+\newcommand{\mnred}[1]{\mathbf{\color{red}#1}}
+\newcommand{\mred}[1]{\mathbf{\color{darkred}#1}}
+\newcommand{\mgreen}[1]{\mathbf{\color{green}#1}}
+
+
+
+\newcommand{\myred}[1]{\emph{\color{darkred}#1}}
+\newcommand{\myblue}[1]{{\color{darkblue}#1}}
+\newcommand{\boldred}[1]{{\bf\color{red}#1}}
+\newcommand{\btt}{\tt\color{darkblue}}
+
+\newcommand{\diam}{\mathrm{diam}}
+\newcommand{\Span}{\mathrm{Span}}
+\newcommand{\Col}{\mathrm{Col}}
+\newcommand{\Row}{\mathrm{Row}}
+\newcommand{\Rang}{\mathrm{Rang}}
+
+\newcommand{\rang}{\mathrm{Rang}}
+%\newcommand{\dim}{\mathrm{dim}}
+
+\newcommand{\dist}{\mathrm{dist}}
+\renewcommand{\L}{\mathcal{L}}
+
+%\newcommand{\A}{\mathcal{A}}
+\newcommand{\B}{\mathcal{B}}
+%\newcommand{\C}{\mathcal{C}}
+\newcommand{\height}{\mathrm{height}}
+\newcommand{\loss}{\mathrm{loss}}
+
+\newcommand{\col}{\mathrm{col}}
+\newcommand{\row}{\mathrm{row}}
+
+%\usepackage{inconsolata}
+
+\usepackage[T1]{fontenc}
+%\usepackage{concrete}
+
+%\usepackage{palatino}
+%\usepackage{pxfonts}
+
+%Uncomment again!
+
+%\usepackage{kerkis}
+%\usepackage{kmath}
+%\renewcommand{\rmdefault}{ibh}
+%\usepackage{helvet}
+%\usepackage{concmath}
+
+
+
+ \setbeamertemplate{footline}{}
+
+ \beamertemplatenavigationsymbolsempty
+
+
+
+\definecolor{orange}{rgb}{1,0.5,0}
+
+\newcommand{\mygray[1]}{\textcolor{gray}{#1}}
+\newcommand{\myemph}[1]{\em \textcolor{darkred}{#1}}
+\newcommand{\mybf}[1]{ \textcolor{darkred}{ \bf #1}}
+
+\newcommand{\smallplatz}{\vspace{.25cm}}
+\newcommand{\platz}{\vspace{.5cm}}
+\newcommand{\Platz}{\vspace{1cm}}
+
+\renewcommand{\L}{\mathcal{L}}
+
+\def\Put(#1,#2)#3{\leavevmode\makebox(0,0){\put(#1,#2){#3}}}
+
+
+
+
+
+
+\makeatletter
+\def\grd@save@target#1{%
+  \def\grd@target{#1}}
+\def\grd@save@start#1{%
+  \def\grd@start{#1}}
+\tikzset{
+  grid with coordinates/.style={
+    to path={%
+      \pgfextra{%
+        \edef\grd@@target{(\tikztotarget)}%
+        \tikz@scan@one@point\grd@save@target\grd@@target\relax
+        \edef\grd@@start{(\tikztostart)}%
+        \tikz@scan@one@point\grd@save@start\grd@@start\relax
+        \draw[minor help lines] (\tikztostart) grid (\tikztotarget);
+        \draw[major help lines] (\tikztostart) grid (\tikztotarget);
+        \grd@start
+        \pgfmathsetmacro{\grd@xa}{\the\pgf@x/1cm}
+        \pgfmathsetmacro{\grd@ya}{\the\pgf@y/1cm}
+        \grd@target
+        \pgfmathsetmacro{\grd@xb}{\the\pgf@x/1cm}
+        \pgfmathsetmacro{\grd@yb}{\the\pgf@y/1cm}
+        \pgfmathsetmacro{\grd@xc}{\grd@xa + \pgfkeysvalueof{/tikz/grid with coordinates/major step}}
+        \pgfmathsetmacro{\grd@yc}{\grd@ya + \pgfkeysvalueof{/tikz/grid with coordinates/major step}}
+        \foreach \x in {\grd@xa,\grd@xc,...,\grd@xb}
+        \node[anchor=north] at (\x,\grd@ya) {\pgfmathprintnumber{\x}};
+        \foreach \y in {\grd@ya,\grd@yc,...,\grd@yb}
+        \node[anchor=east] at (\grd@xa,\y) {\pgfmathprintnumber{\y}};
+      }
+    }
+  },
+  minor help lines/.style={
+    help lines,
+    step=\pgfkeysvalueof{/tikz/grid with coordinates/minor step}
+  },
+  major help lines/.style={
+    help lines,
+    line width=\pgfkeysvalueof{/tikz/grid with coordinates/major line width},
+    step=\pgfkeysvalueof{/tikz/grid with coordinates/major step}
+  },
+  grid with coordinates/.cd,
+  minor step/.initial=.2,
+  major step/.initial=1,
+  major line width/.initial=1pt,
+}
+\makeatother
+
+
+
+
+\begin{document}
+
+     \include{body}
+
+\end{document} 
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 
+
+
+
