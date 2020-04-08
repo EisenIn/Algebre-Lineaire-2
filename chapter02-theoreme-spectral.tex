@@ -515,10 +515,17 @@ et
 \end{theorem}
 
 \begin{proof}
-Nous démontrons \eqref{eq:12}. La partie \eqref{eq:13} est un exercice. Soit $\{u_1,\dots,u_n\}$ une base orthonormale de vecteurs propres associés à $\lambda_1 ≥ \dots ≥ \lambda_n$ respectivement. On fixe un entier $k$, et un espace $U$ de dimension $k$. Clairement $\spa\{u_k,\dots,u_n\} \cap U \supsetneq \{0\}$. Alors il existe un vecteur $0 \neq x = \sum_{i = k}^n \alpha_i u_i \in U$. Clairement $R_A(x) \leq \lambda_k$. Pour $U = \spa\{u_1,\dots,u_k\}$, 
-$
-  \min_{x \in U \setminus \{0\}}  R_A(x) = \lambda_k.
-$ Ensemble ça démontre \eqref{eq:12}. 
+Nous démontrons \eqref{eq:12}. La partie \eqref{eq:13} est un exercice. Soit
+$\{u_1,\dots,u_n\}$ une base orthonormale de vecteurs propres associés à
+$\lambda_1 ≥ \dots ≥ \lambda_n$ respectivement. On fixe un entier $k$, soit $U$
+un sous-espace de dimension $k$. Posons $W := \spa\{u_k, \dots, u_n\}$.
+Comme
+\begin{equation*}
+	\dim(W \cap U) = \dim(U) + \dim(W) - \dim(U + W) \geq k + (n - k + 1) - n = 1,
+\end{equation*}
+$W \cap U$ contient un élement $x$ non-nul. On a que $R_A(x) \leq \lambda_k$ et
+donc pour tout sous-espace $U$ de dimension $k$, $\min_{x \in U \setminus \{0\}}
+R_A(x) \leq \lambda_k$. Or pour $U = \spa\{u_1,\dots,u_k\}$, $\min_{x \in U \setminus \{0\}}  R_A(x) = \lambda_k.$  Ainsi on a démontré \eqref{eq:12}. 
 \end{proof}
 
 
@@ -622,13 +629,14 @@ où $P \in \C^{m \times m}$ et $Q \in \C^{n \times n}$ sont unitaires et $D \in 
 
 
 \begin{proof}
-  La matrice $A^* \cdot  A$ est hermitienne et semi-définie positive dès que
+  La matrice $A^* \cdot  A$ est hermitienne et semi-définie positive puisque
   \begin{displaymath}
     x^*A^*Ax = (Ax)^* (Ax) \geq 0. 
   \end{displaymath}
 Alors les valeurs propres de $A^*A$ sont non-négatives ($\lambda_i\geq 0$). Soient $\sigma_1^2 \geq \sigma_2^2 \dots \geq \sigma_n^2\geq 0$ les valeurs propres et soit $\{u_1,\dots,u_n\}$ une base orthonormale  correspondante de vecteurs propres. La matrice $Q \in \C^{n \times n}$ est la matrice dont les lignes sont $u_1^*, \dots, u_n^*$. 
 
-Soit $ r \in \N_0$ tel que $\sigma_r >0$ et $\sigma_{r+1} = 0$; on a $\sigma_1 \geq \ldots \geq \sigma_r \geq 0=\sigma_{r+1} = \ldots = 0=\sigma_n  $. Nous construisons les vecteurs 
+Soit $ r \in \N_0$ tel que $\sigma_r >0$ et $\sigma_{r+1} = 0$; on a $\sigma_1
+\geq \ldots \geq \sigma_r > 0=\sigma_{r+1} = \ldots = 0=\sigma_n  $. Nous construisons les vecteurs 
 \begin{displaymath}
   v_i = A \, u_i  / \sigma_i, \, 1 \leq i \leq r. 
 \end{displaymath}
@@ -638,7 +646,8 @@ Les $v_i$ sont orthonormaux, parce que
 \end{displaymath}
 et pour $1 \leq i\neq j \leq r$, 
 \begin{displaymath}
-  v_i^* v_j = u_i^* u_j = 0. 
+	v_i^* v_j = \frac{u_i^* \cdot A^* \cdot A \cdot u_j}{\sigma_i \sigma_j} =
+	\frac{\sigma_j^2}{\sigma_i \sigma_j} u_i^* u_j= 0. 
 \end{displaymath}
 Avec le procédé de Gram-Schmidt, nous complétons les $v_i$ tels que $\{v_1,\dots,v_m\}$ est une base orthonormale de $\C^m$. Les colonnes de la matrices $P$ sont alors $v_1,\dots,v_m$ dans cet ordre. La matrice $D \in \C^{m\times n}$ est la matrice diagonale dont les $r$ premières composantes sur la diagonale sont $\sigma_1,\dots,\sigma_r$ dans cet ordre. Avec ces matrices  $P,D$ et $Q$ nous avons 
 \begin{displaymath}
@@ -660,10 +669,10 @@ Si $i>r$ \eqref{eq:39} pas égale  a zéro implique $A u_j \neq 0$ et alors $j�
 
 Et  si $1 ≤i,j \leq r$, alors 
 \begin{displaymath}
-  u_i^* A^* A u_j / \sigma_i = u_i^* u_j \,  \sigma_j^2 / \sigma_i=
+	u_i^* A^* A u_j / \sigma_i = \frac{\sigma_j^2}{\sigma_i}\,u_i^* u_j  =
   \begin{cases}
     \sigma_i & \text{si } i=j\\
-    0 & \text{autrement}.  
+    0 & \text{sinon}.  
   \end{cases}
 \end{displaymath}
 \end{proof}
