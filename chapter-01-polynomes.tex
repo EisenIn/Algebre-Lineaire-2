@@ -2,6 +2,10 @@
 \chapter{Polynômes}
 \label{cha:polynomes}
 
+\section{Notions fondamentales}
+\label{sec:noti-fond}
+
+
 Soit $R$ un anneau. On se souvient que ça veut dire que  $R$ est un ensemble,  muni avec des opérations binaires  $+ : R × R → R$  et $⋅: R × R → R$ tel que: 
 \begin{enumerate}[(R1)]
 \item $a+ b  = b+a$ pour tous     $a,b ∈ R$. \label{R1}
@@ -17,18 +21,17 @@ Si on a en plus
   \setcounter{enumi}{7}
 \item  $a b = ba$ pour tous $a,b ∈R$ \label{R8}. 
 \end{enumerate}
-alors l'anneau $R$ est appelé un \emph{anneau commutatif}.
+alors l'anneau $R$ est appelé un \emph{anneau commutatif}. Le \emph{centre} de $R$ est l'ensemble $Z(R) = \{ r ∈ R ： ra = ar \text{ pour tous } a ∈ R\}$. 
+An élément  $a ≠0$ de $R$ est un \emph{diviseur de zéro} s'il existe un $b≠0$ tel que $ab = 0$ ou $ba = 0$. Un anneau commutatif sans diviseurs de zéro est appelé un \emph{anneau intègre}.  
 
-\begin{exercise}
-  Soit $R$ un anneau, alors l'élément $1$ est unique. 
-\end{exercise}
+
 
 \begin{example}
   \label{exe:32}
   \begin{enumerate}[i)]
-  \item Les nombres entiers $ℤ$ avec l'addition et multiplication standard forment un anneau commutatif.
-  \item $5 ⋅ℤ = \{ 5 z ：z ∈ ℤ\}$ avec l'addition et multiplication standard n'est pas un anneau. La propriété \ref{R6}) n'est pas satisfaite.
-  \item L'ensemble des matrices  $ℤ^{2 ×2}$ avec l'addition et multiplication des matrices est un anneau non commutatif. 
+  \item Les nombres entiers $ℤ$ avec l'addition et multiplication standard forment un anneau commutatif sans diviseurs de zéro. Alors $ℤ$ est un anneau intègre. 
+  \item $5 ⋅ℤ = \{ 5 z ：z ∈ ℤ\}$ avec l'addition et multiplication standard n'est pas un anneau. La propriété (R\ref{R6}) n'est pas satisfaite.
+  \item L'ensemble des matrices  $ℤ^{2 ×2}$ avec l'addition et multiplication des matrices est un anneau non commutatif avec des diviseurs de zéro. 
     \begin{eqnarray*}
       \begin{pmatrix}
         1 & 0 \\
@@ -55,13 +58,49 @@ alors l'anneau $R$ est appelé un \emph{anneau commutatif}.
                                1 & 1 \\
                              \end{pmatrix}       
     \end{eqnarray*}
-  \end{enumerate}
+     \begin{eqnarray*}
+      \begin{pmatrix}
+        0 & 0 \\
+        0 & 1 
+      \end{pmatrix}
+       \begin{pmatrix}
+        1 & 0 \\
+         0& 0 
+       \end{pmatrix}   & = &
+                            \begin{pmatrix}
+                               0 & 0 \\
+                               0 & 0 \\
+                             \end{pmatrix}  
+     \end{eqnarray*}
+   \end{enumerate}
 \end{example}
 
+\begin{exercise}
+  \label{exe:39}
+  Soit $R$ un anneau et $r ∈ R^*$. Alors $r$ n'est pas un diviseur de zéro. 
+\end{exercise}
+
+\begin{exercise}
+  \label{exe:42}
+  Soit $R$ un anneau et $R^{n ×n}$ l'anneau des matrices $n ×n$ sur $R$. Montrer que le centre de $R^{n ×n}$ est $Z(R^{n ×n}) = \{ a I_n ：a ∈Z(R)\}$. 
+\end{exercise}
+
+
+Un élément $r ∈R$ est \emph{inversible} s'il existe un élément $r^{-1} ∈ R$ tel que
+\begin{displaymath}
+  r ⋅ r^{-1} = r^{-1} ⋅r = 1. 
+\end{displaymath}
+On dénote l'ensemble des éléments inversibles par $R^*$. On se rappelle que $(R^*, ⋅)$ est un groupe, le \emph{groupe des éléments inversibles}. Un anneau intègre tel que $R \setminus \{0\} = R^*$ est un \emph{corps}. 
+
+\begin{exercise}
+  Soit $R$ un anneau, alors l'élément $1$ est unique. 
+\end{exercise}
+
+%
 Le théorème suivant est démontré dans le cours \emph{anneaux et corps}.   Il nous donne une manière formelle d'introduire le concept d'une indéterminée. 
 \begin{theorem}
   \label{thr:50}
-  Soit $R$ un anneau, alors il existe un anneau $S ⊇R$ et un élément $x ∈ S \setminus R$ tel que
+  Soit $R$ un anneau, alors il existe un anneau $S ⊇R$ ($R$ est un sous-anneau de $S$) et un élément $x ∈ S \setminus R$ tel que
   \begin{enumerate}[(i)]
   \item $a x = x a $ pour chaque $a ∈ R$.
   \item Si 
@@ -74,7 +113,7 @@ Cet élément $x ∈ S \setminus R$ est appelé  \emph{indéterminée} ou  \emph
 \begin{definition}
   \label{def:51}
   Un polynôme sur $R$ est une expression de la forme
-$p(x) = a_0 + a_1 x + \cdots + a_n x^n$, $a_i ∈R$, $i=1,\dots,n$. L'élément $a_i$ est le $i$-ème \emph{coefficient} de $p(x)$. L'ensemble des polynômes sur $R$ est dénoté par $R[x]$. 
+$p(x) = a_0 + a_1 x + \cdots + a_n x^n$, où $n ∈ℕ_0$,  $a_i ∈R$ pour tous $i$. L'élément $a_i$ est le $i$-ème \emph{coefficient} de $p(x)$. L'ensemble des polynômes sur $R$ est dénoté par $R[x]$. 
 \end{definition}
 
 
@@ -87,24 +126,30 @@ $p(x) = a_0 + a_1 x + \cdots + a_n x^n$, $a_i ∈R$, $i=1,\dots,n$. L'élément 
 
 \begin{theorem}
   \label{thr:51}
-  $R[x]$ est un anneau. Si $R$ est commutatif, alors $R[x]$ est commutatif. Si $R$ est anneau sans diviseur de zéro    alors $R[x]$ anneau sans diviseur de zéro. 
+  $R[x]$ est un anneau. Si $R$ est commutatif, alors $R[x]$ est commutatif. Si $R$ est anneau sans diviseur de zéro    alors $R[x]$ est un  anneau sans diviseur de zéro. 
 \end{theorem}
 \begin{proof}
 Pour la démonstration, on note que 
 les conditions (R\ref{R1}) - (R\ref{R6}) sont satisfaites, parce que  $S$ est un anneau. Pour deux polynômes $f(x) = a_0 + a_1 x + \cdots + a_n x^n$ et $g(x) = b_0 + b_1x + \cdots + b_m x^m$, leur somme s'écrit comme
   \begin{equation}
     \label{eq:47}
-    f(x) + g(x) = ∑_{i=1}^{\max\{m,n\}} (a_i +  b_i) x^i  ∈R[x]. 
+    f(x) + g(x) = ∑_{i=1}^{\max\{m,n\}} (a_i +  b_i) \, x^i  ∈R[x]. 
   \end{equation}
-  Alors   $R[x]$ est stable pour $+$. L'élément neutre de $(S,+)$, $0$ est un élément de $R[x]$.  
+  Alors   $R[x]$ est stable pour $+$. L'élément neutre de $(S,+)$, $0$,  est un élément de $R[x]$.  
   L'inverse de $f(x) = a_0 + a_1 x + \cdots a_n x^n$ est $-f(x) = -a_0 - a_1 x  \cdots - a_n x^n$. Alors $(R[x],+)$ est un sous-groupe de $(S,+)$. 
-Le    produit de $f$ et $g$ s'écrit comme
+  Le    produit de $f$ et $g$ s'écrit comme
+
+  \begin{equation}
+  \label{ceq:21}
+  p(x) ⋅q(x) = a_0 b_0 + (a_0b_1 +a_1b_0) x + (a_0b_2+ a_1b_1 + a_2b_0)x^2 + \cdots .
+\end{equation}
+Bref, on a la formule 
   \begin{equation}
     \label{eq:8}
-    f(x) ⋅g(x) = ∑_{i=1}^{m+n} ( ∑_{j+k = i} a_j b_k) x^i ∈ R[x]. 
+    f(x) ⋅g(x) = ∑_{i=1}^{m+n} ( ∑_{j+k = i} a_j b_k) \, x^i ∈ R[x]. 
   \end{equation}
-  C'est à dire que $R[x]$ est stable pour l'opération $⋅$ de $S$. Alors, $R[x]$ est un sous-anneau de $S$. 
-  Alors $R[x]$ est un anneau. La formule~\eqref{eq:8} implique que
+  C'est à dire que $R[x]$ est stable pour l'opération $⋅$ de $S$. Alors, $R[x]$ est un sous-anneau de $S$ et 
+  donc $R[x]$ est un anneau. La formule~\eqref{eq:8} implique que
   $R[x]$ est commutatif, si $R$ est commutatif.
 
   Finalement, si $f(x) = a_0 + a_1 x + \cdots ≠ 0$ et
@@ -123,107 +168,212 @@ Le    produit de $f$ et $g$ s'écrit comme
   \end{eqnarray*}
 \end{example}
 
-\emph{variable}.
-D'un point de vue formel, $x ∈ R^* ⧹R$, où $R^*⊃R$ est un anneau, tel que
-\begin{displaymath}
-  a_0+ a_1x + \cdots + a_n x^n =0, \, a_i ∈K, \text{ implique } a_i=0 \text{ pour tous }i.  
-\end{displaymath}
-L'existence de $R$ et $x$ est traité en détail dans le cours \emph{anneaux et corps}. 
- Le polynôme $p(x)$ est écrit comme
-\begin{displaymath}
-  p(x) = a_0 + a_1x + a_2x^2 + \cdots
-\end{displaymath}
-où tous les  coefficients, sauf un nombre fini parmi eux, sont zéro.
-Des expressions \eqref{eq:33} sont des polynômes sur $K$  et $K[x]$ est l'ensemble des polynômes sur $K$. Deux polynômes
+
+\begin{proposition}
+  \label{prop:8}
+  Deux polynômes 
 \begin{equation}
   \label{eq:34}
   p(x) = a_0 + a_1x + a_2x^2 + \cdots \,\,\text{ et }  \,\, q(x) = b_0 + b_1x + b_2x^2 + \cdots
-  \end{equation}
-  sont \emph{égaux} si $a_i  =b_i$ pour tous $i$. Dans ce cas, on écrit $p(x) = q(x)$.
-La \emph{somme} de $p(x)$ et $q(x)$~\eqref{eq:34} est le polynôme
-\begin{displaymath}
-  p(x) + q(x)  = a_0+b_0 + (a_1+b_1)x + (a_2+b_2)x^2 + \cdots
-\end{displaymath}
-et leurs \emph{produit} est
-\begin{equation}
-  \label{ceq:21}
-  p(x) ⋅q(x) = a_0 b_0 + (a_0b_1 +a_1b_0) x + (a_0b_2+ a_1b_1 + a_2b_0)x^2 + \cdots .
 \end{equation}
-Le $i$-ème coefficient de $p(x)⋅q(x)$ est alors  $∑_{j+k=i}a_jb_k$.
+sont \emph{égaux} si et seulement si $a_i =b_i$ pour tous $i$. Dans ce
+cas, on écrit $p(x) = q(x)$.
+\end{proposition}
 
-\begin{theorem}
-  \label{thr:43}
-  L'ensemble des polynômes $K[x]$ sur un corps $K$ est un anneau intègre.
-\end{theorem}
+\begin{exercise}
+  \label{exe:34}
+  Démontrez  la proposition~\ref{prop:8}. 
+\end{exercise}
 
+
+% \begin{theorem}
+%   \label{thr:43}
+%   L'ensemble des polynômes $K[x]$ sur un corps $K$ est un anneau intègre.
+% \end{theorem}
+
+\begin{definition}
+  \label{def:52}
 Le \emph{degré} de $p(x) = a_0 + a_1x + a_2x^2 + \cdots \neq 0$ est 
 \begin{displaymath}
   \deg(p) = \max\{i \colon  a_i \neq 0\}
 \end{displaymath}
 et $\deg(0) = -\infty$. 
 Si $p \neq 0$, le coefficient $a_{\deg(p)}$ est le \emph{coefficient dominant} de $p$. 
-Un polynôme de degré zéro est une \emph{constante}. 
-
-\begin{theorem}
-  \label{thr:34}
-  Pour $f,g \in K[x] $, $\deg(f \cdot g) = \deg(f) + \deg(g)$. 
-\end{theorem}
-\begin{proof}
-  La formule~\eqref{ceq:21} révèle que $\deg(f\cdot g) \leq \deg(f) + \deg(g)$. 
-  Soient $f(x) = a_0 + \cdots + a_n x^n$ et $g(x) = b_0+ \cdots b_m x^m$ tels que $a_n, b_m  \neq 0$. Le coefficient de $x^{n+m}$  est $a_n \cdot  b_m \neq 0$.
-\end{proof}
-
-Un polynôme $p(x) = a_0 + a_1 x + \cdots + a_n x^n ∈ K[x]$ induit une application $f_p:  K ⟶ K$, $f_p(k) = a_0+ a_1 k+ \cdots + a_n k^n$. Nous écrivons aussi $p(k)$ pour $f_p(k)$.  
-
-\begin{theorem}
-  \label{thr:42}
-  Soit $K$ un corps infini. Deux polynômes $p(x),q(x) ∈ K[x]$ sont égaux, si et seulement si les applications $f_p$ et $f_q$ sont les mêmes.
-\end{theorem}
-
-La démonstration du théorème~\ref{thr:42} est le premier exercice maison.  
-
-\begin{definition}
-  \label{def:31}
-  Soit $p(x) \in \K[x] \setminus\{0\}$. Un $\alpha \in K$ tel que $f_p(\alpha) = 0$ est une  \emph{ racine} de $f(x)$.  
+Un polynôme de degré zéro est une \emph{constante}.
 \end{definition}
 
+\begin{example}
+  \label{exe:35}
+  Soit $f(x) = 2 + 3x + 5x^3 ∈ ℤ[x]$, alors $\deg(f) =3$  et le coefficient dominant de $f$ est $5$. 
+\end{example}
 
-\begin{theorem}[Théorème fondamentale d'algebre]
-  \label{thr:44}
-  Tout polynôme $p(x) ∈ℂ[x] ⧹\{0\}$ de degré aux moins $1$  admet au moins une racine complexe.
+\begin{theorem}
+  \label{thr:34} Soit $R$ un anneau,   $f,g \in R[x] \setminus \{0\}$ tel que le coefficient dominant de $f$ ou de $g$ n'est pas un diviseur de zéro.  Alors, $\deg(f \cdot g) = \deg(f) + \deg(g)$. 
+\end{theorem}
+\begin{proof}
+  
+  Soient $f(x) = a_0 + \cdots + a_n x^n$ et $g(x) = b_0+ \cdots b_m x^m$ tels que $a_n, b_m  \neq 0$. Le coefficient de $x^{n+m}$  est $a_n \cdot  b_m \neq 0$. Les coefficients de $x^k$, $k> n+m$ sont tousse zéro.  
+\end{proof}
+
+Un polynôme $p(x) = a_0 + a_1 x + \cdots + a_n x^n ∈ R[x]$ induit une application $f_p:  R ⟶ R$, $f_p(r) = a_0+ a_1 r+ \cdots + a_n r^n$. Nous écrivons aussi $p(r)$ pour $f_p(r)$ et on parle de l'\emph{évaluation} de $p$ sur $r$. 
+
+\begin{example}
+  \label{exe:43}
+  Soit $p(x) = x ∈ R[x]$ et $q(x) = (x + a) ∈ R[x]$, alors $p(x) q(x) = x^2 - ax$. Quand est-ce que on a $p(r) q(r) = (p ⋅q)(r)$? C'est le cas si es seulement si
+  \begin{displaymath}
+     r^2 + r a = r^2 + a r  
+   \end{displaymath}
+   alors si et seulement si $ra = ar$. 
+\end{example}
+
+
+\begin{theorem}
+  \label{thr:53}
+  Soit $R$ un anneau et $\alpha \in Z(R)$ un élément du centre de $R$. L'application 
+  \begin{displaymath}   
+    \begin{array}{rcl}
+    \Phi \colon R[x] &\rightarrow & R \\
+           f(x) &\mapsto &f(\alpha)          
+    \end{array}
+  \end{displaymath}
+est un morphisme d'anneaux surjectif. 
 \end{theorem}
 
 
-L'expression \eqref{eq:32} est un polynôme avec indéterminée $λ$ et  comme polynôme formel, est défini par la formule de Leibniz
-\begin{displaymath}
-p_A(λ) = \det(A - λ I_n) = ∑_{π ∈S_n} \sign(π) ∏_{i=1}^n (A - λ I_n)_{iπ(i)}.
-\end{displaymath}
-Il est la somme des polynômes $ \sign(π) ∏_{i=1}^n (A - λ I_n)_{iπ(i)}$. Ça démontre que le degré de $p_A(λ)$ est au plus $n$. Mais le degré de
-\begin{displaymath}
-  \sign(\Id) ∏_{i=1}^n (A - λ I_n)_{i\Id(i)}
-\end{displaymath}
-est $n$ exacte. Ça démontre aussi que $a_n = (-1)^n$.
+\begin{exercise}
+  \label{exe:44}
+  Démontrer Théorème~\ref{thr:53}. 
+\end{exercise}
 
-\begin{lemma}
-  \label{lem:22}
-Soit $p_A(λ) = a_0 + a_1 λ + \cdots + a_n λ^n$ le polynôme caractéristique de la matrice $A ∈ K^{n ×n}$. Alors, $a_0 = \det(A)$ et $a_n = (-1)^n$.
-\end{lemma}
+Deux polynômes différentes $p$ et $q$ peuvent induire la même application $f_p$ et $f_q$, même s'ils sont des polynômes sur un corps $K$.
+
+\begin{example}
+  \label{exe:36}
+  Soit $K = ℤ_2$, $p(x) = x + x^2 $ et $q(x) = x^2 + x^3$ deux
+  polynômes sur $K$. Clairement $p ≠ q$. Mais $f_p:\, K →K$ et
+  $f_p:\, K →K$ sont les mêmes applications, des que pour tous
+  $x ∈ℤ_2$ on a $p(x) = q(x) = 0$.
+\end{example}
+
+Par contre, si $K$ est un corps infini, deux polynômes différentes, induises  deux applications différentes. Nous allons voir les détails de ce fait maintenant.
+
+\begin{theorem}
+  \label{thr:52}
+  Soit $K$ un corps $r_0,\dots,r_n ∈K$ des éléments distinctes (c.à.d. $r_i ≠ r_j$ pour $i≠j$) et $y_0,\dots,y_n ∈K$. Il existe  exactement un seul polynôme $f(x) ∈ K[x]$ de degré au plus $n$ tel que
+  \begin{displaymath}
+    f(r_i) = y_i \text{ pour tous } i ∈ \{0,\dots,n\}. 
+  \end{displaymath}
+\end{theorem}
+
+\begin{proof}
+  Un polynôme  $f(x) = a_0 + a_1x + \cdots + a_n x^n$ satisfait $f(r_i) = y_i$ pour tous $i$ si et seulement si le coefficients $a_0,\dots,a_n$ satisfont
+  \begin{equation}
+    \label{eq:48}
+    \begin{pmatrix}
+      1 & r_0& \cdots & r_0^n \\
+      1 & r_1& \cdots & r_1^n \\
+       & &  \cdots  &  \\
+       1 & r_n& \cdots & r_n^n \\
+     \end{pmatrix}
+     \begin{pmatrix}
+       a_0\\ a_1 \\ \vdots \\ a_n
+     \end{pmatrix} =
+     \begin{pmatrix}
+       y_0\\ y_1 \\ \vdots \\ y_n
+     \end{pmatrix}
+   \end{equation}
+
+   La matrice $V_{r_0,\dots,r_n} ∈K^{(n+1)×(n+1)}$  a gauche de~\eqref{eq:48} est appelé la \emph{matrice de  Vandermonde}
+   des éléments $r_0,\dots,r_n$. Le théorème est établi, des que nous avons démontrer $\det(V_{r_0,\dots,r_n}) ≠0$.
+
+   On démontre  $\det(V_{r_0,\dots,r_n}) ≠0$ par induction sur $n$. Pour $n = 0$, le déterminant est $1$. Pour $n>0$, on soustrait $r_0$ fois la colonne $n$ de la colonne $n+1$. Après, on soustrait $r_0$ fois la colonne $n-1$ de la colonne $n$ etc. Le résultat est la matrice
+   \begin{equation}
+     \label{eq:49}
+     \begin{pmatrix}
+       1 & 0  &      \hdotsfor{2} &  0 \\
+       1 & r_1- r_0&  r_1 (r_1-r_0)  & \cdots & r_1^{n-1} (r_1 - r_0) \\
+       & & &  & \cdots  &  \\
+       1 & r_n -r_0&  r_1 (r_n-r_0) & \cdots & r_n^{n-1} (r_n - r_0) \\
+     \end{pmatrix}
+   \end{equation}
+   Le déterminant de la matrice~\eqref{eq:49} est celle de
+   $V_{r_0,\dots,r_n}$. Développement du déterminant le long de la
+   première ligne donne le déterminant de la matrice
+ \begin{equation}
+\label{eq:50}
+    \begin{pmatrix}
+       r_1- r_0&  r_1 (r_1-r_0) \cdots & r_1^{n-1} (r_1 - r_0) \\
+        & &  \cdots  &  \\
+        r_n -r_0&  r_1 (r_n-r_0) \cdots & r_n^{n-1} (r_n - r_0) \\
+     \end{pmatrix}
+   \end{equation}
+   Alors
+   \begin{displaymath}
+     \det(V_{r_0,\dots,r_n})  = (r_n-r_0) \cdots (r_1-r_0)  \det(V_{r_1,\dots,r_n})
+   \end{displaymath}      
+Des que les $r_i$ sont distinctes, le produit   $(r_n-r_0) \cdots (r_1-r_0) $ n'est pas zéro. Par induction, $\det(V_{r_1,\dots,r_n}) ≠0$ et alors $\det(V_{r_0,r_1,\dots,r_n}) ≠0$.  
+\end{proof}
+
+\begin{exercise}
+  \label{exe:37}
+  Montrer que le déterminant de $V_{r_0,\dots,r_n}$ est
+  \begin{displaymath}
+    \det (V_{r_0,\dots,r_n}) = ∏_{0 ≤ i<j ≤n} (r_j - r_i). 
+  \end{displaymath}
+\end{exercise}
+
+
+
+\begin{example}
+  \label{exe:38}
+  On cherche le polynôme $f(x) ∈ ℤ_5[x]$ de degré au plus $3$ tel que
+  $f(0) = 2$, $f(1)=2$, $f(2) = 2$ et $f(3) = 3$.
+
+  En trouvant la solution unique du système
+  \begin{displaymath}
+    \left(\begin{array}{rrrr}
+1 & 0 & 0 & 0 \\
+1 & 1 & 1 & 1 \\
+1 & 2 & 4 & 3 \\
+1 & 3 & 4 & 2
+\end{array}\right)
+\begin{pmatrix}
+  a_0 \\ a_1 \\ a_2 \\ a_3
+\end{pmatrix}
+=
+\begin{pmatrix}
+  2 \\ 2 \\ 2 \\3
+\end{pmatrix}
+\end{displaymath}, on obtient
+\begin{displaymath}
+  \begin{pmatrix}
+  a_0 \\ a_1 \\ a_2 \\ a_3
+\end{pmatrix} =
+\begin{pmatrix}
+  2 \\ 2 \\ 2 \\ 1
+\end{pmatrix}.
+\end{displaymath}
+Alors $f(x) = 2 + 2x + 2x^2 + x^3$ est le polynôme qu'on cherche. 
+
+\end{example}
 
 
 \begin{corollary}
-  \label{co:10}
-  Soit $V ≠ \{0\}$ un espace vectoriel de dimension fini sur $K = ℂ$, et $f: V → V$ un endomorphisme. Alors $f$ possède une valeur propre. 
+  \label{thr:42}
+  Soit $K$ un corps infini. Deux polynômes $p(x),q(x) ∈ K[x]$ sont égaux, si et seulement si les applications $f_p$ et $f_q$ sont les mêmes.
 \end{corollary}
 \begin{proof}
-  Soit $f(λ) ∈ ℂ[λ]$ le polynôme caractéristique de $f$ et $n$ la dimension de $V$. Le degré de $f$ est égal à $n≥1$, alors $p(x)$ possède une racine $λ^* ∈ℂ$. Cette racine $λ^*$  est une valeur propre de $f$. 
+  Si $p = q$, alors $p(r) = q(r)$ pour tous $r ∈K$. Autrement on peut supposer  que un des deux polynômes n'est pas le polynôme $0$. (S'ils sont $0$ les deux, alors ce sont les mêmes polynômes).  Si $p(r) = q(r)$ pour tous $r ∈K$ des que $K$ est infini, les polynômes ont les mêmes valeurs sur $\max\{\deg(p),\deg(q)\}$ éléments de $K$, alors $p = q$ par Theorème~\ref{thr:52}. 
 \end{proof}
 
 
-La division avec reste est l'opération suivante. 
+\section{Divisibilité et racines} 
+\label{sec:divisibilite}
+Soit $R$ un anneau. La \emph{division avec reste} est l'opération suivante. 
 
 \begin{theorem}
   \label{thr:33}
-  Soient $f,g \in K[x]$ et $\deg(g) >0$. Il existe $q,r \in K[x]$ unique  tels que 
+  Soient $f,g \in R[x]$, $\deg(g) >0$ et le coefficient dominant de $g$ un élément  inversible de $R$.   Il existe $q,r \in R[x]$ unique  tels que 
   \begin{displaymath}
     f(x) = q(x) g(x) + r(x) 
   \end{displaymath}
@@ -251,7 +401,7 @@ tel que $\deg(r(x)) < \deg(g(x))$. On  obtient alors
 \begin{displaymath}
   f(x) = \left(q(x) + \frac{a_n}{ b_m } x^{n-m} \right) g(x) + r(x). 
 \end{displaymath}
-
+%
 Supposons maintenant qu'il existent autres polynômes $q'(x)$ et $r'(x)$ tel que 
 \begin{displaymath}
     f(x) = q'(x) g(x) + r'(x) 
@@ -259,11 +409,11 @@ Supposons maintenant qu'il existent autres polynômes $q'(x)$ et $r'(x)$ tel que
   et $\deg(r') < \deg(g)$. 
 Alors 
 \begin{displaymath}
-0 \neq   r(x) - r'(x) = (q(x) - q'(x)) ⋅ g(x). 
+   r(x) - r'(x) = (q(x) - q'(x)) ⋅ g(x). 
 \end{displaymath}
-On peut déduire 
+Par Théorème~\ref{thr:34}
 \begin{displaymath}
-\max\{\deg(r),\deg(r')\} \geq   \deg( r - r')  = \deg(q - q') + \deg(g) \geq \deg(g), 
+ \deg( r - r')  = \deg(q - q') + \deg(g) \geq \deg(g), 
 \end{displaymath}
 ce qui contredit le fait que $\deg(r) < \deg(g)$ et $\deg(r') < \deg(g)$. 
 \end{proof}
@@ -276,7 +426,12 @@ ce qui contredit le fait que $\deg(r) < \deg(g)$ et $\deg(r') < \deg(g)$.
 
 \begin{example}
   \label{exe:24}
-  Faire la division avec reste des polynômes  $x^5+2x^2+1$ par $2x^3+x+1$ de $ℤ_3[x]$ 
+  Faire la division avec reste des polynômes  $x^5+2x^2+1$ par $2x^3+x+1$ de $ℤ_3[x]$. On trouve
+
+  \begin{displaymath}
+    x^5+2x^2+1 = (2x^2 +2) (2x^3 + x +1) + (x+2). 
+  \end{displaymath}
+  
 \end{example}
 
 %\begin{proposition}
@@ -285,10 +440,42 @@ ce qui contredit le fait que $\deg(r) < \deg(g)$ et $\deg(r') < \deg(g)$.
 %\end{proposition}
 
 
+
+
+
 \begin{definition}
   \label{def:32}
-  Un polynôme  $q(x) ∈K[x]$ \emph{divise} un  polynôme $f(x)∈ K[x]$ s'il existe un polynôme $g(x)$ tel que $f(x) = g(x) \cdot q(x)$. On dit que $q(x)$ est un diviseur de $f(x)$ et on écrit $q(x) \mid f(x)$. 
+  Un polynôme  $q(x)$ \emph{divise} un  polynôme $f(x)$ s'il existe un polynôme $g(x)$ tel que $f(x) = g(x) \cdot q(x)$. On dit que $q(x)$ est un \emph{diviseur} de $f(x)$ et on écrit $q(x) \mid f(x)$. 
 \end{definition}
+
+
+\begin{example}
+  \label{exe:41}
+  Soient $q(x) = x^2 +1 ∈ℤ_2[x]$ et $ f(x) = x^3 + x^2 - x+1 ∈ ℤ_2[x]$. On a
+  $f(x) = q(x) (x+1)$ et donc 
+   $q(x) \mid f(x)$. 
+\end{example}
+
+
+\begin{definition}
+  \label{def:31}
+  Soit $p(x) \in \K[x] \setminus\{0\}$. Un $\alpha \in K$ tel que $f_p(\alpha) = 0$ est une  \emph{ racine} de $f(x)$.  
+\end{definition}
+
+
+\begin{example}
+  \label{exe:40}
+  Soit $p(x) = x^4 + x^3 + x^2 + x + 1 ∈ ℤ_5(x)$, alors $α = 1$ est une racine de $p(x)$. 
+\end{example}
+
+
+\begin{theorem}[Théorème fondamentale d'algebre]
+  \label{thr:44}
+  Tout polynôme $p(x) ∈ℂ[x] ⧹\{0\}$ de degré aux moins $1$  admet au moins une racine complexe.
+\end{theorem}
+
+
+
 
 \begin{theorem}
   \label{thr:35}
@@ -315,6 +502,55 @@ avec $\deg(r) \leq 0$. Alors $f(\alpha) = 0$ implique $r=0$.
   La \emph{multiplicité} d'une racine $α$ de $p(x) ∈ K[x] ⧹\{0\}$ est le plus grand $i≥1$ tel que $ (x-α)^i \mid p(x)$. Si $p(x)$ est le polynôme caractéristique d'un endomorphisme d'un espace vectoriel, on appelle la multiplicité de $α$ la \emph{multiplicité algébrique}. 
 \end{definition} 
 
+
+\begin{example}[Exemple 1.10 continué]  
+  \label{exe:45}
+  Le polynôme  $p(x) = x^4 + x^3 + x^2 + x + 1  ∈ℤ_5$  est divisible par $x-1$, et
+  \begin{displaymath}
+    p(x)  = (x^3 + 2*x^2 + 3*x + 4)  (x-1). 
+  \end{displaymath}
+  En plus $1$ est aussi une racine de $x^3 + 2*x^2 + 3*x + 4$. En fait 
+  \begin{displaymath}
+    x^4 + x^3 + x^2 + x + 1 = (x-1)^4,
+  \end{displaymath}
+  alors la multiplicité de la racine $1$ de $p(x)$ est $4$ parce que $(x-1)^5$ est un polynôme de dégrée $5$ et alors ne divise pas $p(x)$. (Théorème~\ref{thr:34}).   
+\end{example}
+
+
+\section{Factorisation de polynômes sur un corps}
+\label{sec:fact-de-polyn}
+
+Dans cette section, soit $K$ un corps.
+
+\begin{definition}
+  \label{def:53}
+  Un polynôme $p(x) ∈ K[x] \setminus \{0\}$ est \emph{irréductible}, si
+  \begin{enumerate}[i)]
+  \item $\deg(p(x)) ≥1$ et
+  \item  si $p(x) = f(x) g(x)$ alors $\deg(f) = 0$ ou $\deg(g) = 0$. 
+  \end{enumerate}
+\end{definition}
+
+\begin{example}
+  \label{exe:46}
+  \begin{enumerate}
+  \item   Chaque polynôme linéaire $p(x) = ax + b ∈ K[x]$, $a ∈ K \setminus\{0\}$ est irréductible. Parce que si $p(x) = f(x) g(x)$ et $\deg(f)>0$ et $\deg(g)>0$, alors par Théorème~\ref{thr:34} implique $\deg(p) >1$.
+  \item $x^2 +1 ∈ℝ[x]$ est irréductible. Autrement, il existe un polynôme linéaire $f(x) =  x - α ∈ ℝ[x]$ qui divise $f$ ce qui implique que $α$ est une racine de $x^2 +1$. Mais aucun nombre $α$ réel satisfait $α^2 = -1$.
+  \end{enumerate}
+\end{example}
+
+\begin{theorem}
+  Soient $f(x) ≠0$ et $g(x)≠0$ deux polynômes sur $K$. Il existe un polynôme unique $d(x)∈K[x]$ tel que
+  \begin{enumerate}
+  \item le coefficient dominant de $d(x)$ est $1$
+  \item $d(x) \mid f(x)$ et $d(x) \mid g(x)$.
+  \item Chaque $h(x) ∈ K[x]$ tel que $h(x) \mid f(x)$  et $h(x) \mid g(x)$, divise $d(x)$.
+  \item il existent $u(x), v(x) ∈K[x]$ tel que
+    \begin{displaymath}
+      d(x) = u(x) f(x) + v(x) g(x). 
+    \end{displaymath}
+  \end{enumerate}
+\end{theorem}
 
 
 %%% Local Variables:

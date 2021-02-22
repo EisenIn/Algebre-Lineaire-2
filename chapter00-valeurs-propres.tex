@@ -258,6 +258,38 @@ et si on collecte les potences de $λ$, alors
   \det(A_B - λI_n) = a_n λ^n + a_{n-1} λ^{n-1}+ \dots + a_1 λ+ a_0
 \end{equation}
 où $a_n,\dots,a_0 ∈K$. Des que $\det(A_B) = \det(A - 0 ⋅ I_n)$, alors $a_0 = \det(A_B)$.
+
+
+
+L'expression \eqref{eq:32} est un polynôme avec indéterminée $λ$ et  comme polynôme formel, est défini par la formule de Leibniz
+\begin{displaymath}
+p_A(λ) = \det(A - λ I_n) = ∑_{π ∈S_n} \sign(π) ∏_{i=1}^n (A - λ I_n)_{iπ(i)}.
+\end{displaymath}
+Il est la somme des polynômes $ \sign(π) ∏_{i=1}^n (A - λ I_n)_{iπ(i)}$. Ça démontre que le degré de $p_A(λ)$ est au plus $n$. Mais le degré de
+\begin{displaymath}
+  \sign(\Id) ∏_{i=1}^n (A - λ I_n)_{i\Id(i)}
+\end{displaymath}
+est $n$ exacte. Ça démontre aussi que $a_n = (-1)^n$.
+
+\begin{lemma}
+  \label{lem:22}
+Soit $p_A(λ) = a_0 + a_1 λ + \cdots + a_n λ^n$ le polynôme caractéristique de la matrice $A ∈ K^{n ×n}$. Alors, $a_0 = \det(A)$ et $a_n = (-1)^n$.
+\end{lemma}
+
+
+\begin{corollary}
+  \label{co:10}
+  Soit $V ≠ \{0\}$ un espace vectoriel de dimension fini sur $K = ℂ$, et $f: V → V$ un endomorphisme. Alors $f$ possède une valeur propre. 
+\end{corollary}
+\begin{proof}
+  Soit $f(λ) ∈ ℂ[λ]$ le polynôme caractéristique de $f$ et $n$ la dimension de $V$. Le degré de $f$ est égal à $n≥1$, alors $p(x)$ possède une racine $λ^* ∈ℂ$. Cette racine $λ^*$  est une valeur propre de $f$. 
+\end{proof}
+
+
+
+
+
+
 \begin{definition}
   \label{def:50}
   Le polynôme $\det(A_B - λI_n) ∈ K[λ]$ est le \emph{polynome caractéristique} de $f$.   
@@ -273,6 +305,10 @@ où $a_n,\dots,a_0 ∈K$. Des que $\det(A_B) = \det(A - 0 ⋅ I_n)$, alors $a_0 
   \end{eqnarray*}
   c.à.d. Définition~\ref{def:50} fait du sense.  
 \end{remark}
+
+
+
+
 
 
 
