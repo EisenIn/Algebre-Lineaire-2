@@ -129,14 +129,22 @@ $p(x) = a_0 + a_1 x + \cdots + a_n x^n$, où $n ∈ℕ_0$,  $a_i ∈R$ pour tous
   $R[x]$ est un anneau. Si $R$ est commutatif, alors $R[x]$ est commutatif. Si $R$ est anneau sans diviseur de zéro    alors $R[x]$ est un  anneau sans diviseur de zéro. 
 \end{theorem}
 \begin{proof}
-Pour la démonstration, on note que 
-les conditions (R\ref{R1}) - (R\ref{R6}) sont satisfaites, parce que  $S$ est un anneau. Pour deux polynômes $f(x) = a_0 + a_1 x + \cdots + a_n x^n$ et $g(x) = b_0 + b_1x + \cdots + b_m x^m$, leur somme s'écrit comme
+  Il faut montrer
+  pour deux polynômes $f(x) = a_0 + a_1 x + \cdots + a_n x^n$ et $g(x) = b_0 + b_1x + \cdots + b_m x^m$ sur $R$ que
+  \begin{enumerate}[i)]
+  \item $f- g ∈ R[x]$ et
+  \item $f ⋅ g ∈R[x]$. 
+  \end{enumerate}
+  La somme s'écrit comme
   \begin{equation}
     \label{eq:47}
-    f(x) + g(x) = ∑_{i=1}^{\max\{m,n\}} (a_i +  b_i) \, x^i  ∈R[x]. 
+    f(x) + g(x) = ∑_{i=1}^{\max\{m,n\}} (a_i +  b_i) \, x^i  ∈R[x], 
   \end{equation}
-  Alors   $R[x]$ est stable pour $+$. L'élément neutre de $(S,+)$, $0$,  est un élément de $R[x]$.  
-  L'inverse de $f(x) = a_0 + a_1 x + \cdots a_n x^n$ est $-f(x) = -a_0 - a_1 x  \cdots - a_n x^n$. Alors $(R[x],+)$ est un sous-groupe de $(S,+)$. 
+  ou $a_i = 0$ pour $i>n$ et $b_i = 0$ pour $i>m$. 
+  Alors   $R[x]$ est stable pour $+$. 
+  L'inverse de $g(x)$ est $-g(x) = -b_0 - b_1 x  \cdots - b_m x^m ∈ R[x]$. Alors
+  on a $f-g ∈ R[x]$. 
+  
   Le    produit de $f$ et $g$ s'écrit comme
 
   \begin{equation}
@@ -148,7 +156,7 @@ Bref, on a la formule
     \label{eq:8}
     f(x) ⋅g(x) = ∑_{i=1}^{m+n} ( ∑_{j+k = i} a_j b_k) \, x^i ∈ R[x]. 
   \end{equation}
-  C'est à dire que $R[x]$ est stable pour l'opération $⋅$ de $S$. Alors, $R[x]$ est un sous-anneau de $S$ et 
+  C'est à dire que $R[x]$ est stable pour l'opération $⋅$ de $S$.  Alors, $R[x]$ est un sous-anneau de $S$ et 
   donc $R[x]$ est un anneau. La formule~\eqref{eq:8} implique que
   $R[x]$ est commutatif, si $R$ est commutatif.
 
