@@ -552,17 +552,232 @@ Dans cette section, soit $K$ un corps.
 \end{example}
 
 \begin{theorem}
-  Soient $f(x) ≠0$ et $g(x)≠0$ deux polynômes sur $K$. Il existe un unique polynôme $d(x)∈K[x]$ tel que
-  \begin{enumerate}
-  \item le coefficient dominant de $d(x)$ est $1$
-  \item $d(x) \mid f(x)$ et $d(x) \mid g(x)$.
-  \item Chaque $h(x) ∈ K[x]$ tel que $h(x) \mid f(x)$  et $h(x) \mid g(x)$, divise $d(x)$.
-  \item il existe $u(x), v(x) ∈K[x]$ tels que
-    \begin{displaymath}
-      d(x) = u(x) f(x) + v(x) g(x). 
-    \end{displaymath}
+  \label{thr:54}
+  Soient $f(x)$ et $g(x)$ deux polynômes sur $K$ pas tous les deux égal à zero et soit 
+  \begin{displaymath}
+    I = \{ u ⋅ f + v ⋅ g ： u,v ∈ K[x]\}.
+  \end{displaymath}
+  Il existe un  polynôme $d(x)∈K[x]$ tel que
+  \begin{equation}
+    \label{eq:51}
+    I = \{ h ⋅ d ： w ∈ K[x]\}. 
+  \end{equation}
+\end{theorem}
+
+\begin{proof}
+  On observe que $I$ contient des polynômes non nul. Soit $d ∈ I \setminus \{0\}$ de degré minimal et $u',v' ∈ K[x]$ tel que
+  \begin{displaymath}
+    u' ⋅ f + v' ⋅g = d. 
+  \end{displaymath}
+  Soit $u⋅f + v⋅ g ∈ I$. Si $d$ ne divise pas ce polynôme, division avec reste donne $u⋅f + v⋅ g = qd +r$, où $r≠0$  et $\deg(r) < \deg(d)$. Alors
+  \begin{displaymath}
+    r = (u - qu') ⋅ f + (v - qv') ⋅ g ∈ I
+  \end{displaymath}
+  est c'est une contradiction du fait que $d ∈ I \setminus\{0\}$ de degré minimal. C'est à dire $d \mid u⋅f + v⋅ g$ et alors il existe un $h∈K[x]$ tel que $h⋅d =  u⋅f + v⋅ g$. Des que $h⋅d ∈I$ pour tous $h ∈K[x]$ on a démontré l'assertion.   
+\end{proof}
+
+
+\begin{definition}
+  \label{def:54}
+  Un polynôme $f(x) ∈ K[x] \setminus \{0\}$  dont le coefficient dominant est $1$ est appelé un \emph{polynôme unitaire}. 
+\end{definition}
+
+
+\begin{definition}
+  \label{def:55}
+  Soient $f,g ∈ K[x]$ pas tous les deux égal à zéro. Un diviseur commun de $f$ et $g$  est un diviseur de $f$ et $g$. 
+\end{definition}
+
+\begin{theorem}
+  \label{thr:55}
+  Soient $f, g$ et $d$  comme dans le  Théorème~\ref{thr:54}.
+  \begin{enumerate}[i)]
+  \item $d$ est un diviseur commun de $f$ et $g$. \label{item:24}
+  \item Chaque diviseur commun de $f$ et $g$ est un diviseur de $d$. \label{item:25}
+  \item Si $d$ est unitaire, alors $d$ est unique.  \label{item:26}
   \end{enumerate}
 \end{theorem}
+
+\begin{proof}
+  L'assertion \ref{item:24}) suit du fait que $f,g ∈ I$. Soient $u,v ∈K[x]$  tel que
+  $    d = u⋅f  + v ⋅ g $
+  et soit $w$ un diviseur commun de $f$ et $g$. Alors il existent $f',g' ∈K[x]$ tel que  $f = f' w$ et $g = g' w$. Alors
+  \begin{displaymath}
+    d = (u⋅f'  + v ⋅ g') w,
+  \end{displaymath}
+  ce que montre que $w \mid d$ et \ref{item:25}). 
+  Soient $d$ et $d'$ deux polynômes unitaires satisfaisant~\eqref{eq:51}. \ref{item:24}) et \ref{item:25}) impliquent $d \mid d'$ et $d' \mid d$.
+  Alors il existent $z,z' ∈K[x]$ tel que $d = d' z'$ et $d' = dz$. Alors $d = d ⋅z ⋅ z'$. Theorème~\ref{thr:34} implique $z,z' ∈ K$. Et des que $d$ et $d'$ sont unitaires, $z=z'=1$, ce que démontre \ref{item:26}). 
+\end{proof}
+
+\begin{definition}
+  \label{def:56}
+  L'unique polynôme unitaire $d ∈ K[x]$ satisfaisant \eqref{eq:51} est appelé  le \emph{plus grand commun diviseur} de et $f$ et $g$. 
+\end{definition}
+
+\subsection{L'algorithme de Euclide}
+\label{sec:lalg-de-eucl}
+
+
+
+Pour calculer le plus grand diviseur commun de $f(x)$ et $g(x)$  on peut utiliser l'algorithme d'Euclide. Soient $f_0,f_1 ∈K[x]$ pas tout les deux nuls et $\deg(f_0) ≥ \deg(f_1)$. Si $f_1 = 0$, alors
+\begin{displaymath}
+\gcd(f_0,f_1) =   f_0. 
+\end{displaymath}
+Autrement, on applique la division avec reste
+\begin{displaymath}
+  f_0 = q_1 f_1 + f_2, 
+\end{displaymath}
+où $q_1,f_2 ∈K[x]$ et $ \deg(f_2)< \deg(f_1)$. Un polynôme  $d ∈K[x]$ est un diviseur commun de $f_0$ et $f_1$ si et seulement si $d$ est un diviseur commun de $f_1$ et $f_2$. L'algorithme d'Euclide est le procédé de calculer la suite $f_0,f_1,f_2,\dots,f_{k-1},f_k ∈K[x]$  où $\deg(f_{k-1})≥0$, $f_k=0$ et 
+\begin{displaymath}
+  f_{i-1} = q_i f_i + f_{i+1} 
+\end{displaymath}
+est le résultat de la division avec reste de $f_{i-1} $ par $f_i$. 
+
+\begin{example}
+  \label{exe:25-b}
+  On calcule le plus grand diviseur commun de
+$f_0 =  4 x^{6} + x^{4} + 2 x^{2} + 2 ∈ℤ_5[x]$  et 
+$f_1 =  3 x^{4} + x^{3} + 2 x^{2} + 2 x + 2 ∈ℤ_5[x]$. 
+  \begin{displaymath}
+   q_1 =  3 x^{2} + 4 x + 2, \, 
+   f_2 =  4 x^{3} + 4 x^{2} + 3 x + 3, 
+ \end{displaymath}
+
+ \begin{displaymath}
+   q_2 =  2 x + 2, \, 
+f_3 =  3 x^{2} + 1, 
+\end{displaymath}
+
+\begin{displaymath}
+  q_3 =  3 x + 3, \, 
+  f_4 =  0. 
+\end{displaymath}
+Alors tout diviseur commun de $f_0$ et $f_1$ divise $f_3 =  3 x^{2} + 1$ et $f_3$ est aussi un diviseur commun. On divise par $3$ (multiplie avec $2$) et on obtient  $\gcd(f_0,f_1) = x^2 +2$. 
+
+\end{example}
+
+Le calcul des suites $f_i$ et $q_i$ donne aussi une représentation $\gcd(f_0,f_1) = u ⋅f_0 + v ⋅f_1$, $u,v ∈K[x]$. En effet
+
+
+\begin{displaymath}
+  \begin{pmatrix}
+    f_{i} \\  f_{i+1} 
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+    0 & 1 \\
+    1 & -q_i
+  \end{pmatrix}
+  \begin{pmatrix}
+     f_{i-1} \\  f_{i}
+   \end{pmatrix}
+\end{displaymath}
+et alors
+\begin{displaymath}
+  \begin{pmatrix}
+    f_{k-1} \\ f_k
+  \end{pmatrix} =
+  \begin{pmatrix}
+    0 & 1 \\
+    1 & -q_{k-1}
+  \end{pmatrix} \cdots
+  \begin{pmatrix}
+    0 & 1 \\
+    1 & -q_{1}
+  \end{pmatrix}
+  \begin{pmatrix}
+    f_0 \\ f_1
+  \end{pmatrix}.
+\end{displaymath}
+\begin{example}
+  \label{exe:26}
+  On continue l'exemple~\ref{exe:25-b}.
+
+
+  \begin{displaymath}
+    \left(\begin{array}{rr}
+3 x + 3 & x^{3} + 4 x^{2} + 2 x \\
+x^{2} + 2 x + 2 & 2 x^{4} + 4 x^{2} + 3
+\end{array}\right) = 
+    \left(\begin{array}{rr}
+0 & 1 \\
+1 & 2 x + 2
+\end{array}\right) \left(\begin{array}{rr}
+0 & 1 \\
+1 & 3 x + 3
+\end{array}\right) \left(\begin{array}{rr}
+0 & 1 \\
+1 & 2 x^{2} + x + 3
+                         \end{array}\right)                                 
+                     \end{displaymath}
+                     et
+\begin{displaymath}
+\left(\begin{array}{r}
+3 x^{2} + 1 \\
+0
+\end{array}\right) = \left(\begin{array}{rr}
+3 x + 3 & x^{3} + 4 x^{2} + 2 x \\
+x^{2} + 2 x + 2 & 2 x^{4} + 4 x^{2} + 3
+\end{array}\right)
+\left(\begin{array}{r}
+4 x^{6} + x^{4} + 2 x^{2} + 2 \\
+3 x^{4} + x^{3} + 2 x^{2} + 2 x + 2
+\end{array}\right).   
+\end{displaymath}
+
+\begin{displaymath}
+ \left(\begin{array}{r}
+x^{2} + 2 \\
+0
+\end{array}\right) =
+\left(\begin{array}{rr}
+x + 1 & 2 x^{3} + 3 x^{2} + 4 x \\
+2 x^{2} + 4 x + 4 & 4 x^{4} + 3 x^{2} + 1
+\end{array}\right)
+\left(\begin{array}{r}
+4 x^{6} + x^{4} + 2 x^{2} + 2 \\
+3 x^{4} + x^{3} + 2 x^{2} + 2 x + 2
+\end{array}\right)
+\end{displaymath}
+
+Alors
+
+\begin{displaymath}
+  x^{2} + 2 = \gcd(f_0,f_1) = (x + 1)f_0 + (2 x^{3} + 3 x^{2} + 4 x) f_1. 
+\end{displaymath}
+\end{example}
+
+
+
+\subsection{Factorisation en irréductibles}
+\label{sec:fact-en-irred}
+Clairement, tout polynôme $f(x) ∈ K[x] \setminus \{0\}$    peut être factorisé comme
+\begin{equation}
+  \label{eq:33}
+  f(x) = a ⋅ ∏_i p_i(x),
+\end{equation}
+dont les $p_i$ sont irréductibles est unitaires et $a ∈ K$. Est-ce que cette factorisation est unique?
+
+\begin{theorem}
+\label{thr:56}
+  Soit $p(x) ∈K[x]$ irréductible et supposons que $p(x)$ divise un produit $f_1(x) \cdots f_k(x)$ de polynômes non nul. Alors $p(x)$ divise un polynôme $f_i(x)$. 
+\end{theorem}
+
+
+\begin{proof}
+  Par induction il suffit de démontrer l'assertion pour $k=2$. Alors, supposons $p \mid fg$, $f,g ∈K[x] \setminus \{0\}$. Si $p$ ne divise pas $f$, alors $\gcd(p,f) = 1$. Soient $u,v ∈ K[x]$ t.q.  $up + vf = 1$. Alors $upg + vfg = g$, alors $u \mid g$. 
+\end{proof}
+
+
+\begin{theorem}
+  \label{thr:57}
+  La factorisation~\eqref{eq:33} est unique sauf à l'ordre des $p_i$. 
+\end{theorem}
+
+\begin{proof}
+  Pour une  factorisation $f(x) = a ∏_i q_i(x)$, où les $q_i$ sont irréductibles et unitaires on utilise Théorème~\ref{thr:56} pour déduire qu'il  existe $j$ tel que  $p_1 \mid q_j$. Des que $p_1$ et $q_j$ sont  irréductibles et unitaires, alors $p_1 = q_j$. On divise par $p_1$. L'assertion suit par induction. 
+\end{proof}
 
 
 %%% Local Variables:
