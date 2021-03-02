@@ -229,11 +229,11 @@ Un polynôme $p(x) = a_0 + a_1 x + \cdots + a_n x^n ∈ R[x]$ induit une applica
 
 \begin{example}
   \label{exe:43}
-  Soit $p(x) = x ∈ R[x]$ et $q(x) = (x + a) ∈ R[x]$, alors $p(x) q(x) = x^2 - ax$. Quand est-ce que on a $p(r) q(r) = (p ⋅q)(r)$? C'est le cas si es seulement si
+  Soit $p(x) = x ∈ R[x]$ et $q(x) = (x + a) ∈ R[x]$, alors $p(x) q(x) = x^2 - ax$. Quand est-ce que l'on a $p(r) q(r) = (p ⋅q)(r)$? C'est le cas si et seulement si
   \begin{displaymath}
      r^2 + r a = r^2 + a r  
    \end{displaymath}
-   alors si et seulement si $ra = ar$. 
+   c'est-à-dire si et seulement si $ra = ar$. 
 \end{example}
 
 
@@ -252,7 +252,7 @@ est un morphisme d'anneaux surjectif.
 
 \begin{exercise}
   \label{exe:44}
-  Démontrer Théorème~\ref{thr:53}. 
+  Démontrer le théorème~\ref{thr:53}. 
 \end{exercise}
 
 Deux polynômes différents $p$ et $q$ peuvent induire la même application $f_p$ et $f_q$, même s'ils sont des polynômes sur un corps $K$.
@@ -324,7 +324,7 @@ Par contre, si $K$ est un corps infini, deux polynômes différents induisent de
 Comme les $r_i$ sont distincts, le produit   $(r_n-r_0) \cdots (r_1-r_0) $ n'est pas zéro. Par l'hypothèse de récurrence, $\det(V_{r_1,\dots,r_n}) ≠0$ et donc $\det(V_{r_0,r_1,\dots,r_n}) ≠0$.  
 \end{proof}
 
-Le Théorème~\ref{thr:52} ne contredit pas l'exemple~\ref{exe:36} car le corps $ℤ_2$ n'admet que $2$ éléments. Il existe bel et bien un unique polynôme $p \in  ℤ_2[x]$ de degré inférieur ou égal à 1 tel que $p(0) = p(1) = 0$. Une énumération des polynômes possibles ou la résolution du système linéaire donne $p=0$.
+Le théorème~\ref{thr:52} ne contredit pas l'exemple~\ref{exe:36} car le corps $ℤ_2$ n'admet que $2$ éléments. Il existe bel et bien un unique polynôme $p \in  ℤ_2[x]$ de degré inférieur ou égal à 1 tel que $p(0) = p(1) = 0$. Une énumération des polynômes possibles ou la résolution du système linéaire donne $p=0$.
 
 \begin{exercise}
   \label{exe:37}
@@ -423,7 +423,7 @@ Alors
 \begin{displaymath}
    r(x) - r'(x) = (q(x) - q'(x)) ⋅ g(x). 
 \end{displaymath}
-Par le Théorème~\ref{thr:34}
+Par le théorème~\ref{thr:34}
 \begin{displaymath}
  \deg( r - r')  = \deg(q - q') + \deg(g) \geq \deg(g), 
 \end{displaymath}
@@ -478,7 +478,7 @@ ce qui contredit le fait que $\deg(r) < \deg(g)$ et $\deg(r') < \deg(g)$.
 \begin{example}
   \label{exe:40}
   Soit $p(x) = x^4 + x^3 + x^2 + x + 1 ∈ ℤ_5(x)$, alors $α = 1$ est une racine de $p(x)$. 
-\end{example}
+\end{example}f
 
 
 \begin{theorem}[Théorème fondamentale d'algebre]
@@ -525,7 +525,7 @@ avec $\deg(r) \leq 0$. Alors $f(\alpha) = 0$ implique $r=0$.
   \begin{displaymath}
     x^4 + x^3 + x^2 + x + 1 = (x-1)^4,
   \end{displaymath}
-  alors la multiplicité de la racine $1$ de $p(x)$ est $4$ parce que $(x-1)^4$ divise $p$ mais pas $(x-1)^5$, en tant que polynôme de degré 5 (Théorème~\ref{thr:34}).   
+  alors la multiplicité de la racine $1$ de $p(x)$ est $4$ parce que $(x-1)^4$ divise $p$ mais pas $(x-1)^5$, en tant que polynôme de degré 5 (théorème~\ref{thr:34}).   
 \end{example}
 
 
@@ -546,34 +546,34 @@ Dans cette section, soit $K$ un corps.
 \begin{example}
   \label{exe:46}
   \begin{enumerate}
-  \item   Chaque polynôme linéaire $p(x) = ax + b ∈ K[x]$, $a ∈ K \setminus\{0\}$ est irréductible. En effet, si $p(x) = f(x) g(x)$ et $\deg(f)>0$ et $\deg(g)>0$, alors le Théorème~\ref{thr:34} implique que $\deg(p) >1$.
+  \item   Chaque polynôme linéaire $p(x) = ax + b ∈ K[x]$, $a ∈ K \setminus\{0\}$ est irréductible. En effet, si $p(x) = f(x) g(x)$ et $\deg(f)>0$ et $\deg(g)>0$, alors le théorème~\ref{thr:34} implique que $\deg(p) >1$.
   \item $x^2 +1 ∈ℝ[x]$ est irréductible. Autrement, il existe un polynôme linéaire $f(x) =  x - α ∈ ℝ[x]$ qui divise $f$ ce qui implique que $α$ est une racine de $x^2 +1$. Cependant aucun nombre $α$ réel satisfait $α^2 = -1$.
   \end{enumerate}
 \end{example}
 
 \begin{theorem}
   \label{thr:54}
-  Soient $f(x)$ et $g(x)$ deux polynômes sur $K$ pas tous les deux égal à zero et soit 
+  Soient $f(x)$ et $g(x)$ deux polynômes sur $K$ pas tous les deux nuls et soit 
   \begin{displaymath}
     I = \{ u ⋅ f + v ⋅ g ： u,v ∈ K[x]\}.
   \end{displaymath}
   Il existe un  polynôme $d(x)∈K[x]$ tel que
   \begin{equation}
     \label{eq:51}
-    I = \{ h ⋅ d ： w ∈ K[x]\}. 
+    I = \{ h ⋅ d ： h ∈ K[x]\}. 
   \end{equation}
 \end{theorem}
 
 \begin{proof}
-  On observe que $I$ contient des polynômes non nul. Soit $d ∈ I \setminus \{0\}$ de degré minimal et $u',v' ∈ K[x]$ tel que
+  Remarquons que $I$ contient des polynômes non nuls (notamment $f$ ou $g$). Soit $d ∈ I \setminus \{0\}$ de degré minimal et $u',v' ∈ K[x]$ tels que
   \begin{displaymath}
     u' ⋅ f + v' ⋅g = d. 
   \end{displaymath}
-  Soit $u⋅f + v⋅ g ∈ I$. Si $d$ ne divise pas ce polynôme, division avec reste donne $u⋅f + v⋅ g = qd +r$, où $r≠0$  et $\deg(r) < \deg(d)$. Alors
+  Soit $u⋅f + v⋅ g ∈ I$. La division avec reste donne $u⋅f + v⋅ g = qd +r$, avec $\deg(r) < \deg(d)$. Alors
   \begin{displaymath}
     r = (u - qu') ⋅ f + (v - qv') ⋅ g ∈ I
   \end{displaymath}
-  est c'est une contradiction du fait que $d ∈ I \setminus\{0\}$ de degré minimal. C'est à dire $d \mid u⋅f + v⋅ g$ et alors il existe un $h∈K[x]$ tel que $h⋅d =  u⋅f + v⋅ g$. Des que $h⋅d ∈I$ pour tous $h ∈K[x]$ on a démontré l'assertion.   
+  et par minimalité de $d ∈ I \setminus\{0\}$, $r=0$. Ainsi il existe un $h∈K[x]$ tel que $h⋅d =  u⋅f + v⋅ g$. Clairement $h⋅d ∈I$ pour tous les $h ∈K[x]$ et l'assertion est démontrée.   
 \end{proof}
 
 
@@ -585,12 +585,12 @@ Dans cette section, soit $K$ un corps.
 
 \begin{definition}
   \label{def:55}
-  Soient $f,g ∈ K[x]$ pas tous les deux égal à zéro. Un diviseur commun de $f$ et $g$  est un diviseur de $f$ et $g$. 
+  Soient $f,g ∈ K[x]$ pas tous les deux égaux à zéro. Un \emph{diviseur commun} de $f$ et $g$  est un diviseur de $f$ et $g$. 
 \end{definition}
 
 \begin{theorem}
   \label{thr:55}
-  Soient $f, g$ et $d$  comme dans le  Théorème~\ref{thr:54}.
+  Soient $f, g$ et $d$  comme dans le  théorème~\ref{thr:54}.
   \begin{enumerate}[i)]
   \item $d$ est un diviseur commun de $f$ et $g$. \label{item:24}
   \item Chaque diviseur commun de $f$ et $g$ est un diviseur de $d$. \label{item:25}
@@ -599,28 +599,28 @@ Dans cette section, soit $K$ un corps.
 \end{theorem}
 
 \begin{proof}
-  L'assertion \ref{item:24}) suit du fait que $f,g ∈ I$. Soient $u,v ∈K[x]$  tel que
+  L'assertion \ref{item:24}) suit du fait que $f,g ∈ I$ et de~\eqref{eq:51}. Soient $u,v ∈K[x]$  tels que
   $    d = u⋅f  + v ⋅ g $
-  et soit $w$ un diviseur commun de $f$ et $g$. Alors il existent $f',g' ∈K[x]$ tel que  $f = f' w$ et $g = g' w$. Alors
+  et soit $w$ un diviseur commun de $f$ et $g$. Alors il existe $f',g' ∈K[x]$ tels que  $f = f' w$ et $g = g' w$. Par conséquent
   \begin{displaymath}
     d = (u⋅f'  + v ⋅ g') w,
   \end{displaymath}
   ce que montre que $w \mid d$ et \ref{item:25}). 
-  Soient $d$ et $d'$ deux polynômes unitaires satisfaisant~\eqref{eq:51}. \ref{item:24}) et \ref{item:25}) impliquent $d \mid d'$ et $d' \mid d$.
-  Alors il existent $z,z' ∈K[x]$ tel que $d = d' z'$ et $d' = dz$. Alors $d = d ⋅z ⋅ z'$. Theorème~\ref{thr:34} implique $z,z' ∈ K$. Et des que $d$ et $d'$ sont unitaires, $z=z'=1$, ce que démontre \ref{item:26}). 
+  Soient $d$ et $d'$ deux polynômes unitaires satisfaisant~\eqref{eq:51}. \ref{item:24}) et \ref{item:25}) impliquent que $d \mid d'$ et $d' \mid d$.
+  Alors il existe $z,z' ∈K[x]$ tel que $d = d' z'$ et $d' = dz$. Par suite, $d = d ⋅z ⋅ z'$. Le theorème~\ref{thr:34} implique que $z,z' ∈ K$. Et comme $d$ et $d'$ sont unitaires, $z=z'=1$, ce que démontre \ref{item:26}). 
 \end{proof}
 
 \begin{definition}
   \label{def:56}
-  L'unique polynôme unitaire $d ∈ K[x]$ satisfaisant \eqref{eq:51} est appelé  le \emph{plus grand commun diviseur} de et $f$ et $g$. 
+  L'unique polynôme unitaire $d ∈ K[x]$ satisfaisant \eqref{eq:51} est appelé  le \emph{plus grand commun diviseur} de et $f$ et $g$. Il est noté $\gcd(f,g)$ ou pgcd$(f,g)$.
 \end{definition}
 
-\subsection{L'algorithme de Euclide}
+\subsection{L'algorithme d'Euclide}
 \label{sec:lalg-de-eucl}
 
 
 
-Pour calculer le plus grand diviseur commun de $f(x)$ et $g(x)$  on peut utiliser l'algorithme d'Euclide. Soient $f_0,f_1 ∈K[x]$ pas tout les deux nuls et $\deg(f_0) ≥ \deg(f_1)$. Si $f_1 = 0$, alors
+Pour calculer le plus grand diviseur commun de $f(x)$ et $g(x)$  on peut utiliser l'algorithme d'Euclide. Soient $f_0,f_1 ∈K[x]$ pas tous les deux nuls et $\deg(f_0) ≥ \deg(f_1)$. Si $f_1 = 0$, alors
 \begin{displaymath}
 \gcd(f_0,f_1) =   f_0. 
 \end{displaymath}
@@ -632,7 +632,9 @@ où $q_1,f_2 ∈K[x]$ et $ \deg(f_2)< \deg(f_1)$. Un polynôme  $d ∈K[x]$ est 
 \begin{displaymath}
   f_{i-1} = q_i f_i + f_{i+1} 
 \end{displaymath}
-est le résultat de la division avec reste de $f_{i-1} $ par $f_i$. 
+est le résultat de la division avec reste de $f_{i-1} $ par $f_i$. Le procédé se termine toujours car la suite des degrés $\{\deg(f_i)\}$ est entière et strictement décroissante (méthode de descente infinie de Fermat). Le dernier reste non nul $f_{k-1}$ est un multiple constant de $\gcd(f_0,f_1)$ : il suffit de diviser par le coefficient dominant pour le rendre unitaire.
+
+%% maybe prove this fact: f_{k-1} is in I and divides both f_0 and f_1, so it divides d and d divides it. The unicity of {thr:55}iii) gives the result.
 
 \begin{example}
   \label{exe:25-b}
@@ -653,7 +655,7 @@ f_3 =  3 x^{2} + 1,
   q_3 =  3 x + 3, \, 
   f_4 =  0. 
 \end{displaymath}
-Alors tout diviseur commun de $f_0$ et $f_1$ divise $f_3 =  3 x^{2} + 1$ et $f_3$ est aussi un diviseur commun. On divise par $3$ (multiplie avec $2$) et on obtient  $\gcd(f_0,f_1) = x^2 +2$. 
+Alors tout diviseur commun de $f_0$ et $f_1$ divise $f_3 =  3 x^{2} + 1$ et $f_3$ est aussi un diviseur commun. On divise par $3$ (ou multiplie par $2$) et on obtient  $\gcd(f_0,f_1) = x^2 +2$. 
 
 \end{example}
 
@@ -766,17 +768,17 @@ dont les $p_i$ sont irréductibles est unitaires et $a ∈ K$. Est-ce que cette 
 
 
 \begin{proof}
-  Par induction il suffit de démontrer l'assertion pour $k=2$. Alors, supposons $p \mid fg$, $f,g ∈K[x] \setminus \{0\}$. Si $p$ ne divise pas $f$, alors $\gcd(p,f) = 1$. Soient $u,v ∈ K[x]$ t.q.  $up + vf = 1$. Alors $upg + vfg = g$, alors $u \mid g$. 
+  Par récurrence il suffit de démontrer l'assertion pour $k=2$. Ainsi, supposons $p \mid fg$, $f,g ∈K[x] \setminus \{0\}$. Si $p$ ne divise pas $f$, alors $\gcd(p,f) = 1$ car les seuls diviseurs de $p$ sont des multiples constants de $1$ et lui-même. Soient donc $u,v ∈ K[x]$ t.q.  $up + vf = 1$. Alors $upg + vfg = g$, et donc $u \mid g$. 
 \end{proof}
 
 
 \begin{theorem}
   \label{thr:57}
-  La factorisation~\eqref{eq:33} est unique sauf à l'ordre des $p_i$. 
+  La factorisation~\eqref{eq:33} est unique à l'ordre près des $p_i$. 
 \end{theorem}
 
 \begin{proof}
-  Pour une  factorisation $f(x) = a ∏_i q_i(x)$, où les $q_i$ sont irréductibles et unitaires on utilise Théorème~\ref{thr:56} pour déduire qu'il  existe $j$ tel que  $p_1 \mid q_j$. Des que $p_1$ et $q_j$ sont  irréductibles et unitaires, alors $p_1 = q_j$. On divise par $p_1$. L'assertion suit par induction. 
+  Pour une  factorisation $f(x) = a ∏_i q_i(x)$, où les $q_i$ sont irréductibles et unitaires on utilise le théorème~\ref{thr:56} pour déduire qu'il  existe $j$ tel que  $p_1 \mid q_j$. Comme $p_1$ et $q_j$ sont  irréductibles et unitaires, $p_1 = q_j$. En divisant par $p_1$, l'assertion suit par récurrence. 
 \end{proof}
 
 
