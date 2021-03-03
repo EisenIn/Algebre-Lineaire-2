@@ -759,7 +759,7 @@ Clairement, tout polynôme $f(x) ∈ K[x] \setminus \{0\}$    peut être factori
   \label{eq:33}
   f(x) = a ⋅ ∏_i p_i(x),
 \end{equation}
-dont les $p_i$ sont irréductibles est unitaires et $a ∈ K$. Est-ce que cette factorisation est unique?
+dont les $p_i$ sont irréductibles est unitaires et $a ∈ K$. On va voir maintenant que cette factorisation est unique. 
 
 \begin{theorem}
 \label{thr:56}
@@ -768,7 +768,7 @@ dont les $p_i$ sont irréductibles est unitaires et $a ∈ K$. Est-ce que cette 
 
 
 \begin{proof}
-  Par récurrence il suffit de démontrer l'assertion pour $k=2$. Ainsi, supposons $p \mid fg$, $f,g ∈K[x] \setminus \{0\}$. Si $p$ ne divise pas $f$, alors $\gcd(p,f) = 1$ car les seuls diviseurs de $p$ sont des multiples constants de $1$ et lui-même. Soient donc $u,v ∈ K[x]$ t.q.  $up + vf = 1$. Alors $upg + vfg = g$, et donc $u \mid g$. 
+  Par récurrence il suffit de démontrer l'assertion pour $k=2$. Ainsi, supposons $p \mid fg$, $f,g ∈K[x] \setminus \{0\}$. Si $p$ ne divise pas $f$, alors $\gcd(p,f) = 1$ car les seuls diviseurs de $p$ sont des multiples constants de $1$ et lui-même. Soient donc $u,v ∈ K[x]$ t.q.  $up + vf = 1$. Alors $upg + vfg = g$, et donc $p \mid g$. 
 \end{proof}
 
 
@@ -780,6 +780,19 @@ dont les $p_i$ sont irréductibles est unitaires et $a ∈ K$. Est-ce que cette 
 \begin{proof}
   Pour une  factorisation $f(x) = a ∏_i q_i(x)$, où les $q_i$ sont irréductibles et unitaires on utilise le théorème~\ref{thr:56} pour déduire qu'il  existe $j$ tel que  $p_1 \mid q_j$. Comme $p_1$ et $q_j$ sont  irréductibles et unitaires, $p_1 = q_j$. En divisant par $p_1$, l'assertion suit par récurrence. 
 \end{proof}
+
+
+\begin{corollary}
+  \label{co:11}
+  Soient $f(x) ∈ K[x] \setminus \{0\}$ et $α_1,\dots, α_ℓ$ des racines de $f$ de multiplicité $k_1,\dots,k_ℓ$ respectivement. Alors il existe $g(x)∈ K[x]$ tel que  
+  \begin{displaymath}
+    f(x) = g(x) ⋅ ∏_{i=1}^ℓ (x - α_i)^{k_i} .
+  \end{displaymath}
+\end{corollary}
+
+\begin{exercise}
+  Démontre le Corollaire~\ref{co:11}. 
+\end{exercise}
 
 
 %%% Local Variables:
