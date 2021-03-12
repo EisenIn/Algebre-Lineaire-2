@@ -162,26 +162,26 @@ est un ensemble libre. L'application $f$ est diagonalisable si et seulement si
 \end{displaymath}
 \end{corollary}
 \begin{proof}
-  Soit
+  Soit la combinaison linéaire 
   \begin{displaymath}
-    ∑_{i=1}^r ∑_{j=1}^{n_i} α_{ij} v^{(i)}_j = 0,
+    ∑_{i=1}^r ∑_{j=1}^{n_i} α_{ij} v^{(i)}_j = 0.
   \end{displaymath}
-  alors les $ ∑_{j=1}^{n_i} α_{ij} v^{(i)}_j = 0$ selon Lemme~\ref{elem:1} et des que les $v_1^{(i)},\dots,v_{n_i}^{(i)}$ son linéairement indépendants, alors les $α_{ij}$ sont tous égal a zéro. Ça démontre que
+  Remarquons que les vecteurs $ ∑_{j=1}^{n_i} α_{ij} v^{(i)}_j $ appartiennent à $E_{\lambda_i}$ pour tout $i$. Autrement dit, ce sont des vecteurs propres associés à des valeurs propres distinctes et dont la somme est nulle. Le lemme~\ref{elem:1} garantit donc que tous les vecteurs soient nuls. Par suite, $ ∑_{j=1}^{n_i} α_{ij} v^{(i)}_j $ et les $α_{ij}$ sont tous égaux à zéro car les $v_1^{(i)},\dots,v_{n_i}^{(i)}$ sont linéairement indépendants. Ça démontre que
    \begin{displaymath}
-    \{ v_1^{(1)},\dots,v_{n_1}^{(1)},v_1^{(2)},\dots,v_{n_2}^{(2)},\cdots,v_1^{(r)},\dots,v_{n_r}^{(r)} \}
-  \end{displaymath} est un ensemble libre. En plus, si $n_1+\cdots+n_r=n$, $f$ est diagonalisable.
+    \{ v_1^{(1)},\dots,v_{n_1}^{(1)},v_1^{(2)},\dots,v_{n_2}^{(2)},\cdots,v_1^{(r)},\dots,v_{n_r}^{(r)} \}	
+  \end{displaymath} est un ensemble libre. En plus, si $n_1+\cdots+n_r=n$, $f$ est diagonalisable par définition car l'ensemble forme une base de $K^n$.
 
-  À l'inverse, si $f$ est diagonalisable, et si $m_i$ dénote le nombre vecteurs propres en $E_{λ_i}$ dans la base consistant de vecteurs propres, alors $m_i ≤ n_i$. On a
+  À l'inverse, si $f$ est diagonalisable, et si $m_i$ dénote le nombre vecteurs propres en $E_{λ_i}$ dans la base consistant de vecteurs propres, alors $m_i ≤ n_i$, et on a
   \begin{displaymath}
     n = m_1 + \cdots + m_r ≤ n_1+ \cdots + n_r ≤n,
   \end{displaymath}
-  alors $n_1+\cdots + n_r =n$.
+  et donc $n_1+\cdots + n_r =n$.
 \end{proof}
 
 
 
 
-Voici un marche à suivre, comment déterminer si $f：V ⟶V$ est diagonalisable.
+Voici une marche à suivre afin de déterminer si $f：V ⟶V$ est diagonalisable ou non.
 
 \begin{enumerate}
 \item Déterminer les différentes $λ_1,\dots,λ_r ∈K$ tel que $\ker(f - λ \Id) ≠ \{ 0 \}$
@@ -219,13 +219,13 @@ Les colonnes de la matrice $A_B$ sont les coordonnées de $f(v_1),\dots,f(v_n)$ 
 \begin{displaymath}
   [x]_{B'} = P_{BB'}[x]_B,
 \end{displaymath}
-où $P_{BB'}$ est la matrice de changement de base de $B$ en $B'$. Des que
+où $P_{BB'}$ est la matrice de changement de base de $B$ en $B'$. Comme on a
 \begin{displaymath}
   [f(v)]_{B'} = A_{B'} [v]_{B'} = A_{B'} P_{BB'}[v]_B
 \end{displaymath}
 et
 \begin{displaymath}
-  [f(v)]_{B'} =  P_{BB'}[f(v)]_B 
+  [f(v)]_{B'} =  P_{BB'}[f(v)]_B,
 \end{displaymath}
 on trouve
 \begin{displaymath}
@@ -250,31 +250,33 @@ Clairement, $λ$ est une valeur propre de $f$ si et seulement si $λ$ est une va
   \det(A_B - λ I_n) = 0.
 \end{equation}
 
-
-
-Rappelons nous la formule de Leibniz pour le déterminant d'une matrice $B ∈ K^{n ×n}$
+Rappelons la formule de Leibniz pour le déterminant d'une matrice $B ∈ K^{n ×n}$
 \begin{equation}
   \label{eq:31}
   \det(B)  = ∑_{π ∈S_n} \sign(π) ∏_{i=1}^n b_{iπ(i)}
 \end{equation}
-et si on collecte les potences de $λ$, alors
+et si on regroupe les puissances de $λ$, on a
 \begin{equation}
   \label{eq:32}
   \det(A_B - λI_n) = a_n λ^n + a_{n-1} λ^{n-1}+ \dots + a_1 λ+ a_0
 \end{equation}
-où $a_n,\dots,a_0 ∈K$. Des que $\det(A_B) = \det(A - 0 ⋅ I_n)$, alors $a_0 = \det(A_B)$.
+où $a_n,\dots,a_0 ∈K$. 
 
+\begin{definition}
+  \label{def:50}
+  Le polynôme $\det(A_B - λI_n) ∈ K[λ]$ est le \emph{polynôme caractéristique} de $f$.   
+\end{definition}
 
-
-L'expression \eqref{eq:32} est un polynôme avec indéterminée $λ$ et  comme polynôme formel, est défini par la formule de Leibniz
+Remarquons que $\det(A_B) = \det(A - 0 ⋅ I_n)$, d'où $a_0 = \det(A_B)$.
+L'expression \eqref{eq:32} est un polynôme avec indéterminée $λ$ et comme polynôme formel, est défini par la formule de Leibniz
 \begin{displaymath}
-p_A(λ) = \det(A - λ I_n) = ∑_{π ∈S_n} \sign(π) ∏_{i=1}^n (A - λ I_n)_{iπ(i)}.
+p_A(λ) = \det(A - λ I_n) = ∑_{π ∈S_n} \sign(π) ∏_{i=1}^n (A - λ I_n)_{i,π(i)}.
 \end{displaymath}
-Il est la somme des polynômes $ \sign(π) ∏_{i=1}^n (A - λ I_n)_{iπ(i)}$. Ça démontre que le degré de $p_A(λ)$ est au plus $n$. Mais le degré de
+En tant que somme des polynômes $ \sign(π) ∏_{i=1}^n (A - λ I_n)_{i,π(i)}$, son degré est au plus $n$. Considérons la permutation triviale $\pi = \Id$ donnant le produit de degré $n$
 \begin{displaymath}
-  \sign(\Id) ∏_{i=1}^n (A - λ I_n)_{i\Id(i)}
+  \sign(\Id) ∏_{i=1}^n (A - λ I_n)_{i\Id(i)} =  ∏_{i=1}^n (A_{ii} - λ),
 \end{displaymath}
-est $n$ exacte. Ça démontre aussi que $a_n = (-1)^n$.
+et en remarquons que toutes les autres permutations aboutissent à un produit au degré inférieur à $n-2$. Cela signifie en particulier que $a_n = (-1)^n$, et donc que le polynôme caractéristique est de degré $n$.
 
 \begin{lemma}
   \label{lem:22}
@@ -287,18 +289,9 @@ Soit $p_A(λ) = a_0 + a_1 λ + \cdots + a_n λ^n$ le polynôme caractéristique 
   Soit $V ≠ \{0\}$ un espace vectoriel de dimension fini sur $K = ℂ$, et $f: V → V$ un endomorphisme. Alors $f$ possède une valeur propre. 
 \end{corollary}
 \begin{proof}
-  Soit $f(λ) ∈ ℂ[λ]$ le polynôme caractéristique de $f$ et $n$ la dimension de $V$. Le degré de $f$ est égal à $n≥1$, alors $p(x)$ possède une racine $λ^* ∈ℂ$. Cette racine $λ^*$  est une valeur propre de $f$. 
+  Soit $f(λ) ∈ ℂ[λ]$ le polynôme caractéristique de $f$ et $n$ la dimension de $V$. Le degré de $f$ est égal à $n≥1$, et donc $p(x)$ possède une racine $λ^* ∈ℂ$ (théorème fondamental de l'algèbre). Cette racine $λ^*$  est une valeur propre de $f$. 
 \end{proof}
 
-
-
-
-
-
-\begin{definition}
-  \label{def:50}
-  Le polynôme $\det(A_B - λI_n) ∈ K[λ]$ est le \emph{polynome caractéristique} de $f$.   
-\end{definition}
 
 \begin{remark}
   \label{rem:6}
