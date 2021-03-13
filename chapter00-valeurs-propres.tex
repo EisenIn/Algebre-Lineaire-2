@@ -364,14 +364,14 @@ B =     \{ v_1,\dots,v_m, w_1,\dots,w_{n-m}\}
 \end{theorem}
 
 \begin{proof}
-  Soit $f$ diagonalisable. Soit $B$ une base composé de vecteurs propres de $f$ et $A$ la matrice de $f$ associé à la base $B$. Lemme~\ref{lem:4} implique que $A$ est diagonale et alors  $p_f(x) = \det(A - x \Id) = (-1)^n ∏_{i=1}^r (x - λ_i)^{g_i}$. La dimension de $E_{λ_i}$ est celle du $\ker(A - λ_i I_n)$. Et clairement $\dim(\ker(A - λ_i I_n)) = g_i$. Alors on a \ref{item:19}) et \ref{item:20}).
+  Supposons $f$ diagonalisable. Soit $B$ une base composée de vecteurs propres de $f$ et $A$ la matrice de $f$ associée à la base $B$. Le lemme~\ref{lem:4} implique que $A$ est diagonale et alors  $p_f(x) = \det(A - x \Id) = (-1)^n ∏_{i=1}^r (x - λ_i)^{g_i}$. La dimension de $E_{λ_i}$ est celle du noyau $\ker(A - λ_i I_n)$. Clairement $\dim(\ker(A - λ_i I_n)) = g_i$, et on a alors montré \ref{item:19}) et \ref{item:20}).
 
 
-  Si  on a \ref{item:19}) et \ref{item:20}), soient $m_i$ les multiplicités géométriques des valeurs propres $λ_i$, $i=1,\dots,r$. Des que
+  Supposons maintenant que \ref{item:19}) et \ref{item:20}) tiennent. Soient $m_i$ les multiplicités géométriques des valeurs propres $λ_i$, $i=1,\dots,r$. Comme on a
   \begin{displaymath}
-    \deg((-1)^n∏_{i=1}^n (λ_i -x)^{g_i} =n,
+    \deg((-1)^n∏_{i=1}^n (λ_i -x)^{g_i}) =n,
   \end{displaymath}
-  alors $m_1+ \cdots + m_r = n$ et $f$ est diagonalisable avec corollaire~\ref{eco:1}. 
+  alors $m_1+ \cdots + m_r = n$ et $f$ est diagonalisable grâce au corollaire~\ref{eco:1}. 
 \end{proof}
 
 
@@ -390,7 +390,7 @@ B =     \{ v_1,\dots,v_m, w_1,\dots,w_{n-m}\}
     \begin{displaymath}
       p(x) = -x^3 + x^2 + x -1 = - (x-1)^2 (x+1). 
     \end{displaymath}
-    Les valeurs propre de $f$ sont $λ_1 = 1$ et $λ_2 = -1$ et
+    Les valeurs propres de $f$ sont $λ_1 = 1$ et $λ_2 = -1$ et
     \begin{displaymath}
       \left\{
           \begin{pmatrix}
@@ -427,9 +427,9 @@ B =     \{ v_1,\dots,v_m, w_1,\dots,w_{n-m}\}
     \end{displaymath}
     et
     \begin{displaymath}
-      P_{BB'} = \left(\begin{matrix}1 & 0 & 1\\0 & 1 & 3\\1 & 1 & 2\end{matrix}\right)^{-1} 
+      P_{BB'} = \left(\begin{matrix}1 & 0 & 1\\0 & 1 & 3\\1 & 1 & 2\end{matrix}\right)^{-1}.
     \end{displaymath}
-    On peut vérifier 
+    On peut vérifier qu'on a bien
 \begin{equation}
   A_{B} =  P_{BB'}^{-1} A_{B'}  P_{BB'}. 
 \end{equation}
@@ -451,11 +451,11 @@ B =     \{ v_1,\dots,v_m, w_1,\dots,w_{n-m}\}
   \label{def:42}
   Deux matrices $A,B ∈K^{n×n}$ sont \emph{semblables}, s'il existe une matrice inversible $P ∈ K^{n ×n}$ tel que $A = P^{-1} ⋅B ⋅P$.  
 \end{definition}
-L'équation~\eqref{eq:36} montre que les matrices $A_B$ et $A_{B'}$ d'un endomorphisme $f：V⟶V$ sont semblables, où $B$ et $B'$ sont deux bases de $V$ respectivement.
+L'équation~\eqref{eq:36} montre que les matrices $A_B$ et $A_{B'}$ d'un endomorphisme $f：V⟶V$ sont semblables, pour $B$ et $B'$ deux bases de $V$.
 
 \begin{definition}
   \label{def:43}
-  L'ensemble des valeurs propres d'une matrice $A ∈ K^{n ×n}$ (d'un endomorphisme $f：V ⟶V$) est appelé le \emph{spectre} de $A$ (de $f$), noté $\spec(A)$ ($\spec(f)$). 
+  L'ensemble des valeurs propres d'une matrice $A ∈ K^{n ×n}$ (resp. d'un endomorphisme $f：V ⟶V$) est appelé le \emph{spectre} de $A$ (resp. de $f$), noté $\spec(A)$ (resp. $\spec(f)$). 
 \end{definition}
 
 \begin{theorem}
@@ -473,15 +473,15 @@ L'équation~\eqref{eq:36} montre que les matrices $A_B$ et $A_{B'}$ d'un endomor
 \label{sec:theoreme-de-hamilton}
 
 
-Soit $A ∈ K^{n ×n}$ et $p(x) = a_0 + a_1x + \cdots + a_n x^n ∈ K[x] ⧹\{0\}$ un polynôme. On peut évaluer le polynôme à la matrice $A$ comme suivant:
+Soit $A ∈ K^{n ×n}$ et $p(x) = a_0 + a_1x + \cdots + a_n x^n ∈ K[x] ⧹\{0\}$ un polynôme. On peut évaluer le polynôme en la matrice $A$ comme suit :
 \begin{displaymath}
   p(A) = a_0 ⋅I_n + a_1 A + \cdots + a_n A^n ∈ K^{n ×n}. 
 \end{displaymath}
-Maintenant, soit $p_A(x)$ le polynôme caractéristique de $A$ et $v$ un vecteur propre de $A$ associé a la valeur propre $λ$. On voit
+Maintenant, soit $p_A(x)$ le polynôme caractéristique de $A$ et $v$ un vecteur propre de $A$ associé à la valeur propre $λ$. On voit
 \begin{displaymath}
   p_A(A) ⋅v = a_0 v + a_1 λv + \cdots + a_n λ^n v = p_A(λ)v = 0 ⋅v = 0. 
 \end{displaymath}
-Alors, si $A$ est diagonalisable, soit $v_1,\dots,v_n$ une base de vecteurs propres. Des que   $p_A(A) ⋅v_i = 0$ pour tous $i$, alors $p_A(A) =0$. 
+Dans le cas où $A$ est diagonalisable, il existe une base de vecteurs propres $\{ v_1,\dots,v_n \}$. On a alors $p_A(A) ⋅v_i = 0$ pour tous $i$, et donc $p_A(A) =0$. 
 
 \begin{theorem}[Hamilton-Cayley] 
   \label{thr:47}
@@ -493,13 +493,15 @@ Alors, si $A$ est diagonalisable, soit $v_1,\dots,v_n$ une base de vecteurs prop
 \begin{proof}
  On écrit
   \begin{displaymath}
-    \det(A - λI_n) I_n = \cof(A - λI_n)^T (A - λI_n).
+    \det(A - λI_n) I_n = \cof(A - λI_n)^T (A - λI_n),
   \end{displaymath}
-  En groupant les coefficients de $λ^i$ dans  $\cof(A - λI_n)^T$ on obtient
+  où $\cof(A - λI_n)$ est la comatrice de $(A - λI_n)$.
+  
+  En regroupant les coefficients de $λ^i$ dans $\cof(A - λI_n)^T$ on obtient
   \begin{displaymath}
     \cof(A - λI_n)^T = ∑_{i=0}^{n-1} λ^i B_i
   \end{displaymath}
-  avec des matrices $B_i ∈K^{n ×n}$ et alors
+  avec certaines matrices $B_i ∈K^{n ×n}$. Alors
   \begin{displaymath}
     a_0 I_n + a_1 λ I_n + \cdots + a_nλ^n I_n  = B_0A + ∑_{i=1}^{n-1}λ^i (B_iA - B_{i-1}) - λ^n B_{n-1},
   \end{displaymath}
@@ -512,7 +514,7 @@ Alors, si $A$ est diagonalisable, soit $v_1,\dots,v_n$ une base de vecteurs prop
       a_n I_n & = & - B_{n-1}
     \end{array}
   \end{equation}
-  ce que sont des équations de matrices en $K^{n ×n}$. Si on multiplie les matrices indicées par $i$ a droite par $A^i$ et somme les termes a gauche du signe d'égalité, on obtient $p_A(A)$.  Les termes a droites ce sommes a la matrice $0$. 
+  ce que sont des équations de matrices en $K^{n ×n}$. Si on multiplie les matrices indicées par $i$ à droite par $A^i$ et qu'on somme les équations, on obtient $p_A(A)$ à gauche du signe d'égalité. À droite, on obtient une somme téléscopique égale à la matrice nulle.
 \end{proof}
 
 
@@ -526,11 +528,17 @@ Le polyn\^ome caract\'eristique de $A = \left( \begin{array}{cc} 1 & 1 \\ 0 & 2
  p_A(A) = (I_n-A)(2I_n-A) = 0 
 \]
 Pour la matrices $A = \left( \begin{array}{cc} 2 & 0 \\ 0 & 2 \end{array}
-\right)$, on a bien sur que $p_A(A) = 0$ pour $p_A(t) = (2-t)^2$. Mais il existe un polyn\^ome de degr\'e $1$, $q(t) = t-2$, tel que $q(A) = 0$. Le \emph{polyn\^ome minimal} de $A$
-est le polyn\^ome unitaire de degr\'e minimum parmi ceux qui annulent $A$, c-\`a-d $q(A) = 0$. Nous examinerons de plus près le polyn{\^o}me minimal du chapitre~\ref{sec:polyn-les-lalg}.
+\right)$, on a bien sûr que $p_A(A) = 0$ pour $p_A(t) = (2-t)^2$. Cependant, il existe un polyn\^ome unitaire de degr\'e strictement inférieur tel que $q(A) = 0$, à savoir $q(t) = t-2$. 
+
+\begin{definition}
+  \label{def:44}
+  Le polyn\^ome unitaire de degr\'e minimal parmi ceux qui annulent $A$ est appelé \emph{polyn\^ome minimal} de $A$.
+\end{definition}
+
+Nous examinerons de plus près le polyn{\^o}me minimal du chapitre~\ref{sec:polyn-les-lalg}.
 \end{example}
 
-Les resultats suivants donnent des utilisations typiques du théorème~\ref{thr:47}
+Les résultats suivants donnent des utilisations typiques du théorème~\ref{thr:47}
 \begin{corollary} Soit $A \in K^{n ×n}$.
 \begin{enumerate}
 \item[(i)] Toute puissance $A^k$ avec $k∈ℕ$ peut s'\'ecrire comme une combinaison lin\'eaire des puissances $I,A,A^2,\ldots,A^{n-1}$.
