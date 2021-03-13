@@ -295,13 +295,13 @@ Soit $p_A(λ) = a_0 + a_1 λ + \cdots + a_n λ^n$ le polynôme caractéristique 
 
 \begin{remark}
   \label{rem:6}
-  Pour deux bases $B$ et $B'$, des que $A_{B} =  P_{BB'}^{-1} A_{B'}  P_{BB'}$, alors
+  Pour deux bases $B$ et $B'$, comme on a $A_{B} =  P_{BB'}^{-1} A_{B'}  P_{BB'}$, alors
   \begin{eqnarray*}
     \det(A_B - λI_n) & = & \det(P_{BB'}^{-1} A_{B'}  P_{BB'} - λP_{BB'}^{-1}I_n  P_{BB'}) \\
                      & = & \det(P_{BB'}^{-1}) \det(A_{B' }- λI_n) \det(P_{BB'}) \\
-     & = & \det(A_{B' }- λI_n),
+     & = & \det(A_{B' }- λI_n).
   \end{eqnarray*}
-  La définition~\ref{def:50} ne dépend donc pas de la base choisie et a donc un sens.
+  La définition~\ref{def:50} ne dépend ainsi pas de la base choisie et a donc un sens.
 \end{remark}
 
 
@@ -326,7 +326,7 @@ B =     \{ v_1,\dots,v_m, w_1,\dots,w_{n-m}\}
     \end{displaymath}
     de $V$.
 
-    La matrice $A_B$ est alors de la forme
+    La matrice $A_B$ de l'endomorphisme $f$ dans la base $B$ est alors de la forme
     \begin{displaymath}
       A_B =
       \begin{pmatrix}
@@ -334,7 +334,7 @@ B =     \{ v_1,\dots,v_m, w_1,\dots,w_{n-m}\}
         0 & D
       \end{pmatrix}
     \end{displaymath}
-    où $C ∈ K^{m × n-m}$ et $D ∈ K^{(n-m) ×(n-m)}$. En effet, on a par définition $A_B[v_i]_{B} = [A_B v_i]_{B}$. Par conséquent, $A_B e_i = \lambda e_i$, où $e_i$ est le $i$-ème vecteur canonique de dimension $n$.
+    où $C ∈ K^{m × n-m}$ et $D ∈ K^{(n-m) ×(n-m)}$. En effet, on a par définition $A_B[v_i]_{B} = [f(v_i)]_{B}$, et par conséquent $A_B e_i = \lambda e_i$, où $e_i$ est le $i$-ème vecteur canonique de dimension $n$.
     
     Lorsqu'on développe le déterminant d'une matrice en blocs comme $A_B$ grâce à la formule de Leibniz, seules les permutations envoyant $\{1, \dots, m\}$ et $\{m+1, \dots, n\}$ sur eux-même donnent un produit non nul. On peut alors diviser la somme en deux pour obtenir que le déterminant est exactement le produit des déterminants des blocs diagonaux.
     Le polynôme caractéristique $p(x) ∈ K[x]$ de $f$ est alors
