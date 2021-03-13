@@ -162,26 +162,26 @@ est un ensemble libre. L'application $f$ est diagonalisable si et seulement si
 \end{displaymath}
 \end{corollary}
 \begin{proof}
-  Soit
+  Soit la combinaison linéaire 
   \begin{displaymath}
-    ∑_{i=1}^r ∑_{j=1}^{n_i} α_{ij} v^{(i)}_j = 0,
+    ∑_{i=1}^r ∑_{j=1}^{n_i} α_{ij} v^{(i)}_j = 0.
   \end{displaymath}
-  alors les $ ∑_{j=1}^{n_i} α_{ij} v^{(i)}_j = 0$ selon Lemme~\ref{elem:1} et des que les $v_1^{(i)},\dots,v_{n_i}^{(i)}$ son linéairement indépendants, alors les $α_{ij}$ sont tous égal a zéro. Ça démontre que
+  Remarquons que les vecteurs $ ∑_{j=1}^{n_i} α_{ij} v^{(i)}_j $ appartiennent à $E_{\lambda_i}$ pour tout $i$. Autrement dit, ce sont des vecteurs propres associés à des valeurs propres distinctes et dont la somme est nulle. Le lemme~\ref{elem:1} garantit donc que tous les vecteurs soient nuls. Par suite, $ ∑_{j=1}^{n_i} α_{ij} v^{(i)}_j $ et les $α_{ij}$ sont tous égaux à zéro car les $v_1^{(i)},\dots,v_{n_i}^{(i)}$ sont linéairement indépendants. Ça démontre que
    \begin{displaymath}
-    \{ v_1^{(1)},\dots,v_{n_1}^{(1)},v_1^{(2)},\dots,v_{n_2}^{(2)},\cdots,v_1^{(r)},\dots,v_{n_r}^{(r)} \}
-  \end{displaymath} est un ensemble libre. En plus, si $n_1+\cdots+n_r=n$, $f$ est diagonalisable.
+    \{ v_1^{(1)},\dots,v_{n_1}^{(1)},v_1^{(2)},\dots,v_{n_2}^{(2)},\cdots,v_1^{(r)},\dots,v_{n_r}^{(r)} \}	
+  \end{displaymath} est un ensemble libre. En plus, si $n_1+\cdots+n_r=n$, $f$ est diagonalisable par définition car l'ensemble forme une base de $K^n$.
 
-  À l'inverse, si $f$ est diagonalisable, et si $m_i$ dénote le nombre vecteurs propres en $E_{λ_i}$ dans la base consistant de vecteurs propres, alors $m_i ≤ n_i$. On a
+  À l'inverse, si $f$ est diagonalisable, et si $m_i$ dénote le nombre vecteurs propres en $E_{λ_i}$ dans la base consistant de vecteurs propres, alors $m_i ≤ n_i$, et on a
   \begin{displaymath}
     n = m_1 + \cdots + m_r ≤ n_1+ \cdots + n_r ≤n,
   \end{displaymath}
-  alors $n_1+\cdots + n_r =n$.
+  et donc $n_1+\cdots + n_r =n$.
 \end{proof}
 
 
 
 
-Voici un marche à suivre, comment déterminer si $f：V ⟶V$ est diagonalisable.
+Voici une marche à suivre afin de déterminer si $f：V ⟶V$ est diagonalisable ou non.
 
 \begin{enumerate}
 \item Déterminer les différentes $λ_1,\dots,λ_r ∈K$ tel que $\ker(f - λ \Id) ≠ \{ 0 \}$
@@ -219,13 +219,13 @@ Les colonnes de la matrice $A_B$ sont les coordonnées de $f(v_1),\dots,f(v_n)$ 
 \begin{displaymath}
   [x]_{B'} = P_{BB'}[x]_B,
 \end{displaymath}
-où $P_{BB'}$ est la matrice de changement de base de $B$ en $B'$. Des que
+où $P_{BB'}$ est la matrice de changement de base de $B$ en $B'$. Comme on a
 \begin{displaymath}
   [f(v)]_{B'} = A_{B'} [v]_{B'} = A_{B'} P_{BB'}[v]_B
 \end{displaymath}
 et
 \begin{displaymath}
-  [f(v)]_{B'} =  P_{BB'}[f(v)]_B 
+  [f(v)]_{B'} =  P_{BB'}[f(v)]_B,
 \end{displaymath}
 on trouve
 \begin{displaymath}
@@ -250,31 +250,33 @@ Clairement, $λ$ est une valeur propre de $f$ si et seulement si $λ$ est une va
   \det(A_B - λ I_n) = 0.
 \end{equation}
 
-
-
-Rappelons nous la formule de Leibniz pour le déterminant d'une matrice $B ∈ K^{n ×n}$
+Rappelons la formule de Leibniz pour le déterminant d'une matrice $B ∈ K^{n ×n}$
 \begin{equation}
   \label{eq:31}
   \det(B)  = ∑_{π ∈S_n} \sign(π) ∏_{i=1}^n b_{iπ(i)}
 \end{equation}
-et si on collecte les potences de $λ$, alors
+et si on regroupe les puissances de $λ$, on a
 \begin{equation}
   \label{eq:32}
   \det(A_B - λI_n) = a_n λ^n + a_{n-1} λ^{n-1}+ \dots + a_1 λ+ a_0
 \end{equation}
-où $a_n,\dots,a_0 ∈K$. Des que $\det(A_B) = \det(A - 0 ⋅ I_n)$, alors $a_0 = \det(A_B)$.
+où $a_n,\dots,a_0 ∈K$. 
 
+\begin{definition}
+  \label{def:50}
+  Le polynôme $\det(A_B - λI_n) ∈ K[λ]$ est le \emph{polynôme caractéristique} de $f$.   
+\end{definition}
 
-
-L'expression \eqref{eq:32} est un polynôme avec indéterminée $λ$ et  comme polynôme formel, est défini par la formule de Leibniz
+Remarquons que $\det(A_B) = \det(A - 0 ⋅ I_n)$, d'où $a_0 = \det(A_B)$.
+L'expression \eqref{eq:32} est un polynôme avec indéterminée $λ$ et comme polynôme formel, est défini par la formule de Leibniz
 \begin{displaymath}
-p_A(λ) = \det(A - λ I_n) = ∑_{π ∈S_n} \sign(π) ∏_{i=1}^n (A - λ I_n)_{iπ(i)}.
+p_A(λ) = \det(A - λ I_n) = ∑_{π ∈S_n} \sign(π) ∏_{i=1}^n (A - λ I_n)_{i,π(i)}.
 \end{displaymath}
-Il est la somme des polynômes $ \sign(π) ∏_{i=1}^n (A - λ I_n)_{iπ(i)}$. Ça démontre que le degré de $p_A(λ)$ est au plus $n$. Mais le degré de
+En tant que somme des polynômes $ \sign(π) ∏_{i=1}^n (A - λ I_n)_{i,π(i)}$, son degré est au plus $n$. Considérons la permutation triviale $\pi = \Id$ donnant le produit de degré $n$
 \begin{displaymath}
-  \sign(\Id) ∏_{i=1}^n (A - λ I_n)_{i\Id(i)}
+  \sign(\Id) ∏_{i=1}^n (A - λ I_n)_{i\Id(i)} =  ∏_{i=1}^n (A_{ii} - λ),
 \end{displaymath}
-est $n$ exacte. Ça démontre aussi que $a_n = (-1)^n$.
+et en remarquons que toutes les autres permutations aboutissent à un produit au degré inférieur à $n-2$. Cela signifie en particulier que $a_n = (-1)^n$, et donc que le polynôme caractéristique est de degré $n$.
 
 \begin{lemma}
   \label{lem:22}
@@ -287,18 +289,9 @@ Soit $p_A(λ) = a_0 + a_1 λ + \cdots + a_n λ^n$ le polynôme caractéristique 
   Soit $V ≠ \{0\}$ un espace vectoriel de dimension fini sur $K = ℂ$, et $f: V → V$ un endomorphisme. Alors $f$ possède une valeur propre. 
 \end{corollary}
 \begin{proof}
-  Soit $f(λ) ∈ ℂ[λ]$ le polynôme caractéristique de $f$ et $n$ la dimension de $V$. Le degré de $f$ est égal à $n≥1$, alors $p(x)$ possède une racine $λ^* ∈ℂ$. Cette racine $λ^*$  est une valeur propre de $f$. 
+  Soit $f(λ) ∈ ℂ[λ]$ le polynôme caractéristique de $f$ et $n$ la dimension de $V$. Le degré de $f$ est égal à $n≥1$, et donc $p(x)$ possède une racine $λ^* ∈ℂ$ (théorème fondamental de l'algèbre). Cette racine $λ^*$  est une valeur propre de $f$. 
 \end{proof}
 
-
-
-
-
-
-\begin{definition}
-  \label{def:50}
-  Le polynôme $\det(A_B - λI_n) ∈ K[λ]$ est le \emph{polynome caractéristique} de $f$.   
-\end{definition}
 
 \begin{remark}
   \label{rem:6}
@@ -308,7 +301,7 @@ Soit $p_A(λ) = a_0 + a_1 λ + \cdots + a_n λ^n$ le polynôme caractéristique 
                      & = & \det(P_{BB'}^{-1}) \det(A_{B' }- λI_n) \det(P_{BB'}) \\
      & = & \det(A_{B' }- λI_n),
   \end{eqnarray*}
-  c.à.d. Définition~\ref{def:50} fait du sense.  
+  La définition~\ref{def:50} ne dépend donc pas de la base choisie et a donc un sens.
 \end{remark}
 
 
@@ -317,7 +310,7 @@ Soit $p_A(λ) = a_0 + a_1 λ + \cdots + a_n λ^n$ le polynôme caractéristique 
 \begin{definition}
   \label{def:57}
  
-  Soit  $λ ∈K$ une valeur propre de l'endomorphisme  $f: V ⟶V$  une base de $V$ La \emph{multiplicité algébrique} de $λ$ est la multiplicité de $λ$ comme racine de $\det(f - λ \Id)$. 
+  Soit  $λ ∈K$ une valeur propre de l'endomorphisme  $f: V ⟶V$. La \emph{multiplicité algébrique} de $λ$ est la multiplicité de $λ$ comme racine de $\det(f - λ \Id)$. 
 \end{definition}
 
 
@@ -327,13 +320,13 @@ Soit $p_A(λ) = a_0 + a_1 λ + \cdots + a_n λ^n$ le polynôme caractéristique 
   \end{proposition}
 
   \begin{proof}
-    Soit $m$ la multiplicité géométrique de $λ$ et soit  $\{v_1,\dots,v_m\}$  und base de $E_{λ}$. On peut augmenter cette base de $E_{λ}$ à une base
+    Soit $m$ la multiplicité géométrique de $λ$ et soit  $\{v_1,\dots,v_m\}$  une base de $E_{λ}$. On la complète en une base
     \begin{displaymath}
 B =     \{ v_1,\dots,v_m, w_1,\dots,w_{n-m}\} 
     \end{displaymath}
     de $V$.
 
-    La matrice $A_B$ est de la forme
+    La matrice $A_B$ est alors de la forme
     \begin{displaymath}
       A_B =
       \begin{pmatrix}
@@ -341,8 +334,10 @@ B =     \{ v_1,\dots,v_m, w_1,\dots,w_{n-m}\}
         0 & D
       \end{pmatrix}
     \end{displaymath}
-    où $C ∈ K^{m × n-m}$ et $D ∈ K^{(n-m) ×(n-m)}$.
-    Le polynôme caractéristique $p(x) ∈ K[x]$ de $f$ est
+    où $C ∈ K^{m × n-m}$ et $D ∈ K^{(n-m) ×(n-m)}$. En effet, on a par définition $A_B[v_i]_{B} = [A_B v_i]_{B}$. Par conséquent, $A_B e_i = \lambda e_i$, où $e_i$ est le $i$-ème vecteur canonique de dimension $n$.
+    
+    Lorsqu'on développe le déterminant d'une matrice en blocs comme $A_B$ grâce à la formule de Leibniz, seules les permutations envoyant $\{1, \dots, m\}$ et $\{m+1, \dots, n\}$ sur eux-même donnent un produit non nul. On peut alors diviser la somme en deux pour obtenir que le déterminant est exactement le produit des déterminants des blocs diagonaux.
+    Le polynôme caractéristique $p(x) ∈ K[x]$ de $f$ est alors
     \begin{eqnarray*} p(x) & = &  
       \det   \begin{pmatrix}
         (λ -x) I_m & C \\
@@ -350,7 +345,7 @@ B =     \{ v_1,\dots,v_m, w_1,\dots,w_{n-m}\}
       \end{pmatrix} \\
           & = & (λ -x)^m \det \left(D-xI_{n-m}\right). 
     \end{eqnarray*}
-    Alors la multiplicité algébrique de $λ$ est au moins $m$. 
+    La multiplicité algébrique de $λ$ est donc au moins $m$. 
   \end{proof}
 
 
@@ -359,7 +354,7 @@ B =     \{ v_1,\dots,v_m, w_1,\dots,w_{n-m}\}
   \label{thr:45}
   Soit $V$ un espace vectoriel sur $K$ de dimension $n$, $f:V⟶V$  un endomorphisme et $λ_1,\dots,λ_r ∈ K$ les valeurs propres distinctes de $f$.    Alors $f$ est diagonalisable si et seulement si 
   \begin{enumerate}[i)]
-  \item le polynôme caractéristique $p_f(x)$ de $f$ décompose en facteurs linéaires, c'est à dire, \label{item:19} 
+  \item le polynôme caractéristique $p_f(x)$ de $f$ décompose en facteurs linéaires, c'est-à-dire, \label{item:19} 
     \begin{displaymath}
       p_f(x) = (-1)^n ∏_{i=1}^r (x - λ_i )^{g_i}
     \end{displaymath}
@@ -369,14 +364,14 @@ B =     \{ v_1,\dots,v_m, w_1,\dots,w_{n-m}\}
 \end{theorem}
 
 \begin{proof}
-  Soit $f$ diagonalisable. Soit $B$ une base composé de vecteurs propres de $f$ et $A$ la matrice de $f$ associé à la base $B$. Lemme~\ref{lem:4} implique que $A$ est diagonale et alors  $p_f(x) = \det(A - x \Id) = (-1)^n ∏_{i=1}^r (x - λ_i)^{g_i}$. La dimension de $E_{λ_i}$ est celle du $\ker(A - λ_i I_n)$. Et clairement $\dim(\ker(A - λ_i I_n)) = g_i$. Alors on a \ref{item:19}) et \ref{item:20}).
+  Supposons $f$ diagonalisable. Soit $B$ une base composée de vecteurs propres de $f$ et $A$ la matrice de $f$ associée à la base $B$. Le lemme~\ref{lem:4} implique que $A$ est diagonale et alors  $p_f(x) = \det(A - x \Id) = (-1)^n ∏_{i=1}^r (x - λ_i)^{g_i}$. La dimension de $E_{λ_i}$ est celle du noyau $\ker(A - λ_i I_n)$. Clairement $\dim(\ker(A - λ_i I_n)) = g_i$, et on a alors montré \ref{item:19}) et \ref{item:20}).
 
 
-  Si  on a \ref{item:19}) et \ref{item:20}), soient $m_i$ les multiplicités géométriques des valeurs propres $λ_i$, $i=1,\dots,r$. Des que
+  Supposons maintenant que \ref{item:19}) et \ref{item:20}) tiennent. Soient $m_i$ les multiplicités géométriques des valeurs propres $λ_i$, $i=1,\dots,r$. Comme on a
   \begin{displaymath}
-    \deg((-1)^n∏_{i=1}^n (λ_i -x)^{g_i} =n,
+    \deg((-1)^n∏_{i=1}^n (λ_i -x)^{g_i}) =n,
   \end{displaymath}
-  alors $m_1+ \cdots + m_r = n$ et $f$ est diagonalisable avec corollaire~\ref{eco:1}. 
+  alors $m_1+ \cdots + m_r = n$ et $f$ est diagonalisable grâce au corollaire~\ref{eco:1}. 
 \end{proof}
 
 
@@ -395,7 +390,7 @@ B =     \{ v_1,\dots,v_m, w_1,\dots,w_{n-m}\}
     \begin{displaymath}
       p(x) = -x^3 + x^2 + x -1 = - (x-1)^2 (x+1). 
     \end{displaymath}
-    Les valeurs propre de $f$ sont $λ_1 = 1$ et $λ_2 = -1$ et
+    Les valeurs propres de $f$ sont $λ_1 = 1$ et $λ_2 = -1$ et
     \begin{displaymath}
       \left\{
           \begin{pmatrix}
@@ -432,9 +427,9 @@ B =     \{ v_1,\dots,v_m, w_1,\dots,w_{n-m}\}
     \end{displaymath}
     et
     \begin{displaymath}
-      P_{BB'} = \left(\begin{matrix}1 & 0 & 1\\0 & 1 & 3\\1 & 1 & 2\end{matrix}\right)^{-1} 
+      P_{BB'} = \left(\begin{matrix}1 & 0 & 1\\0 & 1 & 3\\1 & 1 & 2\end{matrix}\right)^{-1}.
     \end{displaymath}
-    On peut vérifier 
+    On peut vérifier qu'on a bien
 \begin{equation}
   A_{B} =  P_{BB'}^{-1} A_{B'}  P_{BB'}. 
 \end{equation}
@@ -456,11 +451,11 @@ B =     \{ v_1,\dots,v_m, w_1,\dots,w_{n-m}\}
   \label{def:42}
   Deux matrices $A,B ∈K^{n×n}$ sont \emph{semblables}, s'il existe une matrice inversible $P ∈ K^{n ×n}$ tel que $A = P^{-1} ⋅B ⋅P$.  
 \end{definition}
-L'équation~\eqref{eq:36} montre que les matrices $A_B$ et $A_{B'}$ d'un endomorphisme $f：V⟶V$ sont semblables, où $B$ et $B'$ sont deux bases de $V$ respectivement.
+L'équation~\eqref{eq:36} montre que les matrices $A_B$ et $A_{B'}$ d'un endomorphisme $f：V⟶V$ sont semblables, pour $B$ et $B'$ deux bases de $V$.
 
 \begin{definition}
   \label{def:43}
-  L'ensemble des valeurs propres d'une matrice $A ∈ K^{n ×n}$ (d'un endomorphisme $f：V ⟶V$) est appelé le \emph{spectre} de $A$ (de $f$), noté $\spec(A)$ ($\spec(f)$). 
+  L'ensemble des valeurs propres d'une matrice $A ∈ K^{n ×n}$ (resp. d'un endomorphisme $f：V ⟶V$) est appelé le \emph{spectre} de $A$ (resp. de $f$), noté $\spec(A)$ (resp. $\spec(f)$). 
 \end{definition}
 
 \begin{theorem}
@@ -478,15 +473,15 @@ L'équation~\eqref{eq:36} montre que les matrices $A_B$ et $A_{B'}$ d'un endomor
 \label{sec:theoreme-de-hamilton}
 
 
-Soit $A ∈ K^{n ×n}$ et $p(x) = a_0 + a_1x + \cdots + a_n x^n ∈ K[x] ⧹\{0\}$ un polynôme. On peut évaluer le polynôme à la matrice $A$ comme suivant:
+Soit $A ∈ K^{n ×n}$ et $p(x) = a_0 + a_1x + \cdots + a_n x^n ∈ K[x] ⧹\{0\}$ un polynôme. On peut évaluer le polynôme en la matrice $A$ comme suit :
 \begin{displaymath}
   p(A) = a_0 ⋅I_n + a_1 A + \cdots + a_n A^n ∈ K^{n ×n}. 
 \end{displaymath}
-Maintenant, soit $p_A(x)$ le polynôme caractéristique de $A$ et $v$ un vecteur propre de $A$ associé a la valeur propre $λ$. On voit
+Maintenant, soit $p_A(x)$ le polynôme caractéristique de $A$ et $v$ un vecteur propre de $A$ associé à la valeur propre $λ$. On voit
 \begin{displaymath}
   p_A(A) ⋅v = a_0 v + a_1 λv + \cdots + a_n λ^n v = p_A(λ)v = 0 ⋅v = 0. 
 \end{displaymath}
-Alors, si $A$ est diagonalisable, soit $v_1,\dots,v_n$ une base de vecteurs propres. Des que   $p_A(A) ⋅v_i = 0$ pour tous $i$, alors $p_A(A) =0$. 
+Dans le cas où $A$ est diagonalisable, il existe une base de vecteurs propres $\{ v_1,\dots,v_n \}$. On a alors $p_A(A) ⋅v_i = 0$ pour tous $i$, et donc $p_A(A) =0$. 
 
 \begin{theorem}[Hamilton-Cayley] 
   \label{thr:47}
@@ -498,13 +493,15 @@ Alors, si $A$ est diagonalisable, soit $v_1,\dots,v_n$ une base de vecteurs prop
 \begin{proof}
  On écrit
   \begin{displaymath}
-    \det(A - λI_n) I_n = \cof(A - λI_n)^T (A - λI_n).
+    \det(A - λI_n) I_n = \cof(A - λI_n)^T (A - λI_n),
   \end{displaymath}
-  En groupant les coefficients de $λ^i$ dans  $\cof(A - λI_n)^T$ on obtient
+  où $\cof(A - λI_n)$ est la comatrice de $(A - λI_n)$.
+  
+  En regroupant les coefficients de $λ^i$ dans $\cof(A - λI_n)^T$ on obtient
   \begin{displaymath}
     \cof(A - λI_n)^T = ∑_{i=0}^{n-1} λ^i B_i
   \end{displaymath}
-  avec des matrices $B_i ∈K^{n ×n}$ et alors
+  avec certaines matrices $B_i ∈K^{n ×n}$. Alors
   \begin{displaymath}
     a_0 I_n + a_1 λ I_n + \cdots + a_nλ^n I_n  = B_0A + ∑_{i=1}^{n-1}λ^i (B_iA - B_{i-1}) - λ^n B_{n-1},
   \end{displaymath}
@@ -517,7 +514,7 @@ Alors, si $A$ est diagonalisable, soit $v_1,\dots,v_n$ une base de vecteurs prop
       a_n I_n & = & - B_{n-1}
     \end{array}
   \end{equation}
-  ce que sont des équations de matrices en $K^{n ×n}$. Si on multiplie les matrices indicées par $i$ a droite par $A^i$ et somme les termes a gauche du signe d'égalité, on obtient $p_A(A)$.  Les termes a droites ce sommes a la matrice $0$. 
+  ce que sont des équations de matrices en $K^{n ×n}$. Si on multiplie les matrices indicées par $i$ à droite par $A^i$ et qu'on somme les équations, on obtient $p_A(A)$ à gauche du signe d'égalité. À droite, on obtient une somme téléscopique égale à la matrice nulle.
 \end{proof}
 
 
@@ -531,11 +528,17 @@ Le polyn\^ome caract\'eristique de $A = \left( \begin{array}{cc} 1 & 1 \\ 0 & 2
  p_A(A) = (I_n-A)(2I_n-A) = 0 
 \]
 Pour la matrices $A = \left( \begin{array}{cc} 2 & 0 \\ 0 & 2 \end{array}
-\right)$, on a bien sur que $p_A(A) = 0$ pour $p_A(t) = (2-t)^2$. Mais il existe un polyn\^ome de degr\'e $1$, $q(t) = t-2$, tel que $q(A) = 0$. Le \emph{polyn\^ome minimal} de $A$
-est le polyn\^ome unitaire de degr\'e minimum parmi ceux qui annulent $A$, c-\`a-d $q(A) = 0$. Nous examinerons de plus près le polyn{\^o}me minimal du chapitre~\ref{sec:polyn-les-lalg}.
+\right)$, on a bien sûr que $p_A(A) = 0$ pour $p_A(t) = (2-t)^2$. Cependant, il existe un polyn\^ome unitaire de degr\'e strictement inférieur tel que $q(A) = 0$, à savoir $q(t) = t-2$. 
+
+\begin{definition}
+  \label{def:44}
+  Le polyn\^ome unitaire de degr\'e minimal parmi ceux qui annulent $A$ est appelé \emph{polyn\^ome minimal} de $A$.
+\end{definition}
+
+Nous examinerons de plus près le polyn{\^o}me minimal du chapitre~\ref{sec:polyn-les-lalg}.
 \end{example}
 
-Les resultats suivants donnent des utilisations typiques du théorème~\ref{thr:47}
+Les résultats suivants donnent des utilisations typiques du théorème~\ref{thr:47}
 \begin{corollary} Soit $A \in K^{n ×n}$.
 \begin{enumerate}
 \item[(i)] Toute puissance $A^k$ avec $k∈ℕ$ peut s'\'ecrire comme une combinaison lin\'eaire des puissances $I,A,A^2,\ldots,A^{n-1}$.
