@@ -301,7 +301,7 @@ Soit $p_A(λ) = a_0 + a_1 λ + \cdots + a_n λ^n$ le polynôme caractéristique 
                      & = & \det(P_{BB'}^{-1}) \det(A_{B' }- λI_n) \det(P_{BB'}) \\
      & = & \det(A_{B' }- λI_n),
   \end{eqnarray*}
-  c.à.d. Définition~\ref{def:50} fait du sense.  
+  La définition~\ref{def:50} ne dépend donc pas de la base choisie et a donc un sens.
 \end{remark}
 
 
@@ -310,7 +310,7 @@ Soit $p_A(λ) = a_0 + a_1 λ + \cdots + a_n λ^n$ le polynôme caractéristique 
 \begin{definition}
   \label{def:57}
  
-  Soit  $λ ∈K$ une valeur propre de l'endomorphisme  $f: V ⟶V$  une base de $V$ La \emph{multiplicité algébrique} de $λ$ est la multiplicité de $λ$ comme racine de $\det(f - λ \Id)$. 
+  Soit  $λ ∈K$ une valeur propre de l'endomorphisme  $f: V ⟶V$. La \emph{multiplicité algébrique} de $λ$ est la multiplicité de $λ$ comme racine de $\det(f - λ \Id)$. 
 \end{definition}
 
 
@@ -320,13 +320,13 @@ Soit $p_A(λ) = a_0 + a_1 λ + \cdots + a_n λ^n$ le polynôme caractéristique 
   \end{proposition}
 
   \begin{proof}
-    Soit $m$ la multiplicité géométrique de $λ$ et soit  $\{v_1,\dots,v_m\}$  und base de $E_{λ}$. On peut augmenter cette base de $E_{λ}$ à une base
+    Soit $m$ la multiplicité géométrique de $λ$ et soit  $\{v_1,\dots,v_m\}$  une base de $E_{λ}$. On la complète en une base
     \begin{displaymath}
 B =     \{ v_1,\dots,v_m, w_1,\dots,w_{n-m}\} 
     \end{displaymath}
     de $V$.
 
-    La matrice $A_B$ est de la forme
+    La matrice $A_B$ est alors de la forme
     \begin{displaymath}
       A_B =
       \begin{pmatrix}
@@ -334,8 +334,10 @@ B =     \{ v_1,\dots,v_m, w_1,\dots,w_{n-m}\}
         0 & D
       \end{pmatrix}
     \end{displaymath}
-    où $C ∈ K^{m × n-m}$ et $D ∈ K^{(n-m) ×(n-m)}$.
-    Le polynôme caractéristique $p(x) ∈ K[x]$ de $f$ est
+    où $C ∈ K^{m × n-m}$ et $D ∈ K^{(n-m) ×(n-m)}$. En effet, on a par définition $A_B[v_i]_{B} = [A_B v_i]_{B}$. Par conséquent, $A_B e_i = \lambda e_i$, où $e_i$ est le $i$-ème vecteur canonique de dimension $n$.
+    
+    Lorsqu'on développe le déterminant d'une matrice en blocs comme $A_B$ grâce à la formule de Leibniz, seules les permutations envoyant $\{1, \dots, m\}$ et $\{m+1, \dots, n\}$ sur eux-même donnent un produit non nul. On peut alors diviser la somme en deux pour obtenir que le déterminant est exactement le produit des déterminants des blocs diagonaux.
+    Le polynôme caractéristique $p(x) ∈ K[x]$ de $f$ est alors
     \begin{eqnarray*} p(x) & = &  
       \det   \begin{pmatrix}
         (λ -x) I_m & C \\
@@ -343,7 +345,7 @@ B =     \{ v_1,\dots,v_m, w_1,\dots,w_{n-m}\}
       \end{pmatrix} \\
           & = & (λ -x)^m \det \left(D-xI_{n-m}\right). 
     \end{eqnarray*}
-    Alors la multiplicité algébrique de $λ$ est au moins $m$. 
+    La multiplicité algébrique de $λ$ est donc au moins $m$. 
   \end{proof}
 
 
@@ -352,7 +354,7 @@ B =     \{ v_1,\dots,v_m, w_1,\dots,w_{n-m}\}
   \label{thr:45}
   Soit $V$ un espace vectoriel sur $K$ de dimension $n$, $f:V⟶V$  un endomorphisme et $λ_1,\dots,λ_r ∈ K$ les valeurs propres distinctes de $f$.    Alors $f$ est diagonalisable si et seulement si 
   \begin{enumerate}[i)]
-  \item le polynôme caractéristique $p_f(x)$ de $f$ décompose en facteurs linéaires, c'est à dire, \label{item:19} 
+  \item le polynôme caractéristique $p_f(x)$ de $f$ décompose en facteurs linéaires, c'est-à-dire, \label{item:19} 
     \begin{displaymath}
       p_f(x) = (-1)^n ∏_{i=1}^r (x - λ_i )^{g_i}
     \end{displaymath}
