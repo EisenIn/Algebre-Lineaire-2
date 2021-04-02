@@ -749,7 +749,7 @@ Alors on trouve  $P ∈ ℝ^{n ×n}$ inversible telle que
   Pour un espace vectoriel sur $ℝ$ de dimension finie, on appelle une base $B$ de $V$ telle que $A_B^{\pscal{,}}$ a la forme décrite en~\eqref{eq:5} une \emph{base de Sylvester}. 
 \end{definition}
 
-Nous allons maintenant démontrer, que les nombres $r$ et $s$ sont invariants par rapport à la base $B$ de $V$. 
+Nous allons maintenant démontrer, que les nombres $r$ et $s$ sont invariants par rapport au choix de la base $B$ de $V$. 
 
 
 \begin{definition}
@@ -766,11 +766,11 @@ Nous allons maintenant démontrer, que les nombres $r$ et $s$ sont invariants pa
   muni d'une forme bilinéaire symétrique. Soit $B = \{v_1,\dots,v_n\}$
   une base orthogonale de $V$.
   La dimension $\dim(V_0)$
-  est égale au nombre d'index $i$ tel que $\pscal{v_i,v_i}=0$.
+  est égale au nombre d'indices $i$ tel que $\pscal{v_i,v_i}=0$.
 \end{theorem}
 
 \begin{proof}
-  Nous utilisons la notation d'en-dessus et écrivons 
+  Nous utilisons la notation d'au-dessus et écrivons 
   \begin{displaymath}
     \pscal{v,x} =   [v]_B^T
                     \begin{pmatrix}
@@ -782,7 +782,9 @@ Nous allons maintenant démontrer, que les nombres $r$ et $s$ sont invariants pa
 Cette expression est égale à zéro pour tout $x ∈V$  si et seulement si $\left([v]_B\right)_i = 0$ pour tout $i$ tel que $c_i \neq 0$. Ceci démontre que $\{ v_i \colon \pscal{v_i,v_i}=0\}$ est une base de l'espace de nullité. 
 \end{proof}
 
-
+\begin{definition}
+  La dimension de l'espace de nullité $\dim(V_0)$ est appelé l'\emph{indice de nullité} de la forme bilinéaire symétrique. 
+\end{definition}
 
 \begin{theorem}[Théorème de Sylvester] 
 \label{thr:10}
@@ -822,11 +824,11 @@ Il existe un nombre entier $r ≥0$ tel que, pour chaque base orthogonale
   \begin{displaymath}
     x_1 v_1 + \cdots + x_r v_r = y_{r'+1} w_{r'+1} + \cdots y_n w_n 
   \end{displaymath}
-et ça implique, dès que les $v_i$ et respectivement les $w_i$  sont orthogonaux, 
+et ça implique, car les $v_i$ et respectivement les $w_i$  sont orthogonaux entre eux, 
 \begin{displaymath}
    x_1^2\pscal{v_1,v_1} + \cdots + x_r^2 \pscal{v_r,v_r} = y_{r'+1}^2 \pscal{w_{r'+1},w_{r'+1}} + \cdots y_n^2 \pscal{w_n,w_n} 
 \end{displaymath}
-Les $\pscal{v_i,v_i}$ à gauche sont strictement positifs. Les $\pscal{w_i,w_i} $ à droite sont non positifs. Alors $x_1=0,\dots,x_r = 0$ et dès que les $w_i$ sont linéairement indépendants, on a $y_{r'+1}=0,\dots,y_n=0$. 
+Les $\pscal{v_i,v_i}$ à gauche sont strictement positifs. Les $\pscal{w_i,w_i} $ à droite sont négatifs ou nuls. Il suit que $x_1=0,\dots,x_r = 0$ et, comme les $w_i$ sont linéairement indépendants, on a également $y_{r'+1}=0,\dots,y_n=0$. 
 \end{proof}
 
 
@@ -893,6 +895,7 @@ Les colonnes de $P$ sont une base du Sylvester.
 \subsection*{Exercices} 
 
 \begin{enumerate}
+\item Démontrer, à l'aide des théorèmes \ref{thr:9} et \ref{thr:10}, que l'indice de négativité (l'entier $s$ de l'équation \eqref{eq:29}) ne dépend lui aussi pas de la base choisie.
 \item Déterminer l'indice de nullité et l'indice de positivité des 
 formes bilinéaire symétriques 
  définies par les matrices suivantes
