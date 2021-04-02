@@ -489,13 +489,13 @@ Est-ce que $\spa\{v_1,v_2,v_3\}$ possède une base orthogonale par rapport à la
 \begin{displaymath}
   A = P^T B P.
 \end{displaymath}
-Nous écrivons $A \cong B$. 
+Nous écrivons dans ce cas $A \cong B$. 
 \end{definition}
 
 
 \begin{example}
   \label{exe:22}
-  Si $V$ est de dimension finie et $B,B'$ sont deux bases, \eqref{eq:28} montrer que $A_B^{\pscal{,}} \cong A_{B'}^{\pscal{,}}$. 
+  Si $V$ est de dimension finie et $B,B'$ sont deux bases de V, la relation \eqref{eq:28} montre que $A_B^{\pscal{,}} \cong A_{B'}^{\pscal{,}}$. 
 \end{example}
 
 \begin{lemma}
@@ -511,27 +511,27 @@ Nous écrivons $A \cong B$.
 Le relation entre $\cong$ et le concept de l'orthogonalité   est précisée dans le lemme suivant. 
 \begin{lemma}
 \label{thr:13}
-  Soit $B = \{v_1,\dots,v_n\}$ une base de $V$. $V$ possède une base orthogonale si et seulement s'il existe une matrice diagonale $D$ 
+  Soit $V$ un espace vectoriel de dimension finie et $B = \{v_1,\dots,v_n\}$ une base quelconque. Alors $V$ possède une base orthogonale si et seulement s'il existe une matrice diagonale $D$ 
 telle que 
  $A_B^{\pscal{.}} \cong D$. 
 \end{lemma}
 \begin{proof}
-Si $B'$ est une base orthogonale de $V$, alors $A_{B'}^{〈,〉}$ est une base diagonale. Des qu'on a \eqref{eq:28}, alors $A_{B}^{〈,〉}$ est congruente à une matrice diagonale. 
+Si $B'$ est une base orthogonale de $V$, alors $A_{B'}^{〈,〉}$ est une base diagonale. Grâce à la relation \eqref{eq:28}, $A_{B}^{〈,〉}$ est congruente à une matrice diagonale. 
 
 
 Si $A_B^{\pscal{.}} \cong D$ où $D ∈ K^{n×n}$ est une matrice diagonale, alors 
-il existe une matrice $P ∈K^{n ×n}$ inversible, tel que 
+il existe une matrice $P ∈K^{n ×n}$ inversible, telle que 
 \begin{displaymath}
   P^T A_B^{\pscal{.}} P = D. 
 \end{displaymath}
-La base  $B' = \{w_1,\dots,w_n\}$ donnée par 
+La base  $B' = \{w_1,\dots,w_n\}$ donnée par les colonnes de $P$ (en tant que coordonées dans la base $B$) :
   \begin{displaymath}
      [w_j]_B =
   \begin{pmatrix}
-    p_{1j}\\ \vdots \\ p_{nj}
-  \end{pmatrix},
+    p_{1j}\\ \vdots \\ p_{nj} 
+  \end{pmatrix} \iff w_j = \sum_{i=1}^n p_{ij} v_i, \quad \forall j=1, \dots, n,
   \end{displaymath}
-donc $w_j = \sum_{i=1}^n p_{ij} v_i$, est une base orthogonale. 
+ est donc une base orthogonale. 
 \end{proof}
 
 
@@ -578,22 +578,24 @@ Maintenant, nous allons formaliser la procédé appliquée dans example~\ref{exe
       & & & &  b_{n,i} & \dots & b_{n,n} \\      
     \end{pmatrix}
   \end{equation}
-où les composantes des premières $(i-1)$ lignes et colonnes sont zéro sauf pour la composante sur la diagonale de la matrice. 
+où les composantes des premières $(i-1)$ lignes et colonnes sont nulles sauf éventuellement sur la diagonale. 
 
 \medskip 
 \noindent 
-Pour $1 \leq i \leq n$, la \emph{$i$-ème itération}  est comme suit. 
+Pour $1 \leq i \leq n$, la \emph{$i$-ème itération} procède comme suit. 
 \begin{itemize}
- \item S'il existe un index $j≥i$ tel que $b_{jj} \neq 0$ soit $j ≥i$ le plus petit tel indexe et  échange la $i$-ème ligne et la $j$-ème ligne et après    la $i$-ème colonne et la $j$-ème colonne. 
-\item Si $b_{ii}=0$, soit $j \in \{i+1,\dots,n\}$ tel que $b_{ij} \neq 0$. 
-  Si un tel indexe n'existe pas on procède à la $i+1$-ème itération. 
-  On additionne la ligne $j$ sur la ligne $i$ et on additionne la colonne $j$ sur la colonne $i$. Étant donné que $\car(K) \neq 2$, on a alors maintenant $b_{ii} = 2 ⋅ b_{i,j} \neq 0$. 
-\item Pour chaque $j \in \{i+1,\dots,n\}$:  on additionne $-b_{ij}/b_{ii}$ fois la $i$-ème ligne sur la $j$-ème ligne et on additionne $-b_{ij}/b_{ii}$ fois la $i$-ème colonne sur la $j$-ème colonne. 
+ \item Soit l'indice $k$ minimal tel que $k \geq i$ et $b_{kk} \neq 0$. On échange la $i$-ème ligne et la $k$-ème ligne puis la $i$-ème colonne et la $k$-ème colonne. Ceci permet (entre autres) d'échanger les coefficients $b_{ii}$ et $b_{kk}$ de la diagonale, s'assurant ainsi d'avoir un coefficient non nul. 
+ 
+ \item Si l'indice $k$ de l'étape précédente n'existe pas (tous les coefficients diagonaux après $c_{i-1}$ sont nuls), soit $j \in \{i+1,\dots,n\}$ un indice vérifiant $b_{ij} \neq 0$. On ajoute la $j$-ème ligne à la $i$-ème ligne puis la $j$-ème colonne à la $i$-ème colonne. Le $i$-ème coefficient de la diagonale devient alors $2 b_{ij} + b_{jj} = 2 b_{ij} \neq 0$.
+ 
+ \item Si, à son tour, un tel indice $j$ n'existe pas, on peut procéder à la $i+1$-ème itération car la matrice est déjà de la forme \eqref{eq:7} (avec $i+1$ à la place de $i$).
+  
+\item Pour chaque $j \in \{i+1,\dots,n\}$:  on additionne $-b_{ij}/b_{ii}$ fois la $i$-ème ligne sur la $j$-ème ligne et on additionne $-b_{ij}/b_{ii}$ fois la $i$-ème colonne sur la $j$-ème colonne. Ceci permet d'annuler les coefficients à droite et sous le coefficient $b_{ii}$. On peut alors poursuivre à l'étape $i+1$.
 \end{itemize}    
 
+Remarquons que chaque opération est faite à la fois sur les lignes et sur les colonnes. Ceci garantit que la matrice résultante reste symétrique. De plus, les opérations sont faites sur les lignes et colonnes d'indices $j \geq i$, laissant intacte la forme de la matrice \eqref{eq:7}.
 
 \end{algorithm}
-
 
 
 \begin{example}
@@ -619,7 +621,7 @@ En utilisant notre algorithme on trouve
 0 & 0 & 1
   \end{pmatrix}
 \end{displaymath}
-tel que 
+telle que 
 \begin{displaymath}
   P^T \cdot A^{\pscal{.}}_B \cdot P =
   \begin{pmatrix}
@@ -647,7 +649,7 @@ Alors $B' = \{v_1,v_2,-2v_1 -(4/3) v_2 + v_3\}$ est une base orthogonale de $V$.
       0 & 1 & 0 
     \end{pmatrix} \in \Z_2^{3\times 3} 
   \end{displaymath}
-  est congruente à une matrice diagonale? \emph{Renseignement: voir l'exercice~\ref{item:1}. de la section~\ref{sec:orthogonalite}.}  
+  est congruente à une matrice diagonale? \emph{Indice : voir l'exercice~\ref{item:1}. de la section~\ref{sec:orthogonalite}.}  
 \item Soit $V$ un espace vectoriel  sur un corps $K$ de dimension finie muni d'une forme bilinéaire symétrique $\pscal{.}$. Soit $B = \{v_1,\dots,v_n\}$ une base de $V$. Montrer que $A_B^{\pscal{.}} \in K^{n \times n}$ est congruente à une matrice diagonale si  et seulement si $V$ possède une base orthogonale. 
 
 \item Soit $K$ un corps de caractéristique $2$ et soit $V$ un espace vectoriel sur $K$ de dimension finie muni d'une forme bilinéaire symétrique non-nulle.  Soit 
@@ -676,25 +678,6 @@ Alors $B' = \{v_1,v_2,-2v_1 -(4/3) v_2 + v_3\}$ est une base orthogonale de $V$.
   \end{enumerate}
 \item Modifier l'algorithme~\ref{alg:1} tel qu'il soit aussi correct pour des corps de caractéristique $2$.  Soit l'algorithme découvre que la matrice symétrique $A \in K^{n \times n}$ n'est pas congruente à une matrice diagonale, soit l'algorithme calcule une matrice diagonale congruente à $A$. 
 \item Comment peut-on déterminer si un espace vectoriel de dimension finie muni d'une forme bilinéaire symétrique  possède une base orthogonale? Décrire très brièvement une méthode. 
-\item Déterminer l'indice de nullité et l'indice de positivité des 
-formes bilinéaire symétriques 
- définies par les matrices suivantes
-  \begin{displaymath}
-    \begin{pmatrix}
-      1 & 2 \\
-      2 & -1
-    \end{pmatrix}
-    , \,
-    \begin{pmatrix}
-      1 & 1 \\
-      1 & 1
-    \end{pmatrix}, \, 
-    \begin{pmatrix}
-      2 & 4 & 2 \\
-      4 & 3 &  1 \\ 
-      2 & 1 &1
-    \end{pmatrix}. 
-  \end{displaymath}
  
 \item Soit $V$ un espace euclidien de dimension $n$. Montrer que $V$ possède une base $B$ telle que pour tout $x,y \in V$
   \begin{displaymath}
@@ -910,6 +893,26 @@ Les colonnes de $P$ sont une base du Sylvester.
 \subsection*{Exercices} 
 
 \begin{enumerate}
+\item Déterminer l'indice de nullité et l'indice de positivité des 
+formes bilinéaire symétriques 
+ définies par les matrices suivantes
+  \begin{displaymath}
+    \begin{pmatrix}
+      1 & 2 \\
+      2 & -1
+    \end{pmatrix}
+    , \,
+    \begin{pmatrix}
+      1 & 1 \\
+      1 & 1
+    \end{pmatrix}, \, 
+    \begin{pmatrix}
+      2 & 4 & 2 \\
+      4 & 3 &  1 \\ 
+      2 & 1 &1
+    \end{pmatrix}. 
+  \end{displaymath}
+
 \item Soit $V$ un espace vectoriel de dimension finie sur $\R$ et soit $\pscal{.}$ une forme bilinéaire symétrique  sur $V$.  Montrer que $V$ admet une décomposition en somme directe 
   \begin{displaymath}
     V_0 \oplus V^+ \oplus V^-
@@ -923,7 +926,6 @@ et
   \pscal{v,v} <0 \text{ pour tout } v \in V^- \setminus\{0\}. 
 \end{displaymath}
 \end{enumerate}
-
 
 
 
