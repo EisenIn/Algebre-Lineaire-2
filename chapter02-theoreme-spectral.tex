@@ -429,30 +429,40 @@ Si $A$ est définie positive, alors
 les matrices $B_k$, $ 1 \leq k \leq n$,  sont symétriques  et définies positive. Leurs valeurs propres sont toutes positives.  Selon le théorème~\ref{thr:16}, $\det(B_k)$ est le produit des valeurs propres de $B_k$, alors $\det(B_k)>0$. 
 
 
-Supposons maintenant que $\det(B_k)>0$ pour tout $k \in \{1,\dots,n\}$. Nous appliquons notre algorithme~\ref{alg:1}. Avant la $i$-ème itération, la matrice $A$ est de la forme 
+Supposons maintenant que $\det(B_k)>0$ pour tout $k \in \{1,\dots,n\}$.
+L'argument est par récurrence. Le cas $n=1$ est trivial.
+
+Soit $n>1$. Les matrices $B_k$ $k=1,\dots,n-1$ sont définies positives par récurrence. Si $A$ lui même n'est pas  définie positive, alors ils existent au moins deux ($\det(A)>0$) valeurs propres négatives, disons $μ$ et $λ$ dans la factorisation donnée par le théorème spectral, et deux vecteurs propres $u,v ∈ ℝ^n$ correspondants qui sont orthonormales.  Leurs dernières composantes sont pas égaux à zéro, parce que $A_{n-1}$ est définie positive. Alors il existe $β ≠ 0$ tel que la dernière composante de $u+ β v$ est égale a zéro. Mais
 \begin{displaymath}
-  P^T A P = \begin{pmatrix}
-      c_1 \\
-      & c_2 \\
-      & & \ddots & &&\\
-      & & & c_{i-1} \\
-      & & & &  b_{i,i} & \dots & b_{i,n} \\
-%      & & & &  b_{i+1,i} & \dots & b_{i+1,n} \\
-      & & & &     \vdots       &  & \vdots \\
-      & & & &  b_{n,i} & \dots & b_{n,n} \\      
-    \end{pmatrix}. 
-\end{displaymath} 
- On observe que $b_{ii} \neq 0$. Parce que, si $b_{ii} = 0$ pour la première fois, nous n'avons jamais échangé de colonnes ou de lignes avant et  $ 0 = c_1\cdots c_{i-1} \cdot b_{ii} = \det(B_i)$, et c'est une contradiction.  
- Alors il n'est jamais nécessaire d'échanger des lignes et colonnes et notre algorithme trouve une matrice $R$, triangulaire supérieure, dont les éléments diagonaux sont tous égaux à $1$, et telle que 
-\begin{displaymath}
-  R^T \cdot A \cdot R =  
-\begin{pmatrix}
-      c_1 \\
-             & \ddots & \\
-       & & c_{n}
-    \end{pmatrix}
+  (u+ β v)^T A (u+ β v) = μ + β^2 λ <0,
 \end{displaymath}
-On observe que $\det(B_k) = c_1\cdots c_k$, alors toutes les $c_i$ sont positives. Alors $A$ est définie positive. 
+ce qui est une contradiction  au fait que $A_{n-1}$ est définie positive. 
+
+
+%Nous appliquons notre algorithme~\ref{alg:1}. Avant la $i$-ème itération, la matrice $A$ est de la forme 
+% \begin{displaymath}
+%   P^T A P = \begin{pmatrix}
+%       c_1 \\
+%       & c_2 \\
+%       & & \ddots & &&\\
+%       & & & c_{i-1} \\
+%       & & & &  b_{i,i} & \dots & b_{i,n} \\
+% %      & & & &  b_{i+1,i} & \dots & b_{i+1,n} \\
+%       & & & &     \vdots       &  & \vdots \\
+%       & & & &  b_{n,i} & \dots & b_{n,n} \\      
+%     \end{pmatrix}. 
+% \end{displaymath} 
+%  On observe que $b_{ii} \neq 0$. Parce que, si $b_{ii} = 0$ pour la première fois, nous n'avons jamais échangé de colonnes ou de lignes avant et  $ 0 = c_1\cdots c_{i-1} \cdot b_{ii} = \det(B_i)$, et c'est une contradiction.  
+%  Alors il n'est jamais nécessaire d'échanger des lignes et colonnes et notre algorithme trouve une matrice $R$, triangulaire supérieure, dont les éléments diagonaux sont tous égaux à $1$, et telle que 
+% \begin{displaymath}
+%   R^T \cdot A \cdot R =  
+% \begin{pmatrix}
+%       c_1 \\
+%              & \ddots & \\
+%        & & c_{n}
+%     \end{pmatrix}
+% \end{displaymath}
+% On observe que $\det(B_k) = c_1\cdots c_k$, alors toutes les $c_i$ sont positives. Alors $A$ est définie positive. 
 \end{proof}
 
 
