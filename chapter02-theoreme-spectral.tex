@@ -425,20 +425,37 @@ La matrice $B_K \in \R^{k\times k}$  est définie par $b_{ij} = a_{l_il_j}$, pou
 %Nous   considérons la factorisation~\eqref{eq:10}. La 
 
 On démontre~\ref{posdef:1}), tandis que \ref{posdef:2}) est une exercice. 
-Si $A$ est définie positive, alors 
-les matrices $B_k$, $ 1 \leq k \leq n$,  sont symétriques  et définies positive. Leurs valeurs propres sont toutes positives.  Selon le théorème~\ref{thr:16}, $\det(B_k)$ est le produit des valeurs propres de $B_k$, alors $\det(B_k)>0$. 
-
+Soit $A$ une matrice définie positive, montrons que   
+les matrices $B_k$, $ 1 \leq k \leq n$,  sont également définies positives : soit $z_k \in \mathbb R^k$ non-nul, 
+on complète ce vecteur en un vecteur $x_k \in \mathbb R^n$ en lui rajoutant $n-k$ zéros.
+On vérifie facilement que $z_k^T B_k z_k = x_k^T A x_k > 0$. 
+Les valeurs propres de $B_k$ sont donc toutes positives en vertu du théorème précédent. 
+En se servant alors du théorème~\ref{thr:16}, on obtient facilement que $\det(B_k)$ est le produit des valeurs propres de $B_k$, alors $\det(B_k)>0$. 
 
 Supposons maintenant que $\det(B_k)>0$ pour tout $k \in \{1,\dots,n\}$.
 L'argument est par récurrence. Le cas $n=1$ est trivial.
 
-Soit $n>1$. Les matrices $B_k$ $k=1,\dots,n-1$ sont définies positives par récurrence. Si $A$ elle même n'est pas  définie positive, alors ils existent au moins deux ($\det(A)>0$) valeurs propres négatives, disons $μ$ et $λ$ dans la factorisation donnée par le théorème spectral, et deux vecteurs propres $u,v ∈ ℝ^n$ correspondants qui sont orthonormales.  Leurs dernières composantes sont pas égaux à zéro, parce que $A_{n-1}$ est définie positive. Alors il existe $β ≠ 0$ tel que la dernière composante de $u+ β v$ est égale a zéro. Mais
+Soit $n>1$. Les matrices $B_k$ $k=1,\dots,n-1$ sont définies positives par récurrence. Si $A$ elle même n'est pas définie positive, $\det(A)>0$ implique qu'il existe au moins deux valeurs propres négatives, disons $μ$ et $λ$ dans la factorisation donnée par le théorème spectral, et deux vecteurs propres orthogonaux $u,v ∈ ℝ^n$ correspondants.  Leurs dernières composantes sont pas égales à zéro, parce que $A_{n-1}$ est définie positive. Alors il existe $β ≠ 0$ tel que la dernière composante de $u+ β v$ est égale a zéro. Mais
 \begin{displaymath}
   (u+ β v)^T A (u+ β v) = μ + β^2 λ <0,
 \end{displaymath}
 ce qui est une contradiction  au fait que $A_{n-1}$ est définie positive. 
 
+\begin{example}
+  \label{exe:18}
+  Nous pouvons alors montrer qu'une matrice symétrique est définie de deux manières différentes d'après les deux théorèmes précédents : considérons la matrice suivante
+  \begin{displaymath}
+    A =
+    \begin{pmatrix}
+      2 & -1  & 0 \\
+      -1 & 2 & -1 \\
+      0 & -1 & 2 
+    \end{pmatrix}. 
+  \end{displaymath}
+$\bullet$ Son polynôme caractéristique est égal à $\det(A-XI_n)=-X^3+6X^2-10X+4$ dont les racines sont $2$, $2+\sqrt(2)$ et $2-\sqrt$. Les valeurs propres de $A$ sont toutes les trois strictement positives donc la matrice est définie positive.
+$\bullet$ D'une autre façon, $\det(B_1)=2 >0$, $\det(B_2)=3 > 0$ et $det(B_3)=det(A)=4 >0$ donc la matrice est définie positive.
 
+\end{example}
 %Nous appliquons notre algorithme~\ref{alg:1}. Avant la $i$-ème itération, la matrice $A$ est de la forme 
 % \begin{displaymath}
 %   P^T A P = \begin{pmatrix}
@@ -689,7 +706,7 @@ Et  si $1 ≤i,j \leq r$, alors
 
 
 \begin{example}
-  \label{exe:18}
+  \label{exe:19}
   Trouver une décomposition en valeurs singulières de 
   \begin{displaymath}
     A =
@@ -794,7 +811,7 @@ La \emph{pseudo inverse} d'une matrice $A \in \C^{m \times n}$ avec une décompo
 
 
 \begin{example}
-  La pseudo inverse de la matrice $A$ d'exemple~\ref{exe:18} est 
+  La pseudo inverse de la matrice $A$ d'exemple~\ref{exe:19} est 
   \begin{displaymath}
     A^+ = 
 \begin{pmatrix}0 & 0 & 1\\1 & 0 & 0\\0 & 1 & 0\end{pmatrix} \cdot 
@@ -898,7 +915,7 @@ La solution minimale de \eqref{eq:14} est alors
 \end{proof}
 
 \begin{example}
-  \label{exe:19}
+  \label{exe:20}
   Trouver la solution minimale du système 
   \begin{displaymath}
      \begin{pmatrix}
