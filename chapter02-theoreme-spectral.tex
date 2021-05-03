@@ -430,7 +430,7 @@ Soit $A$ une matrice définie positive, montrons que
 les matrices $B_k$, $ 1 \leq k \leq n$,  sont également définies positives : soit $z_k \in \mathbb R^k$ non-nul, 
 on complète ce vecteur en un vecteur $x_k \in \mathbb R^n$ en lui rajoutant $n-k$ zéros.
 On vérifie facilement que $z_k^T B_k z_k = x_k^T A x_k > 0$. 
-Les valeurs propres de $B_k$ sont donc toutes positives en vertu du théorème précédent. 
+Les valeurs propres de $B_k$ sont donc toutes strictement positives en vertu du théorème précédent. 
 En se servant alors du théorème~\ref{thr:16}, on obtient facilement que $\det(B_k)$ est le produit des valeurs propres de $B_k$, alors $\det(B_k)>0$. 
 
 Supposons maintenant que $\det(B_k)>0$ pour tout $k \in \{1,\dots,n\}$.
@@ -444,16 +444,17 @@ ce qui est une contradiction  au fait que $A_{n-1}$ est définie positive.
 
 \begin{example}
   \label{exe:18}
-  Nous pouvons alors montrer qu'une matrice symétrique est définie de deux manières différentes d'après les deux théorèmes précédents : considérons la matrice suivante
+  Nous pouvons alors montrer qu'une matrice symétrique est définie positive de deux manières différentes d'après les deux théorèmes précédents : considérons la matrice suivante
   \begin{displaymath}
     A =
     \begin{pmatrix}
-      2 & -1  & 0 \\
+    2 & -1  & 0 \\
       -1 & 2 & -1 \\
       0 & -1 & 2 
     \end{pmatrix}. 
   \end{displaymath}
-$\bullet$ Son polynôme caractéristique est égal à $\det(A-XI_n)=-X^3+6X^2-10X+4$ dont les racines sont $2$, $2+\sqrt(2)$ et $2-\sqrt$. Les valeurs propres de $A$ sont toutes les trois strictement positives donc la matrice est définie positive.
+$\bullet$ Son polynôme caractéristique est égal à $\det(A-XI_n)=-X^3+6X^2-10X+4$ dont les racines sont $2$, $2+\sqrt{2}$ et $2-\sqrt{2}$. Les valeurs propres de $A$ sont toutes les trois strictement positives donc la matrice est définie positive.
+
 $\bullet$ D'une autre façon, $\det(B_1)=2 >0$, $\det(B_2)=3 > 0$ et $det(B_3)=det(A)=4 >0$ donc la matrice est définie positive.
 
 \end{example}
