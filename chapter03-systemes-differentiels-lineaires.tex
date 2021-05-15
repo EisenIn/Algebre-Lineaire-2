@@ -1,7 +1,7 @@
 \chapter{Systèmes différentiels linéaires}
 \label{cha:syst-diff-line}
 
-On considère le système suivant
+On considère le système différentiel suivant
 \begin{equation}
   \label{eq:19}
   \begin{array}{ccccc}
@@ -12,7 +12,7 @@ On considère le système suivant
   \end{array}
 \end{equation}
 où les $a_{ij} \in \R$.  
-En notation de vecteur matrice on peut écrire ça comme 
+En notation matricielle, on peut écrire le système comme
 \begin{displaymath}
   \x' = A\,\x
 \end{displaymath}
@@ -23,16 +23,16 @@ où
     a_{11} & \cdots & a_{1n}\\
           & \vdots & \\
           a_{n1} & \cdots & a_{nn}\\          
-  \end{pmatrix}.
+  \end{pmatrix}, \quad \x \in C^{1}(\R; \R^{n}).
 \end{displaymath}
 
-On cherche des fonctions dérivables $\x_i: \R \longrightarrow \R$  qui, ensembles constituent $\x$ et qui  satisfont \eqref{eq:19}. Un tel $\x$ est une \emph{solution} du système~\eqref{eq:19}. 
+On cherche des fonctions dérivables $\x_i: \R \longrightarrow \R$  qui, ensemble, constituent $\x$ et qui  satisfont \eqref{eq:19}. Un tel $\x$ est une \emph{solution} du système~\eqref{eq:19}. 
 
 
 
 \begin{example}
   \label{exe:20}
-  Considérons l'équation différentielle $\x'(t) = \x(t)$. Une solution est $\x(t) = e^t$. Une autre solution est $\x(t) = 2\cdot e^t$. Si on spécifie la \emph{condition initiale} $\x(0) = 1$, alors $\x(t) = e^t$ est la solution qui satisfait cette condition initiale. Autrement, si on spécifie $\x(0) = \alpha$, alors  $\x(t) = \alpha \cdot e^t$ est une solution qui satisfait la condition initiale. 
+  Considérons l'équation différentielle $\x'(t) = \x(t)$. Une solution est $\x(t) = e^t$. Une autre solution est $\x(t) = 2\cdot e^t$. Si on spécifie la \emph{condition initiale} $\x(0) = 1$, alors $\x(t) = e^t$ est l'unique solution qui satisfait cette condition initiale. Généralement, si on spécifie $\x(0) = \alpha$, alors  $\x(t) = \alpha \cdot e^t$ est la solution qui satisfait la condition initiale. 
 
 Considérons $\x'(t) = -\x(t)$, une solution est $\x(t) = e^{(-t)}$. %$\x(t) = \cos(t)$.
 C'est aussi une solution qui respecte la condition initiale $\x(0) = 1$. 
@@ -51,21 +51,21 @@ Essayons d'abord de résoudre le système en mettant  $\x(t) = e^{\lambda t} v$ 
 Le théorème suivant est démontré en cours \emph{analyse 2}. 
 \begin{theorem}[Cours d'analyse II] 
   \label{thr:28}
-  Étant données les \emph{conditions initiales} $\x(0)$
-  il existe une solution $\x$ unique du système~\eqref{eq:19}. 
+  Étant donné les \emph{conditions initiales} $\x(0)$
+  il existe une unique solution $\x$ du système~\eqref{eq:19}. 
 \end{theorem}
-Nous sommes concernés avec le problème de \emph{trouver} la solution $\x$ explicitement. On commence avec une observation qui est un exercice simple. 
+Nous sommes concernés par le problème de \emph{trouver} la solution $\x$ explicitement. On commence avec une observation qui est un exercice simple. 
 
 \begin{lemma}
   \label{lem:13}
   L'ensemble $\X = \{ \x \colon \x \text{ est une solution du système \eqref{eq:19}}\}$ est un espace vectoriel sur $\R$.  
 \end{lemma}
 
-Est-ce que c'est possible de donner  une base de $\X$ explicitement? Dans le cas où $A$ est diagonalisable comme 
+Est-ce que c'est possible de donner  une base de $\X$ explicitement? Dans le cas où $A$ est diagonalisable : 
 \begin{displaymath}
   A = P \cdot \diag(\lambda_1,\dots,\lambda_n) \cdot P^{-1} 
 \end{displaymath}
-où $P \in \R^{n \times n}$ est inversible et les  $\lambda_i \in \R$ sont particulièrement agréables comme c'est décrit dans le lemme suivant. 
+où $P \in \R^{n \times n}$ est inversible et les  $\lambda_i$ sont réels, le théorème suivant décrit une base intuitive de $\X$.
 
 \begin{theorem}
   \label{thr:30}
@@ -77,18 +77,18 @@ est une base de $\X$.
 \end{theorem}
 
 \begin{proof}
-  Montrons d'abord que les $\x^{(i)}$ sont linéairement indépendants. Supposons que $\sum_{i} \alpha_i \x^{(i)} = 0$. C'est à dire que les $n$ fonctions qui sont les composantes de $\sum_{i} \alpha_i \x^{(i)}$ sont toutes la fonction $f(x) = 0$. Dès que $e^{\lambda_i 0} = 1$, ça implique que 
+  Montrons d'abord que les $\x^{(i)}$ sont linéairement indépendants. Supposons que $\sum_{i} \alpha_i \x^{(i)} = 0$. C'est-à-dire que les $n$ fonctions qui sont les composantes de $\sum_{i} \alpha_i \x^{(i)}$ sont toutes la fonction identiquement nulle. En évaluant en $t=0$, on trouve
   \begin{displaymath}
     0 = \sum_i \alpha_i v_i e^{\lambda_i 0} = \sum_i \alpha_i v_i.  
   \end{displaymath}
-Mais les $v_i$ sont linéairement indépendants. Alors $\alpha_i = 0$ pour tout $i$ ce qui démontre que les $\x^{(i)}$ sont linéairement indépendants. 
+Or les $v_i$ sont linéairement indépendants. On a donc $\alpha_i = 0$ pour tout $i$ ce qui démontre que les $\x^{(i)}$ sont linéairement indépendants. 
 
 
 Maintenant soit $\y \in \X$ et soient  $\alpha_i \in \R$  tels que 
 \begin{displaymath}
   \y(0) = \sum_i \alpha_i v_i.  
 \end{displaymath}
-Alors $\x = \sum_i \alpha_i \x^{(i)} \in \X$  et dès que $\x(0) = \y(0)$, le Théorème~\ref{thr:28} implique $\x = \y$. C'est à dire que les $\x^{(i)}$ engendrent $\X$, alors $\{\x^{(1)},\dots, \x^{(n)}\}$ est une base de $\X$. 
+Alors $\x := \sum_i \alpha_i \x^{(i)} \in \X$  et comme $\x(0) = \y(0)$, le Théorème~\ref{thr:28} implique que $\x = \y$. Les $\x^{(i)}$ engendrent donc $\X$, et $\{\x^{(1)},\dots, \x^{(n)}\}$ est une base de $\X$. 
 \end{proof}
 
 
@@ -129,25 +129,25 @@ est une \emph{solution complexe} du système~\eqref{eq:19} si $\x' = A\x$.   Et 
 
 \begin{lemma}
   \label{lem:14}
-  Étant donnée une solution complexe $\x = \x_\Re + i \x_\Im$ du système~\eqref{eq:19}, alors $\x_\Re$ et $\x_\Im$ sont des solutions réelles.  
+  Étant donné une solution complexe $\x = \x_\Re + i \x_\Im$ du système~\eqref{eq:19}, alors $\x_\Re$ et $\x_\Im$ sont des solutions réelles.  
 \end{lemma}
 \begin{proof}
   Dès que $\x_\Re + i \x_\Im $ est une solution, on a 
   \begin{displaymath}
    \x'_\Re+ i \x'_\Im = \x' = A \x = A\x_\Re + i A\x_\Im. 
   \end{displaymath}
-Dès que $A $ est réelle on voit $\x_\Re' = A\x_\Re$ et $\x'_\Im = A \x_\Im$. 
+Comme $A $ est réelle on a $\x_\Re' = A\x_\Re$ et $\x'_\Im = A \x_\Im$ en prenant les parties réelles et imaginaires des deux côtés. 
 \end{proof}
 
 
 Supposons alors que $A \in \R^{n \times n}$ est diagonalisable . Et soit $\{v_1,\dots,v_n\}$ une base de $\C^n$ de vecteurs propres associés à 
-$\lambda_1,\dots,\lambda_n$ respectivement. Si $v_i = u_i + i \cdot w_i$  où $u_i,w_i \in \R^n$, les $u_1,\dots,u_n,w_1,\dots,w_n$ engendrent $\R^n$, voir exercice~\ref{item:5}. Comme nous avons noté 
+$\lambda_1,\dots,\lambda_n$ respectivement. Si $v_i = u_i + i \cdot w_i$  où $u_i,w_i \in \R^n$, les $u_1,\dots,u_n,w_1,\dots,w_n$ engendrent $\R^n$ (voir exercice~\ref{item:5}). Comme nous avons noté 
 \begin{displaymath}
   \x^{(j)} = e^{\lambda_j t} v_j
 \end{displaymath}
 sont des solutions complexes du système~\eqref{eq:19}.   
 
-Aussi, on peut supposer que la base et les valeurs propres sont tels que les vecteurs/valeurs propres complexes viennent en paires conjugées complexes. Plus précisément
+Aussi, on peut supposer que la base et les valeurs propres sont tels que les vecteurs/valeurs propres complexes viennent en paires conjugées complexes. Plus précisément, si $2k$ valeurs propres sont complexes et le reste sont réelles, on pose
 \begin{equation}
 \label{eq:22}
   v_{2j-1} = \overline{v_{2j}}\, \text{ et } \, \lambda_{2j-1} = \overline{\lambda_{2j}} \, \text{ pour } \, 1 \leq j \leq k \leq n/2 
@@ -158,29 +158,29 @@ et
   v_j \in \R^n, \lambda_j \in \R \text{ pour } j > 2k. 
 \end{equation}
 %
-Considérons maintenant une solution impliquée par $v = u+iw$  $\lambda= a+ib$. 
+Considérons maintenant une solution donnée par $v = u+iw$  $\lambda= a+ib$. 
 \begin{eqnarray*}
   \x & = & e^{a \, t} \left(\cos (b t)  + i \sin (b t ) \right)  (u + i w)  \\
    & = & e^{a \, t} \left(\cos (b t) u - \sin (bt)w \right)  + ie^{a \, t} \left(\sin (b t ) u + \cos(bt)w \right). 
 \end{eqnarray*}
-Ça nous donne alors ces deux solutions réelles 
+Ceci nous donne alors deux solutions réelles 
 \begin{eqnarray*}
-  \x^{(1)} & = & e^{a \, t} \left(\cos (b t) u - \sin (bt)w \right) \\
+  \x^{(1)} & = & e^{a \, t} \left(\cos (b t) u - \sin (bt)w \right), \\
   \x^{(2)} & = &  e^{a \, t} \left(\sin (b t ) u + \cos(bt)w \right). 
 \end{eqnarray*}
 \begin{remark}
   \label{rem:2}
-  Les solutions réelles impliquées par $v$ et $\lambda$ sont les mêmes que les solutions réelles impliquées par $\overline{v}$ et $\overline{\lambda}$. 
+  Les solutions réelles données par $v$ et $\lambda$ engendrent le même espace que les solutions réelles données par $\overline{v}$ et $\overline{\lambda}$. 
 \end{remark}
 
 Nous pouvons alors noter une marche à suivre pour résoudre le système~\eqref{eq:19} étant donné $\x(0)$ si $A$ est diagonalisable.
 \begin{enumerate}
 \item Trouver une base de vecteurs propres $v_1,\dots,v_n$ de $A$ ordonnée comme dans \eqref{eq:22} et \eqref{eq:23}. 
-\item Pour chaque paire $v_{2j},\lambda_{2j}$, $1 \leq j \leq k$ trouver les  deux solutions réelles dénotées comme  $\x^{(2j-1)}$ et $\x^{(2j)}$. 
+\item Pour chaque paire $v_{2j},\lambda_{2j}$, $1 \leq j \leq k$ trouver les  deux solutions réelles dénotées par  $\x^{(2j-1)}$ et $\x^{(2j)}$. 
 \item Pour chaque paire réelle $v_j, \lambda_j$ $n\geq j>2k$, trouver la solution $\x^{(j)}$. 
 \item Trouver la combinaison linéaire 
   \begin{displaymath}
-    \x(0) = \sum_{j} \alpha_j \x^{(j)}(0) 
+    \x(0) = \sum_{j} \alpha_j \x^{(j)}(0)
   \end{displaymath}
 \item La solution est 
   \begin{displaymath}
@@ -361,7 +361,7 @@ Considérons maintenant la suite $(b_n)_{n\in \mathbb{N}} = { (\sum _{ j=0 }^{ n
   \end{proof}
 
 
-Nous avons montré que $e^{At} = \sum_{k=0}^\infty \frac{t^k}{k!} A^k$ converge pour tout $t \in \R$. Plus précisément chaque composante $\sum_{k=0}^\infty \frac{t^k}{k!} A^k$ est une série intégrable avec un rayon de convergence $\infty$. Alors, nous pouvons dériver les éléments pour obtenir 
+Nous avons montré que $e^{At} = \sum_{k=0}^\infty \frac{t^k}{k!} A^k$ converge pour tout $t \in \R$. Plus précisément chaque composante $\sum_{k=0}^\infty \frac{t^k}{k!} A^k$ est une série intégrable avec un rayon de convergence $\infty$. Nous pouvons donc dériver les termes de la somme pour obtenir 
 \begin{equation}
   \label{eq:24}
   \frac{d}{dt} e^{At} = A e^{At}. 
@@ -793,7 +793,9 @@ telle que $N^{m_i}x_i = 0$ pour tout $i$.
 
 \begin{remark}
   \label{rem:4}
-  Si on inverse l'ordre de la base $ℬ$ et si on liste les éléments de droite à gauche on obtient une base $ℬ'$ et la matrice $A_{ℬ'}^{N }$ de l'application $N$  a la forme 
+  Si on inverse l'ordre de chaque orbite $x_i, Nx_i, \dots, N^{m_i-1} x_i$,
+  %Si on inverse l'ordre de la base $ℬ$ et si on liste les éléments de droite à gauche
+  on obtient une base $ℬ'$ et la matrice $A_{ℬ'}^{N }$ de l'application $N$  a la forme 
   \begin{displaymath}
     A_{ℬ'}^N =
     \begin{pmatrix}
@@ -834,7 +836,7 @@ en forme normale de Jordan.
   \end{displaymath}
   est l'\emph{orbite} de $x$ sous $N$. 
   
-  En concaténant les orbites des éléments d'une base et en travaillant sur cet ensemble, nous obtiendrons un ensemble de vecteurs qui engendre $V$. 
+  En concaténant les orbites des éléments d'une base et en travaillant sur cet ensemble, nous obtiendrons un ensemble de vecteurs qui engendrent $V$. 
   Supposons alors qu'au début de l'étape $q$, nous avons un ensemble $x_1,\dots,x_\ell$ avec $x_1,\dots,x_\ell \neq0$  dont les orbites 
   \begin{equation}
     \label{eq:27}
@@ -872,7 +874,7 @@ Soit $m = \min_{j \in J} {m_j-1} \geq 1$ et soit $i \in J$ un index où le minim
  0 =  N^m  \sum_{j \in J} γ_j N^{m_j-1 - m}x_j  = N^m \left( γ_i x_i + \sum_{j \in J, j \neq i} γ_j N^{m_j-1 - m}x_j \right)
 \end{displaymath}
 
-Maintenant, posant $$y = \sum_{j \in J} γ_j N^{m_j-1 - m}x_j = γ_i x_i + \sum_{j \in J, j \neq i} γ_j N^{m_j-1 - m}x_j$$ 
+Maintenant, en posant $$y = \sum_{j \in J} γ_j N^{m_j-1 - m}x_j = γ_i x_i + \sum_{j \in J, j \neq i} γ_j N^{m_j-1 - m}x_j$$ 
 Si $y \neq 0$, on remplace $x_i$ par $y$.
 Il est alors facile de voir que les orbites de 
 \begin{displaymath}
