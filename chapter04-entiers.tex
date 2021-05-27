@@ -354,7 +354,7 @@ Soit
 
 \begin{lemma}
   \label{lem:24}
-  Soit  $A ∈ℤ^{ m ×n}$ une matrice à coefficients entiers, alors il existe une matrice unimudulaire $U ∈ℤ^{ n ×n}$ tel que le première ligne de $AU$ est de la forme $(d,0,\cdots,0)$, où $d ∈ℤ$.
+  Soit  $A ∈ℤ^{ m ×n}$ une matrice à coefficients entiers, alors il existe une matrice unimudulaire $U ∈ℤ^{ n ×n}$ telle que la première ligne de $AU$ est de la forme $(d,0,\cdots,0)$, où $d ∈ℤ$.
 \end{lemma}
 
 \begin{proof}
@@ -363,7 +363,7 @@ Soit
   composante qui n'est pas égale à zéro, on échange les colonnes de sorte que
   la matrice résultante soit de la forme souhaitée.
   
-  Autrement, il existe deux index $j_1\neq j_2$ de colonnes, tels
+  Autrement, il existe deux indices de colonne $j_1\neq j_2$, tels
   que $a_{1j_1}\neq 0$ et $a_{1j_2} \neq 0$. On peut supposer, quitte à permutter les colonnes $j_1$ et $j_2$, que
   $|a_{1j_1}| ≥ |a_{1j_2}|$. La division avec reste nous donne des entiers $q ∈ℤ$ et
   $0 ≤r < |a_{1j_2}|$ tels que
@@ -384,10 +384,10 @@ Soit
 
   \begin{corollary}
     \label{co:9}
-    Soit  $A ∈ℤ^{ m ×n}$ une matrice en nombre entiers alors il  existe une matrice unimudulaire $U ∈ℤ^{ n ×n}$ tel que $A ⋅U$ est de la forme~\eqref{eq:44}.
+    Soit  $A ∈ℤ^{ m ×n}$ une matrice en nombre entiers. Alors il  existe une matrice unimudulaire $U ∈ℤ^{ n ×n}$ telle que $A ⋅U$ est de la forme~\eqref{eq:44}.
   \end{corollary}
   \begin{proof}
-    On raisonne par récurrence sur $m$. Le cas $m=1$ est suit directement du Lemme~\ref{lem:24}. Soit $m>1$. 
+    On raisonne par récurrence sur $m$. Le cas $m=1$ suit directement du Lemme~\ref{lem:24}. Soit $m>1$. 
     Le Lemme~\ref{lem:24} implique qu'il existe une matrice unimodulaire $U_1 ∈ℤ^{n ×n}$ telle que
     \begin{displaymath}
       A ⋅ U_1 =
@@ -396,7 +396,7 @@ Soit
         a  & A'
       \end{pmatrix}
     \end{displaymath}
-    où $d ∈ℤ$, $a ∈ ℤ^{m-1}$ et $A' ∈ ℤ^{(m-1) × (n-1)}$. Par l'hypothèse d'induction, il existe une matrice unimudulaire $U_2 ∈ℤ^{(n-1) ×(n-1)}$ tel $A' U_2$ est de la forme désirée. Clairement
+    où $d ∈ℤ$, $a ∈ ℤ^{m-1}$ et $A' ∈ ℤ^{(m-1) × (n-1)}$. Par l'hypothèse de récurrence, il existe une matrice unimudulaire $U_2 ∈ℤ^{(n-1) ×(n-1)}$ telle que $A' U_2$ est de la forme désirée. Clairement
       \begin{displaymath}
          \begin{pmatrix}
           1 & 0^T \\
@@ -423,7 +423,7 @@ Soit
 	
 \begin{theorem}
   \label{thr:28}
-    Soit  $A ∈ℤ^{ m ×n}$ une matrice en nombre entiers. Alors il  existe une matrice unimudulaire $U ∈ℤ^{ n ×n}$ tel que $A ⋅U$ est en \emph{forme normale d'Hermite}.
+    Soit  $A ∈ℤ^{ m ×n}$ une matrice en nombre entiers. Alors il  existe une matrice unimudulaire $U ∈ℤ^{ n ×n}$ telle que $A ⋅U$ est en \emph{forme normale d'Hermite}.
   \end{theorem}
   
   \begin{definition}
@@ -465,9 +465,9 @@ Soit
 $ \boxed { \Rightarrow  }$ On montre qui si $A\neq B$ alors $\Lambda(A) \neq \Lambda(B)$.$\\$
 Supposons alors que $\Lambda(A) =\Lambda(B)$.$\\$
 On note $A=\begin{pmatrix} a_{ 11 } & \quad  & \quad  \\ \quad  & \ddots  & \quad  \\ a_{m1}  & \quad  & a_{ mm } \end{pmatrix}$ et $B=\begin{pmatrix} b_{ 11 } & \quad  & \quad  \\ \quad  & \ddots  & \quad  \\ b_{m1}  & \quad  & b_{ mm } \end{pmatrix}$. $\\$
-Soit $i$ minimal tel que les $i-eme$ lignes de $A$ et de $B$ soient différentes. Alors $\exists j \in \left\{ 1,\dots ,i  \right\}$  tel que $a_{ij} \neq b_{ij}$ et sans perte de généralité on a $a_{ij}>b_{ij}$ . Clairement en notant $A_j$ ( resp $B_j$) la $j-eme$ colonne de $A$ (resp $B$), on a $A_j - B_j = \begin{pmatrix} 0 \\ \vdots  \\ 0\\ a_{ ij }-b_{ ij } \\ \vdots  \end{pmatrix} \in \Lambda (A)$ avec $a_{ii}>a_{ij}-b_{ij}>0$ mais alors nécessairement $a_{ii}|a_{ij}-b_{ij}$ ce qui est une contradiction.
-$\\$
+Soit $i$ l'indice minimal tel que la $i$-ème ligne de $A$ et celle de $B$ soient différentes. Alors $\exists j \in \left\{ 1,\dots ,i  \right\}$  tel que $a_{ij} \neq b_{ij}$ et sans perte de généralité on a $a_{ij}>b_{ij}$ . Clairement en notant $A_j$ ( resp. $B_j$) la $j$-ème colonne de $A$ (resp. $B$), on a $A_j - B_j = \begin{pmatrix} 0 \\ \vdots  \\ 0\\ a_{ ij }-b_{ ij } \\ \vdots  \end{pmatrix} \in \Lambda (A)$ avec $a_{ii}>a_{ij}-b_{ij}>0$. 
 
+Il existe donc forcément un vecteur entier $z$ tel que $A_j - B_j = Az$. On montre aisément que les $i-1$ premières coordonées de $z$ doivent être nulles car aucun élément diagonal de $A$ ne l'est (ou, de manière équivalente, car $A$ et de rang plein). Or, en comparant la $i$-ème coordonnée, on trouve que $a_{ij} - b_{ij} = a_{ii} z_i$. Dès lors, $a_{ii}|a_{ij}-b_{ij}$ ce qui est une contradiction.
  \end{proof}
   \begin{remark}
     \label{rem:5}
@@ -477,8 +477,9 @@ $\\$
 
   \begin{definition}
     \label{def:48}
-    Soit $A ∈ℤ^{m ×n}$ du plein rang lignes et $Λ(A)$ le réseau entier généré par $A$ et $B ∈ℤ^{m ×m}$  une base de $Λ(A)$. On appelle $|\det(A)|$ le \emph{déterminante} du réseau $Λ(A)$. 
+    Soit $A ∈ℤ^{m ×n}$ de rang ligne plein, $Λ(A)$ le réseau entier généré par $A$ et $B ∈ℤ^{m ×m}$  une base de $Λ(A)$. On appelle $|\det(B)|$ le \emph{déterminant} du réseau $Λ(A)$. 
   \end{definition}
+ 
   
   \begin{example}
     \label{exe:29}
