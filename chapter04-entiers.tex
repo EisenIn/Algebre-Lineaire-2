@@ -427,7 +427,7 @@ Soit
   \end{theorem}
   
   \begin{definition}
-    \label{def:49}
+    \label{def:50}
     Soit $A \in \mathbb{Z}^{m\times n}$ et  $rang(A)=m$. L'ensemble  $\Lambda(A):=\left\{ Ax,x\in \mathbb{Z}^{n} \right\}$ est  un \emph{réseau entier généré}  de $A$. Une matrice  $B \in \mathbb{Z}^{m\times m}$ telle que  $\Lambda(A)=\Lambda(B)$ est appelée base de $\Lambda(A)$. 
   \end{definition}
 
@@ -472,14 +472,7 @@ Il existe donc forcément un vecteur entier $z$ tel que $A_j - B_j = Az$. On mon
   \begin{remark}
     \label{rem:5}
     Le Théorème~\ref{thr:28} nous permet de vérifier, pour $A ∈ℤ^{m × n_1}$ et $B ∈ℤ^{m × n_2}$ de rang ligne pleins, si $Λ(A) = Λ(B)$.  On calcule $(H_A|0)$ et $(H_B|0)$ les formes normales d'Hermite de $A$ et $B$. Comme $Λ(A) =Λ(H_A)$ et $Λ(B) = Λ(H_B)$, on a que $Λ(A) = Λ(B)$ si et seulement si $H_A = H_B$. 
-  \end{remark}
-
-
-  \begin{definition}
-    \label{def:48}
-    Soit $A ∈ℤ^{m ×n}$ de rang ligne plein, $Λ(A)$ le réseau entier généré par $A$ et $B ∈ℤ^{m ×m}$  une base de $Λ(A)$. On appelle $|\det(B)|$ le \emph{déterminant} du réseau $Λ(A)$. 
-  \end{definition}
- 
+  \end{remark} 
   
   \begin{example}
     \label{exe:29}
@@ -527,12 +520,12 @@ Il existe donc forcément un vecteur entier $z$ tel que $A_j - B_j = Az$. On mon
   \end{example}
   
   \begin{definition}
-   \label{def:49}
-   Soit $A \in \mathbb{Z}^{m \times n}$ alors $ker_{\mathbb{Z}}(A) = \left\{ y \in \mathbb{Z}^n, Ay=0 \right\}  $.
+   \label{def:51}
+   Soit $A \in \mathbb{Z}^{m \times n}$. Le \emph{noyau} de $A$ sur $\Z$ est défini par $ker_{\mathbb{Z}}(A) := \left\{ y \in \mathbb{Z}^n, Ay=0 \right\}  $.
   \end{definition}
   
     \begin{theorem}
-    \label{thr:28}
+    \label{thr:29}
     Soient $A,B \in \mathbb{Z}^{m \times m}$ en forme normale de Hermite avec $rang(A)=rang(B)=m$. Alors $\Lambda(A)=\Lambda(B) \Leftrightarrow \exists U\in \mathbb{Z}^{m \times m}$ unimodulaire telle que $B=AU$.
     \end{theorem}
     
@@ -542,16 +535,15 @@ Il existe donc forcément un vecteur entier $z$ tel que $A_j - B_j = Az$. On mon
     $\\$
     $\boxed { \Leftarrow  }$ Si $B=AU, U\in \mathbb{Z}^{m \times m}$ unimodulaire alors comme $U \mathbb{Z}^{m}= \mathbb{Z}^{m}$ on obtient immédiatement  $\Lambda(A)=\Lambda(B)$.
     \end{proof}
-    
     \begin{definition}
-   	\label{def:49}
-	Soient $A\in \mathbb{Z}^{m \times n}$ avec $rang(A)=m$ et $\Lambda(A)$ le réseau entier de $A$. Alors on pose $det(\Lambda(A))=|det(B)|$ ou $B \in \mathbb{Z}^{m \times m}$ est une base de $\Lambda(A)$
+   	\label{def:48}
+	Soient $A\in \mathbb{Z}^{m \times n}$ avec $rang(A)=m$ et $\Lambda(A)$ le réseau entier de $A$. Le \emph{déterminant} du réseau $\Lambda(A)$ est donné par $det(\Lambda(A)):=|det(B)|$ où $B \in \mathbb{Z}^{m \times m}$ est une base de $\Lambda(A)$
    
    \end{definition}
    
    \begin{remark}
     \label{rem:5}
-    Le théorème~\ref{thr:28} assure que $|det(B)|$ ne dépend pas du choix de $B$ et donc $det(\Lambda(A))$ a du sens.
+    Le théorème~\ref{thr:29} assure que $|det(B)|$ ne dépend pas du choix de $B$ et donc que $det(\Lambda(A))$ a du sens.
     \end{remark}
   
 \section*{Exercices}
@@ -573,8 +565,7 @@ Il existe donc forcément un vecteur entier $z$ tel que $A_j - B_j = Az$. On mon
 
 À partir de maintenant, on se donne une matrice $A\in \mathbb{Z}^{m\times n}$ avec $rang(A)=k$ et $k$ n'est pas forcément $m$.
 
-\begin{definition}
-   	\label{def:49}
+\begin{definition} \label{def:52}
 	Soit  $A\in \mathbb{Z}^{m\times n}$ alors $\Lambda(A)=\left\{ Ax,x\in \mathbb{R}^{n} \right\} $ est le \emph{réseau entier général} de $A$.
 \end{definition}
 
