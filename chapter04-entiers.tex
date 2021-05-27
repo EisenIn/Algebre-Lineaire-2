@@ -11,7 +11,7 @@ est résoluble et trouver toutes les solutions.
 
 
 
-Une condition nécessaire pour \eqref{eq:40} soit soluble est qu'il existe une solution $x ∈ℚ^n$, et alors que $\rank(A) = \rank(A|b)$. Aussi, on peut supprimer une ligne de $(A|b)$ qui est dans le span des autres lignes. On peut alors supposer que $A$ est de rang ligne plein, c'est-à-dire que $\rank(A) = m$. 
+Une condition nécessaire pour que le système \eqref{eq:40} soit soluble est qu'il existe une solution $x ∈ℚ^n$, et donc que $\rank(A) = \rank(A|b)$. Aussi, on peut supprimer une ligne de $(A|b)$ qui est dans le span des autres lignes. On peut alors supposer que $A$ est de rang ligne plein, c'est-à-dire que $\rank(A) = m$. 
 
 \begin{definition}
   \label{def:44}
@@ -232,14 +232,14 @@ où
     h_{m1} & \hdots & \hdots & h_{mm}
   \end{pmatrix}
 \end{displaymath}
-est une matrice triangulaire. Le problème~\eqref{eq:40} alors est soluble si et seulement si
+est une matrice triangulaire. Le problème~\eqref{eq:40} est alors soluble si et seulement si
 $H^{-1} b ∈ℤ^n$.
 
 \begin{definition}
   \label{def:47}
   Soit $A ∈ ℤ^{m ×n}$ une matrice. Une \emph{opération élémentaire unimodulaire} est l'une des trois opérations suivantes
   \begin{enumerate}[i)]
-    \item Multiplier une colonne avec $-1$.  \label{item:21}
+    \item Multiplier une colonne par $-1$.  \label{item:21}
     \item Échanger deux colonnes de $A$.  \label{item:22}
     \item Additionner un multiple entier d'une colonne de $A$ à une autre colonne de $A$. \label{item:23}
   \end{enumerate}
@@ -335,15 +335,20 @@ Soit
       1 & -1 & 0
     \end{pmatrix}. 
   \end{displaymath}      
-    Alors on peut conclure que \eqref{eq:43} possède une solution entière. En fait
+  Le système \eqref{eq:43} se réduit finalement à résoudre \[   \begin{pmatrix}
+      1 & 0 & 0 \\
+      1 & -1 & 0
+    \end{pmatrix} y = b, y \in \Z^3 \]
+  
+  où $y = U^{-1}x$ pour une matrice unimodulaire $U$ adéquate.
+   On conclut donc qu'il possède une solution entière. En fait
     \begin{displaymath}
-    \label{eq:43}
      \begin{pmatrix}
       3 & 6 & 2 \\
       11 & 5 & 10
     \end{pmatrix} x =
     b, x ∈ℤ^3
-  \end{displaymath} est soluble pour chaque $b ∈ℤ^2$. 
+  \end{displaymath} est soluble pour tout $b ∈ℤ^2$.
 \end{example}
 
 
@@ -382,7 +387,7 @@ Soit
     Soit  $A ∈ℤ^{ m ×n}$ une matrice en nombre entiers alors il  existe une matrice unimudulaire $U ∈ℤ^{ n ×n}$ tel que $A ⋅U$ est de la forme~\eqref{eq:44}.
   \end{corollary}
   \begin{proof}
-    On raisonne par induction sur $m$. Le cas $m=1$ est suit directement du Lemme~\ref{lem:24}. Soit $m>1$. 
+    On raisonne par récurrence sur $m$. Le cas $m=1$ est suit directement du Lemme~\ref{lem:24}. Soit $m>1$. 
     Le Lemme~\ref{lem:24} implique qu'il existe une matrice unimodulaire $U_1 ∈ℤ^{n ×n}$ telle que
     \begin{displaymath}
       A ⋅ U_1 =
@@ -413,12 +418,12 @@ Soit
 
   \begin{definition}
     \label{def:49}
-    Une matrice $A ∈ℤ^{m ×n}$  est en \emph{forme normale d'Hermite}, si elle est de la forme \eqref{eq:44}, où $r_{ii}>0$ pour tous $1 ≤i≤ m$ et $0≤ r_{ij} < r_{ii}$ pour tout $1≤j<i≤m$. 
+    Une matrice $A ∈ℤ^{m ×n}$  est en \emph{forme normale d'Hermite}, si elle est de la forme \eqref{eq:44}, où $h_{ii}>0$ pour tout $1 ≤i≤ m$ et $0≤ h_{ij} < h_{ii}$ pour tout $1≤j<i≤m$. 
   \end{definition}
 	
 \begin{theorem}
   \label{thr:28}
-    Soit  $A ∈ℤ^{ m ×n}$ une matrice en nombre entiers alors il  existe une matrice unimudulaire $U ∈ℤ^{ n ×n}$ tel que $A ⋅U$ est en \emph{forme normale d'Hermite}.
+    Soit  $A ∈ℤ^{ m ×n}$ une matrice en nombre entiers. Alors il  existe une matrice unimudulaire $U ∈ℤ^{ n ×n}$ tel que $A ⋅U$ est en \emph{forme normale d'Hermite}.
   \end{theorem}
   
   \begin{definition}
