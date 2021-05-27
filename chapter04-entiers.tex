@@ -11,7 +11,7 @@ est résoluble et trouver toutes les solutions.
 
 
 
-Une condition nécessaire pour \eqref{eq:40} soit soluble est qu'il existe une solution $x ∈ℚ^n$, et alors que $\rank(A) = \rank(A|b)$. Aussi, on peut supprimer une ligne de $(A|b)$ qui est dans le span des autres lignes. On peut alors supposer que $A$ est de rang ligne plein, c'est-à-dire que $\rank(A) = m$. 
+Une condition nécessaire pour que le système \eqref{eq:40} soit soluble est qu'il existe une solution $x ∈ℚ^n$, et donc que $\rank(A) = \rank(A|b)$. Aussi, on peut supprimer une ligne de $(A|b)$ qui est dans le span des autres lignes. On peut alors supposer que $A$ est de rang ligne plein, c'est-à-dire que $\rank(A) = m$. 
 
 \begin{definition}
   \label{def:44}
@@ -232,14 +232,14 @@ où
     h_{m1} & \hdots & \hdots & h_{mm}
   \end{pmatrix}
 \end{displaymath}
-est une matrice triangulaire. Le problème~\eqref{eq:40} alors est soluble si et seulement si
+est une matrice triangulaire. Le problème~\eqref{eq:40} est alors soluble si et seulement si
 $H^{-1} b ∈ℤ^n$.
 
 \begin{definition}
   \label{def:47}
   Soit $A ∈ ℤ^{m ×n}$ une matrice. Une \emph{opération élémentaire unimodulaire} est l'une des trois opérations suivantes
   \begin{enumerate}[i)]
-    \item Multiplier une colonne avec $-1$.  \label{item:21}
+    \item Multiplier une colonne par $-1$.  \label{item:21}
     \item Échanger deux colonnes de $A$.  \label{item:22}
     \item Additionner un multiple entier d'une colonne de $A$ à une autre colonne de $A$. \label{item:23}
   \end{enumerate}
@@ -335,21 +335,26 @@ Soit
       1 & -1 & 0
     \end{pmatrix}. 
   \end{displaymath}      
-    Alors on peut conclure que \eqref{eq:43} possède une solution entière. En fait
+  Le système \eqref{eq:43} se réduit finalement à résoudre \[   \begin{pmatrix}
+      1 & 0 & 0 \\
+      1 & -1 & 0
+    \end{pmatrix} y = b, y \in \Z^3 \]
+  
+  où $y = U^{-1}x$ pour une matrice unimodulaire $U$ adéquate.
+   On conclut donc qu'il possède une solution entière. En fait
     \begin{displaymath}
-    \label{eq:43}
      \begin{pmatrix}
       3 & 6 & 2 \\
       11 & 5 & 10
     \end{pmatrix} x =
     b, x ∈ℤ^3
-  \end{displaymath} est soluble pour chaque $b ∈ℤ^2$. 
+  \end{displaymath} est soluble pour tout $b ∈ℤ^2$.
 \end{example}
 
 
 \begin{lemma}
   \label{lem:24}
-  Soit  $A ∈ℤ^{ m ×n}$ une matrice à coefficients entiers, alors il existe une matrice unimudulaire $U ∈ℤ^{ n ×n}$ tel que le première ligne de $AU$ est de la forme $(d,0,\cdots,0)$, où $d ∈ℤ$.
+  Soit  $A ∈ℤ^{ m ×n}$ une matrice à coefficients entiers, alors il existe une matrice unimudulaire $U ∈ℤ^{ n ×n}$ telle que la première ligne de $AU$ est de la forme $(d,0,\cdots,0)$, où $d ∈ℤ$.
 \end{lemma}
 
 \begin{proof}
@@ -358,7 +363,7 @@ Soit
   composante qui n'est pas égale à zéro, on échange les colonnes de sorte que
   la matrice résultante soit de la forme souhaitée.
   
-  Autrement, il existe deux index $j_1\neq j_2$ de colonnes, tels
+  Autrement, il existe deux indices de colonne $j_1\neq j_2$, tels
   que $a_{1j_1}\neq 0$ et $a_{1j_2} \neq 0$. On peut supposer, quitte à permutter les colonnes $j_1$ et $j_2$, que
   $|a_{1j_1}| ≥ |a_{1j_2}|$. La division avec reste nous donne des entiers $q ∈ℤ$ et
   $0 ≤r < |a_{1j_2}|$ tels que
@@ -379,10 +384,10 @@ Soit
 
   \begin{corollary}
     \label{co:9}
-    Soit  $A ∈ℤ^{ m ×n}$ une matrice en nombre entiers alors il  existe une matrice unimudulaire $U ∈ℤ^{ n ×n}$ tel que $A ⋅U$ est de la forme~\eqref{eq:44}.
+    Soit  $A ∈ℤ^{ m ×n}$ une matrice en nombre entiers. Alors il  existe une matrice unimudulaire $U ∈ℤ^{ n ×n}$ telle que $A ⋅U$ est de la forme~\eqref{eq:44}.
   \end{corollary}
   \begin{proof}
-    On raisonne par induction sur $m$. Le cas $m=1$ est suit directement du Lemme~\ref{lem:24}. Soit $m>1$. 
+    On raisonne par récurrence sur $m$. Le cas $m=1$ suit directement du Lemme~\ref{lem:24}. Soit $m>1$. 
     Le Lemme~\ref{lem:24} implique qu'il existe une matrice unimodulaire $U_1 ∈ℤ^{n ×n}$ telle que
     \begin{displaymath}
       A ⋅ U_1 =
@@ -391,7 +396,7 @@ Soit
         a  & A'
       \end{pmatrix}
     \end{displaymath}
-    où $d ∈ℤ$, $a ∈ ℤ^{m-1}$ et $A' ∈ ℤ^{(m-1) × (n-1)}$. Par l'hypothèse d'induction, il existe une matrice unimudulaire $U_2 ∈ℤ^{(n-1) ×(n-1)}$ tel $A' U_2$ est de la forme désirée. Clairement
+    où $d ∈ℤ$, $a ∈ ℤ^{m-1}$ et $A' ∈ ℤ^{(m-1) × (n-1)}$. Par l'hypothèse de récurrence, il existe une matrice unimudulaire $U_2 ∈ℤ^{(n-1) ×(n-1)}$ telle que $A' U_2$ est de la forme désirée. Clairement
       \begin{displaymath}
          \begin{pmatrix}
           1 & 0^T \\
@@ -413,16 +418,16 @@ Soit
 
   \begin{definition}
     \label{def:49}
-    Une matrice $A ∈ℤ^{m ×n}$  est en \emph{forme normale d'Hermite}, si elle est de la forme \eqref{eq:44}, où $r_{ii}>0$ pour tous $1 ≤i≤ m$ et $0≤ r_{ij} < r_{ii}$ pour tout $1≤j<i≤m$. 
+    Une matrice $A ∈ℤ^{m ×n}$  est en \emph{forme normale d'Hermite}, si elle est de la forme \eqref{eq:44}, où $h_{ii}>0$ pour tout $1 ≤i≤ m$ et $0≤ h_{ij} < h_{ii}$ pour tout $1≤j<i≤m$. 
   \end{definition}
 	
 \begin{theorem}
   \label{thr:28}
-    Soit  $A ∈ℤ^{ m ×n}$ une matrice en nombre entiers alors il  existe une matrice unimudulaire $U ∈ℤ^{ n ×n}$ tel que $A ⋅U$ est en \emph{forme normale d'Hermite}.
+    Soit  $A ∈ℤ^{ m ×n}$ une matrice en nombre entiers. Alors il  existe une matrice unimudulaire $U ∈ℤ^{ n ×n}$ telle que $A ⋅U$ est en \emph{forme normale d'Hermite}.
   \end{theorem}
   
   \begin{definition}
-    \label{def:49}
+    \label{def:50}
     Soit $A \in \mathbb{Z}^{m\times n}$ et  $rang(A)=m$. L'ensemble  $\Lambda(A):=\left\{ Ax,x\in \mathbb{Z}^{n} \right\}$ est  un \emph{réseau entier généré}  de $A$. Une matrice  $B \in \mathbb{Z}^{m\times m}$ telle que  $\Lambda(A)=\Lambda(B)$ est appelée base de $\Lambda(A)$. 
   \end{definition}
 
@@ -460,20 +465,14 @@ Soit
 $ \boxed { \Rightarrow  }$ On montre qui si $A\neq B$ alors $\Lambda(A) \neq \Lambda(B)$.$\\$
 Supposons alors que $\Lambda(A) =\Lambda(B)$.$\\$
 On note $A=\begin{pmatrix} a_{ 11 } & \quad  & \quad  \\ \quad  & \ddots  & \quad  \\ a_{m1}  & \quad  & a_{ mm } \end{pmatrix}$ et $B=\begin{pmatrix} b_{ 11 } & \quad  & \quad  \\ \quad  & \ddots  & \quad  \\ b_{m1}  & \quad  & b_{ mm } \end{pmatrix}$. $\\$
-Soit $i$ minimal tel que les $i-eme$ lignes de $A$ et de $B$ soient différentes. Alors $\exists j \in \left\{ 1,\dots ,i  \right\}$  tel que $a_{ij} \neq b_{ij}$ et sans perte de généralité on a $a_{ij}>b_{ij}$ . Clairement en notant $A_j$ ( resp $B_j$) la $j-eme$ colonne de $A$ (resp $B$), on a $A_j - B_j = \begin{pmatrix} 0 \\ \vdots  \\ 0\\ a_{ ij }-b_{ ij } \\ \vdots  \end{pmatrix} \in \Lambda (A)$ avec $a_{ii}>a_{ij}-b_{ij}>0$ mais alors nécessairement $a_{ii}|a_{ij}-b_{ij}$ ce qui est une contradiction.
-$\\$
+Soit $i$ l'indice minimal tel que la $i$-ème ligne de $A$ et celle de $B$ soient différentes. Alors $\exists j \in \left\{ 1,\dots ,i  \right\}$  tel que $a_{ij} \neq b_{ij}$ et sans perte de généralité on a $a_{ij}>b_{ij}$ . Clairement en notant $A_j$ ( resp. $B_j$) la $j$-ème colonne de $A$ (resp. $B$), on a $A_j - B_j = \begin{pmatrix} 0 \\ \vdots  \\ 0\\ a_{ ij }-b_{ ij } \\ \vdots  \end{pmatrix} \in \Lambda (A)$ avec $a_{ii}>a_{ij}-b_{ij}>0$. 
 
+Il existe donc forcément un vecteur entier $z$ tel que $A_j - B_j = Az$. On montre aisément que les $i-1$ premières coordonées de $z$ doivent être nulles car aucun élément diagonal de $A$ ne l'est (ou, de manière équivalente, car $A$ et de rang plein). Or, en comparant la $i$-ème coordonnée, on trouve que $a_{ij} - b_{ij} = a_{ii} z_i$. Dès lors, $a_{ii}|a_{ij}-b_{ij}$ ce qui est une contradiction.
  \end{proof}
   \begin{remark}
     \label{rem:5}
     Le Théorème~\ref{thr:28} nous permet de vérifier, pour $A ∈ℤ^{m × n_1}$ et $B ∈ℤ^{m × n_2}$ de rang ligne pleins, si $Λ(A) = Λ(B)$.  On calcule $(H_A|0)$ et $(H_B|0)$ les formes normales d'Hermite de $A$ et $B$. Comme $Λ(A) =Λ(H_A)$ et $Λ(B) = Λ(H_B)$, on a que $Λ(A) = Λ(B)$ si et seulement si $H_A = H_B$. 
-  \end{remark}
-
-
-  \begin{definition}
-    \label{def:48}
-    Soit $A ∈ℤ^{m ×n}$ du plein rang lignes et $Λ(A)$ le réseau entier généré par $A$ et $B ∈ℤ^{m ×m}$  une base de $Λ(A)$. On appelle $|\det(A)|$ le \emph{déterminante} du réseau $Λ(A)$. 
-  \end{definition}
+  \end{remark} 
   
   \begin{example}
     \label{exe:29}
@@ -521,12 +520,12 @@ $\\$
   \end{example}
   
   \begin{definition}
-   \label{def:49}
-   Soit $A \in \mathbb{Z}^{m \times n}$ alors $ker_{\mathbb{Z}}(A) = \left\{ y \in \mathbb{Z}^n, Ay=0 \right\}  $.
+   \label{def:51}
+   Soit $A \in \mathbb{Z}^{m \times n}$. Le \emph{noyau} de $A$ sur $\Z$ est défini par $ker_{\mathbb{Z}}(A) := \left\{ y \in \mathbb{Z}^n, Ay=0 \right\}  $.
   \end{definition}
   
     \begin{theorem}
-    \label{thr:28}
+    \label{thr:29}
     Soient $A,B \in \mathbb{Z}^{m \times m}$ en forme normale de Hermite avec $rang(A)=rang(B)=m$. Alors $\Lambda(A)=\Lambda(B) \Leftrightarrow \exists U\in \mathbb{Z}^{m \times m}$ unimodulaire telle que $B=AU$.
     \end{theorem}
     
@@ -536,16 +535,15 @@ $\\$
     $\\$
     $\boxed { \Leftarrow  }$ Si $B=AU, U\in \mathbb{Z}^{m \times m}$ unimodulaire alors comme $U \mathbb{Z}^{m}= \mathbb{Z}^{m}$ on obtient immédiatement  $\Lambda(A)=\Lambda(B)$.
     \end{proof}
-    
     \begin{definition}
-   	\label{def:49}
-	Soient $A\in \mathbb{Z}^{m \times n}$ avec $rang(A)=m$ et $\Lambda(A)$ le réseau entier de $A$. Alors on pose $det(\Lambda(A))=|det(B)|$ ou $B \in \mathbb{Z}^{m \times m}$ est une base de $\Lambda(A)$
+   	\label{def:48}
+	Soient $A\in \mathbb{Z}^{m \times n}$ avec $rang(A)=m$ et $\Lambda(A)$ le réseau entier de $A$. Le \emph{déterminant} du réseau $\Lambda(A)$ est donné par $det(\Lambda(A)):=|det(B)|$ où $B \in \mathbb{Z}^{m \times m}$ est une base de $\Lambda(A)$
    
    \end{definition}
    
    \begin{remark}
     \label{rem:5}
-    Le théorème~\ref{thr:28} assure que $|det(B)|$ ne dépend pas du choix de $B$ et donc $det(\Lambda(A))$ a du sens.
+    Le théorème~\ref{thr:29} assure que $|det(B)|$ ne dépend pas du choix de $B$ et donc que $det(\Lambda(A))$ a du sens.
     \end{remark}
   
 \section*{Exercices}
@@ -567,8 +565,7 @@ $\\$
 
 À partir de maintenant, on se donne une matrice $A\in \mathbb{Z}^{m\times n}$ avec $rang(A)=k$ et $k$ n'est pas forcément $m$.
 
-\begin{definition}
-   	\label{def:49}
+\begin{definition} \label{def:52}
 	Soit  $A\in \mathbb{Z}^{m\times n}$ alors $\Lambda(A)=\left\{ Ax,x\in \mathbb{R}^{n} \right\} $ est le \emph{réseau entier général} de $A$.
 \end{definition}
 
