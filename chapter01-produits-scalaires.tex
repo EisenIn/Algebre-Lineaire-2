@@ -1060,17 +1060,12 @@ Si $g$ est une fonction quelconque, continue sur $[0,2\,\pi]$, le coefficient de
 
 
 \begin{proof}
-  Si $w=0$, les deux termes de cette inégalité sont nuls et elle devient évidente. Supposons maintenant que $w$ est un vecteur unitaire. Si $\alpha = \pscal{v,w}$ est la composante de $v$ sur $w$, $v - \alpha w$ est perpendiculaire à $w$, donc aussi à $\alpha\,w$. D'après le théorème de Pythagore, on trouve 
+  Si $w=0$, les deux termes de cette inégalité sont nuls et elle devient évidente. Supposons maintenant que $w \neq 0$. Si $\alpha = \pscal{v,w} / \pscal{w,w}$ est la composante de $v$ sur $w$, $v - \alpha w$ est perpendiculaire à $w$, donc aussi à $\alpha\,w$. D'après le théorème de Pythagore, on trouve 
   \begin{eqnarray*}
     \|v\|^2 & = & \|v - \alpha \,w\|^2 + \|\alpha \, w \|^2 \\
-           & = &  \|v - \alpha \,w\|^2 + \alpha^2,
+            & ≥ &   \alpha^2 \|w\| ^2 \\ 
+            & = &     \pscal{v,w}^2    / \|w\| ^2. 
   \end{eqnarray*}
-par conséquent $\alpha^2 \leq \|v\|^2$, si bien que $|\alpha| \leq \|v\|$. 
-
-Enfin, si $w \neq 0$, alors $w / \|w\|$ est unitaire. Donc par ce que nous venons de voir,
-\begin{displaymath}
-  \left| \pscal{v, w / \|w\|} \right| \leq \|v\|.
-\end{displaymath}
 Cela implique 
 \begin{displaymath}
    \left| \pscal{v, w } \right| \leq \|v\| \|w\|.
