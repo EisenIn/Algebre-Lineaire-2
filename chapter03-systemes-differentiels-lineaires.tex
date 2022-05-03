@@ -414,97 +414,101 @@ où nous avons utilisé le théorème \ref{thr:32}. Dès que $N$ et $\diag(\lamb
 \end{eqnarray*}
 où $k \in \N$ est tel que $N^k = 0$. 
 
-\section{Polynômes}
-\label{sec:polyn-les-lalg}
 
-Soit $K$ un corps. 
-On dénote l'anneau des polynômes de $K$ par $K[x]$. 
-Un élément de $K[x]$ s'écrit comme 
-\begin{displaymath}
-  p(x) = a_0 + a_1 x + \cdots + a_n x^n 
-\end{displaymath}
-où les \emph{coefficients} $a_i \in K$. 
+\section{Décomposition selon le polynôme caractéristique}
+\label{sec:decomp-selon-le}
 
-La formule de multiplication de deux polynômes $f(x) = a_0+a_1x+ \cdots a_n x^n$ et $g(x) = b_0 + \cdots + b_m x^m$  est 
-\begin{equation}
-\label{eq:21}
-  f(x) \cdot g(x) = \sum_{i = 0}^{m+n} \left(\sum_{k+l = i}  a_{k} b_l\right) x^i
-\end{equation}
+% \section{Polynômes}
+% \label{sec:polyn-les-lalg}
 
+% Soit $K$ un corps. 
+% On dénote l'anneau des polynômes de $K$ par $K[x]$. 
+% Un élément de $K[x]$ s'écrit comme 
+% \begin{displaymath}
+%   p(x) = a_0 + a_1 x + \cdots + a_n x^n 
+% \end{displaymath}
+% où les \emph{coefficients} $a_i \in K$. 
 
-\begin{definition}
-  \label{def:30}
-  Un polynôme $f(x) \in K[x]$
-  tel que $\deg(f) \geq 1$ est \emph{irréductible} si
-  \begin{displaymath}
-    f(x) = g(x) \cdot h(x) 
-  \end{displaymath}
-implique $\deg(g) \cdot \deg(h) = 0$, alors un des facteurs est une constante. 
-\end{definition}
+% La formule de multiplication de deux polynômes $f(x) = a_0+a_1x+ \cdots a_n x^n$ et $g(x) = b_0 + \cdots + b_m x^m$  est 
+% \begin{equation}
+% \label{eq:21}
+%   f(x) \cdot g(x) = \sum_{i = 0}^{m+n} \left(\sum_{k+l = i}  a_{k} b_l\right) x^i
+% \end{equation}
 
 
-
-
-\begin{definition}
-  \label{def:33}
-  Un diviseur commun de $a(x) \in K[x]$
-  et $b(x) \in K[x]$
-  est un diviseur de $a(x)$
-  et $b(x)$.
-  Un diviseur commun le plus grand de $a(x)$
-  et $b(x)$
-  est un diviseur commun de $a(x)$
-  et $b(x)$
-  tel que tous les autres  diviseurs communs de $a(x)$ et $b(x)$ le divisent. On dénote les plus grands diviseurs communs de $a$ et $b$ par $\emph{pgdc}(a,b)$ (ou, en anglais, $\emph{gcd}(a,b)$, greatest common divisor).
-\end{definition}
-
-
-\begin{theorem}
-  \label{thr:36}
-  Soient $a(x),b(x)$ deux polynômes, tels que $\left\{ a,b \right\} \neq \left\{ 0 \right\}$. Un polynôme 
-  \begin{equation}
-    \label{eq:25}   
-    d(x) = g(x) a(x) + h(x) b(x) \neq 0
-  \end{equation}
-  de degré minimal, où $g,h \in K[x]$ , est un plus grand diviseur commun de $a$ et $b$. 
-\end{theorem}
-
-\begin{proof}
-  On montre qu'un tel $d(x)$ est un diviseur commun de $a$ et $b$ en procédant par l'absurde. Supposons que $d$ ne divise pas $a$. Alors il existe $q$ et $r$ tels que 
-  \begin{displaymath}
-    a = q\cdot d +r 
-  \end{displaymath}
-et $\deg(r) < \deg(d)$. Alors 
-\begin{displaymath}
-  r = a - q\cdot d = (1 - g\,q) a - h\,q\,b
-\end{displaymath}
-est un polynôme de la forme~\eqref{eq:25} avec un degré strictement plus petit que celui de $d$. 
-
-Il est clair que tous les diviseurs communs de $a$ et $b$ divisent $d$. 
-\end{proof}
+% \begin{definition}
+%   \label{def:30}
+%   Un polynôme $f(x) \in K[x]$
+%   tel que $\deg(f) \geq 1$ est \emph{irréductible} si
+%   \begin{displaymath}
+%     f(x) = g(x) \cdot h(x) 
+%   \end{displaymath}
+% implique $\deg(g) \cdot \deg(h) = 0$, alors un des facteurs est une constante. 
+% \end{definition}
 
 
 
 
-\begin{theorem}
-  \label{thr:39}
-  Soit $p(x)$ irréductible et supposons que $p(x) \mid f(x) \cdot  g(x)$, alors $p(x)\mid f(x)$ ou $p(x) \mid g(x)$. 
-\end{theorem}
+% \begin{definition}
+%   \label{def:33}
+%   Un diviseur commun de $a(x) \in K[x]$
+%   et $b(x) \in K[x]$
+%   est un diviseur de $a(x)$
+%   et $b(x)$.
+%   Un diviseur commun le plus grand de $a(x)$
+%   et $b(x)$
+%   est un diviseur commun de $a(x)$
+%   et $b(x)$
+%   tel que tous les autres  diviseurs communs de $a(x)$ et $b(x)$ le divisent. On dénote les plus grands diviseurs communs de $a$ et $b$ par $\emph{pgdc}(a,b)$ (ou, en anglais, $\emph{gcd}(a,b)$, greatest common divisor).
+% \end{definition}
 
-\begin{proof}
-Si $p(x)$ ne divise ni $f(x)$ ni $g(x)$ alors $1 = f(x) h_1(x) + p(x)h_2(x)$ et 
-$1 = g(x) h_3(x) + p(x) h_4(x)$ alors $\gcd(p(x), f(x)g(x))=1$. 
-\end{proof}
+
+% \begin{theorem}
+%   \label{thr:36}
+%   Soient $a(x),b(x)$ deux polynômes, tels que $\left\{ a,b \right\} \neq \left\{ 0 \right\}$. Un polynôme 
+%   \begin{equation}
+%     \label{eq:25}   
+%     d(x) = g(x) a(x) + h(x) b(x) \neq 0
+%   \end{equation}
+%   de degré minimal, où $g,h \in K[x]$ , est un plus grand diviseur commun de $a$ et $b$. 
+% \end{theorem}
+
+% \begin{proof}
+%   On montre qu'un tel $d(x)$ est un diviseur commun de $a$ et $b$ en procédant par l'absurde. Supposons que $d$ ne divise pas $a$. Alors il existe $q$ et $r$ tels que 
+%   \begin{displaymath}
+%     a = q\cdot d +r 
+%   \end{displaymath}
+% et $\deg(r) < \deg(d)$. Alors 
+% \begin{displaymath}
+%   r = a - q\cdot d = (1 - g\,q) a - h\,q\,b
+% \end{displaymath}
+% est un polynôme de la forme~\eqref{eq:25} avec un degré strictement plus petit que celui de $d$. 
+
+% Il est clair que tous les diviseurs communs de $a$ et $b$ divisent $d$. 
+% \end{proof}
 
 
-\begin{theorem}
-  \label{thr:40}
-  Un polynôme  $f(x) \in K[x]$, $f(x) ≠ 0$  a une factorisation 
-  \begin{displaymath}
-    f(x) = a^* \prod_j p_j(x)
-  \end{displaymath}
-  où $a^* \in K$ et les $p_j(x)$ sont irréductibles avec coefficient dominant $1$. Cette factorisation est unique sauf pour des permutations des $p_j$. 
-\end{theorem}
+
+
+% \begin{theorem}
+%   \label{thr:39}
+%   Soit $p(x)$ irréductible et supposons que $p(x) \mid f(x) \cdot  g(x)$, alors $p(x)\mid f(x)$ ou $p(x) \mid g(x)$. 
+% \end{theorem}
+
+% \begin{proof}
+% Si $p(x)$ ne divise ni $f(x)$ ni $g(x)$ alors $1 = f(x) h_1(x) + p(x)h_2(x)$ et 
+% $1 = g(x) h_3(x) + p(x) h_4(x)$ alors $\gcd(p(x), f(x)g(x))=1$. 
+% \end{proof}
+
+
+% \begin{theorem}
+%   \label{thr:40}
+%   Un polynôme  $f(x) \in K[x]$, $f(x) ≠ 0$  a une factorisation 
+%   \begin{displaymath}
+%     f(x) = a^* \prod_j p_j(x)
+%   \end{displaymath}
+%   où $a^* \in K$ et les $p_j(x)$ sont irréductibles avec coefficient dominant $1$. Cette factorisation est unique sauf pour des permutations des $p_j$. 
+% \end{theorem}
 
 
 
@@ -580,54 +584,186 @@ qui démontre que la somme est directe.
 
 
 
-\begin{theorem}
-\label{thr:min-poly}
-Soient $V$ un espace vectoriel de dimension finie sur un corps $K$, et $A: \, V \rightarrow V$ un endomorphisme.
-Il y a un polyn{\^o}me $m_A(x) \in K[x]$ de degr{\'e} minimal tel que $m_A(A) = 0$ et le coefficient dominant de $m_A(x)$ est $1$. En plus,
-\begin{enumerate}
-\item $m_A(x)$ est unique,
-\item si $p(A) = 0$ pour un $p \in K[x]$, alors $m_A(x)$ divise $p$, et
-\item pour $\lambda \in K$, on a $m_A(\lambda) = 0$ si et seulement si $p_A(\lambda) = 0$, o{\`u} $p_A(x)$ est le polyn{\^o}me charact{\'e}ristique de $A$.
-\end{enumerate}
-\end{theorem}
-\begin{definition}
-On appelle $m_A(x)$ de Th{\'e}or{\`e}me~\ref{thr:min-poly} le \emph{polyn{\^o}me minimal de $A$}.
-\end{definition}
+% \begin{theorem}
+% \label{thr:min-poly}
+% Soient $V$ un espace vectoriel de dimension finie sur un corps $K$, et $A: \, V \rightarrow V$ un endomorphisme.
+% Il y a un polyn{\^o}me $m_A(x) \in K[x]$ de degr{\'e} minimal tel que $m_A(A) = 0$ et le coefficient dominant de $m_A(x)$ est $1$. En plus,
+% \begin{enumerate}
+% \item $m_A(x)$ est unique,
+% \item si $p(A) = 0$ pour un $p \in K[x]$, alors $m_A(x)$ divise $p$, et
+% \item pour $\lambda \in K$, on a $m_A(\lambda) = 0$ si et seulement si $p_A(\lambda) = 0$, o{\`u} $p_A(x)$ est le polyn{\^o}me charact{\'e}ristique de $A$.
+% \end{enumerate}
+% \end{theorem}
+% \begin{definition}
+% On appelle $m_A(x)$ de Th{\'e}or{\`e}me~\ref{thr:min-poly} le \emph{polyn{\^o}me minimal de $A$}.
+% \end{definition}
+% \begin{proof}
+% \underline{Existence:}
+% Car $V$ est de dimension finie, l'espace vectoriel des endomorphismes $V \rightarrow V$ est de dimension finie.
+% Alors, il existe un $k \in \N$ minimal tel que les endomorphismes
+% \[
+%  \mathrm{id}, A, A^2, \dots A^k
+% \]
+% sont lin{\'e}airement d{\'e}pendants,
+% $
+% 0 = \sum_{j=0}^k \alpha_j A^j$ pour quelques $\alpha_j \in K$, et $\alpha_k \neq 0$.
+% On d{\'e}finit $m_A(x) = \sum_{j=0}^k (\alpha_j / \alpha_k) x^j$.
+% Car on choisit $k$ minimal, $\{\mathrm{id},\dots,A^{k-1}\}$ est un ensemble libre et alors $m_A(x)$ est de degr{\'e} minimal.
+
+% \underline{$i)$ et $ii)$:} Soit $p(x) \in K[x]$ polyn{\^o}me quelconque tel que $p(A) = 0$.
+% Car il y a deux polyn{\^o}mes $g,h$ tel que 
+% \[
+% \gcd (m_A, p) (x) = g(x)m_A(x) + h(x) p(x) \neq 0,
+% \]
+% on a $\gcd (m_A, p) (A) = 0$.
+% Car $m_A$ est de degr{\'e} minimal, on a $\deg (\gcd(m_A,p)) = \deg (m_A)$, et car le polyn{\^o}mes ont le coefficient dominant $1$, on a $m_A(x) = \gcd (m_A, p) (x)$, alors $ii)$ est vrai.
+% De plus, si $\deg (p) = \deg (m_A)$, on a $p = \gcd (p, m_A)$ aussi, ce qui implique $i)$.
+
+% \underline{$iii)$}
+% Car $m_A \mid p_A$, si $m_A(\lambda) = 0$ alors $p_A(\lambda) = 0$.
+
+% Si $p_A(\lambda) = 0$, il existe $v \in V$ tel que $Av = \lambda v$.
+% Alors,
+% \[
+% 0 (v) = m_A(A) (v) = \left( \sum_{j=0}^k a_j A^j \right) (v) = \sum_{j=0}^k a_j A^j(v) = \left( \sum_{j=0}^k a_j \lambda^j \right) (v) = m_A (\lambda) v,
+% \]
+% et on a $iii)$.
+% \end{proof}
+
+
+
+
+
+\begin{lemma}
+  \label{lem:19}
+  Soit $V$ un espace vectoriel de dimension finie sur $\C$ et soit $T\colon V ⟶ V$ une application linéaire. Alors $V$ est la somme directe de sous-espaces   $V = V_1 ⊕ \cdots ⊕ V_K$  tels que 
+  \begin{enumerate}[i)]
+  \item $T(V_i) ⊆ V_i$ pour tout $i$ et \label{item:10}
+  \item $T_{∣V_i} \colon V_i ⟶ V_i$
+    est de la forme $N_i + λ \, I$ où $N_i$ est nilpotente. \label{item:11}
+  \end{enumerate}
+\end{lemma}
+
 \begin{proof}
-\underline{Existence:}
-Car $V$ est de dimension finie, l'espace vectoriel des endomorphismes $V \rightarrow V$ est de dimension finie.
-Alors, il existe un $k \in \N$ minimal tel que les endomorphismes
-\[
- \mathrm{id}, A, A^2, \dots A^k
-\]
-sont lin{\'e}airement d{\'e}pendants,
-$
-0 = \sum_{j=0}^k \alpha_j A^j$ pour quelques $\alpha_j \in K$, et $\alpha_k \neq 0$.
-On d{\'e}finit $m_A(x) = \sum_{j=0}^k (\alpha_j / \alpha_k) x^j$.
-Car on choisit $k$ minimal, $\{\mathrm{id},\dots,A^{k-1}\}$ est un ensemble libre et alors $m_A(x)$ est de degr{\'e} minimal.
+Soit $p(x) =$ le polyn{\^o}me caractéristique  de $T$, alors $p(T) = 0$.
+Le coefficient dominant de $p(x)$ est $1$.   Le théorème fondamental de l'algèbre implique que 
+\begin{displaymath}
+  p(x) = ( x - λ_1)^{m_1} \cdots ( x - λ_k)^{m_k} 
+\end{displaymath}
+avec des $λ_i$ différents. 
+Le diviseur le plus grand de $( x - λ_i)^{m_i}$ et $p(x) / ( x - λ_i)^{m_i}$ est $1$ pour $i ≠ j$. En utilisant théorème~\ref{thr:37} en $k-1$ étapes, alors 
+\begin{displaymath} 
+V =   \ker p(T) = \ker (T - λ_1I)^{m_1} ⊕  \cdots ⊕ \ker( T - λ_kI)^{m_k}
+\end{displaymath}
+et avec $V_i = \ker( T - λ_iI)^{m_i}$ on a $V = V_1 ⊕ \cdots ⊕ V_K$  et \ref{item:10}) avec lemme~\ref{lem:20}. \newline
 
-\underline{$i)$ et $ii)$:} Soit $p(x) \in K[x]$ polyn{\^o}me quelconque tel que $p(A) = 0$.
-Car il y a deux polyn{\^o}mes $g,h$ tel que 
-\[
-\gcd (m_A, p) (x) = g(x)m_A(x) + h(x) p(x) \neq 0,
-\]
-on a $\gcd (m_A, p) (A) = 0$.
-Car $m_A$ est de degr{\'e} minimal, on a $\deg (\gcd(m_A,p)) = \deg (m_A)$, et car le polyn{\^o}mes ont le coefficient dominant $1$, on a $m_A(x) = \gcd (m_A, p) (x)$, alors $ii)$ est vrai.
-De plus, si $\deg (p) = \deg (m_A)$, on a $p = \gcd (p, m_A)$ aussi, ce qui implique $i)$.
-
-\underline{$iii)$}
-Car $m_A \mid p_A$, si $m_A(\lambda) = 0$ alors $p_A(\lambda) = 0$.
-
-Si $p_A(\lambda) = 0$, il existe $v \in V$ tel que $Av = \lambda v$.
-Alors,
-\[
-0 (v) = m_A(A) (v) = \left( \sum_{j=0}^k a_j A^j \right) (v) = \sum_{j=0}^k a_j A^j(v) = \left( \sum_{j=0}^k a_j \lambda^j \right) (v) = m_A (\lambda) v,
-\]
-et on a $iii)$.
+De plus, $$T_{∣V_i} = (T - λ_iI)_{∣V_i} + λ_iI_{∣V_i} =\colon N_i + λ_iI$$ et $N_i = (T - λ_iI)_{∣V_i}$ est bien nilpotente, car $V_i = \ker( T - λ_iI)^{m_i}$ et donc $N_i^{m_i} = (T - λ_iI)^{m_i}_{∣V_i} = 0$.
 \end{proof}
 
 
+\begin{remark}
+  \label{rem:3}
+  Lemme~\ref{lem:19} démontre qu'il existe une base 
+  \begin{displaymath}
+  \mathscr{B} =   b_1^1,\dots,b_{\ell_1}^1,b_1^2,\dots,b_{\ell_2}^2,\dots,b_1^k,\dots,b_{\ell_k}^k
+  \end{displaymath}
+  où $b_1^i,\dots,b_{\ell_i}^i$ est une base de $V_i$ telle que la matrice $A^T_\mathscr{B}$ de $T$ par rapport à la base $\mathscr{B}$ est une matrice bloc diagonale 
+  \begin{displaymath}
+      A^T_{\mathscr{B} }  =
+      \begin{pmatrix}
+        B_1 \\
+        & B_2 \\
+        & & \ddots \\
+        & &  & B_k
+      \end{pmatrix}
+  \end{displaymath}
+et les matrices $B_i \in \C^{\ell_i × \ell_i}$ sont de la forme $B_i = N_i + λ_i I$ où les $N_i$ sont  nilpotentes. 
 
+
+\begin{example}
+  \label{exe:47}
+
+  Soit
+  \begin{displaymath}
+    A = \left(\begin{array}{rrr}
+25 & 34 & 18 \\
+-14 & -19 & -10 \\
+-4 & -6 & -1
+\end{array}\right)
+\end{displaymath}
+
+Le polynôme caractéristique de $A$ est $p_A(x) = (x-1)^2 (x-3)$. Alors
+\begin{displaymath}
+  \ker(p_A(A))  = ℝ^3 = \ker\left((A - I)^2\right) ⊕  \ker(A - 3I). 
+\end{displaymath}
+On a
+\begin{displaymath}
+(A - I)^2 =   \left(\begin{array}{rrr}
+28 & 28 & 56 \\
+-16 & -16 & -32 \\
+-4 & -4 & -8
+\end{array}\right)
+\end{displaymath}
+et une base du $\ker\left((A - I)^2\right)$ est
+\begin{displaymath}
+  \left\{
+    \begin{pmatrix}
+      2\\0\\-2
+    \end{pmatrix}, \,
+    \begin{pmatrix}
+      0\\2\-1
+    \end{pmatrix}
+\right\} 
+\end{displaymath}
+Et
+\begin{displaymath}
+A - 3I =   \left(\begin{array}{rrr}
+22 & 34 & 18 \\
+-14 & -22 & -10 \\
+-4 & -6 & -4
+                 \end{array}\right)               
+\end{displaymath}
+avec base de noyaux
+\begin{displaymath}
+  \left\{
+    \begin{pmatrix}
+      -7 \\ 4 \\ 1
+    \end{pmatrix} \right\} 
+\end{displaymath}
+Avec matrice
+\begin{displaymath}
+  P = \left(\begin{array}{rrr}
+2 & 0 & -7 \\
+0 & 2 & 4 \\
+-1 & -1 & 1
+\end{array}\right)
+\end{displaymath}
+on a
+\begin{displaymath}
+  P^{-1}AP = \left(\begin{array}{rrr}
+16 & 25 & 0 \\
+-9 & -14 & 0 \\
+0 & 0 & 3
+                   \end{array}\right)                 
+\end{displaymath}
+et
+\begin{displaymath}
+\left(\begin{array}{rr}
+15 & 25 \\
+-9 & -15
+\end{array}\right)^2 = 0 
+\end{displaymath}
+
+Alors
+\begin{displaymath} 
+P^{-1}AP =
+\begin{pmatrix}
+  N_1 +  1 ⋅I_2 & 0
+  0         & N_2 + 3 ⋅ I_1
+\end{pmatrix}
+\end{displaymath}
+est en forme blocque diagonale, où $N_1$ et $N_2$ sont nilpotentes. En fait, $N_2=0$. 
+\end{example}
 
 \subsection*{Exercices}
 \label{sec:exercices}
@@ -713,57 +849,12 @@ un seul bloc de Jordan
 \end{displaymath}
 
 
-
-\begin{lemma}
-  \label{lem:19}
-  Soit $V$ un espace vectoriel de dimension finie sur $\C$ et soit $T\colon V ⟶ V$ une application linéaire. Alors $V$ est la somme directe de sous-espaces   $V = V_1 ⊕ \cdots ⊕ V_K$  tels que 
-  \begin{enumerate}[i)]
-  \item $T(V_i) ⊆ V_i$ pour tout $i$ et \label{item:10}
-  \item $T_{∣V_i} \colon V_i ⟶ V_i$
-    est de la forme $N_i + λ \, I$ où $N_i$ est nilpotente. \label{item:11}
-  \end{enumerate}
-\end{lemma}
-
-\begin{proof}
 %  Dès que l'espace des applications linéaires sur $V$ est un espace vectoriel sur $\C$ de dimension finie, il existe un $k \in \N$ tel que 
 %  \begin{displaymath}
 %    I, \, T, \, T^2, \dots, T^k
 %  \end{displaymath}
 %sont linéairement dépendants. De plus, il existe un polynôme $p(x) \in \C[x] \setminus \{ 0 \}$ tel que $p(T) = 0$. En effet, on peut choisir $p(x)$ le polynôme 
 %caractéristique de $T$.
-Soit $p(x) = m_T(x)$ le polyn{\^o}me minimal de $T$, alors $p(T) = 0$.
-Le coefficient dominant de $p(x)$ est $1$.   Le théorème fondamental de l'algèbre implique que 
-\begin{displaymath}
-  p(x) = ( x - λ_1)^{m_1} \cdots ( x - λ_k)^{m_k} 
-\end{displaymath}
-avec des $λ_i$ différents. 
-Le diviseur le plus grand de $( x - λ_i)^{m_i}$ et $p(x) / ( x - λ_i)^{m_i}$ est $1$ pour $i ≠ j$. En utilisant théorème~\ref{thr:37} en $k-1$ étapes, alors 
-\begin{displaymath} 
-V =   \ker p(T) = \ker (T - λ_1I)^{m_1} ⊕  \cdots ⊕ \ker( T - λ_kI)^{m_k}
-\end{displaymath}
-et avec $V_i = \ker( T - λ_iI)^{m_i}$ on a $V = V_1 ⊕ \cdots ⊕ V_K$  et \ref{item:10}) avec lemme~\ref{lem:20}. \newline
-
-De plus, $$T_{∣V_i} = (T - λ_iI)_{∣V_i} + λ_iI_{∣V_i} =\colon N_i + λ_iI$$ et $N_i = (T - λ_iI)_{∣V_i}$ est bien nilpotente, car $V_i = \ker( T - λ_iI)^{m_i}$ et donc $N_i^{m_i} = (T - λ_iI)^{m_i}_{∣V_i} = 0$.
-\end{proof}
-
-
-\begin{remark}
-  \label{rem:3}
-  Lemme~\ref{lem:19} démontre qu'il existe une base 
-  \begin{displaymath}
-  \mathscr{B} =   b_1^1,\dots,b_{\ell_1}^1,b_1^2,\dots,b_{\ell_2}^2,\dots,b_1^k,\dots,b_{\ell_k}^k
-  \end{displaymath}
-  où $b_1^i,\dots,b_{\ell_i}^i$ est une base de $V_i$ telle que la matrice $A^T_\mathscr{B}$ de $T$ par rapport à la base $\mathscr{B}$ est une matrice bloc diagonale 
-  \begin{displaymath}
-      A^T_{\mathscr{B} }  =
-      \begin{pmatrix}
-        B_1 \\
-        & B_2 \\
-        & & \ddots \\
-        & &  & B_k
-      \end{pmatrix}
-  \end{displaymath}
-et les matrices $B_i \in \C^{\ell_i × \ell_i}$ sont de la forme $B_i = N_i + λ_i I$ où les $N_i$ sont  nilpotentes. 
 
 Rappel: Si  $\phi_{\mathscr{B}}$ est l'ismorphisme $\phi_{\mathscr{B}} \colon V \longrightarrow \C^n$, où $\phi_{\mathscr{B}}(x) = [x]_{\mathscr{B}}$ sont les coordonnées de $x$ par rapport à la base ${\mathscr{B}}$,  on a le diagramme suivant 
 \begin{displaymath}
