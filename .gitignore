@@ -221,3 +221,6 @@ Programming/CMakeFiles/Test.o.dir/progress.make
 Programming/compile_commands.json
 *.tex#
 .#chapter04-entiers.tex
+
+
+*.DS_Store
