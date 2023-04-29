@@ -356,22 +356,22 @@ B =     \{ v_1,\dots,v_m, w_1,\dots,w_{n-m}\}
   \begin{enumerate}[i)]
   \item le polynôme caractéristique $p_f(x)$ de $f$ décompose en facteurs linéaires, c'est-à-dire, \label{item:19} 
     \begin{displaymath}
-      p_f(x) = (-1)^n ∏_{i=1}^r (x - λ_i )^{g_i}
+      p_f(x) = (-1)^n ∏_{i=1}^r (x - λ_i )^{a_i}
     \end{displaymath}
-    où $g_i$ est la multiplicité algébrique de $λ_i∈K$ pour tous $i$. 
-    \item  $\dim(E_{λ_i}) = g_i$, pour tous $i=1,\dots,r$. C'est à dire, les multiplicités algébriques et géométriques sont les mêmes. \label{item:20}
+    où $a_i$ est la multiplicité algébrique de $λ_i∈K$ pour tous $i$. 
+    \item  $\dim(E_{λ_i}) = a_i$, pour tous $i=1,\dots,r$. C'est à dire, les multiplicités algébriques et géométriques sont les mêmes. \label{item:20}
   \end{enumerate}
 \end{theorem}
 
 \begin{proof}
-  Supposons $f$ diagonalisable. Soit $B$ une base composée de vecteurs propres de $f$ et $A$ la matrice de $f$ associée à la base $B$. Le lemme~\ref{lem:4} implique que $A$ est diagonale et alors  $p_f(x) = \det(A - x \Id) = (-1)^n ∏_{i=1}^r (x - λ_i)^{g_i}$. La dimension de $E_{λ_i}$ est celle du noyau $\ker(A - λ_i I_n)$. Clairement $\dim(\ker(A - λ_i I_n)) = g_i$, et on a alors montré \ref{item:19}) et \ref{item:20}).
+  Supposons $f$ diagonalisable. Soit $B$ une base composée de vecteurs propres de $f$ et $A$ la matrice de $f$ associée à la base $B$. Le lemme~\ref{lem:4} implique que $A$ est diagonale et alors  $p_f(x) = \det(A - x \Id) = (-1)^n ∏_{i=1}^r (x - λ_i)^{a_i}$. La dimension de $E_{λ_i}$ est celle du noyau $\ker(A - λ_i I_n)$. Clairement $\dim(\ker(A - λ_i I_n)) = a_i$, et on a alors montré \ref{item:19}) et \ref{item:20}).
 
 
-  Supposons maintenant que \ref{item:19}) et \ref{item:20}) tiennent. Soient $m_i$ les multiplicités géométriques des valeurs propres $λ_i$, $i=1,\dots,r$. Comme on a
+  Supposons maintenant que \ref{item:19}) et \ref{item:20}) tiennent. Soient $g_i$ les multiplicités géométriques des valeurs propres $λ_i$, $i=1,\dots,r$. Comme on a
   \begin{displaymath}
-    \deg((-1)^n∏_{i=1}^n (λ_i -x)^{g_i}) =n,
+    \deg((-1)^n∏_{i=1}^r(x-λ_i)^{a_i}) =n,
   \end{displaymath}
-  alors $m_1+ \cdots + m_r = n$ et $f$ est diagonalisable grâce au corollaire~\ref{eco:1}. 
+  alors $g_1+ \cdots + g_r = n$ et $f$ est diagonalisable grâce au corollaire~\ref{eco:1}. 
 \end{proof}
 
 
