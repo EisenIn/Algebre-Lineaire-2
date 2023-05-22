@@ -23,56 +23,98 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
-\title{Solutions Examen Algèbre Linéaire Avancée 2 2021}
+\title{Solutions Examen Algèbre Linéaire Avancée 2, 2021}
 \maketitle
 
 \noindent 
-\textbf{Attention:} Les solutions présentées sont très détaillées, les commentaires en \indice{ petits caractères} ne sont pas forcément nécessaires dans un vrai examen et servent à faciliter la compréhension si certaines étapes du raisonnement ne sont pas claires
+\textbf{Attention:} Les solutions présentées sont très détaillées, les commentaires en \indice{ petits caractères} ne sont pas  nécessaires dans vos solutions et servent à faciliter la compréhension si certaines étapes du raisonnement ne sont pas claires
+
+
+\textbf{Work in progress!} 
 
 \subsection*{Question 23}
 \begin{enumerate}[i)] 
-\item 
-on veut montrer que $\det(A) = \prod_{i=1}^r \lambda_i^{m_i}$ \\
-{\tiny par définition on a $p_A(x) = \det(A-xI)$ et donc une évaluation en $x=0$} donne directement $\alpha_0 = \det(A-0\cdot I) = \det(A)$ si on écrit $p_A(x) = \sum_{j=0}^n \alpha_jx^j$ \\
-{\tiny de l'autre côté par supposition} le polynôme caractéristique se factorise de la manière suivante $p_A(x) = \alpha_n \prod_{i=1}^r (x-\lambda_i)^{m_i}$ \\
-il reste à déterminer le coefficient $\alpha_n$ du polynôme caractéristique, par la formule de Leibniz on peut écrire $p_A(x) = \sum_{\sigma \in S_n} q_{\sigma}(x)$ pour des polynômes $q_{\sigma}(x) = \text{sgn}(\sigma)\prod_{i=1}^n(A-xI)_{i,\sigma(i)}$ \\
+\item
+  \begin{itemize}
+  \item À montrer:  $\det(A) = \prod_{i=1}^r \lambda_i^{m_i}$
+  \item   Si on écrit $p_A(x) = \sum_{j=0}^n \alpha_jx^j$, $α_i ∈K$, alors
+    \begin{displaymath}
+      \alpha_0 = p_A(x) = \det(A-0\cdot I) = \det(A)
+    \end{displaymath}
+
+    
+\indice{par définition on a $p_A(x) = \det(A-xI)$ et donc une évaluation en $x=0$ donne $\alpha_0 = \det(A-0\cdot I) = \det(A)$}  
+\item Par supposition: Pour tout $i$:  $(x- λ_i)^{m_i} \mid p_A(x)$ \\
+\item Factorization en irréductibles uniques en $K[x]$ $⟹$   $ \prod_{i=1}^r (x-\lambda_i)^{m_i} \mid p_A(x) $  
+\item $n = ∑_i m_i =  ∑_i \deg(x- λ_i)^{m_i} $  $⟹$ $p_A(x) = \alpha_n \prod_{i=1}^r (x-\lambda_i)^{m_i}$ 
+\item $α_n = (-1)^n$
+  
+\indice{$α_n = (-1)^n$: Discuté plusieurs fois en classe. Par la formule de Leibniz on peut écrire $p_A(x) = \sum_{\sigma \in S_n} q_{\sigma}(x)$ pour des polynômes $q_{\sigma}(x) = \text{sgn}(\sigma)\prod_{i=1}^n(A-xI)_{i,\sigma(i)}$ \\
 on remarque que le degré de $q_{\sigma}(x)$ est égal au nombre de points fixés par la permutation $\sigma$ \\
 ainsi seulement la permutation $\sigma = id$ contribue au coefficient $\alpha_n$ de $p_A(x)$ \\
-comme $q_{id}(x) = \prod_{i=1}^n(a_{ii}-x)$ on obtient directement que $\alpha_n = (-1)^n$ \\
-on a donc $p_A(0) = (-1)^n \prod_{i=1}^r (0-\lambda_i)^{m_i} = \prod_{i=1}^r \lambda_i^{m_i}$ et {\tiny en utilisant le raisonnement tout en haut} on arrive à conclure que $\det(A) = \prod_{i=1}^r \lambda_i^{m_i}$ \\ \textcolor{blue}{4 points en total \\ on enlève 2 points si l'étudiant suppose que la matrice $A$ et diagonalisable, on enlève 2 points si le signe est mal placé dans une des expressions, on enlève 1 point pour tout autre erreur dans la formule de Leibniz}
+comme $q_{id}(x) = \prod_{i=1}^n(a_{ii}-x)$ on obtient directement que $\alpha_n = (-1)^n$ \\}
+\item on a donc $α_0 = p_A(0) = (-1)^n \prod_{i=1}^r (0-\lambda_i)^{m_i} = \prod_{i=1}^r \lambda_i^{m_i}$   \\
 
-\item 
-on veut montrer que $\alpha_{n-1} = (-1)^{n-1}\text{Tr}(A)$ \\
-{\tiny on observe comme avant que} seulement la permutation $\sigma = id$ contribue au coefficient $\alpha_{n-1}$ de $p_A(x)$ \\
-comme on a $q_{id}(x) = \prod_{i=1}^n(a_{ii}-x)$ on voit que $$\alpha_{n-1} = (-1)^{n-1}a_{11} + \ldots + (-1)^{n-1}a_{nn} = (-1)^{n-1}\text{Tr}(A)$$
-ce qui termine cette partie \\
+\end{itemize}
+\textcolor{blue}{4 points en total \\ on enlève 2 points si l'étudiant suppose que la matrice $A$ et diagonalisable, on enlève 2 points si le signe est mal placé dans une des expressions, on enlève 1 point pour tout autre erreur}
+
+\item
+  \begin{itemize}
+    \item 
+  On veut montrer que $\alpha_{n-1} = (-1)^{n-1}\text{Tr}(A)$ 
+\item Formule de Leibniz: $ p_A(x) = \sum_{\sigma \in S_n} q_{\sigma}(x)$ où
+  \begin{displaymath}
+      q_{\sigma}(x) = \text{sgn}(\sigma)\prod_{i=1}^n(A-xI)_{i,\sigma(i)}
+  \end{displaymath}
+ 
+\item pour $σ ≠ \mathrm{id}$, $\deg(q_{\sigma}(x)) ≤ n-2$
+\item  Comme $q_{id}(x) = \prod_{i=1}^n(a_{ii}-x)$ on a  $$\alpha_{n-1} = (-1)^{n-1}a_{11} + \ldots + (-1)^{n-1}a_{nn} = (-1)^{n-1}\text{Tr}(A)$$
+\end{itemize} 
 \textcolor{blue}{3 points en total \\ on enlève entre 0.5 et 1 points pour des erreurs dans la formule de Leibniz, on enlève entre 0.5 et 1 points si la restriction à la permutation $\sigma = id$ n'est pas justifée, si l'étudiant écrit simplement la formule de Leibniz avec la justification sur la restriction à $\sigma = id$ mais sans conclure l'étudiant obtient 2 points}
 
-\item 
-on veut montrer que $\text{Tr}(A) = \sum_{i=1}^r m_i\lambda_i$ \\
-{\tiny dans le point ii) on a montré que $\alpha_{n-1} = (-1)^{n-1}\text{Tr}(A)$,} cherchons maintenant le coefficient $\alpha_{n-1}$ dans la forme suivante du polynôme caractéristique $p_A(x) = (-1)^n \prod_{i=1}^r (x-\lambda_i)^{m_i}$ \\
-on obtient
+\item
+  \begin{itemize}
+  \item 
+On veut montrer que $\text{Tr}(A) = \sum_{i=1}^r m_i\lambda_i$  
+
+\indice {dans le point ii) on a montré que $\alpha_{n-1} = (-1)^{n-1}\text{Tr}(A)$}
+\item $p_A(x) = α_0+ \cdots  + α_n x^n =   (-1)^n \prod_{i=1}^r (x-\lambda_i)^{m_i}$, alors: 
+
 \begin{align*}
 \alpha_{n-1} &= \underbrace{(-1)^{n+1}\lambda_1 + \ldots + (-1)^{n+1}\lambda_1}_{m_1 \text{fois}} + \ldots + \underbrace{(-1)^{n+1}\lambda_r + \ldots + (-1)^{n+1}\lambda_r}_{m_r \text{fois}} \\
 &= (-1)^{n-1} \sum_{i=1}^r m_i\lambda_i
 \end{align*}
+\item
 en utilisant le résultat du point ii) on conclut que $\text{Tr}(A) = \sum_{i=1}^r m_i\lambda_i$ \\ 
+\end{itemize}
 \textcolor{blue}{3 points en total \\ on enlève 2 points si l'étudiant suppose que $A$ est diagonalisable, on enlève 1 point pour des erreurs de signe} 
 \end{enumerate}
 
 
 \subsection*{Question 26}
-{\tiny toutes les normes sur l'espace vectoriel $\mathbb{C}^{n \times n}$ sont équivalentes (car il s'agit d'un espace vectoriel de dimension finie) mais pour fixer nos idées on considère la convergence par rapport à la norme $\lVert \cdot \rVert_2$}
-\subsubsection*{a)}
-si $\rho(A) \geq 1$ alors on veut montrer que $A^n$ ne converge pas vers la matrice nulle \\
-{\tiny on fait une preuve par contradiction,} supposons $\rho(A) \geq 1$ et $A^n$ converge vers la matrice 0 \\
-prenons une valeur propre $\lambda$ de la matrice $A$ tel que $|\lambda| = \rho(A)$ et prenons aussi un vecteur propre unitaire $x \in \mathbb{C}^n$ associé à $\lambda$ \\
-pour tout $n \in \mathbb{N}$ on a $$\lVert A^n \rVert_2 = \lVert A^n \rVert_2 \lVert x \rVert_2 \geq \lVert A^nx \rVert_2 = \lVert \lambda^n x \rVert_2 = |\lambda|^n \geq 1$$ {\tiny où la dernière inégalité est une conséquence des faits $|\lambda|\geq 1$ et $\lVert x \rVert_2 = 1$} \\
-mais cela nous donne une contradiction avec la supposition que $A^n$ converge vers la matrice 0 car on a montré que $\lVert A^n \rVert_2$ est supérieur ou égal à 1 $\forall n \in \mathbb{N}$ \\
-{\tiny on a donc prouvé que $A^n$ ne converge pas vers la matrice 0} \\
-\textcolor{blue}{3 points en total \\ 1 point pour l'idée et le début de la preuve par contradiction, 1 point pour le calcul $\lVert A^n \rVert_2 \geq 1$ et 1 point pour conclure l'argument} 
+% {\tiny toutes les normes sur l'espace vectoriel $\mathbb{C}^{n \times n}$ sont équivalentes (car il s'agit d'un espace vectoriel de dimension finie) mais pour fixer nos idées on considère la convergence par rapport à la norme $\lVert \cdot \rVert_2$}
+\begin{enumerate}[i)]
+\item
+  \begin{itemize}
+  \item supposons $\rho(A) \geq 1$ et $A^k$ converge vers la matrice $0$
+  \item Soit  $\lambda ∈ℂ$, $|λ|≥1$  valeur propre et  $x \in \mathbb{C}^n \setminus \{0\}$ vecteur propre  associé à $\lambda$.
+  \item On passe par $x := x / \|x\|$, alors $\|x\| = 1$, où $\| \cdot\|$
+    dénote la norme associée aux produit Hermitien standard.    
+  % \item Pour tout $ε>0$ il existe $N$ tel que pour tout $i,j$:   $|(A^k)_{i,j}| < ε$
+  %   pour tout $k \in \mathbb{N}$ $k≥ N$ 
+  % \item Alors  pour tout $k \in \mathbb{N}$ $k≥ N$ et $i ∈ \{1,\dots,n\}$: 
+  %   \begin{displaymath}
+  %     \|(A^k x)_i \| < ε n 
+  %   \end{displaymath}
+  \item La suite  $A^k x ∈ ℂ^n$ converge vers $0 ∈ ℂ^n$.
+    
+    \indice{Chaque composante de $A^k$ est une suite convergeant vers $0$. Chacque composante de $A^k x$ est une somme de suites convergeant vers $0$} 
+  \item Mais $\|A^k x\|  = \|λ^k x\|  = |λ|^k \|x\| ≥ 1$
+  \item Contradiction! 
+  \end{itemize}
+\textcolor{blue}{3 points en total \\ 1 point pour l'idée et le début de la preuve par contradiction, 1 point pour le calcul  $\|A^k x\|  = \|λ^k x\|  = |λ|^k \|x\| ≥ 1$  et 1 point pour conclure l'argument} 
 
-\subsubsection*{b)}
+\item 
 soit $B=\lambda I+N$ où $\lambda \in \mathbb{C}$ et $N \in \mathbb{C}^{n \times n}$ est une matrice nilpotente \\
 on veut montrer que si $|\lambda|<1$ alors $\lim_{n\rightarrow \infty}B^n = 0$ \\
 {\tiny on remarque d'abord que comme $N$ est nilpotente il existe $k \in \mathbb{N}$ tel que $N^k = 0$} \\
@@ -88,7 +130,7 @@ on suppose $n>k$ et on calcule
 {\tiny on donc montré que $B^n$ est égal à une somme finie dont} chaque terme converge vers 0 quand $n \rightarrow \infty$, cela implique $\lim_{n\rightarrow \infty}B^n = 0$ \\
 \textcolor{blue}{4 points en total \\ 1 point pour l'utilisation de la formule du binôme de Newton, 2 points pour simplifier l'expression correctement à l'aide de la nilpotence de $N$ et 1 point pour conclure l'argument à l'aide de la limite $\lim_{n \rightarrow \infty} \begin{pmatrix} n \\ i \end{pmatrix} \lambda^{n-i}$} 
 
-\subsubsection*{c)} 
+\item 
 on montre les deux direction du si et seulement si
 \begin{itemize}
     \item [$\Longrightarrow$] pour montrer cette direction il suffit de montrer la contraposée: si $\rho \geq 1$ alors la suite $A^n$ ne converge pas vers la matrice 0 \\
@@ -109,7 +151,7 @@ on montre les deux direction du si et seulement si
 \end{itemize}
 \textcolor{blue}{3 points en total \\ 1 point pour la direction $\Longrightarrow$ de l'équivalence et 2 points pour l'autre direction (1 point pour le calcul $A^ny = \mu^n y$ et pour borner $\rho(A)^n$ supérieurement et 1 point pour conlure à l'aide du théorème des deux gendarmes)} 
     
-
+\end{enumerate}
 
 \newpage
 \subsection*{Question 27}
