@@ -688,7 +688,6 @@ Des que  les $N_i$ et $ λ_i I$ commutent, ça démontre le Théorème~\ref{thr:
 
 \begin{example}
   \label{exe:47}
-
   Soit
   \begin{displaymath}
     A = \left(\begin{array}{rrr}
@@ -698,7 +697,7 @@ Des que  les $N_i$ et $ λ_i I$ commutent, ça démontre le Théorème~\ref{thr:
 \end{array}\right)
 \end{displaymath}
 
-Le polynôme caractéristique de $A$ est $p_A(x) = (x-1)^2 (x-3)$. Alors
+Le polynôme caractéristique de $A$ est $p_A(x) = -  (x-1)^2 (x-3)$. Alors
 \begin{displaymath}
   \ker(p_A(A))  = ℝ^3 = \ker\left((A - I)^2\right) ⊕  \ker(A - 3I). 
 \end{displaymath}
@@ -714,10 +713,10 @@ et une base du $\ker\left((A - I)^2\right)$ est
 \begin{displaymath}
   \left\{
     \begin{pmatrix}
-      2\\0\\-2
+      2\\0\\-1
     \end{pmatrix}, \,
     \begin{pmatrix}
-      0\\2\-1
+      0\\2\\ -1
     \end{pmatrix}
 \right\} 
 \end{displaymath}
@@ -764,8 +763,8 @@ Alors
 \begin{displaymath} 
 P^{-1}AP =
 \begin{pmatrix}
-  N_1 +  1 ⋅I_2 & 0
-  0         & N_2 + 3 ⋅ I_1
+  N_1 +  1 ⋅I_2 & 0 \\
+  0         & N_2 + 3  ⋅ I_1
 \end{pmatrix}
 \end{displaymath}
 est en forme blocque diagonale, où $N_1$ et $N_2$ sont nilpotentes. En fait, $N_2=0$. 
