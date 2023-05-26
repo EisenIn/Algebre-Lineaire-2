@@ -5,111 +5,146 @@
 \usepackage[T1]{fontenc}
 \usepackage[francais]{babel}
 \usepackage{lmodern}
-
+\usepackage[boldsans]{concmath}
+\usepackage{utf8math}
+\usepackage{enumerate} 
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsthm}
 \usepackage{mathtools}
 \usepackage{comment}
 \usepackage{faktor}
-\usepackage{xcolor}
+\usepackage[dvipsnames]{xcolor}
+\newcommand{\smat}[1]{ \big(\begin{smallmatrix} #1 \end{smallmatrix}\big)}
+
+\newcommand{\indice}[1]{{\scriptsize \color{RubineRed} {#1}}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
-\title{Solutions Examen Algèbre Linéaire Avancée 2 2022}
+\title{Solutions Examen Algèbre Linéaire Avancée 2, 2022}
 \maketitle
 
-\textbf{Attention:} les solutions présentées sont très détaillées, les commentaires en {\tiny petits caractères} ne sont pas forcément nécessaires dans un vrai examen et servent à faciliter la compréhension si certaines étapes du raisonnement ne sont pas claires
+\noindent
+\textbf{Attention:} Les solutions présentées sont très détaillées, les commentaires en \indice{ petits caractères} ne sont pas  nécessaires dans vos solutions et servent à faciliter la compréhension si certaines étapes du raisonnement ne sont pas claires
 
 \subsection*{Question 22}
-\subsubsection*{a)}
-on veut montrer que les matrices réelles $A$ et $B$ sont semblables sur $\mathbb{R}$ \\
-comme $A$ et $B$ sont semblables sur $\mathbb{C}$ on a par définition l'existence d'une matrice $P \in \mathbb{C}^{n \times n}$ inversible tel que
+\begin{enumerate}[a)]
+\item
+\begin{itemize}
+\item On veut montrer que les matrices $A$ et $B$ sont semblables sur $\mathbb{R}$
+\item Il existe une matrice $P \in \mathbb{C}^{n \times n}$ inversible tel que
 \begin{align}
 \label{eq1}
 A = PBP^{-1} \Longleftrightarrow AP = PB
 \end{align}
-on va maintenant suivre l'indice donné dans la description de l'exercice et partitionner la matrice $P=P_1 + i P_2$ avec $P_1,P_2 \in \mathbb{R}^{n \times n}$, {\tiny cela est possible car chaque élément de la matrice s'écrit comme $(P)_{ij} = p_{ij} + i\Tilde{p}_{ij}$ avec $p_{ij},\Tilde{p}_{ij} \in \mathbb{R}$ et on peut donc rassembler les $p_{ij}$ dans la matrice $P_1$ et les $\Tilde{p}_{ij}$ dans la matrice $P_2$} \\
-l'équation (\ref{eq1}) donne les deux équations $AP_1=P_1B$ et $AP_2=P_2B$ car toutes les matrices sont réelles \textcolor{blue}{(2 points pour les relations $AP_1 = P_1B$ et $AP_2 = BP_2$)}\\
-on va maintenant considérer la fonction $f(x) \coloneqq \det(P_1 + xP_2)$, comme $f$ est définie par un déterminant on sait du cours Algèbre Linéaire Avancée 1 que $f$ est un polynôme réel de degré au plus $n$ \\
-{\tiny or on peut voir $f$ aussi comme un polynôme complexe et comme $P$ est une matrice inversible on sait que $f(i) \neq 0$} \\
-ainsi $f$ n'est pas le polynôme identiquement nul sur $\mathbb{C}$ et par conséquent $f$ n'est pas le polynôme identiquement nul sur $\mathbb{R}$ \textcolor{blue}{(2 points pour remarquer que $f$ est un polynôme non identiquement nul)} \\
-{\tiny comme $\mathbb{R}$ possède une infinité d'éléments} on a nécessairement un élément $y \in \mathbb{R}$ tel que $f(y) \neq 0$ car $f$ possède au plus $n$ racines réelles distinctes \\
-on pose maintenant $Q \coloneqq P_1 + yP_2 \in \mathbb{R}^{n \times n}$, alors $Q$ est inversible par construction {\tiny(car on a $\det(Q) \neq 0$)} et on obtient
+\indice{Car $A$ et $B$ sont semblables sur $\mathbb{C}$}
+\item On écrit $P=P_1 + i P_2$ avec $P_1,P_2 \in \mathbb{R}^{n \times n}$ \\
+\indice{Cela est possible car chaque élément de la matrice s'écrit comme $(P)_{ij} = p_{ij} + i\Tilde{p}_{ij}$ avec $p_{ij},\Tilde{p}_{ij} \in \mathbb{R}$ et on peut donc rassembler les $p_{ij}$ dans la matrice $P_1$ et les $\Tilde{p}_{ij}$ dans la matrice $P_2$}
+\item L'équation (\ref{eq1}) donne les deux équations $AP_1=P_1B$ et $AP_2=P_2B$ \textcolor{blue}{(2 points pour ces relations)}
+\item On considère la fonction $f(x) \coloneqq \det(P_1 + xP_2)$, comme $f$ est définie par un déterminant on sait du cours Algèbre Linéaire Avancée 1 que $f$ est un polynôme réel de degré au plus $n$ \\
+\indice{On peut voir $f$ aussi comme un polynôme complexe et comme $P$ est une matrice inversible on sait que $f(i) \neq 0$}
+\item $f$ n'est pas le polynôme identiquement nul sur $\mathbb{C}$ et par conséquent $f$ n'est pas le polynôme identiquement nul sur $\mathbb{R}$ \textcolor{blue}{(2 points pour remarquer que $f$ est un polynôme non identiquement nul)}
+\item Il existe un élément $y \in \mathbb{R}$ tel que $f(y) \neq 0$ car $f$ possède au plus $n$ racines réelles distinctes \\
+\indice{$\mathbb{R}$ possède une infinité d'éléments}
+\item Posons $Q \coloneqq P_1 + yP_2 \in \mathbb{R}^{n \times n}$, alors $Q$ est inversible et on obtient
 $$AQ = AP_1 + yAP_2 = P_1B + yP_2B = QB$$ 
-ce qui termine cette partie \textcolor{blue}{(2 points pour montrer l'existence de $y$ et terminer l'argument)}
-
-\subsubsection*{b)}
-on montre les deux direction du si et seulement si
-\begin{itemize}
-    \item [$\Longrightarrow$] quand deux matrices réelles $A$ et $B$ sont semblables sur $\mathbb{R}$ alors $A$ est semblable à sa forme normale de Jordan mais aussi à la forme normale de Jordan de la matrice $B$ car \flqq être semblable\frqq est une relation d'équivalence {\tiny (on utilise la transitivité dans ce cas)} \\
-    ainsi $A$ est semblable à deux formes normales de Jordan, par l'unicité {\tiny de la forme normale de Jordan (à permutation des blocs près)} on obtient que $A$ et $B$ admettent la même forme normale de Jordan \textcolor{blue}{(2 points pour cette direction de l'équivalence)}
-
-    \item [$\Longleftarrow$] quand $A$ et $B$ admettent la même forme normale de Jordan alors les deux matrices sont semblable sur $\mathbb{C}$ {\tiny par transitivité} \\
-    en utilisant le point a) on obtient que $A$ et $B$ sont aussi semblable sur $\mathbb{R}$ \textcolor{blue}{(2 points pour cette direction de l'équivalence)}
+\textcolor{blue}{(2 points pour montrer l'existence de $y$ et terminer l'argument)}
 \end{itemize}
-\textcolor{blue}{dans la correction on enlève un point dans la direction $\Longleftarrow$ de b) si l'étudiant affirme que la matrice de la forme normale de Jordan et les matrices de changement de base sont nécessairement réelles}
 
-\newpage
+\item
+\indice{On montre les deux direction du si et seulement si}
+\begin{itemize}
+    \item [$\Longrightarrow$] 
+    \begin{itemize} 
+    \item Quand deux matrices réelles $A$ et $B$ sont semblables sur $\mathbb{R}$ alors $A$ est semblable à sa forme normale de Jordan mais aussi à la forme normale de Jordan de la matrice $B$ \\
+    \indice{Car \flqq être semblable\frqq est une relation d'équivalence, on utilise la transitivité}
+    \item $A$ est semblable à deux formes normales de Jordan
+    \item Par l'unicité on obtient que $A$ et $B$ admettent la même forme normale de Jordan \textcolor{blue}{(2 points pour cette direction de l'équivalence)}
+    \end{itemize}    
+
+    \item [$\Longleftarrow$] 
+    \begin{itemize} 
+    \item Quand $A$ et $B$ admettent la même forme normale de Jordan alors les deux matrices sont semblable sur $\mathbb{C}$ \\
+    \indice{On utilise la transitivité}
+    \item Le point a) donne que $A$ et $B$ sont aussi semblable sur $\mathbb{R}$ \textcolor{blue}{(2 points pour cette direction de l'équivalence)} \\
+\end{itemize}
+\end{itemize}
+\textcolor{blue}{dans la correction on enlève un point dans la direction $\Longleftarrow$ de b) si l'étudiant affirme que la matrice de la forme normale de Jordan et les matrices de changement de base sont forcément réelles}
+\end{enumerate}
 
 \subsection*{Question 23}
-\subsubsection*{a)}
-on veut montrer que $E$ est un espace vectoriel sur $F$ en vérifiant l'associativité, la distributivité et la neutralité de $1_E = 1_F$ \\
-prenons des éléments $x,y \in F$ et $z,w \in E$
+\begin{enumerate}[a)]
+\item
 \begin{itemize}
-    \item [\textbf{associativité}] on calcule $$x\cdot(y\cdot z) = x\cdot(yz) = x(yz) = (xy)z = (xy) \cdot z$$ où on a utilisé l'associativité de la multiplication sur $E$
-    \item [\textbf{distributivité}] on calcule $$x\cdot(z+w) = x(z+w) = xz+xw = x\cdot z + x\cdot w$$
+\item On veut montrer que $E$ est un espace vectoriel sur $F$ en vérifiant l'associativité, la distributivité et la neutralité de $1_E = 1_F$
+\item Prenons des éléments $x,y \in F$ et $z,w \in E$
+\begin{itemize}
+    \item [\textbf{Associativité}:] $$x\cdot(y\cdot z) = x\cdot(yz) = x(yz) = (xy)z = (xy) \cdot z$$ \indice{Où on a utilisé l'associativité de la multiplication sur $E$}
+    \item [\textbf{Distributivité}:] $$x\cdot(z+w) = x(z+w) = xz+xw = x\cdot z + x\cdot w$$
     et
     $$(x+y)\cdot z = (x+y)z = xz + yz = x\cdot z + y\cdot z$$
-    où on a utilisé la distributivité sur $E$
-    \item [\textbf{neutralité}] on calcule
-    $$1_E\cdot z = 1_Fz = z$$
+    \indice{Où on a utilisé la distributivité sur $E$}
+    \item [\textbf{Neutralité}:] $$1_E\cdot z = 1_Fz = z$$
+\end{itemize}
 \end{itemize}
 \textcolor{blue}{1 point par propriété, attention pour la distributivité il faut vérifier les deux égalités}
 
-\subsubsection*{b)}
-on voit maintenant $E$ comme espace vectoriel de dimension finie sur $F$ et on prend $e\in E \backslash \{0\}$, on veut montrer qu'il existe un polynôme $f(x) \in F[x]$ tel que $f(x) \neq 0$ et $f(e)=0$ \\
-soit $n$ la dimension de $E$ sur $F$, alors $1,e,e^2,\ldots,e^{n+1}$ sont $n+1$ éléments de $E$ \\
-{\tiny par la définition de la dimension d'un espace vectoriel} on a une combinaison linéaire non-triviale de ces éléments avec des coefficients dans $F$ qui est égal à zéro, plus concrètement on a
+\item
+\begin{itemize}
+\item $E$ est un espace vectoriel de dimension finie sur $F$
+\item Prenons $e\in E \backslash \{0\}$, on veut montrer qu'il existe un polynôme $f(x) \in F[x]$ tel que $f(x) \neq 0$ et $f(e)=0$
+\item Soit $n$ la dimension de $E$ sur $F$, alors $1,e,e^2,\ldots,e^{n+1}$ sont $n+1$ éléments de $E$ 
+\item Il existe une combinaison linéaire non-triviale de ces éléments avec des coefficients dans $F$ qui est égal à zéro
 $$\sum_{i=0}^n f_ie^i = 0$$
-avec $f_i \in F \; \forall i\in \{0,1,\ldots,n\}$ \\
-le polynôme à définir est donc $f(x) = \sum_{i=0}^n f_ie^i$, {\tiny ce polynôme satisfait toutes les conditions} \\ 
+avec $f_i \in F \; \forall i\in \{0,1,\ldots,n\}$
+\item Le polynôme à définir est $f(x) = \sum_{i=0}^n f_ix^i$ \\
+\end{itemize}
 \textcolor{blue}{3 points, il s'agit d'une question difficile où on donne dans pour la plupart des solutions soit 0 points soit 3}
 
-\subsubsection*{c)}
-on suppose l'existence de deux polynômes $g(x),h(x) \in F[x]$ qui satisfont les conditions \\
-on considère le polynôme $g-h$ qui est de degré strictement inférieur au degré de $g$ et de $h$ et qui s'annule en $e$ \textcolor{blue}{(1 point pour l'idée de considérer la différence)} \\
-par la minimalité des polynômes $g$ et $h$ on obtient que $g-h$ doit être le polynôme identiquement nul et on a donc $g=h$ \textcolor{blue}{(1 point pour la conclusion à l'aide de la minimalité)}
+\item
+\begin{itemize}
+\item On suppose l'existence de deux polynômes $g(x),h(x) \in F[x]$ qui satisfont les conditions
+\item Considérons le polynôme $g-h$ qui est de degré strictement inférieur au degré de $g$ et de $h$ et qui s'annule en $e$ \textcolor{blue}{(1 point pour l'idée de considérer la différence)}
+\item Par la minimalité des polynômes $g$ et $h$ on obtient que $g-h$ doit être le polynôme identiquement nul et on a donc $g=h$ \textcolor{blue}{(1 point pour la conclusion à l'aide de la minimalité)}
+\end{itemize}
 
-\subsubsection*{d)}
-on suppose que $p_e(x)\in F[x]$ est un polynôme réductible, alors on peut écrire $p_e=g\cdot h$ avec $g(x),h(x) \in F[x]$ des polynômes non-constantes \textcolor{blue}{(1 point pour appliquer la définition d'un polynôme irréductible/réductible)} \\
-si on évalue en $e$ on obtient que $g(e) = 0$ ou $h(e) = 0$ {\tiny car un corps est intègre} \\
-mais comme on a $\deg(g),\deg(h) < \deg(p_e)$ on a une contradiction avec la minimalité de $p_e$ \textcolor{blue}{(1 point pour la conclusion à l'aide de la minimalité)} \\
-{\tiny on a donc montré que $p_e$ est irréductible sur $F$} \\
-\textcolor{blue}{attention le choix $f(x)=x-e$ n'est pas correcte pour la question b) car il ne s'agit pas d'un polynôme avec coefficients dans $F$}
 
-\newpage
+\item
+\begin{itemize}
+\item On suppose que $p_e(x)\in F[x]$ est un polynôme réductible
+\item Ainsi $p_e=g\cdot h$ avec $g(x),h(x) \in F[x]$ des polynômes non-constantes \textcolor{blue}{(1 point pour appliquer la définition d'irréductible/réductible)} 
+\item $g(e) = 0$ ou $h(e) = 0$ \\ \indice{Car un corps est intègre}
+\item Comme $\deg(g),\deg(h) < \deg(p_e)$ on a une contradiction avec la minimalité de $p_e$ \textcolor{blue}{(1 point pour la conclusion à l'aide de la minimalité)} \\
+\indice{On a donc montré que $p_e$ est irréductible sur $F$} \\
+\end{itemize}
+\textcolor{blue}{Attention le choix $f(x)=x-e$ n'est pas correcte pour la question b) car il ne s'agit pas d'un polynôme avec coefficients dans $F$}
+\end{enumerate}
+
 
 \subsection*{Question 24}
-soit $G=\begin{pmatrix} a & b \\ b & c\end{pmatrix} \in \mathbb{Z}^{n \times n}$ une matrice symétrique, unimodulaire et définie positive \\
-on veut montrer qu'il existe une matrice unimodulaire $U$ telle que $G = UU^T$ \\
-on va appliquer des opérations unimodulaires sur les lignes et les colonnes de $G$ jusqu'à ce qu'on arrive à la matrice identité \textcolor{blue}{(1 point pour cette idée)} \\
-observons d'abord que pour $U \in \mathbb{Z}^{n \times n}$ unimodulaire, la matrice $U^TGU$ reste symétrique, unimodulaire et définie positive \textcolor{blue}{(1 point pour remarquer ces propriétés)} \\
-le fait que la matrice $G$ est définie positive donne directement que $a,c \geq 0$ \textcolor{blue}{(1 point pour cette implication)}, {\tiny à une permutation des deux lignes près} on peut supposer qu'on est dans le cas $a \leq c$ \\
-quand $|b|<a$ on a $$1=\det(G)=ac-b^2\leq(|b|+1)^2-b^2=2|b|+1$$ ceci implique $b=0$ et $a=c=1$, c'est-à-dire on a $G=I$, {\tiny ce qui est bien notre but final} \textcolor{blue}{(2 points pour le cas $|b|<a$)} \\
-ainsi on considère maintenant le cas $|b|\geq a$ \\
-{\tiny on peut utiliser la division euclidienne dans l'anneau euclidien $\mathbb{Z}$ de $b$ par $a$:} on a l'existence de $\lambda \in \mathbb{Z}$ tel que $b=\lambda a + b'$ avec $|b'|<a$ \\
-pour $U = \begin{pmatrix} 1 & -\lambda \\ 0 & 1 \end{pmatrix}$ on calcule 
+\begin{itemize}
+%soit $G=\begin{pmatrix} a & b \\ b & c\end{pmatrix} \in \mathbb{Z}^{n \times n}$ une matrice symétrique, unimodulaire et définie positive \\
+\item On veut montrer qu'il existe une matrice unimodulaire $U$ telle que $G = UU^T$
+\item Idée: appliquer des opérations unimodulaires sur les lignes et les colonnes de $G$ pour arriver à la matrice identité \textcolor{blue}{(1 point pour cette idée)}
+\item Pour $U \in \mathbb{Z}^{n \times n}$ unimodulaire, la matrice $U^TGU$ reste symétrique, unimodulaire et définie positive \textcolor{blue}{(1 point pour remarquer ces propriétés)}
+\item Comme la matrice $G$ est définie positive on a que $a,c \geq 0$ \textcolor{blue}{(1 point pour cette implication)} \\
+\indice{À une permutation des deux lignes près on peut supposer qu'on est dans le cas $a \leq c$}
+\item Quand $|b|<a$ on a $$1=\det(G)=ac-b^2\leq(|b|+1)^2-b^2=2|b|+1$$ Ceci implique $b=0$ et $a=c=1$, c'est-à-dire $G=I$ \textcolor{blue}{(2 points pour le cas $|b|<a$)}
+\item Le cas $|b|\geq a$ \\
+Il existe $\lambda \in \mathbb{Z}$ tel que $b=\lambda a + b'$ avec $|b'|<a$ \\
+\indice{Division euclidienne dans l'anneau euclidien $\mathbb{Z}$ de $b$ par $a$} \\
+Pour $U = \begin{pmatrix} 1 & -\lambda \\ 0 & 1 \end{pmatrix}$ on calcule 
 $$U^TGU = \begin{pmatrix} 1 & 0 \\ -\lambda & 1 \end{pmatrix} \begin{pmatrix} a & b \\ b & c\end{pmatrix} \begin{pmatrix} 1 & -\lambda \\ 0 & 1 \end{pmatrix} = \begin{pmatrix} a & b-\lambda a \\ b-\lambda a & c-2\lambda b + \lambda^2a \end{pmatrix}$$
-on note cette dernière matrice $\begin{pmatrix} a & b' \\ b' & c' \end{pmatrix}$ {\tiny et par la division euclidienne} on est dans le cas $|b'|<a$ \\
-{\tiny mais on ne peut pas conclure immédiatement car le coefficient $c'$ a changé} \\
-or on sait que $|b'|<|b|$ et on peut donc une nouvelle fois permuter $a$ et $c'$ pour avoir $a\leq c'$ \\
-en répétant ce processus on obtient une suite strictement décroissante de nombres entiers positifs $|b|>|b'|>|b''|> \ldots$ qui se termine {\tiny par la méthode de descente infinie} \textcolor{blue}{(4 points pour le cas $|b|\leq a$)} \\
-par conséquent la condition $|b|<a$ doit être vrai {\tiny après au plus $|b|$ étapes} et on obtient la matrice identité à cette étape \\
-on se souvient de toutes les matrices unimodulaires $U_1,\ldots,U_N$ utilisées pour arriver à cette étape et on obtient
+Notons cette dernière matrice $\begin{pmatrix} a & b' \\ b' & c' \end{pmatrix}$ \\
+\indice{On est dans le cas $|b'|<a$ mais on ne peut pas conclure immédiatement car le coefficient $c'$ a changé} \\
+On sait que $|b'|<|b|$ et on peut donc une nouvelle fois permuter $a$ et $c'$ pour avoir $a\leq c'$ \\
+En répétant ce processus on obtient une suite strictement décroissante de nombres entiers positifs $|b|>|b'|>|b''|> \ldots$ qui se termine \\
+\indice{Par la méthode de descente infinie} \textcolor{blue}{(4 points pour le cas $|b|\leq a$)}
+\item La condition $|b|<a$ doit être vrai \indice{après au plus $|b|$ étapes} et on obtient la matrice identité à cette étape
+\item Avec toutes les matrices unimodulaire $U_1,\ldots,U_N$ utilisées pour arriver à cette étape on obtient
 $$U_N^T\cdots U_1^TGU_1 \cdots U_N = \left(U_1\cdots U_N\right)^TG\left(U_1\cdots U_N\right) = I$$
-{\tiny ce qui termine la preuve} \\
+\end{itemize}
 \textcolor{blue}{en plus on a donné 1 point pour mentionner ou appliquer clairement le fait que le produit de matrices unimodulaires reste unimodulaire \\
 on enlève des points si \begin{itemize} 
 \item l'étudiant suppose $b>0$

@@ -8,7 +8,6 @@
 \usepackage[boldsans]{concmath}
 \usepackage{utf8math}
 \usepackage{enumerate} 
-
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsthm}
@@ -23,135 +22,190 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
-\title{Solutions Examen Algèbre Linéaire Avancée 2 2021}
+\title{Solutions Examen Algèbre Linéaire Avancée 2, 2021}
 \maketitle
 
 \noindent 
-\textbf{Attention:} Les solutions présentées sont très détaillées, les commentaires en \indice{ petits caractères} ne sont pas forcément nécessaires dans un vrai examen et servent à faciliter la compréhension si certaines étapes du raisonnement ne sont pas claires
+\textbf{Attention:} Les solutions présentées sont très détaillées, les commentaires en \indice{ petits caractères} ne sont pas  nécessaires dans vos solutions et servent à faciliter la compréhension si certaines étapes du raisonnement ne sont pas claires
+
+%\textbf{Work in progress!} 
 
 \subsection*{Question 23}
 \begin{enumerate}[i)] 
-\item 
-on veut montrer que $\det(A) = \prod_{i=1}^r \lambda_i^{m_i}$ \\
-{\tiny par définition on a $p_A(x) = \det(A-xI)$ et donc une évaluation en $x=0$} donne directement $\alpha_0 = \det(A-0\cdot I) = \det(A)$ si on écrit $p_A(x) = \sum_{j=0}^n \alpha_jx^j$ \\
-{\tiny de l'autre côté par supposition} le polynôme caractéristique se factorise de la manière suivante $p_A(x) = \alpha_n \prod_{i=1}^r (x-\lambda_i)^{m_i}$ \\
-il reste à déterminer le coefficient $\alpha_n$ du polynôme caractéristique, par la formule de Leibniz on peut écrire $p_A(x) = \sum_{\sigma \in S_n} q_{\sigma}(x)$ pour des polynômes $q_{\sigma}(x) = \text{sgn}(\sigma)\prod_{i=1}^n(A-xI)_{i,\sigma(i)}$ \\
-on remarque que le degré de $q_{\sigma}(x)$ est égal au nombre de points fixés par la permutation $\sigma$ \\
-ainsi seulement la permutation $\sigma = id$ contribue au coefficient $\alpha_n$ de $p_A(x)$ \\
-comme $q_{id}(x) = \prod_{i=1}^n(a_{ii}-x)$ on obtient directement que $\alpha_n = (-1)^n$ \\
-on a donc $p_A(0) = (-1)^n \prod_{i=1}^r (0-\lambda_i)^{m_i} = \prod_{i=1}^r \lambda_i^{m_i}$ et {\tiny en utilisant le raisonnement tout en haut} on arrive à conclure que $\det(A) = \prod_{i=1}^r \lambda_i^{m_i}$ \\ \textcolor{blue}{4 points en total \\ on enlève 2 points si l'étudiant suppose que la matrice $A$ et diagonalisable, on enlève 2 points si le signe est mal placé dans une des expressions, on enlève 1 point pour tout autre erreur dans la formule de Leibniz}
+\item
+  \begin{itemize}
+  \item À montrer:  $\det(A) = \prod_{i=1}^r \lambda_i^{m_i}$
+  \item   Si on écrit $p_A(x) = \sum_{j=0}^n \alpha_jx^j$, $α_i ∈K$, alors
+    \begin{displaymath}
+      \alpha_0 = p_A(x) = \det(A-0\cdot I) = \det(A)
+    \end{displaymath}
+    
+\indice{Par définition on a $p_A(x) = \det(A-xI)$ et donc une évaluation en $x=0$ donne $\alpha_0 = \det(A-0\cdot I) = \det(A)$}  
+\item Par supposition: Pour tout $i$:  $(x- λ_i)^{m_i} \mid p_A(x)$
+\item Factorisation en irréductibles uniques en $K[x]$ $⟹$   $ \prod_{i=1}^r (x-\lambda_i)^{m_i} \mid p_A(x) $  
+\item $n = ∑_i m_i =  ∑_i \deg(x- λ_i)^{m_i} $  $⟹$ $p_A(x) = \alpha_n \prod_{i=1}^r (x-\lambda_i)^{m_i}$ 
+\item $α_n = (-1)^n$
+  
+\indice{$\alpha_n = (-1)^n$: Discuté plusieurs fois en classe, par la formule de Leibniz on peut écrire $p_A(x) = \sum_{\sigma \in S_n} q_{\sigma}(x)$ pour des polynômes $q_{\sigma}(x) = \text{sgn}(\sigma)\prod_{i=1}^n(A-xI)_{i,\sigma(i)}$ \\
+On remarque que le degré de $q_{\sigma}(x)$ est égal au nombre de points fixés par la permutation $\sigma$ \\
+Ainsi seulement la permutation $\sigma = id$ contribue au coefficient $\alpha_n$ de $p_A(x)$ \\
+Comme $q_{id}(x) = \prod_{i=1}^n(a_{ii}-x)$ on obtient directement que $\alpha_n = (-1)^n$}
+\item On a donc $α_0 = p_A(0) = (-1)^n \prod_{i=1}^r (0-\lambda_i)^{m_i} = \prod_{i=1}^r \lambda_i^{m_i}$   \\
 
-\item 
-on veut montrer que $\alpha_{n-1} = (-1)^{n-1}\text{Tr}(A)$ \\
-{\tiny on observe comme avant que} seulement la permutation $\sigma = id$ contribue au coefficient $\alpha_{n-1}$ de $p_A(x)$ \\
-comme on a $q_{id}(x) = \prod_{i=1}^n(a_{ii}-x)$ on voit que $$\alpha_{n-1} = (-1)^{n-1}a_{11} + \ldots + (-1)^{n-1}a_{nn} = (-1)^{n-1}\text{Tr}(A)$$
-ce qui termine cette partie \\
+\end{itemize}
+\textcolor{blue}{4 points en total \\ on enlève 2 points si l'étudiant suppose que la matrice $A$ et diagonalisable, on enlève 2 points si le signe est mal placé dans une des expressions, on enlève 1 point pour tout autre erreur}
+
+\item
+  \begin{itemize}
+    \item 
+  On veut montrer que $\alpha_{n-1} = (-1)^{n-1}\text{Tr}(A)$ 
+\item Formule de Leibniz: $ p_A(x) = \sum_{\sigma \in S_n} q_{\sigma}(x)$ où
+  \begin{displaymath}
+      q_{\sigma}(x) = \text{sgn}(\sigma)\prod_{i=1}^n(A-xI)_{i,\sigma(i)}
+  \end{displaymath}
+ 
+\item Pour $σ ≠ \mathrm{id}$, $\deg(q_{\sigma}(x)) ≤ n-2$
+\item  Comme $q_{id}(x) = \prod_{i=1}^n(a_{ii}-x)$ on a  $$\alpha_{n-1} = (-1)^{n-1}a_{11} + \ldots + (-1)^{n-1}a_{nn} = (-1)^{n-1}\text{Tr}(A)$$
+\end{itemize} 
 \textcolor{blue}{3 points en total \\ on enlève entre 0.5 et 1 points pour des erreurs dans la formule de Leibniz, on enlève entre 0.5 et 1 points si la restriction à la permutation $\sigma = id$ n'est pas justifée, si l'étudiant écrit simplement la formule de Leibniz avec la justification sur la restriction à $\sigma = id$ mais sans conclure l'étudiant obtient 2 points}
 
-\item 
-on veut montrer que $\text{Tr}(A) = \sum_{i=1}^r m_i\lambda_i$ \\
-{\tiny dans le point ii) on a montré que $\alpha_{n-1} = (-1)^{n-1}\text{Tr}(A)$,} cherchons maintenant le coefficient $\alpha_{n-1}$ dans la forme suivante du polynôme caractéristique $p_A(x) = (-1)^n \prod_{i=1}^r (x-\lambda_i)^{m_i}$ \\
-on obtient
+\item
+  \begin{itemize}
+  \item 
+On veut montrer que $\text{Tr}(A) = \sum_{i=1}^r m_i\lambda_i$  
+
+\indice {Dans le point ii) on a montré que $\alpha_{n-1} = (-1)^{n-1}\text{Tr}(A)$}
+\item $p_A(x) = α_0+ \cdots  + α_n x^n =   (-1)^n \prod_{i=1}^r (x-\lambda_i)^{m_i}$, alors: 
 \begin{align*}
 \alpha_{n-1} &= \underbrace{(-1)^{n+1}\lambda_1 + \ldots + (-1)^{n+1}\lambda_1}_{m_1 \text{fois}} + \ldots + \underbrace{(-1)^{n+1}\lambda_r + \ldots + (-1)^{n+1}\lambda_r}_{m_r \text{fois}} \\
 &= (-1)^{n-1} \sum_{i=1}^r m_i\lambda_i
 \end{align*}
-en utilisant le résultat du point ii) on conclut que $\text{Tr}(A) = \sum_{i=1}^r m_i\lambda_i$ \\ 
+\item
+En utilisant le résultat du point ii) on conclut que $\text{Tr}(A) = \sum_{i=1}^r m_i\lambda_i$ \\ 
+\end{itemize}
 \textcolor{blue}{3 points en total \\ on enlève 2 points si l'étudiant suppose que $A$ est diagonalisable, on enlève 1 point pour des erreurs de signe} 
 \end{enumerate}
 
 
 \subsection*{Question 26}
-{\tiny toutes les normes sur l'espace vectoriel $\mathbb{C}^{n \times n}$ sont équivalentes (car il s'agit d'un espace vectoriel de dimension finie) mais pour fixer nos idées on considère la convergence par rapport à la norme $\lVert \cdot \rVert_2$}
-\subsubsection*{a)}
-si $\rho(A) \geq 1$ alors on veut montrer que $A^n$ ne converge pas vers la matrice nulle \\
-{\tiny on fait une preuve par contradiction,} supposons $\rho(A) \geq 1$ et $A^n$ converge vers la matrice 0 \\
-prenons une valeur propre $\lambda$ de la matrice $A$ tel que $|\lambda| = \rho(A)$ et prenons aussi un vecteur propre unitaire $x \in \mathbb{C}^n$ associé à $\lambda$ \\
-pour tout $n \in \mathbb{N}$ on a $$\lVert A^n \rVert_2 = \lVert A^n \rVert_2 \lVert x \rVert_2 \geq \lVert A^nx \rVert_2 = \lVert \lambda^n x \rVert_2 = |\lambda|^n \geq 1$$ {\tiny où la dernière inégalité est une conséquence des faits $|\lambda|\geq 1$ et $\lVert x \rVert_2 = 1$} \\
-mais cela nous donne une contradiction avec la supposition que $A^n$ converge vers la matrice 0 car on a montré que $\lVert A^n \rVert_2$ est supérieur ou égal à 1 $\forall n \in \mathbb{N}$ \\
-{\tiny on a donc prouvé que $A^n$ ne converge pas vers la matrice 0} \\
-\textcolor{blue}{3 points en total \\ 1 point pour l'idée et le début de la preuve par contradiction, 1 point pour le calcul $\lVert A^n \rVert_2 \geq 1$ et 1 point pour conclure l'argument} 
+% {\tiny toutes les normes sur l'espace vectoriel $\mathbb{C}^{n \times n}$ sont équivalentes (car il s'agit d'un espace vectoriel de dimension finie) mais pour fixer nos idées on considère la convergence par rapport à la norme $\lVert \cdot \rVert_2$}
+\begin{enumerate}[i)]
+\item
+  \begin{itemize}
+  \item Supposons $\rho(A) \geq 1$ et $A^k$ converge vers la matrice $0$
+  \item Soit  $\lambda ∈ℂ$, $|λ|≥1$  valeur propre et  $x \in \mathbb{C}^n \setminus \{0\}$ vecteur propre  associé à $\lambda$
+  \item On passe par $x := x / \|x\|$, alors $\|x\| = 1$, où $\| \cdot\|$
+    dénote la norme associée aux produit Hermitien standard    
+  % \item Pour tout $ε>0$ il existe $N$ tel que pour tout $i,j$:   $|(A^k)_{i,j}| < ε$
+  %   pour tout $k \in \mathbb{N}$ $k≥ N$ 
+  % \item Alors  pour tout $k \in \mathbb{N}$ $k≥ N$ et $i ∈ \{1,\dots,n\}$: 
+  %   \begin{displaymath}
+  %     \|(A^k x)_i \| < ε n 
+  %   \end{displaymath}
+  \item La suite  $A^k x ∈ ℂ^n$ converge vers $0 ∈ ℂ^n$
+    
+    \indice{Chaque composante de $A^k$ est une suite convergeant vers $0$ et chaque composante de $A^k x$ est une somme finie de suites convergeant vers $0$} 
+  \item Mais $\|A^k x\|  = \|λ^k x\|  = |λ|^k \|x\| ≥ 1$
+  \item Contradiction! \\
+  \end{itemize}
+\textcolor{blue}{3 points en total \\ 1 point pour l'idée et le début de la preuve par contradiction, 1 point pour le calcul  $\|A^k x\|  = \|λ^k x\|  = |λ|^k \|x\| ≥ 1$  et 1 point pour conclure l'argument} 
 
-\subsubsection*{b)}
-soit $B=\lambda I+N$ où $\lambda \in \mathbb{C}$ et $N \in \mathbb{C}^{n \times n}$ est une matrice nilpotente \\
-on veut montrer que si $|\lambda|<1$ alors $\lim_{n\rightarrow \infty}B^n = 0$ \\
-{\tiny on remarque d'abord que comme $N$ est nilpotente il existe $k \in \mathbb{N}$ tel que $N^k = 0$} \\
-{\tiny en plus comme $\lambda I$ est une matrice scalaire elle commute avec la matrice $N$,} on peut donc appliquer la formule du binôme de Newton \\
-on suppose $n>k$ et on calcule
+\item 
+\begin{itemize}
+\item On veut montrer que si $|\lambda|<1$ alors $\lim_{n\rightarrow \infty}B^n = 0$ \\
+\indice{Comme $N$ est nilpotente il existe $k \in \mathbb{N}$ tel que $N^k = 0$, en plus comme $\lambda I$ est une matrice scalaire elle commute avec la matrice $N$,} 
+\item On applique la formule du binôme de Newton, on suppose $n>k$ et on calcule
 \begin{align*}
     B^n &= (\lambda I + N)^n \\
     &= \sum_{i=0}^n \begin{pmatrix} n \\ i \end{pmatrix} \lambda^{n-i}I \cdot N^i \\
     &= \sum_{i=0}^{k-1} \begin{pmatrix} n \\ i \end{pmatrix} \lambda^{n-i}I \cdot N^i + \underbrace{\sum_{i=k}^n \begin{pmatrix} n \\ i \end{pmatrix} \lambda^{n-i}I \cdot N^i}_{=0} \\
     &= \sum_{i=0}^{k-1} \begin{pmatrix} n \\ i \end{pmatrix} \lambda^{n-i}I \cdot N^i
 \end{align*}
-{\tiny un résultat d'Analyse nous donne que} $$\lim_{n \rightarrow \infty} \begin{pmatrix} n \\ i \end{pmatrix} \lambda^{n-i} = 0$$ pour $i \in \{0,\ldots,k-1\}$ fixé et $|\lambda|<1$ \\
-{\tiny on donc montré que $B^n$ est égal à une somme finie dont} chaque terme converge vers 0 quand $n \rightarrow \infty$, cela implique $\lim_{n\rightarrow \infty}B^n = 0$ \\
+\indice{Un résultat d'Analyse nous donne que} $$\lim_{n \rightarrow \infty} \begin{pmatrix} n \\ i \end{pmatrix} \lambda^{n-i} = 0$$ pour $i \in \{0,\ldots,k-1\}$ fixé et $|\lambda|<1$ \\
+\indice{On donc montré que $B^n$ est égal à une somme finie dont chaque terme converge vers 0 quand $n \rightarrow \infty$} 
+\item On obtient $\lim_{n\rightarrow \infty}B^n = 0$ \\
+\end{itemize}
 \textcolor{blue}{4 points en total \\ 1 point pour l'utilisation de la formule du binôme de Newton, 2 points pour simplifier l'expression correctement à l'aide de la nilpotence de $N$ et 1 point pour conclure l'argument à l'aide de la limite $\lim_{n \rightarrow \infty} \begin{pmatrix} n \\ i \end{pmatrix} \lambda^{n-i}$} 
 
-\subsubsection*{c)} 
-on montre les deux direction du si et seulement si
+\item 
+\indice{On montre les deux direction du si et seulement si}
 \begin{itemize}
-    \item [$\Longrightarrow$] pour montrer cette direction il suffit de montrer la contraposée: si $\rho \geq 1$ alors la suite $A^n$ ne converge pas vers la matrice 0 \\
-    mais c'est exactement ce qu'on a montré dans le point a) de l'exercice \\
-    {\tiny on a donc prouvé cette direction de l'équivalence}
-    \item [$\Longleftarrow$] pour l'autre direction {\tiny on prend d'abord une valeur propre $\mu$ de $A$ associé au vecteur propre $y \in \mathbb{C}^n$, alors on obtient par un calcul direct la relation $A^ny = \mu^n y$} \\
-    prenons maintenant un vecteur propre unitaire $x \in \mathbb{C}^n$ associé à la valeur propre $\lambda$ qui vérifie $|\lambda| = \rho(A)$, alors on a
+    \item [$\Longrightarrow$] 
+    \begin{itemize}
+    \item Contraposée: si $\rho(A) \geq 1$ alors la suite $A^n$ ne converge pas vers la matrice 0
+    \item Conclusion par le point a) de l'exercice 
+    \end{itemize}
+    \item [$\Longleftarrow$] 
+    \begin{itemize}
+    %{\tiny on prend d'abord une valeur propre $\mu$ de $A$ associé au vecteur propre $y \in \mathbb{C}^n$, alors on obtient par un calcul direct la relation $A^ny = \mu^n y$} \\
+    \item Prenons un vecteur propre unitaire $x \in \mathbb{C}^n$ associé à la valeur propre $\lambda$ qui vérifie $|\lambda| = \rho(A)$
+    \item On calcule
     \begin{align*}
         0 &\leq \rho(A)^n \\
         &= |\lambda|^n \\
-        &= \lVert \lambda^nx \rVert_2 \\
-        &= \lVert A^nx \rVert_2 \\
-        &\leq \lVert A^n \rVert_2 \lVert x \rVert_2 \\
-        &= \lVert A^n \rVert_2
+        &= \lVert \lambda^nx \rVert \\
+        &= \lVert A^nx \rVert \\
+        &\leq \lVert A^n \rVert \lVert x \rVert \\
+        &= \lVert A^n \rVert
     \end{align*}
-    comme on a $\lVert A^n \rVert_2 \rightarrow 0$ par supposition on voit que $\rho(A)^n \rightarrow 0$ par le théorème des deux gendarmes \\
-    ainsi on a nécessairement $\rho(A)<1$, {\tiny ce qui termine la preuve}
+    \item Comme on a $\lVert A^n \rVert \rightarrow 0$ par supposition on voit que $\rho(A)^n \rightarrow 0$ \\
+    \indice{Par le théorème des deux gendarmes}
+    \item Ainsi $\rho(A)<1$ \\
+    \end{itemize}
 \end{itemize}
-\textcolor{blue}{3 points en total \\ 1 point pour la direction $\Longrightarrow$ de l'équivalence et 2 points pour l'autre direction (1 point pour le calcul $A^ny = \mu^n y$ et pour borner $\rho(A)^n$ supérieurement et 1 point pour conlure à l'aide du théorème des deux gendarmes)} 
-    
+\textcolor{blue}{3 points en total \\ 1 point pour la direction $\Longrightarrow$ de l'équivalence et 2 points pour l'autre direction (1 point pour borner $\rho(A)^n$ supérieurement et 1 point pour conlure à l'aide du théorème des deux gendarmes)} 
 
+\end{enumerate}
 
-\newpage
 \subsection*{Question 27}
-\subsubsection*{a)}
-soit $H\subset\mathbb{R}^n$ un sous-espace vectoriel de $\mathbb{R}^n$ et soit $v\in \mathbb{R}^n$, soit $l\in H$ tel que $\langle v-l, h\rangle = 0$ pour tout $h \in H$ \\
-\text
-on veut montrer que $\lVert v-l \rVert \leq \lVert v \rVert$ \\
-remarquons d'abord que qu'on a aussi $\langle v-l,l \rangle = 0$ car $l \in H$, on peut donc appliquer le théorème de Pythagore dans le calcul suivant
+\begin{enumerate}[i)]
+\item 
+\begin{itemize}
+\item 
+%{soit $H\subset\mathbb{R}^n$ un sous-espace vectoriel de $\mathbb{R}^n$ et soit $v\in \mathbb{R}^n$, soit $l\in H$ tel que $\langle v-l, h\rangle = 0$ pour tout $h \in H$ \\
+On veut montrer que $\lVert v-l \rVert \leq \lVert v \rVert$
+\item Comme on a $\langle v-l,l \rangle = 0$ car $l \in H$, on applique le théorème de Pythagore dans le calcul suivant
 $$\lVert v \rVert^2 = \lVert v-l + l \rVert^2 = \lVert v-l \rVert^2 + \lVert l \rVert^2$$
-{\tiny comme $\lVert \cdot \rVert$ est une norme} on voit que $\lVert l \rVert^2 \geq 0$ et par conséquent on a $\lVert v \rVert^2 \geq \lVert v-l \rVert^2$, {\tiny ainsi $\lVert v \rVert \geq \lVert v-l \rVert$} \\
-\textcolor{blue}{3 points en total \\ on donne 0 points si $\langle v,l \rangle \geq 0$ est utilisé sans justification, on donne 0 points pour $\lVert v-l \rVert^2 = \langle v,v \rangle - \langle v,l \rangle$, on enlève un point si par exemple l'application de Pythagore n'est pas justifiée}
+\item Ainsi $\lVert v \rVert^2 \geq \lVert v-l \rVert^2$ et donc $\lVert v \rVert \geq \lVert v-l \rVert$ \\
+\end{itemize}
+\textcolor{blue}{3 points en total \\ on donne 0 points si $\langle v,l \rangle \geq 0$ est utilisé sans justification, on donne 0 points pour $\lVert v-l \rVert^2 = \langle v,v \rangle - \langle v,l \rangle$, on enlève 1 point si par exemple l'application de Pythagore n'est pas justifiée}
 
-\subsubsection*{b)}
-soit $A\in \mathbb{R}^{n \times n}$ de rang plein et soit $A=A^*R$ une factorisation selon la méthode de Gram-Schmidt {\tiny (les colonnes de $A^* \in \mathbb{R}^{n \times n}$ sont deux-à-deux orthogonaux et $R \in \mathbb{R}^{n \times n}$ est une matrice triangulaire supérieure avec que de 1 sur la diagonale)} \\
-on veut montrer que $$\det(A^TA) = \prod_{i=1}^n \lVert a_i^* \rVert^2$$
-où $a_i^*$ est la $i$-ème colonne de la matrice $A^*$ \\
-on remarque d'abord qu'on a $\det(R)=1$ {\tiny car $R$ est une matrice triangulaire supérieure avec que de 1 sur la diagonale} \\
-calculons
+\item 
+\begin{itemize}
+%soit $A\in \mathbb{R}^{n \times n}$ de rang plein et soit $A=A^*R$ une factorisation selon la méthode de Gram-Schmidt {\tiny (les colonnes de $A^* \in \mathbb{R}^{n \times n}$ sont deux-à-deux orthogonaux et $R \in \mathbb{R}^{n \times n}$ est une matrice triangulaire supérieure avec que de 1 sur la diagonale)} \\
+\item On veut montrer que $\det(A^TA) = \prod_{i=1}^n \lVert a_i^* \rVert^2$ \\
+\indice{Où $a_i^*$ est la $i$-ème colonne de la matrice $A^*$}
+\item Il est clair que $\det(R)=1$ \\
+\indice{Car $R$ est une matrice triangulaire supérieure avec que de 1 sur la diagonale}
+\item On calcule
 \begin{align*}
     \det(A^TA) &= \det((A^*R)^T(A^*R)) \\
     &= \det(R^TA^{*T}A^*R) \\
     &= \underbrace{\det(R^T)}_{=1}\underbrace{\det(R)}_{=1}\det(A^{*T}A^*) \\
     &= \det(A^{*T}A^*)
 \end{align*}
-regardons maintenant la matrice $A^{*T}A^*$, {\tiny on sait que les colonnes de $A^*$ sont deux-à-deux orthogonaux} \\
-ainsi par définition du produit matriciel on voit que
+\item Par définition du produit matriciel on voit que
 $$(A^{*T}A^*)_{ij} = a_i^{*T}a_j^* = \begin{cases} \lVert a_i^* \rVert^2 & \text{si} \; i=j \\ 0 & \text{si} \; i\neq j \end{cases}$$
-on voit donc que $A^{*T}A^* = \text{diag}(\lVert a_1^* \rVert^2, \ldots, \lVert a_n^* \rVert^2)$ et par conséquent $\det(A^{*T}A^*) = \prod_{i=1}^n \lVert a_i^* \rVert^2$, par le calcul qui précède on obtient
-$$\det(A^TA) = \prod_{i=1}^n \lVert a_i^* \rVert^2$$
-{\tiny ce qui termine cette partie} \\
+\indice{On sait que les colonnes de $A^*$ sont deux-à-deux orthogonaux}
+\item On obtient $A^{*T}A^* = \text{diag}(\lVert a_1^* \rVert^2, \ldots, \lVert a_n^* \rVert^2)$ et $\det(A^{*T}A^*) = \prod_{i=1}^n \lVert a_i^* \rVert^2$
+\item Par le calcul qui précède on obtient
+$\det(A^TA) = \prod_{i=1}^n \lVert a_i^* \rVert^2$ \\
+\end{itemize}
 \textcolor{blue}{4 points en total \\ on donne 2 points pour montrer $\det(A^TA) = \det(A^{*T}A^*)$ et 2 points pour la preuve de $\det(A^{*T}A^*) = \prod_{i=1}^n \lVert a_i^* \rVert^2$}
 
-\subsubsection*{c)}
-on veut montrer que $|\det(A)| \leq \prod_{i=1}^n \lVert a_i \rVert$ {\tiny où $a_i$ est la $i$-ième colonne de la matrice $A$} \\
-{\tiny par le point b) on $\det(A^TA) = \prod_{i=1}^n \lVert a_i^* \rVert^2$} et on sait que $\det(A^TA) = \det(A^T)\det(A) = \det(A)^2$ \\
-on obtient donc $|\det(A)| = \prod_{i=1}^n \lVert a_i^* \rVert$ \\
-comme on a utilisé la méthode de Gram-Schmidt pour définir $A^*$ on a la relation $a_i^* = a_i -l$ où $l \in \text{span}\{a_1^*,\ldots,a_{i-1}^*\}$, en plus on a aussi $a_i^* \perp \text{span}\{a_1^*,\ldots,a_{i-1}^*\}$ \\
-on peut donc poser $H = \text{span}\{a_1^*,\ldots,a_{i-1}^*\}$ et conlure par le point a) que $\lVert a_i^* \rVert = \lVert a_i-l \rVert \leq \lVert a_i \rVert$ \\
-on en déduit que $$|\det(A)| = \prod_{i=1}^n \lVert a_i^* \rVert \leq \prod_{i=1}^n \lVert a_i \rVert$$
-{\tiny ce qui termine la preuve} \\
-\textcolor{blue}{3 points en total \\ on donne 1 point pour montrer $|\det(A)| = \prod_{i=1}^n \lVert a_i^* \rVert$ et 2 points pour $\lVert a_i^* \rVert \leq \lVert a_i \rVert$ en utilisant a) et après avoir verifié les conditions}
-
+\item 
+\begin{itemize} 
+\item On veut montrer que $|\det(A)| \leq \prod_{i=1}^n \lVert a_i \rVert$ \\
+\indice{Où $a_i$ est la $i$-ième colonne de la matrice $A$}
+%{\tiny par le point b) on $\det(A^TA) = \prod_{i=1}^n \lVert a_i^* \rVert^2$}
+\item On a $\det(A^TA) = \det(A^T)\det(A) = \det(A)^2$ \\
+\indice {On obtient donc $|\det(A)| = \prod_{i=1}^n \lVert a_i^* \rVert$ par la partie ii)} \\
+\indice{Comme on a utilisé la méthode de Gram-Schmidt pour définir $A^*$ on a la relation $a_i^* = a_i -l$ où $l \in \text{span}\{a_1^*,\ldots,a_{i-1}^*\}$, en plus on a aussi $a_i^* \perp \text{span}\{a_1^*,\ldots,a_{i-1}^*\}$}
+\item Posons $H = \text{span}\{a_1^*,\ldots,a_{i-1}^*\}$ et on conclut par le point i) que $\lVert a_i^* \rVert = \lVert a_i-l \rVert \leq \lVert a_i \rVert$
+\item On en déduit que $$|\det(A)| = \prod_{i=1}^n \lVert a_i^* \rVert \leq \prod_{i=1}^n \lVert a_i \rVert$$ \\
+\end{itemize}
+\textcolor{blue}{3 points en total \\ on donne 1 point pour montrer $|\det(A)| = \prod_{i=1}^n \lVert a_i^* \rVert$ et 2 points pour $\lVert a_i^* \rVert \leq \lVert a_i \rVert$ en utilisant i) et après avoir verifié les conditions}
+\end{enumerate}
 \end{document}
 %%% Local Variables:
 %%% mode: latex
