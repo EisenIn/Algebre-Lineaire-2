@@ -15,7 +15,7 @@
 *.el
 auto/*
 *~
-
+*#
 
 ## Intermediate documents:
 *.dvi
