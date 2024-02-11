@@ -1,18 +1,22 @@
 \RequirePackage[2020-02-02]{latexrelease}
 \makeatletter\let\ifGm@compatii\relax\makeatother
 
-\documentclass[t,aspectratio=149,mathserif]{beamer}     
+% Otherwise some colors may look a bit different in ipe and TeX
+\PassOptionsToPackage{rgb}{xcolor}
 
-\usepackage[utf8]{inputenc} 
+\documentclass[t,aspectratio=149,mathserif]{beamer}     
+  
+ 
+\usepackage[utf8]{inputenc}   
 \usepackage{utf8math}
 
 %Uncomment again! 
 
-\usepackage{kerkis}
-\usepackage{kmath}
+%\usepackage{kerkis}
+%\usepackage{kmath}
 %\renewcommand{\rmdefault}{ibh}
-%\usepackage{helvet}
-%\usepackage{concmath}
+\usepackage{helvet}
+\usepackage{concmath}
 
 
 
@@ -24,7 +28,7 @@
 \usecolortheme{beaver}
 
 %%%%%%%
-
+ 
 \usepackage{mathrsfs}
 \providecommand{\mB}{\mathscr{B}}
 \providecommand{\mN}{\mathscr{N}}
@@ -160,68 +164,57 @@
 
 \begin{document}
 
-\begin{frame}{Integer Programming} 
+\begin{frame}{Algèbre Linéaire Avancée II} 
 
+  \begin{alertblock}{Informations sur}
 
-     \begin{alertblock}{Algorithms, lower bounds, open problems}
-     %  
+    \begin{columns}
+      \begin{column}{.5\textwidth}
+         \begin{itemize}
+         \item Contenue du cours
+         \item Exercices et examen 
+         \item Contact et forum
+         \end{itemize}
+       \end{column}
+       \begin{column}{.5\textwidth}
+         %  \begin{itemize}
+         % \item Contenue du cours
+         % \item Exercices et examen 
+         % \item Contact et forum
+         % \end{itemize}
+       \end{column}
+       
+    \end{columns}
+      
      \end{alertblock}
+          \begin{center}
+       \input{./Images/projection-on-plane.tex}       
+     \end{center}    
+     
+     \platz
+          
+     {\small     \hfill    
+       \begin{minipage}{.25\linewidth} \scriptsize         
+         Friedrich Eisenbrand\\
+         20. Février 2024 
+       \end{minipage}  
+     }
+  
+   \end{frame}
+   
+   
 
-\platz
- \begin{center}
-    \begin{tikzpicture}[scale=0.6]
-      %%%%%%%%% Polygon{
-      
-      \clip (-4.2, -3.2) rectangle (4.2, 2.2);
-      \draw  (-3.5, -1) -- (-1.5, 1) -- (0.5, 1.5) -- (1.5, 0) -- ( 1.5 , -1) -- (0.5, -2.5) ; 
-      
-      \fill [color = red,opacity=.5] (-3.5, -1) -- (-1.5, 1) -- (0.5, 1.5) -- (1.5, 0) -- ( 1.5 , -1) -- (0.5, -2.5) ;    
-      %%%%%%%%%%%% }  
-      
-      
-      
-      \def\bAA{1};
-      \def\bAB{0};
-      \def\bBA{0};
-      \def\bBB{1};
-      
+   \begin{frame}{Contenue}
+   
+     \begin{enumerate}
+     \item Polynômes: {\small Racines, division avec reste,
+         reconstruction, algorithme d'Euclide, Factorisation en
+         irréductibles }
+     \item Déterminant, équations linéaires, polynôme caractéristique: {\small Algorithmes: Analyse et algorithmes efficaces}  
+     \item  Formes bilinéaires: 
 
-
-      \foreach \x in { -4, -3, ..., 5  } {
-        \foreach \y in { -6, -5, ..., 6 } {
-          \fill[color=darkgray] (\x* \bAA + \y * \bAB, \x* \bBA + \y * \bBB) circle (2pt);
-        }
-      }
-      
-      \draw [color = green , ->, line width = 2pt] (1.5, 0.5) -- (2.5,1.3) node[below]  {$c$}; 
-      
-      \fill[color=blue] (1,0) circle (3pt);
-
-    \end{tikzpicture}
-  \end{center}    
-
- \platz 
-
-
-   {\small     \hfill    
-     \begin{minipage}{.3\linewidth}
-       \centering 
-        Friedrich Eisenbrand\\
-    \today
-     \end{minipage}  
-}
-\end{frame}
- 
-
-\include{body}
-
-\begin{frame}
-
-  \begin{center}
-      \input{Image1.tex}
-  \end{center}
-
-\end{frame}
+     \end{enumerate}
+   \end{frame}
 
 \end{document} 
 
