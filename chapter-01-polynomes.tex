@@ -433,21 +433,21 @@ et par hypothèse de récurrence
 \end{displaymath}
 tel que $\deg(r(x)) < \deg(g(x))$. On  obtient alors
 \begin{displaymath}
-  f(x) = \left(q(x) + \frac{a_n}{ b_m } x^{n-m} \right) g(x) + r(x). 
+  f(x) = \left(q(x) + \frac{a_n}{ b_m } x^{n-m} \right) g(x) + r(x) = q_0(x)g(x) + r(x), \;\text{où} q_0(x) = q(x) + \frac{a_n}{ b_m } x^{n-m}. 
 \end{displaymath}
 %
-Supposons maintenant qu'il existe deux autres polynômes $q'(x)$ et $r'(x)$ tels que 
+Supposons maintenant qu'il existe deux autres polynômes $q'(x) \neq q_0(x)$ et $r'(x) \neq r(x)$ tels que 
 \begin{displaymath}
     f(x) = q'(x) g(x) + r'(x) 
   \end{displaymath}
   et $\deg(r') < \deg(g)$. 
 Alors 
 \begin{displaymath}
-   r(x) - r'(x) = (q(x) - q'(x)) ⋅ g(x). 
+   r(x) - r'(x) = (q'(x) - q_0(x)) ⋅ g(x). 
 \end{displaymath}
 Par le théorème~\ref{thr:34}
 \begin{displaymath}
- \deg( r - r')  = \deg(q - q') + \deg(g) \geq \deg(g), 
+ \deg( r - r')  = \deg(q' - q_0) + \deg(g) \geq \deg(g), 
 \end{displaymath}
 ce qui contredit le fait que $\deg(r) < \deg(g)$ et $\deg(r') < \deg(g)$. 
 \end{proof}
