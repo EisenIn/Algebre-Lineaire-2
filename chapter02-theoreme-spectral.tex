@@ -416,8 +416,7 @@ La matrice $B_K \in \R^{k\times k}$  est définie par $b_{ij} = a_{l_il_j}$, pou
     est définie positive si et seulement si tous ses mineurs
     principaux sont strictement positifs.
   \item $A$ \label{posdef:2}
-    est semi-définie positive si et seulement si tous ses mineurs symétriques sont non
-    négatifs.
+    est semi-définie positive si et seulement si tous ses mineurs symétriques sont positifs (ou zéro).
   \end{enumerate}
   Ce théorème est connu sous le nom de "critère de Sylvestre".
 \end{theorem}
@@ -425,7 +424,7 @@ La matrice $B_K \in \R^{k\times k}$  est définie par $b_{ij} = a_{l_il_j}$, pou
 \begin{proof}
 %Nous   considérons la factorisation~\eqref{eq:10}. La 
 
-On démontre~\ref{posdef:1}), tandis que \ref{posdef:2}) est une exercice. 
+On démontre~\ref{posdef:1}), tandis que \ref{posdef:2}) est un exercice. 
 Soit $A$ une matrice définie positive, montrons que   
 les matrices $B_k$, $ 1 \leq k \leq n$,  sont également définies positives : soit $z_k \in \mathbb R^k$ non-nul, 
 on complète ce vecteur en un vecteur $x_k \in \mathbb R^n$ en lui rajoutant $n-k$ zéros.
