@@ -403,7 +403,7 @@ Ainsi, $f(x) = 2 + 2x + 2x^2 + x^3$ est le polynôme recherché.
 
 \section{Divisibilité et racines} 
 \label{sec:divisibilite}
-Soit $R$ un anneau. La \emph{division avec reste} est l'opération suivante. 
+Soit $R$ un anneau et $K$ un corps pour ce chapitre. La \emph{division avec reste} est l'opération suivante. 
 
 \begin{theorem}
   \label{thr:33}
@@ -433,21 +433,21 @@ et par hypothèse de récurrence
 \end{displaymath}
 tel que $\deg(r(x)) < \deg(g(x))$. On  obtient alors
 \begin{displaymath}
-  f(x) = \left(q(x) + \frac{a_n}{ b_m } x^{n-m} \right) g(x) + r(x). 
+  f(x) = \left(q(x) + \frac{a_n}{ b_m } x^{n-m} \right) g(x) + r(x) = q_0(x)g(x) + r(x), \;\text{où} q_0(x) = q(x) + \frac{a_n}{ b_m } x^{n-m}. 
 \end{displaymath}
 %
-Supposons maintenant qu'il existe deux autres polynômes $q'(x)$ et $r'(x)$ tels que 
+Supposons maintenant qu'il existe deux autres polynômes $q'(x) \neq q_0(x)$ et $r'(x) \neq r(x)$ tels que 
 \begin{displaymath}
     f(x) = q'(x) g(x) + r'(x) 
   \end{displaymath}
   et $\deg(r') < \deg(g)$. 
 Alors 
 \begin{displaymath}
-   r(x) - r'(x) = (q(x) - q'(x)) ⋅ g(x). 
+   r(x) - r'(x) = (q'(x) - q_0(x)) ⋅ g(x). 
 \end{displaymath}
 Par le théorème~\ref{thr:34}
 \begin{displaymath}
- \deg( r - r')  = \deg(q - q') + \deg(g) \geq \deg(g), 
+ \deg( r - r')  = \deg(q' - q_0) + \deg(g) \geq \deg(g), 
 \end{displaymath}
 ce qui contredit le fait que $\deg(r) < \deg(g)$ et $\deg(r') < \deg(g)$. 
 \end{proof}
@@ -493,14 +493,14 @@ ce qui contredit le fait que $\deg(r) < \deg(g)$ et $\deg(r') < \deg(g)$.
 
 \begin{definition}
   \label{def:31}
-  Soit $p(x) \in \K[x] \setminus\{0\}$. Un $\alpha \in K$ tel que $f_p(\alpha) = 0$ est une  \emph{racine} de $f(x)$.  
+  Soit $p(x) \in K[x] \setminus\{0\}$. Un $\alpha \in K$ tel que $f_p(\alpha) = 0$ est une  \emph{racine} de $f(x)$.  
 \end{definition}
 
 
 \begin{example}
   \label{exe:40}
   Soit $p(x) = x^4 + x^3 + x^2 + x + 1 ∈ ℤ_5(x)$, alors $α = 1$ est une racine de $p(x)$. 
-\end{example}f
+\end{example}
 
 
 \begin{theorem}[Théorème fondamental de l'algèbre]
@@ -520,9 +520,7 @@ ce qui contredit le fait que $\deg(r) < \deg(g)$ et $\deg(r') < \deg(g)$.
   Si $f(x) = q(x) \cdot (x - \alpha)$, alors $f(\alpha) = 0$. 
 
 %Autrement, si $f$ est une constante, $f = 0$ et $(x - \alpha)$ divise $f$.
-Dans l'autre sens, si $f$ est une constante, $f(\alpha) = 0$ implique que $f = 0$ et $(x - \alpha)$ divise $f$. 
-
-Si $f$ n'est pas une constante, il existe $q(x)$ et $r(x)$ tels que
+Pour l'autre sens, il existe $q(x)$ et $r(x)$ tels que
 \begin{displaymath}
   f(x) = q(x) \cdot (x - \alpha) + r(x)
 \end{displaymath}
@@ -541,7 +539,7 @@ avec $\deg(r) \leq 0$. Alors $f(\alpha) = 0$ implique $r=0$.
   \label{exe:45}
   Le polynôme  $p(x) = x^4 + x^3 + x^2 + x + 1  ∈ℤ_5$  est divisible par $x-1$, et
   \begin{displaymath}
-    p(x)  = (x^3 + 2*x^2 + 3*x + 4)  (x-1). 
+    p(x)  = (x^3 + 2x^2 + 3x + 4)  (x-1). 
   \end{displaymath}
   De plus, $1$ est aussi une racine de $x^3 + 2*x^2 + 3*x + 4$. En fait 
   \begin{displaymath}
