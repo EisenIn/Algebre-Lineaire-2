@@ -8,7 +8,7 @@
 Soit $R$ un anneau. On se souvient que cela signifie que  $R$ est un ensemble,  muni des opérations binaires  $+ : R × R → R$  et $⋅: R × R → R$ telles que: 
 \begin{enumerate}[(R1)]
 \item $a+ b  = b+a$ pour tout     $a,b ∈ R$. \label{R1}
-\item $a + (b+c) = (a + b) +c$, pour tout $a,b,c ∈ R$. \label{R2}
+\item $a + (b+c) = (a + b) +c$, pour tout $a ,b,c ∈ R$. \label{R2}
 \item Il existe un élément $0 ∈R$ tel que $0+a =a$ pour chaque $a ∈R$. \label{R3}
 \item Pour chaque $a ∈R$ il existe un élément $-a ∈R$ tel que $a + (-a) = 0$. \label{R4}
 \item $a(bc) = (ab) c$ , pour tout $a,b,c ∈ R$. \label{R5}
@@ -427,27 +427,29 @@ Clairement
 \begin{displaymath}
   \deg\left( f(x) - \frac{a_n}{ b_m } x^{n-m} g(x) \right) < \deg(f(x))
 \end{displaymath}
-et par hypothèse de récurrence 
+et par hypothèse de récurrence il existe $q_0,r ∈R[x]$ tel que 
 \begin{displaymath}
-  f(x) - \frac{a_n}{ b_m } x^{n-m} g(x)  = q(x) g(x) + r(x) 
+  f(x) - \frac{a_n}{ b_m } x^{n-m} g(x)  = q_0(x) g(x) + r(x) 
 \end{displaymath}
-tel que $\deg(r(x)) < \deg(g(x))$. On  obtient alors
-\begin{displaymath}
-  f(x) = \left(q(x) + \frac{a_n}{ b_m } x^{n-m} \right) g(x) + r(x) = q_0(x)g(x) + r(x), \;\text{où} q_0(x) = q(x) + \frac{a_n}{ b_m } x^{n-m}. 
-\end{displaymath}
+et $\deg(r(x)) < \deg(g(x))$. On  obtient alors
+\begin{eqnarray*}
+  f(x) & = &  \left(q_0(x) + \frac{a_n}{ b_m } x^{n-m} \right) g(x) + r(x) \\
+       & = & = q(x)g(x) + r(x),
+\end{eqnarray*}
+ où $q(x) = q_0(x) + \frac{a_n}{ b_m } x^{n-m}$. 
 %
-Supposons maintenant qu'il existe deux autres polynômes $q'(x) \neq q_0(x)$ et $r'(x) \neq r(x)$ tels que 
+Supposons maintenant qu'il existe deux autres polynômes $q'(x) \neq q(x)$ et $r'(x) \neq r(x)$ tels que 
 \begin{displaymath}
     f(x) = q'(x) g(x) + r'(x) 
   \end{displaymath}
   et $\deg(r') < \deg(g)$. 
 Alors 
 \begin{displaymath}
-   r(x) - r'(x) = (q'(x) - q_0(x)) ⋅ g(x). 
+   r(x) - r'(x) = (q'(x) - q(x)) ⋅ g(x). 
 \end{displaymath}
 Par le théorème~\ref{thr:34}
 \begin{displaymath}
- \deg( r - r')  = \deg(q' - q_0) + \deg(g) \geq \deg(g), 
+ \deg( r - r')  = \deg(q' - q) + \deg(g) \geq \deg(g), 
 \end{displaymath}
 ce qui contredit le fait que $\deg(r) < \deg(g)$ et $\deg(r') < \deg(g)$. 
 \end{proof}
