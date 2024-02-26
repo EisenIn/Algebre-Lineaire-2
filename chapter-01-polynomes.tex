@@ -325,7 +325,7 @@ Par contre, si $K$ est un corps infini, deux polynômes différents induisent de
        1 & 0  &      \hdotsfor{2} &  0 \\
        1 & r_1- r_0&  r_1 (r_1-r_0)  & \cdots & r_1^{n-1} (r_1 - r_0) \\
        & & &  & \cdots  &  \\
-       1 & r_n -r_0&  r_1 (r_n-r_0) & \cdots & r_n^{n-1} (r_n - r_0) \\
+       1 & r_n -r_0&  r_n (r_n-r_0) & \cdots & r_n^{n-1} (r_n - r_0) \\
      \end{pmatrix}
    \end{equation}
    Le déterminant de la matrice~\eqref{eq:49} est celle de
@@ -336,7 +336,7 @@ Par contre, si $K$ est un corps infini, deux polynômes différents induisent de
     \begin{pmatrix}
        r_1- r_0&  r_1 (r_1-r_0) \cdots & r_1^{n-1} (r_1 - r_0) \\
         & &  \cdots  &  \\
-        r_n -r_0&  r_1 (r_n-r_0) \cdots & r_n^{n-1} (r_n - r_0) \\
+        r_n -r_0&  r_n (r_n-r_0) \cdots & r_n^{n-1} (r_n - r_0) \\
      \end{pmatrix}
    \end{equation}
    Alors
@@ -346,7 +346,7 @@ Par contre, si $K$ est un corps infini, deux polynômes différents induisent de
 Comme les $r_i$ sont distincts, le produit   $(r_n-r_0) \cdots (r_1-r_0) $ n'est pas zéro. Par l'hypothèse de récurrence, $\det(V_{r_1,\dots,r_n}) ≠0$ et donc $\det(V_{r_0,r_1,\dots,r_n}) ≠0$.  
 \end{proof}
 
-Le théorème~\ref{thr:52} ne contredit pas l'exemple~\ref{exe:36} car le corps $ℤ_2$ n'admet que $2$ éléments. Il existe bel et bien un unique polynôme $p \in  ℤ_2[x]$ de degré inférieur ou égal à 1 tel que $p(0) = p(1) = 0$. Une énumération des polynômes possibles ou la résolution du système linéaire donne $p=0$.
+Le théorème~\ref{thr:52} ne contredit pas l'exemple~\ref{exe:36} car le corps $ℤ_2$ n'admet que $2$ éléments. Il existe bel et bien un unique polynôme $p \in  ℤ_2[x]$ de degré inférieur ou égal à 1 tel que $p(0) = p(1) = 0$. Une énumération des polynômes possibles ou la résolution du système linéaire donne $p(x)=0$.
 
 \begin{exercise}
   \label{exe:37}
@@ -397,17 +397,17 @@ Ainsi, $f(x) = 2 + 2x + 2x^2 + x^3$ est le polynôme recherché.
   Soit $K$ un corps infini. Deux polynômes $p(x),q(x) ∈ K[x]$ sont égaux, si et seulement si les applications $f_p$ et $f_q$ sont les mêmes.
 \end{corollary}
 \begin{proof}
-  Si $p = q$, alors $p(r) = q(r)$ pour tout $r ∈K$ et donc $f_p = f_q$. D'autre part, si $f_p = f_q$, on peut supposer qu'un des deux polynômes n'est pas le polynôme $0$ (s'ils sont tous les deux nuls, alors $p=q$).  Comme $p(r) = q(r)$ pour tout $r ∈K$ et le corps $K$ est infini, les polynômes prennent les mêmes valeurs sur $\max\{\deg(p),\deg(q)\}+1$ éléments de $K$. Il en résulte que $p = q$ par le Theorème~\ref{thr:52}. 
+  Si $p(x) = q(x)$, alors $p(r) = q(r)$ pour tout $r ∈K$ et donc $f_p = f_q$. D'autre part, si $f_p = f_q$, on peut supposer qu'un des deux polynômes n'est pas le polynôme $0$ (s'ils sont tous les deux nuls, alors $p=q$).  Comme $p(r) = q(r)$ pour tout $r ∈K$ et le corps $K$ est infini, les polynômes prennent les mêmes valeurs sur $\max\{\deg(p),\deg(q)\}+1$ éléments distincts de $K$. Il en résulte que $p(x) = q(x)$ par le Theorème~\ref{thr:52}. 
 \end{proof}
 
 
 \section{Divisibilité et racines} 
 \label{sec:divisibilite}
-Soit $R$ un anneau. La \emph{division avec reste} est l'opération suivante. 
+Soit $R$ un anneau et $K$ un corps pour ce chapitre. La \emph{division avec reste} est l'opération suivante. 
 
 \begin{theorem}
   \label{thr:33}
-  Soient $f,g \in R[x]$, $\deg(g) >0$ et le coefficient dominant de $g$ un élément  inversible de $R$.   Il existe $q,r \in R[x]$ unique  tels que 
+  Soient $f,g \in R[x]$, $\deg(g) >0$ et le coefficient dominant de $g$ un élément  inversible de $R$.   Il existe $q,r \in R[x]$ uniques tels que 
   \begin{displaymath}
     f(x) = q(x) g(x) + r(x) 
   \end{displaymath}
@@ -433,21 +433,21 @@ et par hypothèse de récurrence
 \end{displaymath}
 tel que $\deg(r(x)) < \deg(g(x))$. On  obtient alors
 \begin{displaymath}
-  f(x) = \left(q(x) + \frac{a_n}{ b_m } x^{n-m} \right) g(x) + r(x). 
+  f(x) = \left(q(x) + \frac{a_n}{ b_m } x^{n-m} \right) g(x) + r(x) = q_0(x)g(x) + r(x), \;\text{où} q_0(x) = q(x) + \frac{a_n}{ b_m } x^{n-m}. 
 \end{displaymath}
 %
-Supposons maintenant qu'il existe deux autres polynômes $q'(x)$ et $r'(x)$ tels que 
+Supposons maintenant qu'il existe deux autres polynômes $q'(x) \neq q_0(x)$ et $r'(x) \neq r(x)$ tels que 
 \begin{displaymath}
     f(x) = q'(x) g(x) + r'(x) 
   \end{displaymath}
   et $\deg(r') < \deg(g)$. 
 Alors 
 \begin{displaymath}
-   r(x) - r'(x) = (q(x) - q'(x)) ⋅ g(x). 
+   r(x) - r'(x) = (q'(x) - q_0(x)) ⋅ g(x). 
 \end{displaymath}
 Par le théorème~\ref{thr:34}
 \begin{displaymath}
- \deg( r - r')  = \deg(q - q') + \deg(g) \geq \deg(g), 
+ \deg( r - r')  = \deg(q' - q_0) + \deg(g) \geq \deg(g), 
 \end{displaymath}
 ce qui contredit le fait que $\deg(r) < \deg(g)$ et $\deg(r') < \deg(g)$. 
 \end{proof}
@@ -493,14 +493,14 @@ ce qui contredit le fait que $\deg(r) < \deg(g)$ et $\deg(r') < \deg(g)$.
 
 \begin{definition}
   \label{def:31}
-  Soit $p(x) \in \K[x] \setminus\{0\}$. Un $\alpha \in K$ tel que $f_p(\alpha) = 0$ est une  \emph{racine} de $f(x)$.  
+  Soit $p(x) \in K[x] \setminus\{0\}$. Un $\alpha \in K$ tel que $f_p(\alpha) = 0$ est une  \emph{racine} de $f(x)$.  
 \end{definition}
 
 
 \begin{example}
   \label{exe:40}
   Soit $p(x) = x^4 + x^3 + x^2 + x + 1 ∈ ℤ_5(x)$, alors $α = 1$ est une racine de $p(x)$. 
-\end{example}f
+\end{example}
 
 
 \begin{theorem}[Théorème fondamental de l'algèbre]
@@ -520,9 +520,7 @@ ce qui contredit le fait que $\deg(r) < \deg(g)$ et $\deg(r') < \deg(g)$.
   Si $f(x) = q(x) \cdot (x - \alpha)$, alors $f(\alpha) = 0$. 
 
 %Autrement, si $f$ est une constante, $f = 0$ et $(x - \alpha)$ divise $f$.
-Dans l'autre sens, si $f$ est une constante, $f(\alpha) = 0$ implique que $f = 0$ et $(x - \alpha)$ divise $f$. 
-
-Si $f$ n'est pas une constante, il existe $q(x)$ et $r(x)$ tels que
+Pour l'autre sens, il existe $q(x)$ et $r(x)$ tels que
 \begin{displaymath}
   f(x) = q(x) \cdot (x - \alpha) + r(x)
 \end{displaymath}
@@ -541,7 +539,7 @@ avec $\deg(r) \leq 0$. Alors $f(\alpha) = 0$ implique $r=0$.
   \label{exe:45}
   Le polynôme  $p(x) = x^4 + x^3 + x^2 + x + 1  ∈ℤ_5$  est divisible par $x-1$, et
   \begin{displaymath}
-    p(x)  = (x^3 + 2*x^2 + 3*x + 4)  (x-1). 
+    p(x)  = (x^3 + 2x^2 + 3x + 4)  (x-1). 
   \end{displaymath}
   De plus, $1$ est aussi une racine de $x^3 + 2*x^2 + 3*x + 4$. En fait 
   \begin{displaymath}
