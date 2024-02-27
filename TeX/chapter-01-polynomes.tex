@@ -401,8 +401,11 @@ Ainsi, $f(x) = 2 + 2x + 2x^2 + x^3$ est le polynôme recherché.
 \end{proof}
 
 
-\section{Divisibilité et racines} 
+
+
+\section{Division avec reste et  racines} 
 \label{sec:divisibilite}
+
 Soit $R$ un anneau et $K$ un corps pour ce chapitre. La \emph{division avec reste} est l'opération suivante. 
 
 \begin{theorem}
@@ -474,8 +477,24 @@ ce qui contredit le fait que $\deg(r) < \deg(g)$ et $\deg(r') < \deg(g)$.
 %  \label{prop:5}
 %  Pour $\alpha \in K$, $\phi_\alpha: \, K[x] \longrightarrow K$, %$\phi_\alpha(f(x)) = f(\alpha)$ est un homomorphisme.  
 %\end{proposition}
+%
+On peut formuler la division avec reste comme un procédé récursif comme suivant. On suppose ici  $\deg(g(x)>0$. 
 
-
+\begin{algorithm}
+  \caption{Division avec reste}\label{euclid}
+  \begin{algorithmic}[1]
+    \Procedure{Div}{$f(x), g(x)$ }
+    \State{Soient $n= \det(f)$ et $m = \deg(g)$}   
+  \If{$n < m$}
+    \State\Return{$0$,$f(x)$}
+    \Else
+    \State{Soient $a,b ∈K$ coefficients dominants de $f$ et $g$ respectivement}  
+    \State $(q_0(x),r(x)) \leftarrow  $ {\Call{Div}{$f(x) - (a/b) x^{n-m} g(x)$, $g(x)$}
+    \State \Return $(a/b) x^{n-m} q_o(x),r(x))$  
+  \EndIf
+  \EndProcedure
+\end{algorithmic}
+\end{algorithm}
 
 
 
@@ -543,7 +562,7 @@ avec $\deg(r) \leq 0$. Alors $f(\alpha) = 0$ implique $r=0$.
   \begin{displaymath}
     p(x)  = (x^3 + 2x^2 + 3x + 4)  (x-1). 
   \end{displaymath}
-  De plus, $1$ est aussi une racine de $x^3 + 2*x^2 + 3*x + 4$. En fait 
+  De plus, $1$ est aussi une racine de $x^3 + 2x^2 + 3x + 4$. En fait 
   \begin{displaymath}
     x^4 + x^3 + x^2 + x + 1 = (x-1)^4,
   \end{displaymath}
@@ -551,27 +570,12 @@ avec $\deg(r) \leq 0$. Alors $f(\alpha) = 0$ implique $r=0$.
 \end{example}
 
 
-\section{Factorisation}
+
+
+\section{Le plus grand diviseur commun}
 \label{sec:fact-de-polyn}
 
-Dans cette section, on fixe un corps K.
-
-\begin{definition}
-  \label{def:53}
-  Un polynôme $p(x) ∈ K[x] \setminus \{0\}$ est \emph{irréductible}, si
-  \begin{enumerate}[i)]
-  \item $\deg(p) ≥1$ et
-  \item  si $p(x) = f(x) g(x)$ alors $\deg(f) = 0$ ou $\deg(g) = 0$. 
-  \end{enumerate}
-\end{definition}
-
-\begin{example}
-  \label{exe:46}
-  \begin{enumerate}
-  \item   Chaque polynôme linéaire $p(x) = ax + b ∈ K[x]$, $a ∈ K \setminus\{0\}$ est irréductible. En effet, si $p(x) = f(x) g(x)$ et $\deg(f)>0$ et $\deg(g)>0$, alors le théorème~\ref{thr:34} implique que $\deg(p) >1$.
-  \item $x^2 +1 ∈ℝ[x]$ est irréductible. Autrement, il existe un polynôme linéaire $f(x) =  x - α ∈ ℝ[x]$ qui divise $f$ ce qui implique que $α$ est une racine de $x^2 +1$. Cependant, aucun nombre $α$ réel ne satisfait $α^2 = -1$.
-  \end{enumerate}
-\end{example}
+Soit $K$ un corps dans ce chapitre. 
 
 \begin{theorem}
   \label{thr:54}
@@ -776,6 +780,27 @@ Alors
 
 \subsection{Factorisation en irréductibles}
 \label{sec:fact-en-irred}
+
+On fixe un corps $K$ dans ce chapitre. 
+
+\begin{definition}
+  \label{def:53}
+  Un polynôme $p(x) ∈ K[x] \setminus \{0\}$ est \emph{irréductible}, si
+  \begin{enumerate}[i)]
+  \item $\deg(p) ≥1$ et
+  \item  si $p(x) = f(x) g(x)$ alors $\deg(f) = 0$ ou $\deg(g) = 0$. 
+  \end{enumerate}
+\end{definition}
+
+\begin{example}
+  \label{exe:46}
+  \begin{enumerate}
+  \item   Chaque polynôme linéaire $p(x) = ax + b ∈ K[x]$, $a ∈ K \setminus\{0\}$ est irréductible. En effet, si $p(x) = f(x) g(x)$ et $\deg(f)>0$ et $\deg(g)>0$, alors le théorème~\ref{thr:34} implique que $\deg(p) >1$.
+  \item $x^2 +1 ∈ℝ[x]$ est irréductible. Autrement, il existe un polynôme linéaire $f(x) =  x - α ∈ ℝ[x]$ qui divise $f$ ce qui implique que $α$ est une racine de $x^2 +1$. Cependant, aucun nombre $α$ réel ne satisfait $α^2 = -1$.
+  \end{enumerate}
+\end{example}
+
+
 Clairement, tout polynôme $f(x) ∈ K[x] \setminus \{0\}$    peut être factorisé comme
 \begin{equation}
   \label{eq:33}
