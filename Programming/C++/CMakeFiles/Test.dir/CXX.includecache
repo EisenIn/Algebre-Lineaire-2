@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/eisenbrand/Documents/GitHub/Algebre-Lineaire-2/Programming/Matrix.h
+vector
+-
+iostream
+-
+
+/Users/eisenbrand/Documents/GitHub/Algebre-Lineaire-2/Programming/Test.cpp
+Matrix.h
+/Users/eisenbrand/Documents/GitHub/Algebre-Lineaire-2/Programming/Matrix.h
+rational.h
+/Users/eisenbrand/Documents/GitHub/Algebre-Lineaire-2/Programming/rational.h
+
+/Users/eisenbrand/Documents/GitHub/Algebre-Lineaire-2/Programming/rational.h
+cfloat
+-
+cmath
+-
+cstdlib
+-
+ostream
+-
+limits
+-
+

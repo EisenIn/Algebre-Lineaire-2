@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/Users/eisenbrand/Documents/GitHub/Algebre-Lineaire-2/Programming",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++     -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk   -o CMakeFiles/Test.dir/Test.cpp.o -c /Users/eisenbrand/Documents/GitHub/Algebre-Lineaire-2/Programming/Test.cpp",
+  "file": "/Users/eisenbrand/Documents/GitHub/Algebre-Lineaire-2/Programming/Test.cpp"
+}
+]
