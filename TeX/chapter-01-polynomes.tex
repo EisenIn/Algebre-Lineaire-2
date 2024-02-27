@@ -410,7 +410,7 @@ Soit $R$ un anneau et $K$ un corps pour ce chapitre. La \emph{division avec rest
 
 \begin{theorem}
   \label{thr:33}
-  Soient $f,g \in R[x]$, $\deg(g) >0$ et le coefficient dominant de $g$ un élément  inversible de $R$.   Il existe $q,r \in R[x]$ uniques tels que 
+  Soient $f,g \in R[x]$, $g ≠ 0$ et le coefficient dominant de $g$ un élément  inversible de $R$.   Il existe $q,r \in R[x]$ uniques tels que 
   \begin{displaymath}
     f(x) = q(x) g(x) + r(x) 
   \end{displaymath}
@@ -419,7 +419,9 @@ Soit $R$ un anneau et $K$ un corps pour ce chapitre. La \emph{division avec rest
 
 
 \begin{proof}
-  La preuve se fait par récurrence sur $\deg(f)$. Si $\deg(f) < \deg(g)$, alors on pose $q = 0$ et $r = f$.
+  Si $\deg(g) = 0$, alors $g(x) = b_0 ∈ R^*$. Dans ce cas, on met $q(x) = f(x) ⋅ b_0^{-1}$ et $r(x) = 0$.
+  
+  Autrement, soit $\deg(g) ≥  1$.  La preuve se fait par récurrence sur $\deg(f)$. Si  $\deg(f) < \deg(g)$, alors on pose $q = 0$ et $r = f$.
 
 Soit alors $\deg(f) = n \geq \deg(g)=m$ et 
 \begin{displaymath}
@@ -490,7 +492,7 @@ On peut formuler la division avec reste comme un procédé récursif comme suiva
     \Else
     \State{Soient $a,b ∈R$ coefficients dominants de $f$ et $g$ respectivement}  
     \State{$(q_0(x),r(x)) \leftarrow  $ {\Call{Div}{$f(x) - (a/b) x^{n-m} g(x)$, $g(x)$}}}
-    \State \Return $(a/b) x^{n-m} q_o(x),r(x))$  
+    \State \Return $(a/b) x^{n-m} + q_o(x),r(x))$  
   \EndIf
   \EndProcedure
 \end{algorithmic}
