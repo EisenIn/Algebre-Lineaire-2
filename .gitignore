@@ -16,6 +16,7 @@
 auto/*
 *~
 *#
+.#*
 
 ## Intermediate documents:
 *.dvi
@@ -224,3 +225,4 @@ Programming/compile_commands.json
 
 
 *.DS_Store
+
