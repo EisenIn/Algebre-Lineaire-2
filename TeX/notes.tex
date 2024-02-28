@@ -13,7 +13,7 @@
 \usepackage{amsthm}
 \usepackage{amscd}
 \usepackage{todonotes}
-
+\usepackage{hyperref}
 %\usepackage{multirow}
 \usepackage{enumerate}
 
@@ -25,6 +25,43 @@
 \usepackage[Algorithme]{algorithm}
 \usepackage{algorithmicx,algpseudocode} 
  
+
+%%%%%%%%%%% Python Listing 
+\usepackage{listings}
+\usepackage{xcolor} 
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+ 
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+  }
+
+\lstset{style=mystyle}  
+%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% %%%%%%%%%%%%% Margin Notes
+
+ \usepackage{marginnote}
+% \usepackage[top=1.5cm, bottom=1.5cm, outer=5cm, inner=2cm, heightrounded, marginparwidth=2.5cm, marginparsep=2cm]{geometry}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newcommand{\smat}[1]{ \big(\begin{smallmatrix} #1 \end{smallmatrix}\big)}
 
@@ -151,7 +188,7 @@ Des corrections et modifications ont été implémentées par:
 
 Le deuxième   chapitre est basé, en partie, sur les notes du cours de Daniel Kressner.  
 
-\tableofcontents
+\tableofcontents  
 
 \include{chapter-01-polynomes}
 \include{chapter00-valeurs-propres} 

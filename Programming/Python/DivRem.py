@@ -51,12 +51,12 @@ def DivisionWithRemainder(f,g):
 
     
     
-f = [Fraction(1),Fraction(0),Fraction(0),Fraction(1)] 
-g = [Fraction(-1),Fraction(1)]
+f = [Fraction(2),Fraction(0),Fraction(0),Fraction(3),Fraction(0),Fraction(4) ] 
+g = [Fraction(-1), Fraction(0), Fraction(1)]
     
 q,r = DivisionWithRemainder(f,g)
 
 print(PrettyPrint(q))
-print('\n')
+
 print(PrettyPrint(r)) 
 

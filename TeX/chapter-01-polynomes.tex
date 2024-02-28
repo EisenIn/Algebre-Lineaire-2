@@ -500,6 +500,36 @@ On peut formuler la division avec reste comme un procédé récursif comme suiva
 
 
 
+% \marginnote{Tout matériel sur Python est supplémentaire et ne compte pas vers l'examen.}[0cm] 
+
+% Voici une implémentation en Python. Nous utilisons une liste Python pour re\-pré\-senter un polynôme. Par exemple, $f(x) = x^3 + 2x + 5$ serait représenté par la liste $[5,2,0,1]$. Ce code fonctionne pour de telles listes du type de données \textsc{Fraction} et lorsque l'élément de liste d'indice le plus élevé est non nul dans les deux listes. Si vous êtes intéressé, vous pouvez jouer avec ce code. Un exemple sur la façon de l'utiliser se trouve dans le dépôt Git~\cite{LaGIT}.
+
+
+% \begin{lstlisting}[language=Python]
+% def DivisionWithRemainder(f,g):
+%     n = len(f) - 1
+%     m = len(g) -1
+%     if n < m:
+%         return [], f
+%     else:
+%         a = f[n]
+%         b = g[m]
+%         c = a/b 
+        
+%         for i in range(len(g)):
+%             f[n-i] = f[n-i] - c * g[m-i] 
+            
+%         del f[-1]
+        
+%         q_0,r = DivisionWithRemainder(f,g)
+        
+%         q_0.append(c)
+%         return q_0 , r 
+% \end{lstlisting}
+
+
+
+
 \begin{definition}
   \label{def:32}
   Un polynôme  $q(x)$ \emph{divise} un  polynôme $f(x)$ s'il existe un polynôme $g(x)$ tel que $f(x) = g(x) \cdot q(x)$. On dit que $q(x)$ est un \emph{diviseur} de $f(x)$ et on écrit $q(x) \mid f(x)$. 
