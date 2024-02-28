@@ -17,7 +17,7 @@ Soit $R$ un anneau. On se souvient que cela signifie que  $R$ est un ensemble,  
 \end{enumerate}
 Si, de plus, on a 
 \begin{enumerate}[(R1)]
-  \setcounter{enumi}{7}
+  \setcounter{enumi}{7} 
 \item  $a b = ba$ pour tous $a,b ∈R$ \label{R8}. 
 \end{enumerate}
 alors l'anneau $R$ est appelé \emph{anneau commutatif}. Le \emph{centre} de $R$ est l'ensemble $Z(R) = \{ r ∈ R ： ra = ar \text{ pour tout } a ∈ R\}$. 
@@ -113,10 +113,10 @@ On dénote l'ensemble des éléments inversibles par $R^*$. On se rappelle que $
   \label{thr:50}
   Soit $R$ un anneau, alors il existe un anneau $S ⊇R$ ($R$ est un sous-anneau de $S$) et un élément $x ∈ S \setminus R$ tel que
   \begin{enumerate}[(i)]
-  \item $a x = x a $ pour chaque $a ∈ R$.
+  \item $a x = x a $ pour chaque $a ∈ R$. \label{item:29}
   \item Si 
     $  a_0+ a_1x + \cdots + a_n x^n =0$  et $a_i ∈R$ pour tout $i$,  
-    alors  $a_i = 0$ pour tout $i$.
+    alors  $a_i = 0$ pour tout $i$. \label{item:30}
   \end{enumerate}
 \end{theorem}
 Ce théorème est démontré dans le cours \emph{anneaux et corps}.   Il nous donne une manière formelle d'introduire le concept d'une \emph{indéterminée} (ou  \emph{variable}) qui n'est autre que ledit élément $x ∈ S \setminus R$.  
@@ -532,7 +532,8 @@ On peut formuler la division avec reste comme un procédé récursif comme suiva
 
 \begin{definition}
   \label{def:32}
-  Un polynôme  $q(x)$ \emph{divise} un  polynôme $f(x)$ s'il existe un polynôme $g(x)$ tel que $f(x) = g(x) \cdot q(x)$. On dit que $q(x)$ est un \emph{diviseur} de $f(x)$ et on écrit $q(x) \mid f(x)$. 
+  Soit $R$ un anneau commutatif. 
+  Un polynôme  $q(x) ∈R[x]$ \emph{divise} un  polynôme $f(x)∈ R[x]$ s'il existe un polynôme $g(x)∈ R[x]$ tel que $f(x) = g(x) \cdot q(x)$. On dit que $q(x)$ est un \emph{diviseur} de $f(x)$ et on écrit $q(x) \mid f(x)$. 
 \end{definition}
 
 
@@ -546,7 +547,8 @@ On peut formuler la division avec reste comme un procédé récursif comme suiva
 
 \begin{definition}
   \label{def:31}
-  Soit $p(x) \in K[x] \setminus\{0\}$. Un $\alpha \in K$ tel que $f_p(\alpha) = 0$ est une  \emph{racine} de $f(x)$.  
+  Soit $R$ un anneau commutatif et 
+  $p(x) \in R[x] \setminus\{0\}$. Un $\alpha \in R$ tel que $f_p(\alpha) = 0$ est une  \emph{racine} de $f(x)$.  
 \end{definition}
 
 
@@ -566,11 +568,16 @@ On peut formuler la division avec reste comme un procédé récursif comme suiva
 
 \begin{theorem}
   \label{thr:35}
-  Soit $f(x)∈ K[x] \setminus \{0\}$ un polynôme  et $\alpha \in K$, alors $\alpha$ est une racine de $f$ si et seulement si $(x- \alpha)  \mid f(x)$. 
+  Soit $R$ un anneau commutatif et  $f(x)∈ R[x] \setminus \{0\}$ un polynôme  et $\alpha \in R$, alors $\alpha$ est une racine de $f$ si et seulement si $(x- \alpha)  \mid f(x)$. 
 \end{theorem}
 
 \begin{proof}
-  Si $f(x) = q(x) \cdot (x - \alpha)$, alors $f(\alpha) = 0$. 
+  Si $f(x) = q(x) \cdot (x - \alpha)$, alors
+  \begin{eqnarray*}
+    \label{eq:52}
+    f(\alpha) & = & q(α) \cdot (α - \alpha)\\ 
+              & = & 0.
+  \end{eqnarray*}
 
 %Autrement, si $f$ est une constante, $f = 0$ et $(x - \alpha)$ divise $f$.
 Pour l'autre sens, il existe $q(x)$ et $r(x)$ tels que
@@ -584,7 +591,8 @@ avec $\deg(r) \leq 0$. Alors $f(\alpha) = 0$ implique $r=0$.
 
 \begin{definition}
   \label{def:41}
-  La \emph{multiplicité} d'une racine $α$ de $p(x) ∈ K[x] ⧹\{0\}$ est le plus grand entier $i≥1$ tel que $ (x-α)^i \mid p(x)$. Si $p(x)$ est le polynôme caractéristique d'un endomorphisme d'un espace vectoriel, on appelle la multiplicité de $α$ la \emph{multiplicité algébrique}. 
+  Soit $R$ un anneau commutatif. 
+  La \emph{multiplicité} d'une racine $α$ de $p(x) ∈ R[x] ⧹\{0\}$ est le plus grand entier $i≥1$ tel que $ (x-α)^i \mid p(x)$. Si $p(x)$ est le polynôme caractéristique d'un endomorphisme d'un espace vectoriel, on appelle la multiplicité de $α$ la \emph{multiplicité algébrique}. 
 \end{definition} 
 
 
@@ -874,7 +882,68 @@ dont les $p_i$ sont irréductibles est unitaires et $a ∈ K$. On va voir mainte
 \end{exercise}
 
 
-%%% Local Variables:
+
+
+\section{Construction formelle de l'anneau des polynômes}
+\label{sec:form-constr-ring}
+
+Dans cette section, nous fournirons une preuve du Théorème~\ref{thr:58}. À cette fin, soit $R$ un anneau. Une \emph{séquence} est une fonction $σ: ℕ_0 ⟶ R$. Nous écrirons $σ$ comme
+\begin{displaymath}
+  σ = [a_0,a_1,a_2, \dots ),
+\end{displaymath}
+où $a_i = σ(i)$. Nous désignons l'ensemble de toutes les séquences par $S$.  Nous identifions chaque élément $e ∈R$  comme l'élément
+\begin{displaymath}
+  [a,0,0, \dots) ∈S. 
+\end{displaymath}
+%
+Ensuite, nous définissons les opérations d'addition et de multiplication sur $S$. L'addition est l'opération naturelle suivante
+\begin{displaymath}
+  [a_0,a_1,a_2, \dots ) + [b_0,b_1,b_2, \dots ) = [a_0+b_0,a_1+b_1,a_2+b_2, \dots ). 
+\end{displaymath}
+Il est simple de montrer que $(S,+)$ est un groupe abélien, c'est-à-dire que (\ref{R1})-(\ref{R4}) tiennent. Par exemple (\ref{R1}) est montrée comme suit. Soient $ [a_0,a_1,a_2, \dots ), \, [b_0,b_1,b_2, \dots ) ∈ S$. On a
+\begin{eqnarray}
+  \label{eq:54}
+  [a_0,a_1,a_2, \dots ) +  [b_0,b_1,b_2, \dots )  & = &  [a_0+b_0,a_1+b_1,a_2+b_2, \dots ) \label{eq:55} \\
+  & = &        [b_0+a_0,b_1+a_1,b_2+a_2, \dots ) \label{eq:56} \\
+  & = & [b_0,b_1,b_2, \dots ) + [a_0,a_1,a_2, \dots ).
+\end{eqnarray}
+Ici, \eqref{eq:56} découle de (\ref{R1}) dans l'anneau $R$.
+
+L'opération de multiplication est la suivante. Étant donné deux séquences $[a_0,a_1,a_2, \dots ) ∈S$ et $   [b_0,b_1,b_2, \dots ) ∈S$, leur produit est 
+\begin{displaymath}
+  [a_0,a_1,a_2, \dots ) ⋅   [b_0,b_1,b_2, \dots ) =  [c_0,c_1,c_2, \dots ), 
+\end{displaymath}
+où
+\begin{displaymath}
+  c_i = ∑_{j+k = i} a_jb_k.
+\end{displaymath}
+Il est simple de montrer que les conditions (\ref{R5}) et (\ref{R8}) sont satisfaites. L'élément unité $1 ∈ S$ est la séquence
+\begin{displaymath}
+  [1,0,0, \dots). 
+\end{displaymath}
+Cela montre que $S$ est un anneau. L'élément $x ∈ S$ spécifié dans le Théorème~\ref{thr:58} est la séquence
+ \begin{displaymath}
+ x =  [0,1,0, \dots). 
+\end{displaymath}
+Clairement, pour chaque $a ∈R$ on a
+\begin{displaymath}
+  [a,0,0,\dots) ⋅ x = x ⋅[a,0,0,\dots), 
+\end{displaymath}
+ce qui est la condition~\ref{item:29} du Théorème~\ref{thr:58}. 
+Nous observons en outre que
+\begin{displaymath}
+  x = [0,1,0,0,\dots  ),\quad   x^2 = [0,0,1,0,\dots  ) ,\quad   x^3 = [0,0,0,1,0\dots  )  \quad \cdots 
+\end{displaymath}
+De cela, on peut conclure que, si 
+\begin{displaymath}
+  \mathbf{a}_0 + \mathbf{a}_1 x + \cdots + \mathbf{a}_n x^n = 0,
+\end{displaymath}
+chaque $\mathbf{a}_i$ est de la forme $[a_i,0,0, \cdots )$ avec $a_i ∈R$, alors chaque $a_i$ doit être nul. Ceci conclut la preuve du Théorème~\ref{thr:58}.
+
+
+
+
+%%%Local Variables:
 %%% mode: latex
 %%% TeX-master: "notes"
 %%% End:
