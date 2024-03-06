@@ -887,11 +887,11 @@ dont les $p_i$ sont irréductibles est unitaires et $a ∈ K$. On va voir mainte
 \section{Construction formelle de l'anneau des polynômes}
 \label{sec:form-constr-ring}
 
-Dans cette section, nous fournirons une preuve du Théorème~\ref{thr:58}. À cette fin, soit $R$ un anneau. Une \emph{séquence} est une fonction $σ: ℕ_0 ⟶ R$. Nous écrirons $σ$ comme
+Dans cette section, nous fournirons une preuve du Théorème~\ref{thr:58}. Soit $R$ un anneau. Une \emph{suite} est une fonction $σ: ℕ_0 ⟶ R$. Nous écrirons $σ$ comme
 \begin{displaymath}
   σ = [a_0,a_1,a_2, \dots ),
 \end{displaymath}
-où $a_i = σ(i)$. Nous désignons l'ensemble de toutes les séquences par $S$.  Nous identifions chaque élément $a ∈R$  comme l'élément
+où $a_i = σ(i)$. Nous désignons l'ensemble de toutes les suites par $S$.  Nous identifions chaque élément $a ∈R$  comme l'élément
 \begin{displaymath}
   [a,0,0, \dots) ∈S. 
 \end{displaymath}
@@ -900,16 +900,16 @@ Ensuite, nous définissons les opérations d'addition et de multiplication sur $
 \begin{displaymath}
   [a_0,a_1,a_2, \dots ) + [b_0,b_1,b_2, \dots ) = [a_0+b_0,a_1+b_1,a_2+b_2, \dots ). 
 \end{displaymath}
-Il est simple de montrer que $(S,+)$ est un groupe abélien, c'est-à-dire que (\ref{R1})-(\ref{R4}) tiennent. Par exemple (\ref{R1}) est montrée comme suit. Soient $ [a_0,a_1,a_2, \dots ), \, [b_0,b_1,b_2, \dots ) ∈ S$. On a
+Il est simple de montrer que $(S,+)$ est un groupe abélien, c'est-à-dire que (R\ref{R1})-(R\ref{R4}) tiennent. Par exemple (R\ref{R1}) est montrée comme suit. Soient $ [a_0,a_1,a_2, \dots ), \, [b_0,b_1,b_2, \dots ) ∈ S$. On a
 \begin{eqnarray}
   \label{eq:54}
   [a_0,a_1,a_2, \dots ) +  [b_0,b_1,b_2, \dots )  & = &  [a_0+b_0,a_1+b_1,a_2+b_2, \dots ) \label{eq:55} \\
   & = &        [b_0+a_0,b_1+a_1,b_2+a_2, \dots ) \label{eq:56} \\
   & = & [b_0,b_1,b_2, \dots ) + [a_0,a_1,a_2, \dots ).
 \end{eqnarray}
-Ici, \eqref{eq:56} découle de (\ref{R1}) dans l'anneau $R$.
+Ici, \eqref{eq:56} est à cause de  (R\ref{R1}) dans l'anneau $R$.
 
-L'opération de multiplication est la suivante. Étant donné deux séquences $[a_0,a_1,a_2, \dots ) ∈S$ et $   [b_0,b_1,b_2, \dots ) ∈S$, leur produit est 
+L'opération de multiplication est la suivante. Étant donné deux suites $[a_0,a_1,a_2, \dots ) ∈S$ et $   [b_0,b_1,b_2, \dots ) ∈S$, leur produit est 
 \begin{displaymath}
   [a_0,a_1,a_2, \dots ) ⋅   [b_0,b_1,b_2, \dots ) =  [c_0,c_1,c_2, \dots ), 
 \end{displaymath}
@@ -917,11 +917,11 @@ où
 \begin{displaymath}
   c_i = ∑_{j+k = i} a_jb_k.
 \end{displaymath}
-Il est simple de montrer que les conditions (\ref{R5}) et (\ref{R8}) sont satisfaites. L'élément unité $1 ∈ S$ est la séquence
+Il est simple de montrer que les conditions (R\ref{R5}) et (R\ref{R7}) sont satisfaites. L'élément unité $1 ∈ S$ est la suite
 \begin{displaymath}
   [1,0,0, \dots). 
 \end{displaymath}
-Cela montre que $S$ est un anneau. L'élément $x ∈ S$ spécifié dans le Théorème~\ref{thr:58} est la séquence
+Cela montre que $S$ est un anneau. L'élément $x ∈ S$ spécifié dans le Théorème~\ref{thr:58} est la suite
  \begin{displaymath}
  x =  [0,1,0, \dots). 
 \end{displaymath}
