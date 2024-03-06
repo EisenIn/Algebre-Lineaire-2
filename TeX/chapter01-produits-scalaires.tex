@@ -1,5 +1,83 @@
-\chapter{Formes bilinéaires}  
+\chapter{Bilinéarité   et produits scalaires}  
 \label{cha:prod-scal-et}
+
+
+\noindent 
+Dans le chapitre~\ref{cha:valeurs-propres-et} nous avons vu le concept de similarité de deux matrices $A , B ∈K ^{n ×n}$. Les matrices $A$ et $B$ sont semblables, s'il existe une matrice  inversible $P ∈K^{n ×n}$ tel que
+\begin{displaymath}
+  A = P^{-1} ⋅B ⋅P. 
+\end{displaymath}
+Le Théorème~\ref{thr:45} explique, quand une matrice $A ∈ K^{n ×n}$ est semblable à une matrice diagonale. C'est la cas si et seulement si le polynôme caractéristique de $A$ décompose en facteurs linéaires et le multiplicités algébriques et géométriques   de ces racines sont les mêmes.
+
+Dans ce chapitre on ce concentre sur une autre relation d'équivalence.  Deux matrices $A,B \in K^{n\times n}$ sont dites \emph{congruentes} s'il existe une matrice $P \in K^{n \times n}$ inversible telle que 
+\begin{displaymath}
+  A = P^T B P.
+\end{displaymath}
+Nous écrivons dans ce cas $A \cong B$ et on se demande quand est-ce que une matrice $A ∈ K^{n ×n}$ est congruente à une matrice diagonale. $A \cong \diag(a_1,\dots,a_n)$. Dans ce cas, on a certainement
+\begin{displaymath}
+  A^T = A, 
+\end{displaymath}
+c.à.d. que $A$ est une matrice \emph{symétrique}.
+
+Considérons un exemple. Soit $A ∈ ℤ_3^{ n × n}$ la matrice  
+\begin{displaymath}
+  A =
+  \begin{pmatrix}
+    0 & 1 \\
+    1 & 0 
+  \end{pmatrix}.
+\end{displaymath}
+L'effet de la multiplication de $A$ avec
+\begin{displaymath}
+  P_1 =  \begin{pmatrix}
+    1 & 0\\
+    1 & 1 
+  \end{pmatrix} 
+\end{displaymath}
+à droite est que la nouvelle première colonne de $A$ est la somme des deux colonnes. L'effet de la multiplication de $A$ avec $P^T$ à gauche est que la nouvelle première ligne de $A$ est la somme des deux lignes. Alors on obtient
+\begin{displaymath}
+  P_1^T A  P_1 =
+  \begin{pmatrix}
+    2 & 1 \\
+    1 & 0 
+  \end{pmatrix}.
+\end{displaymath}
+D'ici on peut additionner la première colonne de $A$ sur la deuxième et additionner la  première ligne de $A$ sur la deuxième et on obtient avec 
+\begin{displaymath}
+  P_2 =  \begin{pmatrix}
+    1 & 1\\
+    0 & 1 
+  \end{pmatrix} 
+\end{displaymath}
+\begin{displaymath}
+  (P_1 P_2)^T A P_1P_2 =  \begin{pmatrix}
+    2 & 0 \\
+    0 & 2 
+  \end{pmatrix}.
+\end{displaymath}
+%
+Maintenant, si  $A ∈ ℤ_2^{ n × n}$  est encore la  matrice  
+\begin{displaymath}
+  A =
+  \begin{pmatrix}
+    0 & 1 \\
+    1 & 0 
+  \end{pmatrix}, 
+\end{displaymath}
+on observe que 
+\begin{displaymath}
+  P_1^T A  P_1 =
+  \begin{pmatrix}
+    0 & 1 \\
+    1 & 0 
+  \end{pmatrix}.
+\end{displaymath}
+En fait, on peut montrer que, sur $ℤ_2$, la matrice $A$ n'est pas congruente à une matrice diagonale.
+
+Dans ce chapitre, nous allons voir que toute matrice symétrique $A ∈ K^{ n ×n}$ est congruente à une matrice diagonale si $1_K + 1+K ≠ 0$. 
+
+\section{Formes bililnéaires}
+\label{sec:formes-bililneaires}
 
 \begin{definition}
   \label{def:1}
