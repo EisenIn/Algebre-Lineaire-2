@@ -52,7 +52,7 @@ D'ici on peut additionner la première colonne de $A$ sur la deuxième et additi
 \begin{displaymath}
   (P_1 P_2)^T A P_1P_2 =  \begin{pmatrix}
     2 & 0 \\
-    0 & 2 
+    0 & 1 
   \end{pmatrix}.
 \end{displaymath}
 %
@@ -74,13 +74,13 @@ on observe que
 \end{displaymath}
 En fait, on peut montrer que, sur $ℤ_2$, la matrice $A$ n'est pas congruente à une matrice diagonale.
 
-Dans ce chapitre, nous allons voir que toute matrice symétrique $A ∈ K^{ n ×n}$ est congruente à une matrice diagonale si $1_K + 1+K ≠ 0$. 
+Dans ce chapitre, nous allons voir que toute matrice symétrique $A ∈ K^{ n ×n}$ est congruente à une matrice diagonale si $1_K + 1_K ≠ 0$. 
 
 \section{Formes bililnéaires: Définition et propriétés de base}
 \label{sec:formes-bililneaires}
 
 \begin{definition}
-  \label{def:1}
+\label{def:58}
   Soit $V$
   un espace vectoriel sur un corps $K$.
   Une \emph{forme bilinéaire} sur $V$
@@ -409,7 +409,7 @@ Autrement, soit $u \in V$ tel que $\pscal{u,u} \neq 0$ et soit $V_1 = \spa\{u\}$
 \end{displaymath}
 et alors $V = V_1 + V_1^\perp$. Cette somme est directe parce que chaque élément de $V_1 \cap V_1^\perp$ s'écrit comme $\beta \cdot u$ pour $\beta \in K$. Et $\pscal{u,\beta u} = \beta \pscal{u,u} = 0$ implique $\beta = 0$. 
 
-Alors $\dim(V_1^\perp) < \dim(V)$, et par induction, $V_1^\perp$ possède une base orthogonale $\{v_2,\dots,v_n\}$. Alors $\{v_1,\dots,v_n\}$ est une base orthogonale de $V$. 
+Alors $\dim(V_1^\perp) < \dim(V)$, et par induction, $V_1^\perp$ possède une base orthogonale $\{v_2,\dots,v_n\}$. Alors $\{u,v_2,\dots,v_n\}$ est une base orthogonale de $V$. 
 \end{proof}  
 
 

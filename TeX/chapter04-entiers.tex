@@ -14,7 +14,7 @@ est résoluble et trouver toutes les solutions.
 Une condition nécessaire pour que le système \eqref{eq:40} soit soluble est qu'il existe une solution $x ∈ℚ^n$, et donc que $\rank(A) = \rank(A|b)$. Aussi, on peut supprimer une ligne de $(A|b)$ qui est dans le span des autres lignes. On peut alors supposer que $A$ est de rang ligne plein, c'est-à-dire que $\rank(A) = m$. 
 
 \begin{definition}
-  \label{def:44}
+\label{def:59}
   Un nombre entier $d ∈ℤ$ \emph{divise} un nombre entier $a ∈ℤ$ s'il existe un nombre entier $x ∈ℤ$ tel que $d⋅x =b$. On note alors $d\mid b$, et si $d$ ne divise pas $b$ on écrit $d \nmid b$. 
 \end{definition}
 % Si $d \mid a$, alors s'il existe $x ∈ℤ$ tel que $d ⋅x =a$ et si $a \neq 0$ on peut conclure $d ≤ |a|$, parce que $|a| = |d| ⋅|x|$. 
@@ -114,7 +114,7 @@ et alors
   \end{pmatrix}.
 \end{displaymath}
 \begin{example}
-  \label{exe:26}
+  \label{exe:50}
   On continue l'exemple~\ref{exe:25}.
   \begin{eqnarray*} 
     \begin{pmatrix}
@@ -417,7 +417,7 @@ Soit
 
 
   \begin{definition}
-    \label{def:49}
+    \label{def:60}
     Une matrice $A ∈ℤ^{m ×n}$  est en \emph{forme normale d'Hermite}, si elle est de la forme \eqref{eq:44}, où $h_{ii}>0$ pour tout $1 ≤i≤ m$ et $0≤ h_{ij} < h_{ii}$ pour tout $1≤j<i≤m$. 
   \end{definition}
 	
@@ -427,7 +427,7 @@ Soit
   \end{theorem}
   
   \begin{definition}
-    \label{def:50}
+    \label{def:61}
     Soit $A \in \mathbb{Z}^{m\times n}$ et  $rang(A)=m$. L'ensemble  $\Lambda(A):=\left\{ Ax,x\in \mathbb{Z}^{n} \right\}$ est  un \emph{réseau entier généré}  de $A$. Une matrice  $B \in \mathbb{Z}^{m\times m}$ telle que  $\Lambda(A)=\Lambda(B)$ est appelée base de $\Lambda(A)$. 
   \end{definition}
 
@@ -436,7 +436,7 @@ Soit
   \end{remark}
 	
  \begin{corollary}
-    \label{co:9}
+   \label{co:12}
     Chaque réseau entier possède une base.
   \end{corollary}
 
@@ -520,12 +520,12 @@ Il existe donc forcément un vecteur entier $z$ tel que $A_j - B_j = Az$. On mon
   \end{example}
   
   \begin{definition}
-   \label{def:51}
+    \label{def:62}
    Soit $A \in \mathbb{Z}^{m \times n}$. Le \emph{noyau} de $A$ sur $\Z$ est défini par $ker_{\mathbb{Z}}(A) := \left\{ y \in \mathbb{Z}^n, Ay=0 \right\}  $.
   \end{definition}
   
     \begin{theorem}
-    \label{thr:29}
+      \label{thr:59}
     Soient $A,B \in \mathbb{Z}^{m \times m}$ en forme normale de Hermite avec $rang(A)=rang(B)=m$. Alors $\Lambda(A)=\Lambda(B) \Leftrightarrow \exists U\in \mathbb{Z}^{m \times m}$ unimodulaire telle que $B=AU$.
     \end{theorem}
     
@@ -542,8 +542,7 @@ Il existe donc forcément un vecteur entier $z$ tel que $A_j - B_j = Az$. On mon
    \end{definition}
    
    \begin{remark}
-    \label{rem:5}
-    Le théorème~\ref{thr:29} assure que $|det(B)|$ ne dépend pas du choix de $B$ et donc que $det(\Lambda(A))$ a du sens.
+    Le théorème~\ref{thr:59} assure que $|det(B)|$ ne dépend pas du choix de $B$ et donc que $det(\Lambda(A))$ a du sens.
     \end{remark}
   
 \section*{Exercices}
@@ -561,11 +560,11 @@ Il existe donc forcément un vecteur entier $z$ tel que $A_j - B_j = Az$. On mon
 \end{enumerate}
 
 \section{La forme normale de Smith}
-\label{sec:la-forme-normale-1}
+\label{sec:la-forme-normale-smith}
 
 À partir de maintenant, on se donne une matrice $A\in \mathbb{Z}^{m\times n}$ avec $rang(A)=k$ et $k$ n'est pas forcément $m$.
 
-\begin{definition} \label{def:52}
+\begin{definition} \label{def:63}
 	Soit  $A\in \mathbb{Z}^{m\times n}$ alors $\Lambda(A)=\left\{ Ax,x\in \mathbb{R}^{n} \right\} $ est le \emph{réseau entier général} de $A$.
 \end{definition}
 
@@ -577,7 +576,6 @@ Il existe donc forcément un vecteur entier $z$ tel que $A_j - B_j = Az$. On mon
     \end{theorem}
     
     \begin{remark}
-      \label{rem:5}
       $rang(A)=rang(B)=k$.
     \end{remark}
     
