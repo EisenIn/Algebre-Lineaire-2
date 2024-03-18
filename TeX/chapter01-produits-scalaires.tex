@@ -1,9 +1,9 @@
-\chapter{Bilinéarité   et produits scalaires}  
+\chapter{Formes bilinéaires}
 \label{cha:prod-scal-et}
 
 
 \noindent 
-Dans le chapitre~\ref{cha:valeurs-propres-et} nous avons vu le concept de similarité de deux matrices $A , B ∈K ^{n ×n}$. Les matrices $A$ et $B$ sont semblables, s'il existe une matrice  inversible $P ∈K^{n ×n}$ tel que
+Dans le Chapitre~\ref{cha:valeurs-propres-et} nous avons vu le concept de similarité de deux matrices $A , B ∈K ^{n ×n}$. Les matrices $A$ et $B$ sont semblables, s'il existe une matrice  inversible $P ∈K^{n ×n}$ tel que
 \begin{displaymath}
   A = P^{-1} ⋅B ⋅P. 
 \end{displaymath}
@@ -76,7 +76,7 @@ En fait, on peut montrer que, sur $ℤ_2$, la matrice $A$ n'est pas congruente �
 
 Dans ce chapitre, nous allons voir que toute matrice symétrique $A ∈ K^{ n ×n}$ est congruente à une matrice diagonale si $1_K + 1+K ≠ 0$. 
 
-\section{Formes bililnéaires}
+\section{Formes bililnéaires: Définition et propriétés de base}
 \label{sec:formes-bililneaires}
 
 \begin{definition}
@@ -637,7 +637,8 @@ parce que  $K^n$ muni de la forme bilinéaire symétrique $\pscal{u,v} = u^TAv$ 
 
 
 
-
+\section{Un algorithme }
+\label{sec:un-algorithme}
 
 Maintenant, nous allons formaliser la procédé appliquée dans example~\ref{exe:30}. 
 \begin{algorithm}
@@ -1013,8 +1014,9 @@ et
 
 
 
-\section{Le cas réel, défini positif}
+\chapter{Produits scalaires et hermitiens}
 \label{sec:le-case-reel}
+
 
 
 
@@ -1024,6 +1026,14 @@ et
   d'une forme bilinéaire symétrique. 
   La forme bilinéaire symétrique  est définie positive si $\pscal{v,v} \geq 0$ pour tout $v \in V$, et si $\pscal{v,v}>0$ lorsque $v \neq 0$. Une forme bilinéaire symétrique définie positive est un \emph{produit scalaire}. 
 \end{definition}
+
+\begin{framed}\noindent 
+  Pour  ce chapitre~\ref{sec:le-case-reel}, sauf pour Chapitre~\ref{sec:form-sesq-et},  $V$
+  est toujours un espace vectoriel sur $\R$
+  muni d'un produit scalaire. 
+On appelle un  espace vectoriel sur $\R$ muni d'un produit scalaire  un \emph{espace euclidien}.  
+\end{framed}
+
 
 \begin{example}
   \label{exe:3}
@@ -1045,12 +1055,6 @@ et
 \end{definition}
 
 
-\begin{framed}\noindent 
-  Pour le reste de ce paragraphe~\ref{sec:le-case-reel}, s'il n'est pas spécifié autrement,  $V$
-  est toujours un espace vectoriel sur $\R$
-  muni d'un produit scalaire. 
-On appelle un  espace vectoriel sur $\R$ muni d'un produit scalaire  un \emph{espace euclidien}.  
-\end{framed}
 
 
 
