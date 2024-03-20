@@ -1103,7 +1103,7 @@ Si $v$ et $w$ sont perpendiculaires
 
 
 Soit $V$ un espace vectoriel sur un corps $K$ muni d'une forme bilinéaire symétrique  $\pscal{,}$. 
-Si $w$ est un élément de $V$ tel que $\pscal{w,w} \neq 0$, pour  tout $v \in V$, il existe un élément unique $\alpha \in K$ tel que $\pscal{w,v -\alpha\, w} = 0$. 
+Si $w ≠ v$ est un élément de $V$, alors  $\pscal{w,w} >0 0$. Pour  tout $v \in V$, il existe un élément unique $\alpha \in K$ tel que $\pscal{w,v -\alpha\, w} = 0$. 
 
 En fait,
 \begin{displaymath}
@@ -1249,7 +1249,7 @@ s'annule si et seulement si $a_j = \pscal{v,v_j}/\pscal{v_jv_j}$.
   Est-ce qu'il faut vraiment supposer que le produit scalaire
   $\pscal{.}$
   soit réel et défini positif et sur $\R$ pour ce procédé? Peux-tu imaginer une condition plus
-  faible et satisfaite par le produit scalaire qui permet
+  faible et satisfaite par la forme bilinéaire symétrique  qui permet
   le procédé de Gram-Schmidt? 
 \end{exercise}
 
@@ -1516,32 +1516,51 @@ n'a pas de solution. Dans beaucoup d'applications, on cherche un $x \in \R^n$ te
 \end{framed} 
 
 
-\begin{theorem}
-  \label{thr:3}
-  Soient $v_1,\dots,v_n$ des vecteurs deux à deux orthogonaux et tels que $\|v_i\|>0$ pour tout $i$. Soit $v$ un élément de $V$ et soit $\alpha_i = \pscal{v,v_i}/\pscal{v_i,v_i}$ la composante de $v$ sur $v_i$. Pour $a_1,\dots,a_n \in \R$ alors 
+\begin{lemma}
+  \label{lem:26}
+  Soit $H ⊆ V$ un sous espace de $V$, $b ∈ V$ et $h ∈ H$ tel que $b-h ∈ H^⊥$, alors
   \begin{displaymath}
-    \left\| v - \sum_{i=1}^n \alpha_iv_i \right\|  \leq \left\| v - \sum_{i=1}^n a_iv_i \right\|.
+    \|b- h' \| >  \|b-h\| 
   \end{displaymath}
-De plus, l'inégalité au-dessus est une égalité si et seulement si $a_i = \alpha_i$ pour tout $i$. 
-Alors $\sum_{i=1}^n \alpha_iv_i$ est l'unique  meilleure approximation de $v$ par un vecteur du sous-espace engendré par les $v_1,\dots,v_n$. 
-\end{theorem}
-
+  pour tout $h' ∈ H$, $h ≠ h'$. En particulière $h$ est unique. 
+\end{lemma}
 
 \begin{proof}
+  Soit $h' ≠ h ∈ H$. Puisque $h - h' ∈ H$, Pythagore  implique 
   \begin{eqnarray*}
-    \|v- \sum_{i=1}^n a_iv_i \|^2 & = &  \|v - \sum_{i=1}^n \alpha_iv_i  - \sum_{i=1}^n (a_i - \alpha_i)v_i \|^2 \\
-                           & = & \|v - \sum_{i=1}^n \alpha_iv_i \|^2 + \| \sum_{i=1}^n (a_i - \alpha_i)v_i \|^2
+    \| b - h' \|^2 & = & \| b - h + ( h- h') \|^2 \\
+                   & = & \| b - h\| ^2  + \| ( h- h') \|^2\\ 
+                   & > &       \| b - h\| ^2. 
   \end{eqnarray*}
-en utilisant le lemme~\ref{lem:2} et le théorème de Pythagore. 
+  
 \end{proof}
+
+% \begin{theorem}
+%   \label{thr:3}
+%   Soient $v_1,\dots,v_n$ des vecteurs deux à deux orthogonaux et tels que $\|v_i\|>0$ pour tout $i$. Soit $v$ un élément de $V$ et soit $\alpha_i = \pscal{v,v_i}/\pscal{v_i,v_i}$ la composante de $v$ sur $v_i$. Pour $a_1,\dots,a_n \in \R$ alors 
+%   \begin{displaymath}
+%     \left\| v - \sum_{i=1}^n \alpha_iv_i \right\|  \leq \left\| v - \sum_{i=1}^n a_iv_i \right\|.
+%   \end{displaymath}
+% De plus, l'inégalité au-dessus est une égalité si et seulement si $a_i = \alpha_i$ pour tout $i$. 
+% Alors $\sum_{i=1}^n \alpha_iv_i$ est l'unique  meilleure approximation de $v$ par un vecteur du sous-espace engendré par les $v_1,\dots,v_n$. 
+% \end{theorem}
+
+
+% \begin{proof}
+%   \begin{eqnarray*}
+%     \|v- \sum_{i=1}^n a_iv_i \|^2 & = &  \|v - \sum_{i=1}^n \alpha_iv_i  - \sum_{i=1}^n (a_i - \alpha_i)v_i \|^2 \\
+%                            & = & \|v - \sum_{i=1}^n \alpha_iv_i \|^2 + \| \sum_{i=1}^n (a_i - \alpha_i)v_i \|^2
+%   \end{eqnarray*}
+% en utilisant le lemme~\ref{lem:2} et le théorème de Pythagore. 
+% \end{proof}
 
 \noindent 
 Maintenant nous pouvons décrire un \emph{algorithme} pour résoudre le problème suivant. 
 \begin{framed}
   \noindent 
-  Soient $v,v_1,\dots,v_n \in V$, trouver $u \in \spa \{v_1,\dots,v_n\}$ tel que la distance 
+  Soient $b,a_1,\dots,a_n \in V$, trouver $h \in H = \spa \{a_1,\dots,a_n\}$ tel que la distance 
   \begin{displaymath}
-    \|v - u\|
+    \|v - h\|
   \end{displaymath}
   est minimale. 
 \end{framed}
@@ -1551,48 +1570,37 @@ Maintenant nous pouvons décrire un \emph{algorithme} pour résoudre le problèm
 
 ~\\
 \begin{enumerate}[i)]
-\item Trouver une base orthonormale $\{u_1,\dots,u_k\}$ du sous-espace $\spa\{v_1,\dots,v_n\}$ 
+\item Trouver une base orthonormale $\{u_1,\dots,u_k\}$ du sous-espace $H = \spa\{a_1,\dots,a_n\}$ 
   avec le procédé de Gram-Schmidt. 
-\item Retourner $ u = \sum_{i=1}^k \pscal{v,u_i} u_i$. 
+\item Retourner $ h = \sum_{i=1}^k \pscal{b,u_i} u_i$. 
 \end{enumerate}
 \end{algorithm}
-
-
-
-
+\noindent 
+Pour $b ∈ℝ^m$ et $a_1,\dots,a_n ∈ ℝ^m$ étant les colonnes des $A ∈ ℝ^{m ×n}$ en \eqref{eq:2},  une solution
+$x^* ∈ℝ^n$ de
+\begin{equation}
+  \label{eq:53}
+  Ax = h
+\end{equation}
+est une solution optimale de \eqref{eq:3}. Une procédé plus simple est comme suivant. 
 
 
 \begin{theorem}
   \label{thr:6}
-  Soient $A \in \R^{m\times n}$ et $b \in \R^m$. Les solutions du système
+  Soient $A \in \R^{m\times n}$ et $b \in \R^m$. Les solutions du système 
   \begin{equation}
     \label{eq:4}    
-    A^TAx = A^T b
+    A^TAx = A^T b. 
   \end{equation}
-  sont les solutions  optimales du problème \eqref{eq:3} (où l'on considère la norme euclidienne sur $\R^m$)
+  sont les solutions   optimales du problème \eqref{eq:3} (où l'on considère la norme euclidienne sur $\R^m$)
 \end{theorem}
 
 \begin{proof}
-  Soit $\{a^*_1,\dots,a^*_k\}$ une base orthonormale du sous-espace $\mathrm{Col}(A)=\{Ax \colon x \in \R^n\}$ engendré par les colonnes de $A$. Le théorème~\ref{thr:3} implique que  les solutions du problème \eqref{eq:3} sont les solutions du système 
-  \begin{displaymath}
-    A x = \sum_i \pscal{b,a^*_i} \cdot a^*_i. 
-  \end{displaymath}
-Le lemme~\ref{lem:2} implique que 
-\begin{displaymath}
-  b - \sum_i \pscal{b,a^*_i} \cdot a^*_i
-\end{displaymath}
-est perpendiculaire à tout $a_i^*$ et dès que les $a^*_i$ engendrent 
-$\mathrm{Col}(A)$ 
-on a 
-\begin{displaymath}
-  A^T (Ax - b) = 0
-\end{displaymath}
-pour toute solution optimale $x$ de \eqref{eq:3}. 
+  Soit $H =  \spa\{a_1,\dots,a_n\}$.
+  Soit  $x^* ∈ ℝ^n $ et   $h = Ax^*$. Le vecteur $b- h$ est orthogonal a tout les colonnes de $A$
+  (et alors à $H$) si et seulement si $0 = A^T (b-h) = A^T b - A^T A x^*$.  
 
-
-Maintenant, soit $x$ une solution du système~\eqref{eq:4}. 
-Alors $ A x -b$ est 
-perpendiculaire à tous les $a_i^*$. Le seul vecteur $v \in \spa\{a_1^*,\dots,a_k^*\} = \mathrm{Col}(A)$ tel que $\pscal{b-v,v}=0$  est $v = \sum_i\pscal{a_i^*,b} \cdot a_i^*$. Ceci démontre le théorème.  
+ L'assertion est donc une conséquence du Lemme~\ref{lem:26}. 
 \end{proof}
 
 \begin{remark}
