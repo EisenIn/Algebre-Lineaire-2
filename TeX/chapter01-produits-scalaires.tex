@@ -1102,8 +1102,8 @@ Si $v$ et $w$ sont perpendiculaires
 
 
 
-Soit $V$ un espace vectoriel sur un corps $K$ muni d'une forme bilinéaire symétrique  $\pscal{,}$. 
-Si $w ≠ v$ est un élément de $V$, alors  $\pscal{w,w} >0 0$. Pour  tout $v \in V$, il existe un élément unique $\alpha \in K$ tel que $\pscal{w,v -\alpha\, w} = 0$. 
+Soit $V$ un espace vectoriel sur un corps $K$ muni d'un produit scalaire  $\pscal{,}$. 
+Si $w ≠ 0$ est un élément de $V$, alors  $\pscal{w,w} >0$. Pour  tout $v \in V$, il existe un élément unique $\alpha \in K$ tel que $\pscal{w,v -\alpha\, w} = 0$. 
 
 En fait,
 \begin{displaymath}
@@ -1179,7 +1179,7 @@ en recourant à l'inégalité de Cauchy-Schwarz.
 \begin{lemma}
   \label{lem:2}
   Soit $V$ un espace euclidien  et 
-  soient $v_1,\dots,v_n$ des éléments de V, deux à deux orthogonaux, tels que $\pscal{v_i,v_i}\neq 0$ pour tout $i$, et soit $a_1,\dots,a_n \in \R$.
+  soient $v_1,\dots,v_n$ des éléments de V, deux à deux orthogonaux, tels que $v_i \neq 0$ pour tout $i$, et soit $a_1,\dots,a_n \in \R$.
   %Soit $\alpha_i = \pscal{v,v_i}/\pscal{v_i,v_i}$ la composante de $v$ sur $v_i$, alors le vecteur 
   Le vecteur 
 \begin{displaymath}
@@ -1374,9 +1374,9 @@ S = %:= (s_1 ~ \dots ~ s_n)=
 \end{displaymath}
 on a, par les propriétés du produit matriciel,
 \begin{displaymath}
-A = A'S.  %=(A'_1s_1 ~\dots ~ A'_1s_n)=(a_1 ~ \dots ~ a_n)=A
+A = A'S,  %=(A'_1s_1 ~\dots ~ A'_1s_n)=(a_1 ~ \dots ~ a_n)=A
 \end{displaymath}
-Il nous faut encore normaliser les colonnes de la matrice $A'$. Pour cela, on définit les deux matrices diagonales suivantes:
+où $A' = (a'_1 \dots a'_n)$. Il nous faut encore normaliser les colonnes de la matrice $A'$. Pour cela, on définit les deux matrices diagonales suivantes:
 \begin{displaymath}
 D=\begin{pmatrix}
 1/\|a'_1\| & & \\
@@ -1390,7 +1390,7 @@ D^{-1}=\begin{pmatrix}
 \end{pmatrix} 
 ~~ D,D^{-1} \in \R^{n \times n}
 \end{displaymath}
-En posant $A^*=A'_1D$ et $R=D^{-1}S$ on obtient:
+En posant $A^*=A'D$ et $R=D^{-1}S$ on obtient:
 \begin{displaymath}
 A=A^* R
 \end{displaymath}
@@ -1592,7 +1592,7 @@ est une solution optimale de \eqref{eq:3}. Une procédé plus simple est comme s
     \label{eq:4}    
     A^TAx = A^T b. 
   \end{equation}
-  sont les solutions   optimales du problème \eqref{eq:3} (où l'on considère la norme euclidienne sur $\R^m$)
+  sont les solutions optimales du problème \eqref{eq:3} (où l'on considère la norme euclidienne sur $\R^m$, qui est la norme induite par le produit scalaire ordinaire)
 \end{theorem}
 
 \begin{proof}
