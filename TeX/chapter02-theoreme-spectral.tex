@@ -146,10 +146,10 @@ Nous allons écrire $A^*$ pour dénoter $\overline{A}^T$ pour une matrice $A$.
   Supposons le théorème vrai jusqu'à $n-1 \in \N, n \ge 2$. Montrons le pour $n$. \\
   Soit $\lambda_1 \in \R$
   une valeur propre de $A$
-  et $v \neq 0 \in \R^n$
-  un vecteur propre correspondant à $\lambda_1$.
+  et $0 \neq v \in \R^n$
+  un vecteur propre unitaire correspondant à $\lambda_1$.
   Avec la méthode de Gram-Schmidt, on peut trouver une base
-  orthonormale $\{v,u_2,\dots,u_n\}$ dans $\R^n$. Soit $U \in \R^{n \times n-1}$ la matrice dont les colonnes sont $u_2,\dots,u_n$.  On considère la matrice
+  $\{v,u_2,\dots,u_n\}$ dans $\R^n$ qui orthonormale par rapport au produit scalaire ordinaire. Soit $U \in \R^{n \times n-1}$ la matrice dont les colonnes sont $u_2,\dots,u_n$.  On considère la matrice
   \begin{displaymath}
     U^T \cdot A \cdot U \in \R^{n-1 \times n-1}.
   \end{displaymath}
@@ -191,7 +191,11 @@ car $v^T \cdot v = 1$, $U^T \cdot U = I_{n-1}$ et $v^T \cdot U = 0$. Et
     K^T U^T A 
   \end{pmatrix}
   \begin{pmatrix}
-    v & U\,K
+    v & U K
+  \end{pmatrix} =
+  \begin{pmatrix}
+    \lambda_1 v^T v & \lambda_1 v^T U K \\
+    \lambda_1 K^T (v^T U)^T & K^T U^T A U K
   \end{pmatrix} =
   \begin{pmatrix}
     \lambda_1 \\
