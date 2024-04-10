@@ -1660,6 +1660,8 @@ est $x^* = (1,2)^T$.
 
 \section{Formes linéaires, bilinéaires et l'espace dual}
 \label{sec:lespace-dual}
+\todo{Chapitre~\ref{sec:lespace-dual} ne fait pas parie du cours printemns 2024} 
+
 
 Soient $V$ un espace vectoriel sur un corps $K$ et $V^*$ l'ensemble  des  applications linéaires de $V$ dans $K$, où on considère $K$ comme espace vectoriel de dimension $1$ sur lui-même. Clairement, $V^*$ est un espace vectoriel lui-même. 
 \begin{definition}
@@ -1879,7 +1881,18 @@ pour tout $v \in V$, on a $\pscal{v,v} \in \R$ dès que $\pscal{v,v} = \overline
 \end{example}
 
 
-Les notions d'\emph{orthogonalité, de perpendicularité, de base orthogonale} et \emph{de supplémentaire orthogonal}  sont définies comme avant. Par contre, les notions de \emph{coefficients de Fourier} et la \emph{projection de $v$ sur $w$} doivent etre modifiés: les coefficients de Fourier dans le cadre d'un $\C$-espace vectoriel sont les conjugués complexes des coefficients de Fourier de base.
+Les notions d'\emph{orthogonalité, de perpendicularité, de base orthogonale} et \emph{de supplémentaire orthogonal}  sont définies comme avant. Aussi les  \emph{coefficients de Fourier} sont les mêmes.
+Soit $w ∈ V$, $w ≠0$ et $v ∈V$. On cherche $α ∈ ℂ$ satisfaisant
+\begin{displaymath}
+  〈 w, v - α w 〉 = 0. 
+\end{displaymath}
+On trouve $\wb{α} = 〈w,v〉 / 〈 w,w〉$. Puisque $〈 w,w〉 ∈ ℝ$ et  $\wb{〈w,v〉} =  〈v,w〉$, alors
+\begin{displaymath}
+  α = 〈v,w〉 / 〈 w,w〉. 
+\end{displaymath}
+
+
+%Par contre, les notions de \emph{coefficients de Fourier} et la \emph{projection de $v$ sur $w$} doivent etre modifiés: les coefficients de Fourier dans le cadre d'un $\C$-espace vectoriel sont les conjugués complexes des coefficients de Fourier de base.
 
 \begin{example}
   \label{exe:13}
