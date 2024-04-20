@@ -659,9 +659,14 @@ où $P \in \C^{m \times m}$ et $Q \in \C^{n \times n}$ sont unitaires et $D \in 
   \begin{displaymath}
     x^*A^*Ax = (Ax)^* (Ax) \geq 0. 
   \end{displaymath}
-Alors les valeurs propres de $A^*A$ sont non-négatives ($\lambda_i\geq 0$). Soient $\sigma_1^2 \geq \sigma_2^2 \dots \geq \sigma_n^2\geq 0$ les valeurs propres et soit $\{u_1,\dots,u_n\}$ une base orthonormale  correspondante de vecteurs propres. La matrice $Q \in \C^{n \times n}$ est la matrice dont les lignes sont $u_1^*, \dots, u_n^*$. 
+Alors les valeurs propres de $A^*A$ sont non-négatives ($\lambda_i\geq 0$). Soient $\sigma_1^2 \geq \sigma_2^2 \dots \geq \sigma_n^2\geq 0$ les valeurs propres où $σ_i ∈ ℝ_{≥0}$ pour tous $i ∈ \{1,\dots,n\}$   et soit $\{u_1,\dots,u_n\}$ une base orthonormale  correspondante de vecteurs propres. La matrice $Q \in \C^{n \times n}$ est la matrice dont les lignes sont $u_1^*, \dots, u_n^*$. 
 
-Soit $ r \in \N_0$ tel que $\sigma_r >0$ et $\sigma_{r+1} = 0$; on a $\sigma_1 \geq \ldots \geq \sigma_r \geq 0=\sigma_{r+1} = \ldots = 0=\sigma_n  $. Nous construisons les vecteurs 
+Soit $ r \in \N_0$ le nombre de $σ_i$ strictement positif,  %$i=1,\dots, n$, c.à.d.
+\begin{displaymath}
+  r = \mid \large\{ i ∈ \{1,\dots,n\} ： σ_i>0, \large\}\mid.  
+\end{displaymath}
+% On a $\sigma_1 \geq \ldots \geq \sigma_r > 0=\sigma_{r+1} = \ldots = 0=\sigma_n  $.
+Nous construisons les vecteurs 
 \begin{displaymath}
   v_i = A \, u_i  / \sigma_i, \, 1 \leq i \leq r. 
 \end{displaymath}
