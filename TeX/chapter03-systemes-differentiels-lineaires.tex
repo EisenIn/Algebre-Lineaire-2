@@ -381,8 +381,8 @@ Nous avons montré que $e^{At} = \sum_{k=0}^\infty \frac{t^k}{k!} A^k$ converge 
 \end{proof}
 
 \begin{definition}
-  \label{def:29}
-  Une matrice $N$ est \emph{nilpotente} s'il existe un $k \in \N$ tel que $N^k = 0$. 
+  \label{def:29}Soit $K$ un corps. 
+  Une matrice $N ∈ K^{n ×n}$ est \emph{nilpotente} s'il existe un $k \in \N$ tel que $N^k = 0$. 
 \end{definition}
 
 Nous allons montrer ce théorème dans le prochain cours. 
@@ -415,10 +415,32 @@ où nous avons utilisé le théorème \ref{thr:32}. Dès que $N$ et $\diag(\lamb
 où $k \in \N$ est tel que $N^k = 0$. 
 
 
+\chapter{La forme normale de Jordan}
+\label{cha:la-forme-normale}
+
 \section{Décomposition selon le polynôme caractéristique}
 \label{sec:decomp-selon-le}
 
-Dans ce chapitre, on va démontrer le Théorème~\ref{thr:32}. Dans le chapitre suivant, on va donner une forme normale spécifique pour chaque matrice complexe, le \emph{forme normale de Jordan}. 
+
+
+Dans ce chapitre, on va démontrer le Théorème~\ref{thr:32}. Dans le chapitre suivant, on va donner une forme normale spécifique pour chaque matrice complexe, le \emph{forme normale de Jordan}.
+Soit $K$ un corps. 
+On se rappelle que une  matrice $N ∈ K^{n ×n}$ est \emph{nilpotente} s'il existe un $k \in \N$ tel que $N^k = 0$. 
+
+\smallskip
+\noindent 
+Le but est de montrer Théorème~\ref{thr:32}: 
+\begin{quote}  
+  Chaque matrice $A \in \C^{n \times n}$ peut être factorisée comme 
+  \begin{displaymath}
+    A = P ( \diag(\lambda_1,\dots,\lambda_n) + N) P^{-1}
+  \end{displaymath}
+  où $N \in \C^{n \times n}$ est nilpotente, $P \in \C^{n \times n}$ est inversible,  $\lambda_1,\dots,\lambda_n \in \C$ sont les valeurs propres de $A$ et $\diag(\lambda_1,\dots,\lambda_n)$ et $N$ commutent.
+\end{quote}
+
+
+
+
 
 % \section{Polynômes}
 % \label{sec:polyn-les-lalg}
