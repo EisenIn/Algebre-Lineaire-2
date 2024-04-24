@@ -1151,9 +1151,14 @@ Le rang de $A_k$ est au plus $k$.
 \begin{proof}
   Soit $a^T$ une ligne de $A$. La projection de $a$ dans le sous-espace $\spa\{u_1,\dots,u_k\}$ est 
   \begin{displaymath}
-    \sum_{i=1}^k a^Tu_i \cdot u^T_i.
+    \sum_{i=1}^k a^Tu_i \cdot u_i. 
   \end{displaymath}
-Alors les projections des lignes de $A$ dans le sous-espace $V_k$ sont données par $\sum_{i=1}^k A u_i u_i^T = \sum_{i=1}^k \sigma_i v_i u_i^T = A_k$.  
+  Écrit comme ligne (c.à.d. matrice en $ℝ^{1 × n}$) c'est égal a
+ \begin{displaymath}
+    \sum_{i=1}^k a^T ⋅ (u_i \cdot u_i^T). 
+  \end{displaymath}
+  
+Alors les projections des lignes de $A$ dans le sous-espace $V_k$ sont données par les lignes de la matrice $\sum_{i=1}^k A u_i u_i^T = \sum_{i=1}^k \sigma_i v_i u_i^T = A_k$.  
 \end{proof}
 
 \begin{theorem}
