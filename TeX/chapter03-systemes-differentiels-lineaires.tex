@@ -385,7 +385,7 @@ Nous avons montré que $e^{At} = \sum_{k=0}^\infty \frac{t^k}{k!} A^k$ converge 
   Une matrice $N ∈ K^{n ×n}$ est \emph{nilpotente} s'il existe un $k \in \N$ tel que $N^k = 0$. 
 \end{definition}
 
-Nous allons montrer ce théorème dans le prochain cours. 
+Nous allons montrer ce théorème dans les prochaines cours.  
 \begin{theorem}
   \label{thr:32}
   Chaque matrice $A \in \C^{n \times n}$ peut être factorisée comme 
@@ -418,28 +418,279 @@ où $k \in \N$ est tel que $N^k = 0$.
 \chapter{La forme normale de Jordan}
 \label{cha:la-forme-normale}
 
-\section{Décomposition selon le polynôme caractéristique}
-\label{sec:decomp-selon-le}
 
 
 
-Dans ce chapitre, on va démontrer le Théorème~\ref{thr:32}. Dans le chapitre suivant, on va donner une forme normale spécifique pour chaque matrice complexe, le \emph{forme normale de Jordan}.
-Soit $K$ un corps. 
-On se rappelle que une  matrice $N ∈ K^{n ×n}$ est \emph{nilpotente} s'il existe un $k \in \N$ tel que $N^k = 0$. 
-
-\smallskip
 \noindent 
-Le but est de montrer Théorème~\ref{thr:32}: 
-\begin{quote}  
-  Chaque matrice $A \in \C^{n \times n}$ peut être factorisée comme 
+Dans ce chapitre, on va démontrer le Théorème~\ref{thr:32}.  On va donner une forme normale spécifique pour chaque matrice complexe, le \emph{forme normale de Jordan}.
+Soit $K$ un corps. 
+ On se rappelle que une  matrice $N ∈ K^{n ×n}$ est \emph{nilpotente} s'il existe un $k \in \N$ tel que $N^k = 0$. 
+
+% \smallskip
+% \noindent 
+% Le but est de montrer Théorème~\ref{thr:32}: 
+% \begin{quote}  
+%   Chaque matrice $A \in \C^{n \times n}$ peut être factorisée comme 
+%   \begin{displaymath}
+%     A = P ( \diag(\lambda_1,\dots,\lambda_n) + N) P^{-1}
+%   \end{displaymath}
+%   où $N \in \C^{n \times n}$ est nilpotente, $P \in \C^{n \times n}$ est inversible,  $\lambda_1,\dots,\lambda_n \in \C$ sont les valeurs propres de $A$ et $\diag(\lambda_1,\dots,\lambda_n)$ et $N$ commutent.
+% \end{quote}
+
+
+
+
+\begin{definition}
+  Un \emph{bloc Jordan} est une matrice de la forme 
   \begin{displaymath}
-    A = P ( \diag(\lambda_1,\dots,\lambda_n) + N) P^{-1}
+    \begin{pmatrix}
+      λ & 1 \\
+        & λ & 1 \\
+        &   & \ddots & \ddots \\ 
+        &   &             & λ & 1 \\
+        &   &         &  & λ  \\
+    \end{pmatrix} ∈ ℂ^{k ×k} 
   \end{displaymath}
-  où $N \in \C^{n \times n}$ est nilpotente, $P \in \C^{n \times n}$ est inversible,  $\lambda_1,\dots,\lambda_n \in \C$ sont les valeurs propres de $A$ et $\diag(\lambda_1,\dots,\lambda_n)$ et $N$ commutent.
+où les éléments non décrits sont zéro. Le nombre $k$ est appelé la \emph{longueur} our la \emph{dimension} du bloc Jordan. 
+
+Une matrice $A \in \C^{n \times n}$ est en \emph{forme normale de Jordan} si $A$ est en forme bloc diagonale, où tous les blocs sur la diagonale sont des blocs Jordan, i.e. $A$ est de la forme
+\begin{displaymath}
+  A =
+  \begin{pmatrix}
+    B_1 \\
+        & B_2 \\
+        &    & \ddots \\
+        &    &       & B_k
+  \end{pmatrix}
+\end{displaymath}
+où les matrices $B_j \in \C^{n_j\times n_j}$ sont des blocs de Jordan. 
+\end{definition}
+
+
+Notre but de ce chapitre  est de montrer le théorème suivant, qui est une version spécifique du  Théorème~\ref{thr:32}.
+
+\begin{theorem}
+  \label{thr:41}
+  Soit $A \in \C^{n \times n}$, alors il existe des matrices $P,J \in \C^{n \times n}$ telles que $J$ est en forme normale de Jordan, $P$ est inversible et 
+  \begin{displaymath}
+    A = P^{-1} \,J \,P. 
+  \end{displaymath}
+\end{theorem}
+
+\begin{definition}
+  \label{def:36}
+  Soit $V  = \C^n$. Le \emph{décalage}  est l'application linéaire 
+  \begin{displaymath}
+    U
+    \begin{pmatrix}
+      x_1 \\ \vdots \\ x_n
+    \end{pmatrix}
+     = 
+     \begin{pmatrix}
+       x_2 \\ x_3 \\ \vdots \\ 0
+     \end{pmatrix}. 
+  \end{displaymath}
+  Le décalage plus une constante est aussi une application linéaire 
+  \begin{displaymath}
+    U + \lambda \cdot I. 
+  \end{displaymath}
+\end{definition}
+
+Il est facile de voir que la matrice représentant le décalage plus $λ$ est 
+un seul bloc de Jordan 
+\begin{displaymath}
+ \begin{pmatrix}
+      λ & 1 \\
+        & λ & 1 \\
+        &   & \ddots & \ddots \\ 
+        &   &             & λ & 1 \\
+        &   &         &  & λ  \\
+    \end{pmatrix}.   
+\end{displaymath}
+
+
+
+
+\section{Déterminer la forme normale der Jordan}
+\label{sec:determiner-la-forme}
+
+\noindent 
+Avant de démontrer le Théorème~\ref{thr:41}, on se pose la question: \emph{Comment calculer une forme normale de Jordan d'une matrice $A ∈ ℂ^{n×n}$?}
+
+On ce rappelle du fait suivant.
+\begin{quote}
+  Soit $K$ un corps. Si $A ,B ∈ K^{n ×n}$ sont similaires, alors leurs polynômes caractéristiques sont les mêmes. 
 \end{quote}
 
+\noindent 
+Soit alors $J ∈ ℂ^{n ×n}$ la forme normale de Jordan de $A$, alors le polynôme caractéristique de $A$ est
+\begin{equation}
+  \label{eq:57}
+  p_A(x) = (-1)^n ∏_{i=1}^n (x - j_{ii}). 
+\end{equation}
 
 
+\begin{example}
+  \label{exe:52}
+
+  Soit $A ∈ ℂ^{5 ×5}$ la matrice
+  \begin{displaymath}
+    A =  \left(\begin{array}{rrrrr}
+-2 & 5 & -1 & 1 & 22 \\
+8 & -7 & 0 & -4 & -32 \\
+2 & -4 & 4 & 1 & -23 \\
+-10 & 13 & -2 & 5 & 55 \\
+-2 & 3 & 0 & 1 & 13
+\end{array}\right)
+\end{displaymath}
+%
+Le polynôme caractéristique de $A$ est
+\begin{displaymath}
+  p_A(x) = - (x-2)^4 (x-5) ∈ℂ[x]. 
+\end{displaymath}
+%
+D'ici on sait alors que $J$ a la forme
+\begin{displaymath}
+  J =
+  \begin{pmatrix}
+    2 & *  \\
+    & 2 & * \\
+    & & 2 & * \\
+    & & & 2   \\
+    & & & & 5 \\
+  \end{pmatrix}, 
+\end{displaymath}
+ou les $*$ peuvent être soit $0$ ou $1$. Si, par exemple, le deuxième $*$ est $0$ et les autres sont $1$, alors, $J$ est composé de $3$ blocs Jordan et totale. Si tous $*$ sont $1$, alors, $J$ est composé de $2$ blocs Jordan. 
+\end{example}
+
+Maintenant $A = P^{-1} J P$, où $P ∈ℂ^{n×n}$ est une matrice inversible.  Pour $λ ∈ ℂ$ on voit
+\begin{displaymath}
+  (A - λI)^k =  \left (P^{-1} (J - λ I) P \right)^k = P^{-1} (J - λ I)^k  P. 
+\end{displaymath}
+Un élément $x ∈ℂ^n$ est an élément du $\ker \left((A - λI)^k\right)$, si et seulement si $P x ∈ \ker \left((J - λI)^k\right)$. Alors on peut déduire le lemme suivant.
+\begin{lemma}
+  \label{lem:28}
+  Soit $k ∈ ℕ$, alors
+  \begin{displaymath}
+     \dim(\ker \left((A - λI)^k \right)) = \dim(\ker \left((J- λI)^k \right)). 
+  \end{displaymath}
+\end{lemma}
+
+\begin{example}[Exemple~\ref{exe:52} continué]. 
+  \label{exe:53}
+  La dimension du $\ker(A - 2 I)$ est $2$ et $J - 2I$ est
+  \begin{displaymath}
+     J  - 2I =
+  \begin{pmatrix}
+    0 & *  \\
+    & 0 & * \\
+    & & 0 & * \\
+    & & & 0   \\
+    & & & & 3 \\
+  \end{pmatrix}. 
+\end{displaymath}
+Alors, un des $*$ est zéro, les autres deux sont égaux à $1$. 
+\end{example}
+
+\begin{lemma}
+  \label{lem:29}
+  Soit $λ ∈ℂ$ une valeur propre de $A$, la dimension de
+  \begin{displaymath}
+    \ker( A - λI) 
+  \end{displaymath}
+  est le nombre de bloc Jordan de $J$ dont  $λ$ est sur  la diagonale.  
+\end{lemma}
+
+
+\begin{example}[Exemple~\ref{exe:52} continué]. 
+\label{exe:54}
+  La dimension du $\ker(A - 2 I)$ est $2$ et $J - 2I$ est
+  \begin{displaymath}
+     J  - 2I =
+  \begin{pmatrix}
+    0 & *  \\
+    & 0 & * \\
+    & & 0 & * \\
+    & & & 0   \\
+    & & & & 3 \\
+  \end{pmatrix}. 
+\end{displaymath}
+Alors, un des $*$ est zéro, les autres deux sont égaux à $1$.
+
+On a deux blocs avec diagonale $2$. Les possibilités (à l'ordre pré) sont
+\begin{displaymath}
+J =   J_1 =  \begin{pmatrix}
+    2 & 1  \\
+    & 2 & 0 \\
+    & & 2 & 1 \\
+    & & & 2   \\
+    & & & & 5 \\
+  \end{pmatrix}
+\end{displaymath}
+et
+\begin{displaymath}
+J =   J_2 =  \begin{pmatrix}
+    2 & 1  \\
+    & 2 & 1 \\
+    & & 2 & 0 \\
+    & & & 2   \\
+    & & & & 5 \\
+  \end{pmatrix}
+\end{displaymath}
+Maintenant
+\begin{displaymath}
+  (J_1 - 2I)^2 =
+  \begin{pmatrix}
+     0 &0  \\
+    & 0 & 0 \\
+    & & 0 & 0 \\
+    & & & 0   \\
+    & & & & 9 \\
+  \end{pmatrix}
+\end{displaymath}
+et
+\begin{displaymath}
+  (J_2 - 2I)^2 =
+  \begin{pmatrix}
+     0 &0 &1   \\
+    & 0 & 0 \\
+    & & 0 & 0 \\
+    & & & 0   \\
+    & & & & 9 \\
+  \end{pmatrix}
+\end{displaymath}
+La dimension du noyaux  de $(A - 2I)^2$  est
+\begin{displaymath}
+\dim(  \ker((A - 2I)^2) ) = 3,
+\end{displaymath}
+alors
+\begin{displaymath}
+  J = J_2 =  \begin{pmatrix}
+    2 & 1  \\
+    & 2 & 1 \\
+    & & 2 & 0 \\
+    & & & 2   \\
+    & & & & 5 \\
+  \end{pmatrix}. 
+\end{displaymath}
+\end{example}
+
+
+\begin{lemma}
+  \label{lem:30}
+  Soit $k ∈ ℕ$, $λ∈ ℂ$ une valeur propre de $A ∈ℂ^{n×n}$ et $J$ une forme normale de Jordan de $A$.   Le nombre de bloc Jordan dont $λ$ est l'élément diagonale et de longueur aux moins $k+1$   est donné par
+  \begin{displaymath}
+    \dim(\ker\left((A - λI)^{k+1}\right)) -\dim(\ker\left((A - λI)^{k}\right)). 
+  \end{displaymath}
+\end{lemma}
+
+
+
+
+
+
+\section{Décomposition selon le polynôme caractéristique}
+\label{sec:decomp-selon-le}
 
 
 % \section{Polynômes}
@@ -802,81 +1053,6 @@ est en forme blocque diagonale, où $N_1$ et $N_2$ sont nilpotentes. En fait, $N
 
 
 
-
-
-
-\section{La forme normale de Jordan}
-\label{sec:la-forme-normale}
-
-
-
-\begin{definition}
-  Un \emph{bloc Jordan} est une matrice de la forme 
-  \begin{displaymath}
-    \begin{pmatrix}
-      λ & 1 \\
-        & λ & 1 \\
-        &   & \ddots & \ddots \\ 
-        &   &             & λ & 1 \\
-        &   &         &  & λ  \\
-    \end{pmatrix}
-  \end{displaymath}
-où les éléments non décrits sont zéro. 
-
-Une matrice $A \in \C^{n \times n}$ est en \emph{forme normale de Jordan} si $A$ est en forme bloc diagonale, où tous les blocs sur la diagonale sont des blocs Jordan, i.e. $A$ est de la forme
-\begin{displaymath}
-  A =
-  \begin{pmatrix}
-    B_1 \\
-        & B_2 \\
-        &    & \ddots \\
-        &    &       & B_k
-  \end{pmatrix}
-\end{displaymath}
-où les matrices $B_j \in \C^{n_j\times n_j}$ sont des blocs de Jordan. 
-\end{definition}
-
-
-Notre but est de montrer le théorème suivant. 
-
-\begin{theorem}
-  \label{thr:41}
-  Soit $A \in \C^{n \times n}$, alors il existe des matrices $P,J \in \C^{n \times n}$ telles que $J$ est en forme normale de Jordan, $P$ est inversible et 
-  \begin{displaymath}
-    A = P^{-1} \,J \,P. 
-  \end{displaymath}
-\end{theorem}
-
-\begin{definition}
-  \label{def:36}
-  Soit $V  = \C^n$. Le \emph{décalage}  est l'application linéaire 
-  \begin{displaymath}
-    U
-    \begin{pmatrix}
-      x_1 \\ \vdots \\ x_n
-    \end{pmatrix}
-     = 
-     \begin{pmatrix}
-       x_2 \\ x_3 \\ \vdots \\ 0
-     \end{pmatrix}. 
-  \end{displaymath}
-  Le décalage plus une constante est aussi une application linéaire 
-  \begin{displaymath}
-    U + \lambda \cdot I. 
-  \end{displaymath}
-\end{definition}
-
-Il est facile de voir que la matrice représentant le décalage plus $λ$ est 
-un seul bloc de Jordan 
-\begin{displaymath}
- \begin{pmatrix}
-      λ & 1 \\
-        & λ & 1 \\
-        &   & \ddots & \ddots \\ 
-        &   &             & λ & 1 \\
-        &   &         &  & λ  \\
-    \end{pmatrix}.   
-\end{displaymath}
 
 
 %  Dès que l'espace des applications linéaires sur $V$ est un espace vectoriel sur $\C$ de dimension finie, il existe un $k \in \N$ tel que 
