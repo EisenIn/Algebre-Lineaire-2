@@ -355,7 +355,7 @@ et donc
   \begin{proof}
 Il est facile de se convaincre que la convergence pour la norme de Frobenius revient à prouver que la suite est de Cauchy. 
 
-Evidemment $\forall c \in \mathbb{C}$ la série $\sum _{ j=0 }^{ +\infty  }{ \frac { { x }^{ j } }{ j! } ={ e }^{ j } } $ converge. La suite des sommes partielles est donc de Cauchy.
+Evidemment $\forall x \in \mathbb{C}$ la série $\sum _{ j=0 }^{ +\infty  }{ \frac { { x }^{ j } }{ j! } ={ e }^{ x } } $ converge. La suite des sommes partielles est donc de Cauchy.
 
 Considérons maintenant la suite $(b_n)_{n\in \mathbb{N}} = { (\sum _{ j=0 }^{ n }{ \frac { { A }^{ j } }{ j! } ) }  }_{ n\in \mathbb{N} }$. Soient $m,n \in \mathbb{N}$ alors $\parallel b_{ m }-b_{ n }\parallel _{ F }=\parallel \sum _{ j=n+1 }^{ m }{ \frac { A^{ j } }{ j! }  } \parallel _{ F }\quad \le \quad \sum_{j=n+1}^{m}{\frac{\parallel A\parallel_{F}^{j}}{j!}} \le \quad \epsilon $ pour $n,m \ge N_{\epsilon}$ (qui existe car la suite des sommes partielles de la série $\sum _{ j=0 }^{ +\infty }{ \frac { \parallel A\parallel _{ F }^{ j } }{ j! }  } = e^{\parallel A\parallel _{ F }^{ j }} $ est de Cauchy.)
   \end{proof}
