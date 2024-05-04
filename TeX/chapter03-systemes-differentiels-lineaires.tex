@@ -430,7 +430,7 @@ et donc
                                                 & \le &  \sum_{j=n+1}^{m}{\frac{\parallel A\parallel_{F}^{j}}{j!}}.
                         %                        & \le &\frac{1}{n+1}   \sum_{j=n+1}^{m}{\frac{\parallel A\parallel_{F}^{j}}{j!}}
     \end{eqnarray*}
-    Le première inégalité au dessus est l'inégalité triangulaire \emph{(Théorème~\label{thr:1})} et la deuxième est Lemme~\ref{lem:16}. 
+    Le première inégalité au dessus est l'inégalité triangulaire \emph{(Théorème~\ref{thr:1})} et la deuxième est Lemme~\ref{lem:16}.  
     Puisque la suite $(a_n)_{n\in \mathbb{N}} ∈ ℝ$
     \begin{displaymath}
       a_n = \sum_{j=0}^{n}{\frac{\parallel A\parallel_{F}^{j}}{j!}}
@@ -468,6 +468,78 @@ Nous pouvons donc dériver les termes de la somme pour obtenir
   Soit $\x(t) = e^{At} v$. Alors $\x'(t) = A e^{At}v = A\x(t)$. Plutôt $\x(0) = v$. 
 \end{proof}
 
+
+\begin{example}[Exemple~\ref{exe:55} continué] 
+  Soit encore 
+  $A =
+  \begin{pmatrix}
+    0 & -1\\
+    1 & 0
+  \end{pmatrix}$ et les conditions initiales données par $v =  \left(\begin{smallmatrix}
+    1\\2
+  \end{smallmatrix}\right$.
+  On calcule 
+  \begin{displaymath}
+    e^{tA} =  I+tA+\dfrac{t^{2}A^{2}}{2}+\dfrac{t^{3}A^{3}}{3!}+\dots 
+  \end{displaymath}
+dans ce cas. 
+Pour  $k∈ ℕ$ 
+\begin{displaymath}
+  A^{2k}=(-1)^{k} I  \quad \text{ et } \quad  A^{2k+1}=
+\begin{pmatrix}
+    0 & (-1)^{k+1}\\
+    (-1)^{k} & 0
+\end{pmatrix} 
+\end{displaymath}
+Alors, on a 
+\begin{displaymath} 
+  e^{tA} = 
+  \begin{pmatrix} \displaystyle 
+     \sum_{k=0}^{\infty}\dfrac{(-1)^{k}t^{2k}}{2k!} &  \displaystyle \sum_{k=0}^{\infty}\dfrac{(-1)^{k+1}t^{2k+1}}{(2k+1)!}\\
+    \displaystyle \sum_{k=0}^{\infty}\dfrac{(-1)^{k+1}t^{2k+1}}{(2k+1)!} & \displaystyle \sum_{k=0}^{\infty}\dfrac{(-1)^{k}t^{2k}}{2k!}
+\end{pmatrix}
+\end{displaymath}
+On se souvient des formules 
+\begin{displaymath}
+  \cos(t) =\displaystyle \sum_{k=0}^{\infty}\dfrac{(-1)^{k}t^{2k}}{2k!} \text{ et }\sin(t) =\displaystyle \sum_{k=0}^{\infty}\dfrac{(-1)^{k}t^{2k+1}}{(2k+1)!} 
+\end{displaymath}
+Alors
+\begin{displaymath}
+  e^{tA} = \begin{pmatrix}
+    \cos(t)&-\sin(t)\\
+    \sin(t)&\cos(t)
+  \end{pmatrix}
+\end{displaymath}
+Pour  $v_0 = 
+\begin{pmatrix}
+    1\\
+    2
+\end{pmatrix} $ 
+alors comme avant, 
+\begin{displaymath}
+  \x =  \begin{pmatrix}
+    \cos(t)-2\sin(t)\\
+    2\cos(t)+\sin(t)
+\end{pmatrix}  = \begin{pmatrix}
+    \cos(t)&-\sin(t)\\
+    \sin(t)&\cos(t)
+  \end{pmatrix} \begin{pmatrix}
+    1\\
+    2
+\end{pmatrix} 
+\end{displaymath}
+est une solution respectons les conditions initiales  $v_0 = 
+\begin{pmatrix}
+    1\\
+    2
+\end{pmatrix} $. 
+\end{example}
+
+
+
+
+
+
 \begin{definition}
   \label{def:29}Soit $K$ un corps. 
   Une matrice $N ∈ K^{n ×n}$ est \emph{nilpotente} s'il existe un $k \in \N$ tel que $N^k = 0$. 
@@ -484,14 +556,14 @@ où $N \in \C^{n \times n}$ est nilpotente, $P \in \C^{n \times n}$ est inversib
 \end{theorem}
 %
 On se souvient maintenant, comment montrer que $e^{x+y}  = e^x + e^y$ pour $x,y∈ ℂ$.  Pour $N ∈ ℕ$, le produit des termes
-$∑_{k=0}^N x^k / k! $ et $∑_{k=0}^N y^k / k! $ s'écrit comme
+$∑_{k=0}^N x^k / k! $ et $∑_{k=0}^N y^k / k! $ s'écrit comme 
 \begin{eqnarray}
-  \left(∑_{k=0}^N x^k / k! \right) \left(∑_{k=0}^N y^k / k! \right) & = & ∑_{k=0}^{2N}  ∑_{i+j = k} \frac{x^i}{  i!} \frac{y^j}{ j!} \\
-  & = &  ∑_{k=0}^{2N}  ∑_{j = 0}^k \binom{k}{j} \frac{x^{k-j} }{(k-j)!} \frac{y^{j} }{j!}.   
+  \left(∑_{k=0}^N x^k / k! \right) \left(∑_{k=0}^N y^k / k! \right) & = & \displaystyle  ∑_{k=0}^{2N}  ∑_{i+j = k} \frac{x^i}{  i!} \frac{y^j}{ j!} \\
+  & = &  \displaystyle ∑_{k=0}^{2N}  ∑_{j = 0}^k \binom{k}{j} \frac{x^{k-j} }{(k-j)!} \frac{y^{j} }{j!}.   
 \end{eqnarray}
 En fait, c'est le cas pour $x,y ∈ R$, où $R$ est un anneau et $x ⋅ y  = y ⋅x$, c.à.d. $x$ et $y$ commutent.  Dans ce cas, on a aussi
 \begin{displaymath}
-  ∑_{kk=0}^{2N} \frac{(x+y)^j}{k!} =  ∑_{k=0}^{2N}  ∑_{j = 0}^k \binom{k}{j} \frac{x^{k-j} }{(k-j)!} \frac{y^{j} }{j!}.   
+  \displaystyle  ∑_{kk=0}^{2N} \frac{(x+y)^j}{k!} =  \displaystyle  ∑_{k=0}^{2N}  ∑_{j = 0}^k \binom{k}{j} \frac{x^{k-j} }{(k-j)!} \frac{y^{j} }{j!}.   
 \end{displaymath}
 %
 Basé sur cette observation, le lemme suivant est un exercice. 
@@ -504,12 +576,12 @@ Basé sur cette observation, le lemme suivant est un exercice.
 
 Comment peut-on maintenant résoudre le problème initial $\x' = Ax, \, \x(0) = v$ explicitement? Nous savons que cette solution est $\x = e^{tA} \cdot v$ et nous savons que c'est une solution réelle pour $A \in \R^{m \times n}$. Mais les premiers termes s'écrivent comme 
 \begin{displaymath}
-  \sum_{i=0}^m t^i A^i = P \left(\sum_{i=0}^m t^i \diag(\lambda_1,\dots,\lambda_n)^i + t^i N \right) P^{-1} 
+  \displaystyle \sum_{i=0}^m t^i A^i = P \left(\displaystyle \sum_{i=0}^m t^i \diag(\lambda_1,\dots,\lambda_n)^i + t^i N \right) P^{-1} 
 \end{displaymath}
 où nous avons utilisé le théorème \ref{thr:32}. Dès que $N$ et $\diag(\lambda_1,\dots,\lambda_n)$ commutent, la solution \emph{réelle} que l'on cherche est  
 \begin{eqnarray*}
   \x & = &  P e^{t\diag(\lambda_1,\dots,\lambda_n)} e^{tN} P^{-1} v \\
-     & = & P \left( \diag(e^{\lambda_1 \, t},\dots,e^{\lambda_n \, t})\cdot  \sum_{j=0}^{k-1} t^j N^{j} / j!\right)P^{-1},
+     & = & P \left( \diag(e^{\lambda_1 \, t},\dots,e^{\lambda_n \, t})\cdot  \displaystyle \sum_{j=0}^{k-1} t^j N^{j} / j!\right)P^{-1},
 \end{eqnarray*}
 où $k \in \N$ est tel que $N^k = 0$. 
 
