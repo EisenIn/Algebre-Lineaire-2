@@ -25,8 +25,9 @@ où
           a_{n1} & \cdots & a_{nn}\\          
   \end{pmatrix}, \quad \x \in C^{1}(\R; \R^{n}).
 \end{displaymath}
-
-On cherche des fonctions dérivables $\x_i: \R \longrightarrow \R$  qui, ensemble, constituent $\x$ et qui  satisfont \eqref{eq:19}. Un tel $\x$ est une \emph{solution} du système~\eqref{eq:19}. 
+%
+On cherche des fonctions dérivables $\x_i: \R \longrightarrow \R$  qui, ensemble, constituent $\x$ et qui  satisfont \eqref{eq:19}. Un tel $\x$ est une \emph{solution} du système~\eqref{eq:19}.
+Soit $v ∈ ℝ^n$.  Une solution  $\x$   du système~\eqref{eq:19} respecte les \emph{conditions initiales} données par $v$,  si $x_i(0) = v_i$ pour $i=1,\dots,n$. On écrit  $\x(0) = v $. 
 
 
 
@@ -38,14 +39,55 @@ Considérons $\x'(t) = -\x(t)$, une solution est $\x(t) = e^{(-t)}$. %$\x(t) = \
 C'est aussi une solution qui respecte la condition initiale $\x(0) = 1$. 
 \end{example}
 
+\begin{example}
+  \label{exe:55}
+  Soit
+  $A =
+  \begin{pmatrix}
+    0 & -1\\
+    1 & 0
+  \end{pmatrix}$. On trouve deux solutions
+  \begin{displaymath}
+    \x_1(t) =  \begin{pmatrix}
+      \cos{t}\\
+      \sin{t}
+    \end{pmatrix}
+  \end{displaymath}
+  et
+  \begin{displaymath}
+    \x_2(t) =   \begin{pmatrix}
+      -       \sin{t} \\
+      \cos{t}
+    \end{pmatrix}
+  \end{displaymath}
+  et chaque combinaison linéaire des deux
+  \begin{displaymath}
+    α⋅ \x_1(t)  + β ⋅  \x_2 (t) 
+  \end{displaymath}
+  est une solution. Si on spécifie la condition initiale $\x(0) =
+\left(  \begin{smallmatrix}
+    1\\2
+  \end{smallmatrix} \right)$ on cherche alors $α,β∈ℝ$ tel que
+\begin{displaymath}
+  \begin{pmatrix}
+    1\\2
+  \end{pmatrix} =
+  α ⋅ x_1(0) + β ⋅x_2(0) = 
+  \begin{pmatrix}
+    1 & 0 \\
+    0 & 1
+  \end{pmatrix}
+  \begin{pmatrix}
+    α \\ β
+  \end{pmatrix}. 
+\end{displaymath}
+On met $α = 1$ et $β=2$, alors
+$x_1(t) = \cos(t) -2 \sin(t)$ et $x_2(t) = \sin(t) + 2 \cos(t)$ est une solution, respectant les conditions initiales $\x(0) = \left(  \begin{smallmatrix}
+    1\\2
+  \end{smallmatrix} \right)$. 
+\end{example}
 
 
-Essayons d'abord de résoudre le système en mettant  $\x(t) = e^{\lambda t} v$ où $v \in \R^n$ est un vecteur constant. Dans ce cas $\x' = A\x$ se récrit comme   $\lambda e^{\lambda t}  v = e^{\lambda t} A v$. Nous avons démontré le lemme suivant. 
-
-\begin{lemma}
-  \label{thr:29}
-  Si $\lambda \in \R$ est une valeur propre de $A$ et si $v \in \R^n \setminus \{0\}$ est un vecteur propre correspondant, alors $\x(t) = e^{\lambda t} v$ est  une solution du système~\eqref{eq:19} pour les conditions initiales $\x(0) = v$. 
-\end{lemma}
 
 
 Le théorème suivant est démontré en cours \emph{analyse 2}. 
@@ -54,7 +96,23 @@ Le théorème suivant est démontré en cours \emph{analyse 2}.
   Étant donné les \emph{conditions initiales} $\x(0)$
   il existe une unique solution $\x$ du système~\eqref{eq:19}. 
 \end{theorem}
-Nous sommes concernés par le problème de \emph{trouver} la solution $\x$ explicitement. On commence avec une observation qui est un exercice simple. 
+\noindent 
+Nous sommes concernés par le problème de \emph{trouver} la solution $\x$ explicitement.
+
+
+
+{\scriptsize   \color{lightgray}
+
+\noindent   
+  Essayons d'abord de résoudre le système en mettant  $\x(t) = e^{\lambda t} v$ où $v \in \R^n$ est un vecteur constant. Dans ce cas $\x' = A\x$ se récrit comme   $\lambda e^{\lambda t}  v = e^{\lambda t} A v$. Nous avons démontré le lemme suivant. \todo{ Partie en gris fait pas partie du cours 2024 } 
+
+\begin{lemma}
+  \label{thr:29}
+  Si $\lambda \in \R$ est une valeur propre de $A$ et si $v \in \R^n \setminus \{0\}$ est un vecteur propre correspondant, alors $\x(t) = e^{\lambda t} v$ est  une solution du système~\eqref{eq:19} pour les conditions initiales $\x(0) = v$. 
+\end{lemma}
+
+
+ On commence avec une observation qui est un exercice simple. 
 
 \begin{lemma}
   \label{lem:13}
@@ -270,8 +328,7 @@ La solution qu'on cherche est
 % \end{remark}
 
 
-
-
+}
 
 \subsection*{Exercices} 
 
@@ -297,7 +354,6 @@ existe. Soit $f$ holomorphe sur $\C$ et $g = f_{|\R}$ la fonction $f$ réduite �
 
 \section{L'exponentielle d'une matrice}
 \label{sec:lexp-dune-matr}
-
 
 
 \begin{definition}
@@ -349,19 +405,51 @@ et donc
 
   \begin{lemma}
     \label{lem:17}
-    La série $e^A$ converge. 
+    Soit $A ∈ ℂ^{n ×n}$. La série
+    \begin{displaymath}
+      e^A = I + A + \frac{1}{2!} A^2 + \frac{1}{3!}A^3 + \cdots 
+    \end{displaymath}
+    converge.  
   \end{lemma}
 
   \begin{proof}
-Il est facile de se convaincre que la convergence pour la norme de Frobenius revient à prouver que la suite est de Cauchy. 
+%Il est facile de se convaincre que la convergence pour la norme de Frobenius revient à prouver que la suite est de Cauchy. 
 
-Evidemment $\forall x \in \mathbb{C}$ la série $\sum _{ j=0 }^{ +\infty  }{ \frac { { x }^{ j } }{ j! } ={ e }^{ x } } $ converge. La suite des sommes partielles est donc de Cauchy.
+%Evidemment $\forall x \in \mathbb{C}$ la série $\sum _{ j=0 }^{ \infty  }{ \frac { { x }^{ j } }{ j! } ={ e }^{ x } } $ converge. La suite des sommes partielles est donc de Cauchy.
 
-Considérons maintenant la suite $(b_n)_{n\in \mathbb{N}} = { (\sum _{ j=0 }^{ n }{ \frac { { A }^{ j } }{ j! } ) }  }_{ n\in \mathbb{N} }$. Soient $m,n \in \mathbb{N}$ alors $\parallel b_{ m }-b_{ n }\parallel _{ F }=\parallel \sum _{ j=n+1 }^{ m }{ \frac { A^{ j } }{ j! }  } \parallel _{ F }\quad \le \quad \sum_{j=n+1}^{m}{\frac{\parallel A\parallel_{F}^{j}}{j!}} \le \quad \epsilon $ pour $n,m \ge N_{\epsilon}$ (qui existe car la suite des sommes partielles de la série $\sum _{ j=0 }^{ +\infty }{ \frac { \parallel A\parallel _{ F }^{ j } }{ j! }  } = e^{\parallel A\parallel _{ F }^{ j }} $ est de Cauchy.)
+    Considérons  la suite $(b_n)_{n\in \mathbb{N}} ∈ ℂ^{n ×n}$
+    \begin{displaymath}      
+      b_n = \sum _{j=0 }^{ n } \frac { { A }^{ j } }{ j! }  
+    \end{displaymath}
+%    
+    On montre que cette suite  et une suite Cauchy par rapport la norme Frobenius $\|⋅\|_F$. 
+    Soient $m≥n \in \mathbb{N}$, alors
+    \begin{eqnarray*}
+      \parallel b_{ m }-b_{ n }\parallel _{ F } & = & \parallel \sum _{ j=n+1 }^{ m }{ \frac { A^{ j } }{ j! }  } \parallel _{ F }\\
+       & \le &  \sum_{j=n+1}^{m}{\frac{\parallel A^j\parallel_{F}}{j!}} \\ 
+                                                & \le &  \sum_{j=n+1}^{m}{\frac{\parallel A\parallel_{F}^{j}}{j!}}.
+                        %                        & \le &\frac{1}{n+1}   \sum_{j=n+1}^{m}{\frac{\parallel A\parallel_{F}^{j}}{j!}}
+    \end{eqnarray*}
+    Le première inégalité au dessus est l'inégalité triangulaire \emph{(Théorème~\label{thr:1})} et la deuxième est Lemme~\ref{lem:16}. 
+    Puisque la suite $(a_n)_{n\in \mathbb{N}} ∈ ℝ$
+    \begin{displaymath}
+      a_n = \sum_{j=0}^{n}{\frac{\parallel A\parallel_{F}^{j}}{j!}}
+    \end{displaymath}
+    es Cauchy  \emph{(Analyse 1)}, alors pour tout $ε>0$ il existe $N_ε ∈ ℕ$ tel que pour tout $m,n ≥ N_ε$
+    \begin{displaymath}
+      |a_m - a_n | < ε. 
+    \end{displaymath}
+    Alors, pour tous  $m,n ≥ N_ε$, on a
+    \begin{displaymath}
+      \parallel b_{ m }-b_{ n }\parallel _{ F }  < ε.  
+    \end{displaymath}
+    Ceci montre que $(b_n)$ est Cauchy et alors que $e^A$ converge. 
+    % $\parallel b_{ m }-b_{ n }\parallel _{ F }=\parallel \sum _{ j=n+1 }^{ m }{ \frac { A^{ j } }{ j! }  } \parallel _{ F }\quad \le \quad \sum_{j=n+1}^{m}{\frac{\parallel A\parallel_{F}^{j}}{j!}} \le \quad \epsilon $ pour $n,m \ge N_{\epsilon}$ (qui existe car la suite des sommes partielles de la série $\sum _{ j=0 }^{ +\infty }{ \frac { \parallel A\parallel _{ F }^{ j } }{ j! }  } = e^{\parallel A\parallel _{ F }^{ j }} $ est de Cauchy.)
   \end{proof}
 
-
-Nous avons montré que $e^{At} = \sum_{k=0}^\infty \frac{t^k}{k!} A^k$ converge pour tout $t \in \R$. Plus précisément chaque composante $\sum_{k=0}^\infty \frac{t^k}{k!} A^k$ est une série intégrable avec un rayon de convergence $\infty$. Nous pouvons donc dériver les termes de la somme pour obtenir 
+%Maintenant, soit $A ∈  ℝ^{n ×n}$. 
+  Nous avons montré que $e^{At} = \sum_{k=0}^\infty \frac{t^k}{k!} A^k$ converge pour tout $t \in \R$. Plus précisément chaque composante $\sum_{k=0}^\infty \frac{t^k}{k!} A^k$ est une série intégrable avec un rayon de convergence $\infty$.
+Nous pouvons donc dériver les termes de la somme pour obtenir 
 \begin{equation}
   \label{eq:24}
   \frac{d}{dt} e^{At} = A e^{At}. 
@@ -394,8 +482,19 @@ Nous allons montrer ce théorème dans les prochaines cours.
   \end{displaymath}
 où $N \in \C^{n \times n}$ est nilpotente, $P \in \C^{n \times n}$ est inversible,  $\lambda_1,\dots,\lambda_n \in \C$ sont les valeurs propres de $A$ et $\diag(\lambda_1,\dots,\lambda_n)$ et $N$ commutent. 
 \end{theorem}
-
-
+%
+On se souvient maintenant, comment montrer que $e^{x+y}  = e^x + e^y$ pour $x,y∈ ℂ$.  Pour $N ∈ ℕ$, le produit des termes
+$∑_{k=0}^N x^k / k! $ et $∑_{k=0}^N y^k / k! $ s'écrit comme
+\begin{eqnarray}
+  \left(∑_{k=0}^N x^k / k! \right) \left(∑_{k=0}^N y^k / k! \right) & = & ∑_{k=0}^{2N}  ∑_{i+j = k} \frac{x^i}{  i!} \frac{y^j}{ j!} \\
+  & = &  ∑_{k=0}^{2N}  ∑_{j = 0}^k \binom{k}{j} \frac{x^{k-j} }{(k-j)!} \frac{y^{j} }{j!}.   
+\end{eqnarray}
+En fait, c'est le cas pour $x,y ∈ R$, où $R$ est un anneau et $x ⋅ y  = y ⋅x$, c.à.d. $x$ et $y$ commutent.  Dans ce cas, on a aussi
+\begin{displaymath}
+  ∑_{kk=0}^{2N} \frac{(x+y)^j}{k!} =  ∑_{k=0}^{2N}  ∑_{j = 0}^k \binom{k}{j} \frac{x^{k-j} }{(k-j)!} \frac{y^{j} }{j!}.   
+\end{displaymath}
+%
+Basé sur cette observation, le lemme suivant est un exercice. 
 \begin{lemma}
   \label{lem:18}
   Pour $A,B \in \C^{n \times n}$, si $A\cdot B = B \cdot A$ on a $e^{A+B} = e^A e^B$. 
