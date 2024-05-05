@@ -517,7 +517,7 @@ et si $\|x\|^2 = 1$,
 \begin{displaymath}
 \lambda_n =  \lambda_n  \sum_i  \alpha_i^2  \leq  \sum_i (\lambda_i \alpha_i^2) \leq \lambda_1  \sum_i  \alpha_i^2 = \lambda_1. 
 \end{displaymath}
-Ça démontre que $p_1$ et $p_n$ sont les solutions optimales des problèmes d'optimisation~\eqref{eq:11}. 
+Ça démontre que $\lambda_1$ et $\lambda_n$ sont les solutions optimales des problèmes d'optimisation~\eqref{eq:11}. 
 
 \end{proof}
 
@@ -567,7 +567,7 @@ de la forme
 L = \left(\begin{array}{c|c}
 H & 0  \\
 \hline
-C  & I_{n-i+1} \\
+C  & I_{n-i} \\
 \end{array}\right)
 \end{displaymath}
 où  $H ∈ ℝ^{i×i}$ et $i ≥0$. Soit $Q ∈ ℝ^{n ×n}$ la matrice de la permutation (transposition)  qui échange $μ, ν > i$. Montrer 
@@ -575,7 +575,7 @@ où  $H ∈ ℝ^{i×i}$ et $i ≥0$. Soit $Q ∈ ℝ^{n ×n}$ la matrice de la p
   Q \cdot L = \left(\begin{array}{c|c}
 H & 0  \\
 \hline
-C'  & I_{n-i+1} \\
+C'  & I_{n-i} \\
 \end{array}\right) \cdot Q
 \end{displaymath}
 où $C'$ provient de $C$ en échangeant les lignes $μ-i$ et $ν-i$. 
