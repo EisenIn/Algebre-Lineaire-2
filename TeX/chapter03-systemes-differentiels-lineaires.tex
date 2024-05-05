@@ -477,7 +477,7 @@ Nous pouvons donc dériver les termes de la somme pour obtenir
     1 & 0
   \end{pmatrix}$ et les conditions initiales données par $v =  \left(\begin{smallmatrix}
     1\\2
-  \end{smallmatrix}\right$.
+  \end{smallmatrix}\right)$.
   On calcule 
   \begin{displaymath}
     e^{tA} =  I+tA+\dfrac{t^{2}A^{2}}{2}+\dfrac{t^{3}A^{3}}{3!}+\dots 
@@ -517,15 +517,15 @@ Pour  $v_0 =
 \end{pmatrix} $ 
 alors comme avant, 
 \begin{displaymath}
-  \x =  \begin{pmatrix}
-    \cos(t)-2\sin(t)\\
-    2\cos(t)+\sin(t)
-\end{pmatrix}  = \begin{pmatrix}
+  \x = \begin{pmatrix}
     \cos(t)&-\sin(t)\\
     \sin(t)&\cos(t)
   \end{pmatrix} \begin{pmatrix}
     1\\
     2
+\end{pmatrix}   =  \begin{pmatrix}
+    \cos(t)-2\sin(t)\\
+    2\cos(t)+\sin(t)
 \end{pmatrix} 
 \end{displaymath}
 est une solution respectons les conditions initiales  $v_0 = 
@@ -574,17 +574,104 @@ Basé sur cette observation, le lemme suivant est un exercice.
 
 
 
-Comment peut-on maintenant résoudre le problème initial $\x' = Ax, \, \x(0) = v$ explicitement? Nous savons que cette solution est $\x = e^{tA} \cdot v$ et nous savons que c'est une solution réelle pour $A \in \R^{m \times n}$. Mais les premiers termes s'écrivent comme 
+Comment peut-on maintenant résoudre le problème initial
+$\x' = Ax, \, \x(0) = v$ explicitement? Nous savons que cette solution
+est $\x = e^{tA} \cdot v$ et nous savons que c'est une solution réelle
+pour $A \in \R^{m \times n}$. Mais les premiers termes s'écrivent
+comme
 \begin{displaymath}
-  \displaystyle \sum_{i=0}^m t^i A^i = P \left(\displaystyle \sum_{i=0}^m t^i \diag(\lambda_1,\dots,\lambda_n)^i + t^i N \right) P^{-1} 
+  \displaystyle \sum_{i=0}^m t^i A^i = P \left(\displaystyle \sum_{i=0}^m ( t \diag(\lambda_1,\dots,\lambda_n) + t N)^i  \right) P^{-1}.  
 \end{displaymath}
-où nous avons utilisé le théorème \ref{thr:32}. Dès que $N$ et $\diag(\lambda_1,\dots,\lambda_n)$ commutent, la solution \emph{réelle} que l'on cherche est  
+Maintenant,
+\begin{displaymath}
+  \sum_{i=0}^∞ ( t \diag(\lambda_1,\dots,\lambda_n) + t N)^i  = e^{t⋅   \diag(\lambda_1,\dots,\lambda_n) + t N}. 
+\end{displaymath}
+Puisque $t⋅   \diag(\lambda_1,\dots,\lambda_n)$ et  $t⋅N$ commutent,  le théorème \ref{thr:32} implique
+\begin{displaymath}
+  e^{t⋅   \diag(\lambda_1,\dots,\lambda_n) + t N} = e^{t⋅   \diag(\lambda_1,\dots,\lambda_n)} ⋅e^{t N}
+\end{displaymath}
+La solution \emph{réelle} que l'on cherche est  alors 
 \begin{eqnarray*}
   \x & = &  P e^{t\diag(\lambda_1,\dots,\lambda_n)} e^{tN} P^{-1} v \\
      & = & P \left( \diag(e^{\lambda_1 \, t},\dots,e^{\lambda_n \, t})\cdot  \displaystyle \sum_{j=0}^{k-1} t^j N^{j} / j!\right)P^{-1},
 \end{eqnarray*}
 où $k \in \N$ est tel que $N^k = 0$. 
 
+\begin{example}[Exemple~\ref{exe:55} continué] 
+  La matrice
+  \begin{displaymath}
+    A =
+    \begin{pmatrix}
+      0 & -1 \\
+      1 & 0
+    \end{pmatrix} 
+  \end{displaymath}
+  est diagonalisable sur $ℂ$.  En fait avec
+  \begin{displaymath}
+    P =  \left(\begin{array}{rr}
+                 1 & 1 \\
+                 1 i & - i
+               \end{array}\right) \quad \text{ et }  \quad
+             D = \left(\begin{array}{rr}
+                         - i & 0 \\
+                         0 &  i
+                       \end{array}\right)
+  \end{displaymath}
+  on a 
+  \begin{displaymath}
+    A =
+    P ⋅ D ⋅ P^{-1}.      
+  \end{displaymath}
+  Les premiers $N$ termes de la série $e^{tA}$, sont  alors
+  \begin{eqnarray*}
+    ∑_{k=0}^N t^k A^k  & = & ∑_{k=0}^N t^k \left((P ⋅ D^k P^{-1}\right)  \\
+                       & = & P  \left( ∑_{k=0}^N (t⋅ D)^k \right)P^{-1}  \\
+                       & =  & P ⋅
+                            \begin{pmatrix}
+                              \displaystyle ∑_{k=0}^N (-i ⋅t)^k  & 0 \\
+                              0 &  \displaystyle ∑_{k=0}^N (i ⋅t)^k 
+                            \end{pmatrix} ⋅P^{-1}
+  \end{eqnarray*}
+  Puisque pour tout $t ∈ ℝ$ 
+  \begin{displaymath}
+    ∑_{k=0}^∞ (- i ⋅ t )^k =  \cos(t) - i \sin(t)  \quad  \text{ et } \quad  ∑_{k=0}^∞ ( i ⋅ t )^k     \cos(t) + i \sin(t),
+  \end{displaymath}
+et 
+  \begin{displaymath}
+    P^{-1}  = \frac{1}{2}
+    \begin{pmatrix}
+      1 & - i \\
+      1 &  i
+    \end{pmatrix} 
+  \end{displaymath} on a   alors 
+  \begin{eqnarray*} e^{t⋅A} & = &  
+    P ⋅ D ⋅ P^{-1} \\
+    & = &  \begin{pmatrix}
+    \cos(t)&-\sin(t)\\
+    \sin(t)&\cos(t)
+  \end{pmatrix}    
+  \end{eqnarray*}
+  La solution respectant les conditions initiales $v =
+  \begin{pmatrix}
+    1 \\ 2
+  \end{pmatrix}$ est, comme avant \begin{displaymath}
+    \x =  \begin{pmatrix}
+    \cos(t)&-\sin(t)\\
+    \sin(t)&\cos(t)
+  \end{pmatrix}     ⋅ \begin{pmatrix}
+    1 \\ 2
+  \end{pmatrix} =  \begin{pmatrix}
+    \cos(t)-2\sin(t)\\
+    2\cos(t)+\sin(t)
+\end{pmatrix} . 
+  \end{displaymath}
+\end{example}
+
+
+\begin{example}
+  \label{exe:56}
+  Soit $A$ la matrice 
+\end{example}
 
 \chapter{La forme normale de Jordan}
 \label{cha:la-forme-normale}
