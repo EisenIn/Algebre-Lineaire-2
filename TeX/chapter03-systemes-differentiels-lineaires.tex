@@ -376,9 +376,9 @@ Une série intégrable importante est la série
 \end{displaymath}
 qui définit la fonction holomorphe $\exp: \C \longrightarrow \C$ 
 \begin{displaymath}
-  e^{a+i\,b} = e^a (\cos b + i \sin b).  
+  e^{a+i\,b} = e^a (\cos b + i \sin b), \quad   a,b ∈ ℝ. 
 \end{displaymath}
-
+%
 \noindent On va maintenant généraliser la définition de la \emph{norme Frobenius} pour les matrices complexes. Pour $A \in \C^{m\times n}$, 
 \begin{displaymath}
   \|A\|_F = \sqrt{\sum_{ij} |a_{ij}|^2 }. 
@@ -580,11 +580,11 @@ est $\x = e^{tA} \cdot v$ et nous savons que c'est une solution réelle
 pour $A \in \R^{m \times n}$. Mais les premiers termes s'écrivent
 comme
 \begin{displaymath}
-  \displaystyle \sum_{i=0}^m t^i A^i = P \left(\displaystyle \sum_{i=0}^m ( t \diag(\lambda_1,\dots,\lambda_n) + t N)^i  \right) P^{-1}.  
+  \displaystyle \sum_{i=0}^m t^i A^i = P \left(\displaystyle \sum_{i=0}^m ( t \diag(\lambda_1,\dots,\lambda_n) + t N)^i / i!  \right) P^{-1}.  
 \end{displaymath}
 Maintenant,
 \begin{displaymath}
-  \sum_{i=0}^∞ ( t \diag(\lambda_1,\dots,\lambda_n) + t N)^i  = e^{t⋅   \diag(\lambda_1,\dots,\lambda_n) + t N}. 
+  \sum_{i=0}^∞ ( t \diag(\lambda_1,\dots,\lambda_n) + t N)^i / i!  = e^{t⋅   \diag(\lambda_1,\dots,\lambda_n) + t N}. 
 \end{displaymath}
 Puisque $t⋅   \diag(\lambda_1,\dots,\lambda_n)$ et  $t⋅N$ commutent,  le théorème \ref{thr:32} implique
 \begin{displaymath}
@@ -610,7 +610,7 @@ où $k \in \N$ est tel que $N^k = 0$.
   \begin{displaymath}
     P =  \left(\begin{array}{rr}
                  1 & 1 \\
-                 1 i & - i
+                  i & - i
                \end{array}\right) \quad \text{ et }  \quad
              D = \left(\begin{array}{rr}
                          - i & 0 \\
@@ -624,17 +624,17 @@ où $k \in \N$ est tel que $N^k = 0$.
   \end{displaymath}
   Les premiers $N$ termes de la série $e^{tA}$, sont  alors
   \begin{eqnarray*}
-    ∑_{k=0}^N t^k A^k  & = & ∑_{k=0}^N t^k \left((P ⋅ D^k P^{-1}\right)  \\
-                       & = & P  \left( ∑_{k=0}^N (t⋅ D)^k \right)P^{-1}  \\
+    ∑_{k=0}^N t^k A^k / k!  & = & ∑_{k=0}^N t^k \left((P ⋅ D^k P^{-1}\right)/ k!   \\
+                       & = & P  \left( ∑_{k=0}^N (t⋅ D)^k/ k!  \right)P^{-1}  \\
                        & =  & P ⋅
                             \begin{pmatrix}
-                              \displaystyle ∑_{k=0}^N (-i ⋅t)^k  & 0 \\
-                              0 &  \displaystyle ∑_{k=0}^N (i ⋅t)^k 
+                              \displaystyle ∑_{k=0}^N (-i ⋅t)^k/ k!   & 0 \\
+                              0 &  \displaystyle ∑_{k=0}^N (i ⋅t)^k / k! 
                             \end{pmatrix} ⋅P^{-1}
   \end{eqnarray*}
   Puisque pour tout $t ∈ ℝ$ 
   \begin{displaymath}
-    ∑_{k=0}^∞ (- i ⋅ t )^k =  \cos(t) - i \sin(t)  \quad  \text{ et } \quad  ∑_{k=0}^∞ ( i ⋅ t )^k     \cos(t) + i \sin(t),
+    ∑_{k=0}^∞ (- i ⋅ t )^k/ k!  =  \cos(t) - i \sin(t)  \quad  \text{ et } \quad  ∑_{k=0}^∞ ( i ⋅ t )^k  / k!    \cos(t) + i \sin(t),
   \end{displaymath}
 et 
   \begin{displaymath}
