@@ -428,7 +428,7 @@ Soit
   
   \begin{definition}
     \label{def:61}
-    Soit $A \in \mathbb{Z}^{m\times n}$ et  $rang(A)=m$. L'ensemble  $\Lambda(A):=\left\{ Ax,x\in \mathbb{Z}^{n} \right\}$ est  un \emph{réseau entier généré}  de $A$. Une matrice  $B \in \mathbb{Z}^{m\times m}$ telle que  $\Lambda(A)=\Lambda(B)$ est appelée base de $\Lambda(A)$. 
+    Soit $A \in \mathbb{Z}^{m\times n}$ et  $rang(A)=m$. L'ensemble  $\Lambda(A):=\left\{ Ax: x\in \mathbb{Z}^{n} \right\}$ est  un \emph{réseau entier généré}  de $A$. Une matrice  $B \in \mathbb{Z}^{m\times m}$ telle que  $\Lambda(A)=\Lambda(B)$ est appelée base de $\Lambda(A)$. 
   \end{definition}
 
   \begin{remark}
@@ -455,28 +455,54 @@ Soit
 
   \begin{theorem}
     \label{thr:28}
-    Soient $A,B \in \mathbb{Z}^{m\times m}$ en forme normale d'Hermite.    Alors $Λ(A) = Λ(B)$ si et seulement si $A = B$. 
+    Soient $A,B \in \mathbb{Z}^{m\times m}$ en forme normale
+    d'Hermite.  Alors $Λ(A) = Λ(B)$ si et seulement si $A = B$.
   \end{theorem}
 
  \begin{proof}
- $\\$
- $\boxed { \Leftarrow  }$  Trivial.$\\$
- $\\$ 
-$ \boxed { \Rightarrow  }$ On montre qui si $A\neq B$ alors $\Lambda(A) \neq \Lambda(B)$.$\\$
-Supposons alors que $\Lambda(A) =\Lambda(B)$.$\\$
-On note $A=\begin{pmatrix} a_{ 11 } & \quad  & \quad  \\ \quad  & \ddots  & \quad  \\ a_{m1}  & \quad  & a_{ mm } \end{pmatrix}$ et $B=\begin{pmatrix} b_{ 11 } & \quad  & \quad  \\ \quad  & \ddots  & \quad  \\ b_{m1}  & \quad  & b_{ mm } \end{pmatrix}$. $\\$
-Soit $i$ l'indice minimal tel que la $i$-ème ligne de $A$ et celle de $B$ soient différentes. Alors $\exists j \in \left\{ 1,\dots ,i  \right\}$  tel que $a_{ij} \neq b_{ij}$ et sans perte de généralité on a $a_{ij}>b_{ij}$ . Clairement en notant $A_j$ ( resp. $B_j$) la $j$-ème colonne de $A$ (resp. $B$), on a $A_j - B_j = \begin{pmatrix} 0 \\ \vdots  \\ 0\\ a_{ ij }-b_{ ij } \\ \vdots  \end{pmatrix} \in \Lambda (A)$ avec $a_{ii}>a_{ij}-b_{ij}>0$. 
+   Si $A = B$, alors $Λ(A) = Λ(B)$.
 
-Il existe donc forcément un vecteur entier $z$ tel que $A_j - B_j = Az$. On montre aisément que les $i-1$ premières coordonées de $z$ doivent être nulles car aucun élément diagonal de $A$ ne l'est (ou, de manière équivalente, car $A$ et de rang plein). Or, en comparant la $i$-ème coordonnée, on trouve que $a_{ij} - b_{ij} = a_{ii} z_i$. Dès lors, $a_{ii}|a_{ij}-b_{ij}$ ce qui est une contradiction.
+
+   Supposons alors que $\Lambda(A) =\Lambda(B)$.  Maintenant on montre
+   qui si $A\neq B$ alors $\Lambda(A) \neq \Lambda(B)$.  On note
+   $A=\begin{pmatrix} a_{ 11 } & \quad & \quad \\ \quad & \ddots &
+     \quad \\ a_{m1} & \quad & a_{ mm } \end{pmatrix}$ et
+   $B=\begin{pmatrix} b_{ 11 } & \quad & \quad \\ \quad & \ddots &
+     \quad \\ b_{m1} & \quad & b_{ mm } \end{pmatrix}$.  Soit $i$
+   l'indice minimal tel que la $i$-ème ligne de $A$ et celle de $B$
+   soient différentes. Alors
+   $\exists j \in \left\{ 1,\dots ,i \right\}$ tel que
+   $a_{ij} \neq b_{ij}$ et sans perte de généralité on a
+   $a_{ij}>b_{ij}$. Clairement en notant $A_j$ ( resp. $B_j$) la
+   $j$-ème colonne de $A$ (resp. $B$), on a
+   $A_j - B_j = \begin{pmatrix} 0 \\ \vdots \\ 0\\ a_{ ij }-b_{ ij }
+     \\ \vdots \end{pmatrix} \in \Lambda (A)$ avec
+   $a_{ii}>a_{ij}-b_{ij}>0$.
+
+   Il existe donc un vecteur entier $z ∈ℤ^n$ tel que
+   $A_j - B_j = Az$. On montre aisément que les $i-1$ premières
+   coordonées de $z$ doivent être nulles car aucun élément diagonal de
+   $A$ ne l'est (ou, de manière équivalente, car $A$ et de rang
+   plein). Or, en comparant la $i$-ème coordonnée, on trouve que
+   $a_{ij} - b_{ij} = a_{ii} z_i$. Dès lors, $a_{ii}|a_{ij}-b_{ij}$ ce
+   qui est une contradiction. 
  \end{proof}
   \begin{remark}
     \label{rem:5}
-    Le Théorème~\ref{thr:28} nous permet de vérifier, pour $A ∈ℤ^{m × n_1}$ et $B ∈ℤ^{m × n_2}$ de rang ligne pleins, si $Λ(A) = Λ(B)$.  On calcule $(H_A|0)$ et $(H_B|0)$ les formes normales d'Hermite de $A$ et $B$. Comme $Λ(A) =Λ(H_A)$ et $Λ(B) = Λ(H_B)$, on a que $Λ(A) = Λ(B)$ si et seulement si $H_A = H_B$. 
+    Le Théorème~\ref{thr:28} nous permet de vérifier, pour
+    $A ∈ℤ^{m × n_1}$ et $B ∈ℤ^{m × n_2}$ de rang ligne pleins, si
+    $Λ(A) = Λ(B)$.  On calcule $(H_A|0)$ et $(H_B|0)$ les formes
+    normales d'Hermite de $A$ et $B$. Comme $Λ(A) =Λ(H_A)$ et
+    $Λ(B) = Λ(H_B)$, on a que $Λ(A) = Λ(B)$ si et seulement si
+    $H_A = H_B$.
   \end{remark} 
   
   \begin{example}
     \label{exe:29}
-    On va transformer $A = \left(\begin{matrix}4 & 6 & 10\\6 & 12 & 9\end{matrix}\right)$ en forme normale d'Hermite afin de trouver toutes les solutions entières de
+    On va transformer
+    $A = \left(\begin{matrix}4 & 6 & 10\\6 & 12 &
+        9\end{matrix}\right)$ en forme normale d'Hermite afin de
+    trouver toutes les solutions entières de
     \begin{equation}
       \label{eq:46}
       \left(\begin{matrix}4 & 6 & 10\\6 & 12 & 9\end{matrix}\right) x =
@@ -488,8 +514,8 @@ Il existe donc forcément un vecteur entier $z$ tel que $A_j - B_j = Az$. On mon
     \begin{equation}
       \label{eq:45}
       \begin{array}{cc}
-      \left(\begin{matrix}4 & 6 & 10\\6 & 12 & 9\end{matrix}\right) &  
-\left(\begin{matrix}1 & 0 & 0\\0 & 1 & 0\\0 & 0 & 1\end{matrix}\right) \\
+        \left(\begin{matrix}4 & 6 & 10\\6 & 12 & 9\end{matrix}\right) &  
+                                                                        \left(\begin{matrix}1 & 0 & 0\\0 & 1 & 0\\0 & 0 & 1\end{matrix}\right) \\
 
 \left(\begin{matrix}4 & 2 & 2\\6 & 6 & -3\end{matrix}\right) &  
 \left(\begin{matrix}1 & -1 & -2\\0 & 1 & 0\\0 & 0 & 1\end{matrix}\right) \\
@@ -521,28 +547,29 @@ Il existe donc forcément un vecteur entier $z$ tel que $A_j - B_j = Az$. On mon
   
   \begin{definition}
     \label{def:62}
-   Soit $A \in \mathbb{Z}^{m \times n}$. Le \emph{noyau} de $A$ sur $\Z$ est défini par $ker_{\mathbb{Z}}(A) := \left\{ y \in \mathbb{Z}^n, Ay=0 \right\}  $.
+    Soit $A \in \mathbb{Z}^{m \times n}$. Le \emph{noyau} de $A$ sur $\Z$ est défini par $ker_{\mathbb{Z}}(A) := \left\{ y \in \mathbb{Z}^n, Ay=0 \right\}  $.
   \end{definition}
   
-    \begin{theorem}
-      \label{thr:59}
+  \begin{theorem}
+    \label{thr:59}
     Soient $A,B \in \mathbb{Z}^{m \times m}$ en forme normale de Hermite avec $rang(A)=rang(B)=m$. Alors $\Lambda(A)=\Lambda(B) \Leftrightarrow \exists U\in \mathbb{Z}^{m \times m}$ unimodulaire telle que $B=AU$.
-    \end{theorem}
-    
-    \begin{proof}
-    $\\$
-    $\boxed { \Rightarrow  }$ Si $\Lambda(A)=\Lambda(B)$ alors $\\$ $A=BP, P\in \mathbb{Z}^{m \times m}$ $\\$ $B=AQ, Q\in \mathbb{Z}^{m \times m}$ $\\$ alors on obtient $A=AQP$ ce qui implique $QP=I_m$ et donc on a bien $P,Q$ unimodulaires.
-    $\\$
-    $\boxed { \Leftarrow  }$ Si $B=AU, U\in \mathbb{Z}^{m \times m}$ unimodulaire alors comme $U \mathbb{Z}^{m}= \mathbb{Z}^{m}$ on obtient immédiatement  $\Lambda(A)=\Lambda(B)$.
-    \end{proof}
-    \begin{definition}
-   	\label{def:48}
-	Soient $A\in \mathbb{Z}^{m \times n}$ avec $rang(A)=m$ et $\Lambda(A)$ le réseau entier de $A$. Le \emph{déterminant} du réseau $\Lambda(A)$ est donné par $det(\Lambda(A)):=|det(B)|$ où $B \in \mathbb{Z}^{m \times m}$ est une base de $\Lambda(A)$
-   
+  \end{theorem}
+  
+  \begin{proof}
+ Si $\Lambda(A)=\Lambda(B)$ alors $A=B⋅ P, P\in \mathbb{Z}^{m \times m}$ et  $B=A⋅Q, Q\in \mathbb{Z}^{m \times m}$. Alors on obtient $A=AQP$ ce qui implique $QP=I_m$ et donc on a bien $P,Q$ unimodulaires.
+
+ Si $B=AU, U\in \mathbb{Z}^{m \times m}$ unimodulaire alors comme $U \mathbb{Z}^{m}= \mathbb{Z}^{m}$ on obtient immédiatement  $\Lambda(A)=\Lambda(B)$.
+\end{proof}
+\begin{definition}
+  \label{def:48}
+  Soient $A\in \mathbb{Z}^{m \times n}$ avec $rang(A)=m$ et
+  $\Lambda(A)$ le réseau entier de $A$. Le \emph{déterminant} du
+  réseau $\Lambda(A)$ est donné par $\det(\Lambda(A)):=|\det(B)|$ où
+  $B \in \mathbb{Z}^{m \times m}$ est une base de $\Lambda(A)$
    \end{definition}
    
    \begin{remark}
-    Le théorème~\ref{thr:59} assure que $|det(B)|$ ne dépend pas du choix de $B$ et donc que $det(\Lambda(A))$ a du sens.
+    Le théorème~\ref{thr:59} assure que $|\det(B)|$ ne dépend pas du choix de $B$ et donc que $\det(\Lambda(A))$ a du sens.
     \end{remark}
   
 \section*{Exercices}
