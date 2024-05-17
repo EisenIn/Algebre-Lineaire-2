@@ -605,7 +605,9 @@ Soit
   et les coefficients
     non spécifiés sont $0$. 
   \end{theorem}
-  La matrice~\eqref{eq:58} est la \emph{forme normal de Smmith} de $A$. 
+  \noindent 
+  La matrice~\eqref{eq:58} est appelée
+  la \emph{forme normale de Smith} de $A$. 
 \begin{proof}
   On raisonne par récurrence sur $\min\{m,n\}$. Si $\min\{m,n\}=1$, la forme normale de Hermite de $A$ ou son transposé est en forme normale Smith.
 
@@ -615,7 +617,7 @@ Soit
     \min\{ | (U⋅A ⋅V )_{i,j} | : (U⋅A ⋅V )_{i,j} ≠ 0, \, 1≤ i ≤ m, \, 1 ≤ j ≤ n\} 
   \end{displaymath} est minimal. 
   Soit cette valeur minimale  $d$. En échangeant  lignes et colonnes et en multipliant la  par $-1$ si nécessaire, on peut supposer que $d  = (U⋅A ⋅V )_{1,1}$.
-  Tous composantes de la première  ligne de $U⋅A ⋅V$ sont des multiples de $d$ Autrement, si $(U⋅A ⋅V )_{1,j} = z$ où $z$ n'est pas un multiple de $d$ la division avec reste de $z$ par $d$ donne 
+  Tous composantes de la première  ligne de $U⋅A ⋅V$ sont des multiples de $d$. Autrement, si $(U⋅A ⋅V )_{1,j} = z$ où $z$ n'est pas un multiple de $d$, la division avec reste de $z$ par $d$ donne 
   \begin{displaymath}
     z = q ⋅ d + r, \, 0 < r < d. 
   \end{displaymath}
@@ -633,7 +635,7 @@ Soit
     composante après une opération élémentaire de colonnes. Ceci
     démontre que $d ∈ ℕ_+$ divise toute composante de $B$.
 
-    Par récurrence, $B$ possède une forme normale Smith et ses composantes sont tous de multiples de $d$. 
+    Par récurrence, $B$ possède une forme normale Smith et ses composantes sont tous des multiples de $d$. 
   
 \end{proof} 
 
