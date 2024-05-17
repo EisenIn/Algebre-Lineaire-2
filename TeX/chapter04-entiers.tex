@@ -586,13 +586,66 @@ Soit
   Montrer que $\ker_ℤ(A) = \{ y_1 u_1 + \cdots + y_{n-m} u_{n-m} ： y_i ∈ℤ\}$ où $u_1,\dots,u_{n-m}$ sont les dernières $n-m$ colonnes de $U$. 
 \end{enumerate}
 
-\section{La forme normale de Smith}
+\subsection*{La forme normale de Smith}
 \label{sec:la-forme-normale-smith}
+
+   \begin{theorem}
+    \label{thr:28}
+    Soit $A \in \mathbb{Z}^{m\times n}$, $A≠0$ alors il existent $ U \in \mathbb{Z}^{m\times m}$ et $V \in
+    \mathbb{Z}^{n\times n}$ unimodulaires telle que
+    \begin{equation}
+      \label{eq:58}
+    U⋅A⋅V = \begin{pmatrix}
+      \delta _{ 1 } & \quad & \quad & \quad & \quad \\ \quad & \ddots
+      & \quad & \quad & \quad \\ \quad& \quad& \delta _{ k } & \quad &
+      \quad \\ \quad & \quad & \quad & \quad &\quad
+    \end{pmatrix}, \quad \text{ avec } \delta_i \in
+    \mathbb{N}_{\ge1} \text{ et } \delta_1| \cdots |\delta_k
+  \end{equation}
+  et les coefficients
+    non spécifiés sont $0$. 
+  \end{theorem}
+  La matrice~\eqref{eq:58} est la \emph{forme normal de Smmith} de $A$. 
+\begin{proof}
+  On raisonne par récurrence sur $\min\{m,n\}$. Si $\min\{m,n\}=1$, la forme normale de Hermite de $A$ ou son transposé est en forme normale Smith.
+
+  Maintenant, soit  $\min\{m,n\}>1$. Soient  $ U \in \mathbb{Z}^{m\times m}$ et $V \in
+  \mathbb{Z}^{n\times n}$ unimodulaires telle que la valeur absolue minimale des éléments non-zéro de la matrice $U⋅A ⋅V$ est minimale, alors tel que
+  \begin{displaymath}
+    \min\{ | (U⋅A ⋅V )_{i,j} | : (U⋅A ⋅V )_{i,j} ≠ 0, \, 1≤ i ≤ m, \, 1 ≤ j ≤ n\} 
+  \end{displaymath} est minimal. 
+  Soit cette valeur minimale  $d$. En échangeant  lignes et colonnes et en multipliant la  par $-1$ si nécessaire, on peut supposer que $d  = (U⋅A ⋅V )_{1,1}$.
+  Tous composantes de la première  ligne de $U⋅A ⋅V$ sont des multiples de $d$ Autrement, si $(U⋅A ⋅V )_{1,j} = z$ où $z$ n'est pas un multiple de $d$ la division avec reste de $z$ par $d$ donne 
+  \begin{displaymath}
+    z = q ⋅ d + r, \, 0 < r < d. 
+  \end{displaymath}
+  Une opération élémentaire de colonne (soustraire $q$ fois colonne $1$ de colonne $j$) donne composante $i,j$ égal à $r$. Ceci est une contradiction à $d$ minimal. Également, $d$ divise toute composante de la première colonne de  $U⋅A ⋅V$. Alors on peut éliminer toute autre composante de la première ligne et colonne. Alors on peut supposer que
+  \begin{equation}
+      U⋅A ⋅V  =
+      \begin{pmatrix}
+        d & \\ 
+          & B 
+      \end{pmatrix}, \quad \text{ où }  B ∈ ℤ^{(m-1 ) × (n-1)}.  
+    \end{equation}
+    Maintenant, si $b_{i,j}$ n'est pas un multiple de $d$, on peut
+    additionner la ligne $i+1$ de $U⋅A ⋅V$ sur la première
+    ligne. Comme avant on obtient le reste de la division comme
+    composante après une opération élémentaire de colonnes. Ceci
+    démontre que $d ∈ ℕ_+$ divise toute composante de $B$.
+
+    Par récurrence, $B$ possède une forme normale Smith et ses composantes sont tous de multiples de $d$. 
+  
+\end{proof} 
+
+
+\subsection*{Sous groupes de $ℤ^n$} 
+\label{sec:sous-groupes-de}
 
 À partir de maintenant, on se donne une matrice $A\in \mathbb{Z}^{m\times n}$ avec $rang(A)=k$ et $k$ n'est pas forcément $m$.
 
 \begin{definition} \label{def:63}
-	Soit  $A\in \mathbb{Z}^{m\times n}$ alors $\Lambda(A)=\left\{ Ax,x\in \mathbb{R}^{n} \right\} $ est le \emph{réseau entier général} de $A$.
+  Soit  $A\in \mathbb{Z}^{m\times n}$ alors $\Lambda(A)=\left\{ Ax ：x\in \mathbb{Z
+    }^{n} \right\} $ est le \emph{réseau entier général} de $A$.
 \end{definition}
 
 
@@ -607,34 +660,41 @@ Soit
     \end{remark}
     
     \begin{proof}
-      Supposons que les   $k$ premières lignes de $A$ sont linéairement indépendantes. 
-    Dès lors on a $A=\begin{pmatrix} A' \\ A'' \end{pmatrix}$ avec $A'\in \mathbb{Z}^{k \times n}$ et $rang(A')=k$ soit alors $U\in \mathbb{Z}^{n \times n}$ unimodulaire tq. $A'U=[H|0]$ ou $H \in \mathbb{Z}^{k \times k}$ est en forme normale de Hermite. Alors on peut se convaincre en raisonnant sur les rangs que $AU=\begin{pmatrix} H & 0 \\ B & 0 \end{pmatrix}$. Dés lors on a $\Lambda(A)=A\mathbb{Z}^n=AU\mathbb{Z}^n=\begin{pmatrix} H \\ B \end{pmatrix}\mathbb{Z}^k=\Lambda(\begin{pmatrix} H \\ B \end{pmatrix})$.
-    
+      Supposons que les $k$ premières lignes de $A$ sont linéairement
+      indépendantes.  Dès lors on a
+      $A=\begin{pmatrix} A' \\ A'' \end{pmatrix}$ avec
+      $A'\in \mathbb{Z}^{k \times n}$ et $rang(A')=k$ soit alors
+      $U\in \mathbb{Z}^{n \times n}$ unimodulaire tq.
+      \begin{displaymath}
+        A' ⋅ U = [H \mid 0]
+      \end{displaymath}
+      ou
+      $H \in \mathbb{Z}^{k \times k}$ est en forme normale de
+      Hermite. Alors on peut se convaincre en raisonnant sur les rangs
+      que $AU=\begin{pmatrix} H & 0 \\ B & 0 \end{pmatrix}$. Dés lors
+      on a
+      \begin{eqnarray*}
+        \Lambda(A) & = & A\mathbb{Z}^n \\
+                   & = & A⋅U \, \mathbb{Z}^n \\
+        & = & \left[\begin{matrix} H   \\
+          B \end{matrix} \right]\mathbb{Z}^k \\
+        & = & \Lambda\left(  \left[\begin{matrix} H   \\
+          B \end{matrix} \right]  \right).
+      \end{eqnarray*}      
     \end{proof}
     
     \begin{theorem}
     \label{thr:28}
-    Soit $G$ un sous groupe de $\mathbb{Z}^n$ alors $\exists B \in \mathbb{Z}^{n \times k}$ avec $rang(B)=k$ et tq. $\Lambda(B)=G$ 
+    Soit $G$ un sous groupe de $\mathbb{Z}^n$ alors il existe $B \in \mathbb{Z}^{n \times k}$ avec $rang(B)=k$ et tq. $\Lambda(B)=G$ 
     \end{theorem}
     
     \begin{proof}
-    Soit $(v_1,\dots,v_k) \in G^k$ tq.  $(v_1,\dots,v_k)$ est une base de $span(G)$ (qui existe car on peut toujours extraire une base d'un espace de dimension fini d'une partie génératrice même infinie). Alors posons $B=(v_1\dots v_k)$$\\$
-    \underline { cas\quad 1: } $\Lambda(B)=G$ et c'est terminé. $\\$
-     \underline { cas\quad 2: }  $\Lambda(B)\subsetneq G$ alors $\exists v^* \in G-\Lambda(B)$. Soit alors $B^* \in \mathbb{Z}^{n \times k}$ une base générale du réseau général $G\supseteq \Lambda(v_1\dots v_k v^*)\supsetneq  \Lambda(B)$. Alors $\exists U\in \mathbb{Z}^{k \times k}$ tq. $B=B^*U$ et on a nécessairement $|det(U)| \in \mathbb{N} _{\ge 2}$. Dés lors on peut remarquer que $|det({B^TB})|=det(U)^2\times|det(B^{*^{T}}B^*)|$ et donc $|det({B^TB})|\le \frac { 1 }{ 4 } |det({B^TB})|$ mais comme $|det(B^{*^{T}}B^*)|\ge 1$ et on peut répéter ces opérations sur $B^*$ mais ce procédé ne peut pas continuer indéfiniment.
+    Soit $(v_1,\dots,v_k) \in G^k$ tq.  $(v_1,\dots,v_k)$ est une base du sous espace  $\spa(G)⊆ ℝ^n$. Alors posons $B=(v_1\dots v_k) ∈ ℤ^{n ×k}$.  
+    Si  $\Lambda(B)=G$ et c'est terminé. 
+   Si  $\Lambda(B)\subsetneq G$ alors il existe $ v^* \in G-\Lambda(B)$. Soit alors $B^* \in \mathbb{Z}^{n \times k}$ une base générale du réseau général $G\supseteq \Lambda(v_1\dots v_k v^*)\supsetneq  \Lambda(B)$. Alors il existe $ U\in \mathbb{Z}^{k \times k}$ tq. $B=B^*U$ et on a nécessairement $|\det(U)| \in \mathbb{N} _{\ge 2}$. Dés lors on peut remarquer que $|\det({B^TB})|=\det(U)^2\times|\det(B^{*^{T}}B^*)|$ et donc $|\det({B^TB})|\le \frac { 1 }{ 4 } |\det({B^TB})|$ mais comme $|\det(B^{*^{T}}B^*)|\ge 1$ et on peut répéter ces opérations sur $B^*$ mais ce procédé ne peut pas continuer indéfiniment.
     \end{proof}
     
-     \begin{theorem}
-    \label{thr:28}
-    Soit $A \in \mathbb{Z}^{m\times n} - \left\{ 0 \right\} $ alors $\exists U \in \mathbb{Z}^{m\times m}$ et $V \in \mathbb{Z}^{n\times n}$ unimodulaires tq. $UAV = \begin{pmatrix} \delta _{ 1 } & \quad & \quad  & \quad & \quad \\ \quad & \ddots  & \quad & \quad & \quad \\  \quad&  \quad& \delta _{ k } & \quad & \quad \\ \quad & \quad & \quad & \quad &\quad  \end{pmatrix}$  avec $\delta_i \in \mathbb{N}_{\ge1}$ et $\delta_1|...|\delta_k$ et les coefficients non spécifiés sont 0.
-    \end{theorem}
-\begin{proof}
-On raisonne par récurrence sur m.$\\$
- \underline { m=1: } alors $A=(a_1 \dots a_n)$ mais alors on sait que $\exists V \in \mathbb{Z}^{n\times n}$ tq. $A\dashrightarrow (d \quad 0\dots 0)$. On prenant $U=I_m$ on termine l'initialisation.$\\$
-  \underline { m $>$ 1: } Si nécessaire on échange les lignes de $A$ de sorte à ce que la première ligne soit non nulle. Alors $A=\begin{pmatrix}  a_1& \dots &a_n \\ \quad &  A'&\quad \end{pmatrix}$ et on sait que $\exists V \in \mathbb{Z}^{n\times n}$ tq. $A\dashrightarrow \begin{pmatrix} d & 0 & \dots  & 0 \\ \alpha _{ 2 } & \quad  & \quad  & \quad  \\ \vdots  & \quad  & A''  & \quad \\ \alpha _{ m } & \quad  & \quad  & \quad  \end{pmatrix}$ $\\$
-  Si $d|\alpha_i \quad \forall i\in \left\{ 2,\dots, m \right\} $ alors on effectue $L_i \leftarrow  L_i - \frac {\alpha_i}{ d } L_1$ et on obtient $A\dashrightarrow \begin{pmatrix} d & 0 & \dots  & 0 \\ 0 & \quad  & \quad  & \quad  \\ \vdots  & \quad  & A''  & \quad \\ 0 & \quad  & \quad  & \quad  \end{pmatrix}$ $\\$
-  Sinon $d\nmid  \alpha_j$ pour $j\in \left\{ 2,\dots, m \right\}$ et donc on a $pgcd(d,\alpha_2,\dots,\alpha_n)<d$. Ainsi $\exists U \in \mathbb{Z}^{m\times m}$ tq. $A\dashrightarrow \begin{pmatrix} \widetilde { d }  & \beta_2 & \dots  & \beta_n \\ 0 & \quad  & \quad  & \quad  \\ \vdots  & \quad  & A'''  & \quad \\ 0 & \quad  & \quad  & \quad  \end{pmatrix}$ avec $\widetilde { d } <d$. On construit alors une suite strictement décroissante de $\widetilde { d }$ mais ce dernier doit rester strictement positif et donc ce procédé se termine forcément. On obtient donc finalement $A\dashrightarrow \begin{pmatrix} f & 0 & \dots  & 0 \\ 0 & \quad  & \quad  & \quad  \\ \vdots  & \quad  & A^*  & \quad \\ 0 & \quad  & \quad  & \quad  \end{pmatrix}$. Mais par hypotèse de récurrence on sait que $\exists U^*\in \mathbb{Z}^{m-1 \times m-1}, V^*\in \mathbb{Z}^{n-1 \times n-1}$ unimodulaires tqs. $U^*A^*V^*=\begin{pmatrix} d_{ 2 } & \quad  & \quad  & \quad  \\ \quad  & \ddots & \quad  & \quad  \\ \quad  & \quad  & d_k & \quad  \\ \quad  & \quad  & \quad  & \quad  \end{pmatrix}$ avec $d_2|\dots |d_k$ dès lors on remarque que $\begin{pmatrix} 1 & \quad  \\ \quad  & U ^*\end{pmatrix}A\begin{pmatrix} 1 & \quad  \\ \quad  & V^{ * } \end{pmatrix}=\begin{pmatrix} f & \quad  & \quad  & \quad  \\ \quad  & \ddots & \quad  & \quad  \\ \quad  & \quad  & d_k & \quad  \\ \quad  & \quad  & \quad  & \quad  \end{pmatrix}$. Dès lors si $f|d_2$ c'est terminé sinon on peut effectuer l'opération $L_1\leftarrow L_1+L_2$ et transformer  $A\dashrightarrow \begin{pmatrix} f & d_2  & \quad  & \quad  \\ \quad  & \ddots & \quad  & \quad  \\ \quad  & \quad  & d_k & \quad  \\ \quad  & \quad  & \quad  & \quad  \end{pmatrix}$ puis on répète l'argument déjà utilisé pour transformer cette nouvelle matrice en $A\dashrightarrow \begin{pmatrix} \widetilde { f }& \quad  & \quad  & \quad  \\ \quad  & \ddots & \quad  & \quad  \\ \quad  & \quad  & d'_{k'} & \quad  \\ \quad  & \quad  & \quad  & \quad  \end{pmatrix}$ avec $\widetilde { f }<f$. Une fois de plus ce procédé crée une suite strictement décroissante de $\widetilde { f }$, ce dernier restant strictement positif le processus doit se terminer et on finit par obtenir  $A\dashrightarrow \begin{pmatrix} d_1& \quad  & \quad  & \quad  \\ \quad  & \ddots & \quad  & \quad  \\ \quad  & \quad  & d_{k} & \quad  \\ \quad  & \quad  & \quad  & \quad  \end{pmatrix}$ avec $d_1|\dots|d_k$.
-\end{proof} 
-    
+  
     
 %%% Local Variables:
 %%% mode: latex
