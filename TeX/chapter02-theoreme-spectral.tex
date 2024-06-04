@@ -594,12 +594,12 @@ où $R$ est une matrice triangulaire supérieure dont les éléments diagonaux s
 \item Une matrice symétrique $A \in \R^{n \times n}$ est définie négative, si et seulement si $\det(B_k) \neq 0$ et $\det(B_k) = (-1)^k|\det(B_k)|$ pour tout $k$. 
 \item Une matrice symétrique $A \in \R^{n \times n}$ est semi-définie négative, si et seulement si $\det(B_K) = (-1)^{|K|}|\det(B_K)|$ pour tout $K\subseteq \{1,.\dots,n\}$.  
 \item Montrer la partie \eqref{eq:13} du théorème~\ref{thr:19}. 
-% \item 
-% Soit $A \in \R^{n \times n}$ une matrice symétrique avec les valeurs propres $\lambda_1 \geq \dots \geq \lambda_n$. 
-% Soit $B_K$ une matrice comme décrite en dessus o\`u $|K| = k$ avec les valeurs propres  $\mu_1 \geq \dots  \geq \mu_{n-k}$. Pour $1 \leq i \leq k$, alors 
-% \begin{displaymath}
-%   \lambda_i \geq  \mu_i \geq  \lambda_{i+k}.
-% \end{displaymath}
+\item 
+Soit $A \in \R^{n \times n}$ une matrice symétrique avec les valeurs propres $\lambda_1 \geq \dots \geq \lambda_n$. 
+Soit $B_K$ une matrice comme décrite en dessus o\`u $|K| = k$ avec les valeurs propres  $\mu_1 \geq \dots  \geq \mu_{n-k}$. Pour $1 \leq i \leq k$, alors 
+\begin{displaymath}
+  \lambda_i \geq  \mu_i \geq  \lambda_{i+k}.
+\end{displaymath}
  
 \end{enumerate}
 
@@ -648,7 +648,7 @@ On commence avec un théorème qui décrit la décomposition en valeurs singuli�
   \label{thr:21}
   Une matrice $A \in \C^{m \times n}$ peut être décomposée comme 
   \begin{displaymath}
-    A = P\cdot D \cdot Q
+    A = P\cdot D \cdot Q^*
   \end{displaymath}
 où $P \in \C^{m \times m}$ et $Q \in \C^{n \times n}$ sont unitaires et $D \in \R_{\geq 0}^{m \times n}$ est une matrice diagonale. Si $A$ est réelle, $P$ et $Q$ sont réelles. 
 \end{theorem}
@@ -659,11 +659,11 @@ où $P \in \C^{m \times m}$ et $Q \in \C^{n \times n}$ sont unitaires et $D \in 
   \begin{displaymath}
     x^*A^*Ax = (Ax)^* (Ax) \geq 0. 
   \end{displaymath}
-Alors les valeurs propres de $A^*A$ sont non-négatives ($\lambda_i\geq 0$). Soient $\sigma_1^2 \geq \sigma_2^2 \dots \geq \sigma_n^2\geq 0$ les valeurs propres où $σ_i ∈ ℝ_{≥0}$ pour tous $i ∈ \{1,\dots,n\}$   et soit $\{u_1,\dots,u_n\}$ une base orthonormale  correspondante de vecteurs propres. La matrice $Q \in \C^{n \times n}$ est la matrice dont les lignes sont $u_1^*, \dots, u_n^*$. 
+Alors les valeurs propres de $A^*A$ sont non-négatives ($\lambda_i\geq 0$). Soient $\sigma_1^2 \geq \sigma_2^2 \dots \geq \sigma_n^2\geq 0$ les valeurs propres où $σ_i ∈ ℝ_{≥0}$ pour tous $i ∈ \{1,\dots,n\}$   et soit $\{u_1,\dots,u_n\}$ une base orthonormale  correspondante de vecteurs propres. La matrice $Q \in \C^{n \times n}$ est la matrice dont les colonnes sont $u_1, \dots, u_n$. 
 
 Soit $ r \in \N_0$ le nombre de $σ_i$ strictement positif,  %$i=1,\dots, n$, c.à.d.
 \begin{displaymath}
-  r = \mid \large\{ i ∈ \{1,\dots,n\} ： σ_i>0, \large\}\mid.  
+  r = \max \large\{ i ∈ \{1,\dots,n\} ： σ_i>0, \large\}.  
 \end{displaymath}
 % On a $\sigma_1 \geq \ldots \geq \sigma_r > 0=\sigma_{r+1} = \ldots = 0=\sigma_n  $.
 Nous construisons les vecteurs 
@@ -680,17 +680,17 @@ et pour $1 \leq i\neq j \leq r$,
 \end{displaymath}
 Avec le procédé de Gram-Schmidt, nous complétons les $v_i$ tels que $\{v_1,\dots,v_m\}$ est une base orthonormale de $\C^m$. Les colonnes de la matrices $P$ sont alors $v_1,\dots,v_m$ dans cet ordre. La matrice $D \in \C^{m\times n}$ est la matrice diagonale dont les $r$ premières composantes sur la diagonale sont $\sigma_1,\dots,\sigma_r$ dans cet ordre. Avec ces matrices  $P,D$ et $Q$ nous avons 
 \begin{displaymath}
-  A = P\cdot D \cdot Q 
+  A = P\cdot D \cdot Q^*
 \end{displaymath}
 ou de manière équivalente 
 \begin{displaymath}
-  P^* \cdot A \cdot Q^* = D,
+  P^* \cdot A \cdot Q = D,
 \end{displaymath}
 
 Nous montrons  ça en détail. Nous avons 
 \begin{equation}
   \label{eq:39}
-     (P^* \cdot A \cdot Q^*)_{ij} = v_i^* A u_j 
+     (P^* \cdot A \cdot Q)_{ij} = v_i^* A u_j 
 \end{equation}
 et c'est égal à zéro si $j > r$, parce que dans ce cas $A u_j =0$ dès que $u_j^*A^*Au_j = 0$.
 Si $i>r$ \eqref{eq:39} pas égale  a zéro implique $A u_j \neq 0$ et alors $j≤r$. Mais dans ce cas, par construction, $v_i$ est orthogonal à  $A u_j / σ_j$ et \eqref{eq:39}  est néanmoins zéro. 
@@ -710,7 +710,7 @@ Et  si $1 ≤i,j \leq r$, alors
 \begin{definition}
   \label{def:24}
   En suivant la notation du théorème~\ref{thr:21}, 
-  les nombres $\sigma_1,\dots,\sigma_r$ sont les \emph{valeurs singulières} de $A$. La factorisation $A = P\cdot D \cdot Q$ est une \emph{décomposition en valeurs singulières}. 
+  les nombres $\sigma_1,\dots,\sigma_r$ sont les \emph{valeurs singulières} de $A$. La factorisation $A = P\cdot D \cdot Q^*$ est une \emph{décomposition en valeurs singulières}. 
 \end{definition}
 
 
@@ -741,9 +741,9 @@ On obtient $\sigma_1 = 2, \sigma_2 = 1$ et $\sigma_3 = 0$. Les valeurs singuliè
 \begin{displaymath}
   Q =
   \begin{pmatrix}
-    0 & 1 & 0 \\
-    0 & 0 & 1  \\
-    1 & 0 & 0  
+    0 & 0 & 1 \\
+    1 & 0 & 0  \\
+    0 & 1 & 0  
   \end{pmatrix}
 \end{displaymath}
 et
@@ -813,9 +813,9 @@ où $\sigma_i \in \R_{>0}$ est
     \in \R^{n \times m}
 \end{displaymath}
 Toutes les composantes qui ne sont pas décrites sont zéro. 
-La \emph{pseudo inverse} d'une matrice $A \in \C^{m \times n}$ avec une décomposition en valeurs singulières $A = P \cdot D \cdot Q$ est 
+La \emph{pseudo inverse} d'une matrice $A \in \C^{m \times n}$ avec une décomposition en valeurs singulières $A = P \cdot D \cdot Q^*$ est 
 \begin{displaymath}
-  A^+ = Q^* D^+ P^*. 
+  A^+ = Q D^+ P^*. 
 \end{displaymath}
 
 \end{definition}
@@ -867,11 +867,11 @@ Pourquoi est-ce que nous parlons de \emph{la} pseudo inverse? Parce qu'elle est 
 \end{theorem}
 
 \begin{proof}
-  Soit $A = PDQ$ une décomposition en valeurs singulières et $A^+ = Q^*D^+P^*$.  Il est facile de voir que $D^+$ satisfait les conditions \ref{pen1}-\ref{pen4} relatives à $D$. Les conditions sont aussi vite montrées pour $A$ et $A^+$. Par exemple \ref{pen1} est montrée comme suit : 
+  Soit $A = PDQ^*$ une décomposition en valeurs singulières et $A^+ = QD^+P^*$.  Il est facile de voir que $D^+$ satisfait les conditions \ref{pen1}-\ref{pen4} relatives à $D$. Les conditions sont aussi vite montrées pour $A$ et $A^+$. Par exemple \ref{pen1} est montrée comme suit : 
   \begin{eqnarray*}
-    A A^+A & = & PDQQ^*D^+P^*PDQ \\
-           & = & PDD^+DQ \\
-           & = & PDQ\\
+    A A^+A & = & PDQ^*QD^+P^*PDQ^* \\
+           & = & PDD^+DQ^* \\
+           & = & PDQ^*\\
            & = & A. 
   \end{eqnarray*}
 Il est un exercice de vérifier les  conditions \ref{pen2}-\ref{pen4}.
@@ -911,17 +911,17 @@ où $A^+$ est la pseudo inverse de $A$.
 \begin{proof}
 Tout d'abord on remarque que pour $B\in \mathbb{C}^{n \times n}$ unitaire et $ y\in \mathbb{C}^n, \|y\|^2=y^T\overline {y}=y^TB^T\overline { B}\overline { y }=\|By\|^2$. Ainsi on a 
   \begin{eqnarray*}
-    \min_{x \in \C^n} \|Ax - b\| & = &      \min_{x \in \C^n} \|PDQx - b\| =     \min_{x \in \C^n} \|P^* (PDQx - b)\|        \\
-     & = &     \min_{x \in \C^n} \|DQx - P^*b\| =     \min_{y \in \C^n} \|Dy - P^*b \| \\
+    \min_{x \in \C^n} \|Ax - b\| & = &      \min_{x \in \C^n} \|PDQ^*x - b\| =     \min_{x \in \C^n} \|P^* (PDQ^*x - b)\|        \\
+     & = &     \min_{x \in \C^n} \|DQ^*x - P^*b\| =     \min_{y \in \C^n} \|Dy - P^*b \| \\
       & = &       \min_{y \in \C^n} \|Dy - c \|
   \end{eqnarray*}
-où $c  = P^*b$. Dès lors on peut facilement vérifier que $y$ est une solution minimale de $Dy=c \Leftrightarrow  Q^*y$ est une solution minimale de $Ax=b$. Mais comme les solutions optimales de $Dy=c$  sont les $y \in \C^n$ tels que $y_i = c_i / \sigma_i $ pour $1 \leq i \leq r$ et $y_{r+1} \dots y_n$ sont arbitraires alors la solution où $y_{r+1} =\dots= y_n=0$ est celle de norme minimale. Elle est donnée par
+où $c  = P^*b$. Dès lors on peut facilement vérifier que $y$ est une solution minimale de $Dy=c \Leftrightarrow  Qy$ est une solution minimale de $Ax=b$. Mais comme les solutions optimales de $Dy=c$  sont les $y \in \C^n$ tels que $y_i = c_i / \sigma_i $ pour $1 \leq i \leq r$ et $y_{r+1} \dots y_n$ sont arbitraires alors la solution où $y_{r+1} =\dots= y_n=0$ est celle de norme minimale. Elle est donnée par
 \begin{displaymath}
   y = D^+ c. 
 \end{displaymath}
 La solution minimale de \eqref{eq:14} est alors 
 \begin{displaymath}
-  x = Q^*y = Q^* D^+ P^* b = A^+b. 
+  x = Qy = Q D^+ P^* b = A^+b. 
 \end{displaymath}
 \end{proof}
 
@@ -1132,7 +1132,7 @@ Maintenant nous allons résoudre le problème suivant. Étant donnés $A \in \R^
 \end{displaymath}
 soit minimale. 
 
-Si $A = P \cdot \diag(\sigma_1,\dots,\sigma_r,0,\dots 0) \cdot Q$ est une décomposition en valeurs singulières où les colonnes de $P$ sont $v_1,\dots,v_m$ et les lignes de $Q$ sont $u_1^T,\dots,u_n^T$ on peut écrire
+Si $A = P \cdot \diag(\sigma_1,\dots,\sigma_r,0,\dots 0) \cdot Q^T$ est une décomposition en valeurs singulières où les colonnes de $P$ sont $v_1,\dots,v_m$ et les colonnes de $Q$ sont $u_1,\dots,u_n$ on peut écrire
 \begin{equation}
   \label{eq:18}
   A = \sum_{i=1}^r \sigma_i v_iu_i^T
