@@ -1,33 +1,3 @@
-\RequirePackage[2020-02-02]{latexrelease}
-\makeatletter\let\ifGm@compatii\relax\makeatother
-
-% Otherwise some colors may look a bit different in ipe and TeX
-\PassOptionsToPackage{rgb}{xcolor}
-
-\documentclass[t,aspectratio=149,mathserif]{beamer}     
-  
-    
-\usepackage[utf8]{inputenc}   
-\usepackage{utf8math}
-
-%Uncomment again! 
-
-%\usepackage{kerkis}
-%\usepackage{kmath}
-%\renewcommand{\rmdefault}{ibh}
-\usepackage{helvet}
-\usepackage{concmath}
- 
-
-
-%%%%%%% Beamer Style 
-\setbeamertemplate{footline}{}
-\beamertemplatenavigationsymbolsempty
-
-\usetheme{default}
-\usecolortheme{beaver}
-
-%%%%%%%
  
 %----------------------------------------------------------------------------------------
 %	PACKAGES AND THEMES
@@ -138,23 +108,29 @@
 %	TITLE PAGE
 %----------------------------------------------------------------------------------------
 
-\title[Sums of square roots]{Cutting planes and Fixed Parameter Tractability}
-\subtitle{}
+\title{Algèbre linéaire avancée II - diagonalisation}
+\subtitle{ MATH-115(a) }
 
 \author[Eisenbrand]{Fritz Eisenbrand}
 
  
  
 
-\date[\today]{ \\ \vspace{.0cm} Joint work with T. Rothvoss } 
-
+\date{}
 %----------------------------------------------------------------------------------------
 %	PRESENTATION SLIDES
 %----------------------------------------------------------------------------------------
 
 \begin{document}
-\include{body}
 
+\begin{frame}[plain]
+    % Print the title page as the first slide
+    \titlepage
+\end{frame}
+
+\pagestyle{empty} 
+
+ \include{body}
  
 \end{document}
 
