@@ -1401,6 +1401,22 @@ Il est clair, qu'il faut s'occuper maintenant des applications linéaires
 \end{displaymath}
 qui sont de la forme $N + λ I$ pour une application nilpotente $N$. Le théorème suivant s'occupe des applications linéaires nilpotentes. La matrice de $λI$ est toujours $λ I$ pour chaque base. Il est alors clair que le théorème suivant démontre le théorème~\ref{thr:41}. 
 
+\begin{definition}
+  \label{def:36}
+    Pour $x \in V \setminus \{0\}$ on appelle 
+  \begin{displaymath}
+    m_x = \min \{ i \colon N^ix = 0\}
+  \end{displaymath}
+  la \emph{durée de vie} de $x$. 
+  La séquence 
+  \begin{displaymath}
+    x, Nx, \dots, N^{m_x-1} x
+  \end{displaymath}
+  est l'\emph{orbite} de $x$ sous $N$.
+  \end{definition}
+  
+  
+
 \begin{theorem}
   \label{thr:38}
   Soit $V$ un espace vectoriel sur $\C$ de dimension finie et $N\colon V ⟶V$  une application linéaire nilpotente.  Alors $V$ possède une base $ℬ$ de la forme 
@@ -1444,17 +1460,6 @@ en forme normale de Jordan.
 
 
 \begin{proof}[Démonstration du Théorème~\ref{thr:38}] 
-  Pour $x \in V \setminus \{0\}$ on appelle 
-  \begin{displaymath}
-    m_x = \min \{ i \colon N^ix = 0\}
-  \end{displaymath}
-  la \emph{durée de vie} de $x$. 
-  La séquence 
-  \begin{displaymath}
-    x, Nx, \dots, N^{m_x-1} x
-  \end{displaymath}
-  est l'\emph{orbite} de $x$ sous $N$. 
-  
   En concaténant les orbites des éléments d'une base et en travaillant sur cet ensemble, nous obtiendrons un ensemble de vecteurs qui engendrent $V$. 
   Supposons alors qu'au début de l'étape $q$, nous avons un ensemble $x_1,\dots,x_\ell$ avec $x_1,\dots,x_\ell \neq0$  dont les orbites 
   \begin{equation}
