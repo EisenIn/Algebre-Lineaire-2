@@ -1,0 +1,284 @@
+\pagestyle{empty} 
+
+\begin{frame}{}
+
+  Soit $V$
+  un espace vectoriel sur  $\C$ et 
+  \begin{displaymath}
+    \pscal{,} : V × V ⟶ ℂ 
+  \end{displaymath}
+  
+  \begin{enumerate}[PH 1]
+  \item On a $\pscal{v,w} = \overline{\pscal{w,v}}$ pour tout $v,w \in V$.  \label{ph1}
+  \item Si $u,v$ et $w$ sont des éléments de $V$,  \label{ph2}
+    \begin{displaymath}
+      \pscal{u,v+w} = \pscal{u,v}+\pscal{u,w} \, \text{ et } \,  \pscal{v+w,u} = \pscal{v,u}+\pscal{w,u}
+    \end{displaymath}
+  \item Si $x \in \C$ et $u,v \in V$,  \label{ph3}
+    \begin{displaymath}
+       \pscal{x \cdot u , v} = x \pscal{u,v} \, \text{ et } \,   \pscal{u , x \cdot v} = \overline{x}\cdot  \pscal{u,v}.
+    \end{displaymath}  
+  \end{enumerate}
+  \noindent
+on dit que $\pscal{,}$ est 
+\begin{enumerate}[i)]
+\item une \emph{forme sesquilinéaire}, si $\pscal{,}$ satisfait 
+  PH~\ref{ph2} et PH~\ref{ph3}. 
+\item une \emph{forme hermitienne}, si $\pscal{,}$ satisfait 
+  PH~\ref{ph1}, PH~\ref{ph2} et PH~\ref{ph3}. 
+\item un \emph{produit hermitien}, si   $\pscal{,}$ satisfait 
+  PH~\ref{ph1}, PH~\ref{ph2} et PH~\ref{ph3} et 
+  \begin{displaymath}
+    \pscal{v,v} >0, \text{ pour tout } v \in V \setminus \{0\}. 
+  \end{displaymath}
+\end{enumerate}
+
+    
+  
+\end{frame}
+
+
+\begin{frame}
+  
+Une forme  sesquilinéaire  est \emph{non dégénérée à gauche} si la condition suivante est vérifiée. 
+\begin{quote}
+  Si $v \in V$ et si $\pscal{v,w}=0$ pour tout $w \in V$, alors $v = 0$. 
+\end{quote}
+
+\end{frame}
+   
+
+
+
+
+\begin{frame}
+  \begin{definition}
+    Si $\pscal{,} $  est une forme hermitienne, 
+pour tout $v \in V$, on a $\pscal{v,v} \in \R$ dès que $\pscal{v,v} = \overline{\pscal{v,v}}$ par PH~\ref{ph1}.  On dit que la forme hermitienne   est \emph{définie positif} si $\pscal{v,v} >0$ pour tout $v \in V \setminus\{0\}$. Alors un produit hermitien est une forme hermitienne définie positif. 
+  \end{definition}
+\end{frame}
+ 
+
+
+\begin{frame}
+
+  
+\begin{example}
+  \label{exe:12}
+  Le produit \emph{hermitien standard} de $\C^n$ 
+  \begin{displaymath}
+    \pscal{u,v} = \sum_i u_i \overline{v_i}
+  \end{displaymath}
+  satisfait les condition PH~\ref{ph1}-\ref{ph3} et est défini positif.  
+\end{example}
+
+
+
+\end{frame}
+
+
+
+\begin{frame}
+  
+Les notions d'\emph{orthogonalité, de perpendicularité, de base orthogonale} et \emph{de supplémentaire orthogonal}  sont définies comme avant. Aussi les  \emph{coefficients de Fourier} sont les mêmes.
+Soit $w ∈ V$, $w ≠0$ et $v ∈V$. On cherche $α ∈ ℂ$ satisfaisant
+\begin{displaymath}
+  〈 w, v - α w 〉 = 0. 
+\end{displaymath}
+On trouve $\wb{α} = 〈w,v〉 / 〈 w,w〉$. Puisque $〈 w,w〉 ∈ ℝ$ et  $\wb{〈w,v〉} =  〈v,w〉$, alors
+\begin{displaymath}
+  α = 〈v,w〉 / 〈 w,w〉. 
+\end{displaymath}
+\end{frame}
+
+\begin{frame}
+  
+Soient $V$ un espace vectoriel sur $\C$ de dimension finie et $f: V \times V \longrightarrow \C$ une forme sesquilinéaire. Pour une base  $B = \{v_1,\dots,v_n\}$ de $V$ et $x = \sum_i \alpha_i v_i$ et $y = \sum_i \beta_i v_i$ on a 
+\begin{displaymath}
+  \pscal{x,y} = \sum_{ij} \alpha_i\overline{\beta_j} f(v_i,v_j)
+\end{displaymath}
+\end{frame}
+
+
+\begin{frame}
+  
+\end{frame}
+
+
+
+
+\begin{frame}
+
+  \begin{definition}
+  \label{def:17}
+  Une matrice $A \in \C^{n \times n}$ est appelée \emph{hermitienne} si on a 
+  \begin{displaymath}
+    A = \overline{A^T}. 
+  \end{displaymath}
+\end{definition}
+
+\end{frame}
+
+
+\begin{frame}
+
+
+\begin{lemma}
+  \label{prop:3}
+  Soit  $V$  un espace vectoriel sur $\C$ de dimension finie et soit $B$  une base de $V$. Une forme sesquilinéaire $f$ est une forme hermitienne si et seulement si $A_B^f$ est hermitienne.  
+\end{lemma}
+
+  
+\end{frame}
+
+
+\begin{frame}
+
+  
+\end{frame}
+
+
+
+\begin{frame}
+
+  
+\begin{definition}
+  \label{def:18}
+  Deux matrices $A,B \in \C^{n \times n}$ sont \emph{congruentes complexes} s'il existe une matrice inversible $P \in \C^{n \times n}$ telle que $A = {P^T} \cdot B \cdot \overline{P}$. Nous écrivons $A \cong_\C B$.  
+\end{definition}
+\end{frame}
+
+
+
+\begin{frame}
+  
+\begin{theorem}
+  \label{thr:11}
+  Soit $V$ un espace vectoriel sur $\C$ de dimension finie, muni d'une forme  hermitienne. Alors $V$ possède une base orthogonale. 
+\end{theorem}
+\end{frame}
+
+
+
+\begin{frame}
+
+  
+\end{frame}
+
+
+\begin{frame}{Exemple}
+  \scriptsize
+
+  
+
+
+  On considère la matrice hermitienne 
+  \begin{displaymath}
+    A = \left[\begin{matrix}0 & - i & 3 + 4 i\\i & -2 & 12\\3 - 4 i & 12 & 5\end{matrix}\right]
+  \end{displaymath}
+et le but est de trouver une matrice inversible $P \in \C^{3 \times 3}$ telle que 
+\begin{displaymath}
+  P^T \cdot A \cdot \overline{P}
+\end{displaymath}
+est une matrice diagonale. Nous échangeons la première et la deuxième colonne ainsi que la première et la deuxième ligne et obtenons 
+\begin{displaymath}
+\left[\begin{matrix}-2 & i & 12\\- i & 0 & 3 + 4 i\\12 & 3 - 4 i & 5\end{matrix}\right]. 
+\end{displaymath}
+Après on transforme 
+\begin{displaymath}
+\left[\begin{matrix}1 & 0 & 0\\- 0.5 i & 1 & 0\\6 & 0 & 1\end{matrix}\right]\cdot  \left[\begin{matrix}-2 & i & 12\\- i & 0 & 3 + 4 i\\12 & 3 - 4 i & 5\end{matrix}\right]\cdot  
+\left[\begin{matrix}1 & 0.5 i & 6\\0 & 1 & 0\\0 & 0 & 1\end{matrix}\right]
+  = 
+\left[\begin{matrix}-2 & 0 & 0\\0 & 0.5 & 3 - 2 i\\0 & 3 + 2 i & 77\end{matrix}\right]
+\end{displaymath}
+
+\end{frame}
+\begin{frame}
+  \scriptsize 
+La prochaine transformation est 
+
+\begin{displaymath}
+  \left[\begin{matrix}1 & 0 & 0\\0 & 1 & 0\\0 & -6 - 4 i & 1\end{matrix}\right] \cdot 
+\left[\begin{matrix}-2 & 0 & 0\\0 & 0.5 & 3 - 2 i\\0 & 3 + 2 i & 77\end{matrix}\right] \cdot 
+\left[\begin{matrix}1 & 0 & 0\\0 & 1 & -6 + 4 i\\0 & 0 & 1\end{matrix}\right] = 
+\left[\begin{matrix}-2 & 0 & 0\\0 & 0.5 & 0\\0 & 0 & 51\end{matrix}\right]. 
+\end{displaymath}
+Pour 
+\begin{displaymath}
+P =   \left[\begin{matrix}0 & 1 & 0\\1 & 0 & 0\\0 & 0 & 1\end{matrix}\right] \cdot 
+\left[\begin{matrix}1 & - 0.5 i & 6\\0 & 1 & 0\\0 & 0 & 1\end{matrix}\right]
+\cdot 
+\left[\begin{matrix}1 & 0 & 0\\0 & 1 & -6 - 4 i\\0 & 0 & 1\end{matrix}\right]
+\end{displaymath}
+on obtient 
+\begin{displaymath}
+  P^T \cdot A \cdot \overline{P} = \left[\begin{matrix}-2 & 0 & 0\\0 & 0.5 & 0\\0 & 0 & 51\end{matrix}\right]. 
+\end{displaymath}
+
+
+
+  
+\end{frame}
+
+
+\begin{frame}{Espaces hermitiens}
+
+
+\begin{definition}
+  \label{def:h5}
+  Soit $\pscal{,}$ un produit hermitien. La \emph{longueur} ou la \emph{norme} d'un élément $v \in V$ est le nombre 
+  \begin{displaymath}
+    \| v \| = \sqrt{\pscal{v,v}}.
+  \end{displaymath}
+  Un élément $v \in V$ est un \emph{vecteur unitaire} si $\|v\| = 1$. 
+\end{definition}
+
+  
+\end{frame}
+
+
+\begin{frame}{Les propriétés suivantes sont facilement vérifiées}
+\begin{enumerate}[i)]
+\item Pour tout $v \in V$, $\|v\|\geq 0$ et $\|v\| = 0$ si et seulement si $v = 0$. \label{item:8}
+\item Pour $\alpha \in \C$ et $v \in V$ on a $\| \alpha \cdot v \| = |\alpha| \cdot \|v\|$. \label{item:9}
+\item Pour chaque $u,v \in V$ $\|u+v\| \leq \|u\| + \|v\|$. \label{tr:2}
+\end{enumerate}
+
+\end{frame}
+
+
+
+\begin{frame}{Procédé de Gram-Schmidt }
+
+\begin{theorem}
+  Soit $V$ un espace hermitien et  $\{v_1,\dots,v_n\} \subseteq V$
+  un ensemble libre.  
+  Il existe un ensemble libre orthogonal $\{u_1,\dots,u_n\}$
+  de $V$
+  tel que pour tout $i$,
+  $\{v_1,\dots,v_i\}$
+  et $\{u_1,\dots,u_i\}$ engendrent le même sous-espace de $V$.
+\end{theorem}
+\end{frame}
+
+
+
+\begin{frame}
+  
+\end{frame}
+
+
+\begin{frame}{}
+
+\begin{corollary}
+  \label{co:6}
+  Soit $V$
+  un espace hermitien de dimension finie.  $V$
+  possède alors une base orthonormale.
+\end{corollary}
+
+\end{frame}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "Slides"
+%%% End:

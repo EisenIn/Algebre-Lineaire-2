@@ -1,7 +1,7 @@
 %----------------------------------------------------------------------------------------
 %	PACKAGES AND THEMES
 %----------------------------------------------------------------------------------------
-\documentclass[aspectratio=169,xcolor=dvipsnames,noframenumbering]{beamer}
+\documentclass[aspectratio=169,xcolor=dvipsnames,noframenumbering,frenchyn]{beamer}
 
 \usetheme{SimplePlusAIC}
 
@@ -57,17 +57,52 @@
 \usepackage{verbatim}
 \usetikzlibrary{arrows,shapes} 
 \usepackage{makecell}
-\usepackage{amsmath}
-\usepackage{mathtools}
+
+
+\usepackage{mathrsfs}
+\usepackage[french]{babel}
+\usepackage{mathtools} % includes amsmath
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amscd}
+
+
+%\usepackage{mathtools}
 \usepackage{caption}
 \usepackage{subcaption}
 \newcommand*{\defeq}{\stackrel{\text{def}}{=}}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
 
+
+
+
+
 \newcommand{\E}{\mathbb{E}}
+
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\K}{\mathbb{K}}
+\newcommand{\x}{\mathbf{x}}
+\newcommand{\y}{\mathbf{y}}
+\newcommand{\X}{\mathscr{X}}
+\newcommand{\cA}{\mathcal{A}}
+\newcommand{\cD}{\mathcal{D}}
+\newcommand{\cI}{\mathcal{I}}
+\newcommand{\cP}{\mathcal{P}}
+\newcommand{\cV}{\mathcal{V}}
+\newcommand{\pscal}[1]{\langle {#1} \rangle}
+\newcommand{\wt}[1]{\widetilde{#1}}
+\newcommand{\wb}[1]{\overline{#1}}
+\newcommand{\car}{\mathrm{Char}}
+
+
+
+
 \newcommand{\B}{\mathcal{B}}
-\newcommand{\C}{\mathcal{C}}
+
 \newcommand{\D}{\mathcal{D}}
 \newcommand{\Polyhedre}{\mathcal{P}}
 \newcommand{\Set}{\mathcal{S}}
@@ -118,6 +153,8 @@
 %	PRESENTATION SLIDES
 %----------------------------------------------------------------------------------------
 
+\includeonly{sesqui}
+
 \begin{document}
 
 \begin{frame}[plain]
@@ -125,10 +162,12 @@
     \titlepage
 \end{frame}
 
+
+
 \pagestyle{empty} 
 
  \include{body}
- 
+ \include{sesqui}
 \end{document}
 
 
