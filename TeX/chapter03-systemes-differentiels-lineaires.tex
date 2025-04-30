@@ -1116,43 +1116,65 @@ alors
 
 \begin{definition}
   \label{def:34}
-  Soient $V$ un espace vectoriel sur un corps $K$, $A: V \rightarrow V$ un endomorphisme et $f(x) = a_0+ \cdots + a_n x^n\in K[x]$. L'\emph{évaluation de $f$ sur $A$} est l'endomorphisme $f(A): V \rightarrow V$ 
+  Soient $V$ un espace vectoriel sur un corps $K$,
+  $T: V \rightarrow V$ un endomorphisme et
+  $f(x) = a_0+ \cdots + a_n x^n\in K[x]$. L'\emph{évaluation de $f$
+    sur $T$} est l'endomorphisme $f(T): V \rightarrow V$
   \begin{displaymath}
     f(A) = a_n A^n + a_{n-1}A^{n-1}+ \cdots + a_1 A + a_0 \mathrm{id},
   \end{displaymath}
-  où $A^n = \underbrace{A \circ A \circ \dots \circ A}_{n \text{ fois}}$.
+  où $A^n = \underbrace{A \circ A \circ \dots \circ A}_{n \text{ fois}}$ et $\circ$ dénote la composition de fonctions. 
 \end{definition}
 
+
+\begin{remark}
+  \label{rem:8}
+  Pour $f,g ∈ K[x]$ et  $T: V \rightarrow V$ un endomorphisme, on a
+  \begin{enumerate}[i)]
+  \item $(f ⋅ g) (T) =  f(T) \circ g(T)$ et
+  \item $(f + g) (T) =  f(T) + g(T)$.
+  \end{enumerate}
+  L'argument est  comme la démonstration du Théorème~\ref{thr:51}, où $T$ joue le rôle de $x$ et $ \mathrm{id}$ de $x^0$. 
+\end{remark}
 
 
 \begin{definition}
   \label{def:35}
-  Soient $A:V \rightarrow V$ un endomorphisme et $W \subseteq V$ un sous-espace de $V$. On dit que $W$ est \emph{invariant sous $A$} si $A(x) \in W$ pour tout $x \in W$. 
+  Soient $T:V \rightarrow V$ un endomorphisme et $W \subseteq V$ un sous-espace de $V$. On dit que $W$ est \emph{invariant sous $A$} si $T(x) \in W$ pour tout $x \in W$. 
 \end{definition}
 
 
 
 \begin{lemma}
   \label{lem:20}
-  Soient $f(x) ∈ K[x]$ et $A:V ⟶  V$ un endomorphisme,  alors $\ker(f(A))$ est invariant sous $A$. 
+  Soient $f(x) ∈ K[x]$ et $T:V ⟶  V$ un endomorphisme,  alors $\ker(f(T))$ est invariant sous $T$. 
 \end{lemma}
 
 
 \begin{proof}
-Si $v ∈ \ker(f(A))$ on trouve que $f(A)\,Av = Af(A)\,v = 0$. Alors, $Av ∈ \ker(f(A))$. 
+  Si $v ∈ \ker(f(T))$ on trouve que
+  \begin{eqnarray*}
+    f(T)(T(v))  & = &  (f(T) \circ T) v \\ 
+    &=&  (T    \circ  f(T) ) (v)  \\
+    &=& T (f(T)(v)) \\
+    &=& 0.
+  \end{eqnarray*}
+
+  Alors, $T(v) ∈ \ker(f(T))$. 
 \end{proof}
 
+\todo[inline]{Remark on blcok diagonal matrix decomposition}. 
 
 \begin{theorem}
   \label{thr:37}
-  Soit $A: V \rightarrow V$ un endomorphisme et soit $f(x) = f_1(x) \cdot f_2(x)$ tel que
+  Soit $T: V \rightarrow V$ un endomorphisme et soit $f(x) = f_1(x) \cdot f_2(x)$ tel que
   \begin{enumerate}[i)]
   \item $\deg(f_1) \cdot \deg(f_2) \neq 0$,
   \item $\gcd(f_1,f_2) = 1$ 
   \end{enumerate}
   alors 
   $
-      \ker(f(A)) = \ker(f_1(A)) \oplus \ker(f_2(A)) 
+      \ker(f(T)) = \ker(f_1(T)) \oplus \ker(f_2(T)) 
    $.   
 \end{theorem}
 \begin{proof}
@@ -1163,21 +1185,21 @@ Si $v ∈ \ker(f(A))$ on trouve que $f(A)\,Av = Af(A)\,v = 0$. Alors, $Av ∈ \k
   et alors 
   \begin{equation}
     \label{eq:26}   
-    g_1(A) \cdot f_1(A) +  g_2(A) f_2(A) = I. 
+    g_1(T) \cdot f_1(T) +  g_2(T) f_2(T) = I. 
   \end{equation}
-  Pour $v \in \ker(f(A))$, alors 
+  Pour $v \in \ker(f(T))$, alors 
 \begin{displaymath}
-   g_1(A) \cdot f_1(A) \cdot v  + g_2(A) f_2(A) \cdot v  = v. 
+   g_1(T) \cdot f_1(T) \cdot v  + g_2(T) f_2(T) \cdot v  = v. 
 \end{displaymath}
-Mais $g_1(A) \cdot f_1(A) \cdot v \in \ker(f_2(A))$  dès que 
+Mais $g_1(T) \cdot f_1(T) \cdot v \in \ker(f_2(T))$  dès que 
 \begin{displaymath}
-  f_2(A) \cdot g_1(A) \cdot f_1(A) \cdot v =   g_1(A) \cdot f_1(A) ⋅ f_2(A) \cdot v = g_1(A) f(A) v = 0
+  f_2(T) \cdot g_1(T) \cdot f_1(T) \cdot v =   g_1(T) \cdot f_1(T) ⋅ f_2(T) \cdot v = g_1(T) f(T) v = 0
 \end{displaymath}
-et d'une manière similaire on voit que $g_2(A) f_2(A) \cdot v \in \ker(f_1(A))$. Il reste à démontrer que la somme est directe. 
+et d'une manière similaire on voit que $g_2(T) f_2(T) \cdot v \in \ker(f_1(T))$. Il reste à démontrer que la somme est directe. 
 
-Soit alors $v ∈  \ker(f_1(A))  ∩  \ker(f_2(A))$.  L'équation~\eqref{eq:26} montre 
+Soit alors $v ∈  \ker(f_1(T))  ∩  \ker(f_2(T))$.  L'équation~\eqref{eq:26} montre 
 \begin{displaymath}
-  v =  g_1(A) \cdot f_1(A) \, v+  g_2(A) f_2(A) \, v = 0,
+  v =  g_1(T) \cdot f_1(T) \, v+  g_2(T) f_2(T) \, v = 0,
 \end{displaymath}
 qui démontre que la somme est directe. 
 \end{proof}
