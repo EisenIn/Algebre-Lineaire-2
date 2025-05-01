@@ -1138,6 +1138,7 @@ alors
 \end{remark}
 
 
+
 \begin{definition}
   \label{def:35}
   Soient $T:V \rightarrow V$ un endomorphisme et $W \subseteq V$ un sous-espace de $V$. On dit que $W$ est \emph{invariant sous $A$} si $T(x) \in W$ pour tout $x \in W$. 
@@ -1393,9 +1394,19 @@ est en forme blocque diagonale, où $N_1$ et $N_2$ sont nilpotentes. En fait, $N
 \subsection*{Exercices}
 \label{sec:exercices}
 \begin{enumerate}
-\item Montrer que $K[x]$ est un anneau avec $1_{K[x]} = 1_K$.  
-\item Montrer que  $a(x) \in K[x]$ et $b(x) \in K[x]$ $\deg(a)+\deg(b)>0$  possèdent exactement un diviseur commun le plus grand avec coefficient principal égal à $1_K$.  
-\item Soit $V$ un espace vectoriel de dimension fini sur $ℂ$,  $T : V ⟶V$ un endomorphisme et $f(x) = (x - λ)^m ∈ ℂ[x]$. Montrer que $\ker(f(T)) \neq \{0\}$ si et seulement si $λ$ est un valeur propre de $T$. 
+%\item Montrer que $K[x]$ est un anneau avec $1_{K[x]} = 1_K$.  
+%\item Montrer que  $a(x) \in K[x]$ et $b(x) \in K[x]$ $\deg(a)+\deg(b)>0$  possèdent exactement un diviseur commun le plus grand avec coefficient principal égal à $1_K$.  
+\item Cet exercice concerne Remarque~\ref{rem:8}.  Soient $V$ un espace vectoriel, $T: V → V$ un endomorphisme et   $f(x) = x (x+1)$, $g(x) = (x+2)(x-1)$.
+  \begin{enumerate}[i)]
+  \item Calculez $f(x) - g(x)$.
+  \item Vérifiez (à pied) le  fait que
+    \begin{displaymath}\displaystyle
+      \mathrm{id} = \frac{1}{2} \left(  T \circ (T+ \mathrm{id}) -  (T+2 \mathrm{id})\circ (T- \mathrm{id}) + \right). 
+    \end{displaymath}
+  \item Dans le Remarque~\ref{rem:8}.  Est-ce qu'il faut exiger que $T$ est un endomorphisme ou est-ce que le remarque est juste pour toute fonction $T: V → V$?
+  \end{enumerate}
+\item Soit $V$ un espace vectoriel de dimension fini sur $ℂ$,  $T : V ⟶V$ un endomorphisme et $f(x) = (x - λ)^m ∈ ℂ[x]$. Montrer que $\ker(f(T)) \neq \{0\}$ si et seulement si $λ$ est un valeur propre de $T$.
+
 \end{enumerate}
 
 
@@ -1613,7 +1624,9 @@ Généraliser pour $p$ blocs sur la diagonale. (\textit{Indice} : Considérer le
 
 \item Soit $J \in \Bbb C^{n \times n}$ une matrice en forme normale de Jordan. Montrer que $J$ et $J^T$ sont similaires. En déduire que pour tout $A \in \Bbb C^{n \times n}$, les matrices $A$ et $A^T$ sont similaires.
 \end{enumerate}
+
 %%% Local Variables:
 %%% mode: latex
+%%% ispell-dictionary: "french"
 %%% TeX-master: "notes"
 %%% End:
