@@ -1158,10 +1158,12 @@ alors
 \begin{proof}
   Si $v ∈ \ker(f(T))$ on trouve que
   \begin{eqnarray*}
-    f(T)(T(v))  & = &  (f(T) \circ T) (v) \\ 
-    &=&  (T    \circ  f(T) ) (v)  \\
-    &=& T (f(T)(v)) \\
-    &=& 0.
+    f(T)(T(v))  & = & \left[f(T) \circ T \right](v)\\ 
+                & = &     \left[(f(x) ⋅x)(T)\right] (v) \\
+                & = & \left[(x ⋅ f(x))(T) \right] (v) \\
+                %&=&  \left[T    \circ  f(T) \right] (v)  \\
+                &=& T (f(T)(v)) \\
+                &=& 0.
   \end{eqnarray*}
 
   Alors, $T(v) ∈ \ker(f(T))$. 
@@ -1171,7 +1173,7 @@ alors
 
 \begin{theorem}
   \label{thr:37}
-  Soit $T: V \rightarrow V$ un endomorphisme et soit $f(x) = f_1(x) \cdot f_2(x)$ tel que
+  Soit $T: V \rightarrow V$ un endomorphisme et soit $f(x) = f_1(x) \cdot f_2(x) ∈ K[x]$ tel que
   \begin{enumerate}[i)]
   \item $\deg(f_1) \cdot \deg(f_2) \neq 0$,
   \item $\gcd(f_1,f_2) = 1$ 
@@ -1182,22 +1184,22 @@ alors
    $.   
 \end{theorem}
 \begin{proof}
-  Dès que $\gcd(f_1,f_2)=1$ il existe $g_1(x),g_2(x)$ tels que 
+  Parce que $\gcd(f_1,f_2)=1$ il existe $g_1(x),g_2(x) ∈ K[x]$ tels que 
   \begin{displaymath}
     1 = g_1(x) f_1(x) + g_2(x) f_2(x)
   \end{displaymath}
   et alors 
   \begin{equation}
     \label{eq:26}   
-    g_1(T) \cdot f_1(T) +  g_2(T) f_2(T) = I. 
+    (g_1 f_1 +  g_2  f_2)(T) = \id. 
   \end{equation}
   Pour $v \in \ker(f(T))$, alors 
 \begin{displaymath}
-   g_1(T) \cdot f_1(T) \cdot v  + g_2(T) f_2(T) \cdot v  = v. 
+  [( g_1  f_1  + g_2 f_2)(T)]  (v)  = v. 
 \end{displaymath}
-Mais $g_1(T) \cdot f_1(T) \cdot v \in \ker(f_2(T))$  dès que 
+Mais $[(g_1 \cdot f_1)(T)] ( v) \in \ker(f_2(T))$  dès que 
 \begin{displaymath}
-  f_2(T) \cdot g_1(T) \cdot f_1(T) \cdot v =   g_1(T) \cdot f_1(T) ⋅ f_2(T) \cdot v = g_1(T) f(T) v = 0
+  f_2(T) \circ  g_1(T) \cdot f_1(T) \cdot v =   g_1(T) \cdot f_1(T) ⋅ f_2(T) \cdot v = g_1(T) f(T) v = 0
 \end{displaymath}
 et d'une manière similaire on voit que $g_2(T) f_2(T) \cdot v \in \ker(f_1(T))$. Il reste à démontrer que la somme est directe. 
 
