@@ -745,8 +745,9 @@ et
 
 \noindent 
 Dans ce chapitre, on va démontrer le Théorème~\ref{thr:32}.  On va donner une forme normale spécifique pour chaque matrice complexe, le \emph{forme normale de Jordan}.
-Soit $K$ un corps. 
- On se rappelle que une  matrice $N ∈ K^{n ×n}$ est \emph{nilpotente} s'il existe un $k \in \N$ tel que $N^k = 0$. 
+Dans ce chapitre, $K$ dénote toujours un corps et $V$ un espace vectoriel sur $K$. 
+On se rappelle que une  matrice $N ∈ K^{n ×n}$ est \emph{nilpotente} s'il existe un $k \in \N$ tel que $N^k = 0$.
+
 
 % \smallskip
 % \noindent 
@@ -1129,7 +1130,7 @@ alors
 
 \begin{remark}
   \label{rem:8}
-  Comme la démonstration du Théorème~\ref{thr:51}, où $T$ joue le rôle de $x$ et $ \mathrm{id}$ le rôle de $x^0$, on démontre:
+  Comme la démonstration du Théorème~\ref{thr:51}, où $T$ joue le rôle de $x$ et $ \mathrm{id}$ le rôle de $1 = x^0$, on démontre:
 
   \medskip
   \noindent 
@@ -1141,13 +1142,50 @@ alors
 \end{remark}
 
 
-
+\begin{example}
+  \label{exe:59}
+  On considère la matrice
+  \begin{displaymath}
+    A = \begin{pmatrix}0 & 1 & 0 & 0\\0 & 0 & 1 & 0\\0 & 0 & 0 & 1\\-6 & 0 & 5 & 0\end{pmatrix}. 
+  \end{displaymath}
+  Le polynôme caractéristique de $A$ est
+  \begin{displaymath}
+    f_A(A) = x^4 - 5x^2 +6 = (x^2 -2) (x^2-3). 
+  \end{displaymath}
+  On vérifie le théorème de Cayleigh-Hamilton (Théorème~\ref{thr:47}): 
+  \begin{eqnarray*} f_A(A) & = & (A^2 - 2I ) ⋅ (A^2 - 3I ) \\
+                           & = & \begin{pmatrix}-2 & 0 & 1 & 0\\0 & -2 & 0 & 1\\-6 & 0 & 3 & 0\\0 & -6 & 0 & 3\end{pmatrix} ⋅ \begin{pmatrix}-3 & 0 & 1 & 0\\0 & -3 & 0 & 1\\-6 & 0 & 2 & 0\\0 & -6 & 0 & 2\end{pmatrix} \\
+    & = & \begin{pmatrix}0 & 0 & 0 & 0\\0 & 0 & 0 & 0\\0 & 0 & 0 & 0\\0 & 0 & 0 & 0\end{pmatrix}. 
+  \end{eqnarray*}
+\end{example}
 \begin{definition}
   \label{def:35}
-  Soient $T:V \rightarrow V$ un endomorphisme et $W \subseteq V$ un sous-espace de $V$. On dit que $W$ est \emph{invariant sous $A$} si $T(x) \in W$ pour tout $x \in W$. 
+  Soient $T:V \rightarrow V$ un endomorphisme et $W \subseteq V$ un sous-espace de $V$. On dit que $W$ est \emph{invariant sous $T$} si $T(x) \in W$ pour tout $x \in W$. 
 \end{definition}
 
-
+\begin{remark}
+  \label{rem:9}
+Supposons que $\dim(V) = n$, $Τ ： V → V$ un endomorphisme et $W ⊆ V$ un sous-espace invariant sous $T$. Si
+\begin{displaymath}
+  B = \{w_1,\dots,w_k,v_1\dots,v_{n-k}\} 
+\end{displaymath}
+est une base de $V$ où $\{w_1,\dots,w_k\}$ est une base de $W$, alors la matrice de $T$ associée à la base $B$ est de la forme 
+\begin{displaymath}
+  A_B^T =
+  \begin{pmatrix}
+    B & C \\
+    0 & D     
+  \end{pmatrix}
+\end{displaymath}
+où $B ∈ K^{k×k}$ et $D ∈ K^{(n-k)×(n-k)}$. Si, au plus, $\spa(v_1\dots,v_{n-k})$ est invariant sous $T$, alors
+\begin{displaymath}
+  A_B^T =
+  \begin{pmatrix}
+    B & 0 \\
+    0 & D     
+  \end{pmatrix}
+\end{displaymath}
+\end{remark}
 
 \begin{lemma}
   \label{lem:20}
@@ -1167,7 +1205,7 @@ alors
   Alors, $T(v) ∈ \ker(f(T))$. 
 \end{proof}
 
-\todo[inline]{Remark on blcok diagonal matrix decomposition}. 
+
 
 \begin{theorem}
   \label{thr:37}
@@ -1189,21 +1227,21 @@ alors
   et alors 
   \begin{equation}
     \label{eq:26}   
-    g_1(T) \cdot f_1(T) +  g_2(T) f_2(T) = I. 
+    (g_1 \cdot f_1 +  g_2 f_2)(T)  = \id. 
   \end{equation}
   Pour $v \in \ker(f(T))$, alors 
 \begin{displaymath}
-   g_1(T) \cdot f_1(T) \cdot v  + g_2(T) f_2(T) \cdot v  = v. 
+   [(g_1 f_1 +  g_2 f_2)(T)]  (v)  = v. 
 \end{displaymath}
-Mais $g_1(T) \cdot f_1(T) \cdot v \in \ker(f_2(T))$  dès que 
+Mais $g_1(T) \circ f_1(T) ( v ) \in \ker(f_2(T))$  dès que 
 \begin{displaymath}
-  f_2(T) \cdot g_1(T) \cdot f_1(T) \cdot v =   g_1(T) \cdot f_1(T) ⋅ f_2(T) \cdot v = g_1(T) f(T) v = 0
+  f_2(T) \circ g_1(T) \circ f_1(T) (v) =   g_1(T) \circ f_1(T) \circ f_2(T) (v)  = g_1(T) \circ  f(T) (v) = 0
 \end{displaymath}
 et d'une manière similaire on voit que $g_2(T) f_2(T) \cdot v \in \ker(f_1(T))$. Il reste à démontrer que la somme est directe. 
 
 Soit alors $v ∈  \ker(f_1(T))  ∩  \ker(f_2(T))$.  L'équation~\eqref{eq:26} montre 
 \begin{displaymath}
-  v =  g_1(T) \cdot f_1(T) \, v+  g_2(T) f_2(T) \, v = 0,
+  v =  g_1(T) \circ f_1(T) (v) +  g_2(T) \circ f_2(T) ( v) = 0,
 \end{displaymath}
 qui démontre que la somme est directe. 
 \end{proof}
