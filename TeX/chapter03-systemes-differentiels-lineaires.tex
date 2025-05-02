@@ -1235,15 +1235,16 @@ où $B ∈ K^{k×k}$ et $D ∈ K^{(n-k)×(n-k)}$. Si, au plus, $\spa(v_1\dots,v_
 \begin{displaymath}
   [( g_1  f_1  + g_2 f_2)(T)]  (v)  = v. 
 \end{displaymath}
-Mais $[(g_1 \cdot f_1)(T)] ( v) \in \ker(f_2(T))$  dès que 
-\begin{displaymath}
-  f_2(T) \circ  g_1(T) \cdot f_1(T) \cdot v =   g_1(T) \cdot f_1(T) ⋅ f_2(T) \cdot v = g_1(T) f(T) v = 0
-\end{displaymath}
-et d'une manière similaire on voit que $g_2(T) f_2(T) \cdot v \in \ker(f_1(T))$. Il reste à démontrer que la somme est directe. 
+Mais $[(g_1 \cdot f_1)(T)] ( v) \in \ker(f_2(T))$, parce que  
+\begin{eqnarray*}
+  f_2(T) \circ  g_1(T) \circ f_1(T)\, ( v)  & = &    g_1(T) \circ f_1(T) \circ f_2(T) \,( v) \\
+                                          &  =&  g_1(T) \circ f(T) \, (v) = 0
+\end{eqnarray*}
+et d'une manière similaire on voit que $g_2(T)\circ  f_2(T) \, (v) \in \ker(f_1(T))$. Il reste à démontrer que la somme est directe. 
 
 Soit alors $v ∈  \ker(f_1(T))  ∩  \ker(f_2(T))$.  L'équation~\eqref{eq:26} montre 
 \begin{displaymath}
-  v =  g_1(T) \circ f_1(T) (v) +  g_2(T) \circ f_2(T) ( v) = 0,
+  v =  g_1(T) \circ f_1(T)\, (v) +  g_2(T) \circ f_2(T)\, ( v) = 0,
 \end{displaymath}
 qui démontre que la somme est directe. 
 \end{proof}
