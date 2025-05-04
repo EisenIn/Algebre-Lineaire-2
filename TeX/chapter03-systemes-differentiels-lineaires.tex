@@ -92,7 +92,7 @@ $x_1(t) = \cos(t) -2 \sin(t)$ et $x_2(t) = \sin(t) + 2 \cos(t)$ est une solution
 
 Le théorème suivant est démontré en cours \emph{analyse 2}. 
 \begin{theorem}[Cours d'analyse II] 
-  \label{thr:28}
+  \label{thr:28:a}
   Étant donné les \emph{conditions initiales} $\x(0)$
   il existe une unique solution $\x$ du système~\eqref{eq:19}. 
 \end{theorem}
@@ -101,234 +101,234 @@ Nous sommes concernés par le problème de \emph{trouver} la solution $\x$ expli
 
 
 
-{\scriptsize   \color{lightgray}
+% {\scriptsize   \color{lightgray}
 
-\noindent   
-  Essayons d'abord de résoudre le système en mettant  $\x(t) = e^{\lambda t} v$ où $v \in \R^n$ est un vecteur constant. Dans ce cas $\x' = A\x$ se récrit comme   $\lambda e^{\lambda t}  v = e^{\lambda t} A v$. Nous avons démontré le lemme suivant. \todo{ Partie en gris fait pas partie du cours 2024 } 
+% \noindent   
+%   Essayons d'abord de résoudre le système en mettant  $\x(t) = e^{\lambda t} v$ où $v \in \R^n$ est un vecteur constant. Dans ce cas $\x' = A\x$ se récrit comme   $\lambda e^{\lambda t}  v = e^{\lambda t} A v$. Nous avons démontré le lemme suivant. \todo{ Partie en gris fait pas partie du cours 2024 } 
 
-\begin{lemma}
-  \label{thr:29}
-  Si $\lambda \in \R$ est une valeur propre de $A$ et si $v \in \R^n \setminus \{0\}$ est un vecteur propre correspondant, alors $\x(t) = e^{\lambda t} v$ est  une solution du système~\eqref{eq:19} pour les conditions initiales $\x(0) = v$. 
-\end{lemma}
-
-
- On commence avec une observation qui est un exercice simple. 
-
-\begin{lemma}
-  \label{lem:13}
-  L'ensemble $\X = \{ \x \colon \x \text{ est une solution du système \eqref{eq:19}}\}$ est un espace vectoriel sur $\R$.  
-\end{lemma}
-
-Est-ce que c'est possible de donner  une base de $\X$ explicitement? Dans le cas où $A$ est diagonalisable : 
-\begin{displaymath}
-  A = P \cdot \diag(\lambda_1,\dots,\lambda_n) \cdot P^{-1} 
-\end{displaymath}
-où $P \in \R^{n \times n}$ est inversible et les  $\lambda_i$ sont réels, le théorème suivant décrit une base intuitive de $\X$.
-
-\begin{theorem}
-  \label{thr:30}
-  Si $\R^n$ possède une base $\{v_1,\dots,v_n\} \subseteq \R^n$ de vecteurs propres de $A$ telle que $A \, v_i = \lambda_i v_i$, alors  
-  \begin{displaymath}
-    \x^{(i)}(t) = e^{\lambda_i t} \cdot v_i, \, i=1,\dots,n
-  \end{displaymath}
-est une base de $\X$. 
-\end{theorem}
-
-\begin{proof}
-  Montrons d'abord que les $\x^{(i)}$ sont linéairement indépendants. Supposons que $\sum_{i} \alpha_i \x^{(i)} = 0$. C'est-à-dire que les $n$ fonctions qui sont les composantes de $\sum_{i} \alpha_i \x^{(i)}$ sont toutes la fonction identiquement nulle. En évaluant en $t=0$, on trouve
-  \begin{displaymath}
-    0 = \sum_i \alpha_i v_i e^{\lambda_i 0} = \sum_i \alpha_i v_i.  
-  \end{displaymath}
-Or les $v_i$ sont linéairement indépendants. On a donc $\alpha_i = 0$ pour tout $i$ ce qui démontre que les $\x^{(i)}$ sont linéairement indépendants. 
+% \begin{lemma}
+%   \label{thr:29}
+%   Si $\lambda \in \R$ est une valeur propre de $A$ et si $v \in \R^n \setminus \{0\}$ est un vecteur propre correspondant, alors $\x(t) = e^{\lambda t} v$ est  une solution du système~\eqref{eq:19} pour les conditions initiales $\x(0) = v$. 
+% \end{lemma}
 
 
-Maintenant soit $\y \in \X$ et soient  $\alpha_i \in \R$  tels que 
-\begin{displaymath}
-  \y(0) = \sum_i \alpha_i v_i.  
-\end{displaymath}
-Alors $\x := \sum_i \alpha_i \x^{(i)} \in \X$  et comme $\x(0) = \y(0)$, le Théorème~\ref{thr:28} implique que $\x = \y$. Les $\x^{(i)}$ engendrent donc $\X$, et $\{\x^{(1)},\dots, \x^{(n)}\}$ est une base de $\X$. 
-\end{proof}
+%  On commence avec une observation qui est un exercice simple. 
 
+% \begin{lemma}
+%   \label{lem:13}
+%   L'ensemble $\X = \{ \x \colon \x \text{ est une solution du système \eqref{eq:19}}\}$ est un espace vectoriel sur $\R$.  
+% \end{lemma}
 
-Est-ce qu'on peut aussi trouver une solution dans la cas où $A$ est diagonalisable dans les nombres complexes, donc si 
-\begin{displaymath}
-A=P \cdot \diag(\lambda_1,\dots,\lambda_n) \cdot P^{-1} 
-\end{displaymath}
-où $P \in \C^{n \times n}$ est inversible et les  $\lambda_i \in \C$? Pour discuter de ça, il faut d'abord définir, ce qu'est une solution complexe du système~\eqref{eq:19}. Toute fonction $f: \R \longrightarrow \C$ s'écrit comme 
-
-\begin{displaymath}
-  f(x) = f_{\Re}(x) + i \cdot f_{\Im}(x) 
-\end{displaymath}
-où $f_{\Re}(x), f_{\Im}(x)$ sont des fonctions de $ \R \longrightarrow \R$.  Si $f_\Re$ et $f_\Im$ sont dérivables, on dit que $f(x)$ est dérivable et on définit 
-\begin{displaymath}
-  f'(x) = f_\Re'(x) + i \cdot f_\Im'(x). 
-\end{displaymath}
-Si $\x_1,\dots,\x_n\colon \R \longrightarrow \C$ sont dérivables, comme avant 
-\begin{displaymath}
-  \x =
-  \begin{pmatrix}
-    \x_1\\ \vdots \\ \x_n
-  \end{pmatrix}
-\end{displaymath}
-est une \emph{solution complexe} du système~\eqref{eq:19} si $\x' = A\x$.   Et comme avant, on peut noter le lemme suivant, en se rappellant que $e^{a + ib} = e^a (\cos b + i \cdot \sin b)$. 
-
-
-\begin{lemma}
-  \label{lem:15}
-  Si $\lambda \in \C$ est une valeur propre de $A$ et si $v \in \C^n \setminus \{0\}$ est un vecteur propre correspondant, alors $\x(t) = e^{\lambda t} v$ est  une solution du système~\eqref{eq:19} pour les conditions initiales $\x(0) = v$. 
-\end{lemma}
-\begin{proof}
-  On écrit 
-  \begin{displaymath}
-    \x' = \lambda e^{\lambda t} v = e^{\lambda t} Av = A\x.
-  \end{displaymath}
-\end{proof}
-
-
-\begin{lemma}
-  \label{lem:14}
-  Étant donné une solution complexe $\x = \x_\Re + i \x_\Im$ du système~\eqref{eq:19}, alors $\x_\Re$ et $\x_\Im$ sont des solutions réelles.  
-\end{lemma}
-\begin{proof}
-  Dès que $\x_\Re + i \x_\Im $ est une solution, on a 
-  \begin{displaymath}
-   \x'_\Re+ i \x'_\Im = \x' = A \x = A\x_\Re + i A\x_\Im. 
-  \end{displaymath}
-Comme $A $ est réelle on a $\x_\Re' = A\x_\Re$ et $\x'_\Im = A \x_\Im$ en prenant les parties réelles et imaginaires des deux côtés. 
-\end{proof}
-
-
-Supposons alors que $A \in \R^{n \times n}$ est diagonalisable . Et soit $\{v_1,\dots,v_n\}$ une base de $\C^n$ de vecteurs propres associés à 
-$\lambda_1,\dots,\lambda_n$ respectivement. Si $v_i = u_i + i \cdot w_i$  où $u_i,w_i \in \R^n$, les $u_1,\dots,u_n,w_1,\dots,w_n$ engendrent $\R^n$ (voir exercice~\ref{item:5}). Comme nous avons noté 
-\begin{displaymath}
-  \x^{(j)} = e^{\lambda_j t} v_j
-\end{displaymath}
-sont des solutions complexes du système~\eqref{eq:19}.   
-
-Aussi, on peut supposer que la base et les valeurs propres sont tels que les vecteurs/valeurs propres complexes viennent en paires conjugées complexes. Plus précisément, si $2k$ valeurs propres sont complexes et le reste sont réelles, on pose
-\begin{equation}
-\label{eq:22}
-  v_{2j-1} = \overline{v_{2j}}\, \text{ et } \, \lambda_{2j-1} = \overline{\lambda_{2j}} \, \text{ pour } \, 1 \leq j \leq k \leq n/2 
-\end{equation}
-et 
-\begin{equation}
-  \label{eq:23}  
-  v_j \in \R^n, \lambda_j \in \R \text{ pour } j > 2k. 
-\end{equation}
-%
-Considérons maintenant une solution donnée par $v = u+iw$  $\lambda= a+ib$. 
-\begin{eqnarray*}
-  \x & = & e^{a \, t} \left(\cos (b t)  + i \sin (b t ) \right)  (u + i w)  \\
-   & = & e^{a \, t} \left(\cos (b t) u - \sin (bt)w \right)  + ie^{a \, t} \left(\sin (b t ) u + \cos(bt)w \right). 
-\end{eqnarray*}
-Ceci nous donne alors deux solutions réelles 
-\begin{eqnarray*}
-  \x^{(1)} & = & e^{a \, t} \left(\cos (b t) u - \sin (bt)w \right), \\
-  \x^{(2)} & = &  e^{a \, t} \left(\sin (b t ) u + \cos(bt)w \right). 
-\end{eqnarray*}
-\begin{remark}
-  \label{rem:2}
-  Les solutions réelles données par $v$ et $\lambda$ engendrent le même espace que les solutions réelles données par $\overline{v}$ et $\overline{\lambda}$. 
-\end{remark}
-
-Nous pouvons alors noter une marche à suivre pour résoudre le système~\eqref{eq:19} étant donné $\x(0)$ si $A$ est diagonalisable.
-\begin{enumerate}
-\item Trouver une base de vecteurs propres $v_1,\dots,v_n$ de $A$ ordonnée comme dans \eqref{eq:22} et \eqref{eq:23}. 
-\item Pour chaque paire $v_{2j},\lambda_{2j}$, $1 \leq j \leq k$ trouver les  deux solutions réelles dénotées par  $\x^{(2j-1)}$ et $\x^{(2j)}$. 
-\item Pour chaque paire réelle $v_j, \lambda_j$ $n\geq j>2k$, trouver la solution $\x^{(j)}$. 
-\item Trouver la combinaison linéaire 
-  \begin{displaymath}
-    \x(0) = \sum_{j} \alpha_j \x^{(j)}(0)
-  \end{displaymath}
-\item La solution est 
-  \begin{displaymath}
-    \x = \sum_{j} \alpha_j \x^{(j)} 
-  \end{displaymath}
-\end{enumerate}
-
-
-
-\begin{example}
-  \label{exe:21}
-  Résoudre le système $\x' = A\x$ où 
-  \begin{displaymath}
-    A  =
-    \begin{pmatrix}
-      1 & 2 \\
-      -2 & 1
-    \end{pmatrix} \, \text{ et } \, \x(0) =
-    \begin{pmatrix}
-      1\\1
-    \end{pmatrix}. 
-  \end{displaymath}
- On trouve que $\lambda_1 = 1 + 2 i$ et $\lambda_2 = 1 - 2i$ sont les valeurs propres de $A$ et 
- \begin{displaymath}
-   v_1 =
-   \begin{pmatrix}
-     1\\i
-   \end{pmatrix} \text{ et } v_2 =
-   \begin{pmatrix}
-     1 \\ -i
-   \end{pmatrix}
- \end{displaymath}
-sont les vecteurs propres correspondants. 
-Les deux solutions impliquées par $v_1$ sont 
-\begin{eqnarray*}
-  \x^{(1)} & = & e^{ t} \left(\cos ( 2t)
-                 \begin{pmatrix}
-                   1\\0
-                 \end{pmatrix}
-- \sin (2t)\
-  \begin{pmatrix}
-    0\\1
-  \end{pmatrix}
-\right) \\
-  \x^{(2)} & = &  e^{t} \left(\sin ( 2t )
-                 \begin{pmatrix}
-                   1\\0
-                 \end{pmatrix}
-+ \cos(2t)
-  \begin{pmatrix}
-    0\\1
-  \end{pmatrix}
-\right). 
-\end{eqnarray*} 
-La solution qu'on cherche est 
-\begin{displaymath}
-  \x = \begin{pmatrix}
-           e^{t} \sin (2t) + e^{t} \cos(2t) \\
-           - e^{t} \sin(2t) + e^{t} \cos(2t)
-         \end{pmatrix}.
-\end{displaymath}
-
-\end{example}
-
-
-
-
-
-
-% Une situation très agréable est si $A$ est diagonalisable. Soit $P^{-1}AP = \diag(\lambda_1,\dots,\lambda_n)$ où $P = (v_1,\dots,v_n)$. 
-% Avec le changement de variables $\x = P\cdot \y $ on écrit
+% Est-ce que c'est possible de donner  une base de $\X$ explicitement? Dans le cas où $A$ est diagonalisable : 
 % \begin{displaymath}
-%   \y' = P^{-1} \x' = P^{-1} A\x = P^{-1}AP\y = \diag(\lambda_1,\dots,\lambda_n) \y. 
+%   A = P \cdot \diag(\lambda_1,\dots,\lambda_n) \cdot P^{-1} 
 % \end{displaymath}
-% Le système 
-% \begin{equation}
-%   \label{eq:20}  
-%   \y' = \diag(\lambda_1,\dots,\lambda_n) \y 
-% \end{equation}
-% est découplé et les conditions initiales sont $\y(0) = P^{-1} \x(0)$. La solution est $\y_i(t) = \y_i(0) e^{\lambda_i \cdot t}$ et $\x = P \cdot \y$ est la solution du système~\eqref{eq:19} pour les conditions initiales $\x(0)$. 
+% où $P \in \R^{n \times n}$ est inversible et les  $\lambda_i$ sont réels, le théorème suivant décrit une base intuitive de $\X$.
 
+% \begin{theorem}
+%   \label{thr:30}
+%   Si $\R^n$ possède une base $\{v_1,\dots,v_n\} \subseteq \R^n$ de vecteurs propres de $A$ telle que $A \, v_i = \lambda_i v_i$, alors  
+%   \begin{displaymath}
+%     \x^{(i)}(t) = e^{\lambda_i t} \cdot v_i, \, i=1,\dots,n
+%   \end{displaymath}
+% est une base de $\X$. 
+% \end{theorem}
+
+% \begin{proof}
+%   Montrons d'abord que les $\x^{(i)}$ sont linéairement indépendants. Supposons que $\sum_{i} \alpha_i \x^{(i)} = 0$. C'est-à-dire que les $n$ fonctions qui sont les composantes de $\sum_{i} \alpha_i \x^{(i)}$ sont toutes la fonction identiquement nulle. En évaluant en $t=0$, on trouve
+%   \begin{displaymath}
+%     0 = \sum_i \alpha_i v_i e^{\lambda_i 0} = \sum_i \alpha_i v_i.  
+%   \end{displaymath}
+% Or les $v_i$ sont linéairement indépendants. On a donc $\alpha_i = 0$ pour tout $i$ ce qui démontre que les $\x^{(i)}$ sont linéairement indépendants. 
+
+
+% Maintenant soit $\y \in \X$ et soient  $\alpha_i \in \R$  tels que 
+% \begin{displaymath}
+%   \y(0) = \sum_i \alpha_i v_i.  
+% \end{displaymath}
+% Alors $\x := \sum_i \alpha_i \x^{(i)} \in \X$  et comme $\x(0) = \y(0)$, le Théorème~\ref{thr:28:a} implique que $\x = \y$. Les $\x^{(i)}$ engendrent donc $\X$, et $\{\x^{(1)},\dots, \x^{(n)}\}$ est une base de $\X$. 
+% \end{proof}
+
+
+% Est-ce qu'on peut aussi trouver une solution dans la cas où $A$ est diagonalisable dans les nombres complexes, donc si 
+% \begin{displaymath}
+% A=P \cdot \diag(\lambda_1,\dots,\lambda_n) \cdot P^{-1} 
+% \end{displaymath}
+% où $P \in \C^{n \times n}$ est inversible et les  $\lambda_i \in \C$? Pour discuter de ça, il faut d'abord définir, ce qu'est une solution complexe du système~\eqref{eq:19}. Toute fonction $f: \R \longrightarrow \C$ s'écrit comme 
+
+% \begin{displaymath}
+%   f(x) = f_{\Re}(x) + i \cdot f_{\Im}(x) 
+% \end{displaymath}
+% où $f_{\Re}(x), f_{\Im}(x)$ sont des fonctions de $ \R \longrightarrow \R$.  Si $f_\Re$ et $f_\Im$ sont dérivables, on dit que $f(x)$ est dérivable et on définit 
+% \begin{displaymath}
+%   f'(x) = f_\Re'(x) + i \cdot f_\Im'(x). 
+% \end{displaymath}
+% Si $\x_1,\dots,\x_n\colon \R \longrightarrow \C$ sont dérivables, comme avant 
+% \begin{displaymath}
+%   \x =
+%   \begin{pmatrix}
+%     \x_1\\ \vdots \\ \x_n
+%   \end{pmatrix}
+% \end{displaymath}
+% est une \emph{solution complexe} du système~\eqref{eq:19} si $\x' = A\x$.   Et comme avant, on peut noter le lemme suivant, en se rappellant que $e^{a + ib} = e^a (\cos b + i \cdot \sin b)$. 
+
+
+% \begin{lemma}
+%   \label{lem:15}
+%   Si $\lambda \in \C$ est une valeur propre de $A$ et si $v \in \C^n \setminus \{0\}$ est un vecteur propre correspondant, alors $\x(t) = e^{\lambda t} v$ est  une solution du système~\eqref{eq:19} pour les conditions initiales $\x(0) = v$. 
+% \end{lemma}
+% \begin{proof}
+%   On écrit 
+%   \begin{displaymath}
+%     \x' = \lambda e^{\lambda t} v = e^{\lambda t} Av = A\x.
+%   \end{displaymath}
+% \end{proof}
+
+
+% \begin{lemma}
+%   \label{lem:14}
+%   Étant donné une solution complexe $\x = \x_\Re + i \x_\Im$ du système~\eqref{eq:19}, alors $\x_\Re$ et $\x_\Im$ sont des solutions réelles.  
+% \end{lemma}
+% \begin{proof}
+%   Dès que $\x_\Re + i \x_\Im $ est une solution, on a 
+%   \begin{displaymath}
+%    \x'_\Re+ i \x'_\Im = \x' = A \x = A\x_\Re + i A\x_\Im. 
+%   \end{displaymath}
+% Comme $A $ est réelle on a $\x_\Re' = A\x_\Re$ et $\x'_\Im = A \x_\Im$ en prenant les parties réelles et imaginaires des deux côtés. 
+% \end{proof}
+
+
+% Supposons alors que $A \in \R^{n \times n}$ est diagonalisable . Et soit $\{v_1,\dots,v_n\}$ une base de $\C^n$ de vecteurs propres associés à 
+% $\lambda_1,\dots,\lambda_n$ respectivement. Si $v_i = u_i + i \cdot w_i$  où $u_i,w_i \in \R^n$, les $u_1,\dots,u_n,w_1,\dots,w_n$ engendrent $\R^n$ (voir exercice~\ref{item:5}). Comme nous avons noté 
+% \begin{displaymath}
+%   \x^{(j)} = e^{\lambda_j t} v_j
+% \end{displaymath}
+% sont des solutions complexes du système~\eqref{eq:19}.   
+
+% Aussi, on peut supposer que la base et les valeurs propres sont tels que les vecteurs/valeurs propres complexes viennent en paires conjugées complexes. Plus précisément, si $2k$ valeurs propres sont complexes et le reste sont réelles, on pose
+% \begin{equation}
+% \label{eq:22}
+%   v_{2j-1} = \overline{v_{2j}}\, \text{ et } \, \lambda_{2j-1} = \overline{\lambda_{2j}} \, \text{ pour } \, 1 \leq j \leq k \leq n/2 
+% \end{equation}
+% et 
+% \begin{equation}
+%   \label{eq:23}  
+%   v_j \in \R^n, \lambda_j \in \R \text{ pour } j > 2k. 
+% \end{equation}
+% %
+% Considérons maintenant une solution donnée par $v = u+iw$  $\lambda= a+ib$. 
+% \begin{eqnarray*}
+%   \x & = & e^{a \, t} \left(\cos (b t)  + i \sin (b t ) \right)  (u + i w)  \\
+%    & = & e^{a \, t} \left(\cos (b t) u - \sin (bt)w \right)  + ie^{a \, t} \left(\sin (b t ) u + \cos(bt)w \right). 
+% \end{eqnarray*}
+% Ceci nous donne alors deux solutions réelles 
+% \begin{eqnarray*}
+%   \x^{(1)} & = & e^{a \, t} \left(\cos (b t) u - \sin (bt)w \right), \\
+%   \x^{(2)} & = &  e^{a \, t} \left(\sin (b t ) u + \cos(bt)w \right). 
+% \end{eqnarray*}
 % \begin{remark}
-%   \label{rem:1}
-%   Notez que, même si $A$
-%   est diagonalisable, seulement dans les nombre complexes, les
-%   fonctions $\x$ sont réelles.
+%   \label{rem:2}
+%   Les solutions réelles données par $v$ et $\lambda$ engendrent le même espace que les solutions réelles données par $\overline{v}$ et $\overline{\lambda}$. 
 % \end{remark}
 
+% Nous pouvons alors noter une marche à suivre pour résoudre le système~\eqref{eq:19} étant donné $\x(0)$ si $A$ est diagonalisable.
+% \begin{enumerate}
+% \item Trouver une base de vecteurs propres $v_1,\dots,v_n$ de $A$ ordonnée comme dans \eqref{eq:22} et \eqref{eq:23}. 
+% \item Pour chaque paire $v_{2j},\lambda_{2j}$, $1 \leq j \leq k$ trouver les  deux solutions réelles dénotées par  $\x^{(2j-1)}$ et $\x^{(2j)}$. 
+% \item Pour chaque paire réelle $v_j, \lambda_j$ $n\geq j>2k$, trouver la solution $\x^{(j)}$. 
+% \item Trouver la combinaison linéaire 
+%   \begin{displaymath}
+%     \x(0) = \sum_{j} \alpha_j \x^{(j)}(0)
+%   \end{displaymath}
+% \item La solution est 
+%   \begin{displaymath}
+%     \x = \sum_{j} \alpha_j \x^{(j)} 
+%   \end{displaymath}
+% \end{enumerate}
 
-}
+
+
+% \begin{example}
+%   \label{exe:21}
+%   Résoudre le système $\x' = A\x$ où 
+%   \begin{displaymath}
+%     A  =
+%     \begin{pmatrix}
+%       1 & 2 \\
+%       -2 & 1
+%     \end{pmatrix} \, \text{ et } \, \x(0) =
+%     \begin{pmatrix}
+%       1\\1
+%     \end{pmatrix}. 
+%   \end{displaymath}
+%  On trouve que $\lambda_1 = 1 + 2 i$ et $\lambda_2 = 1 - 2i$ sont les valeurs propres de $A$ et 
+%  \begin{displaymath}
+%    v_1 =
+%    \begin{pmatrix}
+%      1\\i
+%    \end{pmatrix} \text{ et } v_2 =
+%    \begin{pmatrix}
+%      1 \\ -i
+%    \end{pmatrix}
+%  \end{displaymath}
+% sont les vecteurs propres correspondants. 
+% Les deux solutions impliquées par $v_1$ sont 
+% \begin{eqnarray*}
+%   \x^{(1)} & = & e^{ t} \left(\cos ( 2t)
+%                  \begin{pmatrix}
+%                    1\\0
+%                  \end{pmatrix}
+% - \sin (2t)\
+%   \begin{pmatrix}
+%     0\\1
+%   \end{pmatrix}
+% \right) \\
+%   \x^{(2)} & = &  e^{t} \left(\sin ( 2t )
+%                  \begin{pmatrix}
+%                    1\\0
+%                  \end{pmatrix}
+% + \cos(2t)
+%   \begin{pmatrix}
+%     0\\1
+%   \end{pmatrix}
+% \right). 
+% \end{eqnarray*} 
+% La solution qu'on cherche est 
+% \begin{displaymath}
+%   \x = \begin{pmatrix}
+%            e^{t} \sin (2t) + e^{t} \cos(2t) \\
+%            - e^{t} \sin(2t) + e^{t} \cos(2t)
+%          \end{pmatrix}.
+% \end{displaymath}
+
+% \end{example}
+
+
+
+
+
+
+% % Une situation très agréable est si $A$ est diagonalisable. Soit $P^{-1}AP = \diag(\lambda_1,\dots,\lambda_n)$ où $P = (v_1,\dots,v_n)$. 
+% % Avec le changement de variables $\x = P\cdot \y $ on écrit
+% % \begin{displaymath}
+% %   \y' = P^{-1} \x' = P^{-1} A\x = P^{-1}AP\y = \diag(\lambda_1,\dots,\lambda_n) \y. 
+% % \end{displaymath}
+% % Le système 
+% % \begin{equation}
+% %   \label{eq:20}  
+% %   \y' = \diag(\lambda_1,\dots,\lambda_n) \y 
+% % \end{equation}
+% % est découplé et les conditions initiales sont $\y(0) = P^{-1} \x(0)$. La solution est $\y_i(t) = \y_i(0) e^{\lambda_i \cdot t}$ et $\x = P \cdot \y$ est la solution du système~\eqref{eq:19} pour les conditions initiales $\x(0)$. 
+
+% % \begin{remark}
+% %   \label{rem:1}
+% %   Notez que, même si $A$
+% %   est diagonalisable, seulement dans les nombre complexes, les
+% %   fonctions $\x$ sont réelles.
+% % \end{remark}
+
+
+% }
 
 \subsection*{Exercices} 
 
@@ -914,7 +914,8 @@ Un élément $x ∈ℂ^n$ est an élément du $\ker \left((A - λI)^k\right)$, s
 \end{displaymath}
 Alors, un des $*$ est zéro, les autres deux sont égaux à $1$. 
 \end{example}
-
+\noindent
+On voit directement le lemme suivant. 
 \begin{lemma}
   \label{lem:29}
   Soit $λ ∈ℂ$ une valeur propre de $A$, la dimension de
@@ -1006,6 +1007,54 @@ alors
     \dim(\ker\left((A - λI)^{k+1}\right)) -\dim(\ker\left((A - λI)^{k}\right)). 
   \end{displaymath}
 \end{lemma}
+
+\begin{proof}
+  Supposons que
+  \begin{displaymath}
+    J =
+    \begin{pmatrix}
+      B_1 \\
+      & \ddots \\
+      & & B_s \\
+      & & & B_{s+1} \\
+      & & & & \ddots \\
+      & & & & & B_k
+    \end{pmatrix}
+  \end{displaymath}
+  Où les $B_1,\dots,B_k$ sont des blocs Jordan et $B_1,\dots,B_s$ ont
+  $λ$ sur la diagonale et les éléments sur la diagonale des
+  $B_{s+1},\dots,B_k$ sont différents de $λ$. Au plus, on suppose $B_i ∈ ℂ^{n_i ×n_i}$ pour $i ∈ \{1,\dots,k\}$. Pour $j ∈ ℕ$, matrice $ (J - λ I)^j$ est de la forme
+   \begin{displaymath}
+     (J - λ I)^j =
+ \begin{pmatrix}
+      C_1^j \\
+      & \ddots \\
+      & & C_s^j \\
+      & & & C_{s+1}^j \\
+      & & & & \ddots \\
+      & & & & & C_k^j
+    \end{pmatrix}
+  \end{displaymath}
+  où $C_i = J(0,n_i)$ pour $i=1,\dots,s$ et $C_i = J(\wt{λ}_i,n_i)$ pour $i=s+1,\dots,k$, où $\wt{λ}_i ≠0$.
+
+  Pour $j ∈ ℕ$ on a 
+  \begin{eqnarray}
+    \dim \ker(A - λ I)^ j & = &   \dim \ker(J - λ I)^ j \\
+                          & = & ∑_{i=1}^s \dim \ker ( J(0,n_i)^j) \\
+                          & = & ∑_{i=1}^s \max\{n_i, j\}. \label{eq:59}
+  \end{eqnarray}
+  Si on compare alors $\dim \ker(A - λ I)^{k+1}$ avec $\dim \ker(A - λ I)^{k}$, la somme~\eqref{eq:59} augmente par $1$ pour chaque bloc Jordan de longueur aux moins $k+1$. On a   $\max\{n_i, k\} = n_i= \max\{n_i, k+1\} $  pour $n_i ≤k$. 
+\end{proof}
+
+\begin{corollary}
+  \label{co:13}
+  Soit $A  ∈ℂ^{n ×n}$, $J ∈ℂ^{n ×n}$ une forme normale Jordan de $A$ et $λ ∈ ℂ$ une valeur propre de $A$. Soit $k ∈ \{1,\dots,n\}$ et $n_k$ le nombre de blocs Jordan avec $λ$  sur la diagonale de longueur $k$. Alors
+
+  \begin{displaymath}
+    n_k = 
+2 ⋅    \dim\ker(A - λI)^{k} - \dim\ker(A - λI)^{k+1} - \dim\ker(A - λI)^{k-1}. 
+  \end{displaymath}
+\end{corollary}
 
 \begin{corollary}
   \label{cor:32x}
@@ -1122,10 +1171,12 @@ alors
   $f(x) = a_0+ \cdots + a_n x^n\in K[x]$. L'\emph{évaluation de $f$
     sur $T$} est l'endomorphisme $f(T): V \rightarrow V$
   \begin{displaymath}
-    f(A) = a_n A^n + a_{n-1}A^{n-1}+ \cdots + a_1 A + a_0 \mathrm{id},
+    f(T) = a_n T^n + a_{n-1}T^{n-1}+ \cdots + a_1 T + a_0 \mathrm{id},
   \end{displaymath}
-  où $A^n = \underbrace{A \circ A \circ \dots \circ A}_{n \text{ fois}}$ et $\circ$ dénote la composition de fonctions. 
+  où $T^n = \underbrace{T \circ T \circ \dots \circ T}_{n \text{ fois}}$ et $\circ$ dénote la composition de fonctions. 
 \end{definition}
+
+
 
 
 \begin{remark}
@@ -1140,6 +1191,45 @@ alors
   \item $(f + g) (T) =  f(T) + g(T)$.
   \end{enumerate} 
 \end{remark}
+
+
+\begin{definition}
+  \label{def:34m}
+ Soit  $K$ un corps, $f(x) = a_0+ \cdots + a_n x^n\in K[x]$  et $A  ∈ K^{n ×n}$. 
+  L'\emph{évaluation de $f$
+    sur $A$} est la matrice  $f(A) ∈ K^{n ×n}$ 
+  \begin{displaymath}
+    f(A) = a_n A^n + a_{n-1}A^{n-1}+ \cdots + a_1 A + a_0 I_n. 
+  \end{displaymath}
+\end{definition}
+
+
+\begin{remark}
+  \label{rem:8:m}
+  Pour $f,g ∈ K[x]$ et  $A ∈ K^{n ×n}$  une matrice, on a
+  \begin{enumerate}[i)]
+  \item $(f ⋅ g) (A) =  f(A) ⋅ g(T)$ et
+  \item $(f + g) (A) =  f(T) + g(T)$.
+  \end{enumerate}
+  Ici, les opérations  $⋅$ et $+$ sont  la multiplication et l'addition de matrices respectivement. 
+\end{remark}
+
+\begin{lemma}
+  \label{lem:27}
+  Soient $p(x) ∈ K[x]$ et $A,B ∈ K^{n ×n}$ deux matrices similaires. Alors $p(A)$ et $p(B)$ sont similaires. 
+\end{lemma}
+\begin{proof}
+  Soit $P ∈ K^{n ×n}$ inversible et $A = P^{-1}BP$. Alors pour $i ∈ ℕ_0$ on a
+  \begin{displaymath}
+    A^i = P^{-1} B^i P 
+  \end{displaymath}
+  et alors
+  \begin{displaymath}
+    p(A) = P^{-1} p(B) P. 
+  \end{displaymath}
+\end{proof}
+
+
 
 
 \begin{example}
@@ -1160,8 +1250,14 @@ alors
 \end{example}
 \begin{definition}
   \label{def:35}
-  Soient $T:V \rightarrow V$ un endomorphisme et $W \subseteq V$ un sous-espace de $V$. On dit que $W$ est \emph{invariant sous $T$} si $T(x) \in W$ pour tout $x \in W$. 
+  Soient $T:V \rightarrow V$ un endomorphisme et $W \subseteq V$ un sous-espace de $V$. On dit que $W$ est \emph{invariant sous $T$} si $T(x) \in W$ pour tout $x \in W$.
+
+  \medskip
+  \noindent
+Soit $A ∈ K^{n×n}$ une matrice et $W \subseteq K^n$ un sous-espace de $K^n$. On dit que $W$ est \emph{invariant sous $A$} si $A x \in W$ pour tout $x \in W$. 
 \end{definition}
+
+
 
 \begin{remark}
   \label{rem:9}
@@ -1250,52 +1346,53 @@ qui démontre que la somme est directe.
 \end{proof}
 
 
+\begin{example}[Exemple~\ref{exe:59} contunué] 
+  \label{exe:58}
+  Le noyaux $\ker(f_A(A))$ égale à $ℂ^4$. On a
+  \begin{displaymath}
+    f_A(x) = (x^2-2) (x^2 -3)  \text{  et } \gcd(x^2-2, x^2 -3) = 1. 
+  \end{displaymath}
+  On trouve les matrices
+  \begin{displaymath}
+    (x^2-2)(A) = A^2 - 2⋅ I_4 =
+    \begin{pmatrix}-2 & 0 & 1 & 0\\0 & -2 & 0 & 1\\-6 & 0 & 3 & 0\\0 & -6 & 0 & 3\end{pmatrix}
+  \end{displaymath}
+  et
+  \begin{displaymath}
+    (x^2-3)(A) = A^2 - 3⋅ I_4 =
+    \begin{pmatrix}-3 & 0 & 1 & 0\\0 & -3 & 0 & 1\\-6 & 0 & 2 & 0\\0 & -6 & 0 & 2\end{pmatrix}
+  \end{displaymath}
+  Leurs noyaux sont générés par 
+  \begin{displaymath}
+    \left\{ \begin{pmatrix}\frac{1}{2}\\0\\1\\0\end{pmatrix}, \  \begin{pmatrix}0\\\frac{1}{2}\\0\\1\end{pmatrix}\right\} \text{ et }
+\left\{ \begin{pmatrix}\frac{1}{3}\\0\\1\\0\end{pmatrix}, \  \begin{pmatrix}0\\\frac{1}{3}\\0\\1\end{pmatrix}\right\}
+\end{displaymath}
+respectivement.
+Pour la matrice
+\begin{displaymath}
+  P = \begin{pmatrix}\frac{1}{2} & 0 & \frac{1}{3} & 0\\0 & \frac{1}{2} & 0 & \frac{1}{3}\\1 & 0 & 1 & 0\\0 & 1 & 0 & 1\end{pmatrix}
+\end{displaymath}
+on trouve
+\begin{displaymath}
+P^{-1} ⋅ A ⋅P = \begin{pmatrix}0 & 1 & 0 & 0\\2 & 0 & 0 & 0\\0 & 0 & 0 & 1\\0 & 0 & 3 & 0\end{pmatrix}, 
+\end{displaymath}
+une matrice bloc diagonale composé de deux blocs $2×2$ respectivement. 
+\end{example}
 
-% \begin{theorem}
-% \label{thr:min-poly}
-% Soient $V$ un espace vectoriel de dimension finie sur un corps $K$, et $A: \, V \rightarrow V$ un endomorphisme.
-% Il y a un polyn{\^o}me $m_A(x) \in K[x]$ de degr{\'e} minimal tel que $m_A(A) = 0$ et le coefficient dominant de $m_A(x)$ est $1$. En plus,
-% \begin{enumerate}
-% \item $m_A(x)$ est unique,
-% \item si $p(A) = 0$ pour un $p \in K[x]$, alors $m_A(x)$ divise $p$, et
-% \item pour $\lambda \in K$, on a $m_A(\lambda) = 0$ si et seulement si $p_A(\lambda) = 0$, o{\`u} $p_A(x)$ est le polyn{\^o}me charact{\'e}ristique de $A$.
-% \end{enumerate}
-% \end{theorem}
-% \begin{definition}
-% On appelle $m_A(x)$ de Th{\'e}or{\`e}me~\ref{thr:min-poly} le \emph{polyn{\^o}me minimal de $A$}.
-% \end{definition}
-% \begin{proof}
-% \underline{Existence:}
-% Car $V$ est de dimension finie, l'espace vectoriel des endomorphismes $V \rightarrow V$ est de dimension finie.
-% Alors, il existe un $k \in \N$ minimal tel que les endomorphismes
-% \[
-%  \mathrm{id}, A, A^2, \dots A^k
-% \]
-% sont lin{\'e}airement d{\'e}pendants,
-% $
-% 0 = \sum_{j=0}^k \alpha_j A^j$ pour quelques $\alpha_j \in K$, et $\alpha_k \neq 0$.
-% On d{\'e}finit $m_A(x) = \sum_{j=0}^k (\alpha_j / \alpha_k) x^j$.
-% Car on choisit $k$ minimal, $\{\mathrm{id},\dots,A^{k-1}\}$ est un ensemble libre et alors $m_A(x)$ est de degr{\'e} minimal.
+Le Théorème suivant est maintenant facilement  montré par récurrence. 
+\begin{theorem}
+  \label{thr:dec:k}
+  Soit $T: V \rightarrow V$ un endomorphisme et soit $f(x) = f_1(x) \cdots f_k(x) ∈ K[x]$ tel que
+  \begin{enumerate}[i)]
+  \item $\deg(f_i) \cdot \deg(f_j) \neq 0$ pour tout $i,j$ 
+  \item $\gcd(f_i,f_j) = 1$ pour tout $i ≠j$ 
+  \end{enumerate}
+  alors 
+  $
+      \ker(f(T)) = \ker(f_1(T)) \oplus \ker(f_2(T)) 
+   $.   
+\end{theorem}
 
-% \underline{$i)$ et $ii)$:} Soit $p(x) \in K[x]$ polyn{\^o}me quelconque tel que $p(A) = 0$.
-% Car il y a deux polyn{\^o}mes $g,h$ tel que 
-% \[
-% \gcd (m_A, p) (x) = g(x)m_A(x) + h(x) p(x) \neq 0,
-% \]
-% on a $\gcd (m_A, p) (A) = 0$.
-% Car $m_A$ est de degr{\'e} minimal, on a $\deg (\gcd(m_A,p)) = \deg (m_A)$, et car le polyn{\^o}mes ont le coefficient dominant $1$, on a $m_A(x) = \gcd (m_A, p) (x)$, alors $ii)$ est vrai.
-% De plus, si $\deg (p) = \deg (m_A)$, on a $p = \gcd (p, m_A)$ aussi, ce qui implique $i)$.
-
-% \underline{$iii)$}
-% Car $m_A \mid p_A$, si $m_A(\lambda) = 0$ alors $p_A(\lambda) = 0$.
-
-% Si $p_A(\lambda) = 0$, il existe $v \in V$ tel que $Av = \lambda v$.
-% Alors,
-% \[
-% 0 (v) = m_A(A) (v) = \left( \sum_{j=0}^k a_j A^j \right) (v) = \sum_{j=0}^k a_j A^j(v) = \left( \sum_{j=0}^k a_j \lambda^j \right) (v) = m_A (\lambda) v,
-% \]
-% et on a $iii)$.
-% \end{proof}
 
 
 
@@ -1305,26 +1402,26 @@ qui démontre que la somme est directe.
   \label{lem:19}
   Soit $V$ un espace vectoriel de dimension finie sur $\C$ et soit $T\colon V ⟶ V$ une application linéaire. Alors $V$ est la somme directe de sous-espaces   $V = V_1 ⊕ \cdots ⊕ V_K$  tels que 
   \begin{enumerate}[i)]
-  \item $T(V_i) ⊆ V_i$ pour tout $i$ et \label{item:10}
+  \item $T(V_i) ⊆ V_i$ c.à.d. $V_i$ invariant sous $T$ pour tout $i$  et \label{item:10}
   \item $T_{∣V_i} \colon V_i ⟶ V_i$
-    est de la forme $N_i + λ \, I$ où $N_i$ est nilpotente. \label{item:11}
+    est de la forme $N_i + λ \, \id$ où $N_i$ est nilpotente. \label{item:11}
   \end{enumerate}
 \end{lemma}
 
 \begin{proof}
-Soit $p(x) =$ le polyn{\^o}me caractéristique  de $T$, alors $p(T) = 0$.
-Le coefficient dominant de $p(x)$ est $1$.   Le théorème fondamental de l'algèbre implique que 
+Soit $\dim(V) = n$ et $p(x) =$ le polyn{\^o}me caractéristique  de $T$, alors $p(T) = 0$.
+Le coefficient dominant de $p(x)$ est $(-1)^n$.   Le théorème fondamental de l'algèbre implique que 
 \begin{displaymath}
-  p(x) = ( x - λ_1)^{m_1} \cdots ( x - λ_k)^{m_k} 
+  p(x) = (-1)^n( x - λ_1)^{m_1} \cdots ( x - λ_k)^{m_k} 
 \end{displaymath}
 avec des $λ_i$ différents. 
-Le diviseur le plus grand de $( x - λ_i)^{m_i}$ et $p(x) / ( x - λ_i)^{m_i}$ est $1$. En utilisant théorème~\ref{thr:37} en $k-1$ étapes, alors 
+Le diviseur le plus grand de $( x - λ_i)^{m_i}$ et $p(x) / ( x - λ_i)^{m_i}$ est $1$. En utilisant théorème~\ref{thr:dec:k}, alors 
 \begin{displaymath} 
-V =   \ker p(T) = \ker (T - λ_1I)^{m_1} ⊕  \cdots ⊕ \ker( T - λ_kI)^{m_k}
+V =   \ker p(T) = \ker (T - λ_1\id)^{m_1} ⊕  \cdots ⊕ \ker( T - λ_k\id)^{m_k}
 \end{displaymath}
-et avec $V_i = \ker( T - λ_iI)^{m_i}$ on a $V = V_1 ⊕ \cdots ⊕ V_K$  et \ref{item:10}) avec lemme~\ref{lem:20}. \newline
+et avec $V_i = \ker( T - λ_i\id)^{m_i}$ on a $V = V_1 ⊕ \cdots ⊕ V_K$  et \ref{item:10}) avec lemme~\ref{lem:20}. \newline
 
-De plus, $$T_{∣V_i} = (T - λ_iI)_{∣V_i} + λ_iI_{∣V_i} =\colon N_i + λ_iI$$ et $N_i = (T - λ_iI)_{∣V_i}$ est bien nilpotente, car $V_i = \ker( T - λ_iI)^{m_i}$ et donc $N_i^{m_i} = (T - λ_iI)^{m_i}_{∣V_i} = 0$.
+De plus, $$T_{∣V_i} = (T - λ_i\id)_{∣V_i} + λ_i\id_{∣V_i} =\colon N_i + λ_i\id$$ et $N_i = (T - λ_i\id)_{∣V_i}$ est bien nilpotente, car $V_i = \ker( T - λ_i\id)^{m_i}$ et donc $N_i^{m_i} = (T - λ_i\id)^{m_i}_{∣V_i} = 0$.
 \end{proof}
 
 
@@ -1434,6 +1531,76 @@ P^{-1}AP =
 \end{displaymath}
 est en forme blocque diagonale, où $N_1$ et $N_2$ sont nilpotentes. En fait, $N_2=0$. 
 \end{example}
+
+\subsection{Le polynôme minimal}
+\label{sec:le-polynome-minimal}
+Pendent cette section, $V$ est toujours  un espace vectoriel sur le corps $K$, $\dim(V) = n$ et $T： V → V$ un endomorphisme. Soit  $f_T(x) ∈ K[x]$ le polynôme caractéristique de $T$. Le théorème de Cayleigh-Hamilton (Théorème~\ref{thr:47})  que $f_T(T) = 0$.
+
+\begin{theorem}
+  \label{lem:31}
+  Soit $p(x) ∈ K[x]\setminus \{0\}$ un polynôme unitaire de degré minimal tel que
+  \begin{displaymath}
+    p(T) = 0. 
+  \end{displaymath}
+  Alors $p(x)$ est unique. 
+\end{theorem}
+
+\begin{proof}
+  Supposons que $g(x)∈ K[x]\setminus \{0\} $ est aussi unitaire, $\deg(g) = \deg(p)$. On effectue division avec reste
+  \begin{displaymath}
+    g = q ⋅ p + r \text{ où } \deg(r) < \deg(p). 
+  \end{displaymath}
+  Parce que $r(T) = 0$ on a forcement $r = 0$. ($p$ est de degré minimal parmi les polynômes unitaires évaluant à zéro). Parce que $g$ et $p$ sont unitaires et de même degré, alors $q = 1$ et $p = g$.  
+\end{proof}
+
+
+\begin{definition}
+  \label{def:64}
+  Le polynôme $p(x) ∈ K[x]\setminus \{0\}$ du Théorème~\ref{lem:31} est appelé le \emph{polynôme minimal} de $T$.
+
+  Le polynôme minimale d'une matrice $A ∈ K^{n ×n}$ est le polynôme minimal de l'endomorphisme $T： K^n → K^n$, $T(x) = Ax$. 
+\end{definition}
+
+
+\begin{remark}
+  \label{rem:10} 
+  Le polynôme minimal $p(x)$ de $T$ divise chaque polynôme $f(x) ∈ K[x]$ tel que $f(T) = 0$. Particulièrement $p(x)$ divise le polynôme caractéristique $f_T(x)$ de $T$.  
+\end{remark}
+
+\begin{theorem}
+  \label{thr:60}
+  Une matrice $A∈ K^{n ×n}$  est diagonalisable, si et seulement si le polynôme minimal $p(x) ∈ K[x]$ de $A$ factorise en termes linéaires distinctes, c.à.d.
+  \begin{displaymath}
+    p(x) = (x - λ_1) \cdots (x - λ_k) 
+  \end{displaymath}
+  où $λ_1,\dots,λ_k ∈ K$ sont les valeurs propres distinctes de $A$. 
+\end{theorem}
+\begin{proof}
+  Supposons que $A$ est diagonalisable. Alors il existe une matrice diagonale $D ∈ K^{n ×n}$ et une matrice inversible $P ∈ K^{n ×n}$ tel que
+  \begin{displaymath}
+    A = P^{-1} D P. 
+  \end{displaymath}
+  Le polynôme minimale de $A$ et celui de $D$ est le même, voir Lemme~\ref{lem:27}.  Soient $λ_1,\dots,λ_K$ les éléments distinctes sur la diagonale de $D$. Il est facile de vérifier
+  \begin{displaymath}
+     0 = (D - λ_1I) \cdots (D - λ_kI). 
+   \end{displaymath}
+   Et si un des facteurs $D - λ_iI$ manque, on obtient pas $0$. Alors le polynôme minimale de $A$ est $p(x) = (x - λ_1) \cdots (x - λ_k)$.
+
+   Supposons maintenant que le polynôme minimal de $A$ est
+   \begin{displaymath}
+    p(x) = (x - λ_1) \cdots (x - λ_k) 
+  \end{displaymath}
+  où $λ_1,\dots,λ_k ∈ K$ sont distinctes. Pour $i≠j$ on a
+  \begin{displaymath}
+    \gcd( x- λ_i, x - λ_j) = 1, 
+  \end{displaymath}
+  alors avec Théorème~\ref{thr:dec:k} 
+  \begin{displaymath}
+    K^n = \ker (A - λ_1 I) ⊕ \cdots ⊕ \ker (A - λ_k I)
+  \end{displaymath}
+  est la somme directe d'espaces propres de $A$. Alors $A$ est diagonalisable. 
+  
+\end{proof}
 
 \subsection*{Exercices}
 \label{sec:exercices}
