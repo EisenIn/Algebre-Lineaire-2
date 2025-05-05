@@ -1648,18 +1648,34 @@ Il est clair, qu'il faut s'occuper maintenant des applications linéaires
 \end{displaymath}
 qui sont de la forme $N + λ I$ pour une application nilpotente $N$. Le théorème suivant s'occupe des applications linéaires nilpotentes. La matrice de $λI$ est toujours $λ I$ pour chaque base. Il est alors clair que le théorème suivant démontre le théorème~\ref{thr:41}. 
 
+\begin{definition}
+  \label{def:36}
+    Pour $x \in V \setminus \{0\}$ on appelle 
+  \begin{displaymath}
+    m_x = \min \{ i \colon N^ix = 0\}
+  \end{displaymath}
+  la \emph{durée de vie} de $x$. 
+  La séquence 
+  \begin{displaymath}
+    x, Nx, \dots, N^{m_x-1} x
+  \end{displaymath}
+  est l'\emph{orbite} de $x$ sous $N$.
+  \end{definition}
+  
+  
+
 \begin{theorem}
   \label{thr:38}
   Soit $V$ un espace vectoriel sur $\C$ de dimension finie et $N\colon V ⟶V$  une application linéaire nilpotente.  Alors $V$ possède une base $ℬ$ de la forme 
   \begin{displaymath}
-    x_1,Nx_1, \dots, N^{m_1-1}x_1, x_2,Nx_2, \ldots , N^{m_2-1}x_2, \quad \dots \quad , x_k,Nx_k, \dots, N^{m_k-1}x_k
+    x_1,Nx_1, \dots, N^{m_{x_1}-1}x_1, x_2,Nx_2, \ldots , N^{m_{x_2}-1}x_2, \quad \dots \quad , x_k,Nx_k, \dots, N^{m_{x_k}-1}x_k
   \end{displaymath}
-telle que $N^{m_i}x_i = 0$ pour tout $i$. 
+telle que $N^{m_{x_i}}x_i = 0$ pour tout $i$. 
 \end{theorem}
 
 \begin{remark}
   \label{rem:4}
-  Si on inverse l'ordre de chaque orbite $x_i, Nx_i, \dots, N^{m_i-1} x_i$,
+  Si on inverse l'ordre de chaque orbite $x_i, Nx_i, \dots, N^{m_{x_i}-1} x_i$,
   %Si on inverse l'ordre de la base $ℬ$ et si on liste les éléments de droite à gauche
   on obtient une base $ℬ'$ et la matrice $A_{ℬ'}^{N }$ de l'application $N$  a la forme 
   \begin{displaymath}
@@ -1691,17 +1707,6 @@ en forme normale de Jordan.
 
 
 \begin{proof}[Démonstration du Théorème~\ref{thr:38}] 
-  Pour $x \in V \setminus \{0\}$ on appelle 
-  \begin{displaymath}
-    m_x = \min \{ i \colon N^ix = 0\}
-  \end{displaymath}
-  la \emph{durée de vie} de $x$. 
-  La séquence 
-  \begin{displaymath}
-    x, Nx, \dots, N^{m_x-1} x
-  \end{displaymath}
-  est l'\emph{orbite} de $x$ sous $N$. 
-  
   En concaténant les orbites des éléments d'une base et en travaillant sur cet ensemble, nous obtiendrons un ensemble de vecteurs qui engendrent $V$. 
   Supposons alors qu'au début de l'étape $q$, nous avons un ensemble $x_1,\dots,x_\ell$ avec $x_1,\dots,x_\ell \neq0$  dont les orbites 
   \begin{equation}
