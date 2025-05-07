@@ -1041,9 +1041,9 @@ alors
   \begin{eqnarray}
     \dim \ker(A - λ I)^ j & = &   \dim \ker(J - λ I)^ j \\
                           & = & ∑_{i=1}^s \dim \ker ( J(0,n_i)^j) \\
-                          & = & ∑_{i=1}^s \max\{n_i, j\}. \label{eq:59}
+                          & = & ∑_{i=1}^s \min\{n_i, j\}. \label{eq:59}
   \end{eqnarray}
-  Si on compare alors $\dim \ker(A - λ I)^{k+1}$ avec $\dim \ker(A - λ I)^{k}$, la somme~\eqref{eq:59} augmente par $1$ pour chaque bloc Jordan de longueur aux moins $k+1$. On a   $\max\{n_i, k\} = n_i= \max\{n_i, k+1\} $  pour $n_i ≤k$. 
+  Si on compare alors $\dim \ker(A - λ I)^{k+1}$ avec $\dim \ker(A - λ I)^{k}$, la somme~\eqref{eq:59} augmente par $1$ pour chaque bloc Jordan de longueur aux moins $k+1$. Pour les blocs plus courts, alors $n_i ≤k$,  on a   $\min\{n_i, k\} = n_i= \min\{n_i, k+1\} $. 
 \end{proof}
 
 \begin{corollary}
