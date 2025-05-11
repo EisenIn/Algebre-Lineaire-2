@@ -1208,8 +1208,8 @@ alors
   \label{rem:8:m}
   Pour $f,g ∈ K[x]$ et  $A ∈ K^{n ×n}$  une matrice, on a
   \begin{enumerate}[i)]
-  \item $(f ⋅ g) (A) =  f(A) ⋅ g(T)$ et
-  \item $(f + g) (A) =  f(T) + g(T)$.
+  \item $(f ⋅ g) (A) =  f(A) ⋅ g(A)$ et
+  \item $(f + g) (A) =  f(A) + g(A)$.
   \end{enumerate}
   Ici, les opérations  $⋅$ et $+$ sont  la multiplication et l'addition de matrices respectivement. 
 \end{remark}
@@ -1447,6 +1447,7 @@ De plus, $$T_{∣V_i} = (T - λ_i\id)_{∣V_i} + λ_i\id_{∣V_i} =\colon N_i + 
   
 Des que  les $N_i$ et $ λ_i I$ commutent, ça démontre le Théorème~\ref{thr:32}. 
 
+\end{remark}
 
 \begin{example}
   \label{exe:47}
@@ -1458,7 +1459,7 @@ Des que  les $N_i$ et $ λ_i I$ commutent, ça démontre le Théorème~\ref{thr:
 -4 & -6 & -1
 \end{array}\right)
 \end{displaymath}
-
+%
 Le polynôme caractéristique de $A$ est $p_A(x) = -  (x-1)^2 (x-3)$. Alors
 \begin{displaymath}
   \ker(p_A(A))  = ℝ^3 = \ker\left((A - I)^2\right) ⊕  \ker(A - 3I). 
@@ -1534,7 +1535,7 @@ est en forme blocque diagonale, où $N_1$ et $N_2$ sont nilpotentes. En fait, $N
 
 \subsection{Le polynôme minimal}
 \label{sec:le-polynome-minimal}
-Pendent cette section, $V$ est toujours  un espace vectoriel sur le corps $K$, $\dim(V) = n$ et $T： V → V$ un endomorphisme. Soit  $f_T(x) ∈ K[x]$ le polynôme caractéristique de $T$. Le théorème de Cayleigh-Hamilton (Théorème~\ref{thr:47})  que $f_T(T) = 0$.
+Pendent cette section, $V$ est toujours  un espace vectoriel sur le corps $K$, $\dim(V) = n$ et $T： V → V$ un endomorphisme. Soit  $f_T(x) ∈ K[x]$ le polynôme caractéristique de $T$. Le théorème de Cayleigh-Hamilton (Théorème~\ref{thr:47})  implique $f_T(T) = 0$.
 
 \begin{theorem}
   \label{lem:31}
@@ -1620,7 +1621,8 @@ Pendent cette section, $V$ est toujours  un espace vectoriel sur le corps $K$, $
 
 \end{enumerate}
 
-
+\subsection{Les endomorphismes nilpotent}
+\label{sec:les-endom-nilp}
 
 
 
@@ -1631,6 +1633,32 @@ Pendent cette section, $V$ est toujours  un espace vectoriel sur le corps $K$, $
 %sont linéairement dépendants. De plus, il existe un polynôme $p(x) \in \C[x] \setminus \{ 0 \}$ tel que $p(T) = 0$. En effet, on peut choisir $p(x)$ le polynôme 
 %caractéristique de $T$.
 
+
+
+\medskip 
+\noindent 
+Il est clair, qu'il faut s'occuper maintenant des applications linéaires 
+\begin{displaymath}
+  T_{∣V_i} \colon V_i ⟶ V_i 
+\end{displaymath}
+qui sont de la forme $N + λ I$ pour une application nilpotente $N$. Le théorème suivant s'occupe des applications linéaires nilpotentes. La matrice de $λI$ est toujours $λ I$ pour chaque base. Il est alors clair que le théorème suivant démontre le théorème~\ref{thr:41}. 
+
+
+\bigskip
+\noindent
+Pendent ce sous-chapitre, $V$ est un espace vectoriel sur corps $K$ de dimension $n< ∞$ et $N: V → V$ est un endomorphisme nilpotent. Notre but est de démontrer le théorème suivant, qui, ensemble avec Lemme~\ref{lem:19} nous donne Théorème~\ref{thr:41} du début de ce chapitre. 
+
+\begin{theorem}
+  \label{thr:38}
+  Soit $V$ un espace vectoriel sur $K$ de dimension finie et $N\colon V ⟶V$  une application linéaire nilpotente.  Alors $V$ possède une base $ℬ$ de la forme 
+  \begin{displaymath}
+    x_1,Nx_1, \dots, N^{m_1-1}x_1, x_2,Nx_2, \ldots , N^{m_2-1}x_2, \quad \dots \quad , x_k,Nx_k, \dots, N^{m_k-1}x_k
+  \end{displaymath}
+telle que $N^{m_i}x_i = 0$ pour tout $i$. 
+\end{theorem}
+
+{\scriptsize
+  \noindent 
 Rappel: Si  $\phi_{\mathscr{B}}$ est l'ismorphisme $\phi_{\mathscr{B}} \colon V \longrightarrow \C^n$, où $\phi_{\mathscr{B}}(x) = [x]_{\mathscr{B}}$ sont les coordonnées de $x$ par rapport à la base ${\mathscr{B}}$,  on a le diagramme suivant 
 \begin{displaymath}
   {
@@ -1640,22 +1668,7 @@ Rappel: Si  $\phi_{\mathscr{B}}$ est l'ismorphisme $\phi_{\mathscr{B}} \colon V 
     \C^n     @>A^T_{\mathscr{B}} \cdot x>>  \C^n
   \end{CD}} 
 \end{displaymath} 
-\end{remark}
-
-Il est clair, qu'il faut s'occuper maintenant des applications linéaires 
-\begin{displaymath}
-  T_{∣V_i} \colon V_i ⟶ V_i 
-\end{displaymath}
-qui sont de la forme $N + λ I$ pour une application nilpotente $N$. Le théorème suivant s'occupe des applications linéaires nilpotentes. La matrice de $λI$ est toujours $λ I$ pour chaque base. Il est alors clair que le théorème suivant démontre le théorème~\ref{thr:41}. 
-
-\begin{theorem}
-  \label{thr:38}
-  Soit $V$ un espace vectoriel sur $\C$ de dimension finie et $N\colon V ⟶V$  une application linéaire nilpotente.  Alors $V$ possède une base $ℬ$ de la forme 
-  \begin{displaymath}
-    x_1,Nx_1, \dots, N^{m_1-1}x_1, x_2,Nx_2, \ldots , N^{m_2-1}x_2, \quad \dots \quad , x_k,Nx_k, \dots, N^{m_k-1}x_k
-  \end{displaymath}
-telle que $N^{m_i}x_i = 0$ pour tout $i$. 
-\end{theorem}
+}
 
 \begin{remark}
   \label{rem:4}
@@ -1682,7 +1695,7 @@ en forme normale de Jordan, où
     & & & & 0
   \end{pmatrix} \in \C^{m_i × m_i}. 
 \end{displaymath}
-Par conséquent, $N+ λI$ est représentée par 
+Par conséquent, $N+ λ\id $ est représentée par 
 \begin{displaymath}
  A_{ℬ'}^{N + λI} =    A_{ℬ'}^N + λ I_n
 \end{displaymath}
@@ -1690,8 +1703,10 @@ en forme normale de Jordan.
 \end{remark}
 
 
-\begin{proof}[Démonstration du Théorème~\ref{thr:38}] 
-  Pour $x \in V \setminus \{0\}$ on appelle 
+
+\begin{definition}
+  \label{def:65}
+   Pour $x \in V \setminus \{0\}$ on appelle 
   \begin{displaymath}
     m_x = \min \{ i \colon N^ix = 0\}
   \end{displaymath}
@@ -1701,8 +1716,58 @@ en forme normale de Jordan.
     x, Nx, \dots, N^{m_x-1} x
   \end{displaymath}
   est l'\emph{orbite} de $x$ sous $N$. 
-  
-  En concaténant les orbites des éléments d'une base et en travaillant sur cet ensemble, nous obtiendrons un ensemble de vecteurs qui engendrent $V$. 
+\end{definition}
+
+\begin{lemma}
+  \label{lem:32}
+  Soient  $x_1,\dots,x_\ell ∈ V \setminus \{0\}$  et soient les orbites 
+  \begin{equation}
+    \label{eq:27}
+    x_1,Nx_1,\dots,N^{m_1-1}x_1, \,\dots \, ,  x_\ell,Nx_\ell,\dots,N^{m_\ell-1}x_\ell
+  \end{equation}
+  linéairement dépendant. Alors
+  \begin{displaymath}
+     N^{m_1-1}x_1, \dots ,N^{m_\ell-1}x_\ell 
+   \end{displaymath}
+   sont déjà  linéairement dépendant, où les $m_1,\dots,m_k$ sont les durées de vie des $x_1,\dots,x_k$. 
+\end{lemma}
+
+\begin{example}
+  \label{sec:les-endom-nilp-2}
+  Supposons que $ℓ = 3$, $m_1=2, m_2=2, m_3=3$ et soit
+  \begin{displaymath}
+     0 = 0 ⋅ x_1 + α ⋅ N(x_1) + β ⋅x_2 + 0 ⋅N(x_2) + 0 ⋅ x_3 + γ ⋅ N(x_3) + δ N^2(x_3) 
+   \end{displaymath}
+   une combinaison non-triviale de zéro, où $α,β,γ,δ ∈ K \setminus \{0\}$. On obtient
+   \begin{eqnarray*}
+     0 &  =&  N(0) \\
+       &  =& 0 ⋅ N(x_1) + α ⋅ N^2(x_1) + β ⋅N(x_2) + 0 ⋅N^2(x_2) + 0 ⋅ N(x_3) +  \\
+     & &  \quad \quad γ ⋅ N^2(x_3) + δ N^3(x_3)  \\
+     & = & β ⋅N(x_2) + γ ⋅ N^2(x_3).
+   \end{eqnarray*}
+   Alors $N(x_2),  N^2(x_3)$ sont linéairement dépendant. L'idée c'est d'appliquer $N$ jusqu'au dernier moment, ou des éléments $N^i(x_j)$, $0 ≤ i < m_j$ ont un scalaire non-zéro dans la combinaison non-triviale de zéro. 
+ \end{example}
+ 
+\begin{proof}[Démonstration du Lemme~\ref{lem:32}] 
+  Soit \begin{displaymath}
+    0 =   β_0^1 x_1 + %β_1^1 Nx_1+
+    \dots+ β_{m_1-1}^1 N^{m_1-1}x_1 + \dots + 
+    β_0^\ell x_\ell + %β_1^\ell Nx_\ell+
+    \dots+ β_{m_\ell-1}^\ell N^{m_\ell-1}x_\ell 
+\end{displaymath}
+une combinaison non-triviale de zéro.
+Maintenant, nous allons appliquer l'application $N$ $k$-fois, où $k \geq 0$ est le plus grand entier tel que les termes 
+\begin{displaymath}
+  β_i^j N^{k+i}x_j 
+\end{displaymath}
+ne sont pas tous égaux à zéro. Ainsi, nous avons trouvé un sous-ensemble $J ⊆ \{1,\dots,\ell \}$ et des $γ_j ≠ 0$ tels que 
+\begin{displaymath}
+  \sum_{j \in J} γ_j N^{m_j-1}x_j = 0.
+\end{displaymath}
+\end{proof}
+
+\begin{proof}[Démonstration du Théorème~\ref{thr:38}] 
+  En concaténant les orbites des éléments d'une base de $V$  nous obtiendrons un ensemble de vecteurs qui engendrent $V$. 
   Supposons alors qu'au début de l'étape $q$, nous avons un ensemble $x_1,\dots,x_\ell$ avec $x_1,\dots,x_\ell \neq0$  dont les orbites 
   \begin{equation}
     \label{eq:27}
@@ -1713,29 +1778,31 @@ en forme normale de Jordan.
   \item Les orbites de $x_1,\dots, x_{i-1},y,x_{i+1},\dots,x_{\ell}$ engendrent aussi l'ensemble  $V$, 
   \item la somme des durées de vie de $x_1,\dots, x_{i-1},y,x_{i+1},\dots,x_{\ell}$  est strictement plus petite que la somme des durées de vie de $x_1,\dots,x_{\ell}$. 
   \end{enumerate}
-Cela prouvera le théorème parce qu'un tel procédé doit se terminer. \\
+Cela prouvera le théorème parce qu'un tel procédé doit se terminer. 
 
+
+\medskip
+\noindent
 Dès que l'ensemble~\eqref{eq:27} est linéairement dépendant, il existe une combinaison linéaire non triviale de~\eqref{eq:27} qui est égale a $0$ :
 \begin{displaymath}
 0 =   β_0^1 x_1 + β_1^1 Nx_1+ \dots+ β_{m_1-1}^1 N^{m_1-1}x_1 + \dots + 
 β_0^\ell x_\ell + β_1^\ell Nx_\ell+ \dots+ β_{m_\ell-1}^\ell N^{m_\ell-1}x_\ell 
 \end{displaymath}
 
-\textbf{Cas 1 :} \\
-Supposons que dans notre ensemble $x_1,Nx_1,\dots,N^{m_1-1}x_1, \,\dots \, ,  x_\ell,Nx_\ell,\dots,N^{m_\ell-1}x_\ell$, il existe $i$ tel que la durée de vie de $x_i$ est $1$ (i.e. $Nx_i = 0$ et l'orbite associée est seulement constituée de $x_i$) et supposons que ce $x_i$ apparaisse (avec un coefficient non nul) dans la combinaison linéaire ci-dessus. \\
-En passant tous les termes sauf $x_i$ à gauche, on obtient  que $x_i$ est une combinaison linéaire non triviale des éléments de $\{ x_1,Nx_1,\dots,N^{m_1-1}x_1, \,\dots \, ,  x_\ell,Nx_\ell,\dots,N^{m_\ell-1}x_\ell \} \setminus \{x_i\}$. Donc on peut supprimer $x_i$ de cet ensemble et on obtient un nouvel ensemble de la même forme qu'en~\eqref{eq:27}, engendrant le même espace, mais avec une orbite en moins. \\
-
-\textbf{Cas 2 :} \\
-Supposons que nous avons la combinaison linéaire ci-dessus, mais que nous ne sommes pas dans le cas $1$. \\
-Maintenant, nous allons appliquer l'application $N$ $k$-fois, où $k \geq 0$ est le plus grand entier tel que les termes 
-\begin{displaymath}
-  β_i^j N^{k+i}x_j 
-\end{displaymath}
-ne sont pas tous égaux à zéro. Ainsi, nous avons trouvé un sous-ensemble $J ⊆ \{1,\dots,\ell \}$ et des $γ_j ≠ 0$ tels que 
+\medskip
+\noindent
+Lemme~\ref{lem:32} implique qu'il existe un sous-ensemble $J ⊆ \{1,\dots,\ell \}$ et des $γ_j ≠ 0$ tels que 
 \begin{displaymath}
   \sum_{j \in J} γ_j N^{m_j-1}x_j = 0.
 \end{displaymath}
-Soit $m = \min_{j \in J} {m_j-1} \geq 1$ et soit $i \in J$ un index où le minimum est atteint. Alors 
+
+\textbf{Cas 1 :} Supposons qu'il existe un $ j ∈ J$ tel que $m_j = 1$. Dans ce cas, un peut supprimer $x_j$  et les orbites des autres $x_i, i ≠j$ engendrent ensemble $V$ aussi. 
+
+\medskip
+\noindent 
+\textbf{Cas 2 :} 
+Autrement 
+soit $m = \min_{j \in J} {m_j-1} \geq 1$ et soit $i \in J$ un index où le minimum est atteint. Alors 
 \begin{displaymath}
  0 =  N^m  \sum_{j \in J} γ_j N^{m_j-1 - m}x_j  = N^m \left( γ_i x_i + \sum_{j \in J, j \neq i} γ_j N^{m_j-1 - m}x_j \right)
 \end{displaymath}
