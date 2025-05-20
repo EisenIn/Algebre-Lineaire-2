@@ -496,7 +496,7 @@ Alors, on a
   e^{tA} = 
   \begin{pmatrix} \displaystyle 
      \sum_{k=0}^{\infty}\dfrac{(-1)^{k}t^{2k}}{(2k)!} &  \displaystyle \sum_{k=0}^{\infty}\dfrac{(-1)^{k+1}t^{2k+1}}{(2k+1)!}\\
-    \displaystyle \sum_{k=0}^{\infty}\dfrac{(-1)^{k+1}t^{2k+1}}{(2k+1)!} & \displaystyle \sum_{k=0}^{\infty}\dfrac{(-1)^{k}t^{2k}}{(2k)!}
+    \displaystyle - \sum_{k=0}^{\infty}\dfrac{(-1)^{k+1}t^{2k+1}}{(2k+1)!} & \displaystyle \sum_{k=0}^{\infty}\dfrac{(-1)^{k}t^{2k}}{(2k)!}
 \end{pmatrix}
 \end{displaymath}
 On se souvient des formules 
@@ -1641,13 +1641,14 @@ Il est clair, qu'il faut s'occuper maintenant des applications linéaires
 \begin{displaymath}
   T_{∣V_i} \colon V_i ⟶ V_i 
 \end{displaymath}
-qui sont de la forme $N + λ I$ pour une application nilpotente $N$. Le théorème suivant s'occupe des applications linéaires nilpotentes. La matrice de $λI$ est toujours $λ I$ pour chaque base. Il est alors clair que le théorème suivant démontre le théorème~\ref{thr:41}. 
+qui sont de la forme $N + λ I$ pour une application nilpotente $N$. Le théorème suivant s'occupe des applications linéaires nilpotentes. La matrice de $λI$ est toujours $λ I$ pour chaque base. Il est alors clair que le théorème suivant démontre le théorème~\ref{thr:41}, qui, ensemble avec Lemme~\ref{lem:19} nous donne Théorème~\ref{thr:41} du début de ce chapitre. 
 
 
 \bigskip
 \noindent
-Pendent ce sous-chapitre, $V$ est un espace vectoriel sur corps $K$ de dimension $n< ∞$ et $N: V → V$ est un endomorphisme nilpotent. Notre but est de démontrer le théorème suivant, qui, ensemble avec Lemme~\ref{lem:19} nous donne Théorème~\ref{thr:41} du début de ce chapitre. 
-
+{\scriptsize  
+Pendent ce sous-chapitre, $V$ est un espace vectoriel sur corps $K$ de dimension $n< ∞$ et $N: V → V$ est un endomorphisme nilpotent.
+}
 \begin{theorem}
   \label{thr:38}
   Soit $V$ un espace vectoriel sur $K$ de dimension finie et $N\colon V ⟶V$  une application linéaire nilpotente.  Alors $V$ possède une base $ℬ$ de la forme 
@@ -1796,11 +1797,12 @@ Lemme~\ref{lem:32} implique qu'il existe un sous-ensemble $J ⊆ \{1,\dots,\ell 
   \sum_{j \in J} γ_j N^{m_j-1}x_j = 0.
 \end{displaymath}
 
-\textbf{Cas 1 :} Supposons qu'il existe un $ j ∈ J$ tel que $m_j = 1$. Dans ce cas, un peut supprimer $x_j$  et les orbites des autres $x_i, i ≠j$ engendrent ensemble $V$ aussi. 
+\noindent 
+\emph{Cas 1 :} Supposons qu'il existe un $ j ∈ J$ tel que $m_j = 1$. Dans ce cas, un peut supprimer $x_j$  et les orbites des autres $x_i, i ≠j$ engendrent ensemble $V$ aussi. 
 
 \medskip
 \noindent 
-\textbf{Cas 2 :} 
+\emph{Cas 2 :} 
 Autrement 
 soit $m = \min_{j \in J} {m_j-1} \geq 1$ et soit $i \in J$ un index où le minimum est atteint. Alors 
 \begin{displaymath}
