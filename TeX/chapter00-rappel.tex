@@ -1,7 +1,101 @@
-\chapter{Notions fondamentales et notation}
+\chapter{Rappel des notions  fondamentales}
 \label{cha:noti-fond-et}
 
+\noindent 
+On se rappelle de la notion d'un espace vectoriel $V$ sur un corps $K$. Pendant notre cours, on travaille presque exclusivement avec des espaces vectoriels de dimension fini, $\dim(V) = n ∈ ℕ$. Dans ce cas il existe une base finie
+\begin{displaymath}
+  B = \{ v_1,\dots,v_n\}. 
+\end{displaymath}
+On considère cette base $B$ comme ordonnée. Alors il y a un premier élément de cet ensemble $B$  un deuxième etc.  
 
+
+Tout élément $v ∈ V$ possède une représentation unique comme \emph{combinaison linéaire}
+\begin{displaymath}
+  v = α_1 v_1 + \cdots + α_n v_n, 
+\end{displaymath}
+où  $α_i ∈ K$ pour $i=1,\dots,n$. Le vecteur
+\begin{displaymath}
+  [v]_B =
+  \begin{pmatrix}
+    α_1\\ \vdots \\ α_n
+  \end{pmatrix} ∈ Κ^n
+\end{displaymath}
+est appelé les \emph{coordonnées} de $v$ \emph{relatif à la base} $B$. Si $B'$ est une autre base de $V$ on peut obtenir  les \emph{coordonnées} de $v$ relatif à la base $ℬ'$ à l'aide de la \emph{ matrice de changement de base} $P_{B B'} ∈ K^{n ×n}$. Pour tout $v ∈ V$ on a
+\begin{displaymath}
+  [v]_{B'} =  P_{BB'} [v]_B. 
+\end{displaymath}
+
+\begin{example}
+  \label{exe:b-21}
+  Supposons  $\dim(V) = 3$ et $B = \{ v_1,v_2,v_3\}$ et $B' = \{ v'_1,v'_2,v'_3\}$ sont deux bases de $V$.  Les $v_i'$ sont représentées comme combinaisons linéaires des $v_i$ comme suivant.
+    \begin{eqnarray*}
+      v_1' & = &  2 v_1 + v_2 - v_3\\
+      v_2' & = &   v_1 + 3v_2 + v_3 \\
+      v_3' & = &   v_1 + v_2 -  v_3. 
+    \end{eqnarray*}
+    La matrice de changement de base $P_{B'B}$ est
+    \begin{displaymath}
+      P_{B'B} = \left(\begin{array}{rrr}
+2 & 1 & 1 \\
+1 & 3 & 1 \\
+-1 & 1 & -1
+\end{array}\right)
+\end{displaymath}
+On vérifie par exemple 
+\begin{displaymath}
+  [v_1']_{B'}  = e_1 \text{   et  } [v_1']_{B} = P_{B'B} ⋅ e_1. 
+\end{displaymath}
+La matrice de changement de base $P_{BB'}$ est
+\begin{displaymath}
+  P_{BB'} =  P_{B'B}^{-1} = \left(\begin{array}{rrr}
+1 & -\frac{1}{2} & \frac{1}{2} \\
+0 & \frac{1}{4} & \frac{1}{4} \\
+-1 & \frac{3}{4} & -\frac{5}{4}
+\end{array}\right).
+\end{displaymath}
+\end{example}
+%
+\noindent 
+Comme  dans l'exemple~\ref{exe:b-21} le vecteur $e_i ∈ K^n$ est
+\begin{displaymath}
+  e_i =
+  \begin{pmatrix}
+    0 \\ \vdots \\ 0 \\ 1 \\ 0 \\ \vdots \\1
+  \end{pmatrix}
+\end{displaymath}
+où la $i$-ième composante est $1$ et les autres sont tous égaux à $0$.  
+
+
+Soient $V$ et $W$ deux espaces vectoriels sur un corps $K$. Une \emph{application linéaire} est une fonction $f： V ⟶ W$ tel que
+\begin{enumerate}[(l.1)] 
+\item Pour tous $u,v ∈ V$ on a $f(u+v) = f(u) + f(v)$. 
+\item Pour tout $u ∈V$ et $α ∈ K$ on a $f(α u) = α f(u)$. 
+\end{enumerate}
+
+
+\medskip
+\noindent 
+Si $B_1 = \{v_1,\dots,v_n\}$ est une base de $V$ et  $B_2 = \{u_1,\dots,u_m\}$ est une base de $W$ et si
+\begin{displaymath}
+  f(v_j) = a_{1j} u_1 + \cdots + a_{mj} u_m 
+\end{displaymath}
+alors pour tout $v ∈ V$ on vérifie facilement
+\begin{displaymath}
+  [f(v) ]_{B_2} =
+  \begin{pmatrix}
+    a_{11} & a_{12} & \cdots & a_{1n} \\
+    \vdots &&&\vdots \\
+     a_{m1} & a_{m2} & \cdots & a_{mn} \\
+  \end{pmatrix}
+  [v]_{B_1}.  
+\end{displaymath}
+
+
+
+\begin{example}
+  \label{exe:b2}
+  
+\end{example}
 
 
 %%%Local Variables:
