@@ -56,7 +56,7 @@ La matrice de changement de base $P_{BB'}$ est
 \end{example}
 %
 \noindent 
-Comme  dans l'exemple~\ref{exe:b-21} le vecteur $e_i ∈ K^n$ est
+Comme  dans l'exemple~\ref{exe:b-21} pour $i ∈ \{1,\dots,n\}$  le vecteur $e_i ∈ K^n$ est
 \begin{displaymath}
   e_i =
   \begin{pmatrix}
@@ -66,6 +66,9 @@ Comme  dans l'exemple~\ref{exe:b-21} le vecteur $e_i ∈ K^n$ est
 où la $i$-ième composante est $1$ et les autres sont tous égaux à $0$.  
 
 
+\section{Applications linéaires et matrices}
+\label{sec:appl-line-et}
+\noindent 
 Soient $V$ et $W$ deux espaces vectoriels sur un corps $K$. Une \emph{application linéaire} est une fonction $f： V ⟶ W$ tel que
 \begin{enumerate}[(l.1)] 
 \item Pour tous $u,v ∈ V$ on a $f(u+v) = f(u) + f(v)$. 
@@ -75,9 +78,9 @@ Soient $V$ et $W$ deux espaces vectoriels sur un corps $K$. Une \emph{applicatio
 
 \medskip
 \noindent 
-Si $B_1 = \{v_1,\dots,v_n\}$ est une base de $V$ et  $B_2 = \{u_1,\dots,u_m\}$ est une base de $W$ et si
+Si $B_1 = \{v_1,\dots,v_n\}$ est une base de $V$ et  $B_2 = \{w_1,\dots,w_m\}$ est une base de $W$ et si
 \begin{displaymath}
-  f(v_j) = a_{1j} u_1 + \cdots + a_{mj} u_m 
+  f(v_j) = a_{1j} w_1 + \cdots + a_{mj} w_m 
 \end{displaymath}
 alors pour tout $v ∈ V$ on vérifie facilement
 \begin{displaymath}
@@ -89,14 +92,92 @@ alors pour tout $v ∈ V$ on vérifie facilement
   \end{pmatrix}
   [v]_{B_1}.  
 \end{displaymath}
+% La matrice
+% \begin{equation}
+%   \label{eq:19}
+%   A_{B_1,B_2}^f =  \begin{pmatrix}
+%     a_{11} & a_{12} & \cdots & a_{1n} \\
+%     \vdots &&&\vdots \\
+%      a_{m1} & a_{m2} & \cdots & a_{mn} \\
+%   \end{pmatrix}
+% \end{equation}
+% est appelé la matrice de $f$ relatif 
 
 
 
 \begin{example}
-  \label{exe:b2}
+  \label{example-b2}
+  Soient  $V$ et $W$ deux espaces vectoriels sur $ℤ_3$,  $B_1 = \{ v_1,v_2,v_3,v_4\}$ et $B_2 = \{ u_1,u_2,u_3\}$  bases de $V$ et $W$ respectivement. Soit $f ： V ⟶ W$ une application linéaire  et les images des $v_i$ comme suivant.
+  \begin{eqnarray*}
+   f(v_{ 1 }) & =& 1  \cdot w_{ 1 }       +  0  \cdot w_{ 2 }       +  2  \cdot w_{ 3 }       +  1  \cdot w_{ 4 }       \\  
+  f(v_{ 2 }) & =& 2  \cdot w_{ 1 }       +  1  \cdot w_{ 2 }       +  0  \cdot w_{ 3 }       +  2  \cdot w_{ 4 }       \\  
+  f(v_{ 3 }) & =& 0  \cdot w_{ 1 }       +  2  \cdot w_{ 2 }       +  1  \cdot w_{ 3 }       +  0  \cdot w_{ 4 }       \\  
+  f(v_{ 4 }) & =& 1  \cdot w_{ 1 }       +  0  \cdot w_{ 2 }       +  2  \cdot w_{ 3 }       +  1  \cdot w_{ 4 }       \\  
+  f(v_{ 5 }) & =& 2  \cdot w_{ 1 }       +  1  \cdot w_{ 2 }       +  0  \cdot w_{ 3 }       +  2  \cdot w_{ 4 }       
+  \end{eqnarray*}
+  Alors la matrice
+  \begin{displaymath}
+   A =   \left( \begin{array}{rrrrr} 1 & 2 & 0 & 1 & 2 \\ 0 & 1 & 2 & 0 & 1 \\ 2 & 0 & 1 & 2 & 0 \\ 1 & 2 & 0 & 1 & 2 \end{array}\right) ∈ ℤ_3^{4 × 5} 
+ \end{displaymath}
+ nous donne pour tout $v ∈ V$ 
+ \begin{displaymath}
+   [f(v)]_{B_2}  = A [v]_{B_1}. 
+ \end{displaymath}
   
 \end{example}
 
+
+
+
+\section{L'élimination de Gauss}
+\label{sec:analys-gauss-elim}
+
+Rappelons l'élimination de Gauss.
+
+\begin{algorithm}%[Élimination de Gauss]
+\label{alg:3}
+
+\begin{tabbing}
+Entrée : $A ∈ K^{m ×n}$ \\
+Sortie : = $A'∈ K^{m ×n}$ sous forme échelonnée telle qu'il existe une matrice inversible \\
+> $Q ∈ K^{m × m}$ vérifiant $Q⋅A = A'$. \\
+\pushtabs
+\
+$A' := A$ \
+$i := 1$\
+\textbf{tant que} = ($i≤m$) \
+> trouver le \emph{plus petit} $1 ≤ j ≤n$ tel qu'il existe $k≥i$ avec $a'{kj} ≠ 0$ \
+> Si un tel élément n'existe pas, alors {\bf arrêter} \
+> échanger les lignes $i$ et $k$ dans $A'$ \
+>  \textbf{pour} = $k = i+1,\dots, m$ \
+>            > soustraire $(a'{kj}/a'_{ij})$ fois la ligne $i$ de la ligne $k$ dans $A'$ \
+> $i:=i+1$
+\poptabs
+\end{tabbing}
+\end{algorithm}
+
+\noindent
+On peut facilement prouver la correction de l'algorithme. Tout d'abord, l'algorithme n'effectue que des opérations élémentaires sur les lignes de la forme
+\begin{enumerate}[i)]
+\item échanger deux lignes
+\item soustraire un multiple d'une ligne à une \textbf{autre} ligne.
+\end{enumerate}
+Cela signifie que la matrice résultante $A'$ peut être obtenue via
+\begin{displaymath}
+A' = Q ⋅ A
+\end{displaymath}
+avec une matrice $Q ∈ ℚ^{m × m}$ non singulière. Par ailleurs, nous avons l'invariant suivant.
+\begin{quote}
+Après chaque itération de la boucle {\tt tant que}, la matrice $H$ obtenue à partir des $j$ premières colonnes de $A'$ est sous forme échelonnée et les lignes $i, i+1, \dots, m$ de $H$ sont entièrement nulles, voir la figure~\ref{fig:9}.
+\end{quote}
+
+\begin{figure}
+\centering
+\includegraphics[height=5cm]{./Figures/Echelon.jpg}
+\caption{Élimination de Gauss : la matrice $A'$ avant la $i$-ème itération de la boucle {\tt tant que}. \label{fig:9}}
+\end{figure}
+
+Combien d'opérations arithmétiques l'élimination de Gauss effectue-t-elle ? Soustraire un multiple d'une ligne à une autre ligne dans $A'$ peut se faire en temps $O(n)$. Ainsi, le nombre total d'opérations effectuées dans la boucle {\bf pour} est $O(m ⋅n)$. Il y a $O(m)$ itérations de la boucle {\tt tant que}. Au total, cela montre que l'élimination de Gauss effectue $O(m^2 ⋅n)$ opérations. Mais quelle peut être la taille des nombres au cours de l'algorithme de Gauss ? Est-il possible que des nombres dont la longueur de codage binaire n'est pas polynomiale par rapport à la longueur de codage totale de la matrice $A$ doivent être manipulés ? Heureusement, la réponse à cette question est « Non ». Pour apporter cette réponse, nous devons démontrer ce qui suit.
 
 %%%Local Variables:
 %%% mode: latex
