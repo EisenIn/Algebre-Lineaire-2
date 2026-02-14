@@ -135,49 +135,99 @@ alors pour tout $v ∈ V$ on vérifie facilement
 Rappelons l'élimination de Gauss.
 
 \begin{algorithm}%[Élimination de Gauss]
-\label{alg:3}
-
+  \label{alg:3}
+  \caption{Élimination de Gauss}
 \begin{tabbing}
-Entrée : $A ∈ K^{m ×n}$ \\
-Sortie : = $A'∈ K^{m ×n}$ sous forme échelonnée telle qu'il existe une matrice inversible \\
-> $Q ∈ K^{m × m}$ vérifiant $Q⋅A = A'$. \\
+Entrée: $A ∈ K^{m ×n}$ \\
+Sortie: \= $A'∈ K^{m ×n}$ sous forme échelonnée telle qu'il existe une matrice inversible \\
+\> $Q ∈ K^{m × m}$ vérifiant $Q⋅A = A'$. \\
 \pushtabs
-\
-$A' := A$ \
-$i := 1$\
-\textbf{tant que} = ($i≤m$) \
-> trouver le \emph{plus petit} $1 ≤ j ≤n$ tel qu'il existe $k≥i$ avec $a'{kj} ≠ 0$ \
-> Si un tel élément n'existe pas, alors {\bf arrêter} \
-> échanger les lignes $i$ et $k$ dans $A'$ \
->  \textbf{pour} = $k = i+1,\dots, m$ \
->            > soustraire $(a'{kj}/a'_{ij})$ fois la ligne $i$ de la ligne $k$ dans $A'$ \
-> $i:=i+1$
+
+$A' := A$ \\
+$i := 1$\\
+\textbf{tant que} = ($i≤m$) \\
+\> trouver le \emph{plus petit} $1 ≤ j ≤n$ tel qu'il existe $k≥i$ avec $a'{kj} ≠ 0$ \\ 
+\> Si un tel élément n'existe pas, alors \textbf{ arrêter} \\
+\> échanger les lignes $i$ et $k$ dans $A'$ \\
+\>  \textbf{pour} \= $k = i+1,\dots, m$ \\
+\>            \> soustraire $(a'{kj}/a'_{ij})$ fois la ligne $i$ de la ligne $k$ dans $A'$ \\
+\> $i:=i+1$
 \poptabs
 \end{tabbing}
 \end{algorithm}
 
 \noindent
-On peut facilement prouver la correction de l'algorithme. Tout d'abord, l'algorithme n'effectue que des opérations élémentaires sur les lignes de la forme
+On peut facilement prouver que l'algorithme est correcte. Tout d'abord, l'algorithme n'effectue que des opérations élémentaires sur les lignes de la forme
 \begin{enumerate}[i)]
-\item échanger deux lignes
-\item soustraire un multiple d'une ligne à une \textbf{autre} ligne.
+\item échanger deux lignes  \label{item:5}
+\item additionner  un multiple d'une ligne à une \textbf{autre} ligne. \label{item:10}
 \end{enumerate}
+L'opération \ref{item:5}, si les lignes $i$ et $j$ sont échangées,  correspond à la multiplication
+\begin{displaymath}
+  A'  :=
+  % \begin{pmatrix}
+  %   e_1^T \\ \vdots \\ e^T_{i-1} \\ e^T_j \\ e^T_{i+1} \\ \vdots  \\ e^T_{j-1} \\ e^T_i \\ e^T_{j+1} \\ \vdots  \\ e^T_m
+  % \end{pmatrix}
+  T_{i,j}⋅ A', 
+\end{displaymath}
+où $T_{i,j} ∈ K^{m ×m}$ où T est obtenue à partir de la matrice identité $I ∈ K^{m ×m}$ en échangeant la $i$-ème et la $j$-ème ligne.
+
+L'opération~\ref{item:10}, si on additionne $α$ fois la ligne $i$ sur la ligne $j$, correspond à la multiplication 
+\begin{displaymath}
+  A'  :=
+  % \begin{pmatrix}
+  %   e_1^T \\
+  %   \vdots \\
+  %   e_{j-1}^T \\
+  %   α ⋅ e_i^T + e_j^T \\
+  %   e_{j+1}^T \\
+  %   \vdots \\
+  %   e_m^T
+  % \end{pmatrix}
+L_{i,j}(α)  ⋅ A', 
+\end{displaymath}
+où $L_{i,j}(α) ∈ K^{m ×m}$ est obtenue à partir de la matrice identité $I ∈ K^{m ×m}$ en additionnant $α$ \og fois\fg{} la $i$-ème sur  la $j$-ème ligne.
+\begin{example}
+  \label{exe:21}
+  En $ℚ^{4×4}$ on a
+  \begin{displaymath}
+    T_{1,3}  =
+    \begin{pmatrix}
+      0 & 0 & 1 & 0\\
+      0 & 1 & 0 & 0\\
+      1 & 0 & 0 & 0 \\
+      0 & 0 & 0 & 1
+    \end{pmatrix} \quad \text{  et } \quad
+     L_{3,2}(-5)  =
+    \begin{pmatrix}
+      1& 0 & 0 & 0\\
+      0 & 1 & -5 & 0\\
+      0 & 0 & 1 & 0 \\
+      0 & 0 & 0 & 1
+    \end{pmatrix}
+  \end{displaymath}
+\end{example}
 Cela signifie que la matrice résultante $A'$ peut être obtenue via
 \begin{displaymath}
 A' = Q ⋅ A
 \end{displaymath}
-avec une matrice $Q ∈ ℚ^{m × m}$ non singulière. Par ailleurs, nous avons l'invariant suivant.
+avec une matrice $Q ∈ ℚ^{m × m}$ non singulière.
+En fait, si les opérations sont effectuer en multipliant $A'$ avec  les matrices élémentaires $P_1 , \dots, P_μ$ à gauche, $Q$ est le produit
+\begin{displaymath}
+  Q = P_μ \cdots P_1. 
+\end{displaymath}
+Par ailleurs, nous avons l'invariant suivant.
 \begin{quote}
-Après chaque itération de la boucle {\tt tant que}, la matrice $H$ obtenue à partir des $j$ premières colonnes de $A'$ est sous forme échelonnée et les lignes $i, i+1, \dots, m$ de $H$ sont entièrement nulles, voir la figure~\ref{fig:9}.
+Après chaque itération de la boucle \textbf{ tant que}, la matrice $H$ obtenue à partir des $j$ premières colonnes de $A'$ est sous forme échelonnée et les lignes $i, i+1, \dots, m$ de $H$ sont entièrement nulles, voir la figure~\ref{fig:9}.
 \end{quote}
 
 \begin{figure}
 \centering
 \includegraphics[height=5cm]{./Figures/Echelon.jpg}
-\caption{Élimination de Gauss : la matrice $A'$ avant la $i$-ème itération de la boucle {\tt tant que}. \label{fig:9}}
+\caption{Élimination de Gauss : la matrice $A'$ avant la $i$-ème itération de la boucle \textbf{ tant que}. \label{fig:9}}
 \end{figure}
-
-Combien d'opérations arithmétiques l'élimination de Gauss effectue-t-elle ? Soustraire un multiple d'une ligne à une autre ligne dans $A'$ peut se faire en temps $O(n)$. Ainsi, le nombre total d'opérations effectuées dans la boucle {\bf pour} est $O(m ⋅n)$. Il y a $O(m)$ itérations de la boucle {\tt tant que}. Au total, cela montre que l'élimination de Gauss effectue $O(m^2 ⋅n)$ opérations. Mais quelle peut être la taille des nombres au cours de l'algorithme de Gauss ? Est-il possible que des nombres dont la longueur de codage binaire n'est pas polynomiale par rapport à la longueur de codage totale de la matrice $A$ doivent être manipulés ? Heureusement, la réponse à cette question est « Non ». Pour apporter cette réponse, nous devons démontrer ce qui suit.
+\noindent 
+Combien d'opérations arithmétiques l'élimination de Gauss effectue-t-elle ? Soustraire un multiple d'une ligne à une autre ligne dans $A'$ peut se faire en $O(n)$ opérations arithmétique du corps $K$. Ainsi, le nombre total d'opérations effectuées dans la boucle \textbf{ tant que} est $O(m ⋅n)$. Il y a $O(m)$ itérations de la boucle \textbf{ tant que}. Au total, cela montre que l'élimination de Gauss effectue $O(m^2 ⋅n)$ opérations.
 
 %%%Local Variables:
 %%% mode: latex
