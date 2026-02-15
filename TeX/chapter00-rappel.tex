@@ -93,7 +93,7 @@ alors pour tout $v ∈ V$ on vérifie facilement
   [v]_{B_1}.  
 \end{displaymath}
 % La matrice
-% \begin{equation}
+<% \begin{equation}
 %   \label{eq:19}
 %   A_{B_1,B_2}^f =  \begin{pmatrix}
 %     a_{11} & a_{12} & \cdots & a_{1n} \\
@@ -109,21 +109,44 @@ alors pour tout $v ∈ V$ on vérifie facilement
   \label{example-b2}
   Soient  $V$ et $W$ deux espaces vectoriels sur $ℤ_3$,  $B_1 = \{ v_1,v_2,v_3,v_4\}$ et $B_2 = \{ u_1,u_2,u_3\}$  bases de $V$ et $W$ respectivement. Soit $f ： V ⟶ W$ une application linéaire  et les images des $v_i$ comme suivant.
   \begin{eqnarray*}
-   f(v_{ 1 }) & =& 1  \cdot w_{ 1 }       +  0  \cdot w_{ 2 }       +  2  \cdot w_{ 3 }       +  1  \cdot w_{ 4 }       \\  
-  f(v_{ 2 }) & =& 2  \cdot w_{ 1 }       +  1  \cdot w_{ 2 }       +  0  \cdot w_{ 3 }       +  2  \cdot w_{ 4 }       \\  
-  f(v_{ 3 }) & =& 0  \cdot w_{ 1 }       +  2  \cdot w_{ 2 }       +  1  \cdot w_{ 3 }       +  0  \cdot w_{ 4 }       \\  
-  f(v_{ 4 }) & =& 1  \cdot w_{ 1 }       +  0  \cdot w_{ 2 }       +  2  \cdot w_{ 3 }       +  1  \cdot w_{ 4 }       \\  
-  f(v_{ 5 }) & =& 2  \cdot w_{ 1 }       +  1  \cdot w_{ 2 }       +  0  \cdot w_{ 3 }       +  2  \cdot w_{ 4 }       
+ f(v_ 1 ) & =&   1 \cdot u_ 1 + 2 \cdot u_ 2 + 2 \cdot u_ 3 + 2 \cdot u_ 4  \\ 
+ f(v_ 2 ) & =&   2 \cdot u_ 1 + 1 \cdot u_ 2 + 1 \cdot u_ 3 + 1 \cdot u_ 4  \\ 
+ f(v_ 3 ) & =&   0 \cdot u_ 1 + 2 \cdot u_ 2 + 0 \cdot u_ 3 + 2 \cdot u_ 4  \\ 
+ f(v_ 4 ) & =&   1 \cdot u_ 1 + 2 \cdot u_ 2 + 2 \cdot u_ 3 + 2 \cdot u_ 4  \\ 
+ f(v_ 5 ) & =&   2 \cdot u_ 1 + 2 \cdot u_ 2 + 1 \cdot u_ 3 + 2 \cdot u_ 4 
   \end{eqnarray*}
   Alors la matrice
   \begin{displaymath}
-   A =   \left( \begin{array}{rrrrr} 1 & 2 & 0 & 1 & 2 \\ 0 & 1 & 2 & 0 & 1 \\ 2 & 0 & 1 & 2 & 0 \\ 1 & 2 & 0 & 1 & 2 \end{array}\right) ∈ ℤ_3^{4 × 5} 
+    A =
+    \left(\begin{array}{rrrrr}
+1 & 2 & 0 & 1 & 2 \\
+2 & 1 & 2 & 2 & 2 \\
+2 & 1 & 0 & 2 & 1 \\
+2 & 1 & 2 & 2 & 2
+\end{array}\right) ∈ ℤ_3^{4 ×5} 
  \end{displaymath}
  nous donne pour tout $v ∈ V$ 
  \begin{displaymath}
    [f(v)]_{B_2}  = A [v]_{B_1}. 
  \end{displaymath}
-  
+ Par exemple on observe 
+ \begin{eqnarray*}
+   f(v_1+ 2 v_3+ 1 v_5) &= &      1 ⋅  (1 \cdot u_ 1 + 2 \cdot u_ 2 + 2 \cdot u_ 3 + 2 \cdot u_ 4)  \\ 
+                            & & + 2 ⋅  (0 \cdot u_ 1 + 2 \cdot u_ 2 + 0 \cdot u_ 3 + 2 \cdot u_ 4)  \\
+                            & & + 1 ⋅  (2 \cdot u_ 1 + 2 \cdot u_ 2 + 1 \cdot u_ 3 + 2 \cdot u_ 4) \\ 
+                            & = &      0 \cdot u_1 + 2 \cdot u_2 + 0 \cdot u_ 3 + 2 \cdot u_ 4 
+ \end{eqnarray*}
+ et
+ \begin{eqnarray*}
+   A ⋅ [ v_1+ 2 v_3]_{B_1} & = & A ⋅
+                                 \begin{pmatrix}
+                                   0 \\ 1 \\ 0 \\1 
+                                 \end{pmatrix} \\
+   & = &
+         \begin{pmatrix}
+           0 \\  2 \\ 0\\ 2
+         \end{pmatrix}
+ \end{eqnarray*}
 \end{example}
 
 
@@ -132,27 +155,36 @@ alors pour tout $v ∈ V$ on vérifie facilement
 \section{L'élimination de Gauss}
 \label{sec:analys-gauss-elim}
 
-Rappelons l'élimination de Gauss.
+Rappelons l'élimination de Gauss. Étant donné une matrice $A ∈ K^{m ×n}$, cette algorithme transforme $A$ en $A'$ en \emph{forme échelonée}. C'est à dire que:
+\begin{enumerate}[i)] 
+\item Si $A'$ possède $r$ lignes non nuls  ($≠ 0^T$), ces lignes  sont les premiers $r$ lignes de $A'$.
+\item Il existe une suite $1≤ p_1 < p_2 < \cdots < p_k ≤ n$  les \emph{indices pivot} t.q. pour tout $i ∈ \{1,\dots,r\}$,
+  $A'_{i,p_i} ≠0$ et   pour tout $1 ≤ j < p_i$ on a   $A'_{i,p_i} =0$.
+\end{enumerate}
+
+
+Le nombre  de zéros précédant le premier élément non nul \emph{pivot} de chaque ligne non zéro de $A'$ qui n'est pas égale a l augmente strictement à chaque ligne,     en effectuant des opérations élémentaires de lignes
 
 \begin{algorithm}%[Élimination de Gauss]
   \label{alg:3}
   \caption{Élimination de Gauss}
 \begin{tabbing}
-Entrée: $A ∈ K^{m ×n}$ \\
-Sortie: \= $A'∈ K^{m ×n}$ sous forme échelonnée telle qu'il existe une matrice inversible \\
+\textbf{Entrée:} $A ∈ K^{m ×n}$ \\
+\textbf{Sortie:} \= $A'∈ K^{m ×n}$ sous forme échelonnée telle qu'il existe une matrice inversible \\
 \> $Q ∈ K^{m × m}$ vérifiant $Q⋅A = A'$. \\
 \pushtabs
 
 $A' := A$ \\
 $i := 1$\\
 \textbf{tant que} = ($i≤m$) \\
-\> trouver le \emph{plus petit} $1 ≤ j ≤n$ tel qu'il existe $k≥i$ avec $a'{kj} ≠ 0$ \\ 
+\> trouver le \emph{plus petit} $1 ≤ j ≤n$ tel qu'il existe $k≥i$ avec $a'_{kj} ≠ 0$ \\ 
 \> Si un tel élément n'existe pas, alors \textbf{ arrêter} \\
 \> échanger les lignes $i$ et $k$ dans $A'$ \\
 \>  \textbf{pour} \= $k = i+1,\dots, m$ \\
-\>            \> soustraire $(a'{kj}/a'_{ij})$ fois la ligne $i$ de la ligne $k$ dans $A'$ \\
-\> $i:=i+1$
+\>            \> soustraire $(a'_{kj}/a'_{ij})$ fois la ligne $i$ de la ligne $k$ dans $A'$ \\
+\> $i:=i+1$ \\
 \poptabs
+\textbf{retourner:}  $A'$ 
 \end{tabbing}
 \end{algorithm}
 
@@ -162,7 +194,7 @@ On peut facilement prouver que l'algorithme est correcte. Tout d'abord, l'algori
 \item échanger deux lignes  \label{item:5}
 \item additionner  un multiple d'une ligne à une \textbf{autre} ligne. \label{item:10}
 \end{enumerate}
-L'opération \ref{item:5}, si les lignes $i$ et $j$ sont échangées,  correspond à la multiplication
+L'opération \ref{item:5}), si les lignes $i$ et $j$ sont échangées,  correspond à la multiplication
 \begin{displaymath}
   A'  :=
   % \begin{pmatrix}
@@ -170,9 +202,9 @@ L'opération \ref{item:5}, si les lignes $i$ et $j$ sont échangées,  correspon
   % \end{pmatrix}
   T_{i,j}⋅ A', 
 \end{displaymath}
-où $T_{i,j} ∈ K^{m ×m}$ où T est obtenue à partir de la matrice identité $I ∈ K^{m ×m}$ en échangeant la $i$-ème et la $j$-ème ligne.
+où $T_{i,j} ∈ K^{m ×m}$  est obtenue à partir de la matrice identité $I ∈ K^{m ×m}$ en échangeant la $i$-ème et la $j$-ème ligne.
 
-L'opération~\ref{item:10}, si on additionne $α$ fois la ligne $i$ sur la ligne $j$, correspond à la multiplication 
+L'opération~\ref{item:10}), si on additionne $α$ fois la ligne $i$ sur la ligne $j$, correspond à la multiplication 
 \begin{displaymath}
   A'  :=
   % \begin{pmatrix}
@@ -186,7 +218,7 @@ L'opération~\ref{item:10}, si on additionne $α$ fois la ligne $i$ sur la ligne
   % \end{pmatrix}
 L_{i,j}(α)  ⋅ A', 
 \end{displaymath}
-où $L_{i,j}(α) ∈ K^{m ×m}$ est obtenue à partir de la matrice identité $I ∈ K^{m ×m}$ en additionnant $α$ \og fois\fg{} la $i$-ème sur  la $j$-ème ligne.
+où $L_{i,j}(α) ∈ K^{m ×m}$ est obtenue à partir de la matrice identité $I ∈ K^{m ×m}$ en additionnant $α$ \emph{fois} la $i$-ème sur  la $j$-ème ligne.
 \begin{example}
   \label{exe:21}
   En $ℚ^{4×4}$ on a
@@ -207,12 +239,12 @@ où $L_{i,j}(α) ∈ K^{m ×m}$ est obtenue à partir de la matrice identité $I
     \end{pmatrix}
   \end{displaymath}
 \end{example}
-Cela signifie que la matrice résultante $A'$ peut être obtenue via
+La matrice  résultante $A'$ peut être obtenue via
 \begin{displaymath}
 A' = Q ⋅ A
 \end{displaymath}
-avec une matrice $Q ∈ ℚ^{m × m}$ non singulière.
-En fait, si les opérations sont effectuer en multipliant $A'$ avec  les matrices élémentaires $P_1 , \dots, P_μ$ à gauche, $Q$ est le produit
+avec une matrice $Q ∈ K^{m × m}$ non singulière.
+En fait, si les opérations sont effectuées  en multipliant $A'$ avec  les matrices élémentaires $P_1 , \dots, P_μ$ à gauche, $Q$ est le produit
 \begin{displaymath}
   Q = P_μ \cdots P_1. 
 \end{displaymath}
@@ -228,6 +260,216 @@ Après chaque itération de la boucle \textbf{ tant que}, la matrice $H$ obtenue
 \end{figure}
 \noindent 
 Combien d'opérations arithmétiques l'élimination de Gauss effectue-t-elle ? Soustraire un multiple d'une ligne à une autre ligne dans $A'$ peut se faire en $O(n)$ opérations arithmétique du corps $K$. Ainsi, le nombre total d'opérations effectuées dans la boucle \textbf{ tant que} est $O(m ⋅n)$. Il y a $O(m)$ itérations de la boucle \textbf{ tant que}. Au total, cela montre que l'élimination de Gauss effectue $O(m^2 ⋅n)$ opérations.
+
+
+
+\begin{example}[Exemple~\ref{example-b2} continué] 
+  On déroule l'algorithme de Gauss sur la matrice
+  \begin{displaymath}
+    A =
+    \left(\begin{array}{rrrrr}
+      1 & 2 & 0 & 1 & 2 \\
+      2 & 1 & 2 & 2 & 2 \\
+      2 & 1 & 0 & 2 & 1 \\
+      2 & 1 & 2 & 2 & 2
+    \end{array}\right) ∈ ℤ_3^{4 ×5}, 
+\end{displaymath}
+et en calcule la matrice $Q ∈  ℤ_3^{4 ×4}$ telle que  $Q ⋅A$ est en forme échelonnée. Au début $A' := A$ et $Q := I_4$.
+On  effectue les opérations suivantes sur $A'$ et $Q$:
+\begin{enumerate}[] 
+\item $\ligne(2):= \ligne(2) - 2 ⋅ \ligne(1)$
+\item $\ligne(3):= \ligne(3) - 2 ⋅ \ligne(1)$
+\item $\ligne(4):= \ligne(4) - 2 ⋅ \ligne(1)$. 
+\end{enumerate}
+Après nous avons
+\begin{displaymath}
+  A ' =
+  \left(\begin{array}{rrrrr}
+1 & 2 & 0 & 1 & 2 \\
+0 & 0 & 2 & 0 & 1 \\
+0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 2 & 0 & 1
+\end{array}\right)
+\quad \text{ et } Q =
+\left(\begin{array}{rrrr}
+1 & 0 & 0 & 0 \\
+1 & 1 & 0 & 0 \\
+1 & 0 & 1 & 0 \\
+1 & 0 & 0 & 1
+\end{array}\right).
+\end{displaymath}
+Enfin, après l'opération suivante sur $A'$ et $Q$
+\begin{enumerate}[] 
+\item $\ligne(4):= \ligne(4) - 1 ⋅ \ligne(2)$
+\end{enumerate}
+on obtient
+\begin{displaymath}
+  A ' =
+  \left(\begin{array}{rrrrr}
+1 & 2 & 0 & 1 & 2 \\
+0 & 0 & 2 & 0 & 1 \\
+0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0
+\end{array}\right)
+\quad \text{ et } Q =
+\left(\begin{array}{rrrr}
+1 & 0 & 0 & 0 \\
+1 & 1 & 0 & 0 \\
+1 & 0 & 1 & 0 \\
+0 & 2 & 0 & 1
+\end{array}\right)
+.
+\end{displaymath}
+La matrice $A'$ est en forme échelonnée et on vérifie
+\begin{displaymath}
+  Q ⋅ A = A'.
+\end{displaymath}
+\end{example}
+
+\section{L'image et le noyaux d'une application linéaire}
+\label{sec:limage-et-le}
+Soient encore $V$ et $W$ deux espaces vectoriels sur $K$ de dimension fini et $f ： V ⟶ W$ une application linéaire. On se rappelle de la définition de l'\emph{image} de $f$
+\begin{displaymath}
+  \im(f) = \{ f(v) ： v ∈ V\} ⊆ W. 
+\end{displaymath}
+L'image $\im(f)$ est un sous espace vectoriel de $W$. Le noyaux de $f$ est défini comme 
+\begin{displaymath}
+  \ker(f) = \{ v ∈ V ： f(v) = 0\} ⊆ V. 
+\end{displaymath}
+le noyaux  $\ker(f)$ est un sous espace vectoriel de $V$. On se rappelle du théorème suivant du premier semestre~\cite{PMichel2026}.
+\begin{theorem}
+  \label{thr:29}
+  Soient $V$ et $W$ deux espaces vectoriels sur $K$ de dimension fini et $f ： V ⟶ W$ une application linéaire. Alors
+  \begin{displaymath}
+    \dim(V) = \dim(\im(f)) + \dim(\ker(f)). 
+  \end{displaymath}
+\end{theorem}
+Comment calculer des bases des espaces vectoriels $\im(f)$ et $\ker(f)$? Si $A' ∈ K^{m × n}$  est en forme échelonnée  avec des indices de pivot $1≤ p_1 < p_2 < \cdots < p_k ≤ n$ et si  les colonnes de $A'$ sont $a'_1,\dots, a'_n ∈ Κ^m$, alors les vecteurs
+\begin{equation}
+  \label{eq:b-21}  
+  a'_{p_1},\dots,a'_{p_k} \text{ sont linéairement indépendants.}
+\end{equation}
+Aussi pour tout $j ∈ \{1,\dots,n \} \setminus  \{p_1, \cdots, p_k \}$, le vecteur  $a'_j∈ K^m$ est une combinaison linéaire des colonnes $a'_{p_1},\dots,a'_{p_ℓ}$ où $ℓ$ est maximal tq. $j> p_ℓ$. 
+\begin{displaymath}
+  a'_j = α^{(j)}_1 a'_{p_1} + \dots +  α^{(j)}_ℓ a'_{p_ℓ}. 
+\end{displaymath}
+Alors tous vecteurs
+\begin{equation}
+  \label{eq:b-20}
+  e_j - (α^{(j)}_1 e_{p_1} + \dots +  α^{(j)}_ℓ e_{p_ℓ}) \quad j ∈ \{1,\dots,n \} \setminus  \{p_1, \cdots, p_k \}  
+\end{equation}
+sont dans le noyaux de $A'$ et alors dans le noyaux de $A$. Cet ensemble de vecteurs est libre. Parce que le nombre total de vecteurs \eqref{eq:b-21} et   \eqref{eq:b-20} est $n$, alors  \eqref{eq:b-21} est une base de l'image de $A'$ et  \eqref{eq:b-20} est une base du noyau de $A'$ (aussi de $A$ respectivement). 
+
+ \begin{example}[Exemple~\ref{example-b2} continué] 
+   \label{exe:47}
+   On continue avec la matrice
+   \begin{displaymath}
+     A' =
+     \left(\begin{array}{rrrrr}
+       1 & 2 & 0 & 1 & 2 \\
+       0 & 0 & 2 & 0 & 1 \\
+       0 & 0 & 0 & 0 & 0 \\
+       0 & 0 & 0 & 0 & 0
+     \end{array}\right)
+ \end{displaymath}
+ Alors $\{ e_1,e_3\}$ est une base de l'image de $A'$ (et de $A$) et
+ \begin{displaymath}
+   \{ 1 \cdot u_ 1 + 2 \cdot u_ 2 + 2 \cdot u_ 3 + 2 \cdot u_ 4 , 
+    0 \cdot u_ 1 + 2 \cdot u_ 2 + 0 \cdot u_ 3 + 2 \cdot u_ 4 \} 
+  \end{displaymath}
+  est une base de $\im(f)$.
+  L'ensemble
+  \begin{displaymath}
+    \{ e_2 + e_1, e_4 + 2e_1 , e_5 + e_3 + e_1\}  
+  \end{displaymath}
+  est une base de $\ker(A') = \ker(A)$ et alors
+  \begin{displaymath}
+     \{ v_2 + v_1, v_4 + 2v_1 , v_5 + v_3 + v_1\}  
+   \end{displaymath}
+   est une base de noyau $\ker(f)$. 
+\end{example}
+
+
+
+ 
+\subsection*{Exercices}
+
+
+\begin{enumerate}
+\item Complétez les omissions  marquées avec $(*)$ pour que l'algorithme de Gauss calcule aussi la matrice de transition $Q ∈ K^{m ×m}$ t.q. $Q ⋅A = A'$ en forme échelonnée. 
+
+  % \begin{algorithm}%[Élimination de Gauss]
+  %   \label{alg:4}
+  % \caption{Élimination de Gauss avec matrices de transition}
+\begin{tabbing}
+\textbf{Entrée:} $A ∈ K^{m ×n}$ \\
+\textbf{Sortie:}  \= $A'∈ K^{m ×n}$ sous forme échelonnée et $Q ∈ K^{m ×m}$ inversible \\ 
+\> vérifiant $Q⋅A = A'$. \\
+\pushtabs
+
+$A' := A$ \\
+$Q := I_m$ \\
+$i := 1$\\
+\textbf{tant que} = ($i≤m$) \\
+\> trouver le \emph{plus petit} $1 ≤ j ≤n$ tel qu'il existe $k≥i$ avec $a'_{kj} ≠ 0$ \\ 
+\> Si un tel élément n'existe pas, alors \textbf{ arrêter} \\
+\> échanger les lignes $i$ et $k$ dans $A'$ \\
+\> $(*)$ \\
+\>  \textbf{pour} \= $k = i+1,\dots, m$ \\
+\>            \> soustraire $(a'_{kj}/a'_{ij})$ fois la ligne $i$ de la ligne $k$ dans $A'$ \\
+\>            \> $(*)$ \\
+\> $i:=i+1$ \\
+\poptabs
+\textbf{retourner:} $A'$ et $Q$ 
+\end{tabbing}
+% \end{algorithm}
+\item
+  \begin{enumerate}[a)] 
+  \item  Quel est l'inverse de la matrice $T_{i,j} ∈ K^{n ×n}$, $i,j ∈ \{1,\dots,n\}$, $i ≠j$?
+  \item Quel est l'inverse de la matrice $L_{i,j}(α) ∈ K^{n ×n}$, $i,j ∈ \{1,\dots,n\}$, $i ≠j$ et $α ∈K$?
+  \item Décrire en mots l'effet de la multiplication de ces matrices à \emph{droite}, c.à.d. étant donnée $A ∈ K^{m × n}$ décrire 
+    \begin{displaymath}
+A ⋅ T_{i,j} \quad \text{ et  } \quad       A ⋅ L_{i,j}(α). 
+    \end{displaymath}
+  \end{enumerate}
+\item \label{item:33} 
+  \begin{enumerate}[a)]
+  \item 
+  Une matrice $N ∈ K^{n ×n}$ est appelée  \emph{nilpotente} s'il existe un  $k ∈ ℕ_+$ t.q. $N^k = 0$. Montrez que pour une telle matrice nilpotente  
+  \begin{displaymath}
+    (I +N)^{-1} = I -N + +N^2 - N^3 + \cdots + (-1)^{k-1}N^{k-1}.  \label{item:31}
+  \end{displaymath}
+\item Basé sur  \ref{item:31}), 
+  donner une formule pour l'inverse $R^{-1}$ dune matrice $R ∈ K^{n ×n}$ triangulaire  supérieure avec $1$ sur la diagonale. \label{item:32}
+\item Trouver une formule pour l'inverse $R^{-1}$ dune matrice $R ∈ K^{n ×n}$ triangulaire  supérieure avec des éléments diagonales non nuls.
+
+\item Montrer que tout matrice $A ∈ K^{m ×n}$ peut être factorisée comme
+  \begin{displaymath}
+    U ⋅ A ⋅ V =
+    \begin{pmatrix}
+      I_k & 0 \\
+      0 & 0
+    \end{pmatrix}, 
+  \end{displaymath}
+  où $I_k$ est le rang de $A$ et $U ∈ K^{ m × m}$ et  $V ∈ K^{ n × n}$ sont des matrices inversibles.
+
+  \emph{Indication: Commencer avec la forme échelonnée.  }
+\item
+   Soient  $V$ et $W$ deux espaces vectoriels sur $ℤ_3$,  $B_1 = \{ v_1,v_2,v_3,v_4\}$ et $B_2 = \{ u_1,u_2,u_3\}$  bases de $V$ et $W$ respectivement. Soit $f ： V ⟶ W$ une application linéaire  et les images des $v_i$ comme suivant.
+  \begin{eqnarray*}
+ f(v_ 1 ) & =&   1 \cdot u_ 1 + 0 \cdot u_ 2 + 2 \cdot u_ 3 + 2 \cdot u_ 4  \\ 
+ f(v_ 2 ) & =&   2 \cdot u_ 1 + 1 \cdot u_ 2 + 2 \cdot u_ 3 + 1 \cdot u_ 4  \\ 
+ f(v_ 3 ) & =&   0 \cdot u_ 1 + 2 \cdot u_ 2 + 0 \cdot u_ 3 + 2 \cdot u_ 4  \\ 
+ f(v_ 4 ) & =&   1 \cdot u_ 1 + 2 \cdot u_ 2 + 1 \cdot u_ 3 + 2 \cdot u_ 4  \\ 
+ f(v_ 5 ) & =&   2 \cdot u_ 1 + 2 \cdot u_ 2 + 1 \cdot u_ 3 + 1 \cdot u_ 4 
+  \end{eqnarray*}
+
+  Calculer bases du $\ker(f)$ et $\im(f)$. 
+
+\end{enumerate}
+\end{enumerate}
+
+
 
 %%%Local Variables:
 %%% mode: latex
