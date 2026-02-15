@@ -127,7 +127,7 @@ alors pour tout $v ∈ V$ on vérifie facilement
  \end{displaymath}
  nous donne pour tout $v ∈ V$ 
  \begin{displaymath}
-   [f(v)]_{B_2}  = A [v]_{B_1}. 
+   [f(v)]_{B_2}  = A ⋅ [v]_{B_1}. 
  \end{displaymath}
  Par exemple on observe 
  \begin{eqnarray*}
@@ -159,11 +159,10 @@ Rappelons l'élimination de Gauss. Étant donné une matrice $A ∈ K^{m ×n}$, 
 \begin{enumerate}[i)] 
 \item Si $A'$ possède $r$ lignes non nuls  ($≠ 0^T$), ces lignes  sont les premiers $r$ lignes de $A'$.
 \item Il existe une suite $1≤ p_1 < p_2 < \cdots < p_k ≤ n$  les \emph{indices pivot} t.q. pour tout $i ∈ \{1,\dots,r\}$,
-  $A'_{i,p_i} ≠0$ et   pour tout $1 ≤ j < p_i$ on a   $A'_{i,p_i} =0$.
+  $a'_{i,p_i} ≠0$ et   pour tout $1 ≤ j < p_i$ on a   $a'_{i,p_i} =0$.
 \end{enumerate}
-
-
-Le nombre  de zéros précédant le premier élément non nul \emph{pivot} de chaque ligne non zéro de $A'$ qui n'est pas égale a l augmente strictement à chaque ligne,     en effectuant des opérations élémentaires de lignes
+%
+%Le nombre  de zéros précédant le premier élément non nul \emph{pivot} de chaque ligne non zéro de $A'$ qui n'est pas égale a l augmente strictement à chaque ligne,     en effectuant des opérations élémentaires de lignes
 
 \begin{algorithm}%[Élimination de Gauss]
   \label{alg:3}
@@ -192,7 +191,7 @@ $i := 1$\\
 On peut facilement prouver que l'algorithme est correcte. Tout d'abord, l'algorithme n'effectue que des opérations élémentaires sur les lignes de la forme
 \begin{enumerate}[i)]
 \item échanger deux lignes  \label{item:5}
-\item additionner  un multiple d'une ligne à une \textbf{autre} ligne. \label{item:10}
+\item additionner  un multiple (scalaire)  d'une ligne à une \textbf{autre} ligne. \label{item:10}
 \end{enumerate}
 L'opération \ref{item:5}), si les lignes $i$ et $j$ sont échangées,  correspond à la multiplication
 \begin{displaymath}
@@ -218,7 +217,7 @@ L'opération~\ref{item:10}), si on additionne $α$ fois la ligne $i$ sur la lign
   % \end{pmatrix}
 L_{i,j}(α)  ⋅ A', 
 \end{displaymath}
-où $L_{i,j}(α) ∈ K^{m ×m}$ est obtenue à partir de la matrice identité $I ∈ K^{m ×m}$ en additionnant $α$ \emph{fois} la $i$-ème sur  la $j$-ème ligne.
+où $L_{i,j}(α) ∈ K^{m ×m}$ est obtenue à partir de la matrice identité $I ∈ K^{m ×m}$ en additionnant $α$ \emph{fois} la $i$-ème sur  la $j$-ème ligne de $I$.
 \begin{example}
   \label{exe:21}
   En $ℚ^{4×4}$ on a
@@ -239,6 +238,8 @@ où $L_{i,j}(α) ∈ K^{m ×m}$ est obtenue à partir de la matrice identité $I
     \end{pmatrix}
   \end{displaymath}
 \end{example}
+
+\noindent 
 La matrice  résultante $A'$ peut être obtenue via
 \begin{displaymath}
 A' = Q ⋅ A
@@ -442,7 +443,7 @@ A ⋅ T_{i,j} \quad \text{ et  } \quad       A ⋅ L_{i,j}(α).
 \item Basé sur  \ref{item:31}), 
   donner une formule pour l'inverse $R^{-1}$ dune matrice $R ∈ K^{n ×n}$ triangulaire  supérieure avec $1$ sur la diagonale. \label{item:32}
 \item Trouver une formule pour l'inverse $R^{-1}$ dune matrice $R ∈ K^{n ×n}$ triangulaire  supérieure avec des éléments diagonales non nuls.
-
+\end{enumerate}
 \item Montrer que tout matrice $A ∈ K^{m ×n}$ peut être factorisée comme
   \begin{displaymath}
     U ⋅ A ⋅ V =
@@ -466,7 +467,7 @@ A ⋅ T_{i,j} \quad \text{ et  } \quad       A ⋅ L_{i,j}(α).
 
   Calculer bases du $\ker(f)$ et $\im(f)$. 
 
-\end{enumerate}
+
 \end{enumerate}
 
 
