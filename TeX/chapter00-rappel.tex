@@ -2,7 +2,8 @@
 \label{cha:noti-fond-et}
 
 \noindent 
-On se rappelle de la notion d'un espace vectoriel $V$ sur un corps $K$. Pendant notre cours, on travaille presque exclusivement avec des espaces vectoriels de dimension fini, $\dim(V) = n ∈ ℕ$. Dans ce cas il existe une base finie
+On se rappelle de la notion d'un espace vectoriel $V$ sur un corps $K$. Pendant notre cours, on travaille presque exclusivement avec des espaces vectoriels de dimension fini, $\dim(V) = n ∈ ℕ = \{0,1,2, ...\}$.  
+Dans ce cas il existe une base finie
 \begin{displaymath}
   B = \{ v_1,\dots,v_n\}. 
 \end{displaymath}
@@ -20,7 +21,7 @@ où  $α_i ∈ K$ pour $i=1,\dots,n$. Le vecteur
     α_1\\ \vdots \\ α_n
   \end{pmatrix} ∈ Κ^n
 \end{displaymath}
-est appelé les \emph{coordonnées} de $v$ \emph{relatif à la base} $B$. Si $B'$ est une autre base de $V$ on peut obtenir  les \emph{coordonnées} de $v$ relatif à la base $ℬ'$ à l'aide de la \emph{ matrice de changement de base} $P_{B B'} ∈ K^{n ×n}$. Pour tout $v ∈ V$ on a
+est appelé les \emph{coordonnées} de $v$ \emph{relatif à la base} $B$. Si $B'$ est une autre base de $V$ on peut obtenir  les \emph{coordonnées} de $v$ relatif à la base $B'$ à l'aide de la \emph{ matrice de changement de base} $P_{B B'} ∈ K^{n ×n}$. Pour tout $v ∈ V$ on a
 \begin{displaymath}
   [v]_{B'} =  P_{BB'} [v]_B. 
 \end{displaymath}
@@ -43,8 +44,17 @@ est appelé les \emph{coordonnées} de $v$ \emph{relatif à la base} $B$. Si $B'
 \end{displaymath}
 On vérifie par exemple 
 \begin{displaymath}
-  [v_1']_{B'}  = e_1 \text{   et  } [v_1']_{B} = P_{B'B} ⋅ e_1. 
+  [v_1']_{B'}  = e_1 \text{   et  } [v_1']_{B} = P_{B'B} ⋅ [v_1,]_{B'} = P_{B'B} ⋅ e_1. 
 \end{displaymath}
+Ici, pour $i=1,\dots,n$,  $e_i ∈ K^n$ est le vecteur dont la $i$-ième composante est $1$ et les autres sont tous égaux à $0$.  
+%
+% \begin{displaymath}
+%   e_i =
+%   \begin{pmatrix}
+%     0 \\ \vdots \\ 0 \\ 1 \\ 0 \\ \vdots \\1
+%   \end{pmatrix}
+% \end{displaymath}
+%
 La matrice de changement de base $P_{BB'}$ est
 \begin{displaymath}
   P_{BB'} =  P_{B'B}^{-1} = \left(\begin{array}{rrr}
@@ -56,14 +66,6 @@ La matrice de changement de base $P_{BB'}$ est
 \end{example}
 %
 \noindent 
-Comme  dans l'exemple~\ref{exe:b-21} pour $i ∈ \{1,\dots,n\}$  le vecteur $e_i ∈ K^n$ est
-\begin{displaymath}
-  e_i =
-  \begin{pmatrix}
-    0 \\ \vdots \\ 0 \\ 1 \\ 0 \\ \vdots \\1
-  \end{pmatrix}
-\end{displaymath}
-où la $i$-ième composante est $1$ et les autres sont tous égaux à $0$.  
 
 
 \section{Applications linéaires et matrices}
@@ -78,22 +80,22 @@ Soient $V$ et $W$ deux espaces vectoriels sur un corps $K$. Une \emph{applicatio
 
 \medskip
 \noindent 
-Si $B_1 = \{v_1,\dots,v_n\}$ est une base de $V$ et  $B_2 = \{w_1,\dots,w_m\}$ est une base de $W$ et si
+Si $B_V = \{v_1,\dots,v_n\}$ est une base de $V$ et  $B_W = \{w_1,\dots,w_m\}$ est une base de $W$ et si
 \begin{displaymath}
   f(v_j) = a_{1j} w_1 + \cdots + a_{mj} w_m 
 \end{displaymath}
 alors pour tout $v ∈ V$ on vérifie facilement
 \begin{displaymath}
-  [f(v) ]_{B_2} =
+  [f(v) ]_{B_W} =
   \begin{pmatrix}
     a_{11} & a_{12} & \cdots & a_{1n} \\
     \vdots &&&\vdots \\
      a_{m1} & a_{m2} & \cdots & a_{mn} \\
   \end{pmatrix}
-  [v]_{B_1}.  
+  [v]_{B_V}.  
 \end{displaymath}
 % La matrice
-<% \begin{equation}
+% \begin{equation}
 %   \label{eq:19}
 %   A_{B_1,B_2}^f =  \begin{pmatrix}
 %     a_{11} & a_{12} & \cdots & a_{1n} \\
@@ -107,7 +109,7 @@ alors pour tout $v ∈ V$ on vérifie facilement
 
 \begin{example}
   \label{example-b2}
-  Soient  $V$ et $W$ deux espaces vectoriels sur $ℤ_3$,  $B_1 = \{ v_1,v_2,v_3,v_4\}$ et $B_2 = \{ u_1,u_2,u_3\}$  bases de $V$ et $W$ respectivement. Soit $f ： V ⟶ W$ une application linéaire  et les images des $v_i$ comme suivant.
+  Soient  $V$ et $W$ deux espaces vectoriels sur $ℤ_3$,  $B_V = \{ v_1,v_2,v_3,v_4\}$ et $B_W = \{ u_1,u_2,u_3\}$  bases de $V$ et $W$ respectivement. Soit $f ： V ⟶ W$ une application linéaire  et les images des $v_i$ comme suivant.
   \begin{eqnarray*}
  f(v_ 1 ) & =&   1 \cdot u_ 1 + 2 \cdot u_ 2 + 2 \cdot u_ 3 + 2 \cdot u_ 4  \\ 
  f(v_ 2 ) & =&   2 \cdot u_ 1 + 1 \cdot u_ 2 + 1 \cdot u_ 3 + 1 \cdot u_ 4  \\ 
@@ -127,7 +129,7 @@ alors pour tout $v ∈ V$ on vérifie facilement
  \end{displaymath}
  nous donne pour tout $v ∈ V$ 
  \begin{displaymath}
-   [f(v)]_{B_2}  = A ⋅ [v]_{B_1}. 
+   [f(v)]_{B_W}  = A ⋅ [v]_{B_V}. 
  \end{displaymath}
  Par exemple on observe 
  \begin{eqnarray*}
@@ -136,16 +138,17 @@ alors pour tout $v ∈ V$ on vérifie facilement
                             & & + 1 ⋅  (2 \cdot u_ 1 + 2 \cdot u_ 2 + 1 \cdot u_ 3 + 2 \cdot u_ 4) \\ 
                             & = &      0 \cdot u_1 + 2 \cdot u_2 + 0 \cdot u_ 3 + 2 \cdot u_ 4 
  \end{eqnarray*}
- et
+ et 
  \begin{eqnarray*}
-   A ⋅ [ v_1+ 2 v_3]_{B_1} & = & A ⋅
+   A ⋅ [ v_1+ 2 v_3 + 1 v_5]_{B_V} & = & A ⋅
                                  \begin{pmatrix}
-                                   0 \\ 1 \\ 0 \\1 
+                                   1 \\ 0 \\2 \\ 0 \\1 
                                  \end{pmatrix} \\
-   & = &
-         \begin{pmatrix}
-           0 \\  2 \\ 0\\ 2
-         \end{pmatrix}
+                                   & = &
+                                         \begin{pmatrix}
+                                           0 \\  2 \\ 0\\ 2
+                                         \end{pmatrix} \\
+                                   & = &  [f(v)]_{B_W} 
  \end{eqnarray*}
 \end{example}
 
@@ -155,6 +158,7 @@ alors pour tout $v ∈ V$ on vérifie facilement
 \section{L'élimination de Gauss}
 \label{sec:analys-gauss-elim}
 
+\noindent 
 Rappelons l'élimination de Gauss. Étant donné une matrice $A ∈ K^{m ×n}$, cette algorithme transforme $A$ en $A'$ en \emph{forme échelonée}. C'est à dire que:
 \begin{enumerate}[i)] 
 \item Si $A'$ possède $r$ lignes non nuls  ($≠ 0^T$), ces lignes  sont les premiers $r$ lignes de $A'$.
@@ -264,8 +268,8 @@ Combien d'opérations arithmétiques l'élimination de Gauss effectue-t-elle ? S
 
 
 
-\begin{example}[Exemple~\ref{example-b2} continué] 
-  On déroule l'algorithme de Gauss sur la matrice
+\begin{example}[Exemple~\ref{example-b2} continué]
+  On laisse l'algorithme de Gauss   s'exécuter sur l'entrée
   \begin{displaymath}
     A =
     \left(\begin{array}{rrrrr}
@@ -329,6 +333,7 @@ La matrice $A'$ est en forme échelonnée et on vérifie
 
 \section{L'image et le noyaux d'une application linéaire}
 \label{sec:limage-et-le}
+
 Soient encore $V$ et $W$ deux espaces vectoriels sur $K$ de dimension fini et $f ： V ⟶ W$ une application linéaire. On se rappelle de la définition de l'\emph{image} de $f$
 \begin{displaymath}
   \im(f) = \{ f(v) ： v ∈ V\} ⊆ W. 
@@ -456,7 +461,7 @@ A ⋅ T_{i,j} \quad \text{ et  } \quad       A ⋅ L_{i,j}(α).
 
   \emph{Indication: Commencer avec la forme échelonnée.  }
 \item
-   Soient  $V$ et $W$ deux espaces vectoriels sur $ℤ_3$,  $B_1 = \{ v_1,v_2,v_3,v_4\}$ et $B_2 = \{ u_1,u_2,u_3\}$  bases de $V$ et $W$ respectivement. Soit $f ： V ⟶ W$ une application linéaire  et les images des $v_i$ comme suivant.
+   Soient  $V$ et $W$ deux espaces vectoriels sur $ℤ_3$,  $B_V = \{ v_1,v_2,v_3,v_4\}$ et $B_W = \{ u_1,u_2,u_3\}$  bases de $V$ et $W$ respectivement. Soit $f ： V ⟶ W$ une application linéaire  et les images des $v_i$ comme suivant.
   \begin{eqnarray*}
  f(v_ 1 ) & =&   1 \cdot u_ 1 + 0 \cdot u_ 2 + 2 \cdot u_ 3 + 2 \cdot u_ 4  \\ 
  f(v_ 2 ) & =&   2 \cdot u_ 1 + 1 \cdot u_ 2 + 2 \cdot u_ 3 + 1 \cdot u_ 4  \\ 
