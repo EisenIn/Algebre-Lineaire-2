@@ -85,15 +85,16 @@ Si $B_V = \{v_1,\dots,v_n\}$ est une base de $V$ et  $B_W = \{w_1,\dots,w_m\}$ e
   f(v_j) = a_{1j} w_1 + \cdots + a_{mj} w_m 
 \end{displaymath}
 alors pour tout $v ∈ V$ on vérifie facilement
-\begin{displaymath}
+\begin{equation}
+  \label{eq:b-matrix}  
   [f(v) ]_{B_W} =
   \begin{pmatrix}
     a_{11} & a_{12} & \cdots & a_{1n} \\
     \vdots &&&\vdots \\
      a_{m1} & a_{m2} & \cdots & a_{mn} \\
   \end{pmatrix}
-  [v]_{B_V}.  
-\end{displaymath}
+  [v]_{B_V}.
+\end{equation}
 % La matrice
 % \begin{equation}
 %   \label{eq:19}
@@ -396,6 +397,58 @@ sont dans le noyaux de $A'$ et alors dans le noyaux de $A$. Cet ensemble de vect
 \end{example}
 
 
+\subsection{Endomorphismes, matrices semblables}
+\label{sec:endom-matr-semb}
+
+Un \emph{endomorphisme} est une  application linéaire
+\begin{displaymath}
+  f ： V ⟶V, 
+\end{displaymath}
+où $V$ est un espace vectoriel sur $K$. Dans le cas où $V$ est de dimension  $n ∈ ℕ$ et  $B$ est une base $V$ on dénote la matrice décrite en~\eqref{eq:b-matrix} $A_B ∈ K^{n ×n}$. Pour tour $v ∈ V$ on a
+\begin{displaymath}
+  [f(v)]_B = A_B^f ⋅ [v]_B. 
+\end{displaymath}
+Pour une base $B'$ et la matrice changement de base $P_{B'B}$ et son inverse $P^{-1}_{B'B} = P_{BB'}$, alors
+\begin{displaymath}
+  [f(v)]_B' =  P_{B'B}^{-1} A_B P_{B'B} ⋅ [v]_{B'} 
+\end{displaymath}
+\begin{equation}
+  \label{eq:-bas-rel}
+A_B' =  P_{B'B}^{-1} A_B P_{B'B}.  
+\end{equation}
+
+\begin{definition}
+  \label{def:42}
+  Deux matrices $A,B ∈K^{n×n}$ sont \emph{semblables}, s'il existe une matrice inversible $P ∈ K^{n ×n}$ tel que $A = P^{-1} ⋅B ⋅P$.   On écrit $A ≈ B$. 
+\end{definition}
+L'équation~\eqref{eq:-bas-rel} montre que, pour $B$ et $B'$ deux bases de $V$,  les matrices $A_B$ et $A_{B'}$ d'un endomorphisme $f：V⟶V$ sont semblables.  La relation $≈$ est une relation d'équivalence~\cite{PMichel2026}.
+
+
+Le thème principal de ce cours est la \emph{diagonalisation}. Une matrice $A ∈ K^{n ×n}$ est diagonalisable si $A$ est similaire à une matrice diagonale 
+\begin{displaymath}
+  A  ≈
+  \begin{pmatrix}
+    λ_1 &\\
+        & \ddots    \\
+        & & λ_n
+  \end{pmatrix}.
+\end{displaymath}
+En endomorphisme $f$ est diagonalisable si $A_B$ est diagonalisable ce qui est équivalent au fait que $V$ possède une base de vecteurs propres de $f$.
+%
+Quand est-ce que un endomorphisme est diagonalisable?
+La réponse à cette question révèle des relations profondes entre des concepts fondamentaux de l'algèbre, tels que les polynômes, les plus grands communs diviseurs et leur factorisation. Un résultat qui illustre ces liens est le suivant (Theorème~\ref{thr:60}). 
+\begin{theorem}  
+  Une matrice $A∈ K^{n ×n}$  est diagonalisable, si et seulement si le polynôme minimal $p(x) ∈ K[x]$ de $A$ factorise en termes linéaires distinctes, c.à.d.
+  \begin{displaymath}
+    p(x) = (x - λ_1) \cdots (x - λ_k) 
+  \end{displaymath}
+  où $λ_1,\dots,λ_k ∈ K$ sont les valeurs propres distinctes de $A$. 
+\end{theorem}
+Pour y parvenir, nous commençons par un traitement approfondi des sujets relatifs aux polynômes. 
+
+
+
+
 
  
 \subsection*{Exercices}
@@ -467,9 +520,8 @@ A ⋅ T_{i,j} \quad \text{ et  } \quad       A ⋅ L_{i,j}(α).
  f(v_ 2 ) & =&   2 \cdot u_ 1 + 1 \cdot u_ 2 + 2 \cdot u_ 3 + 1 \cdot u_ 4  \\ 
  f(v_ 3 ) & =&   0 \cdot u_ 1 + 2 \cdot u_ 2 + 0 \cdot u_ 3 + 2 \cdot u_ 4  \\ 
  f(v_ 4 ) & =&   1 \cdot u_ 1 + 2 \cdot u_ 2 + 1 \cdot u_ 3 + 2 \cdot u_ 4  \\ 
- f(v_ 5 ) & =&   2 \cdot u_ 1 + 2 \cdot u_ 2 + 1 \cdot u_ 3 + 1 \cdot u_ 4 
+ f(v_ 5 ) & =&   2 \cdot u_ 1 + 2 \cdot u_ 2 + 1 \cdot u_ 3 + 1 \cdot u_ 4 . 
   \end{eqnarray*}
-
   Calculer bases du $\ker(f)$ et $\im(f)$. 
 
 
