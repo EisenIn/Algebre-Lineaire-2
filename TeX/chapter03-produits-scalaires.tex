@@ -714,11 +714,15 @@ Alors $B' = \{v_1,v_2,-2v_1 -(4/3) v_2 + v_3\}$ est une base orthogonale de $V$.
 
 
 
-
+\begin{theorem}[Supplémentaire orthogonal]
+  \label{thr:8}
+  Soient $V$ un espace vectoriel de dimension finie sur corps $K$ et $W$ un sous-espace de $V$. Soit $\pscal{.}$ une forme bilinéaire symétrique tel que, si restreint sur $W\times W$, elle est non dégénérée. Alors $V = W \oplus W^\perp$.  
+\end{theorem}
 
 \subsection*{Exercices}
 
 \begin{enumerate}
+  \item Démontrer Théorème~\ref{thr:8}. 
 \item Montrer que $\cong$ est une relation d'équivalence sur l'ensemble des matrices $K^{n\times n}$. 
 \item Est-ce que la matrice 
   \begin{displaymath}
@@ -1659,102 +1663,99 @@ est $x^* = (1,2)^T$.
 
 
 
-\section{Formes linéaires, bilinéaires et l'espace dual}
-\label{sec:lespace-dual}
-\todo{Chapitre~\ref{sec:lespace-dual} ne fait pas parie du cours printemns 2024} 
+% \section{Formes linéaires, bilinéaires et l'espace dual}
+% \label{sec:lespace-dual}
+% \todo{Chapitre~\ref{sec:lespace-dual} ne fait pas parie du cours printemns 2024} 
 
 
-Soient $V$ un espace vectoriel sur un corps $K$ et $V^*$ l'ensemble  des  applications linéaires de $V$ dans $K$, où on considère $K$ comme espace vectoriel de dimension $1$ sur lui-même. Clairement, $V^*$ est un espace vectoriel lui-même. 
-\begin{definition}
-\label{def:9}
-  L'ensemble des  applications linéaires  $φ : V ⟶ K$ est noté $V^*$ et, muni de l'addition et de la multiplication scalaire usuelles, est appelé l'\emph{espace dual} de $V$. Les éléments de $V^*$ sont appelés \emph{formes linéaires}.
-\end{definition}
+% Soient $V$ un espace vectoriel sur un corps $K$ et $V^*$ l'ensemble  des  applications linéaires de $V$ dans $K$, où on considère $K$ comme espace vectoriel de dimension $1$ sur lui-même. Clairement, $V^*$ est un espace vectoriel lui-même. 
+% \begin{definition}
+% \label{def:9}
+%   L'ensemble des  applications linéaires  $φ : V ⟶ K$ est noté $V^*$ et, muni de l'addition et de la multiplication scalaire usuelles, est appelé l'\emph{espace dual} de $V$. Les éléments de $V^*$ sont appelés \emph{formes linéaires}.
+% \end{definition}
 
-\begin{remark}
-  \label{def:10}
-  Soit $V$ un espace vectoriel sur un corps $K$. Une application 
-  \begin{displaymath}
-    f\colon V \times V \longrightarrow K
-  \end{displaymath}
-  est une forme bilinéaire si et seulement si pour tout $v \in V$,
-  les applications $g,h: V \longrightarrow K$
-  telles que $g(x) = f(v,x)$
-  et $h(x) = f(x,v)$ sont des formes linéaires.
-\end{remark}
+% \begin{remark}
+%   \label{def:10}
+%   Soit $V$ un espace vectoriel sur un corps $K$. Une application 
+%   \begin{displaymath}
+%     f\colon V \times V \longrightarrow K
+%   \end{displaymath}
+%   est une forme bilinéaire si et seulement si pour tout $v \in V$,
+%   les applications $g,h: V \longrightarrow K$
+%   telles que $g(x) = f(v,x)$
+%   et $h(x) = f(x,v)$ sont des formes linéaires.
+% \end{remark}
 
-Si $V$ est de dimension finie et si $B = \{v_1,\dots,v_n\}$ est une base de $V$, l'image d'un vecteur $x = \sum_i\alpha_i v_i$ par une forme linéaire $f$ est 
-\begin{eqnarray*}
-    f(x) & = &  f\left(\sum_i\alpha_i v_i\right) \\
-         & = & \sum_i \alpha_i f(v_i)  \\
-         & = & (f(v_1),\dots,f(v_n)) [x]_B,               
-\end{eqnarray*}
-où $[x]_B = (\alpha_1,\dots,\alpha_n)^T$ sont les coordonnées de $x$ dans la base $B$.  
-
-
-
-
-
-\begin{lemma}
-  \label{lem:3} Supposons que $V$ est de dimension finie et $\{v_1,\dots,v_n\}$ est une base de $V$. 
-  La fonction $\phi_j\colon V \longrightarrow K$ 
-    \begin{displaymath}
-  \phi_j \left(\sum_i \alpha_i v_i \right) =  \alpha_j 
-\end{displaymath}
-est une forme linéaire. 
-\end{lemma}
-\begin{proof}
-  Immédiate. 
-\end{proof}
-
-\begin{theorem}
-  \label{thr:7}
-  Les formes linéaires $\{\phi_j \in V^* \colon j=1,\dots,n\}$ du lemme~\ref{lem:3} précédent  forment une base de $V^*$.
-\end{theorem}
-
-\begin{proof}
-  Si, pour $\beta_i \in K$, on a $\sum_i \beta_i \phi_i = 0$, alors 
-  \begin{displaymath}
- 0 =    \left(\sum_i \beta_i \phi_i\right) (v_j) =  \beta_j,
-  \end{displaymath}
-c'est-à-dire  les $\phi_j$ sont linéairement indépendantes. Les $\phi_j$ engendrent $V^*$ puisque pour $f \in V^*$, $f = \sum_i  f(v_i)  \, \phi_i$. 
-\end{proof}
-
-\begin{definition}
-  \label{def:14}
-  La base $\{\phi_1,\dots,\phi_n\}$ est la \emph{base duale} de la base $\{v_1,\dots,v_n\}$. 
-\end{definition}
+% Si $V$ est de dimension finie et si $B = \{v_1,\dots,v_n\}$ est une base de $V$, l'image d'un vecteur $x = \sum_i\alpha_i v_i$ par une forme linéaire $f$ est 
+% \begin{eqnarray*}
+%     f(x) & = &  f\left(\sum_i\alpha_i v_i\right) \\
+%          & = & \sum_i \alpha_i f(v_i)  \\
+%          & = & (f(v_1),\dots,f(v_n)) [x]_B,               
+% \end{eqnarray*}
+% où $[x]_B = (\alpha_1,\dots,\alpha_n)^T$ sont les coordonnées de $x$ dans la base $B$.  
 
 
 
 
-\begin{lemma}
-  \label{lem:5}
-  Soit $V$
-  un espace vectoriel sur le corps $K$
-  de dimension finie muni d'une forme bilinéaire  non dégénérée et soit
-  $f\colon V \longrightarrow K$
-  une forme linéaire. Il existe un $v \in V$
-  tel que $f(x) = \pscal{v,x}$ pour tout $x \in V$.
-\end{lemma}
 
-\begin{proof}
-  Soient $B = \{v_1,\dots,v_n\}$ une base  de $V$ et $A_B^{\pscal{}} \in K^{n\times n}$ la matrice dans la base $B$ associée à la forme bilinéaire. Soit $a \in K^n$ tel que  $f(x) = a^T[x]_B$ pour tout $x \in V$. Dès que $A_B^{\pscal{}}$ est de rang plein (Proposition~\ref{prop:7}), alors il existe $v \in V$ tel que $[v]_B^TA_B^{\pscal{}} = a^T$. Ceci revient à résoudre un système d'équations linéaires (cf semestre 1) et comme la matrice $A_B^{\pscal{}}$ est de rang plein, on a l'existence (et même l'unicité) d'une solution, i.e.,  $[v]_B^TA_B^{\pscal{}} = a^T$. Ainsi 
-$f(x) = \pscal{v,x}$ pour tout $x \in V$. 
-\end{proof}
+% \begin{lemma}
+%   \label{lem:3} Supposons que $V$ est de dimension finie et $\{v_1,\dots,v_n\}$ est une base de $V$. 
+%   La fonction $\phi_j\colon V \longrightarrow K$ 
+%     \begin{displaymath}
+%   \phi_j \left(\sum_i \alpha_i v_i \right) =  \alpha_j 
+% \end{displaymath}
+% est une forme linéaire. 
+% \end{lemma}
+% \begin{proof}
+%   Immédiate. 
+% \end{proof}
+
+% \begin{theorem}
+%   \label{thr:7}
+%   Les formes linéaires $\{\phi_j \in V^* \colon j=1,\dots,n\}$ du lemme~\ref{lem:3} précédent  forment une base de $V^*$.
+% \end{theorem}
+
+% \begin{proof}
+%   Si, pour $\beta_i \in K$, on a $\sum_i \beta_i \phi_i = 0$, alors 
+%   \begin{displaymath}
+%  0 =    \left(\sum_i \beta_i \phi_i\right) (v_j) =  \beta_j,
+%   \end{displaymath}
+% c'est-à-dire  les $\phi_j$ sont linéairement indépendantes. Les $\phi_j$ engendrent $V^*$ puisque pour $f \in V^*$, $f = \sum_i  f(v_i)  \, \phi_i$. 
+% \end{proof}
+
+% \begin{definition}
+%   \label{def:14}
+%   La base $\{\phi_1,\dots,\phi_n\}$ est la \emph{base duale} de la base $\{v_1,\dots,v_n\}$. 
+% \end{definition}
 
 
 
 
-\begin{theorem}[Supplémentaire orthogonal]
-  \label{thr:8}
-  Soient $V$ un espace vectoriel de dimension finie sur corps $K$ et $W$ un sous-espace de $V$. Soit $\pscal{.}$ une forme bilinéaire symétrique tel que, si restreint sur $W\times W$, elle est non dégénérée. Alors $V = W \oplus W^\perp$.  
-\end{theorem}
+% \begin{lemma}
+%   \label{lem:5}
+%   Soit $V$
+%   un espace vectoriel sur le corps $K$
+%   de dimension finie muni d'une forme bilinéaire  non dégénérée et soit
+%   $f\colon V \longrightarrow K$
+%   une forme linéaire. Il existe un $v \in V$
+%   tel que $f(x) = \pscal{v,x}$ pour tout $x \in V$.
+% \end{lemma}
 
-\begin{proof}
-  Pour un élément $u \in W \cap W^\perp$ on a $\pscal{u,w} = 0$ pour tout $w \in W$. Dès que $\pscal{.}$ est non dégénéré sur $W$ on a $u=0$, alors $W \cap W^\perp = \{0\}$. 
+% \begin{proof}
+%   Soient $B = \{v_1,\dots,v_n\}$ une base  de $V$ et $A_B^{\pscal{}} \in K^{n\times n}$ la matrice dans la base $B$ associée à la forme bilinéaire. Soit $a \in K^n$ tel que  $f(x) = a^T[x]_B$ pour tout $x \in V$. Dès que $A_B^{\pscal{}}$ est de rang plein (Proposition~\ref{prop:7}), alors il existe $v \in V$ tel que $[v]_B^TA_B^{\pscal{}} = a^T$. Ceci revient à résoudre un système d'équations linéaires (cf semestre 1) et comme la matrice $A_B^{\pscal{}}$ est de rang plein, on a l'existence (et même l'unicité) d'une solution, i.e.,  $[v]_B^TA_B^{\pscal{}} = a^T$. Ainsi 
+% $f(x) = \pscal{v,x}$ pour tout $x \in V$. 
+% \end{proof}
 
-Il reste à démontrer que $V = W + W^\perp$. Pour $v \in V$ le lemme~\ref{lem:5} implique qu'il existe un $w_0 \in W$ tel que pour tout $u \in W$,  $\pscal{u,v} = \pscal{u,w_0}$ et ça démontre   $v - w_0 \in W^\perp$ et alors $v \in W + W^\perp$. 
-\end{proof}
+
+
+
+
+
+% \begin{proof}
+%   Pour un élément $u \in W \cap W^\perp$ on a $\pscal{u,w} = 0$ pour tout $w \in W$. Dès que $\pscal{.}$ est non dégénéré sur $W$ on a $u=0$, alors $W \cap W^\perp = \{0\}$. 
+
+% Il reste à démontrer que $V = W + W^\perp$. Pour $v \in V$ le lemme~\ref{lem:5} implique qu'il existe un $w_0 \in W$ tel que pour tout $u \in W$,  $\pscal{u,v} = \pscal{u,w_0}$ et ça démontre   $v - w_0 \in W^\perp$ et alors $v \in W + W^\perp$. 
+% \end{proof}
 
 \subsection*{Exercices} 
 
