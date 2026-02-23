@@ -403,7 +403,7 @@ Ainsi, $f(x) = 2 + 2x + 2x^2 + x^3$ est le polynôme recherché.
 
 
 
-\section{Division avec reste et  racines} 
+\section{Division avec reste} 
 \label{sec:divisibilite}
 
 Soit $R$ un anneau et $K$ un corps pour ce chapitre. La \emph{division avec reste} est l'opération suivante. 
@@ -430,7 +430,7 @@ Soit alors $\deg(f) = n \geq \deg(g)=m$ et
 où $a_n$ et $b_m$ sont les coefficients dominants de $f$ et $g$ respectivement. 
 Clairement 
 \begin{displaymath}
-  \deg\left( f(x) - \frac{a_n}{ b_m } x^{n-m} g(x) \right) < \deg(f(x))
+  \deg\left( f(x) - a_n b^{-1}_m  x^{n-m} g(x) \right) < \deg(f(x))
 \end{displaymath}
 et par hypothèse de récurrence il existe $q_0,r ∈R[x]$ tel que 
 \begin{displaymath}
@@ -498,6 +498,84 @@ On peut formuler la division avec reste comme un procédé récursif comme suiva
 \end{algorithmic}
 \end{algorithm}
 
+On peut formuler une variante du Théorème~\ref{thr:33} dans laquelle le \emph{quotient} $q(x)$ est multiplié à droite, c.à.d. on exige
+\begin{displaymath}
+  f(x) = g(x) q(x) + r(x).  
+\end{displaymath}
+
+
+\begin{theorem}
+  \label{thr:33-v}
+  Soient $f,g \in R[x]$, $g ≠ 0$ et le coefficient dominant de $g$ un élément  inversible de $R$.   Il existe $q,r \in R[x]$ uniques tels que 
+  \begin{displaymath}
+    f(x) =  g(x) q(x) + r(x) 
+  \end{displaymath}
+  et $\deg(r) < \deg(g)$. 
+\end{theorem}
+\begin{exercise}
+  \label{exe:61}
+  Modifier la démonstration du Théorème~\ref{thr:33} pour obtenir une démonstration du Théorème~\ref{thr:33-v}. 
+\end{exercise}
+
+
+\begin{example}
+  \label{exe:60-right-left-div}
+  C'est exemple montre que les quotients et les restes peuvent être divers dals les cas où le quotient est multiplié à droite et à gauche. 
+Soit $ℤ^{2 ×2}$ l'anneau des matrices $2×2$ sur les entiers et 
+\begin{displaymath}
+  f(x) =   \left(\begin{array}{rr}
+1 & 0 \\
+0 & 0
+\end{array}\right) + \left(\begin{array}{rr}
+1 & 0 \\
+0 & 1
+\end{array}\right), \, g(x) =  
+\left(\begin{array}{rr}
+1 & 1 \\
+0 & 1
+\end{array}\right)
+x^{2} +  \left(\begin{array}{rr}
+1 & 0 \\
+0 & 1
+\end{array}\right) ∈ ℤ^{2 ×2} [x]
+\end{displaymath}
+deux polynômes.
+Division avec reste nous donne $f(x) = q(x) ⋅g(x) + r(x)$ avec
+
+\begin{displaymath}
+q(x) =  \left(\begin{array}{rr}
+1 & -1 \\
+0 & 0
+\end{array}\right) x^{2}  + \left(\begin{array}{rr}
+-1 & 2 \\
+0 & 0
+\end{array}\right)
+r(x) =  \left(\begin{array}{rr}
+2 & -2 \\
+0 & 1
+\end{array}\right)
+\end{displaymath}
+
+Si le quotient $q(x)$ doit être multiplié à $g(x)$ à droite, on obtient
+$f(x) = g(x) ⋅ q(x) + r(x)$ avec
+
+\begin{displaymath}
+  q(x) =  \left(\begin{array}{rr}
+1 & 0 \\
+0 & 0
+\end{array}\right) x^{2} + \left(\begin{array}{rr}
+-1 & 0 \\
+0 & 0
+\end{array}\right) \text{ et } 
+r(x) =  \left(\begin{array}{rr}
+2 & 0 \\
+0 & 1
+\end{array}\right)
+\end{displaymath}
+
+\end{example}
+
+
 
 
 % \marginnote{Tout matériel sur Python est supplémentaire et ne compte pas vers l'examen.}[0cm] 
@@ -528,7 +606,8 @@ On peut formuler la division avec reste comme un procédé récursif comme suiva
 % \end{lstlisting}
 
 
-
+\section{Divisibilité et racines}
+\label{sec:divis-et-racin}
 
 \begin{definition}
   \label{def:32}
