@@ -34,7 +34,7 @@ Un élément  $a ≠0$ de $R$ est un \emph{diviseur de zéro} s'il existe un $b�
 \begin{example}
   \label{exe:32}
   \begin{enumerate}[i)]
-  \item Les nombres entiers $ℤ$ avec l'addition et la multiplication standard forment un anneau commutatif sans diviseurs de zéro. $ℤ$ est donc un anneau intègre. 
+  \item Les nombres entiers $ℤ$ avec l'addition et la multiplication standard forment un anneau commutatif sans diviseurs de zéro. Aussi $1 ≠ 0$. $ℤ$ est donc un anneau intègre. 
   \item $5 ⋅ℤ = \{ 5 z ：z ∈ ℤ\}$ avec l'addition et la multiplication standard n'est pas un anneau. L'axiome (R\ref{R6}) n'est pas satisfait.
   \item L'ensemble des matrices  $ℤ^{2 ×2}$ avec l'addition et multiplication des matrices est un anneau non commutatif avec des diviseurs de zéro. 
     \begin{eqnarray*}
@@ -81,18 +81,6 @@ Un élément  $a ≠0$ de $R$ est un \emph{diviseur de zéro} s'il existe un $b�
 \end{example}
 
 
-
-La démonstration du théorème suivant est un exercice.  
-\begin{theorem}
-  \label{thr:58}
-  Soit $R$ un anneau et $S ⊆R$. Si les deux conditions suivantes sont vérifiées 
-  \begin{enumerate}[a)]
-  \item $1 ∈ S$ \label{item:27}
-  \item Pour $s,t ∈S$ alors  $s⋅t∈S$   et $s-t ∈S$. \label{item:28}
-  \end{enumerate} 
-  alors $S$ est aussi un anneau. 
-\end{theorem}
-
 Un élément $r ∈R$ est \emph{inversible} s'il existe un élément $r^{-1} ∈ R$ tel que
 \begin{displaymath}
   r ⋅ r^{-1} = r^{-1} ⋅r = 1. 
@@ -109,17 +97,34 @@ On dénote l'ensemble des éléments inversibles par $R^*$. On se rappelle que $
   Soit $R$ un anneau et $R^{n ×n}$ l'anneau des matrices $n ×n$ sur $R$. Montrer que le centre de $R^{n ×n}$ est $Z(R^{n ×n}) = \{ a I_n ：a ∈Z(R)\}$. 
 \end{exercise}
 
+
+Le théorème suivant est trouvé dans les notes de cours du premier semestre~\cite{PMichel2026}.
+\begin{theorem}
+  \label{thr:58}
+  Soit $R$ un anneau et $S ⊆R$. Si les deux conditions suivantes sont vérifiées 
+  \begin{enumerate}[a)]
+  \item $1 ∈ S$ \label{item:27}
+  \item Pour $s,t ∈S$ alors  $s⋅t∈S$   et $s-t ∈S$. \label{item:28}
+  \end{enumerate} 
+  alors $S$ est aussi un anneau. 
+\end{theorem}
+
+
+Le théorème suivant est démontré dans le cours \emph{anneaux et corps}.   Il nous donne une manière formelle d'introduire le concept d'une \emph{indéterminée} (ou  \emph{variable}) qui n'est autre que ledit élément $x ∈ S \setminus R$.
 \begin{theorem}
   \label{thr:50}
-  Soit $R$ un anneau, alors il existe un anneau $S ⊇R$ ($R$ est un sous-anneau de $S$) et un élément $x ∈ S \setminus R$ tel que
+  Soit $R$ un anneau, alors il existe un anneau $R' ⊇R$ ($R$ est un
+  sous-anneau de $R'$) satisfaisant $1_{R'} = 1_R$ et qui possède un élément
+  $x ∈ R \setminus R$ tel que
   \begin{enumerate}[(i)]
+   
   \item $a x = x a $ pour chaque $a ∈ R$. \label{item:29}
   \item Si 
     $  a_0+ a_1x + \cdots + a_n x^n =0$  et $a_i ∈R$ pour tout $i$,  
     alors  $a_i = 0$ pour tout $i$. \label{item:30}
   \end{enumerate}
 \end{theorem}
-Ce théorème est démontré dans le cours \emph{anneaux et corps}.   Il nous donne une manière formelle d'introduire le concept d'une \emph{indéterminée} (ou  \emph{variable}) qui n'est autre que ledit élément $x ∈ S \setminus R$.  
+  
 
 \begin{definition}
   \label{def:51}
@@ -129,6 +134,7 @@ $p(x) = a_0 + a_1 x + \cdots + a_n x^n$, où $n ∈ℕ$,  $a_i ∈R$ pour tout $
 
 
 \begin{example}
+  
   \begin{enumerate}[i)]
   \item  $p(x) = 3 + x^2 + 5x^4 ∈ ℤ[x]$.
   \item $p(x) = \smat{1 &0 \\ 1 & 1} +   \smat{3 &3 \\ 2 & 1} x^3 ∈ ℤ^{2×2}[x]$. 
@@ -199,12 +205,12 @@ Bref, on a la formule
   anneau sans diviseur de zéro. 
 \end{proof}
 
-\begin{example}
+\begin{example}[Multiplication de polynômes] 
   \label{exe:33}
   \begin{eqnarray*}
-    f(x) & = &  3 \, x^{3} + x + 2 \\
-    g(x) & = & 2 \, x^{4} + 2 \, x^{2} + 1 \\
-    f(x) ⋅g(x) & = & 6 \, x^{7} + 8 \, x^{5} + 4 \, x^{4} + 5 \, x^{3} + 4 \,  x^{2} + x + 2 \\ 
+    f(x) & = &  3 \, x^{3} + x + 2 ∈ ℤ[x]  \\
+    g(x) & = & 2 \, x^{4} + 2 \, x^{2} + 1  ∈ ℤ[x] \\
+    f(x) ⋅g(x) & = & 6 \, x^{7} + 8 \, x^{5} + 4 \, x^{4} + 5 \, x^{3} + 4 \,  x^{2} + x + 2   ∈ ℤ[x] \\ 
   \end{eqnarray*}
 \end{example}
 
