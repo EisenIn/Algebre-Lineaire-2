@@ -504,11 +504,10 @@ On peut formuler la division avec reste comme un procédé récursif comme suiva
 \end{algorithmic}
 \end{algorithm}
 
-On peut formuler une variante du Théorème~\ref{thr:33} dans laquelle le \emph{quotient} $q(x)$ est multiplié à droite, c.à.d. on exige
+Le Théorème suivant est une variante du Théorème~\ref{thr:33} dans laquelle le \emph{quotient} $q(x)$ est multiplié à droite, c.à.d. on exige
 \begin{displaymath}
   f(x) = g(x) q(x) + r(x).  
 \end{displaymath}
-
 
 \begin{theorem}
   \label{thr:33-v}
@@ -526,27 +525,28 @@ On peut formuler une variante du Théorème~\ref{thr:33} dans laquelle le \emph{
 
 \begin{example}
   \label{exe:60-right-left-div}
-  C'est exemple montre que les quotients et les restes peuvent être divers dals les cas où le quotient est multiplié à droite et à gauche. 
+  C'est exemple montre que les quotients et les restes peuvent être divers dans les cas où le quotient est multiplié à droite et à gauche. 
 Soit $ℤ^{2 ×2}$ l'anneau des matrices $2×2$ sur les entiers et 
-\begin{displaymath}
-  f(x) =   \left(\begin{array}{rr}
+\begin{eqnarray*} 
+  f(x) & = &    \left(\begin{array}{rr}
 1 & 0 \\
 0 & 0
-\end{array}\right) + \left(\begin{array}{rr}
+\end{array}\right) ⋅ x^4  + \left(\begin{array}{rr}
 1 & 0 \\
 0 & 1
-\end{array}\right), \, g(x) =  
+\end{array}\right) ∈ ℤ^{2 ×2} [x] \\
+             g(x) &=&  
 \left(\begin{array}{rr}
 1 & 1 \\
 0 & 1
 \end{array}\right)
-x^{2} +  \left(\begin{array}{rr}
+⋅ x^{2} +  \left(\begin{array}{rr}
 1 & 0 \\
 0 & 1
 \end{array}\right) ∈ ℤ^{2 ×2} [x]
-\end{displaymath}
+\end{eqnarray*}
 deux polynômes.
-Division avec reste nous donne $f(x) = q(x) ⋅g(x) + r(x)$ avec
+Division avec reste (Théorème~\ref{thr:33}) nous donne $f(x) = q(x) ⋅g(x) + r(x)$ avec
 
 \begin{displaymath}
 q(x) =  \left(\begin{array}{rr}
@@ -555,16 +555,14 @@ q(x) =  \left(\begin{array}{rr}
 \end{array}\right) x^{2}  + \left(\begin{array}{rr}
 -1 & 2 \\
 0 & 0
-\end{array}\right)
+\end{array}\right) \, \text{ et } \, 
 r(x) =  \left(\begin{array}{rr}
 2 & -2 \\
 0 & 1
 \end{array}\right)
 \end{displaymath}
-
-Si le quotient $q(x)$ doit être multiplié à $g(x)$ à droite, on obtient
+Si le quotient $q(x)$ doit être multiplié à $g(x)$ à droite (Théorème~\ref{thr:33-v}), on obtient
 $f(x) = g(x) ⋅ q(x) + r(x)$ avec
-
 \begin{displaymath}
   q(x) =  \left(\begin{array}{rr}
 1 & 0 \\
@@ -572,7 +570,7 @@ $f(x) = g(x) ⋅ q(x) + r(x)$ avec
 \end{array}\right) x^{2} + \left(\begin{array}{rr}
 -1 & 0 \\
 0 & 0
-\end{array}\right) \text{ et } 
+\end{array}\right)  \, \text{ et } \, 
 r(x) =  \left(\begin{array}{rr}
 2 & 0 \\
 0 & 1
