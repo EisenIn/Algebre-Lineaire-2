@@ -769,10 +769,11 @@ Soit $K$ un corps dans ce chapitre.
 
 
 
-Pour calculer le plus grand diviseur commun de $f(x)$ et $g(x)$  on peut utiliser l'algorithme d'Euclide. Soient $f_0,f_1 ∈K[x]$ pas tous les deux nuls et $\deg(f_0) ≥ \deg(f_1)$. Si $f_1 = 0$, alors
+Pour calculer le plus grand diviseur commun de $f(x)$ et $g(x)$  on peut utiliser l'algorithme d'Euclide. Soient $f_0,f_1 ∈K[x]$  et  pas tous les deux nuls et $\deg(f_0) ≥ \deg(f_1)$. Si $f_1 = 0$, alors
 \begin{displaymath}
-\gcd(f_0,f_1) =   f_0. 
+\gcd(f_0,f_1) =   a^{-1}f_0, 
 \end{displaymath}
+où $a$ est le coefficient dominant de $f_0$. 
 Autrement, on applique la division avec reste
 \begin{displaymath}
   f_0 = q_1 f_1 + f_2, 
