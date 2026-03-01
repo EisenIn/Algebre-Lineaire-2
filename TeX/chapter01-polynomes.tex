@@ -743,7 +743,6 @@ Soit $K$ un corps dans ce chapitre.
   \begin{enumerate}[i)]
   \item $d$ est un diviseur commun de $f$ et $g$. \label{item:24}
   \item Chaque diviseur commun de $f$ et $g$ est un diviseur de $d$. \label{item:25}
-  \item Si $d$ est unitaire, alors $d$ est unique.  \label{item:26}
   \end{enumerate}
 \end{theorem}
 
@@ -754,10 +753,26 @@ Soit $K$ un corps dans ce chapitre.
   \begin{displaymath}
     d = (u⋅f'  + v ⋅ g') w,
   \end{displaymath}
-  ce que montre que $w \mid d$ et \ref{item:25}). 
-  Soient $d$ et $d'$ deux polynômes unitaires satisfaisant~\eqref{eq:51}. \ref{item:24}) et \ref{item:25}) impliquent que $d \mid d'$ et $d' \mid d$.
-  Alors il existe $z,z' ∈K[x]$ tel que $d = d' z'$ et $d' = dz$. Par suite, $d = d ⋅z ⋅ z'$. Le theorème~\ref{thr:34} implique que $z,z' ∈ K$. Et comme $d$ et $d'$ sont unitaires, $z=z'=1$, ce que démontre \ref{item:26}). 
+  ce que montre que $w \mid d$ et \ref{item:25}).  
 \end{proof}
+
+
+\begin{proposition}
+  \label{prop:9}
+  Soient $f ,g ∈ K[x]$ non tous les deux nul et soit  $d ∈ K[x]$ un polynôme satisfaisant les conditions \ref{item:24}) et \ref{item:25}) du Théorème~\ref{thr:55}.  
+  Le polynôme $d$ est unique à multiplication près par une constante $\alpha \neq 0$.  Si $d$ est unitaire, alors $d$ est unique.  \label{item:26}
+\end{proposition}
+\begin{proof}
+  Soient $d$ et $d'$ deux polynômes  satisfaisant \ref{item:24}) et \ref{item:25}). C.à.d. $d$ et $d'$ sont des diviseurs commun de $f$ et $g$ et chaque diviseur commun de $f$ et $g$ divise $d$ et $d'$.
+  Les conditions impliquent   $d \mid d'$ et $d' \mid d$. 
+   Alors il existe $z,z' ∈K[x]$ tel que $d = d' z'$ et $d' = dz$. Par suite, $d = d ⋅z ⋅ z'$. Le theorème~\ref{thr:34} ($d,d' ≠0$) implique que $z,z' ∈ K$.
+
+   \medskip
+   
+\noindent    
+ Si  $d$ et $d'$ sont unitaires, alors  $z=z'=1$, ce que démontre \ref{item:26}). 
+\end{proof}
+
 
 \begin{definition}
   \label{def:56}
@@ -961,11 +976,157 @@ dont les $p_i$ sont irréductibles et unitaires et $a ∈ K$. On va voir mainten
   \end{displaymath}
 \end{corollary}
 
+
+\subsection*{Exercices}
+\begin{enumerate}
+\item    Démontre le Corollaire~\ref{co:11}.
+\item Soit $K$ un corps fini, $ n=|K|$. 
+  \begin{enumerate}[a)] 
+  \item Chaque $a ∈ K^*$ satisfait $a^{n-1} = 1$. \emph{Indice: Thm. de Lagrange}
+  \item Le polynôme  $f(x) = x^n - x +1$ ne possède pas de racines. 
+  \item Conclure qu'il existent des polynômes irréductibles en $K[x]$ de degré aux moins $2$.  \emph{Indice: Factorisation de $f(x)$ en irréductibles. }
+  \end{enumerate}
+\end{enumerate}
+
+
+
+
+
+
+
+
+\section{Le polynôme minimal d'une matrice}
+\label{sec:le-polynome-minimal-1}
+
+
+Soit $A ∈ K^{n ×n}$ une matrice et
+\begin{displaymath}
+  f(x) = a_0 + a_1 x + \cdots + a_n x^n∈ K[x] 
+\end{displaymath}
+un polynôme sur $K$.   \emph{L'évaluation} de $f(x)$ en $A$  est la matrice
+\begin{displaymath}
+  f(A) = a_0 I_n + a_1 A + \cdots + a_n A^n∈ K[x].  
+\end{displaymath}
+
 \begin{exercise}
-  Démontre le Corollaire~\ref{co:11}. 
+  Pour $f(x), g(x) ∈ K[x]$  on a
+  \begin{enumerate}[i)] 
+  \item $(f+g)(A) = f(A) + g(A)$, 
+  \item $(f+g)(A) = f(A) + g(A)$ et
+  \item $1(A) = I_n$.   
+  \end{enumerate}
+En autres mots, l'application 
+  \begin{displaymath}
+    \begin{array}{rclcl}
+      φ&： & K[x]& ⟶ & K^{n ×n} \\
+       &   & f(x)& \longmapsto & f(A) 
+    \end{array}
+  \end{displaymath}
+  est un homomorphisme d'anneaux. 
 \end{exercise}
 
+Un polynôme $f(x) ∈ K[x]$ \emph{annule} $A$, si $f(A)$ est la matrice zéro
+\begin{displaymath}
+  f(A) = 0 ∈ K^{n ×n}. 
+\end{displaymath}
 
+\begin{theorem}
+\label{thr:61}
+  Soit $p(x) ∈ K[x]\setminus \{0\}$ un polynôme de degré minimal parmi les polynômes qui annulent $A$. 
+  Alors $p(x)$ divise chaque polynôme  $f(x) ∈ K[x]$  tel que $f(A) = 0$.
+Si $p$ est unitaire, alors $p$ est unique. 
+\end{theorem}
+
+\begin{proof}
+  Supposons que $f(x)∈ K[x]$ annule $A$
+  \begin{displaymath}
+    f(A) = 0. 
+  \end{displaymath}
+On effectue division avec reste
+  \begin{displaymath}
+    f = q ⋅ p + r \text{ où } \deg(r) < \deg(p). 
+  \end{displaymath}
+  Parce que $r(A) = 0$ on a forcement $r = 0$. ($p$ est de degré minimal parmi les polynômes  évaluant à zéro). Alors $p \mid f$.
+
+Comme dans la démonstration de la Proposition~\ref{prop:9} on montre que  $p$ est unique à multiplication prés par une constante $α ≠0$. Alors si $p$ est unitaire,  $p$ est unique. 
+\end{proof}
+
+
+
+
+\begin{definition}
+\label{def:67}
+Le polynôme \emph{unitaire} $p(x) ∈ K[x]\setminus \{0\}$ du Théorème~\ref{lem:31} est appelé le \emph{polynôme minimal} de $A ∈ K^{n ×n}$.
+\end{definition}
+
+\subsubsection{Comment trouver  le polynôme minimal}
+\label{sec:an-algor-aleat}
+
+
+Le théorème de Cayley-Hamilton~\cite{PMichel2026} affirme que $f_A(A) = 0$, où $f_A \in K[x]$ est le \emph{polynôme caractéristique} de $A$.
+  Une façon de calculer le polynôme minimal consiste à chercher le plus petit $i \in \mathbb{N}_+$, $i \leq n$ tel que
+  \begin{displaymath}
+    I = A^0, A, A^1, \cdots, A^i
+  \end{displaymath}
+  soient linéairement dépendants. Chaque vérification de ce type peut être effectuée par élimination de Gauss. La complexité de l'élimination de Gauss avec $m'$ lignes et $n'$ colonnes est $ Ω(m' \cdot n' \cdot \min\{m',n'\})$ opérations arithmétique du corps $K$. Dans notre cas, cela équivaut à $i \cdot n^2 \cdot i$. Grâce à des mises à jour itératives, le plus petit $i$ et $m_A(x)$ peuvent être trouvés en un temps $O(n^2 d^2)$, où $d$ est le degré de $m_A(x)$. Cependant, cela peut être fait en un temps $O(n^2 d)$ comme nous allons le montrer maintenant.
+
+
+  Soit $v \in K^n \setminus\{0\}$. On montre de manière similaire à la démonstration du Théorème~\ref{thr:61} la propriété suivante. Il existe un  polynôme unitaire unique $p_v(x) \in K[x] \setminus \{0\}$ de degré minimal  tel que
+  \begin{equation}
+    \label{eq:2}
+    p_v(A)\, v = 0
+  \end{equation}
+  soit vérifiée. Ce polynôme $p_v(x)$ divise tout polynôme $h(x) \in K[x]$ tel que $h(A)v = 0$. Le polynôme $p_v(x)$ est appelé l'\emph{$A$-annulateur de $v$}.
+
+
+  Voyons pourquoi cela tient. Soit $h(x) \in K[x]$ un polynôme tel que $h(A)v = 0$. Si $p^v_A(x)$ ne divise pas $h(x)$, alors, par division euclidienne comme ci-dessus, on obtient
+  \begin{displaymath}
+    r(A) = h(A) - q(A) p_A^v(A)
+  \end{displaymath}
+  et par conséquent $r(A)\,v = 0$, ce qui contredit la minimalité du degré de $p_A^v(x)$.
+
+  \subsubsection{Algorithme aléatoire}
+
+  L'algorithme est le suivant. Fixons un ensemble fini $S \subseteq K$ avec $|S| = M$ et choisissons $v \in K^n$ aléatoirement en sélectionnant chaque composante de $v$ uniformément dans $S$. Ensuite, calculons $p_v(x)$ en trouvant le plus petit $i$ tel que
+  \begin{displaymath}
+     I \,v, A\,v, A^2\,v, \cdots, A^i\,v \quad \text{soient linéairement dépendants.}
+   \end{displaymath}
+   On retourne le polynôme $p_v(x)$.
+
+   \subsubsection*{Analyse de la complexité}
+%
+   Le temps d'exécution de l'algorithme peut être estimé comme suit.
+   \begin{itemize}
+   \item Le calcul de $I \,v, A\,v, A^2\,v, \cdots, A^d \,v$ nécessite $O(n^2 d)$ opérations dans le corps. Ce sont des produits matrice-vecteur. Ici, $d$ est le degré de $m_A(x)$.
+   \item Vérifier si $ I \,v, A\,v, A^2\,v, \cdots, A^i\,v$ est linéairement indépendant nécessite $O(n i^2)$ opérations. C'est l'élimination de Gauss.
+     \item Le plus petit $i$ est trouvé par une méthode de Gauss mise à jour itérative en un temps $O(n d^2)$.
+     \end{itemize}
+     Cela représente un total de $O(n^2 d)$ opérations dans le corps.
+
+     \subsubsection*{Probabilité d'échec}
+
+   \begin{theorem}
+     \label{thr:2}
+     La probabilité de l'événement $p_v(x) \neq p(x)$ est au plus $n/|S|$.
+   \end{theorem}
+
+   \begin{proof}
+     Soit $p(x) = \ell_1(x)^{e_1} \cdots \ell_k(x)^{e_k}$ la factorisation unique de $p(x)$ en facteurs irréductibles distincts. On remarque que $k \leq \deg(p(x)) \leq n$. Si $p_v(x)$ n'est pas égal à $p(x)$, alors il doit exister un facteur irréductible, disons $\ell_1$, tel que $(m_A/ \ell_1)(A) v =0$ soit vérifié. Considérons maintenant $\ell_1$. Puisque $(m_A/ \ell_1)(A) \neq 0$, on a clairement
+     \begin{displaymath}
+       P \left[ (m_A/ \ell_1)(A) v = 0 \right]  \leq 1/|S|.
+     \end{displaymath}
+     La borne annoncée découle alors de l'application de l'inégalité de Boole (union bound).
+   \end{proof}
+
+   \subsection*{Exercices}
+   \begin{enumerate}
+   \item Soit $V$ un espace vectoriel de dimension finie sur le corps $K$ et $T: V \longrightarrow V$ un endomorphisme.
+     \begin{enumerate}[i)]
+     \item        Montrer que l'ensemble $I = \{ f(x) \in K[x] \mid f(T) = 0\}$ est un idéal de $K[x]$ et qu'il est engendré par le polynôme minimal de $T$.      \label{item:1}
+     \item   Soit $v \in V$. Montrer que l'ensemble $I = \{ f(x) \in K[x] \mid f(T)(v) = 0\}$ est un idéal de $K[x]$ et que celui-ci est engendré par $p_T^v(x)$, le $T$-annulateur de $v$. \label{item:2}
+     \item Montrer que $m_T(x)$ est le plus petit commun multiple (des) polynômes $p_T^v(x), \, v \in V$ (en nombre fini). \label{item:3}
+   \end{enumerate}
+ \end{enumerate}
 
 
 \section{Construction formelle de l'anneau des polynômes}
