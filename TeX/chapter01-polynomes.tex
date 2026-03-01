@@ -980,10 +980,10 @@ dont les $p_i$ sont irréductibles et unitaires et $a ∈ K$. On va voir mainten
 \subsection*{Exercices}
 \begin{enumerate}
 \item    Démontre le Corollaire~\ref{co:11}.
-\item Soit $K$ un corps fini, $ n=|K|$. 
+\item Soit $K$ un corps fini, $ n=|K|$. \label{item:34} 
   \begin{enumerate}[a)] 
   \item Chaque $a ∈ K^*$ satisfait $a^{n-1} = 1$. \emph{Indice: Thm. de Lagrange}
-  \item Le polynôme  $f(x) = x^n - x +1$ ne possède pas de racines. 
+  \item Le polynôme  $f(x) = x^n - x +1 ∈ K[x]$ ne possède pas de racines. 
   \item Conclure qu'il existent des polynômes irréductibles en $K[x]$ de degré aux moins $2$.  \emph{Indice: Factorisation de $f(x)$ en irréductibles. }
   \end{enumerate}
 \end{enumerate}
@@ -1059,7 +1059,7 @@ Comme dans la démonstration de la Proposition~\ref{prop:9} on montre que  $p$ e
 Le polynôme \emph{unitaire} $p(x) ∈ K[x]\setminus \{0\}$ du Théorème~\ref{lem:31} est appelé le \emph{polynôme minimal} de $A ∈ K^{n ×n}$.
 \end{definition}
 
-\subsubsection{Comment trouver  le polynôme minimal}
+\subsubsection{Comment trouver  le polynôme minimal?}
 \label{sec:an-algor-aleat}
 
 
@@ -1081,7 +1081,7 @@ Le théorème de Cayley-Hamilton~\cite{PMichel2026} affirme que $f_A(A) = 0$, o�
 
   Voyons pourquoi cela tient. Soit $h(x) \in K[x]$ un polynôme tel que $h(A)v = 0$. Si $p^v_A(x)$ ne divise pas $h(x)$, alors, par division euclidienne comme ci-dessus, on obtient
   \begin{displaymath}
-    r(A) = h(A) - q(A) p_A^v(A)
+    r(A) = h(A) - q(A) p_v(A)
   \end{displaymath}
   et par conséquent $r(A)\,v = 0$, ce qui contredit la minimalité du degré de $p_A^v(x)$.
 
@@ -1106,7 +1106,7 @@ Le théorème de Cayley-Hamilton~\cite{PMichel2026} affirme que $f_A(A) = 0$, o�
      \subsubsection*{Probabilité d'échec}
 
    \begin{theorem}
-     \label{thr:2}
+     \label{thr:63}
      La probabilité de l'événement $p_v(x) \neq p(x)$ est au plus $n/|S|$.
    \end{theorem}
 
