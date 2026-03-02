@@ -1062,18 +1062,37 @@ Le polynôme \emph{unitaire} $p(x) ∈ K[x]\setminus \{0\}$ du Théorème~\ref{l
 \subsubsection{Comment trouver  le polynôme minimal?}
 \label{sec:an-algor-aleat}
 
-
-Le théorème de Cayley-Hamilton~\cite{PMichel2026} affirme que $f_A(A) = 0$, où $f_A \in K[x]$ est le \emph{polynôme caractéristique} de $A$.
-  Une façon de calculer le polynôme minimal consiste à chercher le plus petit $i \in \mathbb{N}_+$, $i \leq n$ tel que
+Soit $A  ∈ K^{ n ×n}$. 
+Le théorème de Cayley-Hamilton (Théorème~\ref{thr:47}) affirme que $f_A(A) = 0$, où $f_A \in K[x]$ est le \emph{polynôme caractéristique} de $A$. Le degré de $f_A$ est $n$. 
+  Une façon de calculer le polynôme minimal consiste à chercher le plus petit $d \in \mathbb{N}_+$, $d \leq n$ tel que
   \begin{displaymath}
-    I = A^0, A, A^1, \cdots, A^i
+    I = A^0, A, A^1, \cdots, A^d
   \end{displaymath}
-  soient linéairement dépendants. Chaque vérification de ce type peut être effectuée par élimination de Gauss. La complexité de l'élimination de Gauss avec $m'$ lignes et $n'$ colonnes est $ Ω(m' \cdot n' \cdot \min\{m',n'\})$ opérations arithmétique du corps $K$. Dans notre cas, cela équivaut à $i \cdot n^2 \cdot i$. Grâce à des mises à jour itératives, le plus petit $i$ et $m_A(x)$ peuvent être trouvés en un temps $O(n^2 d^2)$, où $d$ est le degré de $m_A(x)$. Cependant, cela peut être fait en un temps $O(n^2 d)$ comme nous allons le montrer maintenant.
-
-
-  Soit $v \in K^n \setminus\{0\}$. On montre de manière similaire à la démonstration du Théorème~\ref{thr:61} la propriété suivante. Il existe un  polynôme unitaire unique $p_v(x) \in K[x] \setminus \{0\}$ de degré minimal  tel que
+  soient linéairement dépendants et de trouver $a_0,a_1, \dots, a_d$ tel que
   \begin{equation}
-    \label{eq:2}
+    \label{eq:60}
+     a_0 I +  a_1 A + a_2 A^2+ \dots + a_d A^d = 0.
+   \end{equation}
+Le polynôme minimal de $A$ est $p(x) = a_0 + a_1x + \cdots + a_n x^n$. 
+Ce $d$ aussi bien les coefficients $a_0,\dots,a_d$ de $p(x)$ se laissent calculé par l'algorithme de Gauss sur la matrice
+\begin{eqnarray}
+  \label{eq:61}
+  B = \left(c_0,\dots,c_n) ∈ K^{n^2 × (n+1)} \right)
+\end{eqnarray}
+dont la colonne $c_k ∈ K^{n^2}$ représente la matrice $A^k ∈ K^{n ×n}$ pour $k=0,\dots,n$. C'est à dire, la  $n ⋅ i + j$-ème composante  de  $c_k$ est 
+\begin{equation}
+  \label{eq:62}
+  (A^k){i,j}. 
+\end{equation}
+En fait, le premier vecteur ($j$ minimal) dans la liste de vecteurs de la base du $\ker(B)$, comme décrit en Chapitre~\ref{sec:limage-et-le}~\eqref{eq:b-20} nous donne le degré et les coefficients du polynôme minimal. 
+
+
+La complexité de l'élimination de Gauss avec $m'$ lignes et $n'$ colonnes est $ Ω(m' \cdot n' \cdot \min\{m',n'\})$ opérations arithmétique du corps $K$. Dans notre cas, cela équivaut à $Ω(n^4)$. Cependant, cela peut être fait en  $O(n^3)$ opérations arithmétiques du corps $K$ comme nous allons le montrer maintenant.
+
+
+Soit $v \in K^n \setminus\{0\}$. On montre de manière similaire à la démonstration du Théorème~\ref{thr:61} la propriété suivante. Il existe un  polynôme unitaire unique $p_v(x) \in K[x] \setminus \{0\}$ de degré minimal  tel que
+\begin{equation}
+  \label{eq:2}
     p_v(A)\, v = 0
   \end{equation}
   soit vérifiée. Ce polynôme $p_v(x)$ divise tout polynôme $h(x) \in K[x]$ tel que $h(A)v = 0$. Le polynôme $p_v(x)$ est appelé l'\emph{$A$-annulateur de $v$}.
@@ -1087,37 +1106,73 @@ Le théorème de Cayley-Hamilton~\cite{PMichel2026} affirme que $f_A(A) = 0$, o�
 
   \subsubsection{Algorithme aléatoire}
 
-  L'algorithme est le suivant. Fixons un ensemble fini $S \subseteq K$ avec $|S| = M$ et choisissons $v \in K^n$ aléatoirement en sélectionnant chaque composante de $v$ uniformément dans $S$. Ensuite, calculons $p_v(x)$ en trouvant le plus petit $i$ tel que
+  L'algorithme est le suivant. Fixons un ensemble fini $S \subseteq K$ avec $|S| = M$ et choisissons $v \in K^n$ aléatoirement en sélectionnant chaque composante de $v$ uniformément dans $S$. Ensuite, calculons $p_v(x)$ en trouvant le plus petit $d$ tel que
   \begin{displaymath}
-     I \,v, A\,v, A^2\,v, \cdots, A^i\,v \quad \text{soient linéairement dépendants.}
-   \end{displaymath}
-   On retourne le polynôme $p_v(x)$.
+    I \,v, A\,v, A^2\,v, \cdots, A^i\,v \quad \text{soient linéairement dépendants.}
+  \end{displaymath}
+  On retourne le polynôme $p_v(x)$.
 
-   \subsubsection*{Analyse de la complexité}
-%
-   Le temps d'exécution de l'algorithme peut être estimé comme suit.
-   \begin{itemize}
-   \item Le calcul de $I \,v, A\,v, A^2\,v, \cdots, A^d \,v$ nécessite $O(n^2 d)$ opérations dans le corps. Ce sont des produits matrice-vecteur. Ici, $d$ est le degré de $m_A(x)$.
-   \item Vérifier si $ I \,v, A\,v, A^2\,v, \cdots, A^i\,v$ est linéairement indépendant nécessite $O(n i^2)$ opérations. C'est l'élimination de Gauss.
-     \item Le plus petit $i$ est trouvé par une méthode de Gauss mise à jour itérative en un temps $O(n d^2)$.
-     \end{itemize}
-     Cela représente un total de $O(n^2 d)$ opérations dans le corps.
+  Cette fois on effectue l'Algorithme de Gauss sur la matrice
+  \begin{equation}
+    \label{eq:63}
+    C = \left(  I \,v, A\,v, A^2\,v, \cdots, A^n\,v \right) ∈ K^{n × (n+1)}. 
+  \end{equation}
+  Le calcul de $I \,v, A\,v, A^2\,v, \cdots, A^n \,v$ nécessite $O(n^3)$ opérations dans le corps. Ce sont des produits matrice-vecteur.
+  Aussi l'algorithme de Gauss effectue 
+  $O(n^3)$ opérations.  
 
-     \subsubsection*{Probabilité d'échec}
 
+  
+  \subsubsection*{Probabilité d'échec}
+  
    \begin{theorem}
      \label{thr:63}
      La probabilité de l'événement $p_v(x) \neq p(x)$ est au plus $n/|S|$.
    \end{theorem}
-
    \begin{proof}
-     Soit $p(x) = \ell_1(x)^{e_1} \cdots \ell_k(x)^{e_k}$ la factorisation unique de $p(x)$ en facteurs irréductibles distincts. On remarque que $k \leq \deg(p(x)) \leq n$. Si $p_v(x)$ n'est pas égal à $p(x)$, alors il doit exister un facteur irréductible, disons $\ell_1$, tel que $(m_A/ \ell_1)(A) v =0$ soit vérifié. Considérons maintenant $\ell_1$. Puisque $(m_A/ \ell_1)(A) \neq 0$, on a clairement
+     Soit $p(x) = \ell_1(x)^{e_1} \cdots \ell_k(x)^{e_k}$ la
+     factorisation unique de $p(x)$ en facteurs irréductibles
+     distincts. On remarque que $k \leq \deg(p(x)) \leq n$. Si
+     $p_v(x)$ n'est pas égal à $p(x)$, alors il doit exister un
+     facteur irréductible, disons $\ell_1$, tel que
+     $(m_A/ \ell_1)(A) v =0$ soit vérifié. Considérons maintenant
+     $\ell_1$. Puisque $(m_A/ \ell_1)(A) \neq 0$, on a clairement
      \begin{displaymath}
        P \left[ (m_A/ \ell_1)(A) v = 0 \right]  \leq 1/|S|.
      \end{displaymath}
      La borne annoncée découle alors de l'application de l'inégalité de Boole (union bound).
    \end{proof}
 
+
+Si l'ensemble $S$ est de cardinalité $|S| = 2 n^2$, la probabilité de l'événement $p_v(x) \neq p(x)$ est au plus $1/2$. Avec une telle choix de $S$, si l'algorithme est répété $k$-fois, la probabilité de l'évènement
+\begin{displaymath}
+  P \left[ \text{ aucun } p_v = p \right]  \leq 2^{-k}. 
+\end{displaymath}
+Pour $k = 100$, par exemple, cette probabilité est inférieure aux réciproque des particules élémentaires de l'univers et en peut argumenter que cette probabilité es négligeable. 
+
+\begin{algorithm}%[Élimination de Gauss]
+\label{alg:5}
+  \caption{Polynôme minimal} 
+\begin{tabbing}
+\textbf{Entrée:} $A ∈ K^{m ×n}$, $k ∈ ℕ_+$, $S ⊆ K$ t.q. $|S| = 2n^2$ \\
+\textbf{Sortie:} \= $p(x) ∈ K[x]$  
+\pushtabs
+\textbf{Répète $100$ fois:} \=  \\
+\> Choisir $v ∈ S^n$ aléatoirement\\
+\> Calculer $p_v(x)$\\
+
+\textbf{ retour:} Polynôme $p_v(x)$ de degré maximal.
+\poptabs
+\end{tabbing}
+\end{algorithm}
+
+\begin{theorem}
+  \label{thr:62}
+  Soit $A ∈ K^{n ×n}$ et $k ∈ n$. L'algorithme~\ref{alg:5} effectue $O(n^3)$ opérations de corps. La probabilité de l'évènement que le polynôme retourné n'est pas le polynôme minimal de $A$ est au plus $1/2^{-100}$. 
+\end{theorem}
+
+     
+   
    \subsection*{Exercices}
    \begin{enumerate}
    \item Soit $V$ un espace vectoriel de dimension finie sur le corps $K$ et $T: V \longrightarrow V$ un endomorphisme.
