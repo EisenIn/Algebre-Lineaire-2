@@ -1078,17 +1078,25 @@ Le polynôme minimal de $A$ est $p(x) = a_0 + a_1x + \cdots + a_n x^n$.
 Ce $d$ aussi bien les coefficients $a_0,\dots,a_d$ de $p(x)$ se laissent calculé par l'algorithme de Gauss sur la matrice
 \begin{eqnarray}
   \label{eq:61}
-  B = \left(c_0,\dots,c_n) ∈ K^{n^2 × (n+1)} \right)
+  B = \left(c_0,\dots,c_n\right) ∈ K^{n^2 × (n+1)} 
 \end{eqnarray}
 dont la colonne $c_k ∈ K^{n^2}$ représente la matrice $A^k ∈ K^{n ×n}$ pour $k=0,\dots,n$. C'est à dire, la  $n ⋅ i + j$-ème composante  de  $c_k$ est 
 \begin{equation}
   \label{eq:62}
-  (A^k){i,j}. 
+  (A^k)_{ij}. 
 \end{equation}
 En fait, le premier vecteur ($j$ minimal) dans la liste de vecteurs de la base du $\ker(B)$, comme décrit en Chapitre~\ref{sec:limage-et-le}~\eqref{eq:b-20} nous donne le degré et les coefficients du polynôme minimal. 
 
 
-La complexité de l'élimination de Gauss avec $m'$ lignes et $n'$ colonnes est $ Ω(m' \cdot n' \cdot \min\{m',n'\})$ opérations arithmétique du corps $K$. Dans notre cas, cela équivaut à $Ω(n^4)$. Cependant, cela peut être fait en  $O(n^3)$ opérations arithmétiques du corps $K$ comme nous allons le montrer maintenant.
+La complexité de l'élimination de Gauss avec $m'$ lignes et $n'$ colonnes est
+\begin{displaymath}
+   Ω(m' \cdot n' \cdot \min\{m',n'\})
+\end{displaymath}
+opérations arithmétique du corps $K$. Dans notre cas, cela équivaut à $Ω(n^4)$. Cependant, il existe un algorithme de calcul du polynôme minimal qui effectue   $O(n^3)$ opérations arithmétiques du corps $K$. Cet algorithme est aléatoire, c'est à dire, que cet algorithme fais des choix basé sur des expériments de probabilité. À la fin, l'algorithme retourne  un polynôme $p(x) ∈ K[x]$. Ce polynôme est \emph{probablement} le polynôme minimal de $A ∈ K^{n ×n}$. En fait, la probabilité de l'évènement
+\begin{displaymath}
+  p(x) \text{ n'est pas le polynôme minimal de } A 
+\end{displaymath}
+est au plus $1/2^{100}$, un nombre rationnel plus petit que le réciproque du nombre de particules élémentaires de l'univers.  
 
 
 Soit $v \in K^n \setminus\{0\}$. On montre de manière similaire à la démonstration du Théorème~\ref{thr:61} la propriété suivante.
@@ -1178,7 +1186,7 @@ Pour $k = 100$, par exemple, cette probabilité est inférieure aux réciproque 
 
 \begin{theorem}
   \label{thr:62}
-  Soit $A ∈ K^{n ×n}$ et $k ∈ n$. L'algorithme~\ref{alg:5} effectue $O(n^3)$ opérations de corps. La probabilité de l'évènement que le polynôme retourné n'est pas le polynôme minimal de $A$ est au plus $1/2^{-100}$. 
+  Soit $A ∈ K^{n ×n}$ et $k ∈ n$. L'algorithme~\ref{alg:5} effectue $O(n^3)$ opérations de corps. La probabilité de l'évènement que le polynôme retourné n'est pas le polynôme minimal de $A$ est au plus $2^{-100}$. 
 \end{theorem}
 
      
