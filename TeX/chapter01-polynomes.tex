@@ -1154,8 +1154,8 @@ Le démonstration est comme celle du Théorème~\ref{thr:61}.  Soit $h(x) \in K[
      distincts. On remarque que $k \leq \deg(p(x)) \leq n$. Si
      $p_v(x)$ n'est pas égal à $p(x)$, alors il doit exister un
      facteur irréductible, disons $\ell_1$, tel que
-     $(m_A/ \ell_1)(A) v =0$ soit vérifié. Considérons maintenant
-     $\ell_1$. Puisque $(m_A/ \ell_1)(A) \neq 0$, on a clairement
+     $(p(x)/ \ell_1)(A) v =0$ soit vérifié. Considérons maintenant
+     $\ell_1$. Puisque $(p(x)/ \ell_1)(A) \neq 0$, on a clairement
      \begin{displaymath}
        P \left[ (m_A/ \ell_1)(A) v = 0 \right]  \leq 1/|S|.
      \end{displaymath}
@@ -1163,7 +1163,7 @@ Le démonstration est comme celle du Théorème~\ref{thr:61}.  Soit $h(x) \in K[
    \end{proof}
 
 
-Si l'ensemble $S$ est de cardinalité $|S| = 2 n^2$, la probabilité de l'événement $p_v(x) \neq p(x)$ est au plus $1/2$. Avec une telle choix de $S$, si l'algorithme est répété $k$-fois, la probabilité de l'évènement
+Si l'ensemble $S$ est de cardinalité $|S| = 2 n$, la probabilité de l'événement $p_v(x) \neq p(x)$ est au plus $1/2$. Avec une telle choix de $S$, si l'algorithme est répété $k$-fois, la probabilité de l'évènement
 \begin{displaymath}
   P \left[ \text{ aucun } p_v  \text{ est égal à } p \right]  \leq 2^{-k}. 
 \end{displaymath}
@@ -1173,7 +1173,7 @@ Pour $k = 100$, par exemple, cette probabilité est inférieure aux réciproque 
 \label{alg:5}
   \caption{Polynôme minimal} 
 \begin{tabbing}
-\textbf{Entrée:} $A ∈ K^{m ×n}$, $k ∈ ℕ_+$, $S ⊆ K$ t.q. $|S| = 2n^2$ \\
+\textbf{Entrée:} $A ∈ K^{n ×n}$, $k ∈ ℕ_+$, $S ⊆ K$ t.q. $|S| = 2n$ \\
 \textbf{Sortie:} \= $p(x) ∈ K[x]$  \\
 \pushtabs
 \textbf{Répète}\= $100$ fois: \\
@@ -1193,11 +1193,11 @@ Pour $k = 100$, par exemple, cette probabilité est inférieure aux réciproque 
    
    \subsection*{Exercices}
    \begin{enumerate}
-   \item Soit $V$ un espace vectoriel de dimension finie sur le corps $K$ et $T: V \longrightarrow V$ un endomorphisme.
+   \item Soit  $A ∈ K^{ n ×n}$. 
      \begin{enumerate}[i)]
-     \item        Montrer que l'ensemble $I = \{ f(x) \in K[x] \mid f(T) = 0\}$ est un idéal de $K[x]$ et qu'il est engendré par le polynôme minimal de $T$.      \label{item:1}
-     \item   Soit $v \in V$. Montrer que l'ensemble $I = \{ f(x) \in K[x] \mid f(T)(v) = 0\}$ est un idéal de $K[x]$ et que celui-ci est engendré par $p_T^v(x)$, le $T$-annulateur de $v$. \label{item:2}
-     \item Montrer que $m_T(x)$ est le plus petit commun multiple (des) polynômes $p_T^v(x), \, v \in V$ (en nombre fini). \label{item:3}     
+     \item        Montrer que l'ensemble $I = \{ f(x) \in K[x] \mid f(A) = 0\}$ est un idéal de $K[x]$ et qu'il est engendré par le polynôme minimal de $T$.      \label{item:1}
+     \item   Soit $v \in V$. Montrer que l'ensemble $I = \{ f(x) \in K[x] \mid f(A)v = 0\}$ est un idéal de $K[x]$ et que celui-ci est engendré par $p_v(x)$, le $A$-annulateur de $v$. \label{item:2}
+     \item Montrer que $p(x)$ est le plus petit commun multiple (des) polynômes $p_v(x), \, v \in V$. \label{item:3}     
      \end{enumerate}
    \item Soit $A ∈ K^{n ×n}$ la matrice
      \begin{displaymath}
