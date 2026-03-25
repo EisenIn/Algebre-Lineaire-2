@@ -168,7 +168,8 @@ Clairement, $\pscal{,}$ est une forme bilinéaire symétrique sur $V$ non dégé
   Montrer que les  formes bilinéaires  des exemples~\ref{ex:1} et \ref{ex:2} sont non dégénérées. 
 \end{exercise}
 
-
+\subsubsection{La matrice d'une forme bilinéaire relatif à une base }
+\label{sec:la-matrice-dune}
 
 Soit $V$ un espace vectoriel de dimension finie et $B = \{v_1,\dots,v_n\}$ une base de $V$. Pour une forme bilinéaire $f: V × V ⟶ K$ 
  et $x = \sum_i\alpha_i v_i$ et $y = \sum_j \beta_j v_j$ on a 
@@ -178,13 +179,25 @@ Soit $V$ un espace vectoriel de dimension finie et $B = \{v_1,\dots,v_n\}$ une b
           & = & ∑_{i,j=1}^n \alpha_i β_j f (  v_i ,  v_j )
     \end{eqnarray*}
 alors pour la matrice $A_B^f \in K^{n\times n}$, ayant comme composantes $f(v_i,v_j)$, on a 
+\begin{equation}
+  \label{eq:64}
+  f(x,y) = [x]_B^T \,A_B^f \,  [y]_B.
+\end{equation}
+
+\begin{proposition}
+  \label{prop:10}
+  Soit $B ∈ K^{n ×n}$ tel que pour tous $x,y ∈ V$
+  \begin{displaymath}
+    f(x,y) = [x]_B^T \,B \,  [y]_B,
+  \end{displaymath}
+  alors $B = A_B^f$. 
+\end{proposition}
+\begin{proof}
+  C'est immédiat, parce que pour tous $i,j ∈ \{1,\dots,n}$
 \begin{displaymath}
-  f(x,y) = [x]_B^T \,A_B^f \,  [y]_B. 
+  f(v_i,v_j) = (b)_{ij}. 
 \end{displaymath}
-\begin{exercise} Soit $V$ de dimension finie et $B$ une base de $V$. 
-  Deux formes bilinéaires $f,g : V × V ⟶ K$
-  sont différentes si et seulement si $A_B^f \neq A_B^g$. 
-\end{exercise}
+\end{proof}
 
 
 \begin{example}
@@ -215,7 +228,8 @@ alors pour la matrice $A_B^f \in K^{n\times n}$, ayant comme composantes $f(v_i,
  \end{displaymath}
 \end{example}
 
-
+\subsubsection{Changement de base}
+\label{sec:changement-de-base}
 Pour mémoire, pour deux bases $B,B'$ et étant donné $[x]_{B'}$,  on trouve les coordonnées de $x$ dans la base $B$,  $[x]_B$,  à l'aide de la matrice de changement de base $P_{B'B}$ comme 
 \begin{displaymath}
   [x]_B = P_{B'B} [x]_{B'}. 
@@ -225,6 +239,35 @@ Cette formule nous montre que
 \label{eq:28}
  A_{B'}^f =  P_{B'B}^T \,A_B^f \,  P_{B'B}. 
 \end{equation}
+
+
+
+\begin{definition}
+  \label{def:13}
+  Deux matrices $A,B \in K^{n\times n}$ sont dites \emph{congruentes} s'il existe une matrice $P \in K^{n \times n}$ inversible telle que 
+\begin{displaymath}
+  A = P^T B P.
+\end{displaymath}
+Nous écrivons dans ce cas $A \cong B$. 
+\end{definition}
+
+
+\begin{example}
+  \label{exe:22}
+  Si $V$ est de dimension finie et $B,B'$ sont deux bases de V, la relation \eqref{eq:28} montre que $A_B^{\pscal{,}} \cong A_{B'}^{\pscal{,}}$. 
+\end{example}
+
+\begin{lemma}
+  \label{lem:6}
+  La relation $\cong$ est une relation d'équivalence. 
+\end{lemma}
+
+\begin{proof}
+  Voir exercice. 
+\end{proof}
+
+
+
 
 \begin{exercise}
   Soit $V$ un $K$-espace vectoriel de dimension finie et $B$ une base de $V$. 
@@ -551,7 +594,7 @@ Est-ce que $\spa\{v_1,v_2,v_3\}$ possède une base orthogonale par rapport à la
 
 \end{enumerate}
 
-\section{Matrices congruentes} 
+\section{Matrices congruentes à une matrice diagonale} 
 \label{sec:class-des-matr}
 
 % \begin{framed}\noindent 
@@ -560,30 +603,6 @@ Est-ce que $\spa\{v_1,v_2,v_3\}$ possède une base orthogonale par rapport à la
 %   muni d'une forme bilinéaire symétrique $\pscal{,}$. 
 % \end{framed}
 
-
-\begin{definition}
-  \label{def:13}
-  Deux matrices $A,B \in K^{n\times n}$ sont dites \emph{congruentes} s'il existe une matrice $P \in K^{n \times n}$ inversible telle que 
-\begin{displaymath}
-  A = P^T B P.
-\end{displaymath}
-Nous écrivons dans ce cas $A \cong B$. 
-\end{definition}
-
-
-\begin{example}
-  \label{exe:22}
-  Si $V$ est de dimension finie et $B,B'$ sont deux bases de V, la relation \eqref{eq:28} montre que $A_B^{\pscal{,}} \cong A_{B'}^{\pscal{,}}$. 
-\end{example}
-
-\begin{lemma}
-  \label{lem:6}
-  La relation $\cong$ est une relation d'équivalence. 
-\end{lemma}
-
-\begin{proof}
-  Voir exercice. 
-\end{proof}
 
 
 Le relation entre $\cong$ et le concept de l'orthogonalité   est précisée dans le lemme suivant. 
@@ -663,7 +682,7 @@ où les composantes des premières $(i-1)$ lignes et colonnes sont nulles sauf �
 \noindent 
 Pour $1 \leq i \leq n$, la \emph{$i$-ème itération} procède comme suit. 
 \begin{itemize}
- \item Soit l'indice $k$ minimal tel que $k \geq i$ et $b_{kk} \neq 0$. On échange la $i$-ème ligne et la $k$-ème ligne puis la $i$-ème colonne et la $k$-ème colonne. Ceci permet (entre autres) d'échanger les coefficients $b_{ii}$ et $b_{kk}$ de la diagonale, s'assurant ainsi d'avoir un coefficient non nul. 
+ \item Soit  $k$ un indice tel que $k \geq i$ et $b_{kk} \neq 0$. On échange la $i$-ème ligne et la $k$-ème ligne puis la $i$-ème colonne et la $k$-ème colonne. Ceci permet (entre autres) d'échanger les coefficients $b_{ii}$ et $b_{kk}$ de la diagonale, s'assurant ainsi d'avoir un coefficient non nul. 
  
  \item Si l'indice $k$ de l'étape précédente n'existe pas (tous les coefficients diagonaux après $c_{i-1}$ sont nuls), soit $j \in \{i+1,\dots,n\}$ un indice vérifiant $b_{ij} \neq 0$. On ajoute la $j$-ème ligne à la $i$-ème ligne puis la $j$-ème colonne à la $i$-ème colonne. Le $i$-ème coefficient de la diagonale devient alors $2 b_{ij} + b_{jj} = 2 b_{ij} \neq 0$.
  
