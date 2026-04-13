@@ -2,59 +2,26 @@
 
 \label{cha:appl-auto-adjo}
 
-Dans ce chapitre, nous allons étudier les espaces euclidiens et hermitiens d'une manière plus profonde. Lorsque l'on parle de $\C$ ou de $\R$, nous allons utiliser la lettre $\K$ pour dénoter $\C$ ou $\R$. On va rappeler quelques notions importantes du cours du premier semestre. Un \emph{endomorphisme}  est une application linéaire $f \colon V \longrightarrow V$. Si $V$ est un espace vectoriel de dimension finie et si $B = \{v_1,\dots,v_n\}$ est une base de $V$, on a 
+
+
+
+
+Pour $A ∈ ℂ^{m ×n}$  nous allons écrire $\overline{A}^T$ comme
 \begin{displaymath}
-  f(x) = \phi_B^{-1} (A_B \phi_B(x)),
+  A^* = \overline{A}^T. 
 \end{displaymath}
-où $\phi_B$ est l'ismomorphisme $\phi_B \colon V \longrightarrow K^n$, $\phi_B(x) = [x]_B$ sont les coordonnées de $x$ par rapport à la base $B$. On a le diagramme suivant 
+Alors une matrice $A ∈ ℂ^{n ×n}$ est une matrice hermitienne si $A^* = A$. Aussi, une matrice réelle $A ∈ ℝ^{n ×n}$ est symétrique, si $A^* = A$.
+On observe pour $A ∈ ℂ^{m ×n}$ et $B ∈ ℂ^{n ×k}$
 \begin{displaymath}
-  {
-  \begin{CD}
-    V     @>f>>  V\\
-    @VV \phi_B V        @VV \phi_B V\\ 
-    K^n     @>A_B \cdot x>>  K^n
-  \end{CD}} 
-\end{displaymath} 
-Les colonnes de la matrice $A_B$ sont les coordonnées de $f(v_1),\dots,f(v_n)$ dans la base $B$. 
-Une matrice $A \in K^{n \times n}$ est \emph{diagonalisable} s'il existe une matrice inversible $P \in K^{n \times n}$ telle que $P^{-1}\cdot A \cdot P$ est une matrice diagonale. 
+  (A B)^* = B^* A^*.  
+\end{displaymath}
 
-\section{Les endomorphismes auto-adjoints} 
 
+
+ 
+
+\section{Le Théorème spectral}
 \label{sec:les-endom-auto}
-\begin{framed}\noindent 
-  Dans ce paragraphe~\ref{sec:les-endom-auto},  $V$
-  est toujours un espace euclidien ou un espace hermitien de dimension finie. 
-\end{framed}
-
-\begin{definition}
-\label{def:19}
-Un endomorphisme $F$ est \emph{auto-adjoint} si 
-\begin{displaymath}
-  \pscal{F(v),w} = \pscal{v,F(w)} \text{ pour tous } v,w \in V. 
-\end{displaymath}
-\end{definition}
-
-\begin{theorem}
-  \label{thr:14}
-  Soient $B = \{v_1,\dots,v_n\}$ une base orthonormale de $V$ et $F$ un endomorphisme. Alors $F$ est auto-adjoint si et seulement si sa matrice $A_B$ dans la base $B$ est symétrique ($\K = \R$) ou hermitienne ($\K = \C$). 
-\end{theorem}
-
-\begin{proof}
-  On traite seulement le cas $\K=\C$. Le cas $\K = \R$ est démontré d'une manière analogue. Nous avons, où $\cdot$ dénote le produit hermitien standard, 
-  \begin{displaymath}
-    \pscal{F(v), w} = (A_B [v]_B ) \cdot [w]_B = [v]_B^T A_B^T \overline{[w]_B},
-  \end{displaymath}
-et 
-\begin{displaymath}
-  \pscal{v, F(w)}  = [v]_B^T \overline{A_B} \overline{[w]_B}. 
-\end{displaymath}
-Alors si $\overline{A_B} = A_B^T$, il est clair que $\pscal{F(v), w} = \pscal{v, F(w)}$ et donc $F$ est auto-adjoint. \\
-Et si $F$ est auto-adjoint, en choisissant $v = v_i$, $w = v_j$, on obtient 		\begin{displaymath}
-	\pscal{F(v_i), v_j} = e_i^TA_B^Te_j = (A_B^T)_{i, j} = \pscal{v_i, F(v_j)} = e_i^T \overline{A_B} e_j = (\overline{A_B})_{i, j},
-	\end{displaymath}
-donc $A_B^T = \overline{A_B}$
-\end{proof}
-
 
 \begin{lemma}
   \label{lem:8}
@@ -68,56 +35,43 @@ donc $A_B^T = \overline{A_B}$
   \end{displaymath}
 \end{proof}
 
-
-\begin{corollary}
-\label{co:3}
-Soit $F$
-un endomorphisme auto-adjoint, alors toutes ses valeurs propres sont
-réelles.
-\end{corollary}
-\begin{proof}
-  Soit $B = \{v_1,\dots,v_n\}$
-  une base orthonormale. Les valeurs propres de $F$
-  sont les valeurs propres de la matrice hermitienne $A_B$.
-\end{proof}
-
 \begin{corollary}
   \label{co:7}
-  Une matrice symétrique $A \in \R^{n \times n}$ (hermitienne $A \in \C^{n \times n}$) a une valeur propre réelle. 
+  Une matrice hermitienne  $A \in ℂ^{n \times n}$  possède une valeur propre réelle $λ ∈ ℝ$. 
 \end{corollary}
 
 \begin{proof}
-  Le polynôme caractéristique $p(x) = \det(A - x \cdot I_n)$ a une racine complexe selon le théorème fondamental de l'algèbre. Les valeurs propres de $A$ sont les racines de $p(x)$.  Mais toutes ces racines sont réelles selon le         corollaire~\ref{co:3}.  
+  Le polynôme caractéristique $p(x) = \det(A - x \cdot I_n)$ a une racine complexe selon le \emph{théorème fondamental} de l'algèbre (Théorème~\ref{thr:44}). Les valeurs propres de $A$ sont les racines de $p(x)$.  Mais toutes ces racines sont réelles selon Lemme~\ref{lem:8}.  
 \end{proof}
 
 \begin{remark}
 La même preuve, par le théorème fondamental de l'algèbre, montre en fait que le polynôme caractéristique de $A$ est scindé sur $\Bbb R$, i.e. $A$ possède $n$ valeurs propres réelles (en comptant les multiplicités algébriques).
 \end{remark}
 
+
+
 \begin{lemma}
   \label{lem:9}
-  Soient $F$ un endomorphisme auto-adjoint et $u,v \neq 0$ deux vecteurs propres dont leurs valeurs propres  sont différentes, alors $\pscal{u,v}=0$. 
+  Soient $A ∈ ℂ^{n ×n}$ une matrice hermitienne ($A^* = A$) et  $u,v ∈ ℂ^n \setminus \{0\}$ deux vecteurs propres dont leurs valeurs propres  sont différentes, alors $u^* v=0$. 
 \end{lemma}
 
 \begin{proof}
-  Soient $\lambda \neq \gamma $ les valeurs propres correspondant aux vecteurs propres $u,v \neq 0$ respectivement. Puisque $\lambda,\gamma \in \R$ on a
+  Soient $\lambda \neq \gamma ∈ ℝ$ les valeurs propres correspondant aux vecteurs propres $u,v ∈ ℂ^n \setminus \{0\}$ respectivement. On a
   \begin{displaymath}
-    \lambda \pscal{u,v} = \pscal{F(u),v} = \pscal{u,F(v)} = \gamma \pscal{u,v}
+    \lambda u^* v =  (Au)^* v  = u^* A^* v = u^* A v = \gamma u^* v
   \end{displaymath}
-et alors $\pscal{u,v}=[u]_B \cdot [v]_B=0$, où $\cdot$ dénote le produit scalaire/hermitien standard et $B$ est une base orthonormale de $V$.  
+  et alors $u^* v =0$.
 \end{proof}
 
 
 
 \begin{definition}
   \label{def:20}
-  Une matrice inversible  $U \in \R^{n \times n}$ est \emph{orthogonale} si $ U^{-1}= U^T  $.  Une matrice inversible $U \in \C^{n \times n}$ est \emph{unitaire} si $U^{-1} = \overline{U}^T$. 
+  Une matrice inversible  $U \in \R^{n \times n}$ est \emph{orthogonale} si $ U^{-1}= U^T $.  Une matrice inversible $U \in \C^{n \times n}$ est \emph{unitaire} si $U^{-1} = \overline{U}^T$. 
 \end{definition}
 \noindent 
 Si $U$ est orthogonale (unitaire), les  colonnes de $U$ sont une base orthonormale de $\R^n$ ($\C^n$), où l'orthonormalité est entendue au sens du produit scalaire (hermitien) standard. 
-\begin{notation}
-Nous allons écrire $A^*$ pour dénoter $\overline{A}^T$ pour une matrice $A$.   
-\end{notation}
+
 
 
 
@@ -1039,7 +993,7 @@ $
 
 \begin{proof}
 Pour $k=1$ nous avons déjà montré l'assertion. Soit $k \geq 2$ et $W \trianglelefteq \R^n$ un sous espace de dimension $k$ et soit $w_1,\dots,w_k$ une base orthonormale de $W$. 
-Nous pouvons supposer $w_k \perp \spa\{u_1,\dots,u_{k-1}\}$, (voir Exercice~\ref{item:3}). 
+Nous pouvons supposer $w_k \perp \spa\{u_1,\dots,u_{k-1}\}$, (voir Exercice~\ref{s:item:3}). 
 
 Par induction, nous avons 
 \begin{displaymath}
@@ -1188,13 +1142,13 @@ En dénotant les lignes de $A_k$ par $\wt{a}_1^T,\dots,\wt{a_m}^T$, alors
 \subsection*{Exercices}
 
 \begin{enumerate}
-\item Est-ce que la décomposition en valeurs singulières est unique? Est-ce que les valeurs singulières sont uniques?  \label{item:2}
+\item Est-ce que la décomposition en valeurs singulières est unique? Est-ce que les valeurs singulières sont uniques?  \label{ts:item:2}
 \item  Dans la démonstration du théorème~\ref{thr:21}, montrer que $\rank(A) = r$. 
 \item Démontrer que la pseudo-inverse satisfait les conditions \ref{pen2}-\ref{pen4}. 
 \item Si $Ax = b$ a plusieurs solutions, il existe une solution unique avec une norme minimale. 
 \item Montrer Théorème~\ref{thr:25}. 
 \item Soient  $G,H \subseteq \R^n$ des sous-espaces de $\R^n$ 
-et $k=\dim(G) > \dim(H)$. Montrer que $G$ possède une base orthonormale $w_1,\dots,w_k$ telle que $w_k \perp H$. \label{item:3}  
+et $k=\dim(G) > \dim(H)$. Montrer que $G$ possède une base orthonormale $w_1,\dots,w_k$ telle que $w_k \perp H$. \label{s:item:3}  
 \end{enumerate}
 
 

@@ -193,7 +193,7 @@ alors pour la matrice $A_B^f \in K^{n\times n}$, ayant comme composantes $f(v_i,
   alors $B = A_B^f$. 
 \end{proposition}
 \begin{proof}
-  C'est immédiat, parce que pour tous $i,j ∈ \{1,\dots,n}$
+  C'est immédiat, parce que pour tous $i,j ∈ \{1,\dots,n\}$
 \begin{displaymath}
   f(v_i,v_j) = (b)_{ij}. 
 \end{displaymath}
@@ -555,7 +555,7 @@ Nous avons trouvé une base orthogonale
 \begin{enumerate}
 \item Soit $K$ un corps. Si la caractéristique de $K$ est différente de zéro, alors elle est un nombre premier. 
 \item Soit $K$ un corps fini. Montrer que $|K| = q^\ell$ pour un nombre premier $q$ et un nombre naturel $\ell ∈ \N$. \emph{Indication: $K$ est un espace vectoriel de dimension finie sur $\Z_q$ pour un $q$ premier.}
-\item On considère les vecteurs  \label{item:1}
+\item On considère les vecteurs  \label{ps:item:1}
   \begin{displaymath}
     v_1 =
     \begin{pmatrix}
@@ -761,7 +761,7 @@ Alors $B' = \{v_1,v_2,-2v_1 -(4/3) v_2 + v_3\}$ est une base orthogonale de $V$.
       0 & 1 & 0 
     \end{pmatrix} \in \Z_2^{3\times 3} 
   \end{displaymath}
-  est congruente à une matrice diagonale? \emph{Indice : voir l'exercice~\ref{item:1}. de la section~\ref{sec:orthogonalite}.}  
+  est congruente à une matrice diagonale? \emph{Indice : voir l'exercice~\ref{ps:item:1}. de la section~\ref{sec:orthogonalite}.}  
 \item Soit $V$ un espace vectoriel  sur un corps $K$ de dimension finie muni d'une forme bilinéaire symétrique $\pscal{.}$. Soit $B = \{v_1,\dots,v_n\}$ une base de $V$. Montrer que $A_B^{\pscal{.}} \in K^{n \times n}$ est congruente à une matrice diagonale si  et seulement si $V$ possède une base orthogonale. 
 
 \item Soit $K$ un corps de caractéristique $2$ et soit $V$ un espace vectoriel sur $K$ de dimension finie muni d'une forme bilinéaire symétrique non-nulle.  Soit 
@@ -1535,7 +1535,7 @@ vecteurs deux à deux orthogonaux.
 
 Soient $A \in \R^{m \times n} $ et $b \in \R^m$ et supposons  que le système des équations linéaires 
 \begin{equation}
-  \label{eq:2}
+  \label{m:eq:2}
   Ax = b
 \end{equation}
 n'a pas de solution. Dans beaucoup d'applications, on cherche un $x \in \R^n$ tel que la distance entre  $Ax$ et $b$ est \emph{minimale}. On aimerait alors résoudre le problème d'optimisation suivant
@@ -1609,7 +1609,7 @@ Maintenant nous pouvons décrire un \emph{algorithme} pour résoudre le problèm
 \end{enumerate}
 \end{algorithm}
 \noindent 
-Pour $b ∈ℝ^m$ et $a_1,\dots,a_n ∈ ℝ^m$ étant les colonnes des $A ∈ ℝ^{m ×n}$ en \eqref{eq:2},  une solution
+Pour $b ∈ℝ^m$ et $a_1,\dots,a_n ∈ ℝ^m$ étant les colonnes des $A ∈ ℝ^{m ×n}$ en \eqref{m:eq:2},  une solution
 $x^* ∈ℝ^n$ de
 \begin{equation}
   \label{eq:53}
