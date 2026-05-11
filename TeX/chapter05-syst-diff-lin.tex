@@ -624,7 +624,7 @@ où $k \in \N$ est tel que $N^k = 0$.
   \end{displaymath}
   Les premiers $N$ termes de la série $e^{tA}$, sont  alors
   \begin{eqnarray*}
-    ∑_{k=0}^N t^k A^k / k!  & = & ∑_{k=0}^N t^k \left((P ⋅ D^k P^{-1}\right)/ k!   \\
+    ∑_{k=0}^N t^k A^k / k!  & = & ∑_{k=0}^N t^k \left(P ⋅ D^k P^{-1}\right)/ k!   \\
                        & = & P  \left( ∑_{k=0}^N (t⋅ D)^k/ k!  \right)P^{-1}  \\
                        & =  & P ⋅
                             \begin{pmatrix}
@@ -819,7 +819,7 @@ Notre but de ce chapitre  est de montrer le théorème suivant, qui est une vers
   \end{displaymath}
 \end{definition}
 
-Il est facile de voir que la matrice représentant le décalage plus $λ$ par rapport à la base canonique de $\mathbb{C}$ est 
+Il est facile de voir que la matrice représentant le décalage plus $λ$ par rapport à la base canonique de $\mathbb{C}^n$ est
 un seul bloc de Jordan 
 \begin{displaymath}
  \begin{pmatrix}
@@ -834,13 +834,13 @@ un seul bloc de Jordan
 
 
 
-\section{Déterminer la forme normale der Jordan}
+\section{Déterminer la forme normale de Jordan}
 \label{sec:determiner-la-forme}
 
 \noindent 
 Avant de démontrer le Théorème~\ref{thr:41}, on se pose la question: \emph{Comment calculer une forme normale de Jordan d'une matrice $A ∈ ℂ^{n×n}$?}
 
-On ce rappelle du fait suivant.
+On se rappelle du fait suivant.
 \begin{quote}
   Soit $K$ un corps. Si $A ,B ∈ K^{n ×n}$ sont similaires, alors leurs polynômes caractéristiques sont les mêmes. 
 \end{quote}
@@ -941,7 +941,7 @@ On voit directement le lemme suivant.
 \end{displaymath}
 Alors, un des $*$ est zéro, les autres deux sont égaux à $1$.
 
-On a deux blocs avec diagonale $2$. Les possibilités (à l'ordre pré) sont
+On a deux blocs avec diagonale $2$. Les possibilités (à l'ordre près) sont
 \begin{displaymath}
 J =   J_1 =  \begin{pmatrix}
     2 & 1  \\
@@ -1002,7 +1002,7 @@ alors
 
 \begin{lemma}
   \label{lem:30}
-  Soit $k ∈ ℕ$, $λ∈ ℂ$ une valeur propre de $A ∈ℂ^{n×n}$ et $J$ une forme normale de Jordan de $A$.   Le nombre de bloc Jordan dont $λ$ est l'élément diagonale et de longueur aux moins $k+1$   est donné par
+  Soit $k ∈ ℕ$, $λ∈ ℂ$ une valeur propre de $A ∈ℂ^{n×n}$ et $J$ une forme normale de Jordan de $A$.   Le nombre de blocs Jordan dont $λ$ est l'élément diagonal et dont la longueur est au moins $k+1$   est donné par
   \begin{displaymath}
     \dim(\ker\left((A - λI)^{k+1}\right)) -\dim(\ker\left((A - λI)^{k}\right)). 
   \end{displaymath}
